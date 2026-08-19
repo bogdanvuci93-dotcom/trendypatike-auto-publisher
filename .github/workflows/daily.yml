@@ -55,7 +55,7 @@ jobs:
           BRAND_GREEN: "#037361"
           BRAND_NAME: "TRENDYPATIKE"
           BRAND_SITE: "trendypatike.com"
-          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_now && 'false' || vars.DRY_RUN }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "3"
         run: npm run run
