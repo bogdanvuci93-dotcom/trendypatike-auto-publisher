@@ -73,15 +73,9 @@ function extractSearchUrls(json) {
     }
     if (typeof value !== "object") return;
 
-    if (value.type === "url" && typeof value.url === "string") {
-      urls.add(value.url);
-    }
-    if (value.type === "url_citation" && typeof value.url === "string") {
-      urls.add(value.url);
-    }
-    if (["open_page", "find_in_page"].includes(value.type) && typeof value.url === "string") {
-      urls.add(value.url);
-    }
+    if (value.type === "url" && typeof value.url === "string") urls.add(value.url);
+    if (value.type === "url_citation" && typeof value.url === "string") urls.add(value.url);
+    if (["open_page", "find_in_page"].includes(value.type) && typeof value.url === "string") urls.add(value.url);
 
     for (const child of Object.values(value)) visit(child);
   };
@@ -90,8 +84,15 @@ function extractSearchUrls(json) {
   return [...urls];
 }
 
-export async function structuredWebResponse({ model, prompt, schema, schemaName, allowedDomains }) {
-  const tool = { type: "web_search", search_context_size: "high" };
+export async function structuredWebResponse({
+  model,
+  prompt,
+  schema,
+  schemaName,
+  allowedDomains,
+  searchContextSize = "medium"
+}) {
+  const tool = { type: "web_search", search_context_size: searchContextSize };
   if (allowedDomains?.length) {
     tool.filters = { allowed_domains: allowedDomains };
   }
@@ -133,15 +134,18 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
   return { value, searchUrls };
 }
 
-function isFatalAccountError(err) {
+export function isFatalAccountError(err) {
   if (!(err instanceof OpenAIRequestError)) return false;
   if ([401, 403].includes(err.status)) return true;
+
+  const text = `${err.code} ${err.message}`.toLowerCase();
   return [
     "insufficient_quota",
     "billing_hard_limit_reached",
     "billing_not_active",
-    "invalid_api_key"
-  ].includes(err.code);
+    "invalid_api_key",
+    "no credits remaining"
+  ].some(x => text.includes(x));
 }
 
 function isTransientError(err) {
@@ -192,10 +196,7 @@ export async function generateImage(prompt, fallbackPrompt = "", safePrompt = ""
         lastError = err;
         console.warn(`[image] Attempt failed: ${err.message}`);
 
-        // Billing/auth problems cannot be repaired by another prompt or retry.
         if (isFatalAccountError(err)) throw err;
-
-        // Safety/prompt rejection: immediately try the next, safer prompt.
         if (isPromptLevelError(err)) break;
 
         if (attempt < 2) {
