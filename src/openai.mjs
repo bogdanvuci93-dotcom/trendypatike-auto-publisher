@@ -74,7 +74,7 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
     model,
     store: false,
     tools: [tool],
-    tool_choice: "auto",
+    tool_choice: "required",
     input: prompt,
     text: {
       verbosity: "low",
@@ -97,10 +97,12 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
     throw new Error(`Invalid structured JSON from ${schemaName}: ${err.message}`);
   }
 
-  return {
-    value,
-    searchUrls: extractSearchUrls(json)
-  };
+  const searchUrls = extractSearchUrls(json);
+  if (!searchUrls.length) {
+    throw new Error(`No web-search evidence returned for ${schemaName}`);
+  }
+
+  return { value, searchUrls };
 }
 
 export async function generateImage(prompt, fallbackPrompt = "") {
