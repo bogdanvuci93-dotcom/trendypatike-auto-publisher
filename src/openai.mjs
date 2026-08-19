@@ -12,7 +12,14 @@ class OpenAIRequestError extends Error {
   }
 }
 
+let fatalAccountFailure = null;
+
 async function openaiFetch(path, body) {
+  // Once OpenAI says the account/key cannot make paid requests, do not send
+  // any more API calls during this run. Higher-level topic/retry loops may
+  // continue briefly, but they cannot spend another cent.
+  if (fatalAccountFailure) throw fatalAccountFailure;
+
   const res = await fetch(`${API}${path}`, {
     method: "POST",
     headers: {
@@ -33,7 +40,7 @@ async function openaiFetch(path, body) {
     const apiError = json?.error || json || {};
     const code = String(apiError.code || apiError.type || "");
     const retryAfter = Number(res.headers.get("retry-after") || 0);
-    throw new OpenAIRequestError(
+    const err = new OpenAIRequestError(
       `OpenAI ${path} failed (${res.status}): ${apiError.message || JSON.stringify(json)}`,
       {
         status: res.status,
@@ -41,6 +48,8 @@ async function openaiFetch(path, body) {
         retryAfterMs: Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 0
       }
     );
+    if (isFatalAccountError(err)) fatalAccountFailure = err;
+    throw err;
   }
   return json;
 }
