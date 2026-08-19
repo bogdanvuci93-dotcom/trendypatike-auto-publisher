@@ -33,6 +33,29 @@ async function igGet(path, params = {}) {
   return json;
 }
 
+export async function verifyInstagramConnection() {
+  const account = await igGet("me", {
+    fields: "id,user_id,username,account_type"
+  });
+
+  const returnedIds = [account.user_id, account.id]
+    .filter(Boolean)
+    .map(String);
+
+  if (!returnedIds.length) {
+    throw new Error("Instagram preflight worked but returned no account ID");
+  }
+
+  if (cfg.igUserId && !returnedIds.includes(String(cfg.igUserId))) {
+    throw new Error(
+      `Instagram preflight IG_USER_ID mismatch: configured ${cfg.igUserId}, returned ${returnedIds.join(", ")}`
+    );
+  }
+
+  console.log(`Instagram preflight OK for @${account.username || "unknown"}`);
+  return account;
+}
+
 async function waitContainer(id, timeoutMs = 180000) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
