@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-19",
-  "stage": "ready",
+  "generated_at": "2026-08-19T19:06:08.306Z",
   "fingerprint": "1eb4c2b8b023",
   "seed": {
     "id": "fallback-nike-waffle",
@@ -116,11 +115,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-19-fallback-nike-waffle-1eb4c2b8b023/01.jpg",
-    "public/posts/2026-08-19-fallback-nike-waffle-1eb4c2b8b023/02.jpg",
-    "public/posts/2026-08-19-fallback-nike-waffle-1eb4c2b8b023/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
