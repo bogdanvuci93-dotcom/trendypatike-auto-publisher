@@ -59,17 +59,23 @@ export async function chooseTopic(topics, state) {
 }
 
 async function discoverFreshTopic(state) {
-  const previous = state.posted.slice(-80).map(x => x.topic_title).filter(Boolean);
+  const previous = state.posted
+    .slice(-200)
+    .map(x => x.seed_topic || x.topic_title)
+    .filter(Boolean);
+
   const prompt = `
 You are choosing ONE fresh daily topic for TrendyPatike, a Serbian sneaker culture Instagram account.
-Use web search before choosing. Topic must be factual, visually strong and suitable for a 3-slide carousel.
-The finished post must be interesting even to a 10-13 year old who knows almost nothing about sneaker history.
-Do NOT repeat these previous topics:\n${previous.map(x => `- ${x}`).join("\n")}
+Use web search before choosing. The topic must be factual, visually strong and suitable for a 3-slide carousel.
+It should be interesting even to a 10-13 year old who knows little about sneaker history.
 
-Prefer: sneaker history, iconic models, athletes, musicians, sports moments, surprising inventions, technology, design and simple myths-vs-facts stories.
-Prefer topics that contain one or more facts that can be explained as a COMPLETE, SIMPLE sentence.
+Do NOT repeat or lightly rephrase any previous topic:
+${previous.map(x => `- ${x}`).join("\n") || "- none yet"}
+
+Prefer sneaker history, iconic models, athletes, musicians, sports moments, surprising inventions, technology, design and simple myths-vs-facts stories.
 Avoid gossip, rumors, resale-price speculation, legal ambiguity and weakly sourced anecdotes.
-Choose preferred_domains only from this trusted list:\n${GLOBAL_TRUSTED_DOMAINS.join(", ")}
+Choose preferred_domains only from this trusted list:
+${GLOBAL_TRUSTED_DOMAINS.join(", ")}
 Return a stable lowercase ASCII id with hyphens.
 `;
 
@@ -80,172 +86,120 @@ Return a stable lowercase ASCII id with hyphens.
     schemaName: "trendypatike_fresh_seed",
     allowedDomains: GLOBAL_TRUSTED_DOMAINS
   });
+
   return result.value;
 }
 
 function writerPrompt(seed) {
   return `
-You are the senior Serbian editor and viral sneaker storyteller for TrendyPatike. BEFORE writing, actively use web search and verify the topic from the supplied domains.
+You are the senior Serbian editor and sneaker storyteller for TrendyPatike.
+BEFORE writing, actively use web search and verify the topic from the supplied domains.
 
 TOPIC: ${seed.topic}
 CATEGORY: ${seed.category}
 VISUAL SUBJECT: ${seed.visual_subject}
 
-HARD FACT-CHECK RULES — NEVER RELAX THESE:
+FACT CHECKING:
 - Write ONLY facts directly supported by sources you found NOW on the web.
-- Never rely on memory when a fact can be searched.
-- Use at least 2 source URLs. Prefer primary/official sources; use reputable secondary sources only as cross-checks.
-- If a popular sneaker story is a myth or oversimplification, correct it instead of repeating it.
-- Specific warning: never say “Air Jordan 1 was banned by the NBA” unless a source explicitly proves that exact shoe; distinguish Nike Air Ship from Air Jordan 1 when relevant.
-- Dates, names, model names, records, prices and quotations must be especially conservative.
-- Do not invent direct quotes.
-- If evidence is weak, OMIT the claim. Excitement must come from the real fact, never from exaggeration.
+- Use at least 2 source URLs and prefer primary/official sources.
+- Never invent quotes, dates, prices, records or causal claims.
+- If evidence is weak, omit the claim.
+- Correct popular sneaker myths instead of repeating them.
+- Never say Air Jordan 1 was banned by the NBA unless a source proves that exact shoe; distinguish Nike Air Ship when relevant.
+- Famous people are editorial/history subjects only. Never imply they endorse TrendyPatike.
 
-THE MAIN COPY RULE:
-The examples shown by the user are simple fact cards: one picture + one complete sentence that explains exactly what happened.
-Write every visible FACT in that same spirit.
-A child must be able to read ONE sentence by itself, without the title, tag, previous slide or any sneaker knowledge, and understand what happened.
-
-VERY IMPORTANT — COMPLETE SENTENCES:
-- Every slide2.fact.text and slide3.fact.text MUST be a COMPLETE Serbian sentence.
-- The green tag is only decoration/context. The sentence must still make sense if the tag disappears.
-- Name the person, shoe, company or event inside the sentence when needed.
-- Do NOT write fragments such as “Stiže godinu kasnije.”, “Postaje poseban brend.” or “Priča se prvo vezuje za Air Ship.”
-- Do NOT assume the reader knows abbreviations. Write “Air Jordan 1”, not “AJ1”.
-- Avoid unexplained pronouns like “on”, “to”, “ovo”, “tada” when the subject is not obvious inside that same sentence.
-- One sentence = one clear fact. A short “ali” comparison is allowed when it makes a myth easy to understand.
-- End factual sentences with normal punctuation.
-
-TARGET STYLE — THIS IS WHAT WE WANT:
-- “Michael Jordan je 1984. prvo nosio Nike Air Ship, a ne Air Jordan 1.”
-- “Air Jordan 1 se pojavio u prodaji 1985. godine.”
-- “Jordan Brand je 1997. postao poseban Nike brend.”
-- “Mnogi misle da je NBA zabranila Air Jordan 1, ali priča se odnosila na Nike Air Ship.”
-- “Nike je ideju za Waffle đon dobio pomoću aparata za galete.”
-These are complete, direct sentences that tell the whole mini-story immediately.
-
-LANGUAGE:
-- Serbian language, LATIN script only.
+VISIBLE COPY:
+- Serbian, LATIN script only.
 - Natural everyday Serbian used in Serbia.
-- Write as if explaining a cool fact to a 10-year-old friend.
-- Prefer normal everyday words over formal, academic or marketing words.
-- NEVER use phrases like “oblikovao kulturu”, “prelomni trenutak”, “uniformisanje boja”, “kulturni fenomen”, “strateški pozicionirao”, “nacionalni zamah”, “zaseban brend unutar”.
-- Do not use the English word “banned” in visible Serbian copy. Explain what happened in Serbian.
-- Official names such as Nike Air Ship, Air Jordan 1 and All-Star may stay in their official form.
-- If a fact needs a complicated explanation to be accurate, choose another verified fact that is easier to understand.
+- A 10-year-old should understand every sentence on first read.
+- Every slide2.fact.text and slide3.fact.text MUST be one complete standalone sentence.
+- Each fact should clearly say WHO/WHAT + WHAT HAPPENED.
+- Do not use unexplained abbreviations such as AJ1; write Air Jordan 1.
+- Do not use the English word banned in visible Serbian copy.
+- Avoid formal marketing/journalistic phrases such as oblikovao kulturu, prelomni trenutak, kulturni fenomen, strateški pozicionirao.
+- Facts should usually be 7-16 words and MUST be 92 characters or fewer in the final answer.
+- IMPORTANT: never cut a sentence, word or thought to hit the character limit. If it does not fit, rewrite the whole sentence shorter.
+- Every fact must end with normal punctuation.
 
-INSTAGRAM STYLE:
-- Clear first, interesting second, short third.
-- Do NOT shorten a sentence so much that it becomes a fragment.
-- Facts should usually be 7-16 words and fit in about 1-3 lines.
-- Every fact should answer: WHO/WHAT + WHAT HAPPENED.
-- Remove background information that is not needed to understand the fact.
-- Use active, concrete verbs: nosio, napravio, stigao, prodao, potpisao, osvojio, promenio, pokrenuo, postao.
-- The reader should instantly think: “Čekaj, stvarno?” or “Ovo nisam znao.”
-- Do NOT use fake clickbait, fake drama or unsupported superlatives.
+SLIDE 1:
+- 2-4 short headline lines.
+- Subheadline must be one complete simple sentence, 92 characters or fewer.
 
-SLIDE 1 — HOOK:
-- 2-4 headline lines.
-- Each line ideally 1-3 words.
-- The headline may be a short hook/question, because it is a headline.
-- The subheadline MUST be one complete, simple sentence that explains what the post is about without giving away everything.
-- Good: “Michael Jordan nije odmah nosio Air Jordan 1.”
-- Good: “Jedna Nike ideja je bukvalno počela u kuhinji.”
-- Bad: “Mit i činjenice koje su oblikovale kulturu.”
+SLIDE 2:
+- Exactly 3 facts with short green tags.
+- Each fact is one complete standalone sentence, max 92 characters.
 
-SLIDE 2 — 3 COMPLETE FACTS:
-- Exactly 3 facts.
-- Each has a short green tag such as a year, number, PRVO, KASNIJE, ISTINA.
-- Each fact.text MUST be one complete standalone sentence, roughly 7-16 words, maximum 92 characters.
-- A year tag must NOT replace the year if the year is important to understanding the sentence; include it in the sentence when natural.
-- Prefer the clearest and most surprising facts, not a dry timeline.
-
-SLIDE 3 — 2 COMPLETE PAYOFF FACTS:
-- Exactly 2 facts.
-- Each fact.text MUST be one complete standalone sentence, roughly 7-16 words, maximum 92 characters.
-- Explain myths as a normal sentence, not as jargon.
-- End with one simple question, max 8 words.
-- Good: “Mnogi misle da je NBA zabranila Air Jordan 1, ali radilo se o Nike Air Shipu.”
-- Good question: “Da li si ovo već znao?”
+SLIDE 3:
+- Exactly 2 facts with short green tags.
+- End with one easy question, max 8 words.
 
 CAPTION:
-- Max ~500 characters before hashtags.
-- Use the same child-friendly everyday Serbian.
-- Give one small extra detail instead of copying every slide.
-- End with one easy question or “Sačuvaj ako voliš ovakve priče.”
+- About 500 characters maximum before hashtags.
+- Same natural Serbian style.
+- Add one useful extra detail instead of copying all slide text.
+- End with an easy question or Sačuvaj ako voliš ovakve priče.
 - 4-8 hashtags.
 
-FINAL SELF-CHECK BEFORE RETURNING JSON:
-1. Read each fact WITHOUT its green tag and WITHOUT its headline. Does it still explain who/what and what happened? If NO, rewrite it.
-2. Is every fact a complete grammatical sentence? If NO, rewrite it.
-3. Could a 10-year-old repeat the fact to a friend after one reading? If NO, simplify it.
-4. Does any phrase sound like a textbook, press release or sneaker expert jargon? If YES, replace it with everyday Serbian.
-5. Did simplification change the factual meaning? If YES, restore accuracy and find a different simple wording.
-
-EDITORIAL / PUBLIC FIGURE RULE:
-If the topic involves a famous real person, it is an editorial/history post. Never imply that person endorses, works with, recommends or shops at TrendyPatike unless a source explicitly says so.
-
 IMAGE PROMPTS:
-Return 3 image prompts in English. The base AI image must contain NO text, NO TrendyPatike logo, NO watermarks.
-Use a premium dark sneaker-editorial aesthetic. Compose important subjects mostly on the RIGHT so our fixed text layout can occupy the LEFT.
-When a real public figure is central, an editorial depiction can use the person's name, but the image must not imply endorsement of TrendyPatike.
+- Return 3 image prompts in English.
+- Base images contain NO text, NO TrendyPatike logo and NO watermarks.
+- Premium dark sneaker-editorial aesthetic, with important subjects mostly on the RIGHT.
 
-SOURCES:
-List the exact pages used, with real URLs and publishers. Every claim must point to one or more of those URLs.
+SOURCES AND CLAIMS:
+- List exact source pages actually used.
+- Every claim.source_urls entry must be a real URL that appeared in your web research.
+- Reuse the canonical source URL where possible instead of inventing URL variants.
+
+FINAL SELF-CHECK:
+1. Is every visible fact a complete sentence?
+2. Is every fact 92 characters or fewer without being cut off?
+3. Could a 10-year-old repeat it after one reading?
+4. Is every factual claim supported by searched evidence?
+5. Does any visible text contain unnecessary jargon or fake drama?
 `;
 }
 
 function verifierPrompt(seed, draft) {
   return `
-You are a second, independent fact-checker AND child-friendly Serbian copy editor for TrendyPatike. Use web search AGAIN; do not merely trust the draft or its listed sources.
+You are a second independent fact-checker and child-friendly Serbian copy editor for TrendyPatike.
+Use web search AGAIN. Do not merely trust the draft or its listed sources.
 
 TOPIC: ${seed.topic}
-DRAFT JSON:\n${JSON.stringify(draft, null, 2)}
+DRAFT JSON:
+${JSON.stringify(draft, null, 2)}
 
-FACT-CHECK — HIGHEST PRIORITY:
-- Every factual claim must be supported by current pages from the allowed domains.
-- Check names, dates, model names, chronology and causal wording.
+FACT CHECK:
+- Verify every important factual claim from current pages on the allowed domains.
+- Check names, dates, model names, chronology, prices, records and causal wording.
 - Remove or rewrite anything that overstates evidence.
-- If you cannot confidently verify the important claims, set publish_ok=false.
-- If sources conflict materially, set publish_ok=false.
+- If important claims cannot be verified or reliable sources materially conflict, set publish_ok=false.
 - Do not publish urban legends as fact.
-- Special warning: the “banned Jordan” story is commonly simplified; verify the exact shoe and event.
-- Famous people must be treated editorially, never as TrendyPatike endorsers.
+- Treat famous people editorially, never as TrendyPatike endorsers.
 
-COPY STRUCTURE — MANDATORY:
-- Every slide2.fact.text and slide3.fact.text must be ONE complete standalone Serbian sentence.
-- It must make sense when read without the tag, headline or previous slide.
-- The sentence itself must clearly say WHO/WHAT and WHAT HAPPENED.
-- Never approve fragments such as “Stiže godinu kasnije.”, “Postaje poseban brend.” or “Priča se vezuje za Air Ship.”
-- Never approve unexplained “AJ1”; write “Air Jordan 1”.
-- Never use “banned” in visible Serbian copy.
-- Avoid vague pronouns if the person/model is not named in that same sentence.
+COPY RULES:
+- Serbian LATIN script, everyday Serbian from Serbia.
+- Every slide2.fact.text and slide3.fact.text must be ONE complete standalone sentence.
+- Each sentence itself must say who/what and what happened.
+- A 10-year-old should understand it on first read.
+- Never approve fragments or unexplained AJ1.
+- Never use banned in visible Serbian copy.
+- Facts should usually be 7-16 words and MUST be 92 characters or fewer.
+- IMPORTANT: do not truncate text to satisfy a limit. Rewrite the entire sentence shorter and finish it with punctuation.
+- Cover subheadline must be a complete sentence and 92 characters or fewer.
+- Final question max 8 words.
 
-CHILD-FRIENDLY LANGUAGE — MANDATORY:
-- A 10-year-old should understand every sentence on FIRST read.
-- Use everyday Serbian from Serbia.
-- Do not sound like a textbook, journalist, historian or marketing department.
-- Ban unnecessarily formal phrases including “oblikovao kulturu”, “prelomni trenutak”, “uniformisanje boja”, “kulturni fenomen”, “nacionalni zamah”, “strateški pozicionirao”, “zaseban brend unutar”.
-- If a technical term is unavoidable, replace the fact with another verified fact that is easier to explain whenever possible.
-- A complete easy sentence is MORE IMPORTANT than making it ultra-short.
-- Facts should usually be 7-16 words and maximum 92 characters.
-- Cover subheadline must also be a complete easy sentence.
-- Final question: maximum 8 words.
+SOURCE RULES:
+- Every source and every claim URL must come from pages actually found during web search.
+- Prefer canonical URLs and avoid creating a second spelling of the same URL only because www or a trailing slash differs.
 
-TARGET EXAMPLES:
-- “Michael Jordan je 1984. prvo nosio Nike Air Ship, a ne Air Jordan 1.”
-- “Air Jordan 1 se pojavio u prodaji 1985. godine.”
-- “Nike je ideju za Waffle đon dobio pomoću aparata za galete.”
-- “Mnogi misle da je NBA zabranila Air Jordan 1, ali radilo se o Nike Air Shipu.”
+Before approving, test EVERY visible fact without its tag or headline:
+1. Does it still make complete sense?
+2. Is it fully supported?
+3. Is it 92 characters or fewer?
+4. Does it end normally instead of being cut off?
+If any answer is NO, rewrite it. If it cannot be fixed accurately and simply, set publish_ok=false.
 
-Before approving, test EVERY visible fact:
-1. If the tag and headline disappear, does the sentence still make complete sense?
-2. Does it clearly tell the reader what happened?
-3. Would a 10-year-old understand every normal word?
-4. Is it fully supported by the searched sources?
-If any answer is NO, rewrite it. If it cannot be rewritten accurately and simply, set publish_ok=false.
-
-Return a corrected final post even if publish_ok=false, but explain the blocking reason.
+Return a corrected final post even when you rewrite the draft.
 `;
 }
 
@@ -253,11 +207,29 @@ function normalizedUrlKey(raw) {
   try {
     const u = new URL(raw);
     const host = u.hostname.replace(/^www\./, "").toLowerCase();
-    const path = u.pathname.replace(/\/+$/, "") || "/";
-    return `${host}${path}`;
+    const path = decodeURIComponent(u.pathname)
+      .replace(/\/+$/, "") || "/";
+    return `${host}${path}`.toLowerCase();
   } catch {
     return "";
   }
+}
+
+function hostFor(raw) {
+  try {
+    return new URL(raw).hostname.replace(/^www\./, "").toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function isAllowedUrl(raw, seed) {
+  const host = hostFor(raw);
+  if (!host) return false;
+  return seed.preferred_domains.some(domain => {
+    const d = String(domain).replace(/^www\./, "").toLowerCase();
+    return host === d || host.endsWith(`.${d}`);
+  });
 }
 
 function wordCount(text = "") {
@@ -295,55 +267,95 @@ function assertSimpleVisibleCopy(text, label) {
 }
 
 function validatePost(post, seed, searchedUrls = []) {
-  const sourceUrls = new Set(post.sources.map(s => s.url));
-  if (sourceUrls.size < 2) throw new Error("Fact-check guard: fewer than 2 source URLs");
-  if (post.cover.subheadline.length > 92) throw new Error("Copy guard: cover subheadline too long");
-  if (!isCompleteSentence(post.cover.subheadline)) throw new Error("Copy guard: cover subheadline is not a complete sentence");
+  const sourceKeys = new Set(
+    post.sources.map(source => normalizedUrlKey(source.url)).filter(Boolean)
+  );
+  if (sourceKeys.size < 2) {
+    throw new Error("Fact-check guard: fewer than 2 distinct source URLs");
+  }
+
+  if (post.cover.subheadline.length > 92) {
+    throw new Error("Copy guard: cover subheadline too long");
+  }
+  if (!isCompleteSentence(post.cover.subheadline)) {
+    throw new Error("Copy guard: cover subheadline is not a complete sentence");
+  }
   assertSimpleVisibleCopy(post.cover.subheadline, "cover subheadline");
 
   if (post.caption.length > 800) throw new Error("Copy guard: caption too long");
   if (post.slide3.question.length > 60 || wordCount(post.slide3.question) > 8) {
     throw new Error("Copy guard: final question too long");
   }
+
   for (const line of [
     ...post.cover.headline_lines,
     ...post.slide2.headline_lines,
     ...post.slide3.headline_lines
   ]) {
-    if (line.text.length > 26) throw new Error(`Copy guard: headline line too long: ${line.text}`);
-  }
-
-  for (const f of [...post.slide2.facts, ...post.slide3.facts]) {
-    if (f.text.length > 92) throw new Error(`Copy guard: fact too long: ${f.text}`);
-    if (wordCount(f.text) > 18) throw new Error(`Copy guard: fact has too many words: ${f.text}`);
-    if (!isCompleteSentence(f.text)) throw new Error(`Copy guard: fact is not a complete sentence: ${f.text}`);
-    if (f.tag.length > 18) throw new Error(`Copy guard: fact tag too long: ${f.tag}`);
-    assertSimpleVisibleCopy(f.text, "fact");
-  }
-
-  for (const c of post.claims) {
-    if (!c.source_urls.length) throw new Error(`Source guard: unsourced claim: ${c.claim}`);
-    for (const u of c.source_urls) {
-      if (!sourceUrls.has(u)) throw new Error(`Source guard: claim references unknown source URL ${u}`);
+    if (line.text.length > 26) {
+      throw new Error(`Copy guard: headline line too long: ${line.text}`);
     }
   }
+
+  for (const fact of [...post.slide2.facts, ...post.slide3.facts]) {
+    if (fact.text.length > 92) {
+      throw new Error(`Copy guard: fact too long: ${fact.text}`);
+    }
+    if (wordCount(fact.text) > 18) {
+      throw new Error(`Copy guard: fact has too many words: ${fact.text}`);
+    }
+    if (!isCompleteSentence(fact.text)) {
+      throw new Error(`Copy guard: fact is not a complete sentence: ${fact.text}`);
+    }
+    if (fact.tag.length > 18) {
+      throw new Error(`Copy guard: fact tag too long: ${fact.tag}`);
+    }
+    assertSimpleVisibleCopy(fact.text, "fact");
+  }
+
   const searched = new Set(searchedUrls.map(normalizedUrlKey).filter(Boolean));
 
-  for (const src of post.sources) {
-    let host;
-    try { host = new URL(src.url).hostname.replace(/^www\./, ""); }
-    catch { throw new Error(`Invalid source URL: ${src.url}`); }
-    const allowed = seed.preferred_domains.some(d => host === d || host.endsWith(`.${d}`));
-    if (!allowed) throw new Error(`Source outside approved domains: ${host}`);
+  // Sources shown in the final post must still be whitelisted and must come
+  // from actual web-search evidence. URL normalization makes www/non-www,
+  // query strings and trailing slashes equivalent for validation purposes.
+  for (const source of post.sources) {
+    if (!isAllowedUrl(source.url, seed)) {
+      throw new Error(`Source outside approved domains: ${hostFor(source.url) || source.url}`);
+    }
 
-    if (searched.size && !searched.has(normalizedUrlKey(src.url))) {
-      throw new Error(`Source guard: cited URL was not present in web-search evidence: ${src.url}`);
+    const key = normalizedUrlKey(source.url);
+    if (searched.size && !searched.has(key)) {
+      throw new Error(`Source guard: cited URL was not present in web-search evidence: ${source.url}`);
     }
   }
+
+  // Claims do not have to repeat the exact raw URL string from post.sources.
+  // They must, however, point to a whitelisted URL that was actually found by
+  // the web search. This keeps the fact-check strict without false failures
+  // caused by www, trailing-slash or query-string variants.
+  for (const claim of post.claims) {
+    if (!claim.source_urls.length) {
+      throw new Error(`Source guard: unsourced claim: ${claim.claim}`);
+    }
+
+    for (const url of claim.source_urls) {
+      const key = normalizedUrlKey(url);
+      if (!key || !isAllowedUrl(url, seed)) {
+        throw new Error(`Source guard: invalid or unapproved claim URL ${url}`);
+      }
+
+      const knownFromSources = sourceKeys.has(key);
+      const knownFromSearch = searched.has(key);
+      if (!knownFromSources && !knownFromSearch) {
+        throw new Error(`Source guard: claim URL was not found in evidence ${url}`);
+      }
+    }
+  }
+
   return post;
 }
 
-export async function researchWriteVerify(seed) {
+async function researchWriteVerifyOnce(seed) {
   const domains = [...new Set(seed.preferred_domains)];
 
   const draftResult = await structuredWebResponse({
@@ -354,21 +366,42 @@ export async function researchWriteVerify(seed) {
     allowedDomains: domains
   });
 
-  const draft = draftResult.value;
-
   const checkedResult = await structuredWebResponse({
     model: cfg.verifyModel,
-    prompt: verifierPrompt(seed, draft),
+    prompt: verifierPrompt(seed, draftResult.value),
     schema: verifierSchema,
     schemaName: "trendypatike_verified_post",
     allowedDomains: domains
   });
 
   const checked = checkedResult.value;
-
   if (!checked.publish_ok) {
     throw new Error(`Verifier rejected topic: ${checked.reason}`);
   }
 
-  return validatePost(checked.post, seed, [...draftResult.searchUrls, ...checkedResult.searchUrls]);
+  return validatePost(
+    checked.post,
+    seed,
+    [...draftResult.searchUrls, ...checkedResult.searchUrls]
+  );
+}
+
+export async function researchWriteVerify(seed) {
+  let lastError = null;
+
+  // One retry protects the daily workflow from a transient structured-output
+  // formatting mistake without weakening any fact-check or copy guard.
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      return await researchWriteVerifyOnce(seed);
+    } catch (err) {
+      lastError = err;
+      if (attempt < 2) {
+        console.warn(`[content] Verification attempt ${attempt}/2 failed: ${err.message}`);
+        console.warn("[content] Retrying the same topic once with fresh research and generation.");
+      }
+    }
+  }
+
+  throw lastError || new Error("Unknown content verification failure");
 }
