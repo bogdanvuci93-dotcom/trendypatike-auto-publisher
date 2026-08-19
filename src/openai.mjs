@@ -57,9 +57,6 @@ function assertOpenAIBudget(path) {
 }
 
 async function openaiFetch(path, body) {
-  // Once OpenAI says the account/key cannot make paid requests, do not send
-  // any more API calls during this run. The hard per-run call cap also prevents
-  // accidental retry loops from consuming an unexpected balance.
   assertOpenAIBudget(path);
 
   const res = await fetch(`${API}${path}`, {
@@ -175,7 +172,7 @@ export async function structuredWebResponse({
   schemaName,
   allowedDomains,
   searchContextSize = "medium",
-  maxToolCalls = 3,
+  maxToolCalls = 2,
   maxOutputTokens = 5000
 }) {
   const tool = { type: "web_search", search_context_size: searchContextSize };
@@ -188,7 +185,7 @@ export async function structuredWebResponse({
     store: false,
     tools: [tool],
     tool_choice: "required",
-    max_tool_calls: Math.max(1, Math.min(Number(maxToolCalls) || 3, 5)),
+    max_tool_calls: Math.max(1, Math.min(Number(maxToolCalls) || 2, 5)),
     max_output_tokens: Math.max(800, Math.min(Number(maxOutputTokens) || 5000, 6000)),
     include: ["web_search_call.action.sources"],
     input: prompt,
