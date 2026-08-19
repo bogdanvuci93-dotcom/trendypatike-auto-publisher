@@ -1,0 +1,44 @@
+name: TrendyPatike Zero-Cost Preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "assets/**"
+      - "data/topics.json"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/daily.yml"
+      - ".github/workflows/preflight.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trendypatike-code-preflight
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --omit=dev --no-audit --no-fund
+
+      - name: Offline publisher self-test
+        env:
+          MAX_TOPIC_ATTEMPTS: "2"
+          MAX_OPENAI_CALLS: "10"
+        run: npm run check
