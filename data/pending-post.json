@@ -122,5 +122,10 @@
     "public/posts/2026-08-19-fallback-nike-waffle-1eb4c2b8b023/02.jpg",
     "public/posts/2026-08-19-fallback-nike-waffle-1eb4c2b8b023/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18013766582944388"
+    ],
+    "carousel_id": ""
+  }
 }
