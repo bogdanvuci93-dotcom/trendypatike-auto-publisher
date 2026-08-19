@@ -94,6 +94,39 @@ async function openaiFetch(path, body) {
   return json;
 }
 
+function isTransientError(err) {
+  return err instanceof OpenAIRequestError && (err.status === 429 || err.status >= 500);
+}
+
+function requestRetryDelay(err, attempt) {
+  if (err instanceof OpenAIRequestError && err.retryAfterMs > 0) {
+    return Math.min(err.retryAfterMs, 30000);
+  }
+  return attempt === 1 ? 6000 : 15000;
+}
+
+async function openaiFetchWithRetry(path, body, maxAttempts = 2) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await openaiFetch(path, body);
+    } catch (err) {
+      lastError = err;
+      if (isFatalOpenAIError(err) || !isTransientError(err) || attempt >= maxAttempts) throw err;
+
+      const delay = requestRetryDelay(err, attempt);
+      console.warn(
+        `[openai] ${path} transient failure on attempt ${attempt}/${maxAttempts}; ` +
+        `retrying in ${Math.round(delay / 1000)}s.`
+      );
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
+  throw lastError || new Error(`OpenAI ${path} failed`);
+}
+
 function extractOutputText(json) {
   if (typeof json.output_text === "string" && json.output_text.trim()) {
     return json.output_text.trim();
@@ -146,7 +179,7 @@ export async function structuredWebResponse({
     tool.filters = { allowed_domains: allowedDomains };
   }
 
-  const json = await openaiFetch("/responses", {
+  const json = await openaiFetchWithRetry("/responses", {
     model,
     store: false,
     tools: [tool],
@@ -162,7 +195,7 @@ export async function structuredWebResponse({
         schema
       }
     }
-  });
+  }, 2);
 
   const text = extractOutputText(json);
   if (!text) throw new Error(`No text output from ${schemaName}`);
@@ -181,10 +214,6 @@ export async function structuredWebResponse({
 
   console.log(`[evidence] ${schemaName}: ${searchUrls.length} web source URL(s)`);
   return { value, searchUrls };
-}
-
-function isTransientError(err) {
-  return err instanceof OpenAIRequestError && (err.status === 429 || err.status >= 500);
 }
 
 function isPromptLevelError(err) {
