@@ -15,11 +15,28 @@ async function readJson(file) {
   return JSON.parse(raw);
 }
 
+function assertPostShape(post, label) {
+  assert(post && typeof post === "object", `${label} post missing`);
+  assert(typeof post.topic_title === "string" && post.topic_title.length >= 8, `${label} topic_title invalid`);
+  assert(Array.isArray(post.cover?.headline_lines) && post.cover.headline_lines.length >= 1, `${label} cover headlines invalid`);
+  assert(typeof post.cover?.subheadline === "string" && post.cover.subheadline.length >= 20, `${label} subheadline invalid`);
+  assert(Array.isArray(post.slide2?.facts) && post.slide2.facts.length === 3, `${label} slide2 facts invalid`);
+  assert(Array.isArray(post.slide3?.facts) && post.slide3.facts.length === 2, `${label} slide3 facts invalid`);
+  assert(typeof post.slide3?.question === "string" && post.slide3.question.length >= 3, `${label} question invalid`);
+  assert(typeof post.caption === "string" && post.caption.length >= 80, `${label} caption invalid`);
+  assert(Array.isArray(post.hashtags) && post.hashtags.length >= 4 && post.hashtags.length <= 8, `${label} hashtags invalid`);
+  assert(Array.isArray(post.image_prompts) && post.image_prompts.length === 3, `${label} image prompts invalid`);
+  assert(Array.isArray(post.sources) && post.sources.length >= 2, `${label} needs at least two sources`);
+  assert(Array.isArray(post.claims) && post.claims.length >= 3, `${label} claims invalid`);
+  for (const source of post.sources) {
+    assert(/^https:\/\//.test(source.url || ""), `${label} source URL invalid`);
+  }
+}
+
 async function main() {
   const nodeMajor = Number(process.versions.node.split(".")[0]);
   assert(Number.isFinite(nodeMajor) && nodeMajor >= 22, `Node 22+ required, got ${process.versions.node}`);
 
-  // Import every runtime module. Imports themselves make no external requests.
   await Promise.all([
     import("./openai.mjs"),
     import("./news.mjs"),
@@ -45,6 +62,19 @@ async function main() {
     assert(typeof topic.visual_subject === "string" && topic.visual_subject.length >= 8, `visual subject missing for ${topic.id}`);
   }
 
+  const fallbacks = await readJson("data/fallback-posts.json");
+  assert(Array.isArray(fallbacks) && fallbacks.length >= 5, "fallback-posts.json needs at least five emergency posts");
+  const fallbackIds = new Set();
+  for (const entry of fallbacks) {
+    assert(entry?.seed && entry?.post, "every fallback needs seed and post");
+    assert(typeof entry.seed.id === "string" && /^[a-z0-9-]+$/.test(entry.seed.id), `invalid fallback id ${entry.seed.id}`);
+    assert(!fallbackIds.has(entry.seed.id), `duplicate fallback id ${entry.seed.id}`);
+    fallbackIds.add(entry.seed.id);
+    assert(entry.seed.emergency_only === true, `${entry.seed.id} must be marked emergency_only`);
+    assert(entry.post.force_local_images === true, `${entry.seed.id} must force zero-cost local images`);
+    assertPostShape(entry.post, entry.seed.id);
+  }
+
   const state = await readJson("data/state.json");
   assert(state && typeof state === "object", "state.json must be an object");
   assert(Array.isArray(state.posted), "state.posted must be an array");
@@ -64,16 +94,13 @@ async function main() {
   const cache = await readJson("data/openai-cache.json");
   assert(cache && typeof cache === "object" && !Array.isArray(cache), "openai-cache.json must be an object");
 
-  assert(cfg.textModel === "gpt-5-mini-2025-08-07" || cfg.textModel === "gpt-5-mini",
-    `unexpected text model: ${cfg.textModel}`);
-  assert(cfg.verifyModel === "gpt-5-mini-2025-08-07" || cfg.verifyModel === "gpt-5-mini",
-    `unexpected verifier model: ${cfg.verifyModel}`);
+  assert(cfg.textModel === "gpt-5-mini-2025-08-07" || cfg.textModel === "gpt-5-mini", `unexpected text model: ${cfg.textModel}`);
+  assert(cfg.verifyModel === "gpt-5-mini-2025-08-07" || cfg.verifyModel === "gpt-5-mini", `unexpected verifier model: ${cfg.verifyModel}`);
   assert(cfg.imageModel === "gpt-image-1-mini", `unexpected image model: ${cfg.imageModel}`);
   assert(["low", "medium", "high", "auto"].includes(cfg.imageQuality), `invalid image quality: ${cfg.imageQuality}`);
-  assert(Number.isFinite(cfg.maxOpenAICalls) && cfg.maxOpenAICalls >= 6 && cfg.maxOpenAICalls <= 10,
-    `MAX_OPENAI_CALLS must stay between 6 and 10, got ${cfg.maxOpenAICalls}`);
-  assert(Number.isFinite(cfg.maxTopicAttempts) && cfg.maxTopicAttempts >= 1 && cfg.maxTopicAttempts <= 2,
-    `MAX_TOPIC_ATTEMPTS must stay between 1 and 2, got ${cfg.maxTopicAttempts}`);
+  assert(Number.isFinite(cfg.maxOpenAICalls) && cfg.maxOpenAICalls >= 6 && cfg.maxOpenAICalls <= 8,
+    `MAX_OPENAI_CALLS must stay between 6 and 8, got ${cfg.maxOpenAICalls}`);
+  assert(cfg.maxTopicAttempts === 1, `MAX_TOPIC_ATTEMPTS must be exactly 1, got ${cfg.maxTopicAttempts}`);
 
   const logo = path.resolve("assets/logo-mark-white.png");
   const logoStat = await fs.stat(logo);
@@ -88,8 +115,6 @@ async function main() {
   assert(probeMeta.format === "jpeg" && (probeMeta.width || 0) > 0 && (probeMeta.height || 0) > 0,
     "Instagram preflight JPEG cannot be decoded");
 
-  // Full local carousel render test: SVG, font, Serbian glyphs, Sharp composites,
-  // logo tinting and all three layouts, with zero network/API calls.
   await runRenderSelfTest();
 
   const date = dateInBelgrade();
@@ -102,7 +127,7 @@ async function main() {
     assert(testUrl.startsWith("https://raw.githubusercontent.com/"), `unexpected public URL: ${testUrl}`);
   }
 
-  console.log(`[selftest] OK: ${topics.length} topics, JSON state, Meta JPEG and full 3-slide render all passed.`);
+  console.log(`[selftest] OK: ${topics.length} curated topics, ${fallbacks.length} emergency posts, state, Meta JPEG and full 3-slide render passed.`);
 }
 
 main().catch(err => {
