@@ -9,8 +9,10 @@ on:
       - "src/**"
       - "assets/**"
       - "data/topics.json"
+      - "data/state.json"
+      - "data/pending-post.json"
+      - "data/openai-cache.json"
       - "package.json"
-      - "package-lock.json"
       - ".github/workflows/daily.yml"
       - ".github/workflows/preflight.yml"
 
@@ -27,18 +29,23 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
+          package-manager-cache: false
 
-      - name: Install dependencies
+      - name: Install pinned dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
       - name: Offline publisher self-test
         env:
+          TEXT_MODEL: "gpt-5-mini-2025-08-07"
+          VERIFY_MODEL: "gpt-5-mini-2025-08-07"
+          IMAGE_MODEL: "gpt-image-1-mini"
+          IMAGE_QUALITY: "medium"
           MAX_TOPIC_ATTEMPTS: "2"
           MAX_OPENAI_CALLS: "10"
         run: npm run check
