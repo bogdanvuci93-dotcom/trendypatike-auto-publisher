@@ -2,6 +2,16 @@ import { cfg } from "./config.mjs";
 
 const API = "https://api.openai.com/v1";
 
+class OpenAIRequestError extends Error {
+  constructor(message, { status = 0, code = "", retryAfterMs = 0 } = {}) {
+    super(message);
+    this.name = "OpenAIRequestError";
+    this.status = status;
+    this.code = code;
+    this.retryAfterMs = retryAfterMs;
+  }
+}
+
 async function openaiFetch(path, body) {
   const res = await fetch(`${API}${path}`, {
     method: "POST",
@@ -12,9 +22,25 @@ async function openaiFetch(path, body) {
     body: JSON.stringify(body)
   });
 
-  const json = await res.json();
+  let json;
+  try {
+    json = await res.json();
+  } catch {
+    json = { error: { message: `Non-JSON OpenAI response (HTTP ${res.status})` } };
+  }
+
   if (!res.ok) {
-    throw new Error(`OpenAI ${path} failed (${res.status}): ${JSON.stringify(json)}`);
+    const apiError = json?.error || json || {};
+    const code = String(apiError.code || apiError.type || "");
+    const retryAfter = Number(res.headers.get("retry-after") || 0);
+    throw new OpenAIRequestError(
+      `OpenAI ${path} failed (${res.status}): ${apiError.message || JSON.stringify(json)}`,
+      {
+        status: res.status,
+        code,
+        retryAfterMs: Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 0
+      }
+    );
   }
   return json;
 }
@@ -107,13 +133,44 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
   return { value, searchUrls };
 }
 
-export async function generateImage(prompt, fallbackPrompt = "") {
-  const prompts = fallbackPrompt ? [prompt, fallbackPrompt] : [prompt];
+function isFatalAccountError(err) {
+  if (!(err instanceof OpenAIRequestError)) return false;
+  if ([401, 403].includes(err.status)) return true;
+  return [
+    "insufficient_quota",
+    "billing_hard_limit_reached",
+    "billing_not_active",
+    "invalid_api_key"
+  ].includes(err.code);
+}
+
+function isTransientError(err) {
+  return err instanceof OpenAIRequestError && (err.status === 429 || err.status >= 500);
+}
+
+function isPromptLevelError(err) {
+  if (!(err instanceof OpenAIRequestError) || err.status !== 400) return false;
+  const text = `${err.code} ${err.message}`.toLowerCase();
+  return ["safety", "policy", "moderation", "content", "prompt"].some(x => text.includes(x));
+}
+
+function imageRetryDelay(err, attempt) {
+  if (err instanceof OpenAIRequestError && err.retryAfterMs > 0) {
+    return Math.min(err.retryAfterMs, 30000);
+  }
+  return attempt === 1 ? 5000 : 12000;
+}
+
+export async function generateImage(prompt, fallbackPrompt = "", safePrompt = "") {
+  const prompts = [...new Set([prompt, fallbackPrompt, safePrompt].filter(Boolean))];
   let lastError;
 
-  for (const currentPrompt of prompts) {
+  for (let promptIndex = 0; promptIndex < prompts.length; promptIndex++) {
+    const currentPrompt = prompts[promptIndex];
+
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
+        console.log(`[image] Generating with prompt ${promptIndex + 1}/${prompts.length}, attempt ${attempt}/2`);
         const json = await openaiFetch("/images/generations", {
           model: cfg.imageModel,
           prompt: currentPrompt,
@@ -133,10 +190,22 @@ export async function generateImage(prompt, fallbackPrompt = "") {
         throw new Error("Image response contained neither b64_json nor url");
       } catch (err) {
         lastError = err;
-        if (attempt < 2) await new Promise(r => setTimeout(r, 2500));
+        console.warn(`[image] Attempt failed: ${err.message}`);
+
+        // Billing/auth problems cannot be repaired by another prompt or retry.
+        if (isFatalAccountError(err)) throw err;
+
+        // Safety/prompt rejection: immediately try the next, safer prompt.
+        if (isPromptLevelError(err)) break;
+
+        if (attempt < 2) {
+          const delay = isTransientError(err) ? imageRetryDelay(err, attempt) : 3000;
+          console.warn(`[image] Waiting ${Math.round(delay / 1000)}s before retry.`);
+          await new Promise(r => setTimeout(r, delay));
+        }
       }
     }
   }
 
-  throw lastError;
+  throw lastError || new Error("Image generation failed for all prompts");
 }
