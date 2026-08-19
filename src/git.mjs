@@ -10,16 +10,47 @@ function git(args, { quiet = false } = {}) {
   }).trim();
 }
 
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function pushWithRetry(branch, maxAttempts = 3) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      git(["push", "origin", branch]);
+      return;
+    } catch (err) {
+      lastError = err;
+      if (attempt >= maxAttempts) break;
+
+      console.warn(`[git] Push attempt ${attempt}/${maxAttempts} failed; retrying.`);
+
+      // If main advanced while this workflow was running, rebase the bot commit.
+      // If the failure was only transient network trouble, a failed pull is harmless
+      // and the next push attempt can still succeed.
+      try {
+        git(["pull", "--rebase", "origin", branch]);
+      } catch {}
+
+      sleepSync(2000 * attempt);
+    }
+  }
+
+  throw lastError || new Error("Git push failed");
+}
+
 export function commitAndPush(paths, message) {
   git(["config", "user.name", "TrendyPatike Bot"]);
   git(["config", "user.email", "bot@trendypatike.com"]);
   git(["add", ...paths]);
 
-  const changed = git(["status", "--porcelain"], { quiet: true });
-  if (!changed) return false;
+  const staged = git(["diff", "--cached", "--name-only"], { quiet: true });
+  if (!staged) return false;
 
   git(["commit", "-m", message]);
-  git(["push", "origin", cfg.githubRefName || "main"]);
+  pushWithRetry(cfg.githubRefName || "main");
   return true;
 }
 
