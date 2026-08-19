@@ -149,6 +149,16 @@ function finalPrompt(base, slideIndex) {
   return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. No text, no captions, no watermark, no frame, no TrendyPatike branding. Avoid malformed shoes, duplicated limbs, incorrect random lettering, fake signatures and gibberish logos. This is an editorial culture/history visual, not a celebrity endorsement advertisement.`;
 }
 
+function neutralSafePrompt(slideIndex) {
+  const scene = slideIndex === 0
+    ? "A single unbranded retro high-top athletic sneaker displayed on the RIGHT side of a dark studio pedestal."
+    : slideIndex === 1
+      ? "A close editorial still life of an unbranded retro basketball sneaker on the RIGHT, with subtle vintage arena lights in the background."
+      : "An unbranded retro high-top sneaker on the RIGHT with an anonymous basketball-court atmosphere and dramatic studio lighting.";
+
+  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT for editorial typography. No people, no recognizable celebrity, no brand logo, no trademark, no text, no letters, no watermark, no frame, no signature.`;
+}
+
 export async function generateAndRender(post, outputDir) {
   await fs.mkdir(outputDir, { recursive: true });
   const { white, green } = await logoBuffers();
@@ -157,8 +167,9 @@ export async function generateAndRender(post, outputDir) {
 
   for (let i = 0; i < 3; i++) {
     const primaryPrompt = finalPrompt(post.image_prompts[i], i);
-    const fallbackPrompt = `${primaryPrompt}\nIf a named public figure is difficult to depict, use a historically appropriate anonymous athlete/artist silhouette or era-specific scene instead, while preserving the factual visual context.`;
-    const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt);
+    const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace them with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
+    const safePrompt = neutralSafePrompt(i);
+    const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
 
     const outPath = path.join(outputDir, `${String(i + 1).padStart(2, "0")}.jpg`);
     await sharp(imageBuffer)
