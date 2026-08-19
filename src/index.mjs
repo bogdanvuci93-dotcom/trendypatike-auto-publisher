@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { assertBaseConfig, cfg } from "./config.mjs";
 import {
   dateInBelgrade,
@@ -64,9 +65,29 @@ function captionFor(post) {
   return `${caption}\n\nIzvori: ${publishers.join(" / ")}\n\n${tags}`.slice(0, 2100);
 }
 
+function postFingerprint(post) {
+  return createHash("sha256")
+    .update(JSON.stringify(post))
+    .digest("hex")
+    .slice(0, 12);
+}
+
+function recentCheckpoint(pending, today) {
+  if (!pending?.date || !pending?.seed || !pending?.post) return false;
+  if (!["verified", "ready"].includes(pending.stage)) return false;
+
+  const pendingTime = Date.parse(`${pending.date}T12:00:00Z`);
+  const todayTime = Date.parse(`${today}T12:00:00Z`);
+  if (!Number.isFinite(pendingTime) || !Number.isFinite(todayTime)) return false;
+
+  const ageDays = Math.floor((todayTime - pendingTime) / 86400000);
+  return ageDays >= 0 && ageDays <= 2;
+}
+
 async function saveMetadata(dir, seed, post) {
   const meta = {
     generated_at: new Date().toISOString(),
+    fingerprint: postFingerprint(post),
     seed,
     post
   };
@@ -116,17 +137,14 @@ async function main() {
   let chosenSeed = null;
   let post = null;
   let resumed = false;
+  let workDate = today;
 
-  if (
-    pending?.date === today &&
-    pending?.seed &&
-    pending?.post &&
-    ["verified", "ready"].includes(pending.stage)
-  ) {
+  if (recentCheckpoint(pending, today)) {
     chosenSeed = pending.seed;
     post = pending.post;
     resumed = true;
-    console.log(`[resume] Reusing ${pending.stage} checkpoint for: ${chosenSeed.topic}`);
+    workDate = pending.date;
+    console.log(`[resume] Reusing ${pending.stage} checkpoint from ${pending.date}: ${chosenSeed.topic}`);
     console.log("[resume] Skipping breaking-news scan, research and verifier.");
   } else {
     let lastError = null;
@@ -176,6 +194,7 @@ async function main() {
         {
           date: today,
           stage: "verified",
+          fingerprint: postFingerprint(post),
           seed: chosenSeed,
           post
         },
@@ -184,8 +203,13 @@ async function main() {
     }
   }
 
+  const fingerprint = postFingerprint(post);
+  if (pending?.fingerprint && resumed && pending.fingerprint !== fingerprint) {
+    throw new Error("Checkpoint fingerprint mismatch; refusing to mix assets from different post content");
+  }
+
   const safeId = chosenSeed.id.replace(/[^a-z0-9-]+/g, "-");
-  const outDir = path.resolve("public/posts", `${today}-${safeId}`);
+  const outDir = path.resolve("public/posts", `${workDate}-${safeId}-${fingerprint}`);
   const expectedImages = expectedImagePaths(outDir);
 
   let images;
@@ -198,6 +222,8 @@ async function main() {
     images = expectedImages;
     console.log("[resume] Reusing 3 already-generated carousel images. No image API calls needed.");
   } else {
+    // generateAndRender also reuses any individually checkpointed slide in this
+    // fingerprinted directory, so a failure on slide 3 never repays slides 1-2.
     images = await generateAndRender(post, outDir);
   }
 
@@ -206,8 +232,9 @@ async function main() {
 
   if (!cfg.dryRun) {
     pendingFile = await savePending({
-      date: today,
+      date: workDate,
       stage: "ready",
+      fingerprint,
       seed: chosenSeed,
       post,
       image_paths: images.map(file => path.relative(process.cwd(), file).split(path.sep).join("/"))
@@ -223,7 +250,7 @@ async function main() {
 
     // Persist final assets before asking Meta to ingest them. A Meta/API failure
     // can then be retried later with zero OpenAI cost.
-    commitAndPush(filesToCommit, `Checkpoint TrendyPatike assets ${today}`, 6);
+    commitAndPush(filesToCommit, `Checkpoint TrendyPatike assets ${workDate}`, 6);
     for (const url of publicFiles) await waitUntilPublic(url);
   } else if (!cfg.publicBaseUrl) {
     console.log("Local mode without PUBLIC_BASE_URL: skipping URL availability check.");
