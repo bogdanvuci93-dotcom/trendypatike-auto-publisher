@@ -23,6 +23,12 @@ const MAJOR_NEWS_DOMAINS = [
   "gq.com"
 ];
 
+const TOPIC_STOP_WORDS = new Set([
+  "a", "ali", "bi", "bio", "bila", "bilo", "da", "do", "i", "iz", "je", "kao",
+  "kako", "koja", "koje", "koji", "na", "od", "o", "po", "sa", "se", "sta", "su",
+  "u", "za", "zasto"
+]);
+
 const majorNewsSchema = {
   type: "object",
   additionalProperties: false,
@@ -51,10 +57,66 @@ const majorNewsSchema = {
   }
 };
 
+function normalizeTopicText(value = "") {
+  return String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function topicTokens(value = "") {
+  return new Set(
+    normalizeTopicText(value)
+      .split(/\s+/)
+      .filter(token => token.length > 1 && !TOPIC_STOP_WORDS.has(token))
+  );
+}
+
+function overlapScore(a, b) {
+  const left = topicTokens(a);
+  const right = topicTokens(b);
+  if (!left.size || !right.size) return { score: 0, shared: 0 };
+
+  let shared = 0;
+  for (const token of left) {
+    if (right.has(token)) shared += 1;
+  }
+
+  return {
+    score: shared / Math.min(left.size, right.size),
+    shared
+  };
+}
+
+export function isDuplicateTopic(candidate, state) {
+  const candidateId = normalizeTopicText(candidate?.id);
+  const candidateTopic = normalizeTopicText(candidate?.topic);
+
+  return state.posted.some(entry => {
+    const postedId = normalizeTopicText(entry.topic_id);
+    if (candidateId && postedId && candidateId === postedId) return true;
+
+    const previousTitles = [entry.seed_topic, entry.topic_title]
+      .map(normalizeTopicText)
+      .filter(Boolean);
+
+    for (const previous of previousTitles) {
+      if (candidateTopic && candidateTopic === previous) return true;
+
+      const { score, shared } = overlapScore(candidateTopic, previous);
+      if ((shared >= 5 && score >= 0.55) || (shared >= 4 && score >= 0.72)) return true;
+    }
+
+    return false;
+  });
+}
+
 async function scanMajorSneakerNews(state) {
   const previous = state.posted
-    .slice(-80)
-    .map(x => x.topic_title)
+    .slice(-200)
+    .map(x => x.seed_topic || x.topic_title)
     .filter(Boolean);
 
   const prompt = `
@@ -123,6 +185,11 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
     return null;
   }
 
+  if (isDuplicateTopic(candidate, state)) {
+    console.log(`[news] Duplicate major story blocked: ${candidate.topic}`);
+    return null;
+  }
+
   console.log(`[news] Exceptional story selected: ${candidate.topic}`);
   console.log(`[news] Why it qualified: ${candidate.reason}`);
 
@@ -137,6 +204,27 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
   };
 }
 
+async function chooseUniqueEvergreenTopic(topics, state) {
+  const selectionState = {
+    ...state,
+    posted: [...state.posted]
+  };
+
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    const candidate = await chooseTopic(topics, selectionState);
+    if (!isDuplicateTopic(candidate, state)) return candidate;
+
+    console.log(`[topics] Duplicate topic blocked (${attempt}/5): ${candidate.topic}`);
+    selectionState.posted.push({
+      topic_id: candidate.id,
+      topic_title: candidate.topic,
+      seed_topic: candidate.topic
+    });
+  }
+
+  throw new Error("Could not find a unique TrendyPatike topic after 5 attempts");
+}
+
 export async function choosePriorityTopic(topics, state, { allowMajorNews = true } = {}) {
   if (allowMajorNews) {
     try {
@@ -147,5 +235,5 @@ export async function choosePriorityTopic(topics, state, { allowMajorNews = true
     }
   }
 
-  return chooseTopic(topics, state);
+  return chooseUniqueEvergreenTopic(topics, state);
 }
