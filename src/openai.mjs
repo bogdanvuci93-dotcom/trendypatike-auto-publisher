@@ -26,6 +26,15 @@ class OpenAIBudgetGuardError extends Error {
   }
 }
 
+class OpenAIStructuredResponseError extends Error {
+  constructor(message, { reason = "", retryable = false } = {}) {
+    super(message);
+    this.name = "OpenAIStructuredResponseError";
+    this.reason = reason;
+    this.retryable = retryable;
+  }
+}
+
 let fatalAccountFailure = null;
 let apiCallCount = 0;
 
@@ -123,7 +132,7 @@ async function openaiFetchWithRetry(pathname, body, maxAttempts = 2) {
 
       const delay = requestRetryDelay(err, attempt);
       console.warn(
-        `[openai] ${pathname} transient failure on attempt ${attempt}/${maxAttempts}; ` +
+        `[openai] ${pathname} transient HTTP failure on attempt ${attempt}/${maxAttempts}; ` +
         `retrying in ${Math.round(delay / 1000)}s.`
       );
       await new Promise(resolve => setTimeout(resolve, delay));
@@ -172,7 +181,45 @@ function extractSearchUrls(json) {
   return [...urls];
 }
 
-function cacheKey({ model, prompt, schema, schemaName, allowedDomains, searchContextSize, maxToolCalls, maxOutputTokens }) {
+function usageSummary(json) {
+  const outputTokens = Number(json?.usage?.output_tokens || 0);
+  const reasoningTokens = Number(json?.usage?.output_tokens_details?.reasoning_tokens || 0);
+  return `output_tokens=${outputTokens}, reasoning_tokens=${reasoningTokens}`;
+}
+
+function assertCompletedResponse(json, schemaName) {
+  const status = String(json?.status || "completed");
+  if (status === "completed") return;
+
+  if (status === "incomplete") {
+    const reason = String(json?.incomplete_details?.reason || "unknown");
+    throw new OpenAIStructuredResponseError(
+      `OpenAI returned incomplete ${schemaName} response (${reason}; ${usageSummary(json)})`,
+      {
+        reason,
+        retryable: ["max_output_tokens", "max_tokens"].includes(reason)
+      }
+    );
+  }
+
+  const message = json?.error?.message || `response status=${status}`;
+  throw new OpenAIStructuredResponseError(
+    `OpenAI did not complete ${schemaName}: ${message}`,
+    { reason: status, retryable: false }
+  );
+}
+
+function cacheKey({
+  model,
+  prompt,
+  schema,
+  schemaName,
+  allowedDomains,
+  searchContextSize,
+  maxToolCalls,
+  maxOutputTokens,
+  reasoningEffort
+}) {
   return createHash("sha256")
     .update(JSON.stringify({
       model,
@@ -182,7 +229,8 @@ function cacheKey({ model, prompt, schema, schemaName, allowedDomains, searchCon
       allowedDomains: [...(allowedDomains || [])].sort(),
       searchContextSize,
       maxToolCalls,
-      maxOutputTokens
+      maxOutputTokens,
+      reasoningEffort
     }))
     .digest("hex");
 }
@@ -235,15 +283,18 @@ async function persistStructuredResult(key, schemaName, result) {
       try {
         commitAndPush([CACHE_FILE], `Checkpoint paid OpenAI ${schemaName}`, 6);
       } catch (err) {
-        // The paid response is still returned to the current run. Cache
-        // persistence is a recovery optimization and must never turn a
-        // successful OpenAI response into a workflow failure.
         console.warn(`[cache] Could not persist ${schemaName} to GitHub: ${err.message}`);
       }
     }
   } catch (err) {
     console.warn(`[cache] Could not save OpenAI recovery cache: ${err.message}`);
   }
+}
+
+function normalizeReasoningEffort(value = "minimal") {
+  const allowed = new Set(["minimal", "low", "medium", "high"]);
+  const normalized = String(value).toLowerCase();
+  return allowed.has(normalized) ? normalized : "minimal";
 }
 
 export async function structuredWebResponse({
@@ -254,10 +305,12 @@ export async function structuredWebResponse({
   allowedDomains,
   searchContextSize = "medium",
   maxToolCalls = 2,
-  maxOutputTokens = 5000
+  maxOutputTokens = 12000,
+  reasoningEffort = "minimal"
 }) {
   const normalizedMaxToolCalls = Math.max(1, Math.min(Number(maxToolCalls) || 2, 5));
-  const normalizedMaxOutputTokens = Math.max(800, Math.min(Number(maxOutputTokens) || 5000, 6000));
+  const normalizedMaxOutputTokens = Math.max(2000, Math.min(Number(maxOutputTokens) || 12000, 20000));
+  const normalizedReasoningEffort = normalizeReasoningEffort(reasoningEffort);
   const key = cacheKey({
     model,
     prompt,
@@ -266,7 +319,8 @@ export async function structuredWebResponse({
     allowedDomains,
     searchContextSize,
     maxToolCalls: normalizedMaxToolCalls,
-    maxOutputTokens: normalizedMaxOutputTokens
+    maxOutputTokens: normalizedMaxOutputTokens,
+    reasoningEffort: normalizedReasoningEffort
   });
 
   const cached = await cachedStructuredResult(key, schemaName);
@@ -277,45 +331,93 @@ export async function structuredWebResponse({
     tool.filters = { allowed_domains: allowedDomains };
   }
 
-  const json = await openaiFetchWithRetry("/responses", {
-    model,
-    store: false,
-    tools: [tool],
-    tool_choice: "required",
-    max_tool_calls: normalizedMaxToolCalls,
-    max_output_tokens: normalizedMaxOutputTokens,
-    include: ["web_search_call.action.sources"],
-    input: prompt,
-    text: {
-      verbosity: "low",
-      format: {
-        type: "json_schema",
-        name: schemaName,
-        strict: true,
-        schema
+  let lastError = null;
+
+  // A malformed JSON string from strict Structured Outputs almost always means
+  // the response did not finish. Handle that here, on the SAME topic, instead
+  // of letting the caller spend money researching a second topic immediately.
+  for (let structuredAttempt = 1; structuredAttempt <= 2; structuredAttempt++) {
+    const outputBudget = structuredAttempt === 1
+      ? normalizedMaxOutputTokens
+      : Math.min(20000, Math.max(normalizedMaxOutputTokens + 4000, Math.ceil(normalizedMaxOutputTokens * 1.5)));
+
+    const requestBody = {
+      model,
+      store: false,
+      tools: [tool],
+      tool_choice: "required",
+      max_tool_calls: normalizedMaxToolCalls,
+      max_output_tokens: outputBudget,
+      reasoning: { effort: normalizedReasoningEffort },
+      prompt_cache_key: `trendypatike-${key.slice(0, 48)}`,
+      include: ["web_search_call.action.sources"],
+      input: prompt,
+      text: {
+        verbosity: "low",
+        format: {
+          type: "json_schema",
+          name: schemaName,
+          strict: true,
+          schema
+        }
       }
+    };
+
+    try {
+      const json = await openaiFetchWithRetry("/responses", requestBody, 2);
+      assertCompletedResponse(json, schemaName);
+
+      const text = extractOutputText(json);
+      if (!text) {
+        throw new OpenAIStructuredResponseError(
+          `No text output from completed ${schemaName} response (${usageSummary(json)})`,
+          { reason: "empty_output", retryable: true }
+        );
+      }
+
+      let value;
+      try {
+        value = JSON.parse(text);
+      } catch (err) {
+        throw new OpenAIStructuredResponseError(
+          `Invalid structured JSON from ${schemaName}: ${err.message} (${usageSummary(json)})`,
+          { reason: "invalid_json", retryable: true }
+        );
+      }
+
+      const searchUrls = extractSearchUrls(json);
+      if (!searchUrls.length) {
+        throw new OpenAIStructuredResponseError(
+          `No web-search evidence returned for ${schemaName}`,
+          { reason: "missing_evidence", retryable: true }
+        );
+      }
+
+      console.log(`[evidence] ${schemaName}: ${searchUrls.length} web source URL(s)`);
+      const result = { value, searchUrls };
+      await persistStructuredResult(key, schemaName, result);
+      return result;
+    } catch (err) {
+      lastError = err;
+      if (isFatalOpenAIError(err)) throw err;
+
+      const retryableStructuredFailure =
+        err instanceof OpenAIStructuredResponseError && err.retryable;
+
+      if (!retryableStructuredFailure || structuredAttempt >= 2) throw err;
+
+      console.warn(
+        `[structured] ${schemaName} attempt ${structuredAttempt}/2 was incomplete or malformed: ${err.message}`
+      );
+      console.warn(
+        `[structured] Retrying the SAME topic once with ${outputBudget < 20000 ? "a larger" : "the maximum"} output budget; ` +
+        `the caller will not move to another topic yet.`
+      );
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
-  }, 2);
-
-  const text = extractOutputText(json);
-  if (!text) throw new Error(`No text output from ${schemaName}`);
-
-  let value;
-  try {
-    value = JSON.parse(text);
-  } catch (err) {
-    throw new Error(`Invalid structured JSON from ${schemaName}: ${err.message}`);
   }
 
-  const searchUrls = extractSearchUrls(json);
-  if (!searchUrls.length) {
-    throw new Error(`No web-search evidence returned for ${schemaName}`);
-  }
-
-  console.log(`[evidence] ${schemaName}: ${searchUrls.length} web source URL(s)`);
-  const result = { value, searchUrls };
-  await persistStructuredResult(key, schemaName, result);
-  return result;
+  throw lastError || new Error(`Structured response failed for ${schemaName}`);
 }
 
 function isPromptLevelError(err) {
