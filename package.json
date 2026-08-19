@@ -1,0 +1,12 @@
+{
+  "name": "trendypatike-auto-publisher",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node src/index.mjs",
+    "check": "node --check src/index.mjs && node --check src/openai.mjs && node --check src/content.mjs && node --check src/render.mjs && node --check src/instagram.mjs && node --check src/git.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.0"
+  }
+}
