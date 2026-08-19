@@ -132,12 +132,18 @@ async function openAIPreflightForStage(stage) {
     console.log("[openai] Ready checkpoint found; no OpenAI access is required for final publish.");
     return;
   }
-  assertOpenAIConfig();
+
   if (stage === "verified") {
-    await verifyOpenAIModelAccess({ text: false, image: true });
+    // The facts are already independently verified. Images are optional because
+    // render.mjs has a deterministic local visual fallback.
+    console.log("[openai] Verified checkpoint found; image API is optional and cannot block publishing.");
     return;
   }
-  await verifyOpenAIModelAccess({ text: true, image: true });
+
+  // A completely new post requires text research + independent verification.
+  // Only text model access is a hard prerequisite; image access is optional.
+  assertOpenAIConfig();
+  await verifyOpenAIModelAccess({ text: true, image: false });
 }
 
 async function main() {
@@ -152,8 +158,6 @@ async function main() {
   }
 
   assertRuntimeConfig();
-  // Git write permission and Meta publishing/media-ingest ability are tested
-  // before any paid OpenAI work. Both preflights are free and run once/process.
   gitPreflight();
   await instagramPreflight();
 
@@ -178,16 +182,11 @@ async function main() {
     const attemptedIds = new Set();
 
     for (let attempt = 1; attempt <= cfg.maxTopicAttempts; attempt++) {
-      let seed;
-      try {
-        seed = await choosePriorityTopic(
-          topics.filter(t => !attemptedIds.has(t.id)),
-          state,
-          { allowMajorNews: attempt === 1 }
-        );
-      } catch (err) {
-        throw err;
-      }
+      const seed = await choosePriorityTopic(
+        topics.filter(t => !attemptedIds.has(t.id)),
+        state,
+        { allowMajorNews: attempt === 1 }
+      );
 
       attemptedIds.add(seed.id);
       if (isDuplicateTopic(seed, state)) {
