@@ -39,7 +39,7 @@ async function igRequest(method, path, params = {}, maxAttempts = 4) {
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      let url = new URL(`${base()}/${path}`);
+      const url = new URL(`${base()}/${path}`);
       const options = {
         method,
         headers: { "Authorization": `Bearer ${cfg.igToken}` },
@@ -101,7 +101,20 @@ async function igGet(path, params = {}, maxAttempts = 4) {
   return igRequest("GET", path, params, maxAttempts);
 }
 
-export async function verifyInstagramConnection() {
+async function waitContainer(id, timeoutMs = 300000) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const status = await igGet(id, { fields: "status_code,status" }, 4);
+    if (["FINISHED", "PUBLISHED"].includes(status.status_code)) return status;
+    if (["ERROR", "EXPIRED"].includes(status.status_code)) {
+      throw new Error(`Instagram container ${id} failed: ${JSON.stringify(status)}`);
+    }
+    await sleep(5000);
+  }
+  throw new Error(`Instagram container timeout: ${id}`);
+}
+
+export async function verifyInstagramConnection({ probeImageUrl = "" } = {}) {
   const account = await igGet("me", {
     fields: "id,user_id,username,account_type"
   }, 4);
@@ -120,7 +133,21 @@ export async function verifyInstagramConnection() {
     );
   }
 
-  console.log(`Instagram preflight OK for @${account.username || "unknown"}`);
+  console.log(`Instagram account preflight OK for @${account.username || "unknown"}`);
+
+  if (probeImageUrl) {
+    // Create but DO NOT publish a disposable carousel-item container. This
+    // proves content-publish permission and proves Meta can fetch our public
+    // GitHub JPEG before we spend anything on OpenAI.
+    const probe = await igPost(`${cfg.igUserId}/media`, {
+      image_url: probeImageUrl,
+      is_carousel_item: "true"
+    }, 4);
+    if (!probe?.id) throw new Error("Instagram publishing preflight returned no container ID");
+    await waitContainer(probe.id, 180000);
+    console.log(`Instagram publishing preflight OK; disposable container ${probe.id} is ready and will not be published.`);
+  }
+
   return account;
 }
 
@@ -148,19 +175,6 @@ export async function findExistingPublishedMedia(caption, { limit = 12, lookback
   }
 
   return null;
-}
-
-async function waitContainer(id, timeoutMs = 300000) {
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    const status = await igGet(id, { fields: "status_code,status" }, 4);
-    if (["FINISHED", "PUBLISHED"].includes(status.status_code)) return status;
-    if (["ERROR", "EXPIRED"].includes(status.status_code)) {
-      throw new Error(`Instagram container ${id} failed: ${JSON.stringify(status)}`);
-    }
-    await sleep(5000);
-  }
-  throw new Error(`Instagram container timeout: ${id}`);
 }
 
 export async function publishCarousel(imageUrls, caption) {
