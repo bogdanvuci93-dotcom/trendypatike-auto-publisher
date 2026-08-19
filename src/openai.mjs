@@ -24,15 +24,17 @@ let apiCallCount = 0;
 
 export function isFatalAccountError(err) {
   if (!(err instanceof OpenAIRequestError)) return false;
-  if ([401, 403].includes(err.status)) return true;
+  if ([401, 402, 403].includes(err.status)) return true;
 
   const text = `${err.code} ${err.message}`.toLowerCase();
   return [
     "insufficient_quota",
+    "quota_exceeded",
     "billing_hard_limit_reached",
     "billing_not_active",
     "invalid_api_key",
-    "no credits remaining"
+    "no credits remaining",
+    "credit balance"
   ].some(x => text.includes(x));
 }
 
@@ -172,7 +174,9 @@ export async function structuredWebResponse({
   schema,
   schemaName,
   allowedDomains,
-  searchContextSize = "medium"
+  searchContextSize = "medium",
+  maxToolCalls = 3,
+  maxOutputTokens = 5000
 }) {
   const tool = { type: "web_search", search_context_size: searchContextSize };
   if (allowedDomains?.length) {
@@ -184,6 +188,8 @@ export async function structuredWebResponse({
     store: false,
     tools: [tool],
     tool_choice: "required",
+    max_tool_calls: Math.max(1, Math.min(Number(maxToolCalls) || 3, 5)),
+    max_output_tokens: Math.max(800, Math.min(Number(maxOutputTokens) || 5000, 6000)),
     include: ["web_search_call.action.sources"],
     input: prompt,
     text: {
