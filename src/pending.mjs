@@ -7,10 +7,17 @@ export function pendingFilePath() {
   return FILE;
 }
 
+async function atomicWrite(value) {
+  await fs.mkdir(path.dirname(FILE), { recursive: true });
+  const temp = `${FILE}.tmp-${process.pid}-${Date.now()}`;
+  await fs.writeFile(temp, JSON.stringify(value, null, 2) + "\n");
+  await fs.rename(temp, FILE);
+}
+
 export async function loadPending() {
   try {
     const value = JSON.parse(await fs.readFile(FILE, "utf8"));
-    if (!value || typeof value !== "object" || !Object.keys(value).length) return null;
+    if (!value || typeof value !== "object" || Array.isArray(value) || !Object.keys(value).length) return null;
     return value;
   } catch (err) {
     if (err?.code === "ENOENT") return null;
@@ -19,13 +26,11 @@ export async function loadPending() {
 }
 
 export async function savePending(value) {
-  await fs.mkdir(path.dirname(FILE), { recursive: true });
-  await fs.writeFile(FILE, JSON.stringify(value, null, 2) + "\n");
+  await atomicWrite(value);
   return FILE;
 }
 
 export async function clearPending() {
-  await fs.mkdir(path.dirname(FILE), { recursive: true });
-  await fs.writeFile(FILE, "{}\n");
+  await atomicWrite({});
   return FILE;
 }
