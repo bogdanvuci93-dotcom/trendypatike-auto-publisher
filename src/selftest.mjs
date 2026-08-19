@@ -4,6 +4,7 @@ import sharp from "sharp";
 import { cfg } from "./config.mjs";
 import { dateInBelgrade } from "./content.mjs";
 import { publicUrlFor } from "./git.mjs";
+import { runRenderSelfTest } from "./render.mjs";
 
 function assert(condition, message) {
   if (!condition) throw new Error(`Self-test failed: ${message}`);
@@ -18,8 +19,7 @@ async function main() {
   const nodeMajor = Number(process.versions.node.split(".")[0]);
   assert(Number.isFinite(nodeMajor) && nodeMajor >= 22, `Node 22+ required, got ${process.versions.node}`);
 
-  // Import every runtime module without making external requests. This catches
-  // broken imports/exports and module initialization problems before paid work.
+  // Import every runtime module. Imports themselves make no external requests.
   await Promise.all([
     import("./openai.mjs"),
     import("./news.mjs"),
@@ -48,6 +48,7 @@ async function main() {
   const state = await readJson("data/state.json");
   assert(state && typeof state === "object", "state.json must be an object");
   assert(Array.isArray(state.posted), "state.posted must be an array");
+  assert(state.last_publish_date === null || /^\d{4}-\d{2}-\d{2}$/.test(state.last_publish_date), "state.last_publish_date invalid");
 
   const pending = await readJson("data/pending-post.json");
   assert(pending && typeof pending === "object" && !Array.isArray(pending), "pending-post.json must be an object");
@@ -55,11 +56,19 @@ async function main() {
     assert(["verified", "ready"].includes(pending.stage), `unsupported pending stage: ${pending.stage}`);
     assert(typeof pending.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(pending.date), "pending date invalid");
     assert(pending.seed && pending.post, "pending checkpoint must contain seed and post");
+    if (pending.stage === "ready") {
+      assert(Array.isArray(pending.image_paths) && pending.image_paths.length === 3, "ready checkpoint needs three image paths");
+    }
   }
 
-  assert(typeof cfg.textModel === "string" && cfg.textModel.length > 0, "TEXT_MODEL missing");
-  assert(typeof cfg.verifyModel === "string" && cfg.verifyModel.length > 0, "VERIFY_MODEL missing");
-  assert(typeof cfg.imageModel === "string" && cfg.imageModel.length > 0, "IMAGE_MODEL missing");
+  const cache = await readJson("data/openai-cache.json");
+  assert(cache && typeof cache === "object" && !Array.isArray(cache), "openai-cache.json must be an object");
+
+  assert(cfg.textModel === "gpt-5-mini-2025-08-07" || cfg.textModel === "gpt-5-mini",
+    `unexpected text model: ${cfg.textModel}`);
+  assert(cfg.verifyModel === "gpt-5-mini-2025-08-07" || cfg.verifyModel === "gpt-5-mini",
+    `unexpected verifier model: ${cfg.verifyModel}`);
+  assert(cfg.imageModel === "gpt-image-1-mini", `unexpected image model: ${cfg.imageModel}`);
   assert(["low", "medium", "high", "auto"].includes(cfg.imageQuality), `invalid image quality: ${cfg.imageQuality}`);
   assert(Number.isFinite(cfg.maxOpenAICalls) && cfg.maxOpenAICalls >= 6 && cfg.maxOpenAICalls <= 10,
     `MAX_OPENAI_CALLS must stay between 6 and 10, got ${cfg.maxOpenAICalls}`);
@@ -71,8 +80,17 @@ async function main() {
   assert(logoStat.isFile() && logoStat.size > 1000, "logo asset is missing or empty");
   const logoMeta = await sharp(logo).metadata();
   assert((logoMeta.width || 0) > 0 && (logoMeta.height || 0) > 0, "Sharp cannot decode logo asset");
-  const probe = await sharp(logo).resize({ width: 32 }).png().toBuffer();
-  assert(probe.length > 100, "Sharp render probe failed");
+
+  const probeImage = path.resolve("public/posts/2026-08-19-air-jordan-start/01.jpg");
+  const probeStat = await fs.stat(probeImage);
+  assert(probeStat.isFile() && probeStat.size > 10000, "Instagram preflight JPEG is missing");
+  const probeMeta = await sharp(probeImage).metadata();
+  assert(probeMeta.format === "jpeg" && (probeMeta.width || 0) > 0 && (probeMeta.height || 0) > 0,
+    "Instagram preflight JPEG cannot be decoded");
+
+  // Full local carousel render test: SVG, font, Serbian glyphs, Sharp composites,
+  // logo tinting and all three layouts, with zero network/API calls.
+  await runRenderSelfTest();
 
   const date = dateInBelgrade();
   assert(/^\d{4}-\d{2}-\d{2}$/.test(date), `Belgrade date formatter returned ${date}`);
@@ -80,11 +98,11 @@ async function main() {
   if (process.env.GITHUB_ACTIONS === "true") {
     assert(process.env.GITHUB_REPOSITORY, "GITHUB_REPOSITORY missing in Actions");
     assert(process.env.GITHUB_REF_NAME, "GITHUB_REF_NAME missing in Actions");
-    const testUrl = publicUrlFor(path.resolve("public/posts/selftest/01.jpg"));
+    const testUrl = publicUrlFor(probeImage);
     assert(testUrl.startsWith("https://raw.githubusercontent.com/"), `unexpected public URL: ${testUrl}`);
   }
 
-  console.log(`[selftest] OK: ${topics.length} topics, Sharp OK, modules OK, budget guards OK.`);
+  console.log(`[selftest] OK: ${topics.length} topics, JSON state, Meta JPEG and full 3-slide render all passed.`);
 }
 
 main().catch(err => {
