@@ -60,5 +60,6 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
-          MAX_TOPIC_ATTEMPTS: "3"
+          MAX_TOPIC_ATTEMPTS: "2"
+          MAX_OPENAI_CALLS: "10"
         run: npm run run
