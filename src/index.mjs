@@ -132,18 +132,47 @@ async function openAIPreflightForStage(stage) {
     console.log("[openai] Ready checkpoint found; no OpenAI access is required for final publish.");
     return;
   }
-
   if (stage === "verified") {
-    // The facts are already independently verified. Images are optional because
-    // render.mjs has a deterministic local visual fallback.
     console.log("[openai] Verified checkpoint found; image API is optional and cannot block publishing.");
     return;
   }
-
-  // A completely new post requires text research + independent verification.
-  // Only text model access is a hard prerequisite; image access is optional.
   assertOpenAIConfig();
   await verifyOpenAIModelAccess({ text: true, image: false });
+}
+
+async function persistPublishedState({ today, chosenSeed, post, published }) {
+  try {
+    const latestState = await loadState();
+    if (!latestState.posted.some(entry => entry.media_id === published.id)) {
+      latestState.posted.push({
+        date: today,
+        topic_id: chosenSeed.id,
+        seed_topic: chosenSeed.topic,
+        topic_title: post.topic_title,
+        media_id: published.id,
+        sources: post.sources.map(s => s.url)
+      });
+    }
+    latestState.last_publish_date = today;
+    latestState.last_media_id = published.id;
+    await saveState(latestState);
+    const clearedPending = await clearPending();
+
+    if (process.env.GITHUB_ACTIONS === "true") {
+      commitAndPush(
+        ["data/state.json", clearedPending],
+        `Mark TrendyPatike post published ${today}`,
+        8
+      );
+    }
+    console.log("[state] Published state persisted successfully.");
+  } catch (err) {
+    // The user-facing objective has already succeeded. Never convert a live
+    // Instagram post into a failed workflow because bookkeeping is temporarily
+    // unavailable. The remote ready checkpoint + caption guard repairs it later.
+    console.error(`[state] Instagram is LIVE, but bookkeeping could not finish: ${err.message}`);
+    console.log("[state] Treating publish as successful; next run will recover state without AI calls or duplicate posting.");
+  }
 }
 
 async function main() {
@@ -299,34 +328,7 @@ async function main() {
   });
   console.log(`Published Instagram media ID: ${published.id}`);
 
-  const latestState = await loadState();
-  if (!latestState.posted.some(entry => entry.media_id === published.id)) {
-    latestState.posted.push({
-      date: today,
-      topic_id: chosenSeed.id,
-      seed_topic: chosenSeed.topic,
-      topic_title: post.topic_title,
-      media_id: published.id,
-      sources: post.sources.map(s => s.url)
-    });
-  }
-  latestState.last_publish_date = today;
-  latestState.last_media_id = published.id;
-  await saveState(latestState);
-  const clearedPending = await clearPending();
-
-  if (process.env.GITHUB_ACTIONS === "true") {
-    try {
-      commitAndPush(
-        ["data/state.json", clearedPending],
-        `Mark TrendyPatike post published ${today}`,
-        8
-      );
-    } catch (err) {
-      console.error(`[state] Instagram is live but final GitHub state push failed: ${err.message}`);
-      console.log("[state] Next run will recover existing Instagram media without OpenAI usage or duplicate publishing.");
-    }
-  }
+  await persistPublishedState({ today, chosenSeed, post, published });
 }
 
 async function runWithRecovery(maxAttempts = 3) {
