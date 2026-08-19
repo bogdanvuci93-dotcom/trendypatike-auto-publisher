@@ -88,14 +88,18 @@ export function publicUrlFor(filePath) {
   return `https://raw.githubusercontent.com/${cfg.githubRepository}/${cfg.githubRefName || "main"}/${rel}`;
 }
 
-export async function waitUntilPublic(url, timeoutMs = 120000) {
+export async function waitUntilPublic(url, timeoutMs = 300000) {
   const start = Date.now();
+  let lastStatus = 0;
+
   while (Date.now() - start < timeoutMs) {
     try {
       const res = await fetch(url, { method: "GET", cache: "no-store" });
+      lastStatus = res.status;
       if (res.ok && Number(res.headers.get("content-length") || 1) > 0) return;
     } catch {}
     await new Promise(r => setTimeout(r, 5000));
   }
-  throw new Error(`Media did not become public in time: ${url}`);
+
+  throw new Error(`Media did not become public in time (last HTTP ${lastStatus || "network error"}): ${url}`);
 }
