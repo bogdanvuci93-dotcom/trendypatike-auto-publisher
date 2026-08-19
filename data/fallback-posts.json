@@ -1,0 +1,267 @@
+[
+  {
+    "seed": {
+      "id": "fallback-nike-waffle",
+      "topic": "Kako je aparat za galete pomogao da nastane Nike waffle đon",
+      "category": "istorija / inovacija",
+      "preferred_domains": ["about.nike.com"],
+      "visual_subject": "1970s running workshop, waffle iron and vintage running shoe",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je aparat za galete pomogao da nastane Nike waffle đon",
+      "cover": {
+        "headline_lines": [
+          {"text": "PATIKA IZ", "accent": false},
+          {"text": "KUHINJE?", "accent": true}
+        ],
+        "subheadline": "Bill Bowerman je ideju za bolji grip pronašao u običnom aparatu za galete."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "KAKO JE POČELO", "accent": true}],
+        "facts": [
+          {"tag": "1971", "text": "Bowerman je 1971. proučavao šaru na porodičnom aparatu za galete."},
+          {"tag": "EKSPERIMENT", "text": "U aparat je sipao tečni uretan i prvi pokušaj ga je zalepio."},
+          {"tag": "GRIP", "text": "Cilj je bio lagan đon koji bolje prijanja bez metalnih krampona."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "OD IDEJE DO STAZE", "accent": true}],
+        "facts": [
+          {"tag": "MOON SHOE", "text": "Rani prototipi dobili su nadimak Moon Shoe zbog traga nalik otisku na Mesecu."},
+          {"tag": "NASLEĐE", "text": "Waffle đon je kasnije postao važan deo Nike istorije trčanja."}
+        ],
+        "question": "Jeste li znali ovu priču?"
+      },
+      "caption": "Jedna od najpoznatijih Nike inovacija počela je u kuhinji. Bill Bowerman je tražio lagan đon sa boljim prijanjanjem, a šara na aparatu za galete dala mu je ideju za waffle đon. Prvi pokušaj nije prošao glatko, ali eksperiment je nastavio da razvija. Sačuvajte ovu sneaker priču.",
+      "hashtags": ["#TrendyPatike", "#Nike", "#SneakerIstorija", "#Waffle", "#Patike", "#Running"],
+      "image_prompts": [
+        "1970s running workshop with a vintage waffle iron and retro running shoe on the right, dark editorial photography",
+        "close editorial view of a vintage running outsole with waffle grid texture, dark studio, subject on right",
+        "retro running shoe inspired by early 1970s prototypes on a track, dark premium editorial scene"
+      ],
+      "sources": [
+        {"title": "From Waffle Iron to World Stage: The True Story of the Nike Moon Shoe", "publisher": "Nike", "url": "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"},
+        {"title": "Bill Bowerman: Nike's Original Innovator", "publisher": "Nike", "url": "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"}
+      ],
+      "claims": [
+        {"claim": "Bowerman experimented with a waffle iron to create a grippy outsole concept.", "source_urls": ["https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history", "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"]},
+        {"claim": "The early handmade shoes became known as the Moon Shoe.", "source_urls": ["https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"]},
+        {"claim": "The waffle sole became a major part of Nike's early running innovation.", "source_urls": ["https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-asics-name",
+      "topic": "Šta zapravo znači ime ASICS",
+      "category": "brend / istorija",
+      "preferred_domains": ["corp.asics.com", "asics.com"],
+      "visual_subject": "Japanese running heritage, archive running shoe and clean studio",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Šta zapravo znači ime ASICS",
+      "cover": {
+        "headline_lines": [
+          {"text": "ŠTA ZNAČI", "accent": false},
+          {"text": "ASICS?", "accent": true}
+        ],
+        "subheadline": "Ime poznatog sportskog brenda nastalo je od početnih slova latinske izreke."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "PRIČA IZA IMENA", "accent": true}],
+        "facts": [
+          {"tag": "1949", "text": "Kihachiro Onitsuka je 1949. pokrenuo svoju kompaniju za sportsku obuću u Kobeu."},
+          {"tag": "1977", "text": "ASICS je kao kompanija nastao 1977. spajanjem tri japanske firme."},
+          {"tag": "AKRONIM", "text": "ASICS dolazi od početnih slova izraza Anima Sana In Corpore Sano."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "ZDRAV UM I TELO", "accent": true}],
+        "facts": [
+          {"tag": "ZNAČENJE", "text": "Izraz prenosi ideju zdravog uma u zdravom telu."},
+          {"tag": "FILOZOFIJA", "text": "Ta poruka je postala centralni deo filozofije brenda ASICS."}
+        ],
+        "question": "Jeste li znali značenje imena?"
+      },
+      "caption": "ASICS nije nasumično izmišljena reč. Ime je nastalo kao akronim latinskog izraza Anima Sana In Corpore Sano, koji povezuje zdrav um i zdravo telo. Koreni kompanije sežu do Kihachira Onitsuke i 1949. godine, dok je ASICS kao kompanija formiran 1977.",
+      "hashtags": ["#TrendyPatike", "#ASICS", "#SneakerIstorija", "#Running", "#Patike", "#Japan"],
+      "image_prompts": [
+        "Japanese running heritage archive with a retro athletic shoe on the right, dark premium editorial",
+        "vintage Japanese sports shoe workshop mood, unbranded running shoe on right, cinematic dark scene",
+        "retro running sneaker in a minimal Japanese-inspired studio, dark green accents, subject on right"
+      ],
+      "sources": [
+        {"title": "ASICS History", "publisher": "ASICS", "url": "https://corp.asics.com/en/about_asics/history"},
+        {"title": "ASICS Founder Story and Brand History", "publisher": "ASICS", "url": "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"}
+      ],
+      "claims": [
+        {"claim": "Kihachiro Onitsuka founded his footwear company in Kobe in 1949.", "source_urls": ["https://corp.asics.com/en/about_asics/history"]},
+        {"claim": "ASICS was formed in 1977 after a merger of three companies.", "source_urls": ["https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"]},
+        {"claim": "ASICS is derived from Anima Sana In Corpore Sano.", "source_urls": ["https://corp.asics.com/en/about_asics/history", "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-stan-smith-haillet",
+      "topic": "Zašto Stan Smith prvobitno nije bio Stan Smith",
+      "category": "tenis / istorija",
+      "preferred_domains": ["news.adidas.com", "adidas-group.com"],
+      "visual_subject": "retro tennis court and classic white leather tennis sneaker",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Zašto Stan Smith prvobitno nije bio Stan Smith",
+      "cover": {
+        "headline_lines": [
+          {"text": "PRE STAN SMITHA", "accent": false},
+          {"text": "BIO JE HAILLET", "accent": true}
+        ],
+        "subheadline": "Jedna od najpoznatijih adidas patika prvo je nosila ime drugog tenisera."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "PRVO DRUGO IME", "accent": true}],
+        "facts": [
+          {"tag": "60-E", "text": "Model je sredinom šezdesetih razvijen uz francuskog tenisera Roberta Hailleta."},
+          {"tag": "HAILLET", "text": "Patika je tada bila poznata jednostavno pod imenom Haillet."},
+          {"tag": "1972", "text": "Stan Smith je 1972. postao novi veliki teniski partner kompanije adidas."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "DVA IMENA", "accent": true}],
+        "facts": [
+          {"tag": "1973", "text": "Prve patike sa imenom Stan Smith pojavile su se 1973. godine."},
+          {"tag": "1978", "text": "adidas je tek 1978. potpuno uklonio ime Haillet sa modela."}
+        ],
+        "question": "Koje ime vam je bolje?"
+      },
+      "caption": "Stan Smith nije od početka bio Stan Smith. Model je prvo razvijen uz francuskog tenisera Roberta Hailleta, a početkom sedamdesetih priča se postepeno prebacuje na Stana Smitha. Nekoliko godina patika je čak nosila oba imena. Sneaker istorija često krije ovakve detalje.",
+      "hashtags": ["#TrendyPatike", "#adidas", "#StanSmith", "#Tenis", "#SneakerIstorija", "#Patike"],
+      "image_prompts": [
+        "1960s tennis court with classic white leather tennis sneaker on right, premium dark editorial photography",
+        "retro white green tennis sneaker beside vintage wooden racket, dark studio, subject on right",
+        "1970s tennis archive mood with white leather sneaker on the right, cinematic editorial"
+      ],
+      "sources": [
+        {"title": "Half a Century of Classic Style: The History of the adidas Stan Smith", "publisher": "adidas", "url": "https://news.adidas.com/timeline/half-a-century-of-classic-style--the-history-of-the-adidas-stan-smith/s/f6061bfc-b9e6-43a0-b7d7-caac2e184126"},
+        {"title": "Half a Century of Classic Style: The History of the adidas Stan Smith", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith"}
+      ],
+      "claims": [
+        {"claim": "The shoe was originally developed with French player Robert Haillet in the mid-1960s.", "source_urls": ["https://news.adidas.com/timeline/half-a-century-of-classic-style--the-history-of-the-adidas-stan-smith/s/f6061bfc-b9e6-43a0-b7d7-caac2e184126"]},
+        {"claim": "The first shoes carrying Stan Smith's name appeared in 1973.", "source_urls": ["https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith"]},
+        {"claim": "adidas dropped Haillet from the shoe name in 1978.", "source_urls": ["https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-puma-rs-computer",
+      "topic": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "category": "tehnologija / istorija",
+      "preferred_domains": ["about.puma.com"],
+      "visual_subject": "1980s running shoe with retro computer technology",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "cover": {
+        "headline_lines": [
+          {"text": "SMART PATIKA", "accent": false},
+          {"text": "IZ 1985?", "accent": true}
+        ],
+        "subheadline": "PUMA je mnogo pre pametnih satova napravila patiku koja je beležila podatke o trčanju."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "RS-COMPUTER", "accent": true}],
+        "facts": [
+          {"tag": "1985", "text": "PUMA je 1985. razvila Running System, danas poznat kao RS."},
+          {"tag": "ČETIRI DELA", "text": "RS đon je spajao četiri komponente za ublažavanje udara i kontrolu pokreta."},
+          {"tag": "KOMPJUTER", "text": "Na toj tehnologiji nastao je RS-Computer, rana kompjuterska patika."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "PODACI U PATICI", "accent": true}],
+        "facts": [
+          {"tag": "TRČANJE", "text": "RS-Computer je beležio podatke tokom trčanja."},
+          {"tag": "POREĐENJE", "text": "Trkači su mogli da porede prethodne rezultate sa budućim ciljevima."}
+        ],
+        "question": "Deluje li vam ovo kao 1985?"
+      },
+      "caption": "Pametne patike nisu nova ideja. PUMA RS-Computer nastao je sredinom osamdesetih na osnovi Running System tehnologije i beležio je podatke tokom trčanja. Ideja je bila da trkači mogu da porede rezultate i prate napredak, decenijama pre današnjih wearable uređaja.",
+      "hashtags": ["#TrendyPatike", "#PUMA", "#RSComputer", "#Running", "#SneakerIstorija", "#Tehnologija"],
+      "image_prompts": [
+        "1980s retro computer running shoe on right with vintage electronics, dark editorial studio",
+        "close up retro running sneaker with small computer module aesthetic, dark cinematic scene",
+        "1980s runner technology archive with unbranded smart running shoe on right, premium editorial"
+      ],
+      "sources": [
+        {"title": "PUMA Timeline", "publisher": "PUMA", "url": "https://about.puma.com/en/puma/history"},
+        {"title": "PUMA Timeline", "publisher": "PUMA", "url": "https://about.puma.com/en/puma/puma-timeline"}
+      ],
+      "claims": [
+        {"claim": "PUMA developed its Running System in 1985.", "source_urls": ["https://about.puma.com/en/puma/history", "https://about.puma.com/en/puma/puma-timeline"]},
+        {"claim": "The RS-Computer was developed as an early computer shoe based on RS technology.", "source_urls": ["https://about.puma.com/en/puma/puma-timeline"]},
+        {"claim": "The RS-Computer recorded running data for later comparison.", "source_urls": ["https://about.puma.com/en/puma/history"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-air-max-1",
+      "topic": "Kako je Air Max 1 učinio Nike Air vidljivim",
+      "category": "model / tehnologija",
+      "preferred_domains": ["nike.com", "about.nike.com"],
+      "visual_subject": "1987 running sneaker with visible air window and Paris architecture mood",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je Air Max 1 učinio Nike Air vidljivim",
+      "cover": {
+        "headline_lines": [
+          {"text": "KADA JE AIR", "accent": false},
+          {"text": "POSTAO VIDLJIV", "accent": true}
+        ],
+        "subheadline": "Tinker Hatfield je arhitekturu iz Pariza pretvorio u jednu od najpoznatijih sneaker ideja."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "INSPIRACIJA IZ PARIZA", "accent": true}],
+        "facts": [
+          {"tag": "TINKER", "text": "Tinker Hatfield je u Nike stigao 1981. sa obrazovanjem iz arhitekture."},
+          {"tag": "POMPIDOU", "text": "Pariški Centre Pompidou inspirisao ga je svojim spolja vidljivim konstrukcijama."},
+          {"tag": "PROZOR", "text": "Hatfield je deo srednjeg đona otvorio kako bi Air jedinica postala vidljiva."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "1987. STIŽE AIR MAX 1", "accent": true}],
+        "facts": [
+          {"tag": "1987", "text": "Nike Air Max 1 debitovao je 1987. godine."},
+          {"tag": "PRVI POGLED", "text": "Model je širokoj publici pokazao Air amortizaciju kroz vidljiv prozor u đonu."}
+        ],
+        "question": "Koji Air Max vam je najbolji?"
+      },
+      "caption": "Air Max 1 je spoj arhitekture i patika. Tinker Hatfield je inspiraciju pronašao u Centre Pompidou u Parizu, zgradi koja pokazuje svoje konstrukcije spolja. Ideju je preneo na patiku tako što je Nike Air jedinicu učinio vidljivom kroz srednji đon. Model je debitovao 1987.",
+      "hashtags": ["#TrendyPatike", "#Nike", "#AirMax1", "#AirMax", "#TinkerHatfield", "#SneakerIstorija"],
+      "image_prompts": [
+        "1987 inspired running sneaker with visible air window on right and Paris modern architecture mood, dark editorial",
+        "retro running sneaker detail with visible cushioning window, dark studio, subject on right",
+        "late 1980s running shoe scene inspired by inside-out Paris architecture, premium dark editorial"
+      ],
+      "sources": [
+        {"title": "The History of the Air Max 1", "publisher": "Nike", "url": "https://www.nike.com/a/air-max-1-history"},
+        {"title": "Nike Partners with the Centre Pompidou for a Bold Celebration of Sport in Paris", "publisher": "Nike", "url": "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"}
+      ],
+      "claims": [
+        {"claim": "Tinker Hatfield joined Nike in 1981 and had an architecture background.", "source_urls": ["https://www.nike.com/a/air-max-1-history"]},
+        {"claim": "Centre Pompidou inspired Hatfield's visible Air concept for the Air Max 1.", "source_urls": ["https://www.nike.com/a/air-max-1-history", "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"]},
+        {"claim": "The Air Max 1 debuted in 1987 with visible Air cushioning.", "source_urls": ["https://www.nike.com/a/air-max-1-history"]}
+      ]
+    }
+  }
+]
