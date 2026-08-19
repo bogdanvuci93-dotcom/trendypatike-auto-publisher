@@ -14,7 +14,7 @@ const fact = {
   required: ["tag", "text"],
   properties: {
     tag: { type: "string", maxLength: 18 },
-    text: { type: "string", maxLength: 66 }
+    text: { type: "string", minLength: 24, maxLength: 92 }
   }
 };
 
@@ -70,7 +70,7 @@ export const postSchema = {
           maxItems: 4,
           items: headlineLine
         },
-        subheadline: { type: "string", maxLength: 80 }
+        subheadline: { type: "string", minLength: 24, maxLength: 92 }
       }
     },
     slide2: {
