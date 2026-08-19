@@ -1,6 +1,7 @@
 import { cfg } from "./config.mjs";
 
 const base = () => `https://graph.instagram.com/${cfg.igVersion}`;
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 class InstagramRequestError extends Error {
   constructor(message, { status = 0, code = 0, subcode = 0, retryAfterMs = 0 } = {}) {
@@ -13,16 +14,14 @@ class InstagramRequestError extends Error {
   }
 }
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 function retryDelay(err, attempt) {
-  if (err?.retryAfterMs > 0) return Math.min(err.retryAfterMs, 30000);
-  return Math.min(3000 * (2 ** (attempt - 1)), 20000);
+  if (err?.retryAfterMs > 0) return Math.min(err.retryAfterMs, 60000);
+  return Math.min(5000 * (2 ** (attempt - 1)), 60000);
 }
 
 function isTransientInstagramError(err) {
   if (!(err instanceof InstagramRequestError)) return false;
-  if (err.status === 429 || err.status >= 500) return true;
+  if (err.status === 408 || err.status === 429 || err.status >= 500) return true;
   return [1, 2, 4, 17, 32, 613].includes(err.code);
 }
 
@@ -34,22 +33,21 @@ async function parseResponse(res) {
   }
 }
 
-async function igRequest(method, path, params = {}, maxAttempts = 4) {
+async function igRequest(method, endpoint, params = {}, maxAttempts = 5) {
   let lastError = null;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      const url = new URL(`${base()}/${path}`);
+      const url = new URL(`${base()}/${endpoint}`);
       const options = {
         method,
         headers: { "Authorization": `Bearer ${cfg.igToken}` },
-        cache: "no-store"
+        cache: "no-store",
+        signal: AbortSignal.timeout(30000)
       };
 
       if (method === "GET") {
-        for (const [key, value] of Object.entries(params)) {
-          url.searchParams.set(key, String(value));
-        }
+        for (const [key, value] of Object.entries(params)) url.searchParams.set(key, String(value));
       } else {
         const body = new URLSearchParams();
         for (const [key, value] of Object.entries(params)) body.set(key, String(value));
@@ -59,13 +57,12 @@ async function igRequest(method, path, params = {}, maxAttempts = 4) {
 
       const res = await fetch(url, options);
       const json = await parseResponse(res);
-
       if (res.ok && !json.error) return json;
 
       const apiError = json.error || json || {};
       const retryAfter = Number(res.headers.get("retry-after") || 0);
       throw new InstagramRequestError(
-        `Instagram ${method} ${path} failed (HTTP ${res.status}): ${apiError.message || JSON.stringify(json)}`,
+        `Instagram ${method} ${endpoint} failed (HTTP ${res.status}): ${apiError.message || JSON.stringify(json)}`,
         {
           status: res.status,
           code: apiError.code,
@@ -76,73 +73,60 @@ async function igRequest(method, path, params = {}, maxAttempts = 4) {
     } catch (err) {
       lastError = err instanceof InstagramRequestError
         ? err
-        : new InstagramRequestError(`Instagram ${method} ${path} network failure: ${err.message}`,
-          { status: 503 });
+        : new InstagramRequestError(`Instagram ${method} ${endpoint} network failure: ${err.message}`, { status: 503 });
 
       if (!isTransientInstagramError(lastError) || attempt >= maxAttempts) throw lastError;
-
       const delay = retryDelay(lastError, attempt);
-      console.warn(
-        `[instagram] ${method} ${path} attempt ${attempt}/${maxAttempts} failed transiently; ` +
-        `retrying in ${Math.round(delay / 1000)}s.`
-      );
+      console.warn(`[instagram] ${method} ${endpoint} transient failure ${attempt}/${maxAttempts}; retry in ${Math.round(delay / 1000)}s.`);
       await sleep(delay);
     }
   }
 
-  throw lastError || new Error(`Instagram ${method} ${path} failed`);
+  throw lastError || new Error(`Instagram ${method} ${endpoint} failed`);
 }
 
-async function igPost(path, params, maxAttempts = 4) {
-  return igRequest("POST", path, params, maxAttempts);
+async function igPost(endpoint, params, maxAttempts = 5) {
+  return igRequest("POST", endpoint, params, maxAttempts);
 }
 
-async function igGet(path, params = {}, maxAttempts = 4) {
-  return igRequest("GET", path, params, maxAttempts);
+async function igGet(endpoint, params = {}, maxAttempts = 5) {
+  return igRequest("GET", endpoint, params, maxAttempts);
 }
 
 async function waitContainer(id, timeoutMs = 300000) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
-    const status = await igGet(id, { fields: "status_code,status" }, 4);
-    if (["FINISHED", "PUBLISHED"].includes(status.status_code)) return status;
-    if (["ERROR", "EXPIRED"].includes(status.status_code)) {
-      throw new Error(`Instagram container ${id} failed: ${JSON.stringify(status)}`);
+    const status = await igGet(id, { fields: "status_code,status" }, 5);
+    const code = String(status.status_code || status.status || "").toUpperCase();
+    if (["FINISHED", "PUBLISHED"].includes(code)) return status;
+    if (["ERROR", "EXPIRED"].includes(code)) {
+      const err = new Error(`Instagram container ${id} ${code.toLowerCase()}: ${JSON.stringify(status)}`);
+      err.containerStatus = code;
+      throw err;
     }
     await sleep(5000);
   }
-  throw new Error(`Instagram container timeout: ${id}`);
+  const err = new Error(`Instagram container timeout: ${id}`);
+  err.containerStatus = "TIMEOUT";
+  throw err;
 }
 
 export async function verifyInstagramConnection({ probeImageUrl = "" } = {}) {
-  const account = await igGet("me", {
-    fields: "id,user_id,username,account_type"
-  }, 4);
+  const account = await igGet("me", { fields: "id,user_id,username,account_type" }, 5);
+  const returnedIds = [account.user_id, account.id].filter(Boolean).map(String);
 
-  const returnedIds = [account.user_id, account.id]
-    .filter(Boolean)
-    .map(String);
-
-  if (!returnedIds.length) {
-    throw new Error("Instagram preflight worked but returned no account ID");
-  }
-
+  if (!returnedIds.length) throw new Error("Instagram preflight worked but returned no account ID");
   if (cfg.igUserId && !returnedIds.includes(String(cfg.igUserId))) {
-    throw new Error(
-      `Instagram preflight IG_USER_ID mismatch: configured ${cfg.igUserId}, returned ${returnedIds.join(", ")}`
-    );
+    throw new Error(`Instagram preflight IG_USER_ID mismatch: configured ${cfg.igUserId}, returned ${returnedIds.join(", ")}`);
   }
 
   console.log(`Instagram account preflight OK for @${account.username || "unknown"}`);
 
   if (probeImageUrl) {
-    // Create but DO NOT publish a disposable carousel-item container. This
-    // proves content-publish permission and proves Meta can fetch our public
-    // GitHub JPEG before we spend anything on OpenAI.
     const probe = await igPost(`${cfg.igUserId}/media`, {
       image_url: probeImageUrl,
       is_carousel_item: "true"
-    }, 4);
+    }, 5);
     if (!probe?.id) throw new Error("Instagram publishing preflight returned no container ID");
     await waitContainer(probe.id, 180000);
     console.log(`Instagram publishing preflight OK; disposable container ${probe.id} is ready and will not be published.`);
@@ -153,19 +137,21 @@ export async function verifyInstagramConnection({ probeImageUrl = "" } = {}) {
 
 function normalizedCaption(value = "") {
   return String(value)
+    .normalize("NFC")
     .replace(/\r\n/g, "\n")
     .replace(/[ \t]+\n/g, "\n")
+    .replace(/[ \t]{2,}/g, " ")
     .trim();
 }
 
-export async function findExistingPublishedMedia(caption, { limit = 12, lookbackHours = 48 } = {}) {
+export async function findExistingPublishedMedia(caption, { limit = 20, lookbackHours = 72 } = {}) {
   const target = normalizedCaption(caption);
   if (!target) return null;
 
   const result = await igGet(`${cfg.igUserId}/media`, {
     fields: "id,caption,timestamp,media_type,permalink",
     limit
-  }, 4);
+  }, 5);
 
   const cutoff = Date.now() - lookbackHours * 60 * 60 * 1000;
   for (const item of result.data || []) {
@@ -173,57 +159,99 @@ export async function findExistingPublishedMedia(caption, { limit = 12, lookback
     if (Number.isFinite(timestamp) && timestamp < cutoff) continue;
     if (normalizedCaption(item.caption) === target) return item;
   }
-
   return null;
 }
 
-export async function publishCarousel(imageUrls, caption) {
+async function safeProgress(onProgress, state) {
+  if (typeof onProgress !== "function") return;
+  try {
+    await onProgress(JSON.parse(JSON.stringify(state)));
+  } catch (err) {
+    console.warn(`[instagram] Could not persist publish progress; continuing current Meta session: ${err.message}`);
+  }
+}
+
+async function validateExistingChildren(childIds) {
+  if (!Array.isArray(childIds) || !childIds.length) return [];
+  try {
+    for (const id of childIds) await waitContainer(id, 120000);
+    return childIds;
+  } catch (err) {
+    console.warn(`[instagram] Saved child container state is no longer reusable: ${err.message}`);
+    return [];
+  }
+}
+
+export async function publishCarousel(imageUrls, caption, { resumeState = {}, onProgress = null } = {}) {
   if (imageUrls.length < 2 || imageUrls.length > 10) {
     throw new Error(`Carousel needs 2-10 items, received ${imageUrls.length}`);
   }
 
-  // Duplicate guard: if Meta already published the exact caption during a prior
-  // run but GitHub state persistence failed afterwards, recover that media ID
-  // instead of publishing the carousel a second time.
   const existing = await findExistingPublishedMedia(caption);
   if (existing) {
     console.log(`[instagram] Exact carousel already exists as media ${existing.id}; recovering instead of duplicating.`);
     return { id: existing.id, recovered: true };
   }
 
-  const childIds = [];
-  for (const imageUrl of imageUrls) {
+  const progress = {
+    child_ids: await validateExistingChildren(resumeState.child_ids),
+    carousel_id: String(resumeState.carousel_id || "")
+  };
+
+  // If saved children do not exactly match the current number of carousel items,
+  // rebuild the Meta session, but reuse all AI/GitHub assets.
+  if (progress.child_ids.length > imageUrls.length) progress.child_ids = [];
+
+  for (let i = progress.child_ids.length; i < imageUrls.length; i++) {
     const child = await igPost(`${cfg.igUserId}/media`, {
-      image_url: imageUrl,
+      image_url: imageUrls[i],
       is_carousel_item: "true"
-    }, 4);
-    childIds.push(child.id);
+    }, 5);
+    if (!child?.id) throw new Error(`Instagram returned no child container ID for slide ${i + 1}`);
+    progress.child_ids.push(String(child.id));
+    await safeProgress(onProgress, progress);
   }
 
-  for (const id of childIds) await waitContainer(id);
+  for (const id of progress.child_ids) await waitContainer(id);
 
-  const carousel = await igPost(`${cfg.igUserId}/media`, {
-    media_type: "CAROUSEL",
-    children: childIds.join(","),
-    caption
-  }, 4);
-  await waitContainer(carousel.id);
+  if (progress.carousel_id) {
+    try {
+      await waitContainer(progress.carousel_id, 180000);
+    } catch (err) {
+      console.warn(`[instagram] Saved carousel container cannot be reused: ${err.message}`);
+      progress.carousel_id = "";
+      await safeProgress(onProgress, progress);
+    }
+  }
+
+  if (!progress.carousel_id) {
+    const carousel = await igPost(`${cfg.igUserId}/media`, {
+      media_type: "CAROUSEL",
+      children: progress.child_ids.join(","),
+      caption
+    }, 5);
+    if (!carousel?.id) throw new Error("Instagram returned no carousel container ID");
+    progress.carousel_id = String(carousel.id);
+    await safeProgress(onProgress, progress);
+    await waitContainer(progress.carousel_id);
+  }
 
   try {
     const published = await igPost(`${cfg.igUserId}/media_publish`, {
-      creation_id: carousel.id
-    }, 4);
+      creation_id: progress.carousel_id
+    }, 5);
     if (!published?.id) throw new Error("Instagram media_publish returned no media ID");
     return published;
   } catch (err) {
-    // A network/5xx failure can happen after Meta has already accepted the
-    // publish request. Re-check the account before treating it as a failure.
+    // The request may have succeeded on Meta even if the response was lost.
     console.warn(`[instagram] media_publish did not return cleanly: ${err.message}`);
-    await sleep(5000);
-    const recovered = await findExistingPublishedMedia(caption);
-    if (recovered) {
-      console.log(`[instagram] Publish was actually successful; recovered media ${recovered.id}.`);
-      return { id: recovered.id, recovered: true };
+    for (let check = 1; check <= 4; check++) {
+      await sleep(5000 * check);
+      const recovered = await findExistingPublishedMedia(caption);
+      if (recovered) {
+        console.log(`[instagram] Publish was successful; recovered media ${recovered.id}.`);
+        return { id: recovered.id, recovered: true };
+      }
     }
     throw err;
   }
