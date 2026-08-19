@@ -11,7 +11,7 @@ export const cfg = {
   verifyModel: process.env.VERIFY_MODEL || "gpt-5-mini-2025-08-07",
   imageModel: process.env.IMAGE_MODEL || "gpt-image-1-mini",
   imageQuality: process.env.IMAGE_QUALITY || "medium",
-  maxOpenAICalls: Math.max(1, Number(process.env.MAX_OPENAI_CALLS || 10)),
+  maxOpenAICalls: Math.max(1, Number(process.env.MAX_OPENAI_CALLS || 8)),
 
   igToken: process.env.IG_ACCESS_TOKEN,
   igUserId: process.env.IG_USER_ID,
@@ -23,7 +23,7 @@ export const cfg = {
 
   dryRun: process.env.DRY_RUN ? String(process.env.DRY_RUN).toLowerCase() === "true" : true,
   forceRun: process.env.FORCE_RUN ? String(process.env.FORCE_RUN).toLowerCase() === "true" : false,
-  maxTopicAttempts: Number(process.env.MAX_TOPIC_ATTEMPTS || 2),
+  maxTopicAttempts: Number(process.env.MAX_TOPIC_ATTEMPTS || 1),
 
   githubRepository: process.env.GITHUB_REPOSITORY || "",
   githubRefName: process.env.GITHUB_REF_NAME || "main",
@@ -50,7 +50,6 @@ export function assertOpenAIConfig() {
   if (!cfg.imageModel) throw new Error("Missing IMAGE_MODEL");
 }
 
-// Backward-compatible helper for local scripts that need the complete stack.
 export function assertBaseConfig() {
   assertRuntimeConfig();
   assertOpenAIConfig();
