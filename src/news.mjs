@@ -138,14 +138,10 @@ If one exists, preferred_domains must come from: ${MAJOR_NEWS_DOMAINS.join(", ")
 }
 
 async function chooseUniqueEvergreenTopic(topics, state) {
-  // Curated topics cost zero to select. Walk them locally and never call the AI
-  // repeatedly just because one curated title is considered too similar.
   for (const topic of topics) {
     if (!isDuplicateTopic(topic, state)) return topic;
   }
 
-  // Once the curated library is exhausted, make at most ONE paid fresh-topic
-  // selection per outer topic attempt. The global OpenAI call cap still applies.
   const fresh = await chooseTopic([], state);
   if (!isDuplicateTopic(fresh, state)) return fresh;
   throw new Error(`Fresh topic generator returned a duplicate: ${fresh.topic}`);
@@ -157,9 +153,16 @@ export async function choosePriorityTopic(topics, state, { allowMajorNews = true
       const major = await scanMajorSneakerNews(state);
       if (major) return major;
     } catch (err) {
-      // Billing/auth problems must stop immediately. A technical failure of the
-      // optional news gate should not prevent the zero-cost evergreen fallback.
-      if (isFatalAccountError(err)) throw err;
+      // Never stack more paid calls after account/budget problems or an ambiguous
+      // network timeout where the first request may already have been charged.
+      if (
+        isFatalAccountError(err) ||
+        ["OpenAIBudgetGuardError", "OpenAINetworkAmbiguousError"].includes(err?.name)
+      ) {
+        throw err;
+      }
+      // A malformed optional news-gate object can safely fall back to curated
+      // evergreen content; writer/verifier still do independent fact research.
       console.warn(`[news] Optional major-news gate unavailable; using evergreen: ${err.message}`);
     }
   }
