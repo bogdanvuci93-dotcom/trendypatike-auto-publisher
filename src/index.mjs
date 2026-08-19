@@ -16,6 +16,9 @@ import { publishCarousel, verifyInstagramConnection } from "./instagram.mjs";
 import { isFatalOpenAIError } from "./openai.mjs";
 import { clearPending, loadPending, savePending } from "./pending.mjs";
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const INSTAGRAM_PREFLIGHT_IMAGE = "public/posts/2026-08-19-air-jordan-start/01.jpg";
+
 function cleanVisibleText(value = "") {
   return String(value)
     .replaceAll("—", ",")
@@ -117,6 +120,19 @@ async function saveCheckpoint(data, message, extraPaths = []) {
   return pendingFile;
 }
 
+async function instagramPreflight() {
+  if (cfg.dryRun) return;
+
+  let probeImageUrl = "";
+  if (process.env.GITHUB_ACTIONS === "true") {
+    const probePath = path.resolve(INSTAGRAM_PREFLIGHT_IMAGE);
+    probeImageUrl = publicUrlFor(probePath);
+    await waitUntilPublic(probeImageUrl, 60000);
+  }
+
+  await verifyInstagramConnection({ probeImageUrl });
+}
+
 async function main() {
   assertBaseConfig();
   const today = dateInBelgrade();
@@ -128,10 +144,9 @@ async function main() {
     return;
   }
 
-  if (!cfg.dryRun) {
-    // Fail before any OpenAI spending if the Instagram token/account is invalid.
-    await verifyInstagramConnection();
-  }
+  // Account ID, content-publishing permission and Meta access to our public
+  // GitHub JPEG are checked before any OpenAI spending.
+  await instagramPreflight();
 
   const pending = cfg.dryRun ? null : await loadPending();
   let chosenSeed = null;
@@ -189,7 +204,7 @@ async function main() {
 
     if (!cfg.dryRun) {
       // Persist the expensive part FIRST. If images/Git/Meta fail afterwards,
-      // the next run resumes here and does not pay for research again.
+      // the next attempt resumes here and does not pay for research again.
       await saveCheckpoint(
         {
           date: today,
@@ -288,17 +303,60 @@ async function main() {
   const clearedPending = await clearPending();
 
   if (process.env.GITHUB_ACTIONS === "true") {
-    // This is the one post-publish write. Retry harder because state persistence
-    // prevents the next scheduled run from creating a duplicate post.
-    commitAndPush(
-      ["data/state.json", clearedPending],
-      `Mark TrendyPatike post published ${today}`,
-      8
-    );
+    try {
+      // This is the one post-publish write. Retry harder because state
+      // persistence prevents the next scheduled run from creating a duplicate.
+      commitAndPush(
+        ["data/state.json", clearedPending],
+        `Mark TrendyPatike post published ${today}`,
+        8
+      );
+    } catch (err) {
+      // Instagram is already successfully published. Do not mark the whole job
+      // as failed merely because GitHub state persistence is temporarily down.
+      // The remote ready checkpoint plus exact-caption duplicate guard let the
+      // next run recover the same media ID without republishing or using OpenAI.
+      console.error(`[state] Instagram publish succeeded, but final state push failed: ${err.message}`);
+      console.log("[state] Leaving recovery to the next run; no duplicate publish or new AI work is required.");
+    }
   }
 }
 
-main().catch(err => {
+async function runWithRecovery(maxAttempts = 3) {
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await main();
+    } catch (err) {
+      lastError = err;
+      if (isFatalOpenAIError(err) || cfg.dryRun || attempt >= maxAttempts) throw err;
+
+      let pending = null;
+      try {
+        pending = await loadPending();
+      } catch {}
+
+      // Only repeat the whole orchestration when expensive work has already
+      // been checkpointed. This allows GitHub/Meta/image recovery without ever
+      // paying writer+verifier again in the same run.
+      if (!pending?.seed || !pending?.post || !["verified", "ready"].includes(pending.stage)) {
+        throw err;
+      }
+
+      const delay = 10000 * attempt;
+      console.warn(
+        `[recovery] Attempt ${attempt}/${maxAttempts} failed after checkpoint: ${err.message}. ` +
+        `Retrying orchestration in ${Math.round(delay / 1000)}s without repeating completed research.`
+      );
+      await sleep(delay);
+    }
+  }
+
+  throw lastError || new Error("Publisher recovery failed");
+}
+
+runWithRecovery().catch(err => {
   console.error(err.stack || err.message || err);
   process.exit(1);
 });
