@@ -39,28 +39,28 @@ function extractOutputText(json) {
 function extractSearchUrls(json) {
   const urls = new Set();
 
-  for (const item of json.output || []) {
-    if (item?.type === "web_search_call") {
-      const action = item.action || {};
-      if (typeof action.url === "string") urls.add(action.url);
-      for (const source of action.sources || []) {
-        if (source?.type === "url" && typeof source.url === "string") {
-          urls.add(source.url);
-        }
-      }
+  const visit = (value) => {
+    if (!value) return;
+    if (Array.isArray(value)) {
+      for (const x of value) visit(x);
+      return;
+    }
+    if (typeof value !== "object") return;
+
+    if (value.type === "url" && typeof value.url === "string") {
+      urls.add(value.url);
+    }
+    if (value.type === "url_citation" && typeof value.url === "string") {
+      urls.add(value.url);
+    }
+    if (["open_page", "find_in_page"].includes(value.type) && typeof value.url === "string") {
+      urls.add(value.url);
     }
 
-    if (item?.type === "message") {
-      for (const part of item.content || []) {
-        for (const annotation of part.annotations || []) {
-          if (annotation?.type === "url_citation" && typeof annotation.url === "string") {
-            urls.add(annotation.url);
-          }
-        }
-      }
-    }
-  }
+    for (const child of Object.values(value)) visit(child);
+  };
 
+  visit(json.output || []);
   return [...urls];
 }
 
@@ -75,6 +75,7 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
     store: false,
     tools: [tool],
     tool_choice: "required",
+    include: ["web_search_call.action.sources"],
     input: prompt,
     text: {
       verbosity: "low",
@@ -102,6 +103,7 @@ export async function structuredWebResponse({ model, prompt, schema, schemaName,
     throw new Error(`No web-search evidence returned for ${schemaName}`);
   }
 
+  console.log(`[evidence] ${schemaName}: ${searchUrls.length} web source URL(s)`);
   return { value, searchUrls };
 }
 
