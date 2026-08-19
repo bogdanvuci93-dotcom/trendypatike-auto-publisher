@@ -220,8 +220,6 @@ async function checkpointBestEffort(files, message) {
   try {
     commitAndPush(files, message, 6);
   } catch (err) {
-    // Final asset checkpoint in index.mjs remains authoritative. Do not stop a
-    // healthy current run just because an intermediate Git checkpoint is down.
     console.warn(`[checkpoint] ${message} could not be pushed yet: ${err.message}`);
   }
 }
@@ -260,28 +258,29 @@ export async function generateAndRender(post, outputDir) {
     }
 
     if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
-      const primaryPrompt = finalPrompt(post.image_prompts[i], i);
-      const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace it with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
-      const safePrompt = neutralSafePrompt(i);
       let imageBuffer;
 
-      try {
-        imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
-        console.log(`[image] AI source ${i + 1}/3 generated successfully.`);
-      } catch (err) {
-        // Image availability is not allowed to invalidate already verified facts.
-        // Use a deterministic local sneaker visual and keep the daily publish alive.
-        console.warn(`[image] AI image unavailable for slide ${i + 1}; using zero-cost local fallback: ${err.message}`);
+      if (post.force_local_images) {
+        console.log(`[image] Emergency post slide ${i + 1}/3 uses zero-cost local visual by design.`);
         imageBuffer = await localFallbackBuffer(i);
+      } else {
+        const primaryPrompt = finalPrompt(post.image_prompts[i], i);
+        const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace it with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
+        const safePrompt = neutralSafePrompt(i);
+
+        try {
+          imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
+          console.log(`[image] AI source ${i + 1}/3 generated successfully.`);
+        } catch (err) {
+          console.warn(`[image] AI image unavailable for slide ${i + 1}; using zero-cost local fallback: ${err.message}`);
+          imageBuffer = await localFallbackBuffer(i);
+        }
       }
 
       await fs.writeFile(sourcePath, imageBuffer);
       if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
-        // This would indicate a local Sharp/filesystem failure, which the zero-cost
-        // render preflight is designed to catch before paid work.
         throw new Error(`Source image ${i + 1} could not be decoded after generation/fallback`);
       }
-
       await checkpointBestEffort([sourcePath], `Checkpoint TrendyPatike source ${i + 1}`);
     } else {
       console.log(`[resume] Reusing source image ${i + 1}/3; rendering only.`);
@@ -337,7 +336,6 @@ export async function runRenderSelfTest() {
     }
   }
 
-  // Also verify the no-API image fallback itself is decodable and renderable.
   for (let i = 0; i < 3; i++) {
     const fallback = await localFallbackBuffer(i);
     const meta = await sharp(fallback).metadata();
