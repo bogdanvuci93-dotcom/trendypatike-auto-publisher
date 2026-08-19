@@ -13,10 +13,53 @@ import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
 import { publishCarousel } from "./instagram.mjs";
 
+function cleanVisibleText(value = "") {
+  return String(value)
+    .replaceAll("—", ",")
+    .replace(/\s+,/g, ",")
+    .replace(/,{2,}/g, ",")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function sanitizeVisiblePost(post) {
+  post.cover.subheadline = cleanVisibleText(post.cover.subheadline);
+  post.cover.headline_lines = post.cover.headline_lines.map(line => ({
+    ...line,
+    text: cleanVisibleText(line.text)
+  }));
+
+  post.slide2.headline_lines = post.slide2.headline_lines.map(line => ({
+    ...line,
+    text: cleanVisibleText(line.text)
+  }));
+  post.slide2.facts = post.slide2.facts.map(fact => ({
+    ...fact,
+    tag: cleanVisibleText(fact.tag),
+    text: cleanVisibleText(fact.text)
+  }));
+
+  post.slide3.headline_lines = post.slide3.headline_lines.map(line => ({
+    ...line,
+    text: cleanVisibleText(line.text)
+  }));
+  post.slide3.facts = post.slide3.facts.map(fact => ({
+    ...fact,
+    tag: cleanVisibleText(fact.tag),
+    text: cleanVisibleText(fact.text)
+  }));
+  post.slide3.question = cleanVisibleText(post.slide3.question);
+  post.caption = cleanVisibleText(post.caption);
+  post.hashtags = post.hashtags.map(cleanVisibleText);
+
+  return post;
+}
+
 function captionFor(post) {
   const publishers = [...new Set(post.sources.map(s => s.publisher))].slice(0, 4);
   const tags = post.hashtags.map(x => x.startsWith("#") ? x : `#${x}`).join(" ");
-  return `${post.caption.trim()}\n\nIzvori: ${publishers.join(" / ")}\n\n${tags}`.slice(0, 2100);
+  const caption = cleanVisibleText(post.caption).slice(0, 550);
+  return `${caption}\n\nIzvori: ${publishers.join(" / ")}\n\n${tags}`.slice(0, 2100);
 }
 
 async function saveMetadata(dir, seed, post) {
@@ -55,7 +98,7 @@ async function main() {
     console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
 
     try {
-      post = await researchWriteVerify(seed);
+      post = sanitizeVisiblePost(await researchWriteVerify(seed));
       chosenSeed = seed;
       break;
     } catch (err) {
@@ -88,7 +131,7 @@ async function main() {
   post.sources.forEach(s => console.log(` - ${s.publisher}: ${s.url}`));
 
   if (cfg.dryRun) {
-    console.log("DRY_RUN=true — generated and fact-checked, but Instagram publish was skipped.");
+    console.log("DRY_RUN=true: generated and fact-checked, but Instagram publish was skipped.");
     return;
   }
 
