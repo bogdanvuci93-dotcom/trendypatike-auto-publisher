@@ -1,1 +1,120 @@
-{}
+{
+  "date": "2026-08-19",
+  "stage": "verified",
+  "fingerprint": "1eb4c2b8b023",
+  "seed": {
+    "id": "fallback-nike-waffle",
+    "topic": "Kako je aparat za galete pomogao da nastane Nike waffle đon",
+    "category": "istorija / inovacija",
+    "preferred_domains": [
+      "about.nike.com"
+    ],
+    "visual_subject": "1970s running workshop, waffle iron and vintage running shoe",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": true,
+    "topic_title": "Kako je aparat za galete pomogao da nastane Nike waffle đon",
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "PATIKA IZ",
+          "accent": false
+        },
+        {
+          "text": "KUHINJE?",
+          "accent": true
+        }
+      ],
+      "subheadline": "Bill Bowerman je ideju za bolji grip pronašao u običnom aparatu za galete."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "KAKO JE POČELO",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1971",
+          "text": "Bowerman je 1971. proučavao šaru na porodičnom aparatu za galete."
+        },
+        {
+          "tag": "EKSPERIMENT",
+          "text": "U aparat je sipao tečni uretan i prvi pokušaj ga je zalepio."
+        },
+        {
+          "tag": "GRIP",
+          "text": "Cilj je bio lagan đon koji bolje prijanja bez metalnih krampona."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "OD IDEJE DO STAZE",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "MOON SHOE",
+          "text": "Rani prototipi dobili su nadimak Moon Shoe zbog traga nalik otisku na Mesecu."
+        },
+        {
+          "tag": "NASLEĐE",
+          "text": "Waffle đon je kasnije postao važan deo Nike istorije trčanja."
+        }
+      ],
+      "question": "Jeste li znali ovu priču?"
+    },
+    "caption": "Jedna od najpoznatijih Nike inovacija počela je u kuhinji. Bill Bowerman je tražio lagan đon sa boljim prijanjanjem, a šara na aparatu za galete dala mu je ideju za waffle đon. Prvi pokušaj nije prošao glatko, ali eksperiment je nastavio da razvija. Sačuvajte ovu sneaker priču.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#Nike",
+      "#SneakerIstorija",
+      "#Waffle",
+      "#Patike",
+      "#Running"
+    ],
+    "image_prompts": [
+      "1970s running workshop with a vintage waffle iron and retro running shoe on the right, dark editorial photography",
+      "close editorial view of a vintage running outsole with waffle grid texture, dark studio, subject on right",
+      "retro running shoe inspired by early 1970s prototypes on a track, dark premium editorial scene"
+    ],
+    "sources": [
+      {
+        "title": "From Waffle Iron to World Stage: The True Story of the Nike Moon Shoe",
+        "publisher": "Nike",
+        "url": "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+      },
+      {
+        "title": "Bill Bowerman: Nike's Original Innovator",
+        "publisher": "Nike",
+        "url": "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Bowerman experimented with a waffle iron to create a grippy outsole concept.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
+          "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
+        ]
+      },
+      {
+        "claim": "The early handmade shoes became known as the Moon Shoe.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+        ]
+      },
+      {
+        "claim": "The waffle sole became a major part of Nike's early running innovation.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
+        ]
+      }
+    ]
+  }
+}
