@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T08:17:52.951Z",
+  "generated_at": "2026-08-19T09:34:17.859Z",
   "seed": {
     "id": "air-jordan-start",
     "topic": "Kako je počela Air Jordan priča i zašto je promenila sneaker kulturu",
@@ -16,143 +16,128 @@
     "cover": {
       "headline_lines": [
         {
-          "text": "Početak",
+          "text": "KAKO JE POČELA",
           "accent": false
         },
         {
-          "text": "Air Jordan",
+          "text": "AIR JORDAN",
           "accent": true
         },
         {
-          "text": "Mit i revolucija",
+          "text": "PRIČA?",
           "accent": false
         }
       ],
-      "subheadline": "Od Air Ship do AJ1: mit i činjenice koje su oblikovale kulturu."
+      "subheadline": "Nije počelo od AJ1."
     },
     "slide2": {
       "headline_lines": [
         {
-          "text": "Koreni priče",
+          "text": "Ovo malo ljudi zna",
           "accent": true
         }
       ],
       "facts": [
         {
-          "tag": "1984",
-          "text": "Jordan u predsezoni nosi crno‑crveni Nike Air Ship; rađa se ‘banned’ mit."
+          "tag": "PRVO",
+          "text": "Jordan prvo nosi Nike Air Ship."
         },
         {
           "tag": "1985",
-          "text": "Air Jordan 1 stiže u prodaju."
+          "text": "AJ1 stiže u aprilu 1985."
         },
         {
-          "tag": "1997",
-          "text": "Jordan Brand postaje zaseban brend unutar NIKE, Inc."
+          "tag": "PISMO",
+          "text": "NBA pismo zbog boja: 25.2.1985."
         }
       ]
     },
     "slide3": {
       "headline_lines": [
         {
-          "text": "Mit vs. činjenice",
+          "text": "Najveći mit",
           "accent": true
         }
       ],
       "facts": [
         {
-          "tag": "Istina",
-          "text": "Zabranjena je bila Air Ship (zbog NBA pravila o uniformisanju boja), ne nužno AJ1."
+          "tag": "ISTINA",
+          "text": "Mit: zabranjen AJ1. Istina: Air Ship."
         },
         {
-          "tag": "All‑Star ‘85",
-          "text": "Vikend daje nacionalni zamah Jordanu i Nike/AJ priči."
+          "tag": "WOW",
+          "text": "Prodaja: $70M u tri meseca."
         }
       ],
-      "question": "Koji detalj te je najviše iznenadio?"
+      "question": "Znao/la si ovo?"
     },
-    "caption": "Priča ne počinje AJ1, već crno‑crvenim Nike Air Shipom u predsezoni 1984 i NBA pravilom o uniformisanju boja. Nike je mit strateški vezao za AJ1 (1985), a model je postao kulturni simbol od terena do ulice. Godine 1997 Jordan Brand postaje zaseban brend. #AirJordan #MichaelJordan #SneakerKultura #IstorijaPatika #JordanBrand #NBA #AJ1",
+    "caption": "Pre AJ1, Jordan nosi crno‑crvene Air Ship. AJ1 stiže u aprilu 1985. NBA šalje pismo 25.2.1985. zbog pravila o bojama. Crno‑crvene AJ1 blistaju na Slam Dunku 1985. Nike ovu priču pretvara u reklamu. Sačuvaj za kasnije.",
     "hashtags": [
       "#AirJordan",
       "#MichaelJordan",
-      "#SneakerKultura",
-      "#IstorijaPatika",
-      "#JordanBrand",
+      "#Jordan1",
+      "#Nike",
       "#NBA",
-      "#AJ1"
+      "#sneakers",
+      "#istorija",
+      "#TrendyPatike"
     ],
     "image_prompts": [
-      "1980s basketball arena, editorial depiction of Michael Jordan mid‑air on a fast break, right‑side composition, dramatic sidelight, red/black/white high‑top basketball sneakers prominent, premium dark cinematic look, shallow depth of field, no text, no watermarks, avoid visible brand logos",
-      "Close‑up courtside shot of red/black/white 1980s high‑top basketball sneaker planting on polished hardwood, arena lights bokeh, moody shadows, subject on RIGHT, premium dark sneaker‑editorial aesthetic, no text, no watermarks",
-      "Locker room pre‑game scene, editorial depiction of Michael Jordan lacing red/black/white high‑tops, tungsten lighting, gritty film grain, subject on RIGHT, premium dark tone, no text, no watermarks"
+      "Editorial photo of Michael Jordan mid‑air in a packed 1980s basketball arena, right‑side composition, dramatic backlights, red black white sneakers clearly visible, premium dark moody tone, no text or logos",
+      "Close‑up of 1980s style red‑black‑white basketball sneakers on hardwood court sideline, vintage arena lights bokeh, right‑weighted composition, high contrast, film grain look, no text or logos",
+      "Locker room scene from the 1980s with a Bulls uniform on a bench and red‑black‑white high‑top sneakers placed to the right, cinematic shadows, premium editorial style, no text or logos"
     ],
     "sources": [
       {
         "title": "How the Air Jordan 1 Banned Colorway Sparked a Sneaker Revolution",
-        "publisher": "Nike.com",
+        "publisher": "Nike",
         "url": "https://www.nike.com/a/air-jordan-banned-history"
       },
       {
-        "title": "Air Jordan I ’85 — Release info (heritage notes)",
-        "publisher": "Nike SNKRS",
-        "url": "https://www.nike.com/launch/t/air-jordan-1-85"
-      },
-      {
-        "title": "All‑Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
+        "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
         "publisher": "NBA.com",
         "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
       },
       {
-        "title": "ABOUT HOWARD WHITE (Jordan Brand history note)",
-        "publisher": "NIKE, Inc.",
-        "url": "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf"
+        "title": "Jordan Air Ship x Awake NY 'University Red' — Release Date",
+        "publisher": "Nike",
+        "url": "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
       }
     ],
     "claims": [
       {
-        "claim": "Zabranjena je bila Nike Air Ship, ne nužno Air Jordan 1.",
+        "claim": "Jordan prvo nosi Nike Air Ship tokom 1984–85 predsezone.",
+        "source_urls": [
+          "https://www.nike.com/a/air-jordan-banned-history",
+          "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+        ]
+      },
+      {
+        "claim": "Air Jordan 1 stiže u prodavnice u aprilu 1985.",
         "source_urls": [
           "https://www.nike.com/a/air-jordan-banned-history"
         ]
       },
       {
-        "claim": "Jordan je nosio crno‑crveni Nike Air Ship u predsezoni 1984.",
+        "claim": "NBA šalje zvanično pismo 25.2.1985. zbog pravila o bojama obuće.",
         "source_urls": [
           "https://www.nike.com/a/air-jordan-banned-history"
         ]
       },
       {
-        "claim": "Air Jordan 1 je prvi put stigao u prodaju 1985.",
-        "source_urls": [
-          "https://www.nike.com/launch/t/air-jordan-1-85"
-        ]
-      },
-      {
-        "claim": "Nike je kontroverzu pretočio u ‘Banned’ priču vezanu za AJ1.",
+        "claim": "Mit je da je baš AJ1 bio 'zabranjen'; Air Ship je prvobitno sporna patika.",
         "source_urls": [
           "https://www.nike.com/a/air-jordan-banned-history"
         ]
       },
       {
-        "claim": "All‑Star vikend 1985 bio je odskočna daska za Jordana i Nike/AJ.",
+        "claim": "Nike prodaje oko $70M Air Jordans u prva tri meseca na tržištu.",
         "source_urls": [
           "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
         ]
       },
       {
-        "claim": "Jordan Brand je zvanično postao zaseban brend 1997.",
-        "source_urls": [
-          "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf"
-        ]
-      },
-      {
-        "claim": "Povod kontroverze bilo je NBA pravilo o uniformisanju boja.",
-        "source_urls": [
-          "https://www.nike.com/a/air-jordan-banned-history"
-        ]
-      },
-      {
-        "claim": "AJ1 i Nike pristup snažno su uticali na razvoj moderne sneaker kulture.",
+        "claim": "Jordan nosi crno‑crvene AJ1 na Slam Dunk Contestu 1985.",
         "source_urls": [
           "https://www.nike.com/a/air-jordan-banned-history"
         ]
