@@ -3,6 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { cfg } from "./config.mjs";
 import { generateImage } from "./openai.mjs";
+import { commitAndPush } from "./git.mjs";
 
 const W = 1080;
 const H = 1350;
@@ -159,6 +160,17 @@ function neutralSafePrompt(slideIndex) {
   return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT for editorial typography. No people, no recognizable celebrity, no brand logo, no trademark, no text, no letters, no watermark, no frame, no signature.`;
 }
 
+async function usableRenderedSlide(file) {
+  try {
+    const stat = await fs.stat(file);
+    if (!stat.isFile() || stat.size < 10000) return false;
+    const meta = await sharp(file).metadata();
+    return meta.width === W && meta.height === H && ["jpeg", "jpg"].includes(meta.format);
+  } catch {
+    return false;
+  }
+}
+
 export async function generateAndRender(post, outputDir) {
   await fs.mkdir(outputDir, { recursive: true });
   const { white, green } = await logoBuffers();
@@ -166,12 +178,22 @@ export async function generateAndRender(post, outputDir) {
   const outputs = [];
 
   for (let i = 0; i < 3; i++) {
+    const outPath = path.join(outputDir, `${String(i + 1).padStart(2, "0")}.jpg`);
+
+    // A previous run may have completed this slide and then failed on a later
+    // image, GitHub, or Meta step. Reuse the committed slide instead of paying
+    // OpenAI to generate it again.
+    if (await usableRenderedSlide(outPath)) {
+      console.log(`[resume] Reusing already-rendered slide ${i + 1}/3: ${outPath}`);
+      outputs.push(outPath);
+      continue;
+    }
+
     const primaryPrompt = finalPrompt(post.image_prompts[i], i);
     const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace them with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
     const safePrompt = neutralSafePrompt(i);
     const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
 
-    const outPath = path.join(outputDir, `${String(i + 1).padStart(2, "0")}.jpg`);
     await sharp(imageBuffer)
       .resize(W, H, { fit: "cover", position: "attention" })
       .composite([
@@ -182,7 +204,17 @@ export async function generateAndRender(post, outputDir) {
       .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
       .toFile(outPath);
 
+    if (!(await usableRenderedSlide(outPath))) {
+      throw new Error(`Rendered slide ${i + 1} failed local integrity check`);
+    }
+
     outputs.push(outPath);
+
+    // Persist each successful paid image immediately. If slide 2 or 3 later
+    // fails, the next run resumes from the already-paid slides at zero image cost.
+    if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
+      commitAndPush([outPath], `Checkpoint TrendyPatike slide ${i + 1}`, 6);
+    }
   }
 
   return outputs;
