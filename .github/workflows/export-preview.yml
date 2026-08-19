@@ -1,0 +1,26 @@
+name: Export TrendyPatike Preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/export-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload generated preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: trendypatike-preview
+          path: public/posts/2026-08-19-air-jordan-start/
+          if-no-files-found: error
+          retention-days: 2
