@@ -12,13 +12,53 @@ class OpenAIRequestError extends Error {
   }
 }
 
+class OpenAIBudgetGuardError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "OpenAIBudgetGuardError";
+  }
+}
+
 let fatalAccountFailure = null;
+let apiCallCount = 0;
+
+export function isFatalAccountError(err) {
+  if (!(err instanceof OpenAIRequestError)) return false;
+  if ([401, 403].includes(err.status)) return true;
+
+  const text = `${err.code} ${err.message}`.toLowerCase();
+  return [
+    "insufficient_quota",
+    "billing_hard_limit_reached",
+    "billing_not_active",
+    "invalid_api_key",
+    "no credits remaining"
+  ].some(x => text.includes(x));
+}
+
+export function isFatalOpenAIError(err) {
+  return isFatalAccountError(err) || err instanceof OpenAIBudgetGuardError;
+}
+
+function assertOpenAIBudget(path) {
+  if (fatalAccountFailure) throw fatalAccountFailure;
+
+  if (apiCallCount >= cfg.maxOpenAICalls) {
+    throw new OpenAIBudgetGuardError(
+      `OpenAI safety budget reached: ${apiCallCount}/${cfg.maxOpenAICalls} calls. ` +
+      `Stopping before another paid API request (${path}).`
+    );
+  }
+
+  apiCallCount += 1;
+  console.log(`[openai] API call ${apiCallCount}/${cfg.maxOpenAICalls}: ${path}`);
+}
 
 async function openaiFetch(path, body) {
   // Once OpenAI says the account/key cannot make paid requests, do not send
-  // any more API calls during this run. Higher-level topic/retry loops may
-  // continue briefly, but they cannot spend another cent.
-  if (fatalAccountFailure) throw fatalAccountFailure;
+  // any more API calls during this run. The hard per-run call cap also prevents
+  // accidental retry loops from consuming an unexpected balance.
+  assertOpenAIBudget(path);
 
   const res = await fetch(`${API}${path}`, {
     method: "POST",
@@ -143,20 +183,6 @@ export async function structuredWebResponse({
   return { value, searchUrls };
 }
 
-export function isFatalAccountError(err) {
-  if (!(err instanceof OpenAIRequestError)) return false;
-  if ([401, 403].includes(err.status)) return true;
-
-  const text = `${err.code} ${err.message}`.toLowerCase();
-  return [
-    "insufficient_quota",
-    "billing_hard_limit_reached",
-    "billing_not_active",
-    "invalid_api_key",
-    "no credits remaining"
-  ].some(x => text.includes(x));
-}
-
 function isTransientError(err) {
   return err instanceof OpenAIRequestError && (err.status === 429 || err.status >= 500);
 }
@@ -205,7 +231,7 @@ export async function generateImage(prompt, fallbackPrompt = "", safePrompt = ""
         lastError = err;
         console.warn(`[image] Attempt failed: ${err.message}`);
 
-        if (isFatalAccountError(err)) throw err;
+        if (isFatalOpenAIError(err)) throw err;
         if (isPromptLevelError(err)) break;
 
         if (attempt < 2) {
