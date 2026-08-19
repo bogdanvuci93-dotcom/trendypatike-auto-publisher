@@ -14,44 +14,71 @@ function sleepSync(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
-function pushWithRetry(branch, maxAttempts = 3) {
-  let lastError = null;
-
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      git(["push", "origin", branch]);
-      return;
-    } catch (err) {
-      lastError = err;
-      if (attempt >= maxAttempts) break;
-
-      console.warn(`[git] Push attempt ${attempt}/${maxAttempts} failed; retrying.`);
-
-      // If main advanced while this workflow was running, rebase the bot commit.
-      // If the failure was only transient network trouble, a failed pull is harmless
-      // and the next push attempt can still succeed.
-      try {
-        git(["pull", "--rebase", "origin", branch]);
-      } catch {}
-
-      sleepSync(2000 * attempt);
-    }
+function repoPath(filePath) {
+  const absolute = path.resolve(filePath);
+  const relative = path.relative(process.cwd(), absolute).split(path.sep).join("/");
+  if (!relative || relative.startsWith("../")) {
+    throw new Error(`Refusing to commit path outside repository: ${filePath}`);
   }
-
-  throw lastError || new Error("Git push failed");
+  return relative;
 }
 
-export function commitAndPush(paths, message) {
+function cleanupInterruptedGitOperation() {
+  try { git(["rebase", "--abort"], { quiet: true }); } catch {}
+  try { git(["cherry-pick", "--abort"], { quiet: true }); } catch {}
+  try { git(["merge", "--abort"], { quiet: true }); } catch {}
+}
+
+export function commitAndPush(paths, message, maxAttempts = 4) {
+  const branch = cfg.githubRefName || "main";
+  const targetPaths = [...new Set(paths.map(repoPath))];
+
   git(["config", "user.name", "TrendyPatike Bot"]);
   git(["config", "user.email", "bot@trendypatike.com"]);
-  git(["add", ...paths]);
+  cleanupInterruptedGitOperation();
 
+  // First make an immutable local snapshot of ONLY the files this operation owns.
+  // We keep the snapshot commit SHA even if main moves while the workflow is running.
+  git(["add", "--", ...targetPaths]);
   const staged = git(["diff", "--cached", "--name-only"], { quiet: true });
   if (!staged) return false;
 
   git(["commit", "-m", message]);
-  pushWithRetry(cfg.githubRefName || "main");
-  return true;
+  const snapshotCommit = git(["rev-parse", "HEAD"]);
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      cleanupInterruptedGitOperation();
+
+      // Always rebuild the bot commit on top of the newest remote main.
+      // This avoids non-fast-forward and rebase conflicts entirely.
+      git(["fetch", "origin", branch]);
+      git(["reset", "--hard", `origin/${branch}`]);
+
+      // Restore exactly the files produced by this operation from the snapshot.
+      // Other files that appeared on main while the workflow was running are untouched.
+      git(["checkout", snapshotCommit, "--", ...targetPaths]);
+      git(["add", "--", ...targetPaths]);
+
+      const rebasedChanges = git(["diff", "--cached", "--name-only"], { quiet: true });
+      if (!rebasedChanges) {
+        console.log("[git] Target files are already present on the latest main; nothing to push.");
+        return false;
+      }
+
+      git(["commit", "-m", message]);
+      git(["push", "origin", `HEAD:${branch}`]);
+      return true;
+    } catch (err) {
+      lastError = err;
+      console.warn(`[git] Publish attempt ${attempt}/${maxAttempts} failed.`);
+      cleanupInterruptedGitOperation();
+      if (attempt < maxAttempts) sleepSync(2000 * attempt);
+    }
+  }
+
+  throw lastError || new Error("Git publish failed after retries");
 }
 
 export function publicUrlFor(filePath) {
