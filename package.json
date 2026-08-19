@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "run": "node src/index.mjs",
-    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/openai.mjs && node --check src/content.mjs && node --check src/news.mjs && node --check src/schemas.mjs && node --check src/render.mjs && node --check src/instagram.mjs && node --check src/instagram-test.mjs && node --check src/git.mjs && node --check src/pending.mjs && node --check src/selftest.mjs && node src/selftest.mjs"
+    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/openai.mjs && node --check src/content.mjs && node --check src/news.mjs && node --check src/schemas.mjs && node --check src/render.mjs && node --check src/instagram.mjs && node --check src/instagram-test.mjs && node --check src/git.mjs && node --check src/pending.mjs && node --check src/recovery.mjs && node --check src/selftest.mjs && node src/selftest.mjs"
   },
   "dependencies": {
     "sharp": "0.34.0"
