@@ -14,9 +14,6 @@ const fact = {
   required: ["tag", "text"],
   properties: {
     tag: { type: "string", maxLength: 24 },
-    // Keep the structured-output ceiling above the real layout limit.
-    // The validator still enforces 92 chars, but the model can now finish
-    // a sentence instead of being hard-truncated in the middle of a word.
     text: { type: "string", minLength: 24, maxLength: 140 }
   }
 };
@@ -26,9 +23,9 @@ const source = {
   additionalProperties: false,
   required: ["title", "publisher", "url"],
   properties: {
-    title: { type: "string" },
-    publisher: { type: "string" },
-    url: { type: "string" }
+    title: { type: "string", maxLength: 180 },
+    publisher: { type: "string", maxLength: 80 },
+    url: { type: "string", maxLength: 500 }
   }
 };
 
@@ -37,11 +34,12 @@ const claim = {
   additionalProperties: false,
   required: ["claim", "source_urls"],
   properties: {
-    claim: { type: "string" },
+    claim: { type: "string", maxLength: 240 },
     source_urls: {
       type: "array",
       minItems: 1,
-      items: { type: "string" }
+      maxItems: 4,
+      items: { type: "string", maxLength: 500 }
     }
   }
 };
@@ -61,7 +59,7 @@ export const postSchema = {
     "claims"
   ],
   properties: {
-    topic_title: { type: "string" },
+    topic_title: { type: "string", maxLength: 160 },
     cover: {
       type: "object",
       additionalProperties: false,
@@ -73,8 +71,6 @@ export const postSchema = {
           maxItems: 4,
           items: headlineLine
         },
-        // Same principle as facts: allow the model to finish naturally,
-        // then let validatePost enforce the actual 92-char layout limit.
         subheadline: { type: "string", minLength: 24, maxLength: 140 }
       }
     },
@@ -122,24 +118,24 @@ export const postSchema = {
       type: "array",
       minItems: 4,
       maxItems: 8,
-      items: { type: "string" }
+      items: { type: "string", maxLength: 48 }
     },
     image_prompts: {
       type: "array",
       minItems: 3,
       maxItems: 3,
-      items: { type: "string" }
+      items: { type: "string", maxLength: 500 }
     },
     sources: {
       type: "array",
       minItems: 2,
-      maxItems: 8,
+      maxItems: 6,
       items: source
     },
     claims: {
       type: "array",
       minItems: 3,
-      maxItems: 12,
+      maxItems: 10,
       items: claim
     }
   }
@@ -151,7 +147,7 @@ export const verifierSchema = {
   required: ["publish_ok", "reason", "post"],
   properties: {
     publish_ok: { type: "boolean" },
-    reason: { type: "string" },
+    reason: { type: "string", maxLength: 300 },
     post: postSchema
   }
 };
@@ -161,15 +157,15 @@ export const freshSeedSchema = {
   additionalProperties: false,
   required: ["id", "topic", "category", "preferred_domains", "visual_subject"],
   properties: {
-    id: { type: "string" },
-    topic: { type: "string" },
-    category: { type: "string" },
+    id: { type: "string", maxLength: 100 },
+    topic: { type: "string", maxLength: 180 },
+    category: { type: "string", maxLength: 100 },
     preferred_domains: {
       type: "array",
       minItems: 1,
       maxItems: 6,
-      items: { type: "string" }
+      items: { type: "string", maxLength: 120 }
     },
-    visual_subject: { type: "string" }
+    visual_subject: { type: "string", maxLength: 300 }
   }
 };
