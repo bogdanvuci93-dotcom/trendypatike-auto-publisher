@@ -129,6 +129,10 @@ async function instagramPreflight() {
 }
 
 async function openAIPreflightForStage(stage) {
+  if (cfg.dryRun) {
+    console.log("[dry-run] Zero-cost mode: skipping all OpenAI access.");
+    return false;
+  }
   if (stage === "ready") {
     console.log("[openai] Ready checkpoint found; no OpenAI access is required for final publish.");
     return false;
@@ -162,12 +166,14 @@ async function loadEmergencyFallback(state) {
 }
 
 async function buildNewPost({ topics, state, aiTextAvailable }) {
+  if (cfg.dryRun) {
+    console.log("[dry-run] Using verified emergency content and local visuals only.");
+    return loadEmergencyFallback(state);
+  }
   if (!aiTextAvailable) return loadEmergencyFallback(state);
 
   let lastContentError = null;
   try {
-    // With a verified emergency library available, one paid topic attempt is
-    // enough. Do not pay for a second writer/verifier pair in the same day.
     const seed = await choosePriorityTopic(topics, state, { allowMajorNews: true });
     if (isDuplicateTopic(seed, state)) {
       throw new Error(`Selected topic was already used: ${seed.topic}`);
@@ -302,6 +308,15 @@ async function main() {
   }
 
   const metadataFile = await saveMetadata(outDir, chosenSeed, post);
+
+  if (cfg.dryRun) {
+    console.log("Generated zero-cost dry-run slides:");
+    images.forEach(x => console.log(` - ${x}`));
+    console.log(`Dry-run metadata: ${metadataFile}`);
+    console.log("DRY_RUN=true: no OpenAI calls, no Instagram calls and no Git push were made.");
+    return;
+  }
+
   const readyCheckpoint = {
     date: workDate,
     stage: "ready",
@@ -312,13 +327,11 @@ async function main() {
     instagram: initialPending?.stage === "ready" ? (initialPending.instagram || {}) : {}
   };
 
-  let pendingFile = null;
-  if (!cfg.dryRun) pendingFile = await savePending(readyCheckpoint);
-
+  const pendingFile = await savePending(readyCheckpoint);
   const publicFiles = images.map(publicUrlFor);
+
   if (process.env.GITHUB_ACTIONS === "true") {
-    const filesToCommit = pendingFile ? [...images, metadataFile, pendingFile] : [...images, metadataFile];
-    commitAndPush(filesToCommit, `Checkpoint TrendyPatike assets ${workDate}`, 6);
+    commitAndPush([...images, metadataFile, pendingFile], `Checkpoint TrendyPatike assets ${workDate}`, 6);
     for (const url of publicFiles) await waitUntilPublic(url);
   } else if (!cfg.publicBaseUrl) {
     console.log("Local mode without PUBLIC_BASE_URL: skipping public URL check.");
@@ -328,11 +341,6 @@ async function main() {
   images.forEach(x => console.log(` - ${x}`));
   console.log("Sources:");
   post.sources.forEach(s => console.log(` - ${s.publisher}: ${s.url}`));
-
-  if (cfg.dryRun) {
-    console.log("DRY_RUN=true: generated and fact-checked, Instagram publish skipped.");
-    return;
-  }
 
   const persistInstagramProgress = async instagram => {
     const file = await savePending({ ...readyCheckpoint, instagram });
