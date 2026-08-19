@@ -132,12 +132,14 @@ async function main() {
   const safeId = chosenSeed.id.replace(/[^a-z0-9-]+/g, "-");
   const outDir = path.resolve("public/posts", `${today}-${safeId}`);
   const images = await generateAndRender(post, outDir);
-  await saveMetadata(outDir, chosenSeed, post);
+  const metadataFile = await saveMetadata(outDir, chosenSeed, post);
 
   const publicFiles = images.map(publicUrlFor);
 
   if (process.env.GITHUB_ACTIONS === "true") {
-    commitAndPush(["public"], `Generate TrendyPatike post ${today}`);
+    // Commit only the files produced by THIS post. Do not stage the whole public/
+    // tree, because another run or maintenance commit may have added other posts.
+    commitAndPush([...images, metadataFile], `Generate TrendyPatike post ${today}`);
     for (const url of publicFiles) await waitUntilPublic(url);
   } else if (!cfg.publicBaseUrl) {
     console.log("Local mode without PUBLIC_BASE_URL: skipping URL availability check.");
