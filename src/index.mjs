@@ -8,7 +8,7 @@ import {
   researchWriteVerify,
   saveState
 } from "./content.mjs";
-import { choosePriorityTopic } from "./news.mjs";
+import { choosePriorityTopic, isDuplicateTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
 import { publishCarousel } from "./instagram.mjs";
@@ -96,10 +96,23 @@ async function main() {
       { allowMajorNews: attempt === 1 }
     );
     attemptedIds.add(seed.id);
+
+    if (isDuplicateTopic(seed, state)) {
+      lastError = new Error(`Duplicate topic blocked before research: ${seed.topic}`);
+      console.error(lastError.message);
+      continue;
+    }
+
     console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
 
     try {
-      post = sanitizeVisiblePost(await researchWriteVerify(seed));
+      const candidatePost = sanitizeVisiblePost(await researchWriteVerify(seed));
+
+      if (isDuplicateTopic({ id: seed.id, topic: candidatePost.topic_title }, state)) {
+        throw new Error(`Duplicate topic blocked after writing: ${candidatePost.topic_title}`);
+      }
+
+      post = candidatePost;
       chosenSeed = seed;
       break;
     } catch (err) {
@@ -142,6 +155,7 @@ async function main() {
   state.posted.push({
     date: today,
     topic_id: chosenSeed.id,
+    seed_topic: chosenSeed.topic,
     topic_title: post.topic_title,
     media_id: published.id,
     sources: post.sources.map(s => s.url)
