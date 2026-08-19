@@ -169,6 +169,37 @@ function neutralSafePrompt(slideIndex) {
   return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT. No people, recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
 }
 
+function localFallbackSvg(slideIndex) {
+  const shift = slideIndex * 24;
+  return `
+  <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="glow" cx="78%" cy="47%" r="55%">
+        <stop offset="0%" stop-color="${cfg.brandGreen}" stop-opacity="0.38"/>
+        <stop offset="55%" stop-color="#17302c" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#050706" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="shoe" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#727775"/>
+        <stop offset="55%" stop-color="#242927"/>
+        <stop offset="100%" stop-color="#0b0e0d"/>
+      </linearGradient>
+    </defs>
+    <rect width="1080" height="1350" fill="#050706"/>
+    <rect width="1080" height="1350" fill="url(#glow)"/>
+    <circle cx="850" cy="${305 + shift}" r="170" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2"/>
+    <circle cx="850" cy="${305 + shift}" r="230" fill="none" stroke="${cfg.brandGreen}" stroke-opacity="0.08" stroke-width="2"/>
+    <path d="M610 ${750 + shift} C675 ${690 + shift}, 735 ${642 + shift}, 782 ${584 + shift} L872 ${634 + shift} C904 ${652 + shift}, 929 ${700 + shift}, 948 ${748 + shift} L1008 ${790 + shift} C1028 ${805 + shift}, 1022 ${844 + shift}, 990 ${855 + shift} C889 ${888 + shift}, 745 ${893 + shift}, 638 ${868 + shift} C598 ${858 + shift}, 573 ${825 + shift}, 583 ${792 + shift} Z" fill="url(#shoe)" stroke="#aeb5b2" stroke-opacity="0.34" stroke-width="3"/>
+    <path d="M665 ${770 + shift} C748 ${786 + shift}, 856 ${789 + shift}, 967 ${774 + shift}" fill="none" stroke="${cfg.brandGreen}" stroke-opacity="0.65" stroke-width="8" stroke-linecap="round"/>
+    <path d="M777 ${618 + shift} L821 ${737 + shift} M810 ${615 + shift} L855 ${730 + shift}" stroke="#d7dbd9" stroke-opacity="0.24" stroke-width="5"/>
+    <ellipse cx="825" cy="${905 + shift}" rx="245" ry="40" fill="#000" fill-opacity="0.65"/>
+  </svg>`;
+}
+
+async function localFallbackBuffer(slideIndex) {
+  return sharp(Buffer.from(localFallbackSvg(slideIndex))).png().toBuffer();
+}
+
 async function usableImage(file, { width = null, height = null, format = null, minSize = 1000 } = {}) {
   try {
     const stat = await fs.stat(file);
@@ -181,6 +212,17 @@ async function usableImage(file, { width = null, height = null, format = null, m
     return true;
   } catch {
     return false;
+  }
+}
+
+async function checkpointBestEffort(files, message) {
+  if (process.env.GITHUB_ACTIONS !== "true" || cfg.dryRun) return;
+  try {
+    commitAndPush(files, message, 6);
+  } catch (err) {
+    // Final asset checkpoint in index.mjs remains authoritative. Do not stop a
+    // healthy current run just because an intermediate Git checkpoint is down.
+    console.warn(`[checkpoint] ${message} could not be pushed yet: ${err.message}`);
   }
 }
 
@@ -221,28 +263,33 @@ export async function generateAndRender(post, outputDir) {
       const primaryPrompt = finalPrompt(post.image_prompts[i], i);
       const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace it with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
       const safePrompt = neutralSafePrompt(i);
-      const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
+      let imageBuffer;
+
+      try {
+        imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
+        console.log(`[image] AI source ${i + 1}/3 generated successfully.`);
+      } catch (err) {
+        // Image availability is not allowed to invalidate already verified facts.
+        // Use a deterministic local sneaker visual and keep the daily publish alive.
+        console.warn(`[image] AI image unavailable for slide ${i + 1}; using zero-cost local fallback: ${err.message}`);
+        imageBuffer = await localFallbackBuffer(i);
+      }
+
       await fs.writeFile(sourcePath, imageBuffer);
-
       if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
-        throw new Error(`Paid source image ${i + 1} could not be decoded after generation`);
+        // This would indicate a local Sharp/filesystem failure, which the zero-cost
+        // render preflight is designed to catch before paid work.
+        throw new Error(`Source image ${i + 1} could not be decoded after generation/fallback`);
       }
 
-      // Save the paid source BEFORE rendering. A later Sharp/layout failure can
-      // then be recovered with zero additional image-generation cost.
-      if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
-        commitAndPush([sourcePath], `Checkpoint TrendyPatike paid source ${i + 1}`, 6);
-      }
+      await checkpointBestEffort([sourcePath], `Checkpoint TrendyPatike source ${i + 1}`);
     } else {
-      console.log(`[resume] Reusing paid source image ${i + 1}/3; rendering only.`);
+      console.log(`[resume] Reusing source image ${i + 1}/3; rendering only.`);
     }
 
     await renderSlide(sourcePath, overlays[i], logos, outPath);
     outputs.push(outPath);
-
-    if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
-      commitAndPush([outPath], `Checkpoint TrendyPatike rendered slide ${i + 1}`, 6);
-    }
+    await checkpointBestEffort([outPath], `Checkpoint TrendyPatike rendered slide ${i + 1}`);
   }
 
   return outputs;
@@ -287,6 +334,15 @@ export async function runRenderSelfTest() {
     const meta = await sharp(buffer).metadata();
     if (meta.width !== W || meta.height !== H || meta.format !== "jpeg") {
       throw new Error("Offline carousel render self-test failed");
+    }
+  }
+
+  // Also verify the no-API image fallback itself is decodable and renderable.
+  for (let i = 0; i < 3; i++) {
+    const fallback = await localFallbackBuffer(i);
+    const meta = await sharp(fallback).metadata();
+    if (meta.width !== W || meta.height !== H || meta.format !== "png") {
+      throw new Error(`Offline fallback image self-test failed for slide ${i + 1}`);
     }
   }
 }
