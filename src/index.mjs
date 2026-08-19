@@ -11,7 +11,7 @@ import {
 import { choosePriorityTopic, isDuplicateTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
-import { publishCarousel } from "./instagram.mjs";
+import { publishCarousel, verifyInstagramConnection } from "./instagram.mjs";
 
 function cleanVisibleText(value = "") {
   return String(value)
@@ -82,6 +82,10 @@ async function main() {
   if (!cfg.forceRun && state.last_publish_date === today) {
     console.log(`Already published for ${today}; exiting.`);
     return;
+  }
+
+  if (!cfg.dryRun) {
+    await verifyInstagramConnection();
   }
 
   let chosenSeed = null;
