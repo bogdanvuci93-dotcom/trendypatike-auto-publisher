@@ -42,6 +42,9 @@ jobs:
           fc-match "DejaVu Sans Condensed" || true
           npm install --omit=dev --no-audit --no-fund
 
+      - name: Code sanity check
+        run: npm run check
+
       - name: Generate, verify and publish
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
