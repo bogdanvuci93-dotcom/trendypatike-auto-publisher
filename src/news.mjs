@@ -164,7 +164,7 @@ DO NOT qualify ordinary product news:
 A new shoe itself is NOT enough. Only choose product news if the surrounding event is historically or culturally significant on a mainstream level.
 
 SOURCE RULES:
-- The story must be verified from at least 2 reliable sources when possible.
+- The story must be verified from reliable sources when possible.
 - Prefer an official source plus Reuters, AP, ESPN or another highly reputable source.
 - Do not use rumors, anonymous social posts or speculative sneaker blogs as the basis for is_major=true.
 - If contract value, lawsuit amount, ownership value or another number is uncertain, do not state it as fact.
@@ -178,14 +178,16 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
 `;
 
   const result = await structuredWebResponse({
-    // This is only a yes/no gate. Use the cheaper GPT-5 mini and low search
-    // context; full research still happens later if a story actually qualifies.
+    // This is only a yes/no gate. One low-context web-search tool call is the
+    // hard ceiling; full independent research happens only after selection.
     model: "gpt-5-mini",
     prompt,
     schema: majorNewsSchema,
     schemaName: "trendypatike_major_news_gate",
     allowedDomains: MAJOR_NEWS_DOMAINS,
-    searchContextSize: "low"
+    searchContextSize: "low",
+    maxToolCalls: 1,
+    maxOutputTokens: 1400
   });
 
   const candidate = result.value;
