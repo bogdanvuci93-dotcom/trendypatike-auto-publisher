@@ -1,0 +1,54 @@
+name: TrendyPatike Daily Carousel
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "35 19 * * *"
+      timezone: "Europe/Belgrade"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trendypatike-daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install font + dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core
+          npm install --omit=dev
+
+      - name: Generate, verify and publish
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          TEXT_MODEL: ${{ vars.TEXT_MODEL }}
+          VERIFY_MODEL: ${{ vars.VERIFY_MODEL }}
+          IMAGE_MODEL: ${{ vars.IMAGE_MODEL }}
+          IMAGE_QUALITY: ${{ vars.IMAGE_QUALITY }}
+          BRAND_GREEN: "#037361"
+          BRAND_NAME: "TRENDYPATIKE"
+          BRAND_SITE: "trendypatike.com"
+          DRY_RUN: ${{ vars.DRY_RUN }}
+          FORCE_RUN: "false"
+          MAX_TOPIC_ATTEMPTS: "3"
+        run: npm run run
