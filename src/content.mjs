@@ -117,17 +117,21 @@ VISIBLE COPY:
 - Do not use unexplained abbreviations such as AJ1; write Air Jordan 1.
 - Do not use the English word banned in visible Serbian copy.
 - Avoid formal marketing/journalistic phrases such as oblikovao kulturu, prelomni trenutak, kulturni fenomen, strateški pozicionirao.
-- Facts should usually be 7-16 words and MUST be 92 characters or fewer in the final answer.
-- IMPORTANT: never cut a sentence, word or thought to hit the character limit. If it does not fit, rewrite the whole sentence shorter.
+- Facts should usually be 7-16 words and SHOULD be 92 characters or fewer.
+- IMPORTANT: never cut a sentence, word or thought to hit a character limit. If it does not fit, rewrite the whole sentence shorter.
 - Every fact must end with normal punctuation.
+
+HEADLINES:
+- Every individual headline line should be 26 characters or fewer.
+- Never cut a word to make it fit. Break a longer headline into another short line instead.
 
 SLIDE 1:
 - 2-4 short headline lines.
-- Subheadline must be one complete simple sentence, 92 characters or fewer.
+- Subheadline must be one complete simple sentence, ideally 92 characters or fewer.
 
 SLIDE 2:
 - Exactly 3 facts with short green tags.
-- Each fact is one complete standalone sentence, max 92 characters.
+- Each fact is one complete standalone sentence.
 
 SLIDE 3:
 - Exactly 2 facts with short green tags.
@@ -152,7 +156,7 @@ SOURCES AND CLAIMS:
 
 FINAL SELF-CHECK:
 1. Is every visible fact a complete sentence?
-2. Is every fact 92 characters or fewer without being cut off?
+2. Is every fact short enough for a 3-line Instagram fact block without being cut off?
 3. Could a 10-year-old repeat it after one reading?
 4. Is every factual claim supported by searched evidence?
 5. Does any visible text contain unnecessary jargon or fake drama?
@@ -183,9 +187,10 @@ COPY RULES:
 - A 10-year-old should understand it on first read.
 - Never approve fragments or unexplained AJ1.
 - Never use banned in visible Serbian copy.
-- Facts should usually be 7-16 words and MUST be 92 characters or fewer.
+- Facts should usually be 7-16 words and should fit a short 3-line fact block.
 - IMPORTANT: do not truncate text to satisfy a limit. Rewrite the entire sentence shorter and finish it with punctuation.
-- Cover subheadline must be a complete sentence and 92 characters or fewer.
+- Every individual headline line should be 26 characters or fewer; split a long headline across lines instead of cutting words.
+- Cover subheadline must be a complete easy sentence.
 - Final question max 8 words.
 
 SOURCE RULES:
@@ -195,7 +200,7 @@ SOURCE RULES:
 Before approving, test EVERY visible fact without its tag or headline:
 1. Does it still make complete sense?
 2. Is it fully supported?
-3. Is it 92 characters or fewer?
+3. Is it short enough to display cleanly in three lines?
 4. Does it end normally instead of being cut off?
 If any answer is NO, rewrite it. If it cannot be fixed accurately and simply, set publish_ok=false.
 
@@ -236,6 +241,74 @@ function wordCount(text = "") {
   return String(text).trim().split(/\s+/).filter(Boolean).length;
 }
 
+function splitWordsIntoLines(text = "", maxChars = 38) {
+  const words = String(text).trim().split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = "";
+
+  for (const word of words) {
+    const next = line ? `${line} ${word}` : word;
+    if (next.length > maxChars && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = next;
+    }
+  }
+
+  if (line) lines.push(line);
+  return lines;
+}
+
+function shortenAtWordBoundary(text = "", maxChars = 18) {
+  const s = String(text).trim();
+  if (s.length <= maxChars) return s;
+
+  const words = s.split(/\s+/);
+  let out = "";
+  for (const word of words) {
+    const next = out ? `${out} ${word}` : word;
+    if (next.length > maxChars) break;
+    out = next;
+  }
+
+  return out || s.slice(0, maxChars).trim();
+}
+
+function normalizeHeadlineGroup(lines, maxLines, label) {
+  const expanded = [];
+
+  for (const line of lines) {
+    const parts = splitWordsIntoLines(line.text, 26);
+    for (const part of parts) {
+      expanded.push({ ...line, text: part });
+    }
+  }
+
+  if (expanded.length > maxLines) {
+    throw new Error(`Copy guard: ${label} needs more than ${maxLines} headline lines`);
+  }
+
+  return expanded;
+}
+
+function normalizePostForLayout(post) {
+  post.cover.headline_lines = normalizeHeadlineGroup(post.cover.headline_lines, 4, "cover");
+  post.slide2.headline_lines = normalizeHeadlineGroup(post.slide2.headline_lines, 3, "slide 2");
+  post.slide3.headline_lines = normalizeHeadlineGroup(post.slide3.headline_lines, 3, "slide 3");
+
+  post.slide2.facts = post.slide2.facts.map(fact => ({
+    ...fact,
+    tag: shortenAtWordBoundary(fact.tag, 18)
+  }));
+  post.slide3.facts = post.slide3.facts.map(fact => ({
+    ...fact,
+    tag: shortenAtWordBoundary(fact.tag, 18)
+  }));
+
+  return post;
+}
+
 function isCompleteSentence(text = "") {
   const s = String(text).trim();
   return /^[A-ZČĆŽŠĐ0-9]/.test(s) && /[.!?]$/.test(s) && wordCount(s) >= 5;
@@ -274,8 +347,8 @@ function validatePost(post, seed, searchedUrls = []) {
     throw new Error("Fact-check guard: fewer than 2 distinct source URLs");
   }
 
-  if (post.cover.subheadline.length > 92) {
-    throw new Error("Copy guard: cover subheadline too long");
+  if (post.cover.subheadline.length > 110 || splitWordsIntoLines(post.cover.subheadline, 37).length > 3) {
+    throw new Error("Copy guard: cover subheadline does not fit in 3 lines");
   }
   if (!isCompleteSentence(post.cover.subheadline)) {
     throw new Error("Copy guard: cover subheadline is not a complete sentence");
@@ -293,13 +366,13 @@ function validatePost(post, seed, searchedUrls = []) {
     ...post.slide3.headline_lines
   ]) {
     if (line.text.length > 26) {
-      throw new Error(`Copy guard: headline line too long: ${line.text}`);
+      throw new Error(`Copy guard: headline line too long after normalization: ${line.text}`);
     }
   }
 
   for (const fact of [...post.slide2.facts, ...post.slide3.facts]) {
-    if (fact.text.length > 92) {
-      throw new Error(`Copy guard: fact too long: ${fact.text}`);
+    if (fact.text.length > 110 || splitWordsIntoLines(fact.text, 38).length > 3) {
+      throw new Error(`Copy guard: fact does not fit in 3 lines: ${fact.text}`);
     }
     if (wordCount(fact.text) > 18) {
       throw new Error(`Copy guard: fact has too many words: ${fact.text}`);
@@ -308,16 +381,13 @@ function validatePost(post, seed, searchedUrls = []) {
       throw new Error(`Copy guard: fact is not a complete sentence: ${fact.text}`);
     }
     if (fact.tag.length > 18) {
-      throw new Error(`Copy guard: fact tag too long: ${fact.tag}`);
+      throw new Error(`Copy guard: fact tag too long after normalization: ${fact.tag}`);
     }
     assertSimpleVisibleCopy(fact.text, "fact");
   }
 
   const searched = new Set(searchedUrls.map(normalizedUrlKey).filter(Boolean));
 
-  // Sources shown in the final post must still be whitelisted and must come
-  // from actual web-search evidence. URL normalization makes www/non-www,
-  // query strings and trailing slashes equivalent for validation purposes.
   for (const source of post.sources) {
     if (!isAllowedUrl(source.url, seed)) {
       throw new Error(`Source outside approved domains: ${hostFor(source.url) || source.url}`);
@@ -329,10 +399,6 @@ function validatePost(post, seed, searchedUrls = []) {
     }
   }
 
-  // Claims do not have to repeat the exact raw URL string from post.sources.
-  // They must, however, point to a whitelisted URL that was actually found by
-  // the web search. This keeps the fact-check strict without false failures
-  // caused by www, trailing-slash or query-string variants.
   for (const claim of post.claims) {
     if (!claim.source_urls.length) {
       throw new Error(`Source guard: unsourced claim: ${claim.claim}`);
@@ -379,8 +445,10 @@ async function researchWriteVerifyOnce(seed) {
     throw new Error(`Verifier rejected topic: ${checked.reason}`);
   }
 
+  const normalizedPost = normalizePostForLayout(checked.post);
+
   return validatePost(
-    checked.post,
+    normalizedPost,
     seed,
     [...draftResult.searchUrls, ...checkedResult.searchUrls]
   );
@@ -389,8 +457,6 @@ async function researchWriteVerifyOnce(seed) {
 export async function researchWriteVerify(seed) {
   let lastError = null;
 
-  // One retry protects the daily workflow from a transient structured-output
-  // formatting mistake without weakening any fact-check or copy guard.
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
       return await researchWriteVerifyOnce(seed);
