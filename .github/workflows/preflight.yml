@@ -9,6 +9,7 @@ on:
       - "src/**"
       - "assets/**"
       - "data/topics.json"
+      - "data/fallback-posts.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -46,6 +47,6 @@ jobs:
           VERIFY_MODEL: "gpt-5-mini-2025-08-07"
           IMAGE_MODEL: "gpt-image-1-mini"
           IMAGE_QUALITY: "medium"
-          MAX_TOPIC_ATTEMPTS: "2"
-          MAX_OPENAI_CALLS: "10"
+          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_OPENAI_CALLS: "8"
         run: npm run check
