@@ -7,8 +7,8 @@ if (fs.existsSync(path.resolve(".env")) && typeof process.loadEnvFile === "funct
 
 export const cfg = {
   openaiKey: process.env.OPENAI_API_KEY,
-  textModel: process.env.TEXT_MODEL || "gpt-5",
-  verifyModel: process.env.VERIFY_MODEL || "gpt-5",
+  textModel: process.env.TEXT_MODEL || "gpt-5-mini-2025-08-07",
+  verifyModel: process.env.VERIFY_MODEL || "gpt-5-mini-2025-08-07",
   imageModel: process.env.IMAGE_MODEL || "gpt-image-1-mini",
   imageQuality: process.env.IMAGE_QUALITY || "medium",
   maxOpenAICalls: Math.max(1, Number(process.env.MAX_OPENAI_CALLS || 10)),
@@ -30,13 +30,28 @@ export const cfg = {
   publicBaseUrl: process.env.PUBLIC_BASE_URL || ""
 };
 
-export function assertBaseConfig() {
-  if (!cfg.openaiKey) throw new Error("Missing OPENAI_API_KEY");
+export function assertRuntimeConfig() {
   if (!Number.isFinite(cfg.maxOpenAICalls) || cfg.maxOpenAICalls < 1) {
     throw new Error("MAX_OPENAI_CALLS must be a positive number");
+  }
+  if (!Number.isFinite(cfg.maxTopicAttempts) || cfg.maxTopicAttempts < 1) {
+    throw new Error("MAX_TOPIC_ATTEMPTS must be a positive number");
   }
   if (!cfg.dryRun) {
     if (!cfg.igToken) throw new Error("Missing IG_ACCESS_TOKEN");
     if (!cfg.igUserId) throw new Error("Missing IG_USER_ID");
   }
+}
+
+export function assertOpenAIConfig() {
+  if (!cfg.openaiKey) throw new Error("Missing OPENAI_API_KEY");
+  if (!cfg.textModel) throw new Error("Missing TEXT_MODEL");
+  if (!cfg.verifyModel) throw new Error("Missing VERIFY_MODEL");
+  if (!cfg.imageModel) throw new Error("Missing IMAGE_MODEL");
+}
+
+// Backward-compatible helper for local scripts that need the complete stack.
+export function assertBaseConfig() {
+  assertRuntimeConfig();
+  assertOpenAIConfig();
 }
