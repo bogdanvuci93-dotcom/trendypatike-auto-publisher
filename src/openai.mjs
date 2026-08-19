@@ -55,7 +55,9 @@ export function isFatalAccountError(err) {
 }
 
 export function isFatalOpenAIError(err) {
-  return isFatalAccountError(err) || err instanceof OpenAIBudgetGuardError;
+  return isFatalAccountError(err) ||
+    err instanceof OpenAIBudgetGuardError ||
+    err instanceof OpenAIStructuredResponseError;
 }
 
 function assertOpenAIBudget(pathname) {
@@ -333,9 +335,6 @@ export async function structuredWebResponse({
 
   let lastError = null;
 
-  // A malformed JSON string from strict Structured Outputs almost always means
-  // the response did not finish. Handle that here, on the SAME topic, instead
-  // of letting the caller spend money researching a second topic immediately.
   for (let structuredAttempt = 1; structuredAttempt <= 2; structuredAttempt++) {
     const outputBudget = structuredAttempt === 1
       ? normalizedMaxOutputTokens
@@ -399,7 +398,7 @@ export async function structuredWebResponse({
       return result;
     } catch (err) {
       lastError = err;
-      if (isFatalOpenAIError(err)) throw err;
+      if (isFatalAccountError(err) || err instanceof OpenAIBudgetGuardError) throw err;
 
       const retryableStructuredFailure =
         err instanceof OpenAIStructuredResponseError && err.retryable;
@@ -410,7 +409,7 @@ export async function structuredWebResponse({
         `[structured] ${schemaName} attempt ${structuredAttempt}/2 was incomplete or malformed: ${err.message}`
       );
       console.warn(
-        `[structured] Retrying the SAME topic once with ${outputBudget < 20000 ? "a larger" : "the maximum"} output budget; ` +
+        `[structured] Retrying the SAME topic once with a larger output budget; ` +
         `the caller will not move to another topic yet.`
       );
       await new Promise(resolve => setTimeout(resolve, 3000));
