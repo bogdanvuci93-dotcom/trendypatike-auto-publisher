@@ -1,6 +1,13 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import { createHash } from "node:crypto";
 import { cfg } from "./config.mjs";
+import { commitAndPush } from "./git.mjs";
 
 const API = "https://api.openai.com/v1";
+const CACHE_FILE = path.resolve("data/openai-cache.json");
+const CACHEABLE_SCHEMAS = new Set(["trendypatike_post", "trendypatike_verified_post"]);
+const CACHE_TTL_MS = 72 * 60 * 60 * 1000;
 
 class OpenAIRequestError extends Error {
   constructor(message, { status = 0, code = "", retryAfterMs = 0 } = {}) {
@@ -42,24 +49,24 @@ export function isFatalOpenAIError(err) {
   return isFatalAccountError(err) || err instanceof OpenAIBudgetGuardError;
 }
 
-function assertOpenAIBudget(path) {
+function assertOpenAIBudget(pathname) {
   if (fatalAccountFailure) throw fatalAccountFailure;
 
   if (apiCallCount >= cfg.maxOpenAICalls) {
     throw new OpenAIBudgetGuardError(
       `OpenAI safety budget reached: ${apiCallCount}/${cfg.maxOpenAICalls} calls. ` +
-      `Stopping before another paid API request (${path}).`
+      `Stopping before another paid API request (${pathname}).`
     );
   }
 
   apiCallCount += 1;
-  console.log(`[openai] API call ${apiCallCount}/${cfg.maxOpenAICalls}: ${path}`);
+  console.log(`[openai] API call ${apiCallCount}/${cfg.maxOpenAICalls}: ${pathname}`);
 }
 
-async function openaiFetch(path, body) {
-  assertOpenAIBudget(path);
+async function openaiFetch(pathname, body) {
+  assertOpenAIBudget(pathname);
 
-  const res = await fetch(`${API}${path}`, {
+  const res = await fetch(`${API}${pathname}`, {
     method: "POST",
     headers: {
       "Authorization": `Bearer ${cfg.openaiKey}`,
@@ -80,7 +87,7 @@ async function openaiFetch(path, body) {
     const code = String(apiError.code || apiError.type || "");
     const retryAfter = Number(res.headers.get("retry-after") || 0);
     const err = new OpenAIRequestError(
-      `OpenAI ${path} failed (${res.status}): ${apiError.message || JSON.stringify(json)}`,
+      `OpenAI ${pathname} failed (${res.status}): ${apiError.message || JSON.stringify(json)}`,
       {
         status: res.status,
         code,
@@ -104,26 +111,26 @@ function requestRetryDelay(err, attempt) {
   return attempt === 1 ? 6000 : 15000;
 }
 
-async function openaiFetchWithRetry(path, body, maxAttempts = 2) {
+async function openaiFetchWithRetry(pathname, body, maxAttempts = 2) {
   let lastError = null;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      return await openaiFetch(path, body);
+      return await openaiFetch(pathname, body);
     } catch (err) {
       lastError = err;
       if (isFatalOpenAIError(err) || !isTransientError(err) || attempt >= maxAttempts) throw err;
 
       const delay = requestRetryDelay(err, attempt);
       console.warn(
-        `[openai] ${path} transient failure on attempt ${attempt}/${maxAttempts}; ` +
+        `[openai] ${pathname} transient failure on attempt ${attempt}/${maxAttempts}; ` +
         `retrying in ${Math.round(delay / 1000)}s.`
       );
       await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
 
-  throw lastError || new Error(`OpenAI ${path} failed`);
+  throw lastError || new Error(`OpenAI ${pathname} failed`);
 }
 
 function extractOutputText(json) {
@@ -165,6 +172,80 @@ function extractSearchUrls(json) {
   return [...urls];
 }
 
+function cacheKey({ model, prompt, schema, schemaName, allowedDomains, searchContextSize, maxToolCalls, maxOutputTokens }) {
+  return createHash("sha256")
+    .update(JSON.stringify({
+      model,
+      prompt,
+      schema,
+      schemaName,
+      allowedDomains: [...(allowedDomains || [])].sort(),
+      searchContextSize,
+      maxToolCalls,
+      maxOutputTokens
+    }))
+    .digest("hex");
+}
+
+async function readCache() {
+  try {
+    const parsed = JSON.parse(await fs.readFile(CACHE_FILE, "utf8"));
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+  } catch (err) {
+    if (err?.code === "ENOENT") return {};
+    console.warn(`[cache] Could not read OpenAI recovery cache: ${err.message}`);
+    return {};
+  }
+}
+
+async function cachedStructuredResult(key, schemaName) {
+  if (!CACHEABLE_SCHEMAS.has(schemaName)) return null;
+  const cache = await readCache();
+  const entry = cache[key];
+  if (!entry?.saved_at || !entry?.value || !Array.isArray(entry.searchUrls)) return null;
+
+  const age = Date.now() - Date.parse(entry.saved_at);
+  if (!Number.isFinite(age) || age < 0 || age > CACHE_TTL_MS) return null;
+
+  console.log(`[cache] Reusing paid ${schemaName} result from ${entry.saved_at}; no OpenAI call needed.`);
+  return { value: entry.value, searchUrls: entry.searchUrls };
+}
+
+async function persistStructuredResult(key, schemaName, result) {
+  if (!CACHEABLE_SCHEMAS.has(schemaName)) return;
+
+  try {
+    const cache = await readCache();
+    cache[key] = {
+      saved_at: new Date().toISOString(),
+      schema_name: schemaName,
+      value: result.value,
+      searchUrls: result.searchUrls
+    };
+
+    const trimmed = Object.fromEntries(
+      Object.entries(cache)
+        .sort((a, b) => Date.parse(b[1]?.saved_at || 0) - Date.parse(a[1]?.saved_at || 0))
+        .slice(0, 16)
+    );
+
+    await fs.writeFile(CACHE_FILE, JSON.stringify(trimmed, null, 2) + "\n");
+
+    if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
+      try {
+        commitAndPush([CACHE_FILE], `Checkpoint paid OpenAI ${schemaName}`, 6);
+      } catch (err) {
+        // The paid response is still returned to the current run. Cache
+        // persistence is a recovery optimization and must never turn a
+        // successful OpenAI response into a workflow failure.
+        console.warn(`[cache] Could not persist ${schemaName} to GitHub: ${err.message}`);
+      }
+    }
+  } catch (err) {
+    console.warn(`[cache] Could not save OpenAI recovery cache: ${err.message}`);
+  }
+}
+
 export async function structuredWebResponse({
   model,
   prompt,
@@ -175,6 +256,22 @@ export async function structuredWebResponse({
   maxToolCalls = 2,
   maxOutputTokens = 5000
 }) {
+  const normalizedMaxToolCalls = Math.max(1, Math.min(Number(maxToolCalls) || 2, 5));
+  const normalizedMaxOutputTokens = Math.max(800, Math.min(Number(maxOutputTokens) || 5000, 6000));
+  const key = cacheKey({
+    model,
+    prompt,
+    schema,
+    schemaName,
+    allowedDomains,
+    searchContextSize,
+    maxToolCalls: normalizedMaxToolCalls,
+    maxOutputTokens: normalizedMaxOutputTokens
+  });
+
+  const cached = await cachedStructuredResult(key, schemaName);
+  if (cached) return cached;
+
   const tool = { type: "web_search", search_context_size: searchContextSize };
   if (allowedDomains?.length) {
     tool.filters = { allowed_domains: allowedDomains };
@@ -185,8 +282,8 @@ export async function structuredWebResponse({
     store: false,
     tools: [tool],
     tool_choice: "required",
-    max_tool_calls: Math.max(1, Math.min(Number(maxToolCalls) || 2, 5)),
-    max_output_tokens: Math.max(800, Math.min(Number(maxOutputTokens) || 5000, 6000)),
+    max_tool_calls: normalizedMaxToolCalls,
+    max_output_tokens: normalizedMaxOutputTokens,
     include: ["web_search_call.action.sources"],
     input: prompt,
     text: {
@@ -216,7 +313,9 @@ export async function structuredWebResponse({
   }
 
   console.log(`[evidence] ${schemaName}: ${searchUrls.length} web source URL(s)`);
-  return { value, searchUrls };
+  const result = { value, searchUrls };
+  await persistStructuredResult(key, schemaName, result);
+  return result;
 }
 
 function isPromptLevelError(err) {
