@@ -2,13 +2,13 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { assertBaseConfig, cfg } from "./config.mjs";
 import {
-  chooseTopic,
   dateInBelgrade,
   loadState,
   loadTopics,
   researchWriteVerify,
   saveState
 } from "./content.mjs";
+import { choosePriorityTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
 import { publishCarousel } from "./instagram.mjs";
@@ -90,9 +90,10 @@ async function main() {
   const attemptedIds = new Set();
 
   for (let attempt = 1; attempt <= cfg.maxTopicAttempts; attempt++) {
-    const seed = await chooseTopic(
+    const seed = await choosePriorityTopic(
       topics.filter(t => !attemptedIds.has(t.id)),
-      state
+      state,
+      { allowMajorNews: attempt === 1 }
     );
     attemptedIds.add(seed.id);
     console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
