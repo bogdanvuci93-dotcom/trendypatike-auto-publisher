@@ -37,8 +37,6 @@ export function verifyGitWriteAccess() {
   const runId = String(process.env.GITHUB_RUN_ID || Date.now()).replace(/[^0-9A-Za-z_-]/g, "");
   const testRef = `refs/heads/__trendypatike-write-test-${runId}`;
 
-  // --dry-run exercises authentication and repository write permission but does
-  // not create the temporary branch. Do this before any paid OpenAI request.
   git(["fetch", "origin", branch], { timeoutMs: 60000 });
   git(["push", "--dry-run", "origin", `HEAD:${testRef}`], { timeoutMs: 60000 });
   console.log("[git] Write-access dry-run preflight OK; no repository change was made.");
@@ -53,6 +51,8 @@ export function commitAndPush(paths, message, maxAttempts = 4) {
   git(["config", "user.email", "bot@trendypatike.com"]);
   cleanupInterruptedGitOperation();
 
+  // Never inherit stale staging from a prior interrupted operation.
+  try { git(["reset"], { quiet: true, timeoutMs: 15000 }); } catch {}
   git(["add", "--", ...targetPaths]);
   const staged = git(["diff", "--cached", "--name-only"], { quiet: true });
   if (!staged) return false;
@@ -100,6 +100,10 @@ export function publicUrlFor(filePath) {
   return `https://raw.githubusercontent.com/${cfg.githubRepository}/${cfg.githubRefName || "main"}/${rel}`;
 }
 
+function looksLikeJpeg(bytes) {
+  return bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+}
+
 export async function waitUntilPublic(url, timeoutMs = 300000) {
   const start = Date.now();
   let lastStatus = 0;
@@ -116,8 +120,9 @@ export async function waitUntilPublic(url, timeoutMs = 300000) {
       lastType = String(res.headers.get("content-type") || "").toLowerCase();
       if (res.ok) {
         const bytes = Buffer.from(await res.arrayBuffer());
-        const mediaTypeOk = !url.toLowerCase().endsWith(".jpg") || lastType.includes("image/jpeg");
-        if (bytes.length > 10000 && mediaTypeOk) return;
+        const jpg = url.toLowerCase().split("?")[0].endsWith(".jpg");
+        const mediaOk = !jpg || looksLikeJpeg(bytes);
+        if (bytes.length > 10000 && mediaOk) return;
       }
     } catch {}
     await new Promise(r => setTimeout(r, 5000));
