@@ -3,7 +3,7 @@ const headlineLine = {
   additionalProperties: false,
   required: ["text", "accent"],
   properties: {
-    text: { type: "string", maxLength: 26 },
+    text: { type: "string", maxLength: 40 },
     accent: { type: "boolean" }
   }
 };
@@ -13,8 +13,11 @@ const fact = {
   additionalProperties: false,
   required: ["tag", "text"],
   properties: {
-    tag: { type: "string", maxLength: 18 },
-    text: { type: "string", minLength: 24, maxLength: 92 }
+    tag: { type: "string", maxLength: 24 },
+    // Keep the structured-output ceiling above the real layout limit.
+    // The validator still enforces 92 chars, but the model can now finish
+    // a sentence instead of being hard-truncated in the middle of a word.
+    text: { type: "string", minLength: 24, maxLength: 140 }
   }
 };
 
@@ -70,7 +73,9 @@ export const postSchema = {
           maxItems: 4,
           items: headlineLine
         },
-        subheadline: { type: "string", minLength: 24, maxLength: 92 }
+        // Same principle as facts: allow the model to finish naturally,
+        // then let validatePost enforce the actual 92-char layout limit.
+        subheadline: { type: "string", minLength: 24, maxLength: 140 }
       }
     },
     slide2: {
@@ -109,7 +114,7 @@ export const postSchema = {
           maxItems: 2,
           items: fact
         },
-        question: { type: "string", maxLength: 60 }
+        question: { type: "string", maxLength: 80 }
       }
     },
     caption: { type: "string", maxLength: 800 },
