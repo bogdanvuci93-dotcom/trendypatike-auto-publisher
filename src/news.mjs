@@ -1,5 +1,5 @@
 import { cfg } from "./config.mjs";
-import { structuredWebResponse } from "./openai.mjs";
+import { structuredWebResponse, isFatalAccountError } from "./openai.mjs";
 import { chooseTopic } from "./content.mjs";
 
 const MAJOR_NEWS_DOMAINS = [
@@ -178,11 +178,14 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
 `;
 
   const result = await structuredWebResponse({
-    model: cfg.textModel,
+    // This is only a yes/no gate. Use the cheaper GPT-5 mini and low search
+    // context; full research still happens later if a story actually qualifies.
+    model: "gpt-5-mini",
     prompt,
     schema: majorNewsSchema,
     schemaName: "trendypatike_major_news_gate",
-    allowedDomains: MAJOR_NEWS_DOMAINS
+    allowedDomains: MAJOR_NEWS_DOMAINS,
+    searchContextSize: "low"
   });
 
   const candidate = result.value;
@@ -242,6 +245,7 @@ export async function choosePriorityTopic(topics, state, { allowMajorNews = true
       const major = await scanMajorSneakerNews(state);
       if (major) return major;
     } catch (err) {
+      if (isFatalAccountError(err)) throw err;
       console.error(`[news] Major-news scan failed; continuing with evergreen topic: ${err.message}`);
     }
   }
