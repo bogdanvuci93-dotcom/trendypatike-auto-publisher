@@ -19,7 +19,7 @@ function esc(s = "") {
 }
 
 function wrap(text, maxChars = 34) {
-  const words = String(text).trim().split(/\s+/);
+  const words = String(text).trim().split(/\s+/).filter(Boolean);
   const lines = [];
   let line = "";
   for (const word of words) {
@@ -35,6 +35,15 @@ function wrap(text, maxChars = 34) {
   return lines;
 }
 
+function headlineMetrics(lines, base = 92) {
+  const longest = Math.max(1, ...lines.map(line => String(line.text).length));
+  let size = base;
+  if (longest > 34) size -= 15;
+  else if (longest > 29) size -= 9;
+  if (lines.length >= 4) size -= 5;
+  return { size: Math.max(68, size), gap: Math.max(76, size + 9) };
+}
+
 function headlineSvg(lines, { x = 72, y = 320, size = 94, gap = 100 } = {}) {
   return lines.map((line, i) => {
     const fill = line.accent ? cfg.brandGreen : WHITE;
@@ -42,10 +51,14 @@ function headlineSvg(lines, { x = 72, y = 320, size = 94, gap = 100 } = {}) {
   }).join("\n");
 }
 
-function factBlockSvg(fact, y, maxChars = 38) {
-  const lines = wrap(fact.text, maxChars).slice(0, 3);
+function factBlockSvg(fact, y) {
+  let lines = wrap(fact.text, 38);
+  if (lines.length > 4) lines = wrap(fact.text, 44);
+  lines = lines.slice(0, 4);
+  const size = lines.length >= 4 ? 27 : 30;
+  const lineGap = lines.length >= 4 ? 31 : 35;
   const body = lines.map((line, i) =>
-    `<text x="72" y="${y + 44 + i * 36}" font-family="${FONT}" font-size="30" font-weight="600" fill="${WHITE}">${esc(line)}</text>`
+    `<text x="72" y="${y + 44 + i * lineGap}" font-family="${FONT}" font-size="${size}" font-weight="600" fill="${WHITE}">${esc(line)}</text>`
   ).join("\n");
   return `
     <text x="72" y="${y}" font-family="${FONT}" font-size="25" font-weight="800" fill="${cfg.brandGreen}" letter-spacing="1">${esc(fact.tag.toUpperCase())}</text>
@@ -83,46 +96,49 @@ function frameSvg(slideNo) {
 }
 
 function coverOverlay(post) {
-  const lineCount = post.cover.headline_lines.length;
-  const size = lineCount >= 5 ? 82 : lineCount === 4 ? 91 : 100;
-  const gap = size + 10;
-  const sub = wrap(post.cover.subheadline, 37).slice(0, 3);
-  const subY = 1124;
+  const h = post.cover.headline_lines;
+  const { size, gap } = headlineMetrics(h, 100);
+  let sub = wrap(post.cover.subheadline, 37);
+  if (sub.length > 4) sub = wrap(post.cover.subheadline, 43);
+  sub = sub.slice(0, 4);
+  const subSize = sub.length >= 4 ? 27 : 30;
+  const subGap = sub.length >= 4 ? 32 : 38;
+  const subY = 1100;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
-    ${headlineSvg(post.cover.headline_lines, { y: 330, size, gap })}
+    ${headlineSvg(h, { y: 330, size, gap })}
     <line x1="72" y1="${subY - 42}" x2="132" y2="${subY - 42}" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${sub.map((t, i) => `<text x="72" y="${subY + i * 38}" font-family="${FONT}" font-size="30" font-weight="600" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="600" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
 function factsOverlay(post) {
   const h = post.slide2.headline_lines;
-  const size = h.length === 3 ? 78 : 88;
+  const { size, gap } = headlineMetrics(h, 88);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
-    ${headlineSvg(h, { y: 305, size, gap: size + 9 })}
-    ${factBlockSvg(post.slide2.facts[0], 650, 38)}
-    <line x1="72" y1="800" x2="132" y2="800" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[1], 845, 38)}
-    <line x1="72" y1="995" x2="132" y2="995" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[2], 1040, 38)}
+    ${headlineSvg(h, { y: 295, size, gap })}
+    ${factBlockSvg(post.slide2.facts[0], 610)}
+    <line x1="72" y1="790" x2="132" y2="790" stroke="${cfg.brandGreen}" stroke-width="3"/>
+    ${factBlockSvg(post.slide2.facts[1], 825)}
+    <line x1="72" y1="1005" x2="132" y2="1005" stroke="${cfg.brandGreen}" stroke-width="3"/>
+    ${factBlockSvg(post.slide2.facts[2], 1040)}
   </svg>`;
 }
 
 function impactOverlay(post) {
   const h = post.slide3.headline_lines;
-  const size = h.length === 3 ? 78 : 88;
+  const { size, gap } = headlineMetrics(h, 88);
   const q = wrap(post.slide3.question, 31).slice(0, 2);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
-    ${headlineSvg(h, { y: 305, size, gap: size + 9 })}
-    ${factBlockSvg(post.slide3.facts[0], 675, 38)}
+    ${headlineSvg(h, { y: 295, size, gap })}
+    ${factBlockSvg(post.slide3.facts[0], 660)}
     <line x1="72" y1="835" x2="132" y2="835" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide3.facts[1], 885, 38)}
+    ${factBlockSvg(post.slide3.facts[1], 875)}
     <line x1="72" y1="1050" x2="132" y2="1050" stroke="${cfg.brandGreen}" stroke-width="3"/>
     <circle cx="92" cy="1124" r="25" fill="none" stroke="${cfg.brandGreen}" stroke-width="3"/>
     <text x="84" y="1135" font-family="${FONT}" font-size="29" font-weight="900" fill="${cfg.brandGreen}">?</text>
@@ -131,15 +147,9 @@ function impactOverlay(post) {
 }
 
 async function logoBuffers() {
-  const white = await sharp(path.resolve("assets/logo-mark-white.png"))
-    .resize({ width: 56 })
-    .png()
-    .toBuffer();
-  const green = await sharp(path.resolve("assets/logo-mark-white.png"))
-    .resize({ width: 57 })
-    .tint(cfg.brandGreen)
-    .png()
-    .toBuffer();
+  const logo = path.resolve("assets/logo-mark-white.png");
+  const white = await sharp(logo).resize({ width: 56 }).png().toBuffer();
+  const green = await sharp(logo).resize({ width: 57 }).tint(cfg.brandGreen).png().toBuffer();
   return { white, green };
 }
 
@@ -147,7 +157,7 @@ function finalPrompt(base, slideIndex) {
   const composition = slideIndex === 0
     ? "Place the main person or sneaker mostly on the RIGHT half, leaving dark negative space on the LEFT for large headline typography."
     : "Keep the main sneaker or person mostly on the RIGHT half, with dark clean negative space on the LEFT for editorial text.";
-  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. No text, no captions, no watermark, no frame, no TrendyPatike branding. Avoid malformed shoes, duplicated limbs, incorrect random lettering, fake signatures and gibberish logos. This is an editorial culture/history visual, not a celebrity endorsement advertisement.`;
+  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
 }
 
 function neutralSafePrompt(slideIndex) {
@@ -156,66 +166,127 @@ function neutralSafePrompt(slideIndex) {
     : slideIndex === 1
       ? "A close editorial still life of an unbranded retro basketball sneaker on the RIGHT, with subtle vintage arena lights in the background."
       : "An unbranded retro high-top sneaker on the RIGHT with an anonymous basketball-court atmosphere and dramatic studio lighting.";
-
-  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT for editorial typography. No people, no recognizable celebrity, no brand logo, no trademark, no text, no letters, no watermark, no frame, no signature.`;
+  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT. No people, recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
 }
 
-async function usableRenderedSlide(file) {
+async function usableImage(file, { width = null, height = null, format = null, minSize = 1000 } = {}) {
   try {
     const stat = await fs.stat(file);
-    if (!stat.isFile() || stat.size < 10000) return false;
+    if (!stat.isFile() || stat.size < minSize) return false;
     const meta = await sharp(file).metadata();
-    return meta.width === W && meta.height === H && ["jpeg", "jpg"].includes(meta.format);
+    if (!meta.width || !meta.height) return false;
+    if (width && meta.width !== width) return false;
+    if (height && meta.height !== height) return false;
+    if (format && ![].concat(format).includes(meta.format)) return false;
+    return true;
   } catch {
     return false;
   }
 }
 
+async function renderSlide(source, overlay, logos, outPath) {
+  await sharp(source)
+    .resize(W, H, { fit: "cover", position: "attention" })
+    .composite([
+      { input: Buffer.from(overlay), left: 0, top: 0 },
+      { input: logos.white, left: 70, top: 62 },
+      { input: logos.green, left: 948, top: 1233 }
+    ])
+    .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
+    .toFile(outPath);
+
+  if (!(await usableImage(outPath, { width: W, height: H, format: ["jpeg", "jpg"], minSize: 10000 }))) {
+    throw new Error(`Rendered slide failed integrity check: ${outPath}`);
+  }
+}
+
 export async function generateAndRender(post, outputDir) {
   await fs.mkdir(outputDir, { recursive: true });
-  const { white, green } = await logoBuffers();
+  const logos = await logoBuffers();
   const overlays = [coverOverlay(post), factsOverlay(post), impactOverlay(post)];
   const outputs = [];
 
   for (let i = 0; i < 3; i++) {
-    const outPath = path.join(outputDir, `${String(i + 1).padStart(2, "0")}.jpg`);
+    const number = String(i + 1).padStart(2, "0");
+    const sourcePath = path.join(outputDir, `${number}-source.png`);
+    const outPath = path.join(outputDir, `${number}.jpg`);
 
-    // A previous run may have completed this slide and then failed on a later
-    // image, GitHub, or Meta step. Reuse the committed slide instead of paying
-    // OpenAI to generate it again.
-    if (await usableRenderedSlide(outPath)) {
-      console.log(`[resume] Reusing already-rendered slide ${i + 1}/3: ${outPath}`);
+    if (await usableImage(outPath, { width: W, height: H, format: ["jpeg", "jpg"], minSize: 10000 })) {
+      console.log(`[resume] Reusing rendered slide ${i + 1}/3.`);
       outputs.push(outPath);
       continue;
     }
 
-    const primaryPrompt = finalPrompt(post.image_prompts[i], i);
-    const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace them with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
-    const safePrompt = neutralSafePrompt(i);
-    const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
+    if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
+      const primaryPrompt = finalPrompt(post.image_prompts[i], i);
+      const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace it with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
+      const safePrompt = neutralSafePrompt(i);
+      const imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
+      await fs.writeFile(sourcePath, imageBuffer);
 
-    await sharp(imageBuffer)
-      .resize(W, H, { fit: "cover", position: "attention" })
-      .composite([
-        { input: Buffer.from(overlays[i]), left: 0, top: 0 },
-        { input: white, left: 70, top: 62 },
-        { input: green, left: 948, top: 1233 }
-      ])
-      .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
-      .toFile(outPath);
+      if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
+        throw new Error(`Paid source image ${i + 1} could not be decoded after generation`);
+      }
 
-    if (!(await usableRenderedSlide(outPath))) {
-      throw new Error(`Rendered slide ${i + 1} failed local integrity check`);
+      // Save the paid source BEFORE rendering. A later Sharp/layout failure can
+      // then be recovered with zero additional image-generation cost.
+      if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
+        commitAndPush([sourcePath], `Checkpoint TrendyPatike paid source ${i + 1}`, 6);
+      }
+    } else {
+      console.log(`[resume] Reusing paid source image ${i + 1}/3; rendering only.`);
     }
 
+    await renderSlide(sourcePath, overlays[i], logos, outPath);
     outputs.push(outPath);
 
-    // Persist each successful paid image immediately. If slide 2 or 3 later
-    // fails, the next run resumes from the already-paid slides at zero image cost.
     if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
-      commitAndPush([outPath], `Checkpoint TrendyPatike slide ${i + 1}`, 6);
+      commitAndPush([outPath], `Checkpoint TrendyPatike rendered slide ${i + 1}`, 6);
     }
   }
 
   return outputs;
+}
+
+export async function runRenderSelfTest() {
+  const post = {
+    cover: {
+      headline_lines: [{ text: "TEST NASLOV", accent: true }, { text: "DRUGI RED", accent: false }],
+      subheadline: "Ovo je lokalni test renderovanja bez API poziva."
+    },
+    slide2: {
+      headline_lines: [{ text: "TRI ČINJENICE", accent: true }],
+      facts: [
+        { tag: "PRVO", text: "Ovo je kompletna probna rečenica za proveru prvog bloka." },
+        { tag: "DRUGO", text: "Druga probna činjenica proverava slova č ć ž š i đ bez problema." },
+        { tag: "TREĆE", text: "Treća probna rečenica proverava da završni blok ostane unutar slajda." }
+      ]
+    },
+    slide3: {
+      headline_lines: [{ text: "KRAJ PRIČE", accent: true }],
+      facts: [
+        { tag: "TEST", text: "Prva završna činjenica proverava raspored teksta na trećem slajdu." },
+        { tag: "TEST 2", text: "Druga završna činjenica potvrđuje da SVG i Sharp rade zajedno." }
+      ],
+      question: "Da li render radi?"
+    }
+  };
+
+  const base = await sharp({ create: { width: W, height: H, channels: 3, background: "#111111" } }).png().toBuffer();
+  const logos = await logoBuffers();
+  const overlays = [coverOverlay(post), factsOverlay(post), impactOverlay(post)];
+  for (const overlay of overlays) {
+    const buffer = await sharp(base)
+      .composite([
+        { input: Buffer.from(overlay), left: 0, top: 0 },
+        { input: logos.white, left: 70, top: 62 },
+        { input: logos.green, left: 948, top: 1233 }
+      ])
+      .jpeg({ quality: 80 })
+      .toBuffer();
+    const meta = await sharp(buffer).metadata();
+    if (meta.width !== W || meta.height !== H || meta.format !== "jpeg") {
+      throw new Error("Offline carousel render self-test failed");
+    }
+  }
 }
