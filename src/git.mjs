@@ -30,6 +30,20 @@ function cleanupInterruptedGitOperation() {
   try { git(["merge", "--abort"], { quiet: true, timeoutMs: 15000 }); } catch {}
 }
 
+export function verifyGitWriteAccess() {
+  if (process.env.GITHUB_ACTIONS !== "true" || cfg.dryRun) return;
+
+  const branch = cfg.githubRefName || "main";
+  const runId = String(process.env.GITHUB_RUN_ID || Date.now()).replace(/[^0-9A-Za-z_-]/g, "");
+  const testRef = `refs/heads/__trendypatike-write-test-${runId}`;
+
+  // --dry-run exercises authentication and repository write permission but does
+  // not create the temporary branch. Do this before any paid OpenAI request.
+  git(["fetch", "origin", branch], { timeoutMs: 60000 });
+  git(["push", "--dry-run", "origin", `HEAD:${testRef}`], { timeoutMs: 60000 });
+  console.log("[git] Write-access dry-run preflight OK; no repository change was made.");
+}
+
 export function commitAndPush(paths, message, maxAttempts = 4) {
   const branch = cfg.githubRefName || "main";
   const targetPaths = [...new Set(paths.map(repoPath))];
