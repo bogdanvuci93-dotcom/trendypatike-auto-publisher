@@ -41,7 +41,7 @@ function headlineSvg(lines, { x = 72, y = 320, size = 94, gap = 100 } = {}) {
   }).join("\n");
 }
 
-function factBlockSvg(fact, y, maxChars = 34) {
+function factBlockSvg(fact, y, maxChars = 38) {
   const lines = wrap(fact.text, maxChars).slice(0, 3);
   const body = lines.map((line, i) =>
     `<text x="72" y="${y + 44 + i * 36}" font-family="${FONT}" font-size="30" font-weight="600" fill="${WHITE}">${esc(line)}</text>`
@@ -85,14 +85,14 @@ function coverOverlay(post) {
   const lineCount = post.cover.headline_lines.length;
   const size = lineCount >= 5 ? 82 : lineCount === 4 ? 91 : 100;
   const gap = size + 10;
-  const sub = wrap(post.cover.subheadline, 37).slice(0, 2);
-  const subY = 1160;
+  const sub = wrap(post.cover.subheadline, 37).slice(0, 3);
+  const subY = 1124;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
     ${headlineSvg(post.cover.headline_lines, { y: 330, size, gap })}
     <line x1="72" y1="${subY - 42}" x2="132" y2="${subY - 42}" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${sub.map((t, i) => `<text x="72" y="${subY + i * 38}" font-family="${FONT}" font-size="30" font-weight="600" fill="${i === 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    ${sub.map((t, i) => `<text x="72" y="${subY + i * 38}" font-family="${FONT}" font-size="30" font-weight="600" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
@@ -103,11 +103,11 @@ function factsOverlay(post) {
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
     ${headlineSvg(h, { y: 305, size, gap: size + 9 })}
-    ${factBlockSvg(post.slide2.facts[0], 650, 34)}
+    ${factBlockSvg(post.slide2.facts[0], 650, 38)}
     <line x1="72" y1="800" x2="132" y2="800" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[1], 845, 34)}
+    ${factBlockSvg(post.slide2.facts[1], 845, 38)}
     <line x1="72" y1="995" x2="132" y2="995" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[2], 1040, 34)}
+    ${factBlockSvg(post.slide2.facts[2], 1040, 38)}
   </svg>`;
 }
 
@@ -119,9 +119,9 @@ function impactOverlay(post) {
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
     ${headlineSvg(h, { y: 305, size, gap: size + 9 })}
-    ${factBlockSvg(post.slide3.facts[0], 675, 34)}
+    ${factBlockSvg(post.slide3.facts[0], 675, 38)}
     <line x1="72" y1="835" x2="132" y2="835" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide3.facts[1], 885, 34)}
+    ${factBlockSvg(post.slide3.facts[1], 885, 38)}
     <line x1="72" y1="1050" x2="132" y2="1050" stroke="${cfg.brandGreen}" stroke-width="3"/>
     <circle cx="92" cy="1124" r="25" fill="none" stroke="${cfg.brandGreen}" stroke-width="3"/>
     <text x="84" y="1135" font-family="${FONT}" font-size="29" font-weight="900" fill="${cfg.brandGreen}">?</text>
