@@ -14,11 +14,12 @@ import { choosePriorityTopic, isDuplicateTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic, verifyGitWriteAccess } from "./git.mjs";
 import { publishCarousel, verifyInstagramConnection } from "./instagram.mjs";
-import { isFatalOpenAIError, verifyOpenAIModelAccess } from "./openai.mjs";
+import { verifyOpenAIModelAccess } from "./openai.mjs";
 import { clearPending, loadPending, savePending } from "./pending.mjs";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const INSTAGRAM_PREFLIGHT_IMAGE = "public/posts/2026-08-19-air-jordan-start/01.jpg";
+const FALLBACK_FILE = path.resolve("data/fallback-posts.json");
 let instagramPreflightDone = false;
 let gitPreflightDone = false;
 
@@ -130,14 +131,75 @@ async function instagramPreflight() {
 async function openAIPreflightForStage(stage) {
   if (stage === "ready") {
     console.log("[openai] Ready checkpoint found; no OpenAI access is required for final publish.");
-    return;
+    return false;
   }
   if (stage === "verified") {
     console.log("[openai] Verified checkpoint found; image API is optional and cannot block publishing.");
-    return;
+    return false;
   }
-  assertOpenAIConfig();
-  await verifyOpenAIModelAccess({ text: true, image: false });
+
+  try {
+    assertOpenAIConfig();
+    await verifyOpenAIModelAccess({ text: true, image: false });
+    return true;
+  } catch (err) {
+    console.warn(`[openai] Text preflight unavailable; emergency verified content will be used: ${err.message}`);
+    return false;
+  }
+}
+
+async function loadEmergencyFallback(state) {
+  const entries = JSON.parse(await fs.readFile(FALLBACK_FILE, "utf8"));
+  for (const entry of entries) {
+    if (!entry?.seed || !entry?.post) continue;
+    if (isDuplicateTopic(entry.seed, state)) continue;
+    const post = sanitizeVisiblePost(JSON.parse(JSON.stringify(entry.post)));
+    post.force_local_images = true;
+    console.warn(`[fallback] Using zero-cost verified emergency post: ${entry.seed.topic}`);
+    return { seed: JSON.parse(JSON.stringify(entry.seed)), post };
+  }
+  throw new Error("Emergency fallback library is exhausted; refusing to publish a duplicate or unverified post");
+}
+
+async function buildNewPost({ topics, state, aiTextAvailable }) {
+  if (!aiTextAvailable) return loadEmergencyFallback(state);
+
+  let lastContentError = null;
+  try {
+    // With a verified emergency library available, one paid topic attempt is
+    // enough. Do not pay for a second writer/verifier pair in the same day.
+    const seed = await choosePriorityTopic(topics, state, { allowMajorNews: true });
+    if (isDuplicateTopic(seed, state)) {
+      throw new Error(`Selected topic was already used: ${seed.topic}`);
+    }
+
+    console.log(`[1/1] Researching: ${seed.topic}`);
+    try {
+      const candidatePost = sanitizeVisiblePost(await researchWriteVerify(seed));
+      if (isDuplicateTopic({ id: seed.id, topic: candidatePost.topic_title }, state)) {
+        throw new Error(`Generated topic overlaps a previously posted topic: ${candidatePost.topic_title}`);
+      }
+      return { seed, post: candidatePost };
+    } catch (err) {
+      lastContentError = err;
+      if (isTopicRejectedError(err)) {
+        console.warn(`[fallback] Dynamic topic was genuinely rejected by fact-check: ${err.message}`);
+      } else {
+        console.warn(`[fallback] Dynamic research had a technical/system failure: ${err.message}`);
+      }
+    }
+  } catch (err) {
+    lastContentError = err;
+    console.warn(`[fallback] Topic selection/research could not safely finish: ${err.message}`);
+  }
+
+  try {
+    return await loadEmergencyFallback(state);
+  } catch (fallbackErr) {
+    throw new Error(
+      `Dynamic content failed (${lastContentError?.message || "unknown"}) and no unused verified fallback remained (${fallbackErr.message})`
+    );
+  }
 }
 
 async function persistPublishedState({ today, chosenSeed, post, published }) {
@@ -159,17 +221,10 @@ async function persistPublishedState({ today, chosenSeed, post, published }) {
     const clearedPending = await clearPending();
 
     if (process.env.GITHUB_ACTIONS === "true") {
-      commitAndPush(
-        ["data/state.json", clearedPending],
-        `Mark TrendyPatike post published ${today}`,
-        8
-      );
+      commitAndPush(["data/state.json", clearedPending], `Mark TrendyPatike post published ${today}`, 8);
     }
     console.log("[state] Published state persisted successfully.");
   } catch (err) {
-    // The user-facing objective has already succeeded. Never convert a live
-    // Instagram post into a failed workflow because bookkeeping is temporarily
-    // unavailable. The remote ready checkpoint + caption guard repairs it later.
     console.error(`[state] Instagram is LIVE, but bookkeeping could not finish: ${err.message}`);
     console.log("[state] Treating publish as successful; next run will recover state without AI calls or duplicate posting.");
   }
@@ -192,7 +247,7 @@ async function main() {
 
   const hasRecentPending = recentCheckpoint(initialPending, today);
   const initialStage = hasRecentPending ? initialPending.stage : "new";
-  await openAIPreflightForStage(initialStage);
+  const aiTextAvailable = await openAIPreflightForStage(initialStage);
 
   let chosenSeed = null;
   let post = null;
@@ -207,45 +262,9 @@ async function main() {
     console.log(`[resume] Reusing ${initialPending.stage} checkpoint from ${initialPending.date}: ${chosenSeed.topic}`);
     console.log("[resume] Skipping all completed paid stages.");
   } else {
-    let lastError = null;
-    const attemptedIds = new Set();
-
-    for (let attempt = 1; attempt <= cfg.maxTopicAttempts; attempt++) {
-      const seed = await choosePriorityTopic(
-        topics.filter(t => !attemptedIds.has(t.id)),
-        state,
-        { allowMajorNews: attempt === 1 }
-      );
-
-      attemptedIds.add(seed.id);
-      if (isDuplicateTopic(seed, state)) {
-        lastError = new Error(`Duplicate topic blocked before research: ${seed.topic}`);
-        console.warn(lastError.message);
-        continue;
-      }
-
-      console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
-      try {
-        const candidatePost = sanitizeVisiblePost(await researchWriteVerify(seed));
-        if (isDuplicateTopic({ id: seed.id, topic: candidatePost.topic_title }, state)) {
-          lastError = new Error(`Duplicate topic blocked after writing: ${candidatePost.topic_title}`);
-          console.warn(lastError.message);
-          continue;
-        }
-        post = candidatePost;
-        chosenSeed = seed;
-        break;
-      } catch (err) {
-        if (isFatalOpenAIError(err)) throw err;
-        if (!isTopicRejectedError(err)) throw err;
-        lastError = err;
-        console.warn(`Topic genuinely rejected by fact-check: ${err.message}`);
-      }
-    }
-
-    if (!post || !chosenSeed) {
-      throw new Error(`No topic passed fact verification. Last reason: ${lastError?.message || "unknown"}`);
-    }
+    const built = await buildNewPost({ topics, state, aiTextAvailable });
+    chosenSeed = built.seed;
+    post = built.post;
 
     if (!cfg.dryRun) {
       await saveCheckpoint(
@@ -338,7 +357,7 @@ async function runWithRecovery(maxAttempts = 3) {
       return await main();
     } catch (err) {
       lastError = err;
-      if (isFatalOpenAIError(err) || cfg.dryRun || attempt >= maxAttempts) throw err;
+      if (cfg.dryRun || attempt >= maxAttempts) throw err;
 
       let pending = null;
       try { pending = await loadPending(); } catch {}
