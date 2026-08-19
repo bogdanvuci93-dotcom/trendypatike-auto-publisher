@@ -12,6 +12,8 @@ import { choosePriorityTopic, isDuplicateTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
 import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
 import { publishCarousel, verifyInstagramConnection } from "./instagram.mjs";
+import { isFatalOpenAIError } from "./openai.mjs";
+import { clearPending, loadPending, savePending } from "./pending.mjs";
 
 function cleanVisibleText(value = "") {
   return String(value)
@@ -73,6 +75,27 @@ async function saveMetadata(dir, seed, post) {
   return file;
 }
 
+async function usableFile(file) {
+  try {
+    const stat = await fs.stat(file);
+    return stat.isFile() && stat.size > 10000;
+  } catch {
+    return false;
+  }
+}
+
+function expectedImagePaths(outDir) {
+  return ["01.jpg", "02.jpg", "03.jpg"].map(name => path.join(outDir, name));
+}
+
+async function saveCheckpoint(data, message, extraPaths = []) {
+  const pendingFile = await savePending(data);
+  if (process.env.GITHUB_ACTIONS === "true" && !cfg.dryRun) {
+    commitAndPush([...extraPaths, pendingFile], message, 6);
+  }
+  return pendingFile;
+}
+
 async function main() {
   assertBaseConfig();
   const today = dateInBelgrade();
@@ -85,61 +108,122 @@ async function main() {
   }
 
   if (!cfg.dryRun) {
+    // Fail before any OpenAI spending if the Instagram token/account is invalid.
     await verifyInstagramConnection();
   }
 
+  const pending = cfg.dryRun ? null : await loadPending();
   let chosenSeed = null;
   let post = null;
-  let lastError = null;
-  const attemptedIds = new Set();
+  let resumed = false;
 
-  for (let attempt = 1; attempt <= cfg.maxTopicAttempts; attempt++) {
-    const seed = await choosePriorityTopic(
-      topics.filter(t => !attemptedIds.has(t.id)),
-      state,
-      { allowMajorNews: attempt === 1 }
-    );
-    attemptedIds.add(seed.id);
+  if (
+    pending?.date === today &&
+    pending?.seed &&
+    pending?.post &&
+    ["verified", "ready"].includes(pending.stage)
+  ) {
+    chosenSeed = pending.seed;
+    post = pending.post;
+    resumed = true;
+    console.log(`[resume] Reusing ${pending.stage} checkpoint for: ${chosenSeed.topic}`);
+    console.log("[resume] Skipping breaking-news scan, research and verifier.");
+  } else {
+    let lastError = null;
+    const attemptedIds = new Set();
 
-    if (isDuplicateTopic(seed, state)) {
-      lastError = new Error(`Duplicate topic blocked before research: ${seed.topic}`);
-      console.error(lastError.message);
-      continue;
-    }
+    for (let attempt = 1; attempt <= cfg.maxTopicAttempts; attempt++) {
+      const seed = await choosePriorityTopic(
+        topics.filter(t => !attemptedIds.has(t.id)),
+        state,
+        { allowMajorNews: attempt === 1 }
+      );
+      attemptedIds.add(seed.id);
 
-    console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
-
-    try {
-      const candidatePost = sanitizeVisiblePost(await researchWriteVerify(seed));
-
-      if (isDuplicateTopic({ id: seed.id, topic: candidatePost.topic_title }, state)) {
-        throw new Error(`Duplicate topic blocked after writing: ${candidatePost.topic_title}`);
+      if (isDuplicateTopic(seed, state)) {
+        lastError = new Error(`Duplicate topic blocked before research: ${seed.topic}`);
+        console.error(lastError.message);
+        continue;
       }
 
-      post = candidatePost;
-      chosenSeed = seed;
-      break;
-    } catch (err) {
-      lastError = err;
-      console.error(`Topic rejected: ${err.message}`);
-    }
-  }
+      console.log(`[${attempt}/${cfg.maxTopicAttempts}] Researching: ${seed.topic}`);
 
-  if (!post || !chosenSeed) {
-    throw new Error(`No topic passed verification. Last error: ${lastError?.message || "unknown"}`);
+      try {
+        const candidatePost = sanitizeVisiblePost(await researchWriteVerify(seed));
+
+        if (isDuplicateTopic({ id: seed.id, topic: candidatePost.topic_title }, state)) {
+          throw new Error(`Duplicate topic blocked after writing: ${candidatePost.topic_title}`);
+        }
+
+        post = candidatePost;
+        chosenSeed = seed;
+        break;
+      } catch (err) {
+        if (isFatalOpenAIError(err)) throw err;
+        lastError = err;
+        console.error(`Topic rejected: ${err.message}`);
+      }
+    }
+
+    if (!post || !chosenSeed) {
+      throw new Error(`No topic passed verification. Last error: ${lastError?.message || "unknown"}`);
+    }
+
+    if (!cfg.dryRun) {
+      // Persist the expensive part FIRST. If images/Git/Meta fail afterwards,
+      // the next run resumes here and does not pay for research again.
+      await saveCheckpoint(
+        {
+          date: today,
+          stage: "verified",
+          seed: chosenSeed,
+          post
+        },
+        `Checkpoint verified TrendyPatike post ${today}`
+      );
+    }
   }
 
   const safeId = chosenSeed.id.replace(/[^a-z0-9-]+/g, "-");
   const outDir = path.resolve("public/posts", `${today}-${safeId}`);
-  const images = await generateAndRender(post, outDir);
+  const expectedImages = expectedImagePaths(outDir);
+
+  let images;
+  const canReuseImages =
+    resumed &&
+    pending?.stage === "ready" &&
+    (await Promise.all(expectedImages.map(usableFile))).every(Boolean);
+
+  if (canReuseImages) {
+    images = expectedImages;
+    console.log("[resume] Reusing 3 already-generated carousel images. No image API calls needed.");
+  } else {
+    images = await generateAndRender(post, outDir);
+  }
+
   const metadataFile = await saveMetadata(outDir, chosenSeed, post);
+  let pendingFile = null;
+
+  if (!cfg.dryRun) {
+    pendingFile = await savePending({
+      date: today,
+      stage: "ready",
+      seed: chosenSeed,
+      post,
+      image_paths: images.map(file => path.relative(process.cwd(), file).split(path.sep).join("/"))
+    });
+  }
 
   const publicFiles = images.map(publicUrlFor);
 
   if (process.env.GITHUB_ACTIONS === "true") {
-    // Commit only the files produced by THIS post. Do not stage the whole public/
-    // tree, because another run or maintenance commit may have added other posts.
-    commitAndPush([...images, metadataFile], `Generate TrendyPatike post ${today}`);
+    const filesToCommit = pendingFile
+      ? [...images, metadataFile, pendingFile]
+      : [...images, metadataFile];
+
+    // Persist final assets before asking Meta to ingest them. A Meta/API failure
+    // can then be retried later with zero OpenAI cost.
+    commitAndPush(filesToCommit, `Checkpoint TrendyPatike assets ${today}`, 6);
     for (const url of publicFiles) await waitUntilPublic(url);
   } else if (!cfg.publicBaseUrl) {
     console.log("Local mode without PUBLIC_BASE_URL: skipping URL availability check.");
@@ -158,20 +242,32 @@ async function main() {
   const published = await publishCarousel(publicFiles, captionFor(post));
   console.log(`Published Instagram media ID: ${published.id}`);
 
-  state.posted.push({
-    date: today,
-    topic_id: chosenSeed.id,
-    seed_topic: chosenSeed.topic,
-    topic_title: post.topic_title,
-    media_id: published.id,
-    sources: post.sources.map(s => s.url)
-  });
-  state.last_publish_date = today;
-  state.last_media_id = published.id;
-  await saveState(state);
+  // commitAndPush may have reset the checkout to a newer main, so reload the
+  // latest state before recording the successful publication.
+  const latestState = await loadState();
+  if (!latestState.posted.some(entry => entry.media_id === published.id)) {
+    latestState.posted.push({
+      date: today,
+      topic_id: chosenSeed.id,
+      seed_topic: chosenSeed.topic,
+      topic_title: post.topic_title,
+      media_id: published.id,
+      sources: post.sources.map(s => s.url)
+    });
+  }
+  latestState.last_publish_date = today;
+  latestState.last_media_id = published.id;
+  await saveState(latestState);
+  const clearedPending = await clearPending();
 
   if (process.env.GITHUB_ACTIONS === "true") {
-    commitAndPush(["data/state.json"], `Mark TrendyPatike post published ${today}`);
+    // This is the one post-publish write. Retry harder because state persistence
+    // prevents the next scheduled run from creating a duplicate post.
+    commitAndPush(
+      ["data/state.json", clearedPending],
+      `Mark TrendyPatike post published ${today}`,
+      8
+    );
   }
 }
 
