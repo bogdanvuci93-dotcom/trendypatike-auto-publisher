@@ -2,6 +2,12 @@ name: TrendyPatike Daily Carousel
 
 on:
   workflow_dispatch:
+    inputs:
+      publish_now:
+        description: "Publish this generated carousel to Instagram?"
+        required: true
+        default: false
+        type: boolean
   schedule:
     - cron: "35 19 * * *"
       timezone: "Europe/Belgrade"
@@ -49,7 +55,7 @@ jobs:
           BRAND_GREEN: "#037361"
           BRAND_NAME: "TRENDYPATIKE"
           BRAND_SITE: "trendypatike.com"
-          DRY_RUN: ${{ vars.DRY_RUN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_now && 'false' || vars.DRY_RUN }}
           FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "3"
         run: npm run run
