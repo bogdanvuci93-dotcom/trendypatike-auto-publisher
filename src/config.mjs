@@ -11,6 +11,7 @@ export const cfg = {
   verifyModel: process.env.VERIFY_MODEL || "gpt-5",
   imageModel: process.env.IMAGE_MODEL || "gpt-image-1-mini",
   imageQuality: process.env.IMAGE_QUALITY || "medium",
+  maxOpenAICalls: Math.max(1, Number(process.env.MAX_OPENAI_CALLS || 10)),
 
   igToken: process.env.IG_ACCESS_TOKEN,
   igUserId: process.env.IG_USER_ID,
@@ -22,7 +23,7 @@ export const cfg = {
 
   dryRun: process.env.DRY_RUN ? String(process.env.DRY_RUN).toLowerCase() === "true" : true,
   forceRun: process.env.FORCE_RUN ? String(process.env.FORCE_RUN).toLowerCase() === "true" : false,
-  maxTopicAttempts: Number(process.env.MAX_TOPIC_ATTEMPTS || 3),
+  maxTopicAttempts: Number(process.env.MAX_TOPIC_ATTEMPTS || 2),
 
   githubRepository: process.env.GITHUB_REPOSITORY || "",
   githubRefName: process.env.GITHUB_REF_NAME || "main",
@@ -31,6 +32,9 @@ export const cfg = {
 
 export function assertBaseConfig() {
   if (!cfg.openaiKey) throw new Error("Missing OPENAI_API_KEY");
+  if (!Number.isFinite(cfg.maxOpenAICalls) || cfg.maxOpenAICalls < 1) {
+    throw new Error("MAX_OPENAI_CALLS must be a positive number");
+  }
   if (!cfg.dryRun) {
     if (!cfg.igToken) throw new Error("Missing IG_ACCESS_TOKEN");
     if (!cfg.igUserId) throw new Error("Missing IG_USER_ID");
