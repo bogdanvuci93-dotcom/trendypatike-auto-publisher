@@ -3,24 +3,10 @@ import { structuredWebResponse, isFatalAccountError } from "./openai.mjs";
 import { chooseTopic } from "./content.mjs";
 
 const MAJOR_NEWS_DOMAINS = [
-  "about.nike.com",
-  "nike.com",
-  "nba.com",
-  "news.adidas.com",
-  "adidas-group.com",
-  "adidas.com",
-  "about.puma.com",
-  "puma.com",
-  "newbalance.com",
-  "newbalance.newsmarket.com",
-  "asics.com",
-  "reebok.com",
-  "olympics.com",
-  "reuters.com",
-  "apnews.com",
-  "espn.com",
-  "sportsbusinessjournal.com",
-  "gq.com"
+  "about.nike.com", "nike.com", "nba.com", "news.adidas.com", "adidas-group.com",
+  "adidas.com", "about.puma.com", "puma.com", "newbalance.com",
+  "newbalance.newsmarket.com", "asics.com", "reebok.com", "olympics.com",
+  "reuters.com", "apnews.com", "espn.com", "sportsbusinessjournal.com", "gq.com"
 ];
 
 const TOPIC_STOP_WORDS = new Set([
@@ -32,28 +18,20 @@ const TOPIC_STOP_WORDS = new Set([
 const majorNewsSchema = {
   type: "object",
   additionalProperties: false,
-  required: [
-    "is_major",
-    "reason",
-    "id",
-    "topic",
-    "category",
-    "preferred_domains",
-    "visual_subject"
-  ],
+  required: ["is_major", "reason", "id", "topic", "category", "preferred_domains", "visual_subject"],
   properties: {
     is_major: { type: "boolean" },
-    reason: { type: "string" },
-    id: { type: "string" },
-    topic: { type: "string" },
-    category: { type: "string" },
+    reason: { type: "string", maxLength: 300 },
+    id: { type: "string", maxLength: 100 },
+    topic: { type: "string", maxLength: 180 },
+    category: { type: "string", maxLength: 100 },
     preferred_domains: {
       type: "array",
       minItems: 0,
       maxItems: 6,
-      items: { type: "string" }
+      items: { type: "string", maxLength: 120 }
     },
-    visual_subject: { type: "string" }
+    visual_subject: { type: "string", maxLength: 300 }
   }
 };
 
@@ -69,9 +47,7 @@ function normalizeTopicText(value = "") {
 function stemTopicToken(token) {
   const endings = ["ovima", "evima", "ima", "ama", "ovi", "evi", "om", "em", "og", "oj", "a", "e", "i", "o", "u"];
   for (const ending of endings) {
-    if (token.endsWith(ending) && token.length - ending.length >= 4) {
-      return token.slice(0, -ending.length);
-    }
+    if (token.endsWith(ending) && token.length - ending.length >= 4) return token.slice(0, -ending.length);
   }
   return token;
 }
@@ -89,105 +65,54 @@ function overlapScore(a, b) {
   const left = topicTokens(a);
   const right = topicTokens(b);
   if (!left.size || !right.size) return { score: 0, shared: 0 };
-
   let shared = 0;
-  for (const token of left) {
-    if (right.has(token)) shared += 1;
-  }
-
-  return {
-    score: shared / Math.min(left.size, right.size),
-    shared
-  };
+  for (const token of left) if (right.has(token)) shared += 1;
+  return { score: shared / Math.min(left.size, right.size), shared };
 }
 
 export function isDuplicateTopic(candidate, state) {
   const candidateId = normalizeTopicText(candidate?.id);
   const candidateTopic = normalizeTopicText(candidate?.topic);
 
-  return state.posted.some(entry => {
+  return (state.posted || []).some(entry => {
     const postedId = normalizeTopicText(entry.topic_id);
     if (candidateId && postedId && candidateId === postedId) return true;
 
-    const previousTitles = [entry.seed_topic, entry.topic_title]
-      .map(normalizeTopicText)
-      .filter(Boolean);
-
-    for (const previous of previousTitles) {
+    for (const previous of [entry.seed_topic, entry.topic_title].map(normalizeTopicText).filter(Boolean)) {
       if (candidateTopic && candidateTopic === previous) return true;
-
       const { score, shared } = overlapScore(candidateTopic, previous);
       if ((shared >= 5 && score >= 0.55) || (shared >= 4 && score >= 0.72)) return true;
     }
-
     return false;
   });
 }
 
 async function scanMajorSneakerNews(state) {
-  const previous = state.posted
+  const previous = (state.posted || [])
     .slice(-200)
     .map(x => x.seed_topic || x.topic_title)
     .filter(Boolean);
 
-  const prompt = `
-You are the breaking-news gatekeeper for TrendyPatike, a Serbian Instagram account about sneaker history, culture and sport.
-
-IMPORTANT EDITORIAL PRIORITY:
-The NORMAL daily TrendyPatike post should be evergreen history, culture, iconic models, athletes, design, inventions and surprising facts.
-Breaking news is an EXCEPTION, not the main content strategy.
-
-Search the web for events from roughly the LAST 72 HOURS.
-Return is_major=true ONLY if there is a genuinely big sneaker/sportswear story that is more interesting than a strong evergreen history post.
-
-QUALIFYING MAJOR STORIES can include:
-- a major company sale, acquisition, new controlling owner or ownership change involving a globally known sportswear/sneaker company;
-- a major lawsuit, court decision, settlement, regulatory action or business dispute involving a major sneaker/sportswear brand or famous sneaker partnership;
-- a major athlete or celebrity sneaker/sportswear contract, endorsement or partnership, especially when the value is reliably reported;
-- a major contract breakup, return or unexpected partnership change involving a globally known athlete, celebrity or brand;
-- a major award, championship, record or sports moment where sneakers or a sneaker deal are a central part of the story;
-- a major executive/founder event that materially affects a famous sneaker company;
-- another truly exceptional sneaker-culture story with broad mainstream relevance.
-
-DO NOT qualify ordinary product news:
-- normal new sneaker releases;
-- new colorways;
-- restocks;
-- release dates;
-- leaks or rumors;
-- routine collaborations;
-- resale price changes;
-- a celebrity simply being photographed wearing shoes;
-- small influencer stories;
-- ordinary marketing campaigns.
-
-A new shoe itself is NOT enough. Only choose product news if the surrounding event is historically or culturally significant on a mainstream level.
-
-SOURCE RULES:
-- The story must be verified from reliable sources when possible.
-- Prefer an official source plus Reuters, AP, ESPN or another highly reputable source.
-- Do not use rumors, anonymous social posts or speculative sneaker blogs as the basis for is_major=true.
-- If contract value, lawsuit amount, ownership value or another number is uncertain, do not state it as fact.
-
-Previous TrendyPatike topics to avoid repeating:
-${previous.map(x => `- ${x}`).join("\n") || "- none yet"}
-
-If there is NO exceptional story, return is_major=false and leave id/topic/category/visual_subject as short empty strings and preferred_domains as an empty array.
-If there IS an exceptional story, return a stable lowercase ASCII hyphenated id, a clear topic, category, visual subject, and preferred_domains chosen only from this list:
-${MAJOR_NEWS_DOMAINS.join(", ")}
-`;
+  const prompt = `You are the breaking-news gatekeeper for TrendyPatike.
+Search roughly the last 72 hours. Normal daily content is evergreen sneaker history/culture.
+Return is_major=true ONLY for a genuinely major mainstream story: ownership/acquisition, major lawsuit or ruling,
+major athlete/celebrity sportswear contract or breakup, championship/record where sneaker business is central,
+or another exceptional sneaker-industry event.
+Do NOT qualify normal releases, colorways, restocks, leaks, routine collaborations, resale changes or celebrity sightings.
+Use reliable sources and avoid rumors.
+Previous topics to avoid:\n${previous.map(x => `- ${x}`).join("\n") || "- none"}
+If no exceptional story exists, return is_major=false with empty id/topic/category/visual_subject and empty preferred_domains.
+If one exists, preferred_domains must come from: ${MAJOR_NEWS_DOMAINS.join(", ")}.`;
 
   const result = await structuredWebResponse({
-    // This is only a yes/no gate. One low-context web-search tool call is the
-    // hard ceiling; full independent research happens only after selection.
-    model: "gpt-5-mini",
+    model: cfg.textModel,
     prompt,
     schema: majorNewsSchema,
     schemaName: "trendypatike_major_news_gate",
     allowedDomains: MAJOR_NEWS_DOMAINS,
     searchContextSize: "low",
     maxToolCalls: 1,
-    maxOutputTokens: 1400
+    maxOutputTokens: 3000
   });
 
   const candidate = result.value;
@@ -195,19 +120,11 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
     console.log(`[news] No exceptional sneaker story today: ${candidate.reason}`);
     return null;
   }
-
-  if (!candidate.id || !candidate.topic || !candidate.visual_subject) {
-    console.log("[news] Major-news gate returned incomplete story; using evergreen topic instead.");
-    return null;
-  }
-
+  if (!candidate.id || !candidate.topic || !candidate.visual_subject) return null;
   if (isDuplicateTopic(candidate, state)) {
     console.log(`[news] Duplicate major story blocked: ${candidate.topic}`);
     return null;
   }
-
-  console.log(`[news] Exceptional story selected: ${candidate.topic}`);
-  console.log(`[news] Why it qualified: ${candidate.reason}`);
 
   return {
     id: candidate.id,
@@ -221,24 +138,17 @@ ${MAJOR_NEWS_DOMAINS.join(", ")}
 }
 
 async function chooseUniqueEvergreenTopic(topics, state) {
-  const selectionState = {
-    ...state,
-    posted: [...state.posted]
-  };
-
-  for (let attempt = 1; attempt <= 5; attempt++) {
-    const candidate = await chooseTopic(topics, selectionState);
-    if (!isDuplicateTopic(candidate, state)) return candidate;
-
-    console.log(`[topics] Duplicate topic blocked (${attempt}/5): ${candidate.topic}`);
-    selectionState.posted.push({
-      topic_id: candidate.id,
-      topic_title: candidate.topic,
-      seed_topic: candidate.topic
-    });
+  // Curated topics cost zero to select. Walk them locally and never call the AI
+  // repeatedly just because one curated title is considered too similar.
+  for (const topic of topics) {
+    if (!isDuplicateTopic(topic, state)) return topic;
   }
 
-  throw new Error("Could not find a unique TrendyPatike topic after 5 attempts");
+  // Once the curated library is exhausted, make at most ONE paid fresh-topic
+  // selection per outer topic attempt. The global OpenAI call cap still applies.
+  const fresh = await chooseTopic([], state);
+  if (!isDuplicateTopic(fresh, state)) return fresh;
+  throw new Error(`Fresh topic generator returned a duplicate: ${fresh.topic}`);
 }
 
 export async function choosePriorityTopic(topics, state, { allowMajorNews = true } = {}) {
@@ -247,8 +157,10 @@ export async function choosePriorityTopic(topics, state, { allowMajorNews = true
       const major = await scanMajorSneakerNews(state);
       if (major) return major;
     } catch (err) {
+      // Billing/auth problems must stop immediately. A technical failure of the
+      // optional news gate should not prevent the zero-cost evergreen fallback.
       if (isFatalAccountError(err)) throw err;
-      console.error(`[news] Major-news scan failed; continuing with evergreen topic: ${err.message}`);
+      console.warn(`[news] Optional major-news gate unavailable; using evergreen: ${err.message}`);
     }
   }
 
