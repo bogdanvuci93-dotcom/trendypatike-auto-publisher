@@ -12,7 +12,7 @@ import {
 } from "./content.mjs";
 import { choosePriorityTopic, isDuplicateTopic } from "./news.mjs";
 import { generateAndRender } from "./render.mjs";
-import { commitAndPush, publicUrlFor, waitUntilPublic } from "./git.mjs";
+import { commitAndPush, publicUrlFor, waitUntilPublic, verifyGitWriteAccess } from "./git.mjs";
 import { publishCarousel, verifyInstagramConnection } from "./instagram.mjs";
 import { isFatalOpenAIError, verifyOpenAIModelAccess } from "./openai.mjs";
 import { clearPending, loadPending, savePending } from "./pending.mjs";
@@ -20,6 +20,7 @@ import { clearPending, loadPending, savePending } from "./pending.mjs";
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const INSTAGRAM_PREFLIGHT_IMAGE = "public/posts/2026-08-19-air-jordan-start/01.jpg";
 let instagramPreflightDone = false;
+let gitPreflightDone = false;
 
 function cleanVisibleText(value = "") {
   return String(value)
@@ -108,6 +109,12 @@ async function saveCheckpoint(data, message, extraPaths = []) {
   return pendingFile;
 }
 
+function gitPreflight() {
+  if (cfg.dryRun || gitPreflightDone) return;
+  verifyGitWriteAccess();
+  gitPreflightDone = true;
+}
+
 async function instagramPreflight() {
   if (cfg.dryRun || instagramPreflightDone) return;
   let probeImageUrl = "";
@@ -145,6 +152,9 @@ async function main() {
   }
 
   assertRuntimeConfig();
+  // Git write permission and Meta publishing/media-ingest ability are tested
+  // before any paid OpenAI work. Both preflights are free and run once/process.
+  gitPreflight();
   await instagramPreflight();
 
   const hasRecentPending = recentCheckpoint(initialPending, today);
@@ -176,8 +186,6 @@ async function main() {
           { allowMajorNews: attempt === 1 }
         );
       } catch (err) {
-        // Topic-selection infrastructure failures are systemic. Do not spend on
-        // another topic unless the failure is explicitly a content rejection.
         throw err;
       }
 
@@ -316,10 +324,8 @@ async function main() {
         8
       );
     } catch (err) {
-      // Instagram is already live. Remote ready checkpoint remains available,
-      // and the duplicate guard will recover the existing media on the next run.
       console.error(`[state] Instagram is live but final GitHub state push failed: ${err.message}`);
-      console.log("[state] Next run will recover the existing Instagram media without OpenAI usage or duplicate publishing.");
+      console.log("[state] Next run will recover existing Instagram media without OpenAI usage or duplicate publishing.");
     }
   }
 }
