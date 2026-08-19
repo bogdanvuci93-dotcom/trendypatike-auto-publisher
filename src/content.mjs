@@ -80,11 +80,12 @@ Return a stable lowercase ASCII id with hyphens.
 `;
 
   const result = await structuredWebResponse({
-    model: cfg.textModel,
+    model: "gpt-5-mini",
     prompt,
     schema: freshSeedSchema,
     schemaName: "trendypatike_fresh_seed",
-    allowedDomains: GLOBAL_TRUSTED_DOMAINS
+    allowedDomains: GLOBAL_TRUSTED_DOMAINS,
+    searchContextSize: "low"
   });
 
   return result.value;
@@ -286,10 +287,28 @@ function normalizeHeadlineGroup(lines, maxLines, label) {
   }
 
   if (expanded.length > maxLines) {
-    throw new Error(`Copy guard: ${label} needs more than ${maxLines} headline lines`);
+    console.warn(`[layout] ${label} produced ${expanded.length} lines; compacting to ${maxLines}.`);
+    return expanded.slice(0, maxLines);
   }
 
   return expanded;
+}
+
+function normalizeQuestion(text = "") {
+  const words = String(text)
+    .replace(/[?!.,]+$/g, "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 8);
+  return `${words.join(" ")}?`;
+}
+
+function normalizeCaption(text = "") {
+  const value = String(text).trim();
+  if (value.length <= 780) return value;
+  const shortened = shortenAtWordBoundary(value, 779).replace(/[,:;\-\s]+$/g, "");
+  return /[.!?]$/.test(shortened) ? shortened : `${shortened}.`;
 }
 
 function normalizePostForLayout(post) {
@@ -305,6 +324,9 @@ function normalizePostForLayout(post) {
     ...fact,
     tag: shortenAtWordBoundary(fact.tag, 18)
   }));
+
+  post.slide3.question = normalizeQuestion(post.slide3.question);
+  post.caption = normalizeCaption(post.caption);
 
   return post;
 }
@@ -455,19 +477,9 @@ async function researchWriteVerifyOnce(seed) {
 }
 
 export async function researchWriteVerify(seed) {
-  let lastError = null;
-
-  for (let attempt = 1; attempt <= 2; attempt++) {
-    try {
-      return await researchWriteVerifyOnce(seed);
-    } catch (err) {
-      lastError = err;
-      if (attempt < 2) {
-        console.warn(`[content] Verification attempt ${attempt}/2 failed: ${err.message}`);
-        console.warn("[content] Retrying the same topic once with fresh research and generation.");
-      }
-    }
-  }
-
-  throw lastError || new Error("Unknown content verification failure");
+  // Each topic already gets two independent paid checks: writer research and
+  // verifier research. Transient API failures are retried inside openai.mjs.
+  // Do not repeat the whole pair again: if the verifier rejects this topic,
+  // the caller moves to the next curated topic instead of paying twice.
+  return researchWriteVerifyOnce(seed);
 }
