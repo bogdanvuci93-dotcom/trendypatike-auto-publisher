@@ -63,11 +63,11 @@ async function discoverFreshTopic(state) {
   const prompt = `
 You are choosing ONE fresh daily topic for TrendyPatike, a Serbian sneaker culture Instagram account.
 Use web search before choosing. Topic must be factual, visually strong and suitable for a 3-slide carousel.
-The finished post must be interesting even to a 10-13 year old who knows little about sneaker history.
+The finished post must be interesting even to a 10-13 year old who knows almost nothing about sneaker history.
 Do NOT repeat these previous topics:\n${previous.map(x => `- ${x}`).join("\n")}
 
-Prefer: sneaker history, iconic models, athletes, musicians, sports moments, surprising inventions, technology, design, cultural impact and simple myths-vs-facts stories.
-Prefer topics with one clear WOW detail that can be explained in one short sentence.
+Prefer: sneaker history, iconic models, athletes, musicians, sports moments, surprising inventions, technology, design and simple myths-vs-facts stories.
+Prefer topics that contain one or more facts that can be explained as a COMPLETE, SIMPLE sentence.
 Avoid gossip, rumors, resale-price speculation, legal ambiguity and weakly sourced anecdotes.
 Choose preferred_domains only from this trusted list:\n${GLOBAL_TRUSTED_DOMAINS.join(", ")}
 Return a stable lowercase ASCII id with hyphens.
@@ -101,62 +101,86 @@ HARD FACT-CHECK RULES — NEVER RELAX THESE:
 - Do not invent direct quotes.
 - If evidence is weak, OMIT the claim. Excitement must come from the real fact, never from exaggeration.
 
-THE MOST IMPORTANT COPY RULE:
-Write so a smart 10-13 year old can understand EVERYTHING on the first read.
-The reader should instantly think: “Čekaj, stvarno?” or “Ovo nisam znao.”
-Do NOT sound like a newspaper article, museum label, school essay or corporate press release.
+THE MAIN COPY RULE:
+The examples shown by the user are simple fact cards: one picture + one complete sentence that explains exactly what happened.
+Write every visible FACT in that same spirit.
+A child must be able to read ONE sentence by itself, without the title, tag, previous slide or any sneaker knowledge, and understand what happened.
+
+VERY IMPORTANT — COMPLETE SENTENCES:
+- Every slide2.fact.text and slide3.fact.text MUST be a COMPLETE Serbian sentence.
+- The green tag is only decoration/context. The sentence must still make sense if the tag disappears.
+- Name the person, shoe, company or event inside the sentence when needed.
+- Do NOT write fragments such as “Stiže godinu kasnije.”, “Postaje poseban brend.” or “Priča se prvo vezuje za Air Ship.”
+- Do NOT assume the reader knows abbreviations. Write “Air Jordan 1”, not “AJ1”.
+- Avoid unexplained pronouns like “on”, “to”, “ovo”, “tada” when the subject is not obvious inside that same sentence.
+- One sentence = one clear fact. A short “ali” comparison is allowed when it makes a myth easy to understand.
+- End factual sentences with normal punctuation.
+
+TARGET STYLE — THIS IS WHAT WE WANT:
+- “Michael Jordan je 1984. prvo nosio Nike Air Ship, a ne Air Jordan 1.”
+- “Air Jordan 1 se pojavio u prodaji 1985. godine.”
+- “Jordan Brand je 1997. postao poseban Nike brend.”
+- “Mnogi misle da je NBA zabranila Air Jordan 1, ali priča se odnosila na Nike Air Ship.”
+- “Nike je ideju za Waffle đon dobio pomoću aparata za galete.”
+These are complete, direct sentences that tell the whole mini-story immediately.
 
 LANGUAGE:
 - Serbian language, LATIN script only.
-- Natural everyday Serbian.
-- Prefer common words over formal words.
-- Avoid jargon and abstract phrases such as: “oblikovao kulturu”, “prelomni trenutak”, “uniformisanje boja”, “kulturni fenomen”, “strateški pozicionirao”, “nacionalni zamah”, “ikonografski”, unless there is no simpler accurate wording.
-- If a technical term is necessary, explain it immediately in very simple words.
-- Never use a harder phrase when a child-friendly one is equally accurate.
+- Natural everyday Serbian used in Serbia.
+- Write as if explaining a cool fact to a 10-year-old friend.
+- Prefer normal everyday words over formal, academic or marketing words.
+- NEVER use phrases like “oblikovao kulturu”, “prelomni trenutak”, “uniformisanje boja”, “kulturni fenomen”, “strateški pozicionirao”, “nacionalni zamah”, “zaseban brend unutar”.
+- Do not use the English word “banned” in visible Serbian copy. Explain what happened in Serbian.
+- Official names such as Nike Air Ship, Air Jordan 1 and All-Star may stay in their official form.
+- If a fact needs a complicated explanation to be accurate, choose another verified fact that is easier to understand.
 
 INSTAGRAM STYLE:
-- VERY short. VERY clear. VERY punchy.
-- One sentence = one idea.
-- Prefer 4-10 words per fact whenever possible.
-- Every slide should be understandable in 2-4 seconds.
-- Keep the interesting part; remove background details that are not needed to understand it.
-- Use direct verbs: nosi, stiže, pravi, menja, postaje, osvaja, nastaje, prodaje se, pojavljuje se.
-- Use simple curiosity hooks: “Nije počelo kako misliš”, “Prvo je bio…”, “Ovo malo ljudi zna”, “Najveći mit”, “A onda se desilo ovo”. Use them only when factually fair.
+- Clear first, interesting second, short third.
+- Do NOT shorten a sentence so much that it becomes a fragment.
+- Facts should usually be 7-16 words and fit in about 1-3 lines.
+- Every fact should answer: WHO/WHAT + WHAT HAPPENED.
+- Remove background information that is not needed to understand the fact.
+- Use active, concrete verbs: nosio, napravio, stigao, prodao, potpisao, osvojio, promenio, pokrenuo, postao.
+- The reader should instantly think: “Čekaj, stvarno?” or “Ovo nisam znao.”
 - Do NOT use fake clickbait, fake drama or unsupported superlatives.
 
 SLIDE 1 — HOOK:
 - 2-4 headline lines.
 - Each line ideally 1-3 words.
-- Total headline should feel like a strong question or surprising statement.
-- Subheadline = ONE tiny tease, not an explanation.
-- Good style examples: “KAKO JE POČEO / AIR JORDAN?”, “NIJE POČELO / OD AJ1”, “PATIKA IZ / APARATA ZA GALETE?”
-- Bad style example: “Mit i činjenice koje su oblikovale sneaker kulturu.” Too formal and abstract.
+- The headline may be a short hook/question, because it is a headline.
+- The subheadline MUST be one complete, simple sentence that explains what the post is about without giving away everything.
+- Good: “Michael Jordan nije odmah nosio Air Jordan 1.”
+- Good: “Jedna Nike ideja je bukvalno počela u kuhinji.”
+- Bad: “Mit i činjenice koje su oblikovale kulturu.”
 
-SLIDE 2 — 3 FAST FACTS:
+SLIDE 2 — 3 COMPLETE FACTS:
 - Exactly 3 facts.
-- Each has a short green tag: year, number, or 1-2 simple words such as PRVO, WOW, ONDA, ISTINA.
-- Each fact = ONE short sentence, ideally 4-10 words and never more than 66 characters.
-- Prioritize surprising facts over chronology if chronology is boring.
-- Example style: “Jordan prvo nosi Nike Air Ship.” / “AJ1 stiže godinu kasnije.”
+- Each has a short green tag such as a year, number, PRVO, KASNIJE, ISTINA.
+- Each fact.text MUST be one complete standalone sentence, roughly 7-16 words, maximum 92 characters.
+- A year tag must NOT replace the year if the year is important to understanding the sentence; include it in the sentence when natural.
+- Prefer the clearest and most surprising facts, not a dry timeline.
 
-SLIDE 3 — PAYOFF:
-- Exactly 2 strongest or most surprising facts.
-- Each fact ideally 4-10 words and never more than 66 characters.
-- Explain myths in the simplest accurate wording possible.
+SLIDE 3 — 2 COMPLETE PAYOFF FACTS:
+- Exactly 2 facts.
+- Each fact.text MUST be one complete standalone sentence, roughly 7-16 words, maximum 92 characters.
+- Explain myths as a normal sentence, not as jargon.
 - End with one simple question, max 8 words.
-- Example: “NBA nije zabranila baš AJ1.” / “Priča se prvo vezuje za Air Ship.” / “Da li si ovo znao?”
+- Good: “Mnogi misle da je NBA zabranila Air Jordan 1, ali radilo se o Nike Air Shipu.”
+- Good question: “Da li si ovo već znao?”
 
 CAPTION:
 - Max ~500 characters before hashtags.
-- Give a tiny extra detail, do not simply repeat all slide text.
+- Use the same child-friendly everyday Serbian.
+- Give one small extra detail instead of copying every slide.
 - End with one easy question or “Sačuvaj ako voliš ovakve priče.”
 - 4-8 hashtags.
 
 FINAL SELF-CHECK BEFORE RETURNING JSON:
-- Could an 11-year-old explain every slide to a friend after reading it once? If NO, simplify again.
-- Is there any sentence that sounds like a textbook? Rewrite it.
-- Is each fact interesting by itself? If not, replace it with a stronger VERIFIED fact from the sources.
-- Did simplification change the factual meaning? If YES, restore accuracy and find simpler wording.
+1. Read each fact WITHOUT its green tag and WITHOUT its headline. Does it still explain who/what and what happened? If NO, rewrite it.
+2. Is every fact a complete grammatical sentence? If NO, rewrite it.
+3. Could a 10-year-old repeat the fact to a friend after one reading? If NO, simplify it.
+4. Does any phrase sound like a textbook, press release or sneaker expert jargon? If YES, replace it with everyday Serbian.
+5. Did simplification change the factual meaning? If YES, restore accuracy and find a different simple wording.
 
 EDITORIAL / PUBLIC FIGURE RULE:
 If the topic involves a famous real person, it is an editorial/history post. Never imply that person endorses, works with, recommends or shops at TrendyPatike unless a source explicitly says so.
@@ -173,7 +197,7 @@ List the exact pages used, with real URLs and publishers. Every claim must point
 
 function verifierPrompt(seed, draft) {
   return `
-You are a second, independent fact-checker AND simplicity editor for a Serbian sneaker Instagram account. Use web search AGAIN; do not merely trust the draft or its listed sources.
+You are a second, independent fact-checker AND child-friendly Serbian copy editor for TrendyPatike. Use web search AGAIN; do not merely trust the draft or its listed sources.
 
 TOPIC: ${seed.topic}
 DRAFT JSON:\n${JSON.stringify(draft, null, 2)}
@@ -188,29 +212,38 @@ FACT-CHECK — HIGHEST PRIORITY:
 - Special warning: the “banned Jordan” story is commonly simplified; verify the exact shoe and event.
 - Famous people must be treated editorially, never as TrendyPatike endorsers.
 
-SIMPLICITY CHECK — ALSO MANDATORY:
-- Rewrite the final copy so a 10-13 year old understands it on FIRST read.
-- It must sound like a friend telling an amazing true sneaker fact, not a school textbook.
-- Use everyday Serbian and short active sentences.
-- Remove formal words, jargon and abstract phrases whenever a simpler accurate version exists.
-- Never sacrifice accuracy to make something sound exciting.
-- Slide 2 facts: ideally 4-10 words, hard maximum 66 characters each.
-- Slide 3 facts: ideally 4-10 words, hard maximum 66 characters each.
-- Cover subheadline: one tiny tease, maximum 80 characters.
+COPY STRUCTURE — MANDATORY:
+- Every slide2.fact.text and slide3.fact.text must be ONE complete standalone Serbian sentence.
+- It must make sense when read without the tag, headline or previous slide.
+- The sentence itself must clearly say WHO/WHAT and WHAT HAPPENED.
+- Never approve fragments such as “Stiže godinu kasnije.”, “Postaje poseban brend.” or “Priča se vezuje za Air Ship.”
+- Never approve unexplained “AJ1”; write “Air Jordan 1”.
+- Never use “banned” in visible Serbian copy.
+- Avoid vague pronouns if the person/model is not named in that same sentence.
+
+CHILD-FRIENDLY LANGUAGE — MANDATORY:
+- A 10-year-old should understand every sentence on FIRST read.
+- Use everyday Serbian from Serbia.
+- Do not sound like a textbook, journalist, historian or marketing department.
+- Ban unnecessarily formal phrases including “oblikovao kulturu”, “prelomni trenutak”, “uniformisanje boja”, “kulturni fenomen”, “nacionalni zamah”, “strateški pozicionirao”, “zaseban brend unutar”.
+- If a technical term is unavoidable, replace the fact with another verified fact that is easier to explain whenever possible.
+- A complete easy sentence is MORE IMPORTANT than making it ultra-short.
+- Facts should usually be 7-16 words and maximum 92 characters.
+- Cover subheadline must also be a complete easy sentence.
 - Final question: maximum 8 words.
-- Caption should be compact and easy to scan.
 
-BAD → GOOD STYLE EXAMPLES:
-- “Povod kontroverze bilo je NBA pravilo o uniformisanju boja.” → “NBA je imala stroga pravila o bojama opreme.”
-- “All-Star vikend dao je nacionalni zamah priči.” → “All-Star vikend je Jordana video ceo svet.”
-- “Jordan Brand postaje zaseban brend unutar NIKE, Inc.” → “Jordan postaje poseban Nike brend.”
-- “Mit i činjenice koje su oblikovale kulturu.” → “Priča nije počela kako misliš.”
+TARGET EXAMPLES:
+- “Michael Jordan je 1984. prvo nosio Nike Air Ship, a ne Air Jordan 1.”
+- “Air Jordan 1 se pojavio u prodaji 1985. godine.”
+- “Nike je ideju za Waffle đon dobio pomoću aparata za galete.”
+- “Mnogi misle da je NBA zabranila Air Jordan 1, ali radilo se o Nike Air Shipu.”
 
-Before approving, ask yourself:
-1. Is every claim verified?
-2. Can an 11-year-old understand every line instantly?
-3. Is each line interesting enough to keep swiping?
-If any answer is NO, correct the post before returning it. If accuracy cannot be kept, set publish_ok=false.
+Before approving, test EVERY visible fact:
+1. If the tag and headline disappear, does the sentence still make complete sense?
+2. Does it clearly tell the reader what happened?
+3. Would a 10-year-old understand every normal word?
+4. Is it fully supported by the searched sources?
+If any answer is NO, rewrite it. If it cannot be rewritten accurately and simply, set publish_ok=false.
 
 Return a corrected final post even if publish_ok=false, but explain the blocking reason.
 `;
@@ -231,10 +264,43 @@ function wordCount(text = "") {
   return String(text).trim().split(/\s+/).filter(Boolean).length;
 }
 
+function isCompleteSentence(text = "") {
+  const s = String(text).trim();
+  return /^[A-ZČĆŽŠĐ0-9]/.test(s) && /[.!?]$/.test(s) && wordCount(s) >= 5;
+}
+
+const FORBIDDEN_VISIBLE_PHRASES = [
+  "oblikovao kulturu",
+  "oblikovale kulturu",
+  "prelomni trenutak",
+  "uniformisanje boja",
+  "uniformisanju boja",
+  "kulturni fenomen",
+  "nacionalni zamah",
+  "strateški pozicionirao",
+  "zaseban brend unutar",
+  "banned"
+];
+
+function assertSimpleVisibleCopy(text, label) {
+  const lower = String(text).toLowerCase();
+  for (const phrase of FORBIDDEN_VISIBLE_PHRASES) {
+    if (lower.includes(phrase)) {
+      throw new Error(`Copy guard: ${label} contains formal/unclear phrase: ${phrase}`);
+    }
+  }
+  if (/\bAJ1\b/i.test(text)) {
+    throw new Error(`Copy guard: ${label} uses unexplained AJ1 abbreviation`);
+  }
+}
+
 function validatePost(post, seed, searchedUrls = []) {
   const sourceUrls = new Set(post.sources.map(s => s.url));
   if (sourceUrls.size < 2) throw new Error("Fact-check guard: fewer than 2 source URLs");
-  if (post.cover.subheadline.length > 80) throw new Error("Copy guard: cover subheadline too long");
+  if (post.cover.subheadline.length > 92) throw new Error("Copy guard: cover subheadline too long");
+  if (!isCompleteSentence(post.cover.subheadline)) throw new Error("Copy guard: cover subheadline is not a complete sentence");
+  assertSimpleVisibleCopy(post.cover.subheadline, "cover subheadline");
+
   if (post.caption.length > 800) throw new Error("Copy guard: caption too long");
   if (post.slide3.question.length > 60 || wordCount(post.slide3.question) > 8) {
     throw new Error("Copy guard: final question too long");
@@ -246,11 +312,15 @@ function validatePost(post, seed, searchedUrls = []) {
   ]) {
     if (line.text.length > 26) throw new Error(`Copy guard: headline line too long: ${line.text}`);
   }
+
   for (const f of [...post.slide2.facts, ...post.slide3.facts]) {
-    if (f.text.length > 66) throw new Error(`Copy guard: fact too long: ${f.text}`);
-    if (wordCount(f.text) > 14) throw new Error(`Copy guard: fact has too many words: ${f.text}`);
+    if (f.text.length > 92) throw new Error(`Copy guard: fact too long: ${f.text}`);
+    if (wordCount(f.text) > 18) throw new Error(`Copy guard: fact has too many words: ${f.text}`);
+    if (!isCompleteSentence(f.text)) throw new Error(`Copy guard: fact is not a complete sentence: ${f.text}`);
     if (f.tag.length > 18) throw new Error(`Copy guard: fact tag too long: ${f.tag}`);
+    assertSimpleVisibleCopy(f.text, "fact");
   }
+
   for (const c of post.claims) {
     if (!c.source_urls.length) throw new Error(`Source guard: unsourced claim: ${c.claim}`);
     for (const u of c.source_urls) {
