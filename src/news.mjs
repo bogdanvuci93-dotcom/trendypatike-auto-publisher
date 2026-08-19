@@ -66,11 +66,22 @@ function normalizeTopicText(value = "") {
     .trim();
 }
 
+function stemTopicToken(token) {
+  const endings = ["ovima", "evima", "ima", "ama", "ovi", "evi", "om", "em", "og", "oj", "a", "e", "i", "o", "u"];
+  for (const ending of endings) {
+    if (token.endsWith(ending) && token.length - ending.length >= 4) {
+      return token.slice(0, -ending.length);
+    }
+  }
+  return token;
+}
+
 function topicTokens(value = "") {
   return new Set(
     normalizeTopicText(value)
       .split(/\s+/)
       .filter(token => token.length > 1 && !TOPIC_STOP_WORDS.has(token))
+      .map(stemTopicToken)
   );
 }
 
