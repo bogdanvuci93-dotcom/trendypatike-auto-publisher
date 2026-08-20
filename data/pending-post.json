@@ -123,5 +123,10 @@
     "public/posts/2026-08-20-fallback-asics-name-407b7d221b1b/02.jpg",
     "public/posts/2026-08-20-fallback-asics-name-407b7d221b1b/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18013833089944388"
+    ],
+    "carousel_id": ""
+  }
 }
