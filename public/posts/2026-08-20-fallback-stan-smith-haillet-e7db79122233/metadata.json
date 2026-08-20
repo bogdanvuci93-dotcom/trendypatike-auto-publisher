@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-20",
-  "stage": "ready",
+  "generated_at": "2026-08-20T10:03:44.990Z",
   "fingerprint": "e7db79122233",
   "seed": {
     "id": "fallback-stan-smith-haillet",
@@ -116,11 +115,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-20-fallback-stan-smith-haillet-e7db79122233/01.jpg",
-    "public/posts/2026-08-20-fallback-stan-smith-haillet-e7db79122233/02.jpg",
-    "public/posts/2026-08-20-fallback-stan-smith-haillet-e7db79122233/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
