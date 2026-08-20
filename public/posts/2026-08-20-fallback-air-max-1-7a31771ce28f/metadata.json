@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-20",
-  "stage": "ready",
+  "generated_at": "2026-08-20T15:29:28.015Z",
   "fingerprint": "7a31771ce28f",
   "seed": {
     "id": "fallback-air-max-1",
@@ -117,11 +116,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-20-fallback-air-max-1-7a31771ce28f/01.jpg",
-    "public/posts/2026-08-20-fallback-air-max-1-7a31771ce28f/02.jpg",
-    "public/posts/2026-08-20-fallback-air-max-1-7a31771ce28f/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
