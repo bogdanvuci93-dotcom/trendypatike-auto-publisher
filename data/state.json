@@ -21,8 +21,19 @@
         "https://corp.asics.com/en/about_asics/history",
         "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"
       ]
+    },
+    {
+      "date": "2026-08-20",
+      "topic_id": "fallback-stan-smith-haillet",
+      "seed_topic": "Zašto Stan Smith prvobitno nije bio Stan Smith",
+      "topic_title": "Zašto Stan Smith prvobitno nije bio Stan Smith",
+      "media_id": "17894383200666963",
+      "sources": [
+        "https://news.adidas.com/timeline/half-a-century-of-classic-style--the-history-of-the-adidas-stan-smith/s/f6061bfc-b9e6-43a0-b7d7-caac2e184126",
+        "https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-19",
-  "last_media_id": "18122764945880625"
+  "last_publish_date": "2026-08-20",
+  "last_media_id": "17894383200666963"
 }
