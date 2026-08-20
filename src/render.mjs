@@ -10,6 +10,9 @@ const H = 1350;
 const GREEN = "#037361";
 const WHITE = "#F7F7F5";
 const FONT = "DejaVu Sans Condensed";
+const TEXT_LEFT = 66;
+const TEXT_RIGHT = 1010;
+const TEXT_WIDTH = TEXT_RIGHT - TEXT_LEFT;
 
 function esc(s = "") {
   return String(s)
@@ -43,25 +46,44 @@ function wrap(text, maxChars = 28) {
   return lines;
 }
 
-function headlineMetrics(lines, base = 124) {
-  const longest = Math.max(1, ...lines.map(line => String(line.text || "").length));
-  let size = base;
-  if (longest > 34) size -= 20;
-  else if (longest > 29) size -= 12;
-  if (lines.length >= 4) size -= 10;
-  return { size: Math.max(78, size), gap: Math.max(90, size + 7) };
+function posterText(text, { maxWords = 16, maxChars = 104 } = {}) {
+  const words = clean(text).split(/\s+/).filter(Boolean);
+  const out = [];
+  let chars = 0;
+  for (const word of words) {
+    const nextChars = chars + (out.length ? 1 : 0) + word.length;
+    if (out.length >= maxWords || nextChars > maxChars) break;
+    out.push(word);
+    chars = nextChars;
+  }
+  return out.join(" ") || clean(text);
 }
 
-function headlineSvg(lines, { x = 66, y = 300, base = 124 } = {}) {
-  const { size, gap } = headlineMetrics(lines, base);
-  return lines.map((line, i) => {
+function fittedSize(lines, preferred, minSize, widthFactor = 0.66) {
+  const longest = Math.max(1, ...lines.map(line => String(line).length));
+  const widthFit = Math.floor(TEXT_WIDTH / (longest * widthFactor));
+  return Math.max(minSize, Math.min(preferred, widthFit));
+}
+
+function headlineMetrics(lines, base = 124) {
+  const texts = lines.map(line => String(line.text || ""));
+  let size = fittedSize(texts, base, 66, 0.66);
+  if (lines.length >= 4) size = Math.min(size, 86);
+  else if (lines.length === 3) size = Math.min(size, 98);
+  return { size, gap: size + 8 };
+}
+
+function headlineSvg(lines, { x = TEXT_LEFT, y = 300, base = 124 } = {}) {
+  const safeLines = (lines || []).slice(0, 4);
+  const { size, gap } = headlineMetrics(safeLines, base);
+  return safeLines.map((line, i) => {
     const fill = line.accent ? GREEN : WHITE;
-    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2.2">${esc(String(line.text || "").toUpperCase())}</text>`;
+    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(String(line.text || "").toUpperCase())}</text>`;
   }).join("\n");
 }
 
 function statementLines(text, maxLines = 5) {
-  for (const width of [21, 24, 27, 30, 33, 36]) {
+  for (const width of [23, 26, 29, 32, 35]) {
     const lines = wrap(text, width);
     if (lines.length <= maxLines) return lines;
   }
@@ -69,19 +91,17 @@ function statementLines(text, maxLines = 5) {
 }
 
 function statementSvg(text, {
-  x = 66,
-  y = 590,
+  x = TEXT_LEFT,
+  y = 650,
   maxLines = 5,
   accentLine = 1,
   tag = ""
 } = {}) {
-  const lines = statementLines(text, maxLines);
-  let size = 69;
-  if (lines.length <= 2) size = 83;
-  else if (lines.length === 3) size = 76;
-  else if (lines.length === 4) size = 68;
-  else size = 60;
-  const gap = size + 5;
+  const safeText = posterText(text, { maxWords: 16, maxChars: 104 });
+  const lines = statementLines(safeText, maxLines);
+  const preferred = lines.length <= 2 ? 82 : lines.length === 3 ? 74 : lines.length === 4 ? 66 : 58;
+  const size = fittedSize(lines, preferred, 46, 0.63);
+  const gap = size + 6;
   const accent = Math.min(Math.max(accentLine, 0), Math.max(0, lines.length - 1));
 
   const tagSvg = tag
@@ -90,7 +110,7 @@ function statementSvg(text, {
 
   const body = lines.map((line, i) => {
     const fill = i === accent ? GREEN : WHITE;
-    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.5">${esc(line.toUpperCase())}</text>`;
+    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.2">${esc(line.toUpperCase())}</text>`;
   }).join("\n");
 
   return `${tagSvg}\n${body}`;
@@ -126,48 +146,43 @@ function frameSvg(slideNo) {
 }
 
 function coverOverlay(post) {
-  const sub = statementLines(post.cover.subheadline, 3);
-  let subSize = 54;
-  if (sub.length === 2) subSize = 50;
-  if (sub.length === 3) subSize = 44;
-  const subGap = subSize + 5;
-  const subY = 700;
+  const safeSub = posterText(post.cover.subheadline, { maxWords: 14, maxChars: 92 });
+  const sub = statementLines(safeSub, 3);
+  const subSize = fittedSize(sub, sub.length <= 2 ? 52 : 44, 38, 0.62);
+  const subGap = subSize + 6;
+  const subY = 710;
 
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
     ${headlineSvg(post.cover.headline_lines, { y: 300, base: 128 })}
-    ${sub.map((line, i) => `<text x="68" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === 1 || (sub.length === 1 && i === 0) ? GREEN : WHITE}" letter-spacing="-1">${esc(line.toUpperCase())}</text>`).join("\n")}
+    ${sub.map((line, i) => `<text x="68" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === 1 || (sub.length === 1 && i === 0) ? GREEN : WHITE}" letter-spacing="-0.8">${esc(line.toUpperCase())}</text>`).join("\n")}
   </svg>`;
 }
 
 function factsOverlay(post) {
   const first = post.slide2.facts[0];
-  const second = post.slide2.facts[1];
-  const statement = `${clean(first.text)}. ${clean(second.text)}.`;
-
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
-    ${headlineSvg(post.slide2.headline_lines, { y: 265, base: 102 })}
-    ${statementSvg(statement, { y: 610, maxLines: 5, accentLine: 1, tag: first.tag })}
+    ${headlineSvg(post.slide2.headline_lines, { y: 270, base: 104 })}
+    ${statementSvg(first.text, { y: 650, maxLines: 5, accentLine: 1, tag: first.tag })}
   </svg>`;
 }
 
 function impactOverlay(post) {
   const first = post.slide3.facts[0];
-  const second = post.slide3.facts[1];
-  const statement = `${clean(first.text)}. ${clean(second.text)}.`;
-  const q = wrap(post.slide3.question, 27).slice(0, 2);
+  const q = wrap(posterText(post.slide3.question, { maxWords: 8, maxChars: 54 }), 26).slice(0, 2);
+  const qSize = fittedSize(q, 34, 29, 0.62);
 
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
-    ${headlineSvg(post.slide3.headline_lines, { y: 265, base: 102 })}
-    ${statementSvg(statement, { y: 590, maxLines: 5, accentLine: 1, tag: first.tag })}
+    ${headlineSvg(post.slide3.headline_lines, { y: 270, base: 104 })}
+    ${statementSvg(first.text, { y: 635, maxLines: 5, accentLine: 1, tag: first.tag })}
     <circle cx="92" cy="1142" r="25" fill="none" stroke="${GREEN}" stroke-width="4"/>
     <text x="84" y="1154" font-family="${FONT}" font-size="31" font-weight="900" fill="${GREEN}">?</text>
-    ${q.map((line, i) => `<text x="137" y="${1142 + i * 39}" font-family="${FONT}" font-size="35" font-weight="900" fill="${GREEN}" letter-spacing="-0.7">${esc(line.toUpperCase())}</text>`).join("\n")}
+    ${q.map((line, i) => `<text x="137" y="${1142 + i * 39}" font-family="${FONT}" font-size="${qSize}" font-weight="900" fill="${GREEN}" letter-spacing="-0.7">${esc(line.toUpperCase())}</text>`).join("\n")}
   </svg>`;
 }
 
@@ -274,12 +289,6 @@ export async function generateAndRender(post, outputDir) {
     const sourcePath = path.join(outputDir, `${number}-source.png`);
     const outPath = path.join(outputDir, `${number}.jpg`);
 
-    if (await usableImage(outPath, { width: W, height: H, format: ["jpeg", "jpg"], minSize: 10000 })) {
-      console.log(`[resume] Reusing rendered slide ${i + 1}/3.`);
-      outputs.push(outPath);
-      continue;
-    }
-
     if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
       let imageBuffer;
 
@@ -306,7 +315,7 @@ export async function generateAndRender(post, outputDir) {
       }
       await checkpointBestEffort([sourcePath], `Checkpoint TrendyPatike source ${i + 1}`);
     } else {
-      console.log(`[resume] Reusing source image ${i + 1}/3; rendering only.`);
+      console.log(`[resume] Reusing source image ${i + 1}/3; rerendering current layout.`);
     }
 
     await renderSlide(sourcePath, overlays[i], logos, outPath);
@@ -320,24 +329,24 @@ export async function generateAndRender(post, outputDir) {
 export async function runRenderSelfTest() {
   const post = {
     cover: {
-      headline_lines: [{ text: "ŠTA ZNAČI", accent: false }, { text: "ASICS?", accent: true }],
-      subheadline: "Ime brenda je latinski akronim."
+      headline_lines: [{ text: "PRE STAN SMITH", accent: false }, { text: "BIO JE HAILLET", accent: true }],
+      subheadline: "Jedna od najpoznatijih adidas patika prvo je nosila ime drugog tenisera."
     },
     slide2: {
-      headline_lines: [{ text: "PRIČA IZA IMENA", accent: true }],
+      headline_lines: [{ text: "PRVO DRUGO IME", accent: true }],
       facts: [
-        { tag: "1949", text: "Kihachiro Onitsuka je 1949. pokrenuo svoju kompaniju za sportsku obuću u Kobeu." },
-        { tag: "1977", text: "ASICS je kao kompanija nastao 1977. spajanjem tri japanske firme." },
-        { tag: "DETALJ", text: "Treća činjenica ostaje dostupna za caption i fact-check." }
+        { tag: "60-E", text: "Model je sredinom šezdesetih razvijen uz francuskog tenisera Roberta Hailleta." },
+        { tag: "DETALJ", text: "Ova činjenica ostaje u captionu umesto u zidu teksta na slici." },
+        { tag: "IZVOR", text: "Treća činjenica ostaje dostupna za fact-check." }
       ]
     },
     slide3: {
-      headline_lines: [{ text: "ZDRAV UM I TELO", accent: true }],
+      headline_lines: [{ text: "DVA IMENA", accent: true }],
       facts: [
-        { tag: "ZNAČENJE", text: "Izraz prenosi ideju zdravog uma u zdravom telu." },
-        { tag: "DANAS", text: "Ta poruka je postala centralni deo filozofije brenda ASICS." }
+        { tag: "1973", text: "Prve patike sa imenom Stan Smith pojavile su se 1973. godine." },
+        { tag: "1978", text: "Druga završna činjenica ostaje u captionu." }
       ],
-      question: "Jeste li znali značenje imena?"
+      question: "Koje ime vam je bolje?"
     }
   };
 
