@@ -71,7 +71,19 @@ jobs:
           fi
           exit 0
 
+      - name: Apply live visual policy
+        run: |
+          # Emergency/fallback TEXT stays available as a safety net, but live
+          # publishing must still try three distinct AI visuals first.
+          # Zero-cost dry runs keep local visuals by design.
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          grep -n "post.force_local_images" src/index.mjs
+
       - name: Zero-cost code and render preflight
+        env:
+          TEXT_MODEL: "gpt-5-mini"
+          VERIFY_MODEL: "gpt-5-mini"
+          IMAGE_MODEL: "gpt-image-1-mini"
         run: npm run check
 
       - name: Generate, verify and publish
@@ -80,8 +92,8 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_API_VERSION: ${{ vars.IG_API_VERSION }}
-          TEXT_MODEL: "gpt-5-mini-2025-08-07"
-          VERIFY_MODEL: "gpt-5-mini-2025-08-07"
+          TEXT_MODEL: "gpt-5-mini"
+          VERIFY_MODEL: "gpt-5-mini"
           IMAGE_MODEL: "gpt-image-1-mini"
           IMAGE_QUALITY: "medium"
           BRAND_GREEN: "#037361"
