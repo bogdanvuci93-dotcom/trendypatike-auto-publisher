@@ -10,9 +10,10 @@ const H = 1350;
 const GREEN = "#037361";
 const WHITE = "#F7F7F5";
 const FONT = "DejaVu Sans Condensed";
-const TEXT_LEFT = 66;
-const TEXT_RIGHT = 1010;
+const TEXT_LEFT = 56;
+const TEXT_RIGHT = 1024;
 const TEXT_WIDTH = TEXT_RIGHT - TEXT_LEFT;
+const RENDER_VERSION = "kids-editorial-v4";
 
 function esc(s = "") {
   return String(s)
@@ -29,7 +30,7 @@ function clean(text = "") {
     .trim();
 }
 
-function wrap(text, maxChars = 28) {
+function wrap(text, maxChars = 24) {
   const words = clean(text).split(/\s+/).filter(Boolean);
   const lines = [];
   let line = "";
@@ -46,190 +47,149 @@ function wrap(text, maxChars = 28) {
   return lines;
 }
 
-function posterText(text, { maxWords = 16, maxChars = 104 } = {}) {
-  const words = clean(text).split(/\s+/).filter(Boolean);
-  const out = [];
-  let chars = 0;
-  for (const word of words) {
-    const nextChars = chars + (out.length ? 1 : 0) + word.length;
-    if (out.length >= maxWords || nextChars > maxChars) break;
-    out.push(word);
-    chars = nextChars;
+function fitLines(text, { maxLines = 5, preferred = 96, min = 50, maxChars = 24 } = {}) {
+  let lines = wrap(text, maxChars);
+  for (const width of [maxChars + 2, maxChars + 4, maxChars + 7, maxChars + 10]) {
+    if (lines.length <= maxLines) break;
+    lines = wrap(text, width);
   }
-  return out.join(" ") || clean(text);
+  lines = lines.slice(0, maxLines);
+  const longest = Math.max(1, ...lines.map(line => line.length));
+  const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.60));
+  const size = Math.max(min, Math.min(preferred, widthFit));
+  return { lines, size, gap: size + 7 };
 }
 
-function fittedSize(lines, preferred, minSize, widthFactor = 0.66) {
-  const longest = Math.max(1, ...lines.map(line => String(line).length));
-  const widthFit = Math.floor(TEXT_WIDTH / (longest * widthFactor));
-  return Math.max(minSize, Math.min(preferred, widthFit));
-}
-
-function headlineMetrics(lines, base = 124) {
-  const texts = lines.map(line => String(line.text || ""));
-  let size = fittedSize(texts, base, 66, 0.66);
-  if (lines.length >= 4) size = Math.min(size, 86);
-  else if (lines.length === 3) size = Math.min(size, 98);
-  return { size, gap: size + 8 };
-}
-
-function headlineSvg(lines, { x = TEXT_LEFT, y = 300, base = 124 } = {}) {
-  const safeLines = (lines || []).slice(0, 4);
-  const { size, gap } = headlineMetrics(safeLines, base);
-  return safeLines.map((line, i) => {
-    const fill = line.accent ? GREEN : WHITE;
-    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(String(line.text || "").toUpperCase())}</text>`;
-  }).join("\n");
-}
-
-function statementLines(text, maxLines = 5) {
-  for (const width of [23, 26, 29, 32, 35]) {
-    const lines = wrap(text, width);
-    if (lines.length <= maxLines) return lines;
-  }
-  return wrap(text, 38).slice(0, maxLines);
-}
-
-function statementSvg(text, {
-  x = TEXT_LEFT,
-  y = 650,
+function mainTextSvg(text, {
+  y = 285,
+  preferred = 102,
+  min = 54,
   maxLines = 5,
-  accentLine = 1,
-  tag = ""
+  maxChars = 23,
+  accentFrom = 0.62
 } = {}) {
-  const safeText = posterText(text, { maxWords: 16, maxChars: 104 });
-  const lines = statementLines(safeText, maxLines);
-  const preferred = lines.length <= 2 ? 82 : lines.length === 3 ? 74 : lines.length === 4 ? 66 : 58;
-  const size = fittedSize(lines, preferred, 46, 0.63);
-  const gap = size + 6;
-  const accent = Math.min(Math.max(accentLine, 0), Math.max(0, lines.length - 1));
-
-  const tagSvg = tag
-    ? `<text x="${x}" y="${y - 54}" font-family="${FONT}" font-size="29" font-weight="900" fill="${GREEN}" letter-spacing="2">${esc(String(tag).toUpperCase())}</text>`
-    : "";
-
-  const body = lines.map((line, i) => {
-    const fill = i === accent ? GREEN : WHITE;
-    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.2">${esc(line.toUpperCase())}</text>`;
+  const { lines, size, gap } = fitLines(text, { maxLines, preferred, min, maxChars });
+  const accentStart = Math.max(0, Math.min(lines.length - 1, Math.floor(lines.length * accentFrom)));
+  return lines.map((line, i) => {
+    const fill = i >= accentStart ? GREEN : WHITE;
+    return `<text x="${TEXT_LEFT}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(line.toUpperCase())}</text>`;
   }).join("\n");
-
-  return `${tagSvg}\n${body}`;
 }
 
-function frameSvg(slideNo) {
-  const n = String(slideNo).padStart(2, "0");
+function supportTextSvg(text, { y = 985, maxLines = 2 } = {}) {
+  const { lines, size, gap } = fitLines(text, { maxLines, preferred: 52, min: 38, maxChars: 30 });
+  return lines.map((line, i) => {
+    const fill = i === lines.length - 1 ? GREEN : WHITE;
+    return `<text x="${TEXT_LEFT}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1">${esc(line.toUpperCase())}</text>`;
+  }).join("\n");
+}
+
+function fixedFrameSvg() {
   return `
   <defs>
     <linearGradient id="leftShade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#020403" stop-opacity="0.86"/>
-      <stop offset="52%" stop-color="#020403" stop-opacity="0.34"/>
-      <stop offset="100%" stop-color="#020403" stop-opacity="0.03"/>
+      <stop offset="0%" stop-color="#000" stop-opacity="0.84"/>
+      <stop offset="50%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.04"/>
     </linearGradient>
     <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="58%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="82%" stop-color="#000" stop-opacity="0.48"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.96"/>
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#000" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.90"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#leftShade)"/>
   <rect width="${W}" height="${H}" fill="url(#bottomShade)"/>
-  <rect x="15" y="15" width="${W - 30}" height="${H - 30}" fill="none" stroke="${GREEN}" stroke-width="4"/>
-  <line x1="68" y1="137" x2="1010" y2="137" stroke="${GREEN}" stroke-width="2"/>
-  <polyline points="510,137 522,149 535,137" fill="none" stroke="${GREEN}" stroke-width="2"/>
-  <text x="147" y="105" font-family="${FONT}" font-size="29" font-weight="900" fill="${WHITE}" letter-spacing="3">TRENDYPATIKE</text>
-  <text x="918" y="105" font-family="${FONT}" font-size="23" font-weight="900" fill="${GREEN}">${n}</text>
-  <text x="952" y="105" font-family="${FONT}" font-size="23" font-weight="900" fill="${WHITE}">/03</text>
-  <text x="72" y="1292" font-family="${FONT}" font-size="23" font-weight="800" fill="${WHITE}">${esc(cfg.brandSite)}</text>
-  <line x1="338" y1="1283" x2="873" y2="1283" stroke="${GREEN}" stroke-width="2"/>
-  <polyline points="520,1283 532,1295 545,1283" fill="none" stroke="${GREEN}" stroke-width="2"/>
+  <rect x="13" y="13" width="${W - 26}" height="${H - 26}" fill="none" stroke="${GREEN}" stroke-width="3"/>
+  <text x="144" y="101" font-family="${FONT}" font-size="31" font-weight="900" fill="${WHITE}" letter-spacing="2">TRENDYPATIKE</text>
+  <line x1="48" y1="145" x2="1032" y2="145" stroke="${GREEN}" stroke-width="2"/>
+  <line x1="48" y1="1248" x2="1032" y2="1248" stroke="${GREEN}" stroke-width="2"/>
   `;
 }
 
-function coverOverlay(post) {
-  const safeSub = posterText(post.cover.subheadline, { maxWords: 14, maxChars: 92 });
-  const sub = statementLines(safeSub, 3);
-  const subSize = fittedSize(sub, sub.length <= 2 ? 52 : 44, 38, 0.62);
-  const subGap = subSize + 6;
-  const subY = 710;
+function coverMainText(post) {
+  const headline = (post.cover?.headline_lines || []).map(x => clean(x.text)).filter(Boolean).join(" ");
+  return headline || clean(post.cover?.subheadline) || clean(post.topic_title);
+}
 
+function visibleTextForSlide(post, slideIndex) {
+  if (slideIndex === 0) {
+    return [coverMainText(post), clean(post.cover?.subheadline)].filter(Boolean).join(". ");
+  }
+  if (slideIndex === 1) {
+    return clean(post.slide2?.facts?.[0]?.text || post.slide2?.headline_lines?.map(x => x.text).join(" "));
+  }
+  return clean(post.slide3?.facts?.[0]?.text || post.slide3?.headline_lines?.map(x => x.text).join(" "));
+}
+
+function coverOverlay(post) {
+  const main = coverMainText(post);
+  const support = clean(post.cover?.subheadline);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
-    ${frameSvg(1)}
-    ${headlineSvg(post.cover.headline_lines, { y: 300, base: 128 })}
-    ${sub.map((line, i) => `<text x="68" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === 1 || (sub.length === 1 && i === 0) ? GREEN : WHITE}" letter-spacing="-0.8">${esc(line.toUpperCase())}</text>`).join("\n")}
+    ${fixedFrameSvg()}
+    ${mainTextSvg(main, { y: 285, preferred: 106, min: 58, maxLines: 5, maxChars: 22 })}
+    ${support ? supportTextSvg(support, { y: 1005, maxLines: 2 }) : ""}
   </svg>`;
 }
 
 function factsOverlay(post) {
-  const first = post.slide2.facts[0];
+  const text = clean(post.slide2?.facts?.[0]?.text);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
-    ${frameSvg(2)}
-    ${headlineSvg(post.slide2.headline_lines, { y: 270, base: 104 })}
-    ${statementSvg(first.text, { y: 650, maxLines: 5, accentLine: 1, tag: first.tag })}
+    ${fixedFrameSvg()}
+    ${mainTextSvg(text, { y: 300, preferred: 104, min: 56, maxLines: 5, maxChars: 23 })}
   </svg>`;
 }
 
 function impactOverlay(post) {
-  const first = post.slide3.facts[0];
-  const q = wrap(posterText(post.slide3.question, { maxWords: 8, maxChars: 54 }), 26).slice(0, 2);
-  const qSize = fittedSize(q, 34, 29, 0.62);
-
+  const text = clean(post.slide3?.facts?.[0]?.text);
+  const question = clean(post.slide3?.question);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
-    ${frameSvg(3)}
-    ${headlineSvg(post.slide3.headline_lines, { y: 270, base: 104 })}
-    ${statementSvg(first.text, { y: 635, maxLines: 5, accentLine: 1, tag: first.tag })}
-    <circle cx="92" cy="1142" r="25" fill="none" stroke="${GREEN}" stroke-width="4"/>
-    <text x="84" y="1154" font-family="${FONT}" font-size="31" font-weight="900" fill="${GREEN}">?</text>
-    ${q.map((line, i) => `<text x="137" y="${1142 + i * 39}" font-family="${FONT}" font-size="${qSize}" font-weight="900" fill="${GREEN}" letter-spacing="-0.7">${esc(line.toUpperCase())}</text>`).join("\n")}
+    ${fixedFrameSvg()}
+    ${mainTextSvg(text, { y: 285, preferred: 104, min: 54, maxLines: 5, maxChars: 23 })}
+    ${question ? supportTextSvg(question, { y: 1120, maxLines: 2 }) : ""}
   </svg>`;
 }
 
-async function logoBuffers() {
+async function logoBuffer() {
   const logo = path.resolve("assets/logo-mark-white.png");
-  const white = await sharp(logo).resize({ width: 56 }).png().toBuffer();
-  const green = await sharp(logo).resize({ width: 57 }).tint(GREEN).png().toBuffer();
-  return { white, green };
+  return sharp(logo).resize({ width: 70 }).png().toBuffer();
 }
 
-function finalPrompt(base, slideIndex) {
+function finalPrompt(base, slideIndex, visibleText) {
   const composition = slideIndex === 0
-    ? "Keep the main sneaker or person in the LOWER-RIGHT or lower-center area. Leave the upper-left and middle-left areas dark and clean for very large editorial headline typography."
-    : "Keep the main historical subject, sneaker or person mainly on the RIGHT and LOWER half. Leave the upper-left and center-left areas dark, clean and uncluttered for large editorial text.";
-  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic, believable, rich contrast, realistic materials, deep blacks and restrained color. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
+    ? "Place the main subject mostly on the right or lower-right, with clean dark negative space on the left for large typography."
+    : "Compose the exact subject of this fact prominently in the center-right or lower-right, while keeping the left side readable and uncluttered.";
+
+  return `${base}\n\nTHIS SLIDE SAYS: ${visibleText}\nThe image must directly and obviously illustrate that exact statement, even to a child who knows nothing about the topic. Show the specific sneaker, person, sport, object, place or before/after comparison mentioned in the statement. Do not use a generic sneaker if the text is about a specific person, event, invention or comparison. Make every slide a meaningfully different scene that matches its own statement.\n${composition}\n4:5 vertical portrait. Premium dark sneaker editorial photography, cinematic but believable, strong subject separation, realistic materials and high visual impact. IMPORTANT: the base image itself must contain NO TrendyPatike logo, NO TrendyPatike name, NO website, NO frame, NO captions, NO generated typography, NO watermark and NO decorative brand mark added by the image model. Avoid random or misspelled lettering. Historical product branding may appear only when it naturally belongs to the real subject.`;
 }
 
-function neutralSafePrompt(slideIndex) {
-  const scene = slideIndex === 0
-    ? "A single unbranded retro athletic sneaker positioned in the lower-right of a dark cinematic studio scene."
-    : slideIndex === 1
-      ? "An unbranded retro sneaker and anonymous historical sports workshop atmosphere, subject mostly on the lower-right."
-      : "An unbranded retro sneaker with an anonymous sports-culture atmosphere, subject mostly on the lower-right.";
-  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic lighting, clean dark negative space on the upper-left and center-left. No recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
+function neutralSafePrompt(slideIndex, visibleText) {
+  return `Create a 4:5 dark editorial sports photograph that directly illustrates this statement: ${visibleText}. Use a specific visual object or scene from the statement, not a generic sneaker. Keep the main subject on the right or lower-right and leave clean dark space on the left. No TrendyPatike logo, no TrendyPatike name, no website, no frame, no caption, no typography, no watermark, no random lettering. Realistic materials, believable lighting, kid-friendly and visually striking.`;
 }
 
 function localFallbackSvg(slideIndex) {
-  const shift = slideIndex * 24;
+  const shift = slideIndex * 30;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="glow" cx="78%" cy="64%" r="52%">
-        <stop offset="0%" stop-color="${GREEN}" stop-opacity="0.28"/>
-        <stop offset="55%" stop-color="#17302c" stop-opacity="0.18"/>
+      <radialGradient id="glow" cx="78%" cy="62%" r="54%">
+        <stop offset="0%" stop-color="${GREEN}" stop-opacity="0.24"/>
+        <stop offset="55%" stop-color="#17302c" stop-opacity="0.16"/>
         <stop offset="100%" stop-color="#050706" stop-opacity="0"/>
       </radialGradient>
       <linearGradient id="shoe" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#727775"/>
-        <stop offset="55%" stop-color="#242927"/>
+        <stop offset="0%" stop-color="#787d7b"/>
+        <stop offset="55%" stop-color="#252a28"/>
         <stop offset="100%" stop-color="#0b0e0d"/>
       </linearGradient>
     </defs>
     <rect width="${W}" height="${H}" fill="#050706"/>
     <rect width="${W}" height="${H}" fill="url(#glow)"/>
-    <circle cx="840" cy="${680 + shift}" r="180" fill="none" stroke="${GREEN}" stroke-opacity="0.08" stroke-width="2"/>
-    <path d="M585 ${830 + shift} C670 ${760 + shift}, 738 ${706 + shift}, 790 ${650 + shift} L880 ${695 + shift} C916 ${714 + shift}, 942 ${760 + shift}, 965 ${813 + shift} L1015 ${847 + shift} C1038 ${863 + shift}, 1027 ${901 + shift}, 992 ${913 + shift} C884 ${946 + shift}, 738 ${949 + shift}, 625 ${925 + shift} C583 ${916 + shift}, 558 ${882 + shift}, 568 ${850 + shift} Z" fill="url(#shoe)" stroke="#aeb5b2" stroke-opacity="0.30" stroke-width="3"/>
-    <path d="M646 ${850 + shift} C748 ${865 + shift}, 852 ${865 + shift}, 975 ${846 + shift}" fill="none" stroke="${GREEN}" stroke-opacity="0.58" stroke-width="8" stroke-linecap="round"/>
+    <path d="M590 ${820 + shift} C674 ${748 + shift}, 742 ${700 + shift}, 798 ${642 + shift} L886 ${690 + shift} C922 ${710 + shift}, 950 ${760 + shift}, 970 ${812 + shift} L1020 ${847 + shift} C1040 ${864 + shift}, 1028 ${902 + shift}, 994 ${914 + shift} C884 ${948 + shift}, 742 ${952 + shift}, 628 ${927 + shift} C586 ${918 + shift}, 560 ${884 + shift}, 570 ${850 + shift} Z" fill="url(#shoe)" stroke="#aeb5b2" stroke-opacity="0.28" stroke-width="3"/>
+    <path d="M650 ${850 + shift} C752 ${866 + shift}, 858 ${866 + shift}, 977 ${847 + shift}" fill="none" stroke="${GREEN}" stroke-opacity="0.52" stroke-width="8" stroke-linecap="round"/>
     <ellipse cx="820" cy="${966 + shift}" rx="245" ry="40" fill="#000" fill-opacity="0.65"/>
   </svg>`;
 }
@@ -262,13 +222,12 @@ async function checkpointBestEffort(files, message) {
   }
 }
 
-async function renderSlide(source, overlay, logos, outPath) {
+async function renderSlide(source, overlay, logo, outPath) {
   await sharp(source)
     .resize(W, H, { fit: "cover", position: "attention" })
     .composite([
       { input: Buffer.from(overlay), left: 0, top: 0 },
-      { input: logos.white, left: 67, top: 62 },
-      { input: logos.green, left: 932, top: 1230 }
+      { input: logo, left: 52, top: 47 }
     ])
     .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
     .toFile(outPath);
@@ -280,14 +239,15 @@ async function renderSlide(source, overlay, logos, outPath) {
 
 export async function generateAndRender(post, outputDir) {
   await fs.mkdir(outputDir, { recursive: true });
-  const logos = await logoBuffers();
+  const logo = await logoBuffer();
   const overlays = [coverOverlay(post), factsOverlay(post), impactOverlay(post)];
   const outputs = [];
 
   for (let i = 0; i < 3; i++) {
     const number = String(i + 1).padStart(2, "0");
-    const sourcePath = path.join(outputDir, `${number}-source.png`);
+    const sourcePath = path.join(outputDir, `${number}-source-${RENDER_VERSION}.png`);
     const outPath = path.join(outputDir, `${number}.jpg`);
+    const visibleText = visibleTextForSlide(post, i);
 
     if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
       let imageBuffer;
@@ -296,13 +256,13 @@ export async function generateAndRender(post, outputDir) {
         console.log(`[image] Emergency post slide ${i + 1}/3 uses zero-cost local visual by design.`);
         imageBuffer = await localFallbackBuffer(i);
       } else {
-        const primaryPrompt = finalPrompt(post.image_prompts[i], i);
-        const fallbackPrompt = `${primaryPrompt}\nIf a named public figure or recognizable branding is difficult to depict, replace it with an anonymous era-appropriate athlete silhouette and an unlabeled sneaker while preserving the editorial mood.`;
-        const safePrompt = neutralSafePrompt(i);
+        const primaryPrompt = finalPrompt(post.image_prompts[i], i, visibleText);
+        const fallbackPrompt = `${primaryPrompt}\nIf a named public figure is difficult to depict, use an era-appropriate anonymous athlete only when the person is not essential to understanding the fact. Never replace a specific product comparison with an unrelated generic shoe.`;
+        const safePrompt = neutralSafePrompt(i, visibleText);
 
         try {
           imageBuffer = await generateImage(primaryPrompt, fallbackPrompt, safePrompt);
-          console.log(`[image] AI source ${i + 1}/3 generated successfully.`);
+          console.log(`[image] AI source ${i + 1}/3 generated successfully for the exact slide fact.`);
         } catch (err) {
           console.warn(`[image] AI image unavailable for slide ${i + 1}; using zero-cost local fallback: ${err.message}`);
           imageBuffer = await localFallbackBuffer(i);
@@ -313,14 +273,14 @@ export async function generateAndRender(post, outputDir) {
       if (!(await usableImage(sourcePath, { format: "png", minSize: 1000 }))) {
         throw new Error(`Source image ${i + 1} could not be decoded after generation/fallback`);
       }
-      await checkpointBestEffort([sourcePath], `Checkpoint TrendyPatike source ${i + 1}`);
+      await checkpointBestEffort([sourcePath], `Checkpoint TrendyPatike source ${i + 1} ${RENDER_VERSION}`);
     } else {
-      console.log(`[resume] Reusing source image ${i + 1}/3; rerendering current layout.`);
+      console.log(`[resume] Reusing ${RENDER_VERSION} source image ${i + 1}/3; rerendering fixed frame.`);
     }
 
-    await renderSlide(sourcePath, overlays[i], logos, outPath);
+    await renderSlide(sourcePath, overlays[i], logo, outPath);
     outputs.push(outPath);
-    await checkpointBestEffort([outPath], `Checkpoint TrendyPatike rendered slide ${i + 1}`);
+    await checkpointBestEffort([outPath], `Checkpoint TrendyPatike rendered slide ${i + 1} ${RENDER_VERSION}`);
   }
 
   return outputs;
@@ -328,38 +288,42 @@ export async function generateAndRender(post, outputDir) {
 
 export async function runRenderSelfTest() {
   const post = {
+    topic_title: "Kako je Stan Smith dobio ime",
     cover: {
-      headline_lines: [{ text: "PRE STAN SMITH", accent: false }, { text: "BIO JE HAILLET", accent: true }],
-      subheadline: "Jedna od najpoznatijih adidas patika prvo je nosila ime drugog tenisera."
+      headline_lines: [
+        { text: "OVA PATIKA SE PRVO", accent: false },
+        { text: "ZVALA HAILLET", accent: true }
+      ],
+      subheadline: "Tek kasnije je postala Stan Smith."
     },
     slide2: {
-      headline_lines: [{ text: "PRVO DRUGO IME", accent: true }],
+      headline_lines: [{ text: "", accent: false }],
       facts: [
-        { tag: "60-E", text: "Model je sredinom šezdesetih razvijen uz francuskog tenisera Roberta Hailleta." },
-        { tag: "DETALJ", text: "Ova činjenica ostaje u captionu umesto u zidu teksta na slici." },
-        { tag: "IZVOR", text: "Treća činjenica ostaje dostupna za fact-check." }
+        { tag: "", text: "Napravljena je za francuskog tenisera Roberta Hailleta." },
+        { tag: "", text: "Druga činjenica ostaje za caption." },
+        { tag: "", text: "Treća činjenica ostaje za proveru." }
       ]
     },
     slide3: {
-      headline_lines: [{ text: "DVA IMENA", accent: true }],
+      headline_lines: [{ text: "", accent: false }],
       facts: [
-        { tag: "1973", text: "Prve patike sa imenom Stan Smith pojavile su se 1973. godine." },
-        { tag: "1978", text: "Druga završna činjenica ostaje u captionu." }
+        { tag: "", text: "Posle je dobila ime Stan Smith." },
+        { tag: "", text: "Druga završna činjenica ostaje za caption." }
       ],
-      question: "Koje ime vam je bolje?"
-    }
+      question: "Koje ime ti je bolje?"
+    },
+    image_prompts: ["shoe on a tennis court", "French tennis player and shoe", "before and after sneaker comparison"]
   };
 
   const base = await sharp({ create: { width: W, height: H, channels: 3, background: "#111111" } }).png().toBuffer();
-  const logos = await logoBuffers();
+  const logo = await logoBuffer();
   const overlays = [coverOverlay(post), factsOverlay(post), impactOverlay(post)];
 
   for (const overlay of overlays) {
     const buffer = await sharp(base)
       .composite([
         { input: Buffer.from(overlay), left: 0, top: 0 },
-        { input: logos.white, left: 67, top: 62 },
-        { input: logos.green, left: 932, top: 1230 }
+        { input: logo, left: 52, top: 47 }
       ])
       .jpeg({ quality: 80 })
       .toBuffer();
