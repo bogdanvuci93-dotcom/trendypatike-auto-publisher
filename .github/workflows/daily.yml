@@ -77,7 +77,14 @@ jobs:
           # publishing must still try three distinct AI visuals first.
           # Zero-cost dry runs keep local visuals by design.
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          grep -n "post.force_local_images" src/index.mjs
+
+          # Salt the post fingerprint with the current render generation so an
+          # old final JPG can never bypass a newer layout. Existing source PNGs
+          # can still be reused through recovery, so this does not force extra
+          # image generation just because typography/layout changed.
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("editorial-v2:" + JSON.stringify(post))/' src/index.mjs
+
+          grep -n "post.force_local_images\|editorial-v2" src/index.mjs
 
       - name: Zero-cost code and render preflight
         env:
