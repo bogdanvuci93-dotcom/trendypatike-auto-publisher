@@ -68,10 +68,11 @@ async function discoverFreshTopic(state) {
     .filter(Boolean);
 
   const prompt = `Choose ONE fresh topic for TrendyPatike, a Serbian sneaker-culture Instagram account.
-Use web search. Return a factual, visually strong topic for a 3-slide carousel, understandable to a 10-13 year old.
+Use web search. The topic must be factual, visually strong and easy to explain to a child with zero prior knowledge.
 Do not repeat these topics:\n${previous.map(x => `- ${x}`).join("\n") || "- none"}
-Prefer sneaker history, iconic models, athletes, music, sports moments, inventions, technology and myths-vs-facts.
-Avoid rumors, resale speculation and weak anecdotes.
+Prefer sneaker history, famous models, athletes, sports moments, inventions, unusual design stories and myths-vs-facts.
+Pick a topic that can be shown clearly with THREE different, directly relevant images.
+Avoid rumors, resale speculation, routine releases, weak anecdotes and topics that require specialist sneaker knowledge.
 preferred_domains must come only from: ${GLOBAL_TRUSTED_DOMAINS.join(", ")}.
 Return a lowercase ASCII hyphenated id.`;
 
@@ -96,19 +97,44 @@ TOPIC: ${seed.topic}
 CATEGORY: ${seed.category}
 VISUAL: ${seed.visual_subject}
 
-Rules:
-- Serbian Latin script, everyday Serbian, understandable to a 10-year-old.
+The Instagram design is already fixed by code. You only create the content that goes inside it.
+
+NON-NEGOTIABLE VISIBLE-COPY RULES:
+- Serbian Latin script, everyday spoken Serbian, understandable to a 10-year-old.
+- Assume the viewer knows NOTHING about the sneaker, athlete, brand history or event.
+- Every visible sentence must explain itself. Never require prior knowledge.
+- Write directly about what happened. No decorative section titles such as "PRIČA IZA IMENA", "NASLEĐE", "PREOKRET", "ZAŠTO JE VAŽNO" or similar filler.
+- Avoid complicated or insider words. Do not use terms such as colorway, silhouette, legacy, archive, collaboration, cultural impact, signature model or technical sneaker jargon unless you immediately explain them in very simple Serbian.
+- Short, punchy, concrete sentences. One clear idea per visible slide.
+- ALL visible copy will be rendered BOLD and ALL CAPS by code, so write for that style.
+
+STRUCTURE:
+- slide_count must be 3.
+- Cover headline_lines: 2-4 short lines that together form ONE direct, self-contained statement about the topic. This is not a title. Example style: "OVA PATIKA SE PRVO / ZVALA HAILLET".
+- Cover subheadline: one short supporting sentence, ideally 4-10 words. It must add new information, not repeat the headline.
+- Slide 2: exactly 3 fact objects because the schema requires them. facts[0] is the ONLY fact shown on the image, so it must be the strongest next fact, self-contained, simple and preferably 8-16 words. facts[1] and facts[2] are supporting facts for caption/fact-check only.
+- Slide 3: exactly 2 fact objects. facts[0] is the ONLY fact shown on the image, self-contained, simple and preferably 8-16 words. facts[1] is supporting information for caption/fact-check only.
+- Slide 3 question: a very short natural question, max 6 words.
+- headline_lines on slide2 and slide3 are schema fields only. Keep them very short and factual; do not rely on them for context because the renderer does not show them.
+
+FACT RULES:
 - Use only facts supported by pages you actually found now.
 - Use at least 2 source URLs, preferably primary/official sources.
 - Never invent dates, money, records, quotes or causal claims.
 - Correct sneaker myths. Distinguish Nike Air Ship from Air Jordan 1 when relevant.
 - Famous people are editorial subjects, never TrendyPatike endorsers.
-- Cover: 2-4 short headline lines and one complete subheadline sentence.
-- Slide 2: exactly 3 complete fact sentences with short tags.
-- Slide 3: exactly 2 complete fact sentences and one easy question of max 8 words.
 - Do not write AJ1; write Air Jordan 1. Do not use the English word banned in visible Serbian text.
-- Caption should be natural, useful and concise, then 4-8 hashtags.
-- Return exactly 3 English image prompts. No text, logo or watermark in base images. Subject mostly on the RIGHT.
+- Caption should explain the story naturally and simply, then 4-8 hashtags.
+
+IMAGE RULES:
+- Return exactly 3 English image prompts, one per slide.
+- EACH prompt must directly illustrate that slide's exact visible statement, not merely the general topic.
+- The three images must be meaningfully different scenes.
+- If the text is about a person, show that person or a clear era-appropriate scene involving them.
+- If the text is about an old name vs new name, create a clear before/after or product-history visual.
+- If the text is about an invention or sports moment, show the invention or moment itself.
+- Do not fall back to the same generic sneaker on every slide.
+- Base images must contain NO TrendyPatike logo, NO TrendyPatike name, NO trendypatike.com, NO border/frame, NO captions, NO typography and NO watermark. The code adds TrendyPatike branding later.
 - Every source URL and claim URL must be an exact page discovered in web search.
 - Never cut a sentence or word to meet a length limit. Rewrite it shorter instead.`;
 }
@@ -121,8 +147,23 @@ DRAFT:\n${JSON.stringify(draft)}
 
 Verify every important factual claim, including names, dates, model names, chronology, prices and records.
 Remove or rewrite anything not clearly supported. If material claims cannot be verified, set publish_ok=false.
-Keep Serbian Latin script simple enough for a 10-year-old. Every visible fact must be a complete standalone sentence.
-Do not use AJ1 or the English word banned in visible copy. Do not truncate words or sentences.
+
+Then enforce these visible-copy rules before approving:
+- A 10-year-old with ZERO prior knowledge must understand every visible sentence immediately.
+- No decorative headings, vague teaser phrases or specialist sneaker jargon.
+- The first visible idea on each slide must say exactly what happened and name the relevant sneaker/person/event.
+- facts[0] on slide2 and facts[0] on slide3 should each contain one clear idea, preferably 8-16 simple words.
+- Cover headline_lines must form a direct factual statement, not a section title.
+- Cover subheadline must be short and add a second useful detail.
+- Question max 6 words and natural Serbian.
+- Do not use AJ1 or the English word banned in visible copy. Do not truncate words or sentences.
+
+Check image prompts too:
+- each of the 3 prompts must visually match its own slide's exact fact;
+- scenes must be meaningfully different;
+- no TrendyPatike logo/name/site/frame/caption/typography/watermark inside the base AI image;
+- reject generic unrelated sneaker imagery when the text is about a specific person, event, invention or comparison.
+
 Every final source and claim URL must correspond to pages actually found in your web search.
 Return a corrected final post even if you rewrote the draft.`;
 }
@@ -245,11 +286,11 @@ function splitWordsIntoLines(text = "", maxChars = 32) {
 function normalizeHeadlineGroup(lines, maxLines) {
   const expanded = [];
   for (const source of lines || []) {
-    const parts = splitWordsIntoLines(source.text, 32);
+    const parts = splitWordsIntoLines(source.text, 30);
     for (const part of parts) expanded.push({ ...source, text: part });
   }
 
-  if (!expanded.length) return [{ text: "SNEAKER PRIČA", accent: true }];
+  if (!expanded.length) return [{ text: "PATIKA IMA ZANIMLJIVU PRIČU", accent: true }];
   if (expanded.length <= maxLines) return expanded;
 
   const kept = expanded.slice(0, maxLines);
@@ -257,7 +298,7 @@ function normalizeHeadlineGroup(lines, maxLines) {
   const last = cleanText(`${kept[maxLines - 1].text} ${overflow}`);
   kept[maxLines - 1] = {
     ...kept[maxLines - 1],
-    text: shortenAtWordBoundary(last, 40)
+    text: shortenAtWordBoundary(last, 38)
   };
   console.warn(`[layout] Headline compacted locally to ${maxLines} lines without a new AI call.`);
   return kept;
@@ -268,7 +309,7 @@ function normalizeQuestion(text = "") {
     .replace(/[?!.,]+$/g, "")
     .split(/\s+/)
     .filter(Boolean)
-    .slice(0, 8);
+    .slice(0, 6);
   return `${(words.length ? words : ["Da", "li", "ste", "znali"]).join(" ")}?`;
 }
 
@@ -297,6 +338,7 @@ function normalizeHashtags(items = []) {
 function normalizePostForPublishing(post) {
   const value = JSON.parse(JSON.stringify(post));
   value.topic_title = cleanText(value.topic_title);
+  value.slide_count = 3;
   value.cover.headline_lines = normalizeHeadlineGroup(value.cover.headline_lines, 4);
   value.cover.subheadline = ensureSentence(value.cover.subheadline);
 
