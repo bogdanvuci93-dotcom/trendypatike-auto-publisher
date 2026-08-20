@@ -49,6 +49,7 @@ export const postSchema = {
   additionalProperties: false,
   required: [
     "topic_title",
+    "slide_count",
     "cover",
     "slide2",
     "slide3",
@@ -60,6 +61,7 @@ export const postSchema = {
   ],
   properties: {
     topic_title: { type: "string", maxLength: 160 },
+    slide_count: { type: "integer", minimum: 1, maximum: 3 },
     cover: {
       type: "object",
       additionalProperties: false,
