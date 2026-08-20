@@ -7,6 +7,7 @@ import { commitAndPush } from "./git.mjs";
 
 const W = 1080;
 const H = 1350;
+const GREEN = "#037361";
 const WHITE = "#F7F7F5";
 const FONT = "DejaVu Sans Condensed";
 
@@ -18,8 +19,15 @@ function esc(s = "") {
     .replaceAll('"', "&quot;");
 }
 
-function wrap(text, maxChars = 34) {
-  const words = String(text).trim().split(/\s+/).filter(Boolean);
+function clean(text = "") {
+  return String(text)
+    .replace(/\s+/g, " ")
+    .replace(/[.?!]+$/g, "")
+    .trim();
+}
+
+function wrap(text, maxChars = 28) {
+  const words = clean(text).split(/\s+/).filter(Boolean);
   const lines = [];
   let line = "";
   for (const word of words) {
@@ -35,53 +43,57 @@ function wrap(text, maxChars = 34) {
   return lines;
 }
 
-function headlineMetrics(lines, base = 112) {
-  const longest = Math.max(1, ...lines.map(line => String(line.text).length));
+function headlineMetrics(lines, base = 124) {
+  const longest = Math.max(1, ...lines.map(line => String(line.text || "").length));
   let size = base;
-  if (longest > 35) size -= 18;
-  else if (longest > 30) size -= 10;
-  if (lines.length >= 4) size -= 8;
-  return { size: Math.max(78, size), gap: Math.max(90, size + 8) };
+  if (longest > 34) size -= 20;
+  else if (longest > 29) size -= 12;
+  if (lines.length >= 4) size -= 10;
+  return { size: Math.max(78, size), gap: Math.max(90, size + 7) };
 }
 
-function headlineSvg(lines, { x = 72, y = 320, size = 112, gap = 120 } = {}) {
+function headlineSvg(lines, { x = 66, y = 300, base = 124 } = {}) {
+  const { size, gap } = headlineMetrics(lines, base);
   return lines.map((line, i) => {
-    const fill = line.accent ? cfg.brandGreen : WHITE;
-    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(line.text.toUpperCase())}</text>`;
+    const fill = line.accent ? GREEN : WHITE;
+    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2.2">${esc(String(line.text || "").toUpperCase())}</text>`;
   }).join("\n");
 }
 
-function compactSentence(text = "") {
-  return String(text)
-    .replace(/\s+/g, " ")
-    .replace(/[.?!]+$/g, "")
-    .trim();
-}
-
-function statementLines(text, maxLines = 6) {
-  for (const width of [22, 25, 28, 31, 34, 38]) {
-    const lines = wrap(compactSentence(text), width);
+function statementLines(text, maxLines = 5) {
+  for (const width of [21, 24, 27, 30, 33, 36]) {
+    const lines = wrap(text, width);
     if (lines.length <= maxLines) return lines;
   }
-  return wrap(compactSentence(text), 40).slice(0, maxLines);
+  return wrap(text, 38).slice(0, maxLines);
 }
 
-function statementBlockSvg({ tag, text, y = 720, maxLines = 6, accentLine = 1 }) {
+function statementSvg(text, {
+  x = 66,
+  y = 590,
+  maxLines = 5,
+  accentLine = 1,
+  tag = ""
+} = {}) {
   const lines = statementLines(text, maxLines);
-  let size = 68;
-  if (lines.length === 5) size = 60;
-  if (lines.length >= 6) size = 53;
-  if (lines.length <= 3) size = 76;
+  let size = 69;
+  if (lines.length <= 2) size = 83;
+  else if (lines.length === 3) size = 76;
+  else if (lines.length === 4) size = 68;
+  else size = 60;
   const gap = size + 5;
-  const accent = Math.min(Math.max(0, accentLine), lines.length - 1);
+  const accent = Math.min(Math.max(accentLine, 0), Math.max(0, lines.length - 1));
+
+  const tagSvg = tag
+    ? `<text x="${x}" y="${y - 54}" font-family="${FONT}" font-size="29" font-weight="900" fill="${GREEN}" letter-spacing="2">${esc(String(tag).toUpperCase())}</text>`
+    : "";
+
   const body = lines.map((line, i) => {
-    const fill = i === accent ? cfg.brandGreen : WHITE;
-    return `<text x="72" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.4">${esc(line.toUpperCase())}</text>`;
+    const fill = i === accent ? GREEN : WHITE;
+    return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.5">${esc(line.toUpperCase())}</text>`;
   }).join("\n");
-  return `
-    <text x="72" y="${y - 62}" font-family="${FONT}" font-size="29" font-weight="900" fill="${cfg.brandGreen}" letter-spacing="2">${esc(String(tag || "PRIČA").toUpperCase())}</text>
-    ${body}
-  `;
+
+  return `${tagSvg}\n${body}`;
 }
 
 function frameSvg(slideNo) {
@@ -89,102 +101,97 @@ function frameSvg(slideNo) {
   return `
   <defs>
     <linearGradient id="leftShade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#030504" stop-opacity="0.72"/>
-      <stop offset="52%" stop-color="#030504" stop-opacity="0.30"/>
-      <stop offset="100%" stop-color="#030504" stop-opacity="0.02"/>
+      <stop offset="0%" stop-color="#020403" stop-opacity="0.86"/>
+      <stop offset="52%" stop-color="#020403" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#020403" stop-opacity="0.03"/>
     </linearGradient>
     <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="36%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="61%" stop-color="#000" stop-opacity="0.35"/>
-      <stop offset="78%" stop-color="#000" stop-opacity="0.82"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.98"/>
+      <stop offset="58%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="82%" stop-color="#000" stop-opacity="0.48"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.96"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#leftShade)"/>
   <rect width="${W}" height="${H}" fill="url(#bottomShade)"/>
-  <rect x="16" y="16" width="${W - 32}" height="${H - 32}" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
-  <line x1="72" y1="138" x2="1000" y2="138" stroke="${cfg.brandGreen}" stroke-width="2" opacity="0.86"/>
-  <polyline points="310,138 324,126 338,142 352,138" fill="none" stroke="${cfg.brandGreen}" stroke-width="2"/>
-  <text x="150" y="104" font-family="${FONT}" font-size="28" font-weight="900" fill="${WHITE}" letter-spacing="3">${esc(cfg.brandName)}</text>
-  <text x="940" y="104" font-family="${FONT}" font-size="23" font-weight="900" fill="${cfg.brandGreen}">${n}</text>
-  <text x="975" y="104" font-family="${FONT}" font-size="23" font-weight="800" fill="${WHITE}">/ 03</text>
-  <text x="104" y="1292" font-family="${FONT}" font-size="23" font-weight="700" fill="${WHITE}">${esc(cfg.brandSite)}</text>
-  <line x1="345" y1="1284" x2="900" y2="1284" stroke="${cfg.brandGreen}" stroke-width="2" opacity="0.9"/>
-  <polyline points="545,1284 558,1296 571,1284" fill="none" stroke="${cfg.brandGreen}" stroke-width="2"/>
+  <rect x="15" y="15" width="${W - 30}" height="${H - 30}" fill="none" stroke="${GREEN}" stroke-width="4"/>
+  <line x1="68" y1="137" x2="1010" y2="137" stroke="${GREEN}" stroke-width="2"/>
+  <polyline points="510,137 522,149 535,137" fill="none" stroke="${GREEN}" stroke-width="2"/>
+  <text x="147" y="105" font-family="${FONT}" font-size="29" font-weight="900" fill="${WHITE}" letter-spacing="3">TRENDYPATIKE</text>
+  <text x="918" y="105" font-family="${FONT}" font-size="23" font-weight="900" fill="${GREEN}">${n}</text>
+  <text x="952" y="105" font-family="${FONT}" font-size="23" font-weight="900" fill="${WHITE}">/03</text>
+  <text x="72" y="1292" font-family="${FONT}" font-size="23" font-weight="800" fill="${WHITE}">${esc(cfg.brandSite)}</text>
+  <line x1="338" y1="1283" x2="873" y2="1283" stroke="${GREEN}" stroke-width="2"/>
+  <polyline points="520,1283 532,1295 545,1283" fill="none" stroke="${GREEN}" stroke-width="2"/>
   `;
 }
 
 function coverOverlay(post) {
-  const h = post.cover.headline_lines;
-  const { size, gap } = headlineMetrics(h, 124);
-  let sub = wrap(post.cover.subheadline, 27);
-  if (sub.length > 4) sub = wrap(post.cover.subheadline, 31);
-  sub = sub.slice(0, 4);
-  const subSize = sub.length <= 2 ? 50 : sub.length === 3 ? 44 : 38;
-  const subGap = subSize + 7;
-  const subY = 1000;
+  const sub = statementLines(post.cover.subheadline, 3);
+  let subSize = 54;
+  if (sub.length === 2) subSize = 50;
+  if (sub.length === 3) subSize = 44;
+  const subGap = subSize + 5;
+  const subY = 700;
+
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
-    ${headlineSvg(h, { y: 350, size, gap })}
-    <line x1="72" y1="${subY - 54}" x2="148" y2="${subY - 54}" stroke="${cfg.brandGreen}" stroke-width="5"/>
-    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}" letter-spacing="-0.8">${esc(t)}</text>`).join("\n")}
+    ${headlineSvg(post.cover.headline_lines, { y: 300, base: 128 })}
+    ${sub.map((line, i) => `<text x="68" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === 1 || (sub.length === 1 && i === 0) ? GREEN : WHITE}" letter-spacing="-1">${esc(line.toUpperCase())}</text>`).join("\n")}
   </svg>`;
 }
 
 function factsOverlay(post) {
-  const h = post.slide2.headline_lines;
-  const { size, gap } = headlineMetrics(h, 86);
   const first = post.slide2.facts[0];
   const second = post.slide2.facts[1];
-  const statement = `${compactSentence(first.text)}. ${compactSentence(second.text)}.`;
+  const statement = `${clean(first.text)}. ${clean(second.text)}.`;
+
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
-    ${headlineSvg(h, { y: 285, size, gap })}
-    ${statementBlockSvg({ tag: first.tag, text: statement, y: 790, maxLines: 6, accentLine: 1 })}
+    ${headlineSvg(post.slide2.headline_lines, { y: 265, base: 102 })}
+    ${statementSvg(statement, { y: 610, maxLines: 5, accentLine: 1, tag: first.tag })}
   </svg>`;
 }
 
 function impactOverlay(post) {
-  const h = post.slide3.headline_lines;
-  const { size, gap } = headlineMetrics(h, 86);
   const first = post.slide3.facts[0];
   const second = post.slide3.facts[1];
-  const statement = `${compactSentence(first.text)}. ${compactSentence(second.text)}.`;
-  const q = wrap(post.slide3.question, 28).slice(0, 2);
+  const statement = `${clean(first.text)}. ${clean(second.text)}.`;
+  const q = wrap(post.slide3.question, 27).slice(0, 2);
+
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
-    ${headlineSvg(h, { y: 285, size, gap })}
-    ${statementBlockSvg({ tag: first.tag, text: statement, y: 755, maxLines: 6, accentLine: 1 })}
-    <circle cx="96" cy="1190" r="26" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    <text x="87" y="1202" font-family="${FONT}" font-size="31" font-weight="900" fill="${cfg.brandGreen}">?</text>
-    ${q.map((t, i) => `<text x="145" y="${1190 + i * 38}" font-family="${FONT}" font-size="34" font-weight="900" fill="${cfg.brandGreen}">${esc(t)}</text>`).join("\n")}
+    ${headlineSvg(post.slide3.headline_lines, { y: 265, base: 102 })}
+    ${statementSvg(statement, { y: 590, maxLines: 5, accentLine: 1, tag: first.tag })}
+    <circle cx="92" cy="1142" r="25" fill="none" stroke="${GREEN}" stroke-width="4"/>
+    <text x="84" y="1154" font-family="${FONT}" font-size="31" font-weight="900" fill="${GREEN}">?</text>
+    ${q.map((line, i) => `<text x="137" y="${1142 + i * 39}" font-family="${FONT}" font-size="35" font-weight="900" fill="${GREEN}" letter-spacing="-0.7">${esc(line.toUpperCase())}</text>`).join("\n")}
   </svg>`;
 }
 
 async function logoBuffers() {
   const logo = path.resolve("assets/logo-mark-white.png");
   const white = await sharp(logo).resize({ width: 56 }).png().toBuffer();
-  const green = await sharp(logo).resize({ width: 57 }).tint(cfg.brandGreen).png().toBuffer();
+  const green = await sharp(logo).resize({ width: 57 }).tint(GREEN).png().toBuffer();
   return { white, green };
 }
 
 function finalPrompt(base, slideIndex) {
   const composition = slideIndex === 0
-    ? "Keep the main subject in the upper-center or upper-right area. Preserve strong visual detail, but leave the lower 35-40 percent dark and relatively uncluttered for bold editorial typography."
-    : "Keep the key sneaker, person or historical object in the upper half or upper-right area. Leave the lower 40 percent darker and visually simple for a large magazine-style statement.";
-  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. Strong photographic subject, realistic materials and dramatic light. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
+    ? "Keep the main sneaker or person in the LOWER-RIGHT or lower-center area. Leave the upper-left and middle-left areas dark and clean for very large editorial headline typography."
+    : "Keep the main historical subject, sneaker or person mainly on the RIGHT and LOWER half. Leave the upper-left and center-left areas dark, clean and uncluttered for large editorial text.";
+  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic, believable, rich contrast, realistic materials, deep blacks and restrained color. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
 }
 
 function neutralSafePrompt(slideIndex) {
   const scene = slideIndex === 0
-    ? "A single unbranded retro athletic sneaker in the upper-right area of a dark studio composition."
+    ? "A single unbranded retro athletic sneaker positioned in the lower-right of a dark cinematic studio scene."
     : slideIndex === 1
-      ? "A close editorial still life of an unbranded retro sneaker and historical sports atmosphere in the upper half of the frame."
-      : "An unbranded retro sneaker with an anonymous sports-culture atmosphere, composed in the upper half of the frame.";
-  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, with the lower 40 percent dark and uncluttered. No recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
+      ? "An unbranded retro sneaker and anonymous historical sports workshop atmosphere, subject mostly on the lower-right."
+      : "An unbranded retro sneaker with an anonymous sports-culture atmosphere, subject mostly on the lower-right.";
+  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic lighting, clean dark negative space on the upper-left and center-left. No recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
 }
 
 function localFallbackSvg(slideIndex) {
@@ -192,9 +199,9 @@ function localFallbackSvg(slideIndex) {
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="glow" cx="78%" cy="47%" r="55%">
-        <stop offset="0%" stop-color="${cfg.brandGreen}" stop-opacity="0.38"/>
-        <stop offset="55%" stop-color="#17302c" stop-opacity="0.22"/>
+      <radialGradient id="glow" cx="78%" cy="64%" r="52%">
+        <stop offset="0%" stop-color="${GREEN}" stop-opacity="0.28"/>
+        <stop offset="55%" stop-color="#17302c" stop-opacity="0.18"/>
         <stop offset="100%" stop-color="#050706" stop-opacity="0"/>
       </radialGradient>
       <linearGradient id="shoe" x1="0" y1="0" x2="1" y2="1">
@@ -203,14 +210,12 @@ function localFallbackSvg(slideIndex) {
         <stop offset="100%" stop-color="#0b0e0d"/>
       </linearGradient>
     </defs>
-    <rect width="1080" height="1350" fill="#050706"/>
-    <rect width="1080" height="1350" fill="url(#glow)"/>
-    <circle cx="850" cy="${305 + shift}" r="170" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="2"/>
-    <circle cx="850" cy="${305 + shift}" r="230" fill="none" stroke="${cfg.brandGreen}" stroke-opacity="0.08" stroke-width="2"/>
-    <path d="M610 ${750 + shift} C675 ${690 + shift}, 735 ${642 + shift}, 782 ${584 + shift} L872 ${634 + shift} C904 ${652 + shift}, 929 ${700 + shift}, 948 ${748 + shift} L1008 ${790 + shift} C1028 ${805 + shift}, 1022 ${844 + shift}, 990 ${855 + shift} C889 ${888 + shift}, 745 ${893 + shift}, 638 ${868 + shift} C598 ${858 + shift}, 573 ${825 + shift}, 583 ${792 + shift} Z" fill="url(#shoe)" stroke="#aeb5b2" stroke-opacity="0.34" stroke-width="3"/>
-    <path d="M665 ${770 + shift} C748 ${786 + shift}, 856 ${789 + shift}, 967 ${774 + shift}" fill="none" stroke="${cfg.brandGreen}" stroke-opacity="0.65" stroke-width="8" stroke-linecap="round"/>
-    <path d="M777 ${618 + shift} L821 ${737 + shift} M810 ${615 + shift} L855 ${730 + shift}" stroke="#d7dbd9" stroke-opacity="0.24" stroke-width="5"/>
-    <ellipse cx="825" cy="${905 + shift}" rx="245" ry="40" fill="#000" fill-opacity="0.65"/>
+    <rect width="${W}" height="${H}" fill="#050706"/>
+    <rect width="${W}" height="${H}" fill="url(#glow)"/>
+    <circle cx="840" cy="${680 + shift}" r="180" fill="none" stroke="${GREEN}" stroke-opacity="0.08" stroke-width="2"/>
+    <path d="M585 ${830 + shift} C670 ${760 + shift}, 738 ${706 + shift}, 790 ${650 + shift} L880 ${695 + shift} C916 ${714 + shift}, 942 ${760 + shift}, 965 ${813 + shift} L1015 ${847 + shift} C1038 ${863 + shift}, 1027 ${901 + shift}, 992 ${913 + shift} C884 ${946 + shift}, 738 ${949 + shift}, 625 ${925 + shift} C583 ${916 + shift}, 558 ${882 + shift}, 568 ${850 + shift} Z" fill="url(#shoe)" stroke="#aeb5b2" stroke-opacity="0.30" stroke-width="3"/>
+    <path d="M646 ${850 + shift} C748 ${865 + shift}, 852 ${865 + shift}, 975 ${846 + shift}" fill="none" stroke="${GREEN}" stroke-opacity="0.58" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="820" cy="${966 + shift}" rx="245" ry="40" fill="#000" fill-opacity="0.65"/>
   </svg>`;
 }
 
@@ -247,8 +252,8 @@ async function renderSlide(source, overlay, logos, outPath) {
     .resize(W, H, { fit: "cover", position: "attention" })
     .composite([
       { input: Buffer.from(overlay), left: 0, top: 0 },
-      { input: logos.white, left: 70, top: 62 },
-      { input: logos.green, left: 948, top: 1233 }
+      { input: logos.white, left: 67, top: 62 },
+      { input: logos.green, left: 932, top: 1230 }
     ])
     .jpeg({ quality: 94, chromaSubsampling: "4:4:4" })
     .toFile(outPath);
@@ -315,36 +320,37 @@ export async function generateAndRender(post, outputDir) {
 export async function runRenderSelfTest() {
   const post = {
     cover: {
-      headline_lines: [{ text: "TEST NASLOV", accent: true }, { text: "DRUGI RED", accent: false }],
-      subheadline: "Ovo je lokalni test renderovanja bez API poziva."
+      headline_lines: [{ text: "ŠTA ZNAČI", accent: false }, { text: "ASICS?", accent: true }],
+      subheadline: "Ime brenda je latinski akronim."
     },
     slide2: {
-      headline_lines: [{ text: "KAKO JE POČELO", accent: true }],
+      headline_lines: [{ text: "PRIČA IZA IMENA", accent: true }],
       facts: [
-        { tag: "1971", text: "Prva važna činjenica sada postaje veliki editorial statement." },
-        { tag: "PREOKRET", text: "Druga činjenica nastavlja istu priču u nekoliko snažnih redova." },
+        { tag: "1949", text: "Kihachiro Onitsuka je 1949. pokrenuo svoju kompaniju za sportsku obuću u Kobeu." },
+        { tag: "1977", text: "ASICS je kao kompanija nastao 1977. spajanjem tri japanske firme." },
         { tag: "DETALJ", text: "Treća činjenica ostaje dostupna za caption i fact-check." }
       ]
     },
     slide3: {
-      headline_lines: [{ text: "ZAŠTO JE VAŽNO", accent: true }],
+      headline_lines: [{ text: "ZDRAV UM I TELO", accent: true }],
       facts: [
-        { tag: "NASLEĐE", text: "Treći slajd koristi jednu veliku poruku koja se čita odmah na telefonu." },
-        { tag: "DANAS", text: "Druga završna činjenica dopunjuje poruku bez sitnih kartica i blokova." }
+        { tag: "ZNAČENJE", text: "Izraz prenosi ideju zdravog uma u zdravom telu." },
+        { tag: "DANAS", text: "Ta poruka je postala centralni deo filozofije brenda ASICS." }
       ],
-      question: "Jeste li znali ovu priču?"
+      question: "Jeste li znali značenje imena?"
     }
   };
 
   const base = await sharp({ create: { width: W, height: H, channels: 3, background: "#111111" } }).png().toBuffer();
   const logos = await logoBuffers();
   const overlays = [coverOverlay(post), factsOverlay(post), impactOverlay(post)];
+
   for (const overlay of overlays) {
     const buffer = await sharp(base)
       .composite([
         { input: Buffer.from(overlay), left: 0, top: 0 },
-        { input: logos.white, left: 70, top: 62 },
-        { input: logos.green, left: 948, top: 1233 }
+        { input: logos.white, left: 67, top: 62 },
+        { input: logos.green, left: 932, top: 1230 }
       ])
       .jpeg({ quality: 80 })
       .toBuffer();
