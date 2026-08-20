@@ -1,1 +1,121 @@
-{}
+{
+  "date": "2026-08-20",
+  "stage": "verified",
+  "fingerprint": "7a31771ce28f",
+  "seed": {
+    "id": "fallback-air-max-1",
+    "topic": "Kako je Air Max 1 učinio Nike Air vidljivim",
+    "category": "model / tehnologija",
+    "preferred_domains": [
+      "nike.com",
+      "about.nike.com"
+    ],
+    "visual_subject": "1987 running sneaker with visible air window and Paris architecture mood",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "Kako je Air Max 1 učinio Nike Air vidljivim",
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "KADA JE AIR",
+          "accent": false
+        },
+        {
+          "text": "POSTAO VIDLJIV",
+          "accent": true
+        }
+      ],
+      "subheadline": "Tinker Hatfield je arhitekturu iz Pariza pretvorio u jednu od najpoznatijih sneaker ideja."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "INSPIRACIJA IZ PARIZA",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "TINKER",
+          "text": "Tinker Hatfield je u Nike stigao 1981. sa obrazovanjem iz arhitekture."
+        },
+        {
+          "tag": "POMPIDOU",
+          "text": "Pariški Centre Pompidou inspirisao ga je svojim spolja vidljivim konstrukcijama."
+        },
+        {
+          "tag": "PROZOR",
+          "text": "Hatfield je deo srednjeg đona otvorio kako bi Air jedinica postala vidljiva."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "1987. STIŽE AIR MAX 1",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1987",
+          "text": "Nike Air Max 1 debitovao je 1987. godine."
+        },
+        {
+          "tag": "PRVI POGLED",
+          "text": "Model je širokoj publici pokazao Air amortizaciju kroz vidljiv prozor u đonu."
+        }
+      ],
+      "question": "Koji Air Max vam je najbolji?"
+    },
+    "caption": "Air Max 1 je spoj arhitekture i patika. Tinker Hatfield je inspiraciju pronašao u Centre Pompidou u Parizu, zgradi koja pokazuje svoje konstrukcije spolja. Ideju je preneo na patiku tako što je Nike Air jedinicu učinio vidljivom kroz srednji đon. Model je debitovao 1987.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#Nike",
+      "#AirMax1",
+      "#AirMax",
+      "#TinkerHatfield",
+      "#SneakerIstorija"
+    ],
+    "image_prompts": [
+      "1987 inspired running sneaker with visible air window on right and Paris modern architecture mood, dark editorial",
+      "retro running sneaker detail with visible cushioning window, dark studio, subject on right",
+      "late 1980s running shoe scene inspired by inside-out Paris architecture, premium dark editorial"
+    ],
+    "sources": [
+      {
+        "title": "The History of the Air Max 1",
+        "publisher": "Nike",
+        "url": "https://www.nike.com/a/air-max-1-history"
+      },
+      {
+        "title": "Nike Partners with the Centre Pompidou for a Bold Celebration of Sport in Paris",
+        "publisher": "Nike",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Tinker Hatfield joined Nike in 1981 and had an architecture background.",
+        "source_urls": [
+          "https://www.nike.com/a/air-max-1-history"
+        ]
+      },
+      {
+        "claim": "Centre Pompidou inspired Hatfield's visible Air concept for the Air Max 1.",
+        "source_urls": [
+          "https://www.nike.com/a/air-max-1-history",
+          "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"
+        ]
+      },
+      {
+        "claim": "The Air Max 1 debuted in 1987 with visible Air cushioning.",
+        "source_urls": [
+          "https://www.nike.com/a/air-max-1-history"
+        ]
+      }
+    ]
+  }
+}
