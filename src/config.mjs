@@ -7,8 +7,8 @@ if (fs.existsSync(path.resolve(".env")) && typeof process.loadEnvFile === "funct
 
 export const cfg = {
   openaiKey: process.env.OPENAI_API_KEY,
-  textModel: process.env.TEXT_MODEL || "gpt-5-mini-2025-08-07",
-  verifyModel: process.env.VERIFY_MODEL || "gpt-5-mini-2025-08-07",
+  textModel: process.env.TEXT_MODEL || "gpt-5-mini",
+  verifyModel: process.env.VERIFY_MODEL || "gpt-5-mini",
   imageModel: process.env.IMAGE_MODEL || "gpt-image-1-mini",
   imageQuality: process.env.IMAGE_QUALITY || "medium",
   maxOpenAICalls: Math.max(1, Number(process.env.MAX_OPENAI_CALLS || 8)),
