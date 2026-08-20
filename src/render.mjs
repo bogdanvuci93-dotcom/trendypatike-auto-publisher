@@ -35,39 +35,51 @@ function wrap(text, maxChars = 34) {
   return lines;
 }
 
-function headlineMetrics(lines, base = 104) {
+function headlineMetrics(lines, base = 112) {
   const longest = Math.max(1, ...lines.map(line => String(line.text).length));
   let size = base;
-  if (longest > 35) size -= 17;
+  if (longest > 35) size -= 18;
   else if (longest > 30) size -= 10;
-  if (lines.length >= 4) size -= 7;
-  return { size: Math.max(76, size), gap: Math.max(86, size + 8) };
+  if (lines.length >= 4) size -= 8;
+  return { size: Math.max(78, size), gap: Math.max(90, size + 8) };
 }
 
-function headlineSvg(lines, { x = 72, y = 320, size = 104, gap = 112 } = {}) {
+function headlineSvg(lines, { x = 72, y = 320, size = 112, gap = 120 } = {}) {
   return lines.map((line, i) => {
     const fill = line.accent ? cfg.brandGreen : WHITE;
     return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(line.text.toUpperCase())}</text>`;
   }).join("\n");
 }
 
-function factLines(text) {
-  for (const width of [31, 35, 39, 43, 47]) {
-    const lines = wrap(text, width);
-    if (lines.length <= 3) return lines;
-  }
-  return wrap(text, 50);
+function compactSentence(text = "") {
+  return String(text)
+    .replace(/\s+/g, " ")
+    .replace(/[.?!]+$/g, "")
+    .trim();
 }
 
-function factBlockSvg(fact, y) {
-  const lines = factLines(fact.text);
-  const size = lines.length <= 2 ? 40 : lines.length === 3 ? 35 : 30;
-  const lineGap = lines.length <= 2 ? 46 : lines.length === 3 ? 40 : 35;
-  const body = lines.map((line, i) =>
-    `<text x="72" y="${y + 50 + i * lineGap}" font-family="${FONT}" font-size="${size}" font-weight="800" fill="${WHITE}">${esc(line)}</text>`
-  ).join("\n");
+function statementLines(text, maxLines = 6) {
+  for (const width of [22, 25, 28, 31, 34, 38]) {
+    const lines = wrap(compactSentence(text), width);
+    if (lines.length <= maxLines) return lines;
+  }
+  return wrap(compactSentence(text), 40).slice(0, maxLines);
+}
+
+function statementBlockSvg({ tag, text, y = 720, maxLines = 6, accentLine = 1 }) {
+  const lines = statementLines(text, maxLines);
+  let size = 68;
+  if (lines.length === 5) size = 60;
+  if (lines.length >= 6) size = 53;
+  if (lines.length <= 3) size = 76;
+  const gap = size + 5;
+  const accent = Math.min(Math.max(0, accentLine), lines.length - 1);
+  const body = lines.map((line, i) => {
+    const fill = i === accent ? cfg.brandGreen : WHITE;
+    return `<text x="72" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1.4">${esc(line.toUpperCase())}</text>`;
+  }).join("\n");
   return `
-    <text x="72" y="${y}" font-family="${FONT}" font-size="28" font-weight="900" fill="${cfg.brandGreen}" letter-spacing="1">${esc(fact.tag.toUpperCase())}</text>
+    <text x="72" y="${y - 62}" font-family="${FONT}" font-size="29" font-weight="900" fill="${cfg.brandGreen}" letter-spacing="2">${esc(String(tag || "PRIČA").toUpperCase())}</text>
     ${body}
   `;
 }
@@ -76,26 +88,27 @@ function frameSvg(slideNo) {
   const n = String(slideNo).padStart(2, "0");
   return `
   <defs>
-    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#050807" stop-opacity="0.96"/>
-      <stop offset="52%" stop-color="#050807" stop-opacity="0.73"/>
-      <stop offset="78%" stop-color="#050807" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#050807" stop-opacity="0.04"/>
+    <linearGradient id="leftShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#030504" stop-opacity="0.72"/>
+      <stop offset="52%" stop-color="#030504" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#030504" stop-opacity="0.02"/>
     </linearGradient>
     <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#000" stop-opacity="0.76"/>
+      <stop offset="36%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="61%" stop-color="#000" stop-opacity="0.35"/>
+      <stop offset="78%" stop-color="#000" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.98"/>
     </linearGradient>
   </defs>
-  <rect width="${W}" height="${H}" fill="url(#shade)"/>
+  <rect width="${W}" height="${H}" fill="url(#leftShade)"/>
   <rect width="${W}" height="${H}" fill="url(#bottomShade)"/>
-  <rect x="16" y="16" width="${W - 32}" height="${H - 32}" fill="none" stroke="${cfg.brandGreen}" stroke-width="5"/>
-  <line x1="72" y1="138" x2="1000" y2="138" stroke="${cfg.brandGreen}" stroke-width="2" opacity="0.9"/>
+  <rect x="16" y="16" width="${W - 32}" height="${H - 32}" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
+  <line x1="72" y1="138" x2="1000" y2="138" stroke="${cfg.brandGreen}" stroke-width="2" opacity="0.86"/>
   <polyline points="310,138 324,126 338,142 352,138" fill="none" stroke="${cfg.brandGreen}" stroke-width="2"/>
-  <text x="150" y="104" font-family="${FONT}" font-size="28" font-weight="800" fill="${WHITE}" letter-spacing="3">${esc(cfg.brandName)}</text>
-  <text x="940" y="104" font-family="${FONT}" font-size="23" font-weight="800" fill="${cfg.brandGreen}">${n}</text>
-  <text x="975" y="104" font-family="${FONT}" font-size="23" font-weight="700" fill="${WHITE}">/ 03</text>
-  <text x="104" y="1292" font-family="${FONT}" font-size="23" font-weight="600" fill="${WHITE}">${esc(cfg.brandSite)}</text>
+  <text x="150" y="104" font-family="${FONT}" font-size="28" font-weight="900" fill="${WHITE}" letter-spacing="3">${esc(cfg.brandName)}</text>
+  <text x="940" y="104" font-family="${FONT}" font-size="23" font-weight="900" fill="${cfg.brandGreen}">${n}</text>
+  <text x="975" y="104" font-family="${FONT}" font-size="23" font-weight="800" fill="${WHITE}">/ 03</text>
+  <text x="104" y="1292" font-family="${FONT}" font-size="23" font-weight="700" fill="${WHITE}">${esc(cfg.brandSite)}</text>
   <line x1="345" y1="1284" x2="900" y2="1284" stroke="${cfg.brandGreen}" stroke-width="2" opacity="0.9"/>
   <polyline points="545,1284 558,1296 571,1284" fill="none" stroke="${cfg.brandGreen}" stroke-width="2"/>
   `;
@@ -103,53 +116,51 @@ function frameSvg(slideNo) {
 
 function coverOverlay(post) {
   const h = post.cover.headline_lines;
-  const { size, gap } = headlineMetrics(h, 116);
-  let sub = wrap(post.cover.subheadline, 31);
-  if (sub.length > 3) sub = wrap(post.cover.subheadline, 37);
-  const subSize = sub.length <= 2 ? 43 : sub.length === 3 ? 38 : 33;
+  const { size, gap } = headlineMetrics(h, 124);
+  let sub = wrap(post.cover.subheadline, 27);
+  if (sub.length > 4) sub = wrap(post.cover.subheadline, 31);
+  sub = sub.slice(0, 4);
+  const subSize = sub.length <= 2 ? 50 : sub.length === 3 ? 44 : 38;
   const subGap = subSize + 7;
-  const subY = 1035;
+  const subY = 1000;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
-    ${headlineSvg(h, { y: 335, size, gap })}
-    <line x1="72" y1="${subY - 50}" x2="142" y2="${subY - 50}" stroke="${cfg.brandGreen}" stroke-width="5"/>
-    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="800" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    ${headlineSvg(h, { y: 350, size, gap })}
+    <line x1="72" y1="${subY - 54}" x2="148" y2="${subY - 54}" stroke="${cfg.brandGreen}" stroke-width="5"/>
+    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="900" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}" letter-spacing="-0.8">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
 function factsOverlay(post) {
   const h = post.slide2.headline_lines;
-  const { size, gap } = headlineMetrics(h, 104);
+  const { size, gap } = headlineMetrics(h, 86);
+  const first = post.slide2.facts[0];
+  const second = post.slide2.facts[1];
+  const statement = `${compactSentence(first.text)}. ${compactSentence(second.text)}.`;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
     ${headlineSvg(h, { y: 285, size, gap })}
-    ${factBlockSvg(post.slide2.facts[0], 565)}
-    <line x1="72" y1="775" x2="142" y2="775" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${factBlockSvg(post.slide2.facts[1], 815)}
-    <line x1="72" y1="1015" x2="142" y2="1015" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${factBlockSvg(post.slide2.facts[2], 1055)}
+    ${statementBlockSvg({ tag: first.tag, text: statement, y: 790, maxLines: 6, accentLine: 1 })}
   </svg>`;
 }
 
 function impactOverlay(post) {
   const h = post.slide3.headline_lines;
-  const { size, gap } = headlineMetrics(h, 104);
-  const q = wrap(post.slide3.question, 26);
-  const qSize = q.length <= 1 ? 42 : 36;
-  const qGap = qSize + 7;
+  const { size, gap } = headlineMetrics(h, 86);
+  const first = post.slide3.facts[0];
+  const second = post.slide3.facts[1];
+  const statement = `${compactSentence(first.text)}. ${compactSentence(second.text)}.`;
+  const q = wrap(post.slide3.question, 28).slice(0, 2);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
     ${headlineSvg(h, { y: 285, size, gap })}
-    ${factBlockSvg(post.slide3.facts[0], 630)}
-    <line x1="72" y1="835" x2="142" y2="835" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${factBlockSvg(post.slide3.facts[1], 875)}
-    <line x1="72" y1="1070" x2="142" y2="1070" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    <circle cx="96" cy="1140" r="28" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    <text x="86" y="1153" font-family="${FONT}" font-size="33" font-weight="900" fill="${cfg.brandGreen}">?</text>
-    ${q.map((t, i) => `<text x="145" y="${1140 + i * qGap}" font-family="${FONT}" font-size="${qSize}" font-weight="900" fill="${i === q.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    ${statementBlockSvg({ tag: first.tag, text: statement, y: 755, maxLines: 6, accentLine: 1 })}
+    <circle cx="96" cy="1190" r="26" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
+    <text x="87" y="1202" font-family="${FONT}" font-size="31" font-weight="900" fill="${cfg.brandGreen}">?</text>
+    ${q.map((t, i) => `<text x="145" y="${1190 + i * 38}" font-family="${FONT}" font-size="34" font-weight="900" fill="${cfg.brandGreen}">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
@@ -162,18 +173,18 @@ async function logoBuffers() {
 
 function finalPrompt(base, slideIndex) {
   const composition = slideIndex === 0
-    ? "Place the main person or sneaker mostly on the RIGHT half, leaving dark negative space on the LEFT for large headline typography."
-    : "Keep the main sneaker or person mostly on the RIGHT half, with dark clean negative space on the LEFT for editorial text.";
-  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
+    ? "Keep the main subject in the upper-center or upper-right area. Preserve strong visual detail, but leave the lower 35-40 percent dark and relatively uncluttered for bold editorial typography."
+    : "Keep the key sneaker, person or historical object in the upper half or upper-right area. Leave the lower 40 percent darker and visually simple for a large magazine-style statement.";
+  return `${base}\n\n${composition}\n4:5 vertical portrait. Premium dark sneaker magazine editorial photography. Cinematic but believable. Strong photographic subject, realistic materials and dramatic light. No text, captions, watermark, frame or TrendyPatike branding. Avoid malformed shoes, duplicated limbs, random lettering and fake signatures. Editorial culture/history visual, not an endorsement advertisement.`;
 }
 
 function neutralSafePrompt(slideIndex) {
   const scene = slideIndex === 0
-    ? "A single unbranded retro high-top athletic sneaker displayed on the RIGHT side of a dark studio pedestal."
+    ? "A single unbranded retro athletic sneaker in the upper-right area of a dark studio composition."
     : slideIndex === 1
-      ? "A close editorial still life of an unbranded retro basketball sneaker on the RIGHT, with subtle vintage arena lights in the background."
-      : "An unbranded retro high-top sneaker on the RIGHT with an anonymous basketball-court atmosphere and dramatic studio lighting.";
-  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, clean negative space on the LEFT. No people, recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
+      ? "A close editorial still life of an unbranded retro sneaker and historical sports atmosphere in the upper half of the frame."
+      : "An unbranded retro sneaker with an anonymous sports-culture atmosphere, composed in the upper half of the frame.";
+  return `${scene} 4:5 vertical portrait. Premium dark sneaker magazine photography. Deep black and charcoal background, realistic materials, cinematic light, with the lower 40 percent dark and uncluttered. No recognizable celebrity, brand logo, trademark, text, letters, watermark, frame or signature.`;
 }
 
 function localFallbackSvg(slideIndex) {
@@ -308,20 +319,20 @@ export async function runRenderSelfTest() {
       subheadline: "Ovo je lokalni test renderovanja bez API poziva."
     },
     slide2: {
-      headline_lines: [{ text: "TRI ČINJENICE", accent: true }],
+      headline_lines: [{ text: "KAKO JE POČELO", accent: true }],
       facts: [
-        { tag: "PRVO", text: "Ovo je kompletna probna rečenica za proveru prvog bloka." },
-        { tag: "DRUGO", text: "Druga probna činjenica proverava slova č ć ž š i đ bez problema." },
-        { tag: "TREĆE", text: "Treća probna rečenica proverava da završni blok ostane unutar slajda." }
+        { tag: "1971", text: "Prva važna činjenica sada postaje veliki editorial statement." },
+        { tag: "PREOKRET", text: "Druga činjenica nastavlja istu priču u nekoliko snažnih redova." },
+        { tag: "DETALJ", text: "Treća činjenica ostaje dostupna za caption i fact-check." }
       ]
     },
     slide3: {
-      headline_lines: [{ text: "KRAJ PRIČE", accent: true }],
+      headline_lines: [{ text: "ZAŠTO JE VAŽNO", accent: true }],
       facts: [
-        { tag: "TEST", text: "Prva završna činjenica proverava raspored teksta na trećem slajdu." },
-        { tag: "TEST 2", text: "Druga završna činjenica potvrđuje da SVG i Sharp rade zajedno." }
+        { tag: "NASLEĐE", text: "Treći slajd koristi jednu veliku poruku koja se čita odmah na telefonu." },
+        { tag: "DANAS", text: "Druga završna činjenica dopunjuje poruku bez sitnih kartica i blokova." }
       ],
-      question: "Da li render radi?"
+      question: "Jeste li znali ovu priču?"
     }
   };
 
