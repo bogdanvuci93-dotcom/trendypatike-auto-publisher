@@ -35,33 +35,39 @@ function wrap(text, maxChars = 34) {
   return lines;
 }
 
-function headlineMetrics(lines, base = 92) {
+function headlineMetrics(lines, base = 104) {
   const longest = Math.max(1, ...lines.map(line => String(line.text).length));
   let size = base;
-  if (longest > 34) size -= 15;
-  else if (longest > 29) size -= 9;
-  if (lines.length >= 4) size -= 5;
-  return { size: Math.max(68, size), gap: Math.max(76, size + 9) };
+  if (longest > 35) size -= 17;
+  else if (longest > 30) size -= 10;
+  if (lines.length >= 4) size -= 7;
+  return { size: Math.max(76, size), gap: Math.max(86, size + 8) };
 }
 
-function headlineSvg(lines, { x = 72, y = 320, size = 94, gap = 100 } = {}) {
+function headlineSvg(lines, { x = 72, y = 320, size = 104, gap = 112 } = {}) {
   return lines.map((line, i) => {
     const fill = line.accent ? cfg.brandGreen : WHITE;
     return `<text x="${x}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2">${esc(line.text.toUpperCase())}</text>`;
   }).join("\n");
 }
 
+function factLines(text) {
+  for (const width of [31, 35, 39, 43, 47]) {
+    const lines = wrap(text, width);
+    if (lines.length <= 3) return lines;
+  }
+  return wrap(text, 50);
+}
+
 function factBlockSvg(fact, y) {
-  let lines = wrap(fact.text, 38);
-  if (lines.length > 4) lines = wrap(fact.text, 44);
-  lines = lines.slice(0, 4);
-  const size = lines.length >= 4 ? 27 : 30;
-  const lineGap = lines.length >= 4 ? 31 : 35;
+  const lines = factLines(fact.text);
+  const size = lines.length <= 2 ? 40 : lines.length === 3 ? 35 : 30;
+  const lineGap = lines.length <= 2 ? 46 : lines.length === 3 ? 40 : 35;
   const body = lines.map((line, i) =>
-    `<text x="72" y="${y + 44 + i * lineGap}" font-family="${FONT}" font-size="${size}" font-weight="600" fill="${WHITE}">${esc(line)}</text>`
+    `<text x="72" y="${y + 50 + i * lineGap}" font-family="${FONT}" font-size="${size}" font-weight="800" fill="${WHITE}">${esc(line)}</text>`
   ).join("\n");
   return `
-    <text x="72" y="${y}" font-family="${FONT}" font-size="25" font-weight="800" fill="${cfg.brandGreen}" letter-spacing="1">${esc(fact.tag.toUpperCase())}</text>
+    <text x="72" y="${y}" font-family="${FONT}" font-size="28" font-weight="900" fill="${cfg.brandGreen}" letter-spacing="1">${esc(fact.tag.toUpperCase())}</text>
     ${body}
   `;
 }
@@ -97,52 +103,53 @@ function frameSvg(slideNo) {
 
 function coverOverlay(post) {
   const h = post.cover.headline_lines;
-  const { size, gap } = headlineMetrics(h, 100);
-  let sub = wrap(post.cover.subheadline, 37);
-  if (sub.length > 4) sub = wrap(post.cover.subheadline, 43);
-  sub = sub.slice(0, 4);
-  const subSize = sub.length >= 4 ? 27 : 30;
-  const subGap = sub.length >= 4 ? 32 : 38;
-  const subY = 1100;
+  const { size, gap } = headlineMetrics(h, 116);
+  let sub = wrap(post.cover.subheadline, 31);
+  if (sub.length > 3) sub = wrap(post.cover.subheadline, 37);
+  const subSize = sub.length <= 2 ? 43 : sub.length === 3 ? 38 : 33;
+  const subGap = subSize + 7;
+  const subY = 1035;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(1)}
-    ${headlineSvg(h, { y: 330, size, gap })}
-    <line x1="72" y1="${subY - 42}" x2="132" y2="${subY - 42}" stroke="${cfg.brandGreen}" stroke-width="4"/>
-    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="600" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    ${headlineSvg(h, { y: 335, size, gap })}
+    <line x1="72" y1="${subY - 50}" x2="142" y2="${subY - 50}" stroke="${cfg.brandGreen}" stroke-width="5"/>
+    ${sub.map((t, i) => `<text x="72" y="${subY + i * subGap}" font-family="${FONT}" font-size="${subSize}" font-weight="800" fill="${i === sub.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
 function factsOverlay(post) {
   const h = post.slide2.headline_lines;
-  const { size, gap } = headlineMetrics(h, 88);
+  const { size, gap } = headlineMetrics(h, 104);
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(2)}
-    ${headlineSvg(h, { y: 295, size, gap })}
-    ${factBlockSvg(post.slide2.facts[0], 610)}
-    <line x1="72" y1="790" x2="132" y2="790" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[1], 825)}
-    <line x1="72" y1="1005" x2="132" y2="1005" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    ${factBlockSvg(post.slide2.facts[2], 1040)}
+    ${headlineSvg(h, { y: 285, size, gap })}
+    ${factBlockSvg(post.slide2.facts[0], 565)}
+    <line x1="72" y1="775" x2="142" y2="775" stroke="${cfg.brandGreen}" stroke-width="4"/>
+    ${factBlockSvg(post.slide2.facts[1], 815)}
+    <line x1="72" y1="1015" x2="142" y2="1015" stroke="${cfg.brandGreen}" stroke-width="4"/>
+    ${factBlockSvg(post.slide2.facts[2], 1055)}
   </svg>`;
 }
 
 function impactOverlay(post) {
   const h = post.slide3.headline_lines;
-  const { size, gap } = headlineMetrics(h, 88);
-  const q = wrap(post.slide3.question, 31).slice(0, 2);
+  const { size, gap } = headlineMetrics(h, 104);
+  const q = wrap(post.slide3.question, 26);
+  const qSize = q.length <= 1 ? 42 : 36;
+  const qGap = qSize + 7;
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${frameSvg(3)}
-    ${headlineSvg(h, { y: 295, size, gap })}
-    ${factBlockSvg(post.slide3.facts[0], 660)}
-    <line x1="72" y1="835" x2="132" y2="835" stroke="${cfg.brandGreen}" stroke-width="3"/>
+    ${headlineSvg(h, { y: 285, size, gap })}
+    ${factBlockSvg(post.slide3.facts[0], 630)}
+    <line x1="72" y1="835" x2="142" y2="835" stroke="${cfg.brandGreen}" stroke-width="4"/>
     ${factBlockSvg(post.slide3.facts[1], 875)}
-    <line x1="72" y1="1050" x2="132" y2="1050" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    <circle cx="92" cy="1124" r="25" fill="none" stroke="${cfg.brandGreen}" stroke-width="3"/>
-    <text x="84" y="1135" font-family="${FONT}" font-size="29" font-weight="900" fill="${cfg.brandGreen}">?</text>
-    ${q.map((t, i) => `<text x="135" y="${1120 + i * 39}" font-family="${FONT}" font-size="31" font-weight="800" fill="${i === q.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
+    <line x1="72" y1="1070" x2="142" y2="1070" stroke="${cfg.brandGreen}" stroke-width="4"/>
+    <circle cx="96" cy="1140" r="28" fill="none" stroke="${cfg.brandGreen}" stroke-width="4"/>
+    <text x="86" y="1153" font-family="${FONT}" font-size="33" font-weight="900" fill="${cfg.brandGreen}">?</text>
+    ${q.map((t, i) => `<text x="145" y="${1140 + i * qGap}" font-family="${FONT}" font-size="${qSize}" font-weight="900" fill="${i === q.length - 1 ? cfg.brandGreen : WHITE}">${esc(t)}</text>`).join("\n")}
   </svg>`;
 }
 
