@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-20",
-  "stage": "ready",
+  "generated_at": "2026-08-20T05:37:09.299Z",
   "fingerprint": "5736da865639",
   "seed": {
     "id": "fallback-asics-name",
@@ -117,11 +116,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-20-fallback-asics-name-5736da865639/01.jpg",
-    "public/posts/2026-08-20-fallback-asics-name-5736da865639/02.jpg",
-    "public/posts/2026-08-20-fallback-asics-name-5736da865639/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
