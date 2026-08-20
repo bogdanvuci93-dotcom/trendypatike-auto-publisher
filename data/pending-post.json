@@ -122,5 +122,10 @@
     "public/posts/2026-08-20-fallback-stan-smith-haillet-e7db79122233/02.jpg",
     "public/posts/2026-08-20-fallback-stan-smith-haillet-e7db79122233/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18013846661944388"
+    ],
+    "carousel_id": ""
+  }
 }
