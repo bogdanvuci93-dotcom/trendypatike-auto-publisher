@@ -10,19 +10,8 @@
         "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
         "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
       ]
-    },
-    {
-      "date": "2026-08-20",
-      "topic_id": "fallback-asics-name",
-      "seed_topic": "Šta zapravo znači ime ASICS",
-      "topic_title": "Šta zapravo znači ime ASICS",
-      "media_id": "18066155279496402",
-      "sources": [
-        "https://corp.asics.com/en/about_asics/history",
-        "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"
-      ]
     }
   ],
-  "last_publish_date": "2026-08-20",
-  "last_media_id": "18066155279496402"
+  "last_publish_date": "2026-08-19",
+  "last_media_id": "18122764945880625"
 }
