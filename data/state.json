@@ -43,6 +43,17 @@
         "https://about.puma.com/en/puma/history",
         "https://about.puma.com/en/puma/puma-timeline"
       ]
+    },
+    {
+      "date": "2026-08-20",
+      "topic_id": "puma-rs-computer",
+      "seed_topic": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "topic_title": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "media_id": "18082634564302662",
+      "sources": [
+        "https://about.puma.com/en/puma/history",
+        "https://about.puma.com/en/puma/puma-timeline"
+      ]
     }
   ],
   "last_publish_date": "2026-08-19",
