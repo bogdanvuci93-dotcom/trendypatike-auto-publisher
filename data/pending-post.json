@@ -1,1 +1,121 @@
-{}
+{
+  "date": "2026-08-20",
+  "stage": "verified",
+  "fingerprint": "5736da865639",
+  "seed": {
+    "id": "fallback-asics-name",
+    "topic": "Šta zapravo znači ime ASICS",
+    "category": "brend / istorija",
+    "preferred_domains": [
+      "corp.asics.com",
+      "asics.com"
+    ],
+    "visual_subject": "Japanese running heritage, archive running shoe and clean studio",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": true,
+    "topic_title": "Šta zapravo znači ime ASICS",
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "ŠTA ZNAČI",
+          "accent": false
+        },
+        {
+          "text": "ASICS?",
+          "accent": true
+        }
+      ],
+      "subheadline": "Ime poznatog sportskog brenda nastalo je od početnih slova latinske izreke."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PRIČA IZA IMENA",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1949",
+          "text": "Kihachiro Onitsuka je 1949. pokrenuo svoju kompaniju za sportsku obuću u Kobeu."
+        },
+        {
+          "tag": "1977",
+          "text": "ASICS je kao kompanija nastao 1977. spajanjem tri japanske firme."
+        },
+        {
+          "tag": "AKRONIM",
+          "text": "ASICS dolazi od početnih slova izraza Anima Sana In Corpore Sano."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "ZDRAV UM I TELO",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "ZNAČENJE",
+          "text": "Izraz prenosi ideju zdravog uma u zdravom telu."
+        },
+        {
+          "tag": "FILOZOFIJA",
+          "text": "Ta poruka je postala centralni deo filozofije brenda ASICS."
+        }
+      ],
+      "question": "Jeste li znali značenje imena?"
+    },
+    "caption": "ASICS nije nasumično izmišljena reč. Ime je nastalo kao akronim latinskog izraza Anima Sana In Corpore Sano, koji povezuje zdrav um i zdravo telo. Koreni kompanije sežu do Kihachira Onitsuke i 1949. godine, dok je ASICS kao kompanija formiran 1977.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#ASICS",
+      "#SneakerIstorija",
+      "#Running",
+      "#Patike",
+      "#Japan"
+    ],
+    "image_prompts": [
+      "Japanese running heritage archive with a retro athletic shoe on the right, dark premium editorial",
+      "vintage Japanese sports shoe workshop mood, unbranded running shoe on right, cinematic dark scene",
+      "retro running sneaker in a minimal Japanese-inspired studio, dark green accents, subject on right"
+    ],
+    "sources": [
+      {
+        "title": "ASICS History",
+        "publisher": "ASICS",
+        "url": "https://corp.asics.com/en/about_asics/history"
+      },
+      {
+        "title": "ASICS Founder Story and Brand History",
+        "publisher": "ASICS",
+        "url": "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Kihachiro Onitsuka founded his footwear company in Kobe in 1949.",
+        "source_urls": [
+          "https://corp.asics.com/en/about_asics/history"
+        ]
+      },
+      {
+        "claim": "ASICS was formed in 1977 after a merger of three companies.",
+        "source_urls": [
+          "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"
+        ]
+      },
+      {
+        "claim": "ASICS is derived from Anima Sana In Corpore Sano.",
+        "source_urls": [
+          "https://corp.asics.com/en/about_asics/history",
+          "https://www.asics.com/gb/en-gb/asics-advice/asics-founder-story-and-history/"
+        ]
+      }
+    ]
+  }
+}
