@@ -32,8 +32,19 @@
         "https://news.adidas.com/timeline/half-a-century-of-classic-style--the-history-of-the-adidas-stan-smith/s/f6061bfc-b9e6-43a0-b7d7-caac2e184126",
         "https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith"
       ]
+    },
+    {
+      "date": "2026-08-20",
+      "topic_id": "fallback-puma-rs-computer",
+      "seed_topic": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "topic_title": "Kako je PUMA napravila kompjutersku patiku još osamdesetih",
+      "media_id": "18082634564302662",
+      "sources": [
+        "https://about.puma.com/en/puma/history",
+        "https://about.puma.com/en/puma/puma-timeline"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-19",
-  "last_media_id": "18122764945880625"
+  "last_publish_date": "2026-08-20",
+  "last_media_id": "18082634564302662"
 }
