@@ -54,8 +54,19 @@
         "https://about.puma.com/en/puma/history",
         "https://about.puma.com/en/puma/puma-timeline"
       ]
+    },
+    {
+      "date": "2026-08-20",
+      "topic_id": "fallback-air-max-1",
+      "seed_topic": "Kako je Air Max 1 učinio Nike Air vidljivim",
+      "topic_title": "Kako je Air Max 1 učinio Nike Air vidljivim",
+      "media_id": "18011521520749109",
+      "sources": [
+        "https://www.nike.com/a/air-max-1-history",
+        "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-19",
-  "last_media_id": "18122764945880625"
+  "last_publish_date": "2026-08-20",
+  "last_media_id": "18011521520749109"
 }
