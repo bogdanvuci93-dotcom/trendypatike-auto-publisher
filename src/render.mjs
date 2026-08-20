@@ -62,8 +62,8 @@ function fitLines(text, { maxLines = 5, preferred = 96, min = 50, maxChars = 24 
 
 function mainTextSvg(text, {
   y = 285,
-  preferred = 102,
-  min = 54,
+  preferred = 112,
+  min = 58,
   maxLines = 5,
   maxChars = 23,
   accentFrom = 0.62
@@ -77,7 +77,7 @@ function mainTextSvg(text, {
 }
 
 function supportTextSvg(text, { y = 985, maxLines = 2 } = {}) {
-  const { lines, size, gap } = fitLines(text, { maxLines, preferred: 52, min: 38, maxChars: 30 });
+  const { lines, size, gap } = fitLines(text, { maxLines, preferred: 58, min: 42, maxChars: 30 });
   return lines.map((line, i) => {
     const fill = i === lines.length - 1 ? GREEN : WHITE;
     return `<text x="${TEXT_LEFT}" y="${y + i * gap}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-1">${esc(line.toUpperCase())}</text>`;
@@ -104,6 +104,7 @@ function fixedFrameSvg() {
   <text x="144" y="101" font-family="${FONT}" font-size="31" font-weight="900" fill="${WHITE}" letter-spacing="2">TRENDYPATIKE</text>
   <line x1="48" y1="145" x2="1032" y2="145" stroke="${GREEN}" stroke-width="2"/>
   <line x1="48" y1="1248" x2="1032" y2="1248" stroke="${GREEN}" stroke-width="2"/>
+  <text x="56" y="1302" font-family="${FONT}" font-size="29" font-weight="900" fill="${WHITE}" letter-spacing="0.8">TRENDYPATIKE.COM</text>
   `;
 }
 
@@ -128,7 +129,7 @@ function coverOverlay(post) {
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${fixedFrameSvg()}
-    ${mainTextSvg(main, { y: 285, preferred: 106, min: 58, maxLines: 5, maxChars: 22 })}
+    ${mainTextSvg(main, { y: 285, preferred: 116, min: 62, maxLines: 5, maxChars: 22 })}
     ${support ? supportTextSvg(support, { y: 1005, maxLines: 2 }) : ""}
   </svg>`;
 }
@@ -138,7 +139,7 @@ function factsOverlay(post) {
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${fixedFrameSvg()}
-    ${mainTextSvg(text, { y: 300, preferred: 104, min: 56, maxLines: 5, maxChars: 23 })}
+    ${mainTextSvg(text, { y: 300, preferred: 114, min: 60, maxLines: 5, maxChars: 23 })}
   </svg>`;
 }
 
@@ -148,7 +149,7 @@ function impactOverlay(post) {
   return `
   <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
     ${fixedFrameSvg()}
-    ${mainTextSvg(text, { y: 285, preferred: 104, min: 54, maxLines: 5, maxChars: 23 })}
+    ${mainTextSvg(text, { y: 285, preferred: 114, min: 60, maxLines: 5, maxChars: 23 })}
     ${question ? supportTextSvg(question, { y: 1120, maxLines: 2 }) : ""}
   </svg>`;
 }
