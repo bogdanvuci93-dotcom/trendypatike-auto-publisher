@@ -15,8 +15,18 @@ async function readJson(file) {
   return JSON.parse(raw);
 }
 
+function normalizedUrl(raw = "") {
+  try {
+    const u = new URL(raw);
+    return `${u.hostname.replace(/^www\./, "").toLowerCase()}${u.pathname.replace(/\/+$/, "")}`;
+  } catch {
+    return "";
+  }
+}
+
 function assertPostShape(post, label) {
   assert(post && typeof post === "object", `${label} post missing`);
+  assert(Number.isInteger(post.slide_count) && post.slide_count >= 1 && post.slide_count <= 3, `${label} slide_count invalid`);
   assert(typeof post.topic_title === "string" && post.topic_title.length >= 8, `${label} topic_title invalid`);
   assert(Array.isArray(post.cover?.headline_lines) && post.cover.headline_lines.length >= 1, `${label} cover headlines invalid`);
   assert(typeof post.cover?.subheadline === "string" && post.cover.subheadline.length >= 20, `${label} subheadline invalid`);
@@ -28,8 +38,28 @@ function assertPostShape(post, label) {
   assert(Array.isArray(post.image_prompts) && post.image_prompts.length === 3, `${label} image prompts invalid`);
   assert(Array.isArray(post.sources) && post.sources.length >= 2, `${label} needs at least two sources`);
   assert(Array.isArray(post.claims) && post.claims.length >= 3, `${label} claims invalid`);
+
+  const sourceUrls = new Set();
   for (const source of post.sources) {
     assert(/^https:\/\//.test(source.url || ""), `${label} source URL invalid`);
+    const key = normalizedUrl(source.url);
+    assert(key, `${label} source URL cannot be normalized`);
+    assert(!sourceUrls.has(key), `${label} duplicate source URL`);
+    sourceUrls.add(key);
+  }
+
+  for (const claim of post.claims) {
+    assert(typeof claim?.claim === "string" && claim.claim.length >= 12, `${label} claim text invalid`);
+    assert(Array.isArray(claim.source_urls) && claim.source_urls.length >= 1, `${label} claim source_urls invalid`);
+    for (const url of claim.source_urls) {
+      const key = normalizedUrl(url);
+      assert(key && sourceUrls.has(key), `${label} claim references URL not present in sources: ${url}`);
+    }
+  }
+
+  for (let i = 0; i < post.image_prompts.length; i++) {
+    assert(typeof post.image_prompts[i] === "string" && post.image_prompts[i].length >= 40,
+      `${label} image prompt ${i + 1} too weak/short`);
   }
 }
 
@@ -79,6 +109,10 @@ async function main() {
   assert(state && typeof state === "object", "state.json must be an object");
   assert(Array.isArray(state.posted), "state.posted must be an array");
   assert(state.last_publish_date === null || /^\d{4}-\d{2}-\d{2}$/.test(state.last_publish_date), "state.last_publish_date invalid");
+  for (const entry of state.posted) {
+    assert(typeof entry.topic_id === "string" && entry.topic_id.length >= 3, "state entry topic_id invalid");
+    assert(typeof entry.media_id === "string" && entry.media_id.length >= 5, "state entry media_id invalid");
+  }
 
   const pending = await readJson("data/pending-post.json");
   assert(pending && typeof pending === "object" && !Array.isArray(pending), "pending-post.json must be an object");
@@ -86,8 +120,10 @@ async function main() {
     assert(["verified", "ready"].includes(pending.stage), `unsupported pending stage: ${pending.stage}`);
     assert(typeof pending.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(pending.date), "pending date invalid");
     assert(pending.seed && pending.post, "pending checkpoint must contain seed and post");
+    assertPostShape(pending.post, "pending");
     if (pending.stage === "ready") {
-      assert(Array.isArray(pending.image_paths) && pending.image_paths.length === 3, "ready checkpoint needs three image paths");
+      assert(Array.isArray(pending.image_paths) && pending.image_paths.length >= pending.post.slide_count,
+        "ready checkpoint does not contain enough image paths for slide_count");
     }
   }
 
@@ -127,7 +163,7 @@ async function main() {
     assert(testUrl.startsWith("https://raw.githubusercontent.com/"), `unexpected public URL: ${testUrl}`);
   }
 
-  console.log(`[selftest] OK: ${topics.length} curated topics, ${fallbacks.length} emergency posts, state, Meta JPEG and full 3-slide render passed.`);
+  console.log(`[selftest] OK: ${topics.length} curated topics, ${fallbacks.length} emergency posts, state, Meta JPEG and render contract passed.`);
 }
 
 main().catch(err => {
