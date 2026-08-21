@@ -1,4 +1,149 @@
 {
+  "f6398c2ca7d7574c7dd6ce63505cf21ceacb0cf46c1b3679557442a2dec1a612": {
+    "saved_at": "2026-08-21T10:47:41.412Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je adidas Superstar iz košarke prešao u hip-hop i ulicu",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "SUPERSTAR JE NASTAO KAO KOŠARKAŠKA PATKA",
+            "accent": true
+          },
+          {
+            "text": "SA POZNATIM 'SHELL‑TOE' PREDNJIM DELOM",
+            "accent": false
+          }
+        ],
+        "subheadline": "RUN‑DMC JE PRETVORIO PATIKU U HIP‑HOP ZNAK"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "IZ TERENA NA SCENU: RUN‑DMC SKIDA PERTLE",
+            "accent": true
+          },
+          {
+            "text": "I PEVA 'MY ADIDAS' — PATIKA POSTAJE ULIC",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "Fakt",
+            "text": "SUPERSTAR JE PRVOBITNO DIZAJNIRAN ZA KOŠARKU SADAŠNJE ŠKOLE."
+          },
+          {
+            "tag": "Fakt",
+            "text": "RUN‑DMC JE NOSIO SUPERSTAR I NAPISAO PESMU KOJA JE UTVRDILA NJEN STATUS ULIČNE IKONE."
+          },
+          {
+            "tag": "Fakt",
+            "text": "DANAS JE SUPERSTAR SIMBOL HIP‑HOPA I STREET STYLA."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "SUPERSTAR JE POSTALA GLOBALNA ULICNA IK",
+            "accent": true
+          },
+          {
+            "text": "ONA I DALJE IMA SVOJ ORIGINALNI SHELL‑TO",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "Fakt",
+            "text": "SUPERSTAR SE RAZVILA IZ MODELA SUPERGRIP I POSTALA LOW‑TOP KOŠARKAŠKA PATIKA."
+          },
+          {
+            "tag": "Fakt",
+            "text": "1980‑IH RUN‑DMC JE POMOGAO DA PATIKA PREĐE U HIP‑HOP KULTURU."
+          }
+        ],
+        "question": "Koja boja ti najviše liči na ulicu?"
+      },
+      "caption": "Superstar je počeo kao košarkaška patika sa prepoznatljivim shell‑toe, a Run‑DMC je svoju ljubav ka njima pretvorio u pesmu i izgled ulice. Danas je Superstar symbol hip‑hop i street stila.",
+      "hashtags": [
+        "#Superstar",
+        "#adidas",
+        "#HipHop",
+        "#StreetStyle",
+        "#ShellToe",
+        "#RunDMC",
+        "#Trendypatike"
+      ],
+      "image_prompts": [
+        "close-up vintage shell-toe adidas Superstar sneaker on a wooden basketball court, clear view of shell toe and leather upper, 1970s basketball atmosphere",
+        "Run-DMC on stage holding adidas Superstar sneakers, late 1980s hip-hop concert scene, crowd and microphones visible, performers without laces",
+        "modern street scene with people wearing adidas Superstar shoes in different colors, urban mural background, daytime"
+      ],
+      "sources": [
+        {
+          "title": "We Gave the World a Superstar: The Brief History of a Timeless Original",
+          "publisher": "adidas.com",
+          "url": "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original"
+        },
+        {
+          "title": "Hip Hop's Superstar: How Music Influenced Sneaker Style",
+          "publisher": "adidas.com",
+          "url": "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style"
+        },
+        {
+          "title": "History - adidas Group",
+          "publisher": "adidas-group.com",
+          "url": "https://www.adidas-group.com/en/about/history"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Superstar je prvobitno dizajnirana kao low‑top košarkaška patika sa shell‑toe.",
+          "source_urls": [
+            "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
+            "https://www.adidas-group.com/en/about/history"
+          ]
+        },
+        {
+          "claim": "Run‑DMC je popularizovao Superstar u hip‑hop kulturi pesmom 'My Adidas'.",
+          "source_urls": [
+            "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style",
+            "https://www.adidas-group.com/en/about/history"
+          ]
+        },
+        {
+          "claim": "Superstar je danas deo streetwear i hip‑hop ikonografije.",
+          "source_urls": [
+            "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
+            "https://www.adidas.com/us/go/campaign/originals/archive/superstar"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
+      "https://www.adidas-group.com/en/about/history",
+      "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style",
+      "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+      "https://www.adidas.com/us/go/campaign/originals/archive/superstar",
+      "https://www.adidas.com/us/blog/966200-the-history-of-adidas-basketball-origins-of-the-2023-collection",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history",
+      "https://www.adidas.com/us/blog/469118-adidas-superstar-shoes-a-history-of-shelltoe-style",
+      "https://report.adidas-group.com/2024/en/group-management-report-our-company/description-of-business-model/product-and-marketing.html",
+      "https://news.adidas.com/superstar",
+      "https://report.adidas-group.com/2020/en/at-a-glance/2020-stories/product-highlights.html",
+      "https://www.adidas-group.com/en/magazine/series/history",
+      "https://report.adidas-group.com/2018/fileadmin/user_upload/adidas_Annual_Report_GB-2018_Shareholders_EN.pdf",
+      "https://report.adidas-group.com/2019/en/servicepages/downloads/files/adidas_annual_report_2019.pdf",
+      "https://report.adidas-group.com/2025/en/_assets/downloads/our-company-adidas-ar25.pdf",
+      "https://report.adidas-group.com/2024/en/_assets/downloads/our-company-adidas-ar24.pdf",
+      "https://brand.assets.adidas.com/image/upload/v1734702932/Ty_C_EOSS_2f8b9d2cd1.pdf",
+      "https://brand.assets.adidas.com/image/upload/v1756739852/PE_TC_ADICLUB_FESTIVAL_retail_adidas_d4cb26abac.pdf"
+    ]
+  },
   "ac9afc0c05b7ee6a835be6240a75a2bfb56fd28e5e09316fb4a5bca4adeee4b7": {
     "saved_at": "2026-08-21T09:37:28.972Z",
     "schema_name": "trendypatike_verified_post",
