@@ -151,5 +151,10 @@
     "public/posts/2026-08-21-air-force-1-58ad0f58b940/02.jpg",
     "public/posts/2026-08-21-air-force-1-58ad0f58b940/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014017709944388"
+    ],
+    "carousel_id": ""
+  }
 }
