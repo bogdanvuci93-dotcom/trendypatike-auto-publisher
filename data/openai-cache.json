@@ -1,4 +1,145 @@
 {
+  "584aac7769c8d1ed8edc2d23afaf09ee36545142c4ada7cc53cb3f66d14ea2f1": {
+    "saved_at": "2026-08-21T18:12:28.767Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All factual claims verified on nike.com and about.nike.com pages.",
+      "post": {
+        "topic_title": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "AIR JORDAN 11 UVEO PATENT KOŽU NA TEREN",
+              "accent": true
+            },
+            {
+              "text": "I TIME DONEO ELEGANCIJU NA KOŠARKAŠKE PĀ",
+              "accent": false
+            }
+          ],
+          "subheadline": "Kako patent-koža promenila izgled patike na terenu"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "PATENT KOŽA JE DAO SJAJ I FORMALNI IZGĽD",
+              "accent": true
+            },
+            {
+              "text": "PATENT-LEATHER JE POSTAO SIGNATURA MODEA",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Air Jordan 11 je prvobitno predstavljen 1995. i koristio je patent-kožu kako bi dobio sjajan, ‘formalni’ izgled koji se isticao na terenu."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Nike: istorija i opisi modela Air Jordan 11 (nike.com)."
+            },
+            {
+              "tag": "LINKS",
+              "text": "https://www.nike.com/fi/a/air-jordan-11-history\nhttps://www.nike.com/launch/t/air-jordan-11-retro-72-10"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "NIJE SAMO PATIKA ZA IGRU — POSTALA JE KĽ",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Model je postao deo pop-kulture i Jordan Brand je obeležio njegovo nasleđe specijalnim izdanjima, uključujući kampanje za 30. godišnjicu."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "NIKE, Inc. najava i galerija za 30. godišnjicu Air Jordan 11 (about.nike.com)."
+            }
+          ],
+          "question": "Hoćemo li još ovakvih spajanja?"
+        },
+        "caption": "AIR JORDAN 11 JE PROMENIO IZGLED KOŠARKAŠKIH PATIKA UVEVŠI PATENT-KOŽU — spoj sporta i formalnog stila potvrđen u Nike arhivama.",
+        "hashtags": [
+          "#AirJordan11",
+          "#TrendyPatike",
+          "#PatentLeather",
+          "#Kosarka",
+          "#SneakerDizajn",
+          "#JordanBrand"
+        ],
+        "image_prompts": [
+          "CLOSE-UP OF AIR JORDAN 11 WITH GLOSSY PATENT LEATHER ON A BASKETBALL COURT, SPOTLIGHT REFLECTION, SHOWING PATENT PANEL DETAIL (MATCHES COVER FACT)",
+          "AIR JORDAN 11 PATENT LEATHER DETAIL NEXT TO A FORMAL BLACK JACKET ON A POISED STAGE, CONTRASTING BASKETBALL AND FORMAL STYLE (MATCHES SLIDE 2 FACT)",
+          "NOTE: ONLY THE FIRST TWO IMAGE PROMPTS ARE USED (ONE PER SLIDE)."
+        ],
+        "sources": [
+          {
+            "title": "The History of the Air Jordan 11",
+            "publisher": "Nike.com",
+            "url": "https://www.nike.com/fi/a/air-jordan-11-history"
+          },
+          {
+            "title": "Air Jordan 11 Retro '72-10' Release (SNKRS)",
+            "publisher": "Nike.com",
+            "url": "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
+          },
+          {
+            "title": "Jordan Brand Unveils Exclusive Air Jordan 11 Styles to Celebrate the Silhouette’s 30th Anniversary",
+            "publisher": "NIKE, Inc. (about.nike.com)",
+            "url": "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Air Jordan 11 je originalno predstavljen 1995.",
+            "source_urls": [
+              "https://www.nike.com/fi/a/air-jordan-11-history",
+              "https://www.nike.com/jordan/air-jordan-11"
+            ]
+          },
+          {
+            "claim": "Model koristi patent-kožu (patent leather) da bi dao elegantan sjaj na terenu.",
+            "source_urls": [
+              "https://www.nike.com/fi/a/air-jordan-11-history",
+              "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
+            ]
+          },
+          {
+            "claim": "Jordan Brand je obeležio 30. godišnjicu modela u posebnoj kampanji i kolekciji.",
+            "source_urls": [
+              "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air",
+      "https://www.nike.com/launch/t/air-jordan-11-retro-72-10",
+      "https://www.nike.com/jordan/air-jordan-11",
+      "https://www.nike.com/launch/t/air-jordan-11-retro-black-concord-white/",
+      "https://www.nike.com/fi/a/air-jordan-11-history",
+      "https://www.nike.com/jordan/air-jordan-11?msockid=05acaa3284a66b660f35bc4085aa6aa7",
+      "https://about.nike.com/en/newsroom/collections",
+      "https://about.nike.com/en/newsroom/search?area=newsroom&q=Jordan",
+      "https://www.nike.com/launch/t/behind-design-air-jordan-11-cap-and-gown?msockid=018f7cf0a1c46f9b217c6a32a0f36e14",
+      "https://www.nike.com/a/aj11-gamma-release-info?msockid=369ee14a9e4a64f728e9f7f49f626522",
+      "https://www.nike.com/a/air-jordan-11-varsity-red-release/",
+      "https://www.nike.com/jordan/air-jordan-11?msockid=219bdead2d056a1e0273c8df2c266ba7",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
+      "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
+      "https://nmp.about.nike.com/originals/about/prod/be19ec03-e139-46b6-9b6c-d44a5c699110/FY23_Nike_Impact_Report.pdf?dl=0&s=f925bbe4e72d90d9425b5e7afd9b6ace067caf3371a22b15a6a04aeb1a53c026"
+    ]
+  },
   "3fa514515d1316e0d7c67d2c3a22a384fee6110eec6a3f71ea304d156bca6e6b": {
     "saved_at": "2026-08-21T18:12:02.676Z",
     "schema_name": "trendypatike_post",
