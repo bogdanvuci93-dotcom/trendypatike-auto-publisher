@@ -1,1 +1,149 @@
-{}
+{
+  "date": "2026-08-21",
+  "stage": "verified",
+  "fingerprint": "58ad0f58b940",
+  "seed": {
+    "id": "air-force-1",
+    "topic": "Kako je Air Force 1 od košarkaške patike postao globalni lifestyle klasik",
+    "category": "model / kultura",
+    "preferred_domains": [
+      "about.nike.com",
+      "nike.com"
+    ],
+    "visual_subject": "classic white basketball sneaker, vintage court to modern streetwear transition"
+  },
+  "post": {
+    "topic_title": "Kako je Air Force 1 od košarkaške patike postao globalni lifestyle klasik",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "AIR FORCE 1 JE DIZAJNIRAN",
+          "accent": true
+        },
+        {
+          "text": "1982. ZA KOŠAR",
+          "accent": true
+        },
+        {
+          "text": "PRVA PATIKA SA NIKE AIR",
+          "accent": true
+        },
+        {
+          "text": "AMORTIZACIJOM. DIZAJN: BRUCE KILGORE.",
+          "accent": true
+        }
+      ],
+      "subheadline": "POSTALA JE IKONA ULIČNE MODE I KULTURE."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "1982: AIR FORCE 1 JE",
+          "accent": true
+        },
+        {
+          "text": "PREDSTAVLJEN KAO KO",
+          "accent": true
+        },
+        {
+          "text": "POČETAK NA TERENU; BRZO JE PRIMETAN U",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FAKT",
+          "text": "1982: NIKE JE PUSTIO AIR FORCE 1, PRVA KOŠARKAŠKA PATIKA SA NIKE AIR. (NIKE)."
+        },
+        {
+          "tag": "FAKT",
+          "text": "1983,1985: IGRAČI NBA LIGE SU NOŠENJEM DAVALI VIDLJIVOST, A DO 1985. PATIKA POČINJE DA PRELAZI U ULICU. (NIKE)."
+        },
+        {
+          "tag": "FAKT",
+          "text": "DIZAJNER BRUCE KILGORE JE RADIO NA SILUETI; RANI UZORCI UKAZUJU NA PROMENE MATERIJALA I DIZAJNA. (NIKE SNKRS)."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "OD 1985. DO DANAS: OGRANIČENA",
+          "accent": true
+        },
+        {
+          "text": "IZDANJA I",
+          "accent": true
+        },
+        {
+          "text": "NIKE NASTAVLJA SARADNJE I NOVA IZDANJA",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FAKT",
+          "text": "OD 1985.: AIR FORCE 1 JE POSTAO MODELSKI I ULICNI SIMBOL KROZ OGRANIČENA IZDANJA I KULTURNE PRIMENE. (NIKE)."
+        },
+        {
+          "tag": "FAKT",
+          "text": "NIKE IZDANJA UKLJUČUJU SPECIJALNE PROIZVODE I SKATE VERZIJU 'NIKE SB AIR FORCE 1' KOJU JE NIKE ZVANIČNO PREDSTAVIO. (about.nike.com)."
+        }
+      ],
+      "question": "KOJI JE TVOJ OMILJENI BELE PATIKE?"
+    },
+    "caption": "JEDNOSTAVNO: AIR FORCE 1 JE NASTAO 1982. KAO KOŠARKAŠKA PATIKA SA NIKE AIR; OD 1985. JE PREŠAO U ULIČNU IKONU ZAHVALJUĆI OGRANIČENIM IZDANJIMA, KULTURI I SARADNJAMA.",
+    "hashtags": [
+      "#AirForce1",
+      "#TrendyPatike",
+      "#PatikeKultura",
+      "#Nike",
+      "#UličniStil"
+    ],
+    "image_prompts": [
+      "WHITE AIR FORCE 1 ON A 1982 INDOOR BASKETBALL COURT, SINGLE SHOE CENTERED, FOCUS ON AIR SOLE AND LEATHER, 1980S LIGHTING",
+      "PAIR OF WHITE AIR FORCE 1s ON A CITY SIDEWALK NEXT TO GRAFFITI AND A BOOMBOX, DAYTIME, SHOWING STREET TRANSITION (1985-STYLE)",
+      "CLOSE-UP OF NIKE SB AIR FORCE 1 SKATE VERSION ON A SKATE RAMP WITH BOARD AND STICKERED BOX, PRODUCT LAUNCH AESTHETIC"
+    ],
+    "sources": [
+      {
+        "title": "Air Force 1. Nike.com (product/history pages)",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/Air-Force-1/"
+      },
+      {
+        "title": "DNA Artifacts - Air Force 1 Prototype (1982). Nike SNKRS",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982"
+      },
+      {
+        "title": "The All,New Nike SB Air Force 1 Delivers a Refined Fit and Iconic Style, NIKE, Inc.",
+        "publisher": "About.Nike.com",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Air Force 1 je dizajniran i predstavljen 1982. kao prva košarkaška patika sa Nike Air amortizacijom.",
+        "source_urls": [
+          "https://www.nike.com/Air-Force-1/",
+          "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982"
+        ]
+      },
+      {
+        "claim": "Do sredine 1980,ih (oko 1985.) Air Force 1 prelazi sa terena na uličnu modu zahvaljujući vidljivosti u NBA i ograničenim izdanjima.",
+        "source_urls": [
+          "https://www.nike.com/Air-Force-1/",
+          "https://www.nike.com/ph/a/air-force-1-history"
+        ]
+      },
+      {
+        "claim": "Nike i dalje koristi Air Force 1 kroz specijalna izdanja i nove verzije, uključujući Nike SB Air Force 1 skate izdanja.",
+        "source_urls": [
+          "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
+        ]
+      }
+    ]
+  }
+}
