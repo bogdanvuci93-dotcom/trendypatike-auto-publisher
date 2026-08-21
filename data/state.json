@@ -65,8 +65,22 @@
         "https://www.nike.com/a/air-max-1-history",
         "https://about.nike.com/en/newsroom/releases/nike-art-of-victory-pompidou-paris"
       ]
+    },
+    {
+      "date": "2026-08-21",
+      "topic_id": "adidas-superstar",
+      "seed_topic": "Kako je adidas Superstar iz košarke prešao u hip-hop i ulicu",
+      "topic_title": "Kako je adidas Superstar iz košarke prešao u hip-hop i ulicu",
+      "media_id": "17900484063351237",
+      "sources": [
+        "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
+        "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style",
+        "https://www.adidas-group.com/en/magazine/innovation/adidas-superstar-how-an-icon-was-born",
+        "https://www.adidas-group.com/en/about/history",
+        "https://www.adidas.com/us/go/campaign/originals/archive/superstar"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-20",
-  "last_media_id": "18011521520749109"
+  "last_publish_date": "2026-08-21",
+  "last_media_id": "17900484063351237"
 }
