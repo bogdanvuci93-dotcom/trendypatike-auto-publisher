@@ -142,5 +142,10 @@
     "public/posts/2026-08-21-air-jordan-3-c2267a73e8da/02.jpg",
     "public/posts/2026-08-21-air-jordan-3-c2267a73e8da/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014025962944388"
+    ],
+    "carousel_id": ""
+  }
 }
