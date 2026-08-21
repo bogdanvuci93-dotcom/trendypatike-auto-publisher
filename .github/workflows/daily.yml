@@ -96,13 +96,13 @@ jobs:
 
           # Salt the post fingerprint with the exact current layout generation,
           # so recovery can never reuse final JPGs from an older renderer.
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v8:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v10-semantic-accent:" + JSON.stringify(post))/' src/index.mjs
 
           # Verifier web research can legitimately exceed three minutes.
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "post.force_local_images\|fullbleed-v8\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
+          grep -n "post.force_local_images\|fullbleed-v10-semantic-accent\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
 
       - name: Zero-cost code and render preflight
         env:
