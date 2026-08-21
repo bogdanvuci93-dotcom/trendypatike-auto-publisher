@@ -102,8 +102,20 @@
         "https://www.nike.com/fi/a/air-jordan-3-history",
         "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
       ]
+    },
+    {
+      "date": "2026-08-21",
+      "topic_id": "air-jordan-11",
+      "seed_topic": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
+      "topic_title": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
+      "media_id": "18111477271804695",
+      "sources": [
+        "https://www.nike.com/fi/a/air-jordan-11-history",
+        "https://www.nike.com/launch/t/air-jordan-11-retro-72-10",
+        "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-20",
-  "last_media_id": "18011521520749109"
+  "last_publish_date": "2026-08-21",
+  "last_media_id": "18111477271804695"
 }
