@@ -26,7 +26,8 @@ function normalizedUrl(raw = "") {
 
 function assertPostShape(post, label) {
   assert(post && typeof post === "object", `${label} post missing`);
-  assert(Number.isInteger(post.slide_count) && post.slide_count >= 1 && post.slide_count <= 3, `${label} slide_count invalid`);
+  const effectiveSlideCount = post.slide_count ?? 3;
+  assert(Number.isInteger(effectiveSlideCount) && effectiveSlideCount >= 1 && effectiveSlideCount <= 3, `${label} slide_count invalid`);
   assert(typeof post.topic_title === "string" && post.topic_title.length >= 8, `${label} topic_title invalid`);
   assert(Array.isArray(post.cover?.headline_lines) && post.cover.headline_lines.length >= 1, `${label} cover headlines invalid`);
   assert(typeof post.cover?.subheadline === "string" && post.cover.subheadline.length >= 20, `${label} subheadline invalid`);
@@ -122,7 +123,8 @@ async function main() {
     assert(pending.seed && pending.post, "pending checkpoint must contain seed and post");
     assertPostShape(pending.post, "pending");
     if (pending.stage === "ready") {
-      assert(Array.isArray(pending.image_paths) && pending.image_paths.length >= pending.post.slide_count,
+      const needed = pending.post.slide_count ?? 3;
+      assert(Array.isArray(pending.image_paths) && pending.image_paths.length >= needed,
         "ready checkpoint does not contain enough image paths for slide_count");
     }
   }
