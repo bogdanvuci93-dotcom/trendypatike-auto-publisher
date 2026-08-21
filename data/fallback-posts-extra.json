@@ -31,7 +31,7 @@
         "headline_lines": [{"text": "SKEJTERI SU GA PRIHVATILI", "accent": true}],
         "facts": [
           {"tag": "SKATE", "text": "Početkom sedamdesetih skejteri u Kaliforniji zavoleli su njegov jednostavan oblik i gumeni đon."},
-          {"tag": "DANAS", "text": "Authentic je ostao jedan od najpoznatijih Vans modela."}
+          {"tag": "DANAS", "text": "Authentic je ostao jedan od najpoznatljivijih Vans modela."}
         ],
         "question": "Jeste li znali da je ovo bio prvi Vans?"
       },
@@ -48,7 +48,8 @@
       ],
       "claims": [
         {"claim": "Vans began in Anaheim in 1966 and Style 44 later became the Authentic.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/news/the-story-of-the-authentic"]},
-        {"claim": "The model used a simple canvas upper and rubber sole.", "source_urls": ["https://www.vans.com/en-us/news/the-story-of-the-authentic"]}
+        {"claim": "The model used a simple canvas upper and rubber sole.", "source_urls": ["https://www.vans.com/en-us/news/the-story-of-the-authentic"]},
+        {"claim": "Southern California skateboarders adopted Vans shoes in the early 1970s.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/news/the-story-of-the-authentic"]}
       ]
     }
   },
@@ -101,7 +102,8 @@
       ],
       "claims": [
         {"claim": "Style 36, now known as Old Skool, debuted in 1977.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/c/shoes/icons-5195"]},
-        {"claim": "The curved side stripe became a defining visual feature of the model.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/c/shoes/icons-5195"]}
+        {"claim": "The curved side stripe became a defining visual feature of the model.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/c/shoes/icons-5195"]},
+        {"claim": "Old Skool used reinforced leather panels as part of its skate-oriented construction.", "source_urls": ["https://www.vans.com/en-gb/since-66"]}
       ]
     }
   }
