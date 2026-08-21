@@ -91,8 +91,19 @@
         "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982",
         "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
       ]
+    },
+    {
+      "date": "2026-08-21",
+      "topic_id": "air-jordan-3",
+      "seed_topic": "Zašto je Air Jordan 3 bio prelomni model za Jordan liniju",
+      "topic_title": "Zašto je Air Jordan 3 bio prelomni model za Jordan liniju",
+      "media_id": "18231374830319475",
+      "sources": [
+        "https://www.nike.com/fi/a/air-jordan-3-history",
+        "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-20",
-  "last_media_id": "18011521520749109"
+  "last_publish_date": "2026-08-21",
+  "last_media_id": "18231374830319475"
 }
