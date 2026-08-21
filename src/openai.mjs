@@ -112,8 +112,6 @@ async function openaiFetch(pathname, body) {
       signal: AbortSignal.timeout(180000)
     });
   } catch (err) {
-    // We cannot know whether a timed-out POST was accepted upstream. Retrying
-    // blindly could double-charge the same work, so stop this run instead.
     throw new OpenAINetworkAmbiguousError(
       `OpenAI ${pathname} network/timeout failure after request ${clientRequestId}: ${err.message}`
     );
@@ -319,10 +317,10 @@ async function persistStructuredResult(key, schemaName, result) {
   }
 }
 
-function normalizeReasoningEffort(value = "minimal") {
-  const allowed = new Set(["minimal", "low", "medium", "high"]);
+function normalizeReasoningEffort(value = "low") {
+  const allowed = new Set(["low", "medium", "high"]);
   const normalized = String(value).toLowerCase();
-  return allowed.has(normalized) ? normalized : "minimal";
+  return allowed.has(normalized) ? normalized : "low";
 }
 
 export async function structuredWebResponse({
@@ -334,7 +332,7 @@ export async function structuredWebResponse({
   searchContextSize = "medium",
   maxToolCalls = 2,
   maxOutputTokens = 12000,
-  reasoningEffort = "minimal"
+  reasoningEffort = "low"
 }) {
   const normalizedMaxToolCalls = Math.max(1, Math.min(Number(maxToolCalls) || 2, 5));
   const normalizedMaxOutputTokens = Math.max(2000, Math.min(Number(maxOutputTokens) || 12000, 24000));
@@ -476,15 +474,12 @@ export async function generateImage(prompt, fallbackPrompt = "", safePrompt = ""
       console.warn(`[image] Attempt ${paidAttempt}/${maxPaidAttempts} failed: ${err.message}`);
 
       if (isPromptLevelError(err)) {
-        // A safer prompt can fix moderation/prompt-specific failures.
         promptIndex = Math.min(promptIndex + 1, prompts.length - 1);
       } else if (isFatalOpenAIError(err)) {
         throw err;
       } else if (isTransientHttpError(err)) {
-        // Retry the same prompt once; the global paid-attempt cap still applies.
         if (paidAttempt < maxPaidAttempts) await sleep(requestRetryDelay(err, paidAttempt));
       } else {
-        // Unknown response-shape errors get one safer prompt, not an unbounded loop.
         promptIndex = Math.min(promptIndex + 1, prompts.length - 1);
       }
     }
