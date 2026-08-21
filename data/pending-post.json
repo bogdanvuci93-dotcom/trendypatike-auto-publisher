@@ -165,5 +165,10 @@
     "public/posts/2026-08-21-adidas-superstar-2de5b903f388/02.jpg",
     "public/posts/2026-08-21-adidas-superstar-2de5b903f388/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014008529944388"
+    ],
+    "carousel_id": ""
+  }
 }
