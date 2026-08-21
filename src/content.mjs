@@ -45,19 +45,31 @@ The Instagram design is fixed by code. You create only the content inside it.
 
 NON-NEGOTIABLE VISIBLE-COPY RULES:
 - Serbian Latin script, everyday spoken Serbian, understandable to a 10-year-old with ZERO prior knowledge.
-- Every visible sentence explains itself immediately.
+- Every visible sentence explains itself immediately. No prior sneaker knowledge is allowed.
 - NO decorative titles, vague teaser headings, tiny secondary copy or specialist sneaker jargon.
-- Every visible text block must be LARGE, BOLD and ALL CAPS when rendered.
-- Short, punchy, concrete sentences. One clear idea per visible slide.
-- Do not create a separate title plus small explanation. The large text itself must tell the story directly.
+- Every visible text block is rendered LARGE, BOLD and ALL CAPS.
+- Short, punchy, concrete wording. One clear idea per visible slide.
+- Do not create a separate title plus explanation. The large text itself tells the story directly.
+- Avoid awkward machine wording such as "model je napravio novi", "kulturna primena", "modelski simbol" or repeated words. Write natural Serbian a child would actually understand.
+
+SEMANTIC GREEN ACCENT RULES:
+- headline_lines are the actual visible text on EVERY used slide.
+- The boolean accent is a DESIGN COMMAND, not decoration.
+- Set accent=true ONLY on genuinely important details worth highlighting in TrendyPatike green #037361.
+- Good accent examples: exact sneaker/model name, important year, person's name, signature technology/detail such as ELEPHANT PRINT or VIDLJIVI AIR.
+- Use only 1 or 2 accented phrases per slide whenever possible. Each accented phrase should normally be 1-4 words.
+- Never color an arbitrary final half of the sentence. Never mark filler words, connectors or a whole long sentence as accent=true.
+- Keep the surrounding explanatory words accent=false so the important detail clearly stands out.
 
 STRUCTURE:
 - Choose slide_count as 1, 2 or 3. Use ONLY as many slides as the topic genuinely deserves. 1 strong slide is better than 3 weak ones; 2 is ideal when the story has two clear beats; use 3 only when there are three strong distinct facts/scenes.
-- Cover headline_lines: 2-4 short lines forming ONE direct self-contained statement, not a title.
-- Cover subheadline: another short, strong, self-contained sentence. It will also be rendered LARGE, BOLD and ALL CAPS, never as small text.
-- Slide 2 fields are still required by schema even when slide_count=1. facts[0] is the visible text if slide 2 is used. Make it self-contained and simple.
-- Slide 3 fields are still required by schema even when slide_count<3. facts[0] is the visible text if slide 3 is used. Make it self-contained and simple.
-- Keep slide3.question short, but it is optional visually and must never force an extra slide.
+- Cover headline_lines: 2-4 short phrase segments that together form ONE direct self-contained statement. Use accent flags semantically as described above.
+- Cover subheadline is required by schema but is normally not rendered. Keep it short and useful as supporting editorial copy.
+- Slide 2 headline_lines are the visible slide-2 statement if slide 2 is used. Build one self-contained statement from 1-3 segments and use accent=true only on key details.
+- Slide 2 facts are required evidence/support fields. facts[0] must still be a clear fallback sentence, but headline_lines are the preferred visible copy.
+- Slide 3 headline_lines are the visible slide-3 statement if slide 3 is used. Build one self-contained statement from 1-3 segments and use accent=true only on key details.
+- Slide 3 facts are required evidence/support fields. facts[0] must still be a clear fallback sentence, but headline_lines are the preferred visible copy.
+- Keep slide3.question short, but it must never force an extra slide.
 
 FACT RULES:
 - Use only facts supported by pages you actually found now.
@@ -86,12 +98,15 @@ Verify every important factual claim. Remove or rewrite anything unsupported. If
 
 Enforce these rules:
 - A 10-year-old with ZERO prior knowledge understands every visible sentence immediately.
-- NO decorative headings, vague teasers, tiny secondary copy or specialist jargon.
+- NO decorative headings, vague teasers, tiny secondary copy, specialist jargon or awkward machine-translated Serbian.
 - ALL visible copy is intended to be LARGE, BOLD and ALL CAPS.
+- headline_lines are the preferred visible copy on every used slide and together must form one natural, direct statement.
+- accent=true is semantic: only key model names, years, people or signature technologies/details may be green.
+- Prefer only 1-2 accented phrases per used slide, normally 1-4 words each. Never accent a random trailing chunk or filler words.
 - The first visible idea on every used slide says exactly what happened and names the relevant sneaker/person/event.
 - slide_count must be 1, 2 or 3 and must reflect story strength. Never pad to 3. Remove unnecessary slides by lowering slide_count.
-- Cover headline is a direct factual statement. Cover subheadline is also short, direct and useful.
-- facts[0] on used later slides contains one clear self-contained idea.
+- Cover headline is a direct factual statement. Cover subheadline is supporting schema copy and must remain concise.
+- facts[0] on later slides must remain a clear self-contained factual fallback, but headline_lines are the preferred visible statement.
 - Do not use AJ1 or the English word banned in visible copy. Never truncate words or sentences.
 - Only the first slide_count image prompts matter; each must visually match its exact slide fact and avoid generic unrelated sneaker imagery.
 - No TrendyPatike branding inside base AI images.
@@ -107,8 +122,7 @@ function matchEvidenceUrl(raw,evidence){ const key=normalizedUrlKey(raw); if(!ke
 function cleanText(value=""){ return String(value).replace(/[\u2010-\u2015]/g,",").replace(/\u00a0/g," ").replace(/\bAJ1\b/gi,"Air Jordan 1").replace(/\bbanned\b/gi,"zabranjen").replace(/\s+,/g,",").replace(/,{2,}/g,",").replace(/\s{2,}/g," ").trim(); }
 function ensureSentence(value=""){ const text=cleanText(value); if(!text)return "Činjenica je potvrđena iz pouzdanih izvora."; return /[.!?]$/.test(text)?text:`${text}.`; }
 function shortenAtWordBoundary(text="",maxChars=18){ const value=cleanText(text); if(value.length<=maxChars)return value; const words=value.split(/\s+/); let out=""; for(const word of words){const next=out?`${out} ${word}`:word;if(next.length>maxChars)break;out=next;} return out||value.slice(0,maxChars).trim(); }
-function splitWordsIntoLines(text="",maxChars=32){ const words=cleanText(text).split(/\s+/).filter(Boolean),lines=[]; let line=""; for(const word of words){const next=line?`${line} ${word}`:word;if(next.length>maxChars&&line){lines.push(line);line=word;}else line=next;} if(line)lines.push(line); return lines; }
-function normalizeHeadlineGroup(lines,maxLines){ const expanded=[]; for(const source of lines||[]){for(const part of splitWordsIntoLines(source.text,30))expanded.push({...source,text:part});} if(!expanded.length)return [{text:"PATIKA IMA ZANIMLJIVU PRIČU",accent:true}]; if(expanded.length<=maxLines)return expanded; const kept=expanded.slice(0,maxLines); const overflow=expanded.slice(maxLines).map(x=>x.text).join(" "); kept[maxLines-1]={...kept[maxLines-1],text:shortenAtWordBoundary(cleanText(`${kept[maxLines-1].text} ${overflow}`),38)}; return kept; }
+function normalizeHeadlineGroup(lines,maxLines){ const cleaned=(lines||[]).map(line=>({text:cleanText(line?.text),accent:line?.accent===true})).filter(line=>line.text); if(!cleaned.length)return [{text:"PATIKA IMA ZANIMLJIVU PRIČU",accent:false}]; return cleaned.slice(0,maxLines); }
 function normalizeQuestion(text=""){ const words=cleanText(text).replace(/[?!.,]+$/g,"").split(/\s+/).filter(Boolean).slice(0,6); return `${(words.length?words:["Da","li","ste","znali"]).join(" ")}?`; }
 function normalizeCaption(text=""){ const value=cleanText(text); if(value.length<=780)return value; const shortened=shortenAtWordBoundary(value,779).replace(/[,:;\-\s]+$/g,""); return /[.!?]$/.test(shortened)?shortened:`${shortened}.`; }
 function normalizeHashtags(items=[]){ const out=[]; for(const item of items){let tag=cleanText(item).replace(/\s+/g,"");if(!tag)continue;if(!tag.startsWith("#"))tag=`#${tag}`;if(!out.includes(tag))out.push(tag.slice(0,48));} for(const fallback of ["#TrendyPatike","#Patike","#SneakerKultura","#IstorijaPatika"]){if(out.length>=4)break;if(!out.includes(fallback))out.push(fallback);} return out.slice(0,8); }
