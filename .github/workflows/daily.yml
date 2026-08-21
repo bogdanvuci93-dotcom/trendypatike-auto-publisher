@@ -73,6 +73,13 @@ jobs:
 
       - name: Apply live visual and reliability policy
         run: |
+          # Merge the fresh emergency reserve into the live fallback library.
+          # The source files stay unchanged in git; only the checked-out runner copy is merged.
+          if [ -f data/fallback-posts-extra.json ]; then
+            jq -s 'add' data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            mv /tmp/fallback-posts.json data/fallback-posts.json
+          fi
+
           # Emergency/fallback TEXT stays available as a safety net, but live
           # publishing must still try distinct AI visuals first.
           # Zero-cost dry runs keep local visuals by design.
@@ -86,6 +93,7 @@ jobs:
           # than three minutes. Do not abort a healthy paid response at 180s.
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
+          echo "Fallback entries: $(jq length data/fallback-posts.json)"
           grep -n "post.force_local_images\|editorial-v2\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
 
       - name: Zero-cost code and render preflight
