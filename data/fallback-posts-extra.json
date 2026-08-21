@@ -1,0 +1,108 @@
+[
+  {
+    "seed": {
+      "id": "fallback-vans-authentic",
+      "topic": "Kako je prvi Vans model postao Authentic",
+      "category": "skate / istorija",
+      "preferred_domains": ["vans.com"],
+      "visual_subject": "1966 Anaheim canvas deck shoe with flat rubber sole becoming a skate favorite",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je prvi Vans model postao Authentic",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {"text": "PRVI VANS MODEL", "accent": false},
+          {"text": "NASTAO JE 1966", "accent": true}
+        ],
+        "subheadline": "Kasnije je dobio ime Authentic."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "STYLE 44", "accent": true}],
+        "facts": [
+          {"tag": "1966", "text": "Prvi model bio je jednostavna platnena patika poznata kao Style 44."},
+          {"tag": "ĐON", "text": "Imao je ravan gumeni đon koji je kasnije privukao skejtere."},
+          {"tag": "IME", "text": "Style 44 je kasnije postao poznat kao Vans Authentic."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "SKEJTERI SU GA PRIHVATILI", "accent": true}],
+        "facts": [
+          {"tag": "SKATE", "text": "Početkom sedamdesetih skejteri u Kaliforniji zavoleli su njegov jednostavan oblik i gumeni đon."},
+          {"tag": "DANAS", "text": "Authentic je ostao jedan od najpoznatijih Vans modela."}
+        ],
+        "question": "Jeste li znali da je ovo bio prvi Vans?"
+      },
+      "caption": "Vans Authentic počeo je 1966. kao Style 44, jednostavna platnena patika iz prve Vans prodavnice u Anaheimu. Njegov ravan gumeni đon kasnije su zavoleli skejteri, a model je postao jedan od simbola brenda.",
+      "hashtags": ["#TrendyPatike", "#Vans", "#Authentic", "#Skate", "#SneakerIstorija", "#Patike"],
+      "image_prompts": [
+        "1966 Anaheim shoe shop with a simple low-top canvas deck shoe on a wooden counter, flat white rubber sidewall, period-correct California mood, no text anywhere",
+        "close-up of a simple 1960s canvas low-top shoe with flat rubber sole, clean archive-style product scene, no text anywhere",
+        "early-1970s Southern California skateboarder wearing simple low-top canvas shoes with flat rubber soles, concrete skate setting, no text anywhere"
+      ],
+      "sources": [
+        {"title": "Since '66: The Story of Vans", "publisher": "Vans", "url": "https://www.vans.com/en-gb/since-66"},
+        {"title": "The Story of the Authentic", "publisher": "Vans", "url": "https://www.vans.com/en-us/news/the-story-of-the-authentic"}
+      ],
+      "claims": [
+        {"claim": "Vans began in Anaheim in 1966 and Style 44 later became the Authentic.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/news/the-story-of-the-authentic"]},
+        {"claim": "The model used a simple canvas upper and rubber sole.", "source_urls": ["https://www.vans.com/en-us/news/the-story-of-the-authentic"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-vans-old-skool",
+      "topic": "Kako je Vans Old Skool dobio poznatu bočnu liniju",
+      "category": "skate / dizajn",
+      "preferred_domains": ["vans.com"],
+      "visual_subject": "1977 low-top skate shoe with curved side stripe and reinforced panels",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je Vans Old Skool dobio poznatu bočnu liniju",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {"text": "VANS OLD SKOOL", "accent": false},
+          {"text": "POJAVIO SE 1977", "accent": true}
+        ],
+        "subheadline": "Njegova bočna linija postala je znak brenda."
+      },
+      "slide2": {
+        "headline_lines": [{"text": "STYLE 36", "accent": true}],
+        "facts": [
+          {"tag": "1977", "text": "Model je počeo kao Vans Style 36 i imao je prepoznatljivu bočnu liniju."},
+          {"tag": "KOŽA", "text": "Bio je među prvim Vans skate modelima sa dodatnim kožnim panelima za izdržljivost."},
+          {"tag": "LINIJA", "text": "Kriva bočna linija postala je jedan od najprepoznatljivijih Vans detalja."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [{"text": "LINIJA JE POSTALA IKONA", "accent": true}],
+        "facts": [
+          {"tag": "SIDESTRIPE", "text": "Danas je taj detalj poznat kao Vans Sidestripe."},
+          {"tag": "OLD SKOOL", "text": "Zbog njega se Old Skool lako prepoznaje i bez čitanja imena modela."}
+        ],
+        "question": "Prepoznajete li Old Skool samo po liniji?"
+      },
+      "caption": "Vans Old Skool počeo je 1977. kao Style 36. Njegova zakrivljena bočna linija postala je jedan od najprepoznatljivijih detalja brenda, a dodatni paneli pomogli su da patika bolje izdrži skate upotrebu.",
+      "hashtags": ["#TrendyPatike", "#Vans", "#OldSkool", "#Skate", "#Dizajn", "#SneakerIstorija"],
+      "image_prompts": [
+        "1977 California skate workshop with a low-top skate shoe showing a strong curved side stripe and reinforced panels, flat vulcanized sole, no text anywhere",
+        "close side-profile of a vintage low-top skate shoe where the curved side stripe is the dominant visible detail, reinforced leather and canvas panels, no text anywhere",
+        "vintage design desk with a simple curved stripe sketch beside a 1977-style low-top skate shoe carrying the same stripe, no text or letters anywhere"
+      ],
+      "sources": [
+        {"title": "Since '66: The Story of Vans", "publisher": "Vans", "url": "https://www.vans.com/en-gb/since-66"},
+        {"title": "Vans Icons", "publisher": "Vans", "url": "https://www.vans.com/en-us/c/shoes/icons-5195"}
+      ],
+      "claims": [
+        {"claim": "Style 36, now known as Old Skool, debuted in 1977.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/c/shoes/icons-5195"]},
+        {"claim": "The curved side stripe became a defining visual feature of the model.", "source_urls": ["https://www.vans.com/en-gb/since-66", "https://www.vans.com/en-us/c/shoes/icons-5195"]}
+      ]
+    }
+  }
+]
