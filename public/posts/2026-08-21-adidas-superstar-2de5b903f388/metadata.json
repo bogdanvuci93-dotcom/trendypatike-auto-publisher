@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-21",
-  "stage": "ready",
+  "generated_at": "2026-08-21T10:49:19.343Z",
   "fingerprint": "2de5b903f388",
   "seed": {
     "id": "adidas-superstar",
@@ -159,11 +158,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-21-adidas-superstar-2de5b903f388/01.jpg",
-    "public/posts/2026-08-21-adidas-superstar-2de5b903f388/02.jpg",
-    "public/posts/2026-08-21-adidas-superstar-2de5b903f388/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
