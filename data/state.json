@@ -79,8 +79,20 @@
         "https://www.adidas-group.com/en/about/history",
         "https://www.adidas.com/us/go/campaign/originals/archive/superstar"
       ]
+    },
+    {
+      "date": "2026-08-21",
+      "topic_id": "air-force-1",
+      "seed_topic": "Kako je Air Force 1 od košarkaške patike postao globalni lifestyle klasik",
+      "topic_title": "Kako je Air Force 1 od košarkaške patike postao globalni lifestyle klasik",
+      "media_id": "18092137496643300",
+      "sources": [
+        "https://www.nike.com/Air-Force-1/",
+        "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982",
+        "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-20",
-  "last_media_id": "18011521520749109"
+  "last_publish_date": "2026-08-21",
+  "last_media_id": "18092137496643300"
 }
