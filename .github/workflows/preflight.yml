@@ -10,6 +10,7 @@ on:
       - "assets/**"
       - "data/topics.json"
       - "data/fallback-posts.json"
+      - "data/fallback-posts-extra.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -40,6 +41,15 @@ jobs:
 
       - name: Install pinned dependencies
         run: npm install --omit=dev --no-audit --no-fund
+
+      - name: Mirror live fallback library
+        run: |
+          set -euo pipefail
+          if [ -f data/fallback-posts-extra.json ]; then
+            jq -s 'add' data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            mv /tmp/fallback-posts.json data/fallback-posts.json
+          fi
+          echo "Preflight fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher self-test
         env:
