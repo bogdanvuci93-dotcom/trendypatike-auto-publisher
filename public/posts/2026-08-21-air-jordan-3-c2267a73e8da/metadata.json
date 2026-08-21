@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-21",
-  "stage": "ready",
+  "generated_at": "2026-08-21T13:21:16.882Z",
   "fingerprint": "c2267a73e8da",
   "seed": {
     "id": "air-jordan-3",
@@ -136,11 +135,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-21-air-jordan-3-c2267a73e8da/01.jpg",
-    "public/posts/2026-08-21-air-jordan-3-c2267a73e8da/02.jpg",
-    "public/posts/2026-08-21-air-jordan-3-c2267a73e8da/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
