@@ -1,1 +1,130 @@
-{}
+{
+  "date": "2026-08-21",
+  "stage": "verified",
+  "fingerprint": "42b8585f3596",
+  "seed": {
+    "id": "air-jordan-11",
+    "topic": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
+    "category": "model / dizajn",
+    "preferred_domains": [
+      "about.nike.com",
+      "nike.com"
+    ],
+    "visual_subject": "Air Jordan 11 inspired patent-leather basketball sneaker, premium night arena"
+  },
+  "post": {
+    "topic_title": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "AIR JORDAN 11 UVEO PATENT KOŽU NA TEREN",
+          "accent": true
+        },
+        {
+          "text": "I TIME DONEO ELEGANCIJU NA KOŠARKAŠKE PĀ",
+          "accent": false
+        }
+      ],
+      "subheadline": "Kako patent-koža promenila izgled patike na terenu."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PATENT KOŽA JE DAO SJAJ I FORMALNI IZGĽD",
+          "accent": true
+        },
+        {
+          "text": "PATENT-LEATHER JE POSTAO SIGNATURA MODEA",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "Air Jordan 11 je prvobitno predstavljen 1995. i koristio je patent-kožu kako bi dobio sjajan, ‘formalni’ izgled koji se isticao na terenu."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Nike: istorija i opisi modela Air Jordan 11 (nike.com)."
+        },
+        {
+          "tag": "LINKS",
+          "text": "https://www.nike.com/fi/a/air-jordan-11-history\nhttps://www.nike.com/launch/t/air-jordan-11-retro-72-10."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "NIJE SAMO PATIKA ZA IGRU, POSTALA JE KĽ",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "Model je postao deo pop-kulture i Jordan Brand je obeležio njegovo nasleđe specijalnim izdanjima, uključujući kampanje za 30. godišnjicu."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "NIKE, Inc. najava i galerija za 30. godišnjicu Air Jordan 11 (about.nike.com)."
+        }
+      ],
+      "question": "Hoćemo li još ovakvih spajanja?"
+    },
+    "caption": "AIR JORDAN 11 JE PROMENIO IZGLED KOŠARKAŠKIH PATIKA UVEVŠI PATENT-KOŽU, spoj sporta i formalnog stila potvrđen u Nike arhivama.",
+    "hashtags": [
+      "#AirJordan11",
+      "#TrendyPatike",
+      "#PatentLeather",
+      "#Kosarka",
+      "#SneakerDizajn",
+      "#JordanBrand"
+    ],
+    "image_prompts": [
+      "CLOSE-UP OF AIR JORDAN 11 WITH GLOSSY PATENT LEATHER ON A BASKETBALL COURT, SPOTLIGHT REFLECTION, SHOWING PATENT PANEL DETAIL (MATCHES COVER FACT)",
+      "AIR JORDAN 11 PATENT LEATHER DETAIL NEXT TO A FORMAL BLACK JACKET ON A POISED STAGE, CONTRASTING BASKETBALL AND FORMAL STYLE (MATCHES SLIDE 2 FACT)",
+      "NOTE: ONLY THE FIRST TWO IMAGE PROMPTS ARE USED (ONE PER SLIDE)."
+    ],
+    "sources": [
+      {
+        "title": "The History of the Air Jordan 11",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/fi/a/air-jordan-11-history"
+      },
+      {
+        "title": "Air Jordan 11 Retro '72-10' Release (SNKRS)",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
+      },
+      {
+        "title": "Jordan Brand Unveils Exclusive Air Jordan 11 Styles to Celebrate the Silhouette’s 30th Anniversary",
+        "publisher": "NIKE, Inc. (about.nike.com)",
+        "url": "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Air Jordan 11 je originalno predstavljen 1995.",
+        "source_urls": [
+          "https://www.nike.com/fi/a/air-jordan-11-history",
+          "https://www.nike.com/jordan/air-jordan-11"
+        ]
+      },
+      {
+        "claim": "Model koristi patent-kožu (patent leather) da bi dao elegantan sjaj na terenu.",
+        "source_urls": [
+          "https://www.nike.com/fi/a/air-jordan-11-history",
+          "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
+        ]
+      },
+      {
+        "claim": "Jordan Brand je obeležio 30. godišnjicu modela u posebnoj kampanji i kolekciji.",
+        "source_urls": [
+          "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
+        ]
+      }
+    ]
+  }
+}
