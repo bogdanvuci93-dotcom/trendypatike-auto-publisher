@@ -17,7 +17,7 @@ const TEXT_TOP_MIN = 190;
 const TEXT_TOP_MAX = 685;
 const TEXT_BOTTOM_MIN = 715;
 const TEXT_BOTTOM_MAX = 1190;
-const RENDER_VERSION = "kids-editorial-v9-safe-text-dark-fade";
+const RENDER_VERSION = "kids-editorial-v10-semantic-accent";
 
 function esc(s = "") {
   return String(s)
@@ -34,40 +34,92 @@ function clean(text = "") {
     .trim();
 }
 
-function wrap(text, maxChars = 20) {
-  const words = clean(text).split(/\s+/).filter(Boolean);
-  const lines = [];
-  let line = "";
-  for (const word of words) {
-    const next = line ? `${line} ${word}` : word;
-    if (next.length > maxChars && line) {
-      lines.push(line);
-      line = word;
-    } else {
-      line = next;
+function sanitizeSegments(rawSegments = []) {
+  let accentsUsed = 0;
+  const out = [];
+  for (const raw of rawSegments) {
+    const text = clean(raw?.text);
+    if (!text) continue;
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    const requestedAccent = raw?.accent === true;
+    const accent = requestedAccent && accentsUsed < 2 && wordCount <= 5;
+    if (accent) accentsUsed += 1;
+    out.push({ text, accent });
+  }
+  return out;
+}
+
+function fallbackSegments(text = "") {
+  return clean(text) ? [{ text: clean(text), accent: false }] : [];
+}
+
+function visibleSegmentsForSlide(post, i) {
+  if (i === 0) {
+    const segments = sanitizeSegments(post.cover?.headline_lines || []);
+    if (segments.length) return segments;
+    return fallbackSegments(post.cover?.subheadline || post.topic_title);
+  }
+
+  if (i === 1) {
+    const segments = sanitizeSegments(post.slide2?.headline_lines || []);
+    if (segments.length && segments.some(x => x.text.length >= 3)) return segments;
+    return fallbackSegments(post.slide2?.facts?.[0]?.text || post.topic_title);
+  }
+
+  const segments = sanitizeSegments(post.slide3?.headline_lines || []);
+  if (segments.length && segments.some(x => x.text.length >= 3)) return segments;
+  return fallbackSegments(post.slide3?.facts?.[0]?.text || post.topic_title);
+}
+
+function segmentWords(segments = []) {
+  const words = [];
+  for (const segment of segments) {
+    for (const word of clean(segment.text).split(/\s+/).filter(Boolean)) {
+      words.push({ text: word, accent: segment.accent === true });
     }
   }
-  if (line) lines.push(line);
+  return words;
+}
+
+function wrapSegments(segments, maxChars = 20) {
+  const words = segmentWords(segments);
+  const lines = [];
+  let line = [];
+  let length = 0;
+
+  for (const word of words) {
+    const extra = (line.length ? 1 : 0) + word.text.length;
+    if (line.length && length + extra > maxChars) {
+      lines.push(line);
+      line = [word];
+      length = word.text.length;
+    } else {
+      line.push(word);
+      length += extra;
+    }
+  }
+  if (line.length) lines.push(line);
   return lines;
 }
 
-function fitGiantText(text, {
+function plainLine(line = []) {
+  return line.map(x => x.text).join(" ");
+}
+
+function fitSemanticText(segments, {
   maxLines = 6,
   preferred = 126,
   min = 62,
   maxChars = 18,
   maxHeight = 470
 } = {}) {
-  let lines = wrap(text, maxChars);
+  let lines = wrapSegments(segments, maxChars);
   for (const width of [maxChars + 2, maxChars + 4, maxChars + 6, maxChars + 8, maxChars + 10, maxChars + 13, maxChars + 16]) {
     if (lines.length <= maxLines) break;
-    lines = wrap(text, width);
+    lines = wrapSegments(segments, width);
   }
 
-  // Never silently cut the copy. If it still needs more lines, keep them and
-  // reduce the font until the entire block fits inside the safe text zone.
-  const longest = Math.max(1, ...lines.map(x => x.length));
-  // 0.66 is intentionally conservative for bold condensed uppercase glyphs.
+  const longest = Math.max(1, ...lines.map(line => plainLine(line).length));
   const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.66));
   const lineCount = Math.max(1, lines.length);
   const heightFit = Math.floor(maxHeight / (1 + Math.max(0, lineCount - 1) * 0.90));
@@ -115,35 +167,11 @@ function frameSvg() {
   <text x="56" y="1302" font-family="${FONT}" font-size="31" font-weight="900" fill="${WHITE}" letter-spacing="0.8" stroke="#000" stroke-opacity="0.45" stroke-width="3" paint-order="stroke">TRENDYPATIKE.COM</text>`;
 }
 
-function coverMainText(post) {
-  const headline = (post.cover?.headline_lines || [])
-    .map(x => clean(x.text))
-    .filter(Boolean)
-    .join(" ");
-  return headline || clean(post.cover?.subheadline) || clean(post.topic_title);
-}
-
-function visibleTextForSlide(post, i) {
-  if (i === 0) return coverMainText(post);
-  if (i === 1) {
-    return clean(
-      post.slide2?.facts?.[0]?.text ||
-      post.slide2?.headline_lines?.map(x => x.text).join(" ") ||
-      post.topic_title
-    );
-  }
-  return clean(
-    post.slide3?.facts?.[0]?.text ||
-    post.slide3?.headline_lines?.map(x => x.text).join(" ") ||
-    post.topic_title
-  );
-}
-
-function giantTextSvg(text, position) {
+function semanticTextSvg(segments, position) {
   const zoneHeight = position === "top"
     ? TEXT_TOP_MAX - TEXT_TOP_MIN
     : TEXT_BOTTOM_MAX - TEXT_BOTTOM_MIN;
-  const { lines, size, gap } = fitGiantText(text, {
+  const { lines, size, gap } = fitSemanticText(segments, {
     maxLines: 6,
     preferred: 126,
     min: 62,
@@ -160,21 +188,22 @@ function giantTextSvg(text, position) {
   const clipH = position === "top"
     ? TEXT_TOP_MAX - TEXT_TOP_MIN
     : TEXT_BOTTOM_MAX - TEXT_BOTTOM_MIN;
-  const accentStart = Math.max(1, Math.floor(lines.length * 0.62));
+
   const textNodes = lines.map((line, i) => {
-    const fill = i >= accentStart ? GREEN : WHITE;
-    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2.5" stroke="#000" stroke-opacity="0.20" stroke-width="2" paint-order="stroke">${esc(line.toUpperCase())}</text>`;
+    const spans = line.map((word, wordIndex) => {
+      const prefix = wordIndex ? " " : "";
+      return `<tspan fill="${word.accent ? GREEN : WHITE}">${esc(`${prefix}${word.text.toUpperCase()}`)}</tspan>`;
+    }).join("");
+    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${WHITE}" letter-spacing="-2.5" stroke="#000" stroke-opacity="0.20" stroke-width="2" paint-order="stroke">${spans}</text>`;
   }).join("\n");
 
-  // Clip is a final safety net. Auto-fit should keep everything inside it,
-  // but no glyph can ever cross the green frame even with unusual characters.
   return `<defs><clipPath id="safeTextClip"><rect x="48" y="${clipY}" width="984" height="${clipH}"/></clipPath></defs><g clip-path="url(#safeTextClip)">${textNodes}</g>`;
 }
 
 function slideOverlay(post, i) {
   const position = textPositionForSlide(i);
-  const text = visibleTextForSlide(post, i);
-  return `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${fadeSvg(position)}${frameSvg()}${giantTextSvg(text, position)}</svg>`;
+  const segments = visibleSegmentsForSlide(post, i);
+  return `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${fadeSvg(position)}${frameSvg()}${semanticTextSvg(segments, position)}</svg>`;
 }
 
 async function logoBuffer() {
@@ -294,15 +323,25 @@ export async function runRenderSelfTest() {
     slide_count: 3,
     topic_title: "Kako je Stan Smith dobio ime",
     cover: {
-      headline_lines: [{ text: "OVA PATIKA SE PRVO", accent: false }, { text: "ZVALA HAILLET", accent: true }],
+      headline_lines: [
+        { text: "OVA PATIKA SE PRVO ZVALA", accent: false },
+        { text: "HAILLET", accent: true },
+        { text: "PRE NEGO ŠTO JE POSTALA STAN SMITH", accent: false }
+      ],
       subheadline: "Tek kasnije je postala Stan Smith."
     },
     slide2: {
-      headline_lines: [{ text: "", accent: false }],
+      headline_lines: [
+        { text: "NAPRAVLJENA JE ZA", accent: false },
+        { text: "ROBERTA HAILLETA", accent: true }
+      ],
       facts: [{ tag: "", text: "Napravljena je za francuskog tenisera Roberta Hailleta." }]
     },
     slide3: {
-      headline_lines: [{ text: "", accent: false }],
+      headline_lines: [
+        { text: "KASNIJE JE DOBILA IME", accent: false },
+        { text: "STAN SMITH", accent: true }
+      ],
       facts: [{ tag: "", text: "Posle je dobila ime Stan Smith." }],
       question: ""
     },
