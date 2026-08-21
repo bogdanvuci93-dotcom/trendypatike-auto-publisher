@@ -73,24 +73,31 @@ jobs:
 
       - name: Apply live visual and reliability policy
         run: |
-          # Merge the fresh emergency reserve into the live fallback library.
-          # The source files stay unchanged in git; only the checked-out runner copy is merged.
+          set -euo pipefail
+
+          # Validate and merge all emergency reserves. Legacy fallback posts
+          # created before slide_count existed are normalized to 3 slides.
+          jq empty data/fallback-posts.json
           if [ -f data/fallback-posts-extra.json ]; then
-            jq -s 'add' data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-            mv /tmp/fallback-posts.json data/fallback-posts.json
+            jq empty data/fallback-posts-extra.json
+            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          else
+            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json > /tmp/fallback-posts.json
           fi
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+          jq empty data/fallback-posts.json
 
           # Emergency/fallback TEXT stays available as a safety net, but live
           # publishing must still try distinct AI visuals first.
           # Zero-cost dry runs keep local visuals by design.
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
 
-          # Salt the post fingerprint with the current render generation so an
-          # old final JPG can never bypass a newer layout.
+          # Salt the post fingerprint so old final JPGs cannot bypass a newer layout.
           sed -i 's/\.update(JSON\.stringify(post))/\.update("editorial-v2:" + JSON.stringify(post))/' src/index.mjs
 
-          # The verifier performs web research and can legitimately need more
-          # than three minutes. Do not abort a healthy paid response at 180s.
+          # Verifier web research can legitimately exceed three minutes.
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
