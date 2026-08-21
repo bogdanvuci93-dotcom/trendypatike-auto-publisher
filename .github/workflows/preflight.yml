@@ -45,10 +45,17 @@ jobs:
       - name: Mirror live fallback library
         run: |
           set -euo pipefail
+          jq empty data/fallback-posts.json
           if [ -f data/fallback-posts-extra.json ]; then
-            jq -s 'add' data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-            mv /tmp/fallback-posts.json data/fallback-posts.json
+            jq empty data/fallback-posts-extra.json
+            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          else
+            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json > /tmp/fallback-posts.json
           fi
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+          jq empty data/fallback-posts.json
           echo "Preflight fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher self-test
