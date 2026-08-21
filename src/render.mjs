@@ -11,9 +11,13 @@ const GREEN = "#037361";
 const WHITE = "#F7F7F5";
 const FONT = "DejaVu Sans Condensed";
 const TEXT_LEFT = 58;
-const TEXT_RIGHT = 1022;
+const TEXT_RIGHT = 1002;
 const TEXT_WIDTH = TEXT_RIGHT - TEXT_LEFT;
-const RENDER_VERSION = "kids-editorial-v8-fullbleed-giant-text";
+const TEXT_TOP_MIN = 190;
+const TEXT_TOP_MAX = 685;
+const TEXT_BOTTOM_MIN = 715;
+const TEXT_BOTTOM_MAX = 1190;
+const RENDER_VERSION = "kids-editorial-v9-safe-text-dark-fade";
 
 function esc(s = "") {
   return String(s)
@@ -47,17 +51,29 @@ function wrap(text, maxChars = 20) {
   return lines;
 }
 
-function fitGiantText(text, { maxLines = 5, preferred = 132, min = 82, maxChars = 18 } = {}) {
+function fitGiantText(text, {
+  maxLines = 6,
+  preferred = 126,
+  min = 62,
+  maxChars = 18,
+  maxHeight = 470
+} = {}) {
   let lines = wrap(text, maxChars);
-  for (const width of [maxChars + 2, maxChars + 4, maxChars + 7, maxChars + 10, maxChars + 14]) {
+  for (const width of [maxChars + 2, maxChars + 4, maxChars + 6, maxChars + 8, maxChars + 10, maxChars + 13, maxChars + 16]) {
     if (lines.length <= maxLines) break;
     lines = wrap(text, width);
   }
-  lines = lines.slice(0, maxLines);
+
+  // Never silently cut the copy. If it still needs more lines, keep them and
+  // reduce the font until the entire block fits inside the safe text zone.
   const longest = Math.max(1, ...lines.map(x => x.length));
-  const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.56));
-  const size = Math.max(min, Math.min(preferred, widthFit));
-  return { lines, size, gap: Math.round(size * 0.92) };
+  // 0.66 is intentionally conservative for bold condensed uppercase glyphs.
+  const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.66));
+  const lineCount = Math.max(1, lines.length);
+  const heightFit = Math.floor(maxHeight / (1 + Math.max(0, lineCount - 1) * 0.90));
+  const size = Math.max(min, Math.min(preferred, widthFit, heightFit));
+  const gap = Math.round(size * 0.90);
+  return { lines, size, gap };
 }
 
 function textPositionForSlide(i) {
@@ -66,9 +82,29 @@ function textPositionForSlide(i) {
 
 function fadeSvg(position) {
   if (position === "top") {
-    return `<defs><linearGradient id="textFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000" stop-opacity="0.94"/><stop offset="58%" stop-color="#000" stop-opacity="0.72"/><stop offset="84%" stop-color="#000" stop-opacity="0.20"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></linearGradient></defs><rect x="0" y="0" width="${W}" height="650" fill="url(#textFade)"/>`;
+    return `<defs>
+      <linearGradient id="textFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#000" stop-opacity="0.99"/>
+        <stop offset="45%" stop-color="#000" stop-opacity="0.94"/>
+        <stop offset="68%" stop-color="#000" stop-opacity="0.78"/>
+        <stop offset="86%" stop-color="#000" stop-opacity="0.34"/>
+        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="${W}" height="760" fill="url(#textFade)"/>
+    <rect x="0" y="150" width="${W}" height="500" fill="#000" fill-opacity="0.16"/>`;
   }
-  return `<defs><linearGradient id="textFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#000" stop-opacity="0"/><stop offset="18%" stop-color="#000" stop-opacity="0.18"/><stop offset="48%" stop-color="#000" stop-opacity="0.72"/><stop offset="100%" stop-color="#000" stop-opacity="0.95"/></linearGradient></defs><rect x="0" y="700" width="${W}" height="650" fill="url(#textFade)"/>`;
+  return `<defs>
+    <linearGradient id="textFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="14%" stop-color="#000" stop-opacity="0.28"/>
+      <stop offset="32%" stop-color="#000" stop-opacity="0.70"/>
+      <stop offset="58%" stop-color="#000" stop-opacity="0.93"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.99"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="590" width="${W}" height="760" fill="url(#textFade)"/>
+  <rect x="0" y="700" width="${W}" height="500" fill="#000" fill-opacity="0.18"/>`;
 }
 
 function frameSvg() {
@@ -104,25 +140,35 @@ function visibleTextForSlide(post, i) {
 }
 
 function giantTextSvg(text, position) {
+  const zoneHeight = position === "top"
+    ? TEXT_TOP_MAX - TEXT_TOP_MIN
+    : TEXT_BOTTOM_MAX - TEXT_BOTTOM_MIN;
   const { lines, size, gap } = fitGiantText(text, {
-    maxLines: 5,
-    preferred: 132,
-    min: 82,
-    maxChars: 18
+    maxLines: 6,
+    preferred: 126,
+    min: 62,
+    maxChars: 18,
+    maxHeight: zoneHeight
   });
 
   const blockHeight = Math.max(size, (lines.length - 1) * gap + size);
-  const topY = 235;
-  const bottomBaseline = 1150;
   const startY = position === "top"
-    ? topY
-    : Math.max(790, bottomBaseline - blockHeight + size);
+    ? TEXT_TOP_MIN + size
+    : Math.max(TEXT_BOTTOM_MIN + size, TEXT_BOTTOM_MAX - blockHeight + size);
 
+  const clipY = position === "top" ? TEXT_TOP_MIN : TEXT_BOTTOM_MIN;
+  const clipH = position === "top"
+    ? TEXT_TOP_MAX - TEXT_TOP_MIN
+    : TEXT_BOTTOM_MAX - TEXT_BOTTOM_MIN;
   const accentStart = Math.max(1, Math.floor(lines.length * 0.62));
-  return lines.map((line, i) => {
+  const textNodes = lines.map((line, i) => {
     const fill = i >= accentStart ? GREEN : WHITE;
-    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2.5" stroke="#000" stroke-opacity="0.16" stroke-width="2" paint-order="stroke">${esc(line.toUpperCase())}</text>`;
+    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${fill}" letter-spacing="-2.5" stroke="#000" stroke-opacity="0.20" stroke-width="2" paint-order="stroke">${esc(line.toUpperCase())}</text>`;
   }).join("\n");
+
+  // Clip is a final safety net. Auto-fit should keep everything inside it,
+  // but no glyph can ever cross the green frame even with unusual characters.
+  return `<defs><clipPath id="safeTextClip"><rect x="48" y="${clipY}" width="984" height="${clipH}"/></clipPath></defs><g clip-path="url(#safeTextClip)">${textNodes}</g>`;
 }
 
 function slideOverlay(post, i) {
