@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-21",
-  "stage": "ready",
+  "generated_at": "2026-08-21T12:16:14.690Z",
   "fingerprint": "58ad0f58b940",
   "seed": {
     "id": "air-force-1",
@@ -145,11 +144,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-21-air-force-1-58ad0f58b940/01.jpg",
-    "public/posts/2026-08-21-air-force-1-58ad0f58b940/02.jpg",
-    "public/posts/2026-08-21-air-force-1-58ad0f58b940/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
