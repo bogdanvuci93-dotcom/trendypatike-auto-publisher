@@ -1,1 +1,140 @@
-{}
+{
+  "date": "2026-08-21",
+  "stage": "verified",
+  "fingerprint": "c2267a73e8da",
+  "seed": {
+    "id": "air-jordan-3",
+    "topic": "Zašto je Air Jordan 3 bio prelomni model za Jordan liniju",
+    "category": "model / dizajn",
+    "preferred_domains": [
+      "about.nike.com",
+      "nike.com"
+    ],
+    "visual_subject": "Air Jordan 3 inspired editorial product scene, elephant-print style details"
+  },
+  "post": {
+    "topic_title": "Zašto je Air Jordan 3 bio prelomni model za Jordan liniju",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "AIR JORDAN 3 JE IZDVOJEN 1988.",
+          "accent": false
+        },
+        {
+          "text": "I PROMENI",
+          "accent": false
+        },
+        {
+          "text": "TINKER HATFIELD JE DIZAJNIRAO",
+          "accent": false
+        },
+        {
+          "text": "OVAJ MODEl MODEl JE NAPRAVIO NOVI",
+          "accent": false
+        }
+      ],
+      "subheadline": "PRVI PUT: JUMPMAN I ELEPHANT PRINT NA MODELU."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "TINKER HATFIELD JE DIZAJNIRAO",
+          "accent": false
+        },
+        {
+          "text": "AIR JORDAN",
+          "accent": false
+        },
+        {
+          "text": "PRVI PUT ZA JORDAN LINIJU 1988.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FACT",
+          "text": "Tinker Hatfield je dizajnirao Air Jordan 3, prvi model koji je on kreirao za Jordan liniju (premijera 1988)."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Nike - The History of the Air Jordan 3."
+        },
+        {
+          "tag": "SOURCE_URL",
+          "text": "https://www.nike.com/fi/a/air-jordan-3-history."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "JUMPMAN LOGO JE NASTAO SA AIR",
+          "accent": false
+        },
+        {
+          "text": "JORDAN 3",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FACT",
+          "text": "Slika Michaela Jordana u skoku u Air Jordan 3 na trećem Slam Dunk takmičenju dovela je do pojave Jumpman ikonografije."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Nike - The History of the Air Jordan 3."
+        }
+      ],
+      "question": "KOJI DETALJ NAJVIŠE VOLIŠ?"
+    },
+    "caption": "AIR JORDAN 3 JE PRELOMNI JER JE TINKER DIZAJNIRAO MODEL, NASTAO JE JUMPMAN I UVEDEN JE ELEPHANT PRINT,ELEMENTI KOJI SU OBLIKOVALI IDENTITET BRANDA.",
+    "hashtags": [
+      "#AirJordan3",
+      "#JordanBrand",
+      "#TinkerHatfield",
+      "#ElephantPrint",
+      "#SneakerIstorija",
+      "#TrendyPatike"
+    ],
+    "image_prompts": [
+      "COVER: WHITE/CEMENT AIR JORDAN 3 ON A CLEAN BACKGROUND, SHOE AND SILHOUETTE VISIBLE, BOLD FRAMING, HIGH CONTRAST",
+      "SLIDE2: PORTRAIT SHOT OF TINKER HATFIELD SKETCHING A SNEAKER BESIDE A WHITE/CEMENT AIR JORDAN 3, CLEAR FOCUS ON DESIGN PROCESS, WARM STUDIO LIGHT",
+      "SLIDE3: MJ IN ACTION SILHOUETTE-LIKE COMPOSITION OF A PLAYER MAKING A DUNK WITH VISIBLE JUMPMAN-SYLE SILHOUETTE ON THE SHOE, EMPHASIS ON JUMPMAN ICON"
+    ],
+    "sources": [
+      {
+        "title": "The History of the Air Jordan 3",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/fi/a/air-jordan-3-history"
+      },
+      {
+        "title": "Jordan Brand and Levi’s Unveil New Colorways of the Air Jordan 3",
+        "publisher": "About.Nike.com",
+        "url": "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Tinker Hatfield je dizajnirao Air Jordan 3 i to je bio njegov prvi model za Jordan liniju (premijera 1988).",
+        "source_urls": [
+          "https://www.nike.com/fi/a/air-jordan-3-history"
+        ]
+      },
+      {
+        "claim": "Slika Michaela Jordana u skoku u Air Jordan 3 dovela je do pojave Jumpman ikonografije koja je vezana za liniju.",
+        "source_urls": [
+          "https://www.nike.com/fi/a/air-jordan-3-history"
+        ]
+      },
+      {
+        "claim": "Elephant print je prvi put uveden kao dizajnerski element na Air Jordan 3.",
+        "source_urls": [
+          "https://www.nike.com/fi/a/air-jordan-3-history",
+          "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
+        ]
+      }
+    ]
+  }
+}
