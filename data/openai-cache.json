@@ -1,4 +1,159 @@
 {
+  "3817c66c025d36b4810a5b4b42be301c04dede0b11a119efbffb9c0ec0870126": {
+    "saved_at": "2026-08-22T18:01:25.980Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "KAKO JE",
+            "accent": false
+          },
+          {
+            "text": "NIKE DUNK",
+            "accent": true
+          },
+          {
+            "text": "POČEO NA KOLEDŽU",
+            "accent": false
+          }
+        ],
+        "subheadline": "Kratka priča od 1985. do skateboard i modernih kolaboracija"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "ROĐEN U",
+            "accent": false
+          },
+          {
+            "text": "PROGRAMU COLLEGE COLORS",
+            "accent": true
+          },
+          {
+            "text": "1985‑86",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FELT FACT",
+            "text": "DUNK je nastao kao deo Nike College Colors programa tokom sezone 1985‑86."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Nike: \"The History of the Nike Dunk\" (nike.com)."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "About.Nike: \"Full‑Court Press: How Nike Found Its Footing in College Basketball\" (about.nike.com)."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "SKATERI SU GA OTKRILI",
+            "accent": false
+          },
+          {
+            "text": "PA JE",
+            "accent": false
+          },
+          {
+            "text": "NIKE SB POBOLJŠAO",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FELT FACT",
+            "text": "U '90‑tim skateri su nosili rabljene Dunk modele; 2000‑ih Nike SB predstavio je Dunk Low Pro SB."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Nike: \"The History of the Nike Dunk\" (nike.com).},{"
+          }
+        ],
+        "question": "Koji ti je omiljeni par?"
+      },
+      "caption": "DUNK je počeo kao koledž patika u boji tima 1985. Posle su ga skateri preuzeli, pa je NIKE SB vratio i unapredio model. Jednostavno: od dvorane do ulice.",
+      "hashtags": [
+        "#NikeDunk",
+        "#DunkStory",
+        "#Košarka",
+        "#Skate",
+        "#SneakerKultura",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "1985 college basketball high‑top sneakers in bright team color blocking on a vintage gym floor, players in 80s warmups, cinematic lighting",
+        "1990s thrift store scene with worn Nike Dunk shoes on a skateboard and a skater holding them outside a concrete skate spot, urban feel",
+        "early 2000s Nike SB Dunk Low Pro in a skate shop display with padded tongue visible and a skateboarder performing a trick nearby"
+      ],
+      "sources": [
+        {
+          "title": "The History of the Nike Dunk",
+          "publisher": "Nike.com",
+          "url": "https://www.nike.com/a/dunk-history/"
+        },
+        {
+          "title": "Full‑Court Press: How Nike Found Its Footing in College Basketball",
+          "publisher": "About.Nike.com",
+          "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
+        },
+        {
+          "title": "DNA Artifacts - SB Dunk",
+          "publisher": "Nike.com (SNKRS)",
+          "url": "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Dunk je nastao unutar Nike College Colors programa u sezoni 1985‑86.",
+          "source_urls": [
+            "https://www.nike.com/a/dunk-history/",
+            "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
+          ]
+        },
+        {
+          "claim": "Skateri su u 1990‑tim otkrili Dunk i koristili ga na ulici pre nego što je Nike napravio SB verziju.",
+          "source_urls": [
+            "https://www.nike.com/a/dunk-history/",
+            "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
+          ]
+        },
+        {
+          "claim": "Nike SB je re‑inženjerski prilagodio Dunk (npr. dodatni jastučići na jeziku) za skate use.",
+          "source_urls": [
+            "https://www.nike.com/a/dunk-history/",
+            "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/dunk-history/",
+      "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
+      "https://www.nike.com/be/en/a/dunk-history",
+      "https://about.nike.com/en-GB/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
+      "https://www.nike.com/jp/en/a/dunk-history",
+      "https://www.nike.com/gb/a/dunk-history/",
+      "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk",
+      "https://www.nike.com/mx/a/historia-de-los-dunk",
+      "https://www.nike.com/t/dunk-low-by-you-custom-shoes-4DhQSW",
+      "https://www.nike.com/es/a/historia-de-las-dunk",
+      "https://www.nike.com/es/a/historia-de-las-dunk?msockid=1b680c11931c64e11a6e1ae292d8658b",
+      "https://www.nike.com/be/a/dunk-historie/",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
+      "https://investors.nike.com/files/doc_financials/2002/downloads/proxy.pdf",
+      "https://admin.about.nike.com/media/files/9b025164-240b-4836-a67a-40606c5ad2dc/FINAL_NBACityEdition_Messaging_2023-2024.pdf",
+      "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_M_Basketball.pdf?cb=20200915",
+      "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_M_Basketball.pdf"
+    ]
+  },
   "584aac7769c8d1ed8edc2d23afaf09ee36545142c4ada7cc53cb3f66d14ea2f1": {
     "saved_at": "2026-08-21T18:12:28.767Z",
     "schema_name": "trendypatike_verified_post",
