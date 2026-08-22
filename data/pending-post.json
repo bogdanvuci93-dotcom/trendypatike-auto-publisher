@@ -148,5 +148,10 @@
     "public/posts/2026-08-22-nike-dunk-1985-2ab7c22adca3/02.jpg",
     "public/posts/2026-08-22-nike-dunk-1985-2ab7c22adca3/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014203316944388"
+    ],
+    "carousel_id": ""
+  }
 }
