@@ -1,1 +1,146 @@
-{}
+{
+  "date": "2026-08-22",
+  "stage": "verified",
+  "fingerprint": "2ab7c22adca3",
+  "seed": {
+    "id": "nike-dunk-1985",
+    "topic": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
+    "category": "košarka / kultura",
+    "preferred_domains": [
+      "about.nike.com",
+      "nike.com"
+    ],
+    "visual_subject": "1985 college basketball color-blocked high-top sneakers, vintage gym"
+  },
+  "post": {
+    "topic_title": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "KAKO JE",
+          "accent": false
+        },
+        {
+          "text": "NIKE DUNK",
+          "accent": true
+        },
+        {
+          "text": "POČEO KAO KOLEDŽ PATIKA 1985",
+          "accent": true
+        }
+      ],
+      "subheadline": "KRATKA PRIČA OD TERENA DO ULICE."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "ROĐEN U PROGRAMU COLLEGE",
+          "accent": false
+        },
+        {
+          "text": "COLORS 1985,86",
+          "accent": true
+        },
+        {
+          "text": "KAO PATRONSKA BOJA TIMA",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FELT FACT",
+          "text": "DUNK je nastao u okviru College Colors programa tokom sezone 1985,86."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Nike: The History of the Nike Dunk. nike.com."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "About.Nike: Full,Court Press. about.nike.com."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "SKATERI SU GA OTKRILI",
+          "accent": false
+        },
+        {
+          "text": "PA JE",
+          "accent": false
+        },
+        {
+          "text": "NIKE SB POBOLJŠAO SA JASTUČI",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FELT FACT",
+          "text": "U 1990,tim skateri su nosili DUNK; početkom 2000,ih Nike SB prilagodio model."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Nike: The History of the Nike Dunk. nike.com."
+        }
+      ],
+      "question": "KOJI TI JE OMILJENI PAR?"
+    },
+    "caption": "DUNK JE POČEO NA KOLEDŽU 1985,86, PA JE POSTAO SIMBOL SNEAKER KULTURE.",
+    "hashtags": [
+      "#NIKEDUNK",
+      "#DUNKSTORY",
+      "#KOŠARKA",
+      "#SKATE",
+      "#SNEAKERKULTURA",
+      "#TRENDYPATIKE"
+    ],
+    "image_prompts": [
+      "1985 college basketball high,top sneakers in bright team color blocking on a vintage gym floor, players in 80s warmups, cinematic lighting",
+      "1990s thrift store scene with worn Nike Dunk shoes on a skateboard outside a concrete skate spot, urban feel",
+      "early 2000s Nike SB Dunk Low Pro in a skate shop display with padded tongue visible and a skateboarder performing a trick nearby"
+    ],
+    "sources": [
+      {
+        "title": "The History of the Nike Dunk",
+        "publisher": "Nike.com",
+        "url": "https://www.nike.com/a/dunk-history/"
+      },
+      {
+        "title": "Full,Court Press: How Nike Found Its Footing in College Basketball",
+        "publisher": "About.Nike.com",
+        "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
+      },
+      {
+        "title": "DNA Artifacts - SB Dunk",
+        "publisher": "Nike.com (SNKRS)",
+        "url": "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Dunk je nastao unutar Nike College Colors programa u sezoni 1985,86.",
+        "source_urls": [
+          "https://www.nike.com/a/dunk-history/",
+          "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
+        ]
+      },
+      {
+        "claim": "Skateri su tokom 1990,ih otkrili Dunk u second,hand radnjama i nosili ga na ulici.",
+        "source_urls": [
+          "https://www.nike.com/a/dunk-history/"
+        ]
+      },
+      {
+        "claim": "Nike SB je početkom 2000,ih prilagodio Dunk modelu za skate, dodavši jastučiće i druge izmene.",
+        "source_urls": [
+          "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk",
+          "https://www.nike.com/a/dunk-history/"
+        ]
+      }
+    ]
+  }
+}
