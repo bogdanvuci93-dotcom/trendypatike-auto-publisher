@@ -114,8 +114,20 @@
         "https://www.nike.com/launch/t/air-jordan-11-retro-72-10",
         "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
       ]
+    },
+    {
+      "date": "2026-08-22",
+      "topic_id": "nike-dunk-1985",
+      "seed_topic": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
+      "topic_title": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
+      "media_id": "18084596306296083",
+      "sources": [
+        "https://www.nike.com/a/dunk-history/",
+        "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
+        "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-21",
-  "last_media_id": "18111477271804695"
+  "last_publish_date": "2026-08-22",
+  "last_media_id": "18084596306296083"
 }
