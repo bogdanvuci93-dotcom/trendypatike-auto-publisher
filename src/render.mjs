@@ -17,7 +17,7 @@ const TEXT_TOP_MIN = 190;
 const TEXT_TOP_MAX = 685;
 const TEXT_BOTTOM_MIN = 715;
 const TEXT_BOTTOM_MAX = 1190;
-const RENDER_VERSION = "kids-editorial-v10-semantic-accent";
+const RENDER_VERSION = "kids-editorial-v11-readable-serbian";
 
 function esc(s = "") {
   return String(s)
@@ -29,6 +29,7 @@ function esc(s = "") {
 
 function clean(text = "") {
   return String(text)
+    .normalize("NFC")
     .replace(/\s+/g, " ")
     .replace(/[.?!]+$/g, "")
     .trim();
@@ -120,7 +121,7 @@ function fitSemanticText(segments, {
   }
 
   const longest = Math.max(1, ...lines.map(line => plainLine(line).length));
-  const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.66));
+  const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.70));
   const lineCount = Math.max(1, lines.length);
   const heightFit = Math.floor(maxHeight / (1 + Math.max(0, lineCount - 1) * 0.90));
   const size = Math.max(min, Math.min(preferred, widthFit, heightFit));
@@ -191,10 +192,10 @@ function semanticTextSvg(segments, position) {
 
   const textNodes = lines.map((line, i) => {
     const spans = line.map((word, wordIndex) => {
-      const prefix = wordIndex ? " " : "";
-      return `<tspan fill="${word.accent ? GREEN : WHITE}">${esc(`${prefix}${word.text.toUpperCase()}`)}</tspan>`;
+      const prefix = wordIndex ? "&#160;" : "";
+      return `<tspan fill="${word.accent ? GREEN : WHITE}">${prefix}${esc(word.text.toUpperCase())}</tspan>`;
     }).join("");
-    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${WHITE}" letter-spacing="-2.5" stroke="#000" stroke-opacity="0.20" stroke-width="2" paint-order="stroke">${spans}</text>`;
+    return `<text x="${TEXT_LEFT}" y="${Math.round(startY + i * gap)}" font-family="${FONT}" font-size="${size}" font-weight="900" fill="${WHITE}" letter-spacing="-0.8" word-spacing="10" xml:space="preserve" stroke="#000" stroke-opacity="0.20" stroke-width="2" paint-order="stroke">${spans}</text>`;
   }).join("\n");
 
   return `<defs><clipPath id="safeTextClip"><rect x="48" y="${clipY}" width="984" height="${clipH}"/></clipPath></defs><g clip-path="url(#safeTextClip)">${textNodes}</g>`;
