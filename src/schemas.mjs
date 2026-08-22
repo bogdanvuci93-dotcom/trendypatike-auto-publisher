@@ -3,7 +3,7 @@ const headlineLine = {
   additionalProperties: false,
   required: ["text", "accent"],
   properties: {
-    text: { type: "string", maxLength: 40 },
+    text: { type: "string", maxLength: 28 },
     accent: { type: "boolean" }
   }
 };
@@ -13,8 +13,8 @@ const fact = {
   additionalProperties: false,
   required: ["tag", "text"],
   properties: {
-    tag: { type: "string", maxLength: 24 },
-    text: { type: "string", minLength: 24, maxLength: 140 }
+    tag: { type: "string", maxLength: 20 },
+    text: { type: "string", minLength: 18, maxLength: 100 }
   }
 };
 
@@ -70,10 +70,10 @@ export const postSchema = {
         headline_lines: {
           type: "array",
           minItems: 2,
-          maxItems: 4,
+          maxItems: 3,
           items: headlineLine
         },
-        subheadline: { type: "string", minLength: 24, maxLength: 140 }
+        subheadline: { type: "string", minLength: 18, maxLength: 100 }
       }
     },
     slide2: {
@@ -112,7 +112,7 @@ export const postSchema = {
           maxItems: 2,
           items: fact
         },
-        question: { type: "string", maxLength: 80 }
+        question: { type: "string", maxLength: 60 }
       }
     },
     caption: { type: "string", maxLength: 800 },
