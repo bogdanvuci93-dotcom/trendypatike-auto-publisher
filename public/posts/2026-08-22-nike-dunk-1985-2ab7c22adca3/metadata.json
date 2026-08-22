@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-22",
-  "stage": "ready",
+  "generated_at": "2026-08-22T18:03:09.123Z",
   "fingerprint": "2ab7c22adca3",
   "seed": {
     "id": "nike-dunk-1985",
@@ -142,11 +141,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-22-nike-dunk-1985-2ab7c22adca3/01.jpg",
-    "public/posts/2026-08-22-nike-dunk-1985-2ab7c22adca3/02.jpg",
-    "public/posts/2026-08-22-nike-dunk-1985-2ab7c22adca3/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
