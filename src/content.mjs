@@ -11,6 +11,23 @@ const GLOBAL_TRUSTED_DOMAINS = [
   "olympics.com", "smithsonianmag.com", "moma.org", "britannica.com", "gq.com"
 ];
 
+const AWKWARD_VISIBLE_PATTERNS = [
+  /\bkulturna primena\b/i,
+  /\bmodelski simbol\b/i,
+  /\bsignatura(?: modela)?\b/i,
+  /\buveo eleganciju\b/i,
+  /\bsimbol sneaker kulture\b/i,
+  /\bsneaker kultura\b/i,
+  /\bskateri su ga otkrili\b/i,
+  /\bpatent[- ]?leather\b/i,
+  /\bpatentkož/i,
+  /\bpatent kož[au]\b/i
+];
+
+const DANGLING_ENDINGS = new Set([
+  "sa", "za", "od", "do", "i", "ili", "pa", "jer", "koji", "koja", "koje", "da", "na", "u", "iz"
+]);
+
 export class TopicRejectedError extends Error { constructor(message) { super(message); this.name = "TopicRejectedError"; } }
 export function isTopicRejectedError(err) { return err instanceof TopicRejectedError; }
 async function atomicWriteJson(file, value) { const target=path.resolve(file); const temp=`${target}.tmp-${process.pid}-${Date.now()}`; await fs.writeFile(temp, JSON.stringify(value,null,2)+"\n"); await fs.rename(temp,target); }
@@ -48,14 +65,16 @@ NON-NEGOTIABLE VISIBLE-COPY RULES:
 - Everyday spoken Serbian understandable to a 10-year-old with ZERO prior knowledge.
 - A child must understand every used slide on the first read without knowing sneaker history.
 - One used slide = ONE simple idea, normally 10-16 words total and NEVER more than 18 words total across headline_lines.
-- Prefer ordinary Serbian words. If a specialist term is essential, explain it immediately in simple words.
-- Do not use English jargon in visible Serbian copy except exact official model/person names that cannot be translated.
+- Every statement must name its subject clearly. Never write vague phrases like "skateri su ga otkrili" when a child cannot know what "ga" means.
+- Prefer ordinary Serbian words. If a specialist term is essential, explain it immediately in simple Serbian on the SAME slide.
+- Do not use English jargon in visible Serbian copy except exact official model/person names. Translate terms such as patent leather into ordinary Serbian, for example "sjajna lakovana koža".
 - NO decorative titles, vague teaser headings, tiny secondary copy, marketing language or academic wording.
 - Every visible text block is rendered LARGE, BOLD and ALL CAPS.
 - Do not create a separate title plus explanation. The large text itself tells the story directly.
 - Never glue words together. Keep normal spaces around model names, years and numbers: AIR JORDAN 11, not AIRJORDAN11.
-- Avoid awkward machine wording such as "kulturna primena", "modelski simbol", "signatura modela", "uveo eleganciju" or repeated words.
-- Read the sentence mentally as if speaking to a child. If it sounds unnatural, rewrite it.
+- Avoid awkward machine wording such as "kulturna primena", "modelski simbol", "signatura modela", "uveo eleganciju", "simbol sneaker kulture" or repeated words.
+- Never end a visible statement with an unfinished connector or preposition such as "sa", "za", "od", "i", "jer" or "koji".
+- Read the sentence mentally as if speaking to a child. If it sounds unnatural, incomplete or requires explanation, rewrite it before returning JSON.
 
 SEMANTIC GREEN ACCENT RULES:
 - headline_lines are the actual visible text on EVERY used slide.
@@ -104,9 +123,12 @@ Enforce these rules STRICTLY:
 - Correct Serbian Latin letters Č, Ć, Š, Đ and Ž.
 - A 10-year-old with ZERO prior knowledge must understand every visible sentence on first read.
 - Each USED slide should contain 10-16 words total and MUST NOT exceed 18 words across headline_lines.
+- Every pronoun must have an obvious subject on the same slide. Rewrite vague copy like "skateri su ga otkrili" into a sentence that names NIKE DUNK or the exact subject.
 - Use normal spaces between every word, model name and number. AIR JORDAN 11 is correct; AIRJORDAN11 is forbidden.
-- Replace specialist or awkward language with simple Serbian. Explain any unavoidable technical term in child-friendly words.
+- Replace specialist or awkward language with simple Serbian. Translate unexplained English jargon; for example patent leather should become "sjajna lakovana koža" when visible.
 - No decorative headings, vague teasers, marketing language, academic language or machine-translated phrasing.
+- Reject or rewrite phrases such as "simbol sneaker kulture", "kulturna primena", "modelski simbol", "signatura modela" and "uveo eleganciju".
+- No visible statement may end unfinished with "sa", "za", "od", "i", "jer", "koji" or a similar connector.
 - ALL visible copy is intended to be LARGE, BOLD and ALL CAPS.
 - headline_lines are the preferred visible copy and together form one natural, direct sentence.
 - accent=true is semantic: only key model names, years, people or signature technologies/details may be green.
@@ -132,15 +154,29 @@ function normalizeHeadlineGroup(lines,maxLines){ const cleaned=(lines||[]).map(l
 function normalizeQuestion(text=""){ const words=cleanText(text).replace(/[?!.,]+$/g,"").split(/\s+/).filter(Boolean).slice(0,6); return `${(words.length?words:["Da","li","ste","znali"]).join(" ")}?`; }
 function normalizeCaption(text=""){ const value=cleanText(text); if(value.length<=780)return value; const shortened=shortenAtWordBoundary(value,779).replace(/[,:;\-\s]+$/g,""); return /[.!?]$/.test(shortened)?shortened:`${shortened}.`; }
 function normalizeHashtags(items=[]){ const out=[]; for(const item of items){let tag=cleanText(item).replace(/\s+/g,"");if(!tag)continue;if(!tag.startsWith("#"))tag=`#${tag}`;if(!out.includes(tag))out.push(tag.slice(0,48));} for(const fallback of ["#TrendyPatike","#Patike","#SneakerKultura","#IstorijaPatika"]){if(out.length>=4)break;if(!out.includes(fallback))out.push(fallback);} return out.slice(0,8); }
-function headlineWordCount(lines=[]){ return lines.map(x=>cleanText(x?.text)).join(" ").split(/\s+/).filter(Boolean).length; }
+function headlineText(lines=[]){ return cleanText(lines.map(x=>cleanText(x?.text)).filter(Boolean).join(" ")); }
+function headlineWordCount(lines=[]){ return headlineText(lines).split(/\s+/).filter(Boolean).length; }
+function hasGluedModelToken(text=""){
+  return /\b(?:AIR|NIKE|JORDAN|ADIDAS|PUMA|REEBOK|VANS)[A-ZČĆŠĐŽ]+\d+\b/i.test(text) || /\b[A-ZČĆŠĐŽ]+\d+[A-ZČĆŠĐŽ]+\b/.test(text);
+}
 function enforceKidCopy(post){
   const used=[post.cover?.headline_lines];
   if(Number(post.slide_count)>=2)used.push(post.slide2?.headline_lines);
   if(Number(post.slide_count)>=3)used.push(post.slide3?.headline_lines);
-  for(const lines of used){
+  used.forEach((lines,index)=>{
+    const text=headlineText(lines||[]);
     const count=headlineWordCount(lines||[]);
-    if(count<3||count>18)throw new TopicRejectedError(`Visible copy failed kid-friendly word limit: ${count} words`);
-  }
+    if(count<3||count>18)throw new TopicRejectedError(`Visible copy failed kid-friendly word limit on slide ${index+1}: ${count} words`);
+    if(hasGluedModelToken(text))throw new TopicRejectedError(`Visible copy has glued words/model tokens on slide ${index+1}: ${text}`);
+    for(const pattern of AWKWARD_VISIBLE_PATTERNS){
+      if(pattern.test(text))throw new TopicRejectedError(`Visible copy is unclear or too technical on slide ${index+1}: ${text}`);
+    }
+    const last=(text.match(/[\p{L}\p{N}]+/gu)||[]).at(-1)?.toLowerCase()||"";
+    if(DANGLING_ENDINGS.has(last))throw new TopicRejectedError(`Visible copy ends as an unfinished phrase on slide ${index+1}: ${text}`);
+    if(/\b(?:ga|je|to|taj|ta|ovo|ona|on)\b/i.test(text) && !/\b(?:air jordan|nike|adidas|puma|reebok|vans|dunk|patika|model|đon|koža|tinker|michael|skater|košarkaš)\b/i.test(text)){
+      throw new TopicRejectedError(`Visible copy has an unclear pronoun on slide ${index+1}: ${text}`);
+    }
+  });
   return post;
 }
 function normalizePostForPublishing(post){ const value=JSON.parse(JSON.stringify(post)); value.topic_title=cleanText(value.topic_title); value.slide_count=Math.max(1,Math.min(3,Number(value.slide_count)||1)); value.cover.headline_lines=normalizeHeadlineGroup(value.cover.headline_lines,3); value.cover.subheadline=ensureSentence(value.cover.subheadline); value.slide2.headline_lines=normalizeHeadlineGroup(value.slide2.headline_lines,3); value.slide2.facts=value.slide2.facts.map(fact=>({...fact,tag:shortenAtWordBoundary(fact.tag,18),text:ensureSentence(fact.text)})); value.slide3.headline_lines=normalizeHeadlineGroup(value.slide3.headline_lines,3); value.slide3.facts=value.slide3.facts.map(fact=>({...fact,tag:shortenAtWordBoundary(fact.tag,18),text:ensureSentence(fact.text)})); value.slide3.question=normalizeQuestion(value.slide3.question); value.caption=normalizeCaption(value.caption); value.hashtags=normalizeHashtags(value.hashtags); value.image_prompts=value.image_prompts.map(cleanText); return enforceKidCopy(value); }
