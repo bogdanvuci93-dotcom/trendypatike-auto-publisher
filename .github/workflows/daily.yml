@@ -8,11 +8,6 @@ on:
         required: true
         default: false
         type: boolean
-  push:
-    branches:
-      - main
-    paths:
-      - "data/manual-publish-trigger.txt"
   schedule:
     - cron: "35 19 * * *"
       timezone: "Europe/Belgrade"
@@ -50,7 +45,7 @@ jobs:
           npm install --omit=dev --no-audit --no-fund
 
       - name: Restore paid-work recovery bundle
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now }}
+        if: ${{ github.event_name == 'schedule' || inputs.publish_now }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -79,19 +74,27 @@ jobs:
       - name: Apply live visual and reliability policy
         run: |
           set -euo pipefail
+
           jq empty data/fallback-posts.json
           if [ -f data/fallback-posts-extra.json ]; then
             jq empty data/fallback-posts-extra.json
-            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           else
-            jq 'map(.post.slide_count = (.post.slide_count // 3))' data/fallback-posts.json > /tmp/fallback-posts.json
+            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
+              data/fallback-posts.json > /tmp/fallback-posts.json
           fi
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
+
           python scripts/harden_content_policy.py
+
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
           sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v12-strict-copy-image-match:" + JSON.stringify(post))/' src/index.mjs
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
+
+          echo "Fallback entries: $(jq length data/fallback-posts.json)"
+          grep -n "post.force_local_images\|fullbleed-v12-strict-copy-image-match\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
           grep -n "hardenImagePrompts\|simplifyKidPhrase" src/content.mjs
 
       - name: Zero-cost code and render preflight
@@ -114,19 +117,19 @@ jobs:
           BRAND_GREEN: "#037361"
           BRAND_NAME: "TRENDYPATIKE"
           BRAND_SITE: "trendypatike.com"
-          DRY_RUN: ${{ github.event_name == 'push' && 'false' || (github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true')) }}
-          FORCE_RUN: ${{ github.event_name == 'push' && 'true' || 'false' }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
+          FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
         run: npm run run
 
       - name: Build paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         run: node src/recovery.mjs save .recovery
 
       - name: Preserve paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
