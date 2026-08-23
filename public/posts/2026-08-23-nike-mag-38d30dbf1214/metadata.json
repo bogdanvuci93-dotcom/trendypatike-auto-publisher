@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-23",
-  "stage": "ready",
+  "generated_at": "2026-08-23T20:43:52.211Z",
   "fingerprint": "38d30dbf1214",
   "seed": {
     "id": "nike-mag",
@@ -130,11 +129,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-23-nike-mag-38d30dbf1214/01.jpg",
-    "public/posts/2026-08-23-nike-mag-38d30dbf1214/02.jpg",
-    "public/posts/2026-08-23-nike-mag-38d30dbf1214/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
