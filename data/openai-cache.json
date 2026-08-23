@@ -1,4 +1,144 @@
 {
+  "e949b6dd28a516e7b77ee83f786dc6a9f9fa3e9f75f77988b9ba89e62c14ece7": {
+    "saved_at": "2026-08-23T20:42:12.299Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "BACK TO THE FUTURE NAPRAVIO JE",
+            "accent": false
+          },
+          {
+            "text": "NIKE MAG",
+            "accent": true
+          },
+          {
+            "text": "FUTURISTIČKOM IKONOM",
+            "accent": false
+          }
+        ],
+        "subheadline": "Kako film i Nike zajedno stvorili mitsku patiku"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "NIKE MAG SE POJAVIO U FILMU 1989.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "Fakt",
+            "text": "Patika se pojavljuje u filmu Back to the Future II i gledaoci su je odmah zapamtili."
+          },
+          {
+            "tag": "Izvor",
+            "text": "Nike arhiva i saopštenje o projektu 2011. potvrđuju vezu sa filmom."
+          },
+          {
+            "tag": "Linkovi",
+            "text": "https://www.nike.com/a/nike-air-mag, https://investors.nike.com/investors/news-events-and-reports/in"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "NIKE JE 2011. I 2016. STVARNO NAPRAVIO NIKE MAG",
+            "accent": false
+          },
+          {
+            "text": "2011",
+            "accent": true
+          },
+          {
+            "text": "2016",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "Fakt",
+            "text": "Nike je 2011. pustio limitiranu verziju NIKE MAG i poklonio pare Fondu Majkla Dž. Foksa."
+          },
+          {
+            "tag": "Fakt",
+            "text": "2016. Nike je izdao verziju sa stvarnim automatskim zatezanjem, samo 89 parova."
+          }
+        ],
+        "question": "Hoćete li više detalja o tehnologiji?"
+      },
+      "caption": "Film je dao ideju, a Nike je tu ideju pretvorio u stvarne patike: NIKE MAG se prvi put prodao 2011. a 2016. je dobio pravu tehnologiju samouzatezanja. Sve pare iz prve prodaje išle su Fondu Majkla Dž. Foksa za Parkinsonovu bolest. #NIKEMAG #BackToTheFuture #futurizam #sneakerkultura #TrendyPatike #selflacing #retro",
+      "hashtags": [
+        "#NIKEMAG",
+        "#BackToTheFuture",
+        "#futurizam",
+        "#sneakerkultura",
+        "#TrendyPatike",
+        "#selflacing",
+        "#retro"
+      ],
+      "image_prompts": [
+        "FUTURISTIC SELF-LACING SNEAKER CLOSE-UP, NIKE MAG 2011, HIGH TOP WITH GLOWING LED STRAP, CHILD-FRIENDLY NEON 1980s SCI-FI EDITORIAL, SHOE OCCUPIES 70% FRAME",
+        "NIKE MAG ON FILM SET WITH MICHAEL J. FOX, 1989 STYLE, MARTY MCFLY WEARING NIKE MAG, NEON CINEMATIC LIGHTING, SHOW BOTH ACTOR AND SHOE",
+        "CLOSE-UP OF NIKE MAG ADAPTIVE FIT MECHANISM, 2016 EDITION, VISIBLE ELECTRONIC LACING PARTS, MACRO CROSS-SECTION, SHOE DETAIL OCCUPIES 80% FRAME"
+      ],
+      "sources": [
+        {
+          "title": "From the Archives: The Evolution of Nike Air Mag",
+          "publisher": "Nike",
+          "url": "https://www.nike.com/a/nike-air-mag"
+        },
+        {
+          "title": "Back for the Future: Nike Partners with the Michael J. Fox Foundation",
+          "publisher": "Nike (Investor Relations)",
+          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+        },
+        {
+          "title": "Inside The Vault. Nike SNKRS – Adaptive Fit and MAG history",
+          "publisher": "Nike SNKRS",
+          "url": "https://www.nike.com/fi/launch/t/inside-the-vault-automax-adaptive-fit1"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Nike MAG se prvi put pojavio u filmu Back to the Future II 1989.",
+          "source_urls": [
+            "https://www.nike.com/a/nike-air-mag"
+          ]
+        },
+        {
+          "claim": "Nike je 2011. pustio limitiranu verziju NIKE MAG i donirao prihod Fondu Majkla Dž. Foksa.",
+          "source_urls": [
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+          ]
+        },
+        {
+          "claim": "2016. izdata je verzija sa stvarnim sistemom automatskog zatezanja u ograničenom tiražu (89 parova).",
+          "source_urls": [
+            "https://www.nike.com/fi/launch/t/inside-the-vault-automax-adaptive-fit1"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
+      "https://www.nike.com/fi/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/a/nike-air-mag",
+      "https://www.nike.com/pl/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/dk/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/be/fr/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/cz/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/lu/de/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/it/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/us/es/a/nike-air-mag",
+      "https://www.nike.com/hu/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/gb/a/nike-air-mag?msockid=152cb618b20b64831fa5a0c9b3a06559"
+    ]
+  },
   "b53e92e33d38b850ca2a0549622d8e5ca1e5b8fecd1e3a8e31f4dce72fc6bec8": {
     "saved_at": "2026-08-23T20:36:24.314Z",
     "schema_name": "trendypatike_verified_post",
@@ -2200,150 +2340,6 @@
       "https://pr.nba.com/wizards-markieff-morris-fined-3/",
       "https://www.nba.com/bulls/news/chucks-daily-check-102417",
       "https://cdn-uat.nba.com/news/power-rankings-2024-25-week-22"
-    ]
-  },
-  "ff107792f72cfaf6f7bc414a549a38cdb7ee2887bc6c2178c444e2dcd59bd4a0": {
-    "saved_at": "2026-08-21T09:36:58.645Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je počela Air Jordan priča i zašto je promenila sneaker kulturu",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "MIHAEL DŽORDAN JE DOBIO SVOJE PATIKE",
-            "accent": true
-          },
-          {
-            "text": "NIKE JE NAPRAVIO AIR JORDAN 1",
-            "accent": false
-          },
-          {
-            "text": "TO JE BILA PRVA DŽORDAN LINIJA PATIKA",
-            "accent": false
-          }
-        ],
-        "subheadline": "PATIKE SU POSTALE VIŠE OD SPORTA."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "NBA JE ZABRANIO BOJE AIR JORDAN 1",
-            "accent": true
-          },
-          {
-            "text": "ZABRANA JE NAPRAVILA PATIKE ŽELJENIM",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FENOMEN",
-            "text": "NIKE JE PROMOTOVAO DŽORDANA I PATIKE, I PRODAJA JE EKSLODIRALA."
-          },
-          {
-            "tag": "IZVOR",
-            "text": "NBA I NIKE STRANICE POTVRĐUJU ZABRANU I MARKETINŠKI USPEH."
-          },
-          {
-            "tag": "BROJKE",
-            "text": "NIKE JE U PRVIM MESECIMA PRODAO VELIKI BROJ PAROVA."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "PATIKE SU PREŠLE U MODU I KULTURU",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "POSLEDICA",
-            "text": "MLADI SU VIDELI DŽORDANA I ŽELELI ISTI STIL, NE SAMO SPORTSKU OBUĆU."
-          },
-          {
-            "tag": "NAPOMENA",
-            "text": "DŽORDAN JE POSTAO SIMBOL, A NIKE JE RAZVIO CELO BRAND IME."
-          }
-        ],
-        "question": "Koje su ti najdraže patike?"
-      },
-      "caption": "Michael Jordan je potpisao ugovor sa Nikeom i dobio svoj model — Air Jordan 1. NBA je smatrao da boje nisu u skladu sa pravilima i kažnjavao je njegovo nošenje. Zbog toga su mladi videli patike kao bunt i modni simbol, a prodaja i marketinška mašina Nikea promenili su sneaker kulturu zauvek.",
-      "hashtags": [
-        "#AirJordan",
-        "#MichaelJordan",
-        "#sneakeristorija",
-        "#basketball",
-        "#Nike",
-        "#retro",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Close-up of Michael Jordan wearing red-black-white Air Jordan 1 on a 1980s basketball court, crowd and arena lights visible, action shot",
-        "1980s NBA arena dunk contest scene with Michael Jordan in Bulls warmup and fans in bleachers, vintage TV broadcast look",
-        "Pair of red-black-white Air Jordan 1s on wooden gym floor under arena spotlight, visible original Nike logo"
-      ],
-      "sources": [
-        {
-          "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
-          "publisher": "NBA.com",
-          "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-        },
-        {
-          "title": "Michael Jordan's debut, 30 years ago",
-          "publisher": "NBA.com (Chicago Bulls feature)",
-          "url": "https://www.nba.com/bulls/features/michael-jordans-debut-30-years-ago"
-        },
-        {
-          "title": "Full-Court Press: How Nike Found Its Footing in College Basketball",
-          "publisher": "About.Nike.com",
-          "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "NBA je prvobitno kažnjavao za nošenje Air Jordan 1 zbog boja.",
-          "source_urls": [
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-            "https://www.nba.com/bulls/features/michael-jordans-debut-30-years-ago"
-          ]
-        },
-        {
-          "claim": "Nike je lansirao Air Jordan 1 kao Michael Jordanov prvi potpisani model i intenzivno ga je promovisao.",
-          "source_urls": [
-            "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-          ]
-        },
-        {
-          "claim": "Zabrana i marketing su zajedno pretvorili patike u modni simbol i pokrenuli sneaker kulturu.",
-          "source_urls": [
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-            "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
-      "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-      "https://about.nike.com/en-GB/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://www.nba.com/bulls/news/im-back-michael-jordans-famous-return-basketball",
-      "https://www.nba.com/bulls/features/michael-jordans-debut-30-years-ago",
-      "https://www.nba.com/news/history-nba-legend-michael-jordan?lv=true",
-      "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
-      "https://about.nike.com/en/magazine/how-nike-created-the-pegasus-running-shoe",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-basketball-design",
-      "https://about.nike.com/en/newsroom/releases/air-jordan-1-mid-subway-official-images",
-      "https://about.nike.com/en-GB/newsroom/collections/the-jordan-wings-collection-presents-a-new-vision-of-luxury-streetwear",
-      "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY10-11_Nike_CR_report.pdf"
     ]
   }
 }
