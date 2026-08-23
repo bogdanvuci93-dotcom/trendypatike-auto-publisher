@@ -138,5 +138,10 @@
     "public/posts/2026-08-23-nike-cortez-89faca76ca67/01.jpg",
     "public/posts/2026-08-23-nike-cortez-89faca76ca67/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014364620944388"
+    ],
+    "carousel_id": ""
+  }
 }
