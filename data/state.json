@@ -126,8 +126,19 @@
         "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
         "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
       ]
+    },
+    {
+      "date": "2026-08-23",
+      "topic_id": "nike-cortez",
+      "seed_topic": "Kako je Nike Cortez od running modela postao pop-kulturni klasik",
+      "topic_title": "Kako je Nike Cortez od running modela postao pop-kulturni klasik",
+      "media_id": "18194393386385753",
+      "sources": [
+        "https://www.nike.com/a/cortez-history/",
+        "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-22",
-  "last_media_id": "18084596306296083"
+  "last_publish_date": "2026-08-23",
+  "last_media_id": "18194393386385753"
 }
