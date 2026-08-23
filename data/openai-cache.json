@@ -1,4 +1,145 @@
 {
+  "fab29cc4501d6170deb3cabb181a0971e655b3e0605d47ff7c740e347b24a325": {
+    "saved_at": "2026-08-23T20:42:40.992Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All major factual claims verified on nike.com pages about the NIKE MAG (appearance in 1989 film, 2011 charity release of 1,500 pairs, 2016 Adaptive Fit limited 89 pairs). All sources are Nike domains.",
+      "post": {
+        "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
+        "slide_count": 3,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "BACK TO THE FUTURE NAPRAVIO JE",
+              "accent": false
+            },
+            {
+              "text": "NIKE MAG",
+              "accent": true
+            },
+            {
+              "text": "FUTURISTIČKOM IKONOM",
+              "accent": false
+            }
+          ],
+          "subheadline": "FILM JE DAO IDEJU, A NIKE JE NAPRAVIO STVARNU PATIKU"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "NIKE MAG SE POJAVIO U FILMU BACK TO THE FUTURE II 1989.",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "Fakt",
+              "text": "Patika se vidi u sceni iz 1989. i inspirisala je stvarnu verziju."
+            },
+            {
+              "tag": "Izvor",
+              "text": "Nike arhiva opisuje pojavljivanje i uticaj modela."
+            },
+            {
+              "tag": "Linkovi",
+              "text": "https://www.nike.com/a/nike-air-mag"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "NIKE JE 2011 I 2016 PUSTIO DVE LIMITIRANE VERZIJE NIKE MAG",
+              "accent": false
+            },
+            {
+              "text": "2011 • 2016",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "Fakt",
+              "text": "2011. Nike je prodao 1.500 parova na aukciji; prihod je išao Fondu Majkla Dž. Foksa."
+            },
+            {
+              "tag": "Fakt",
+              "text": "2016. izdato je 89 parova sa Adaptive Fit (sistem samouzatezanja)."
+            }
+          ],
+          "question": "ŽELITE LI VIŠE DETALJA O SISTEMU SAMOZATEZANJA?"
+        },
+        "caption": "FILM JE DAO IDEJU; NIKE JE 2011. PRODAO 1.500 PAROVA ZA DOBROTOVORNE SVRHE; 2016. IZDATO JE 89 PAROVA SA SAMOUZATEZANJEM.",
+        "hashtags": [
+          "#NIKEMAG",
+          "#BackToTheFuture",
+          "#FUTURIZAM",
+          "#SNEAKERKULTURA",
+          "#TrendyPatike",
+          "#SELFLACING",
+          "#RETRO"
+        ],
+        "image_prompts": [
+          "NIKE MAG, FULL SHOE, FUTURISTIC HIGH TOP, STRAP AND GLOWING LED, PRODUCT SHOT, NIKE MAG CENTERED",
+          "NIKE MAG ON BACK TO THE FUTURE II FILM SET WITH MICHAEL J. FOX, 1989 STYLE, SHOW SHOE ON ACTOR, CINEMATIC LIGHTING",
+          "CLOSE-UP MACRO OF NIKE MAG ADAPTIVE FIT MECHANISM 2016 EDITION, VISIBLE ELECTRONIC LACING PARTS, SHOE DETAIL FILLING 80% OF FRAME"
+        ],
+        "sources": [
+          {
+            "title": "From the Archives: The Evolution of Nike Air Mag",
+            "publisher": "Nike",
+            "url": "https://www.nike.com/a/nike-air-mag"
+          },
+          {
+            "title": "Back for the Future: Nike Partners with the Michael J. Fox Foundation",
+            "publisher": "Nike Investor Relations",
+            "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+          },
+          {
+            "title": "Inside The Vault. Nike SNKRS – Adaptive Fit and MAG history",
+            "publisher": "Nike SNKRS",
+            "url": "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Nike MAG se pojavio u filmu Back to the Future II 1989.",
+            "source_urls": [
+              "https://www.nike.com/a/nike-air-mag"
+            ]
+          },
+          {
+            "claim": "Nike je 2011. pustio limitiranu verziju NIKE MAG (1.500 parova) i prihod je išao Fondu Majkla Dž. Foksa.",
+            "source_urls": [
+              "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+            ]
+          },
+          {
+            "claim": "2016. Nike je izdao verziju NIKE MAG sa Adaptive Fit (sistem samouzatezanja) u limitiranom tiražu od 89 parova.",
+            "source_urls": [
+              "https://www.nike.com/a/nike-air-mag",
+              "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/nike-air-mag",
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
+      "https://www.nike.com/gb/a/nike-air-mag?msockid=152cb618b20b64831fa5a0c9b3a06559",
+      "https://investors.nike.com/Search-Results/default.aspx?PageNumber=294&SearchTerm=",
+      "https://www.nike.com/a/pegasus-history",
+      "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/pl/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/se/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/dk/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/de/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/be/fr/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/it/launch/t/inside-the-vault-automax-adaptive-fit1"
+    ]
+  },
   "e949b6dd28a516e7b77ee83f786dc6a9f9fa3e9f75f77988b9ba89e62c14ece7": {
     "saved_at": "2026-08-23T20:42:12.299Z",
     "schema_name": "trendypatike_post",
@@ -2183,163 +2324,6 @@
       "https://report.adidas-group.com/2024/en/_assets/downloads/our-company-adidas-ar24.pdf",
       "https://brand.assets.adidas.com/image/upload/v1734702932/Ty_C_EOSS_2f8b9d2cd1.pdf",
       "https://brand.assets.adidas.com/image/upload/v1756739852/PE_TC_ADICLUB_FESTIVAL_retail_adidas_d4cb26abac.pdf"
-    ]
-  },
-  "ac9afc0c05b7ee6a835be6240a75a2bfb56fd28e5e09316fb4a5bca4adeee4b7": {
-    "saved_at": "2026-08-21T09:37:28.972Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": false,
-      "reason": "Could not verify on the allowed domains (about.nike.com, nike.com, nba.com) that the NBA formally fined Michael Jordan specifically for wearing the first Air Jordan in the way described. Draft claims about a specific NBA fine/ban lack a direct NBA.com source; other claims (Nike signing Jordan, Air J",
-      "post": {
-        "topic_title": "KAKO JE POČELA AIR JORDAN PRIČA I ZAŠTO JE PROMENILA SNEAKER KULTURU",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "MICHAEL JORDAN JE POTPISAO UGOVOR SA NIΚ",
-              "accent": true
-            },
-            {
-              "text": "NIKE JE STVORIO PRVI MODEL KOJI JE POSTA",
-              "accent": false
-            }
-          ],
-          "subheadline": "PATIKE SU POSTALE VIŠE OD SPORTA."
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "NBA JE IMALA PRAVILA O UNIFORMAMA KOJA",
-              "accent": true
-            },
-            {
-              "text": "NIKE JE INTENZIVNO PROMOVISAO MODEL I BO",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FENOMEN",
-              "text": "NIKE JE KORISTIO BOJE I MARKETING; PRODAJA JE RASTLA."
-            },
-            {
-              "tag": "IZVOR",
-              "text": "NIKE STRANICE OPISUJU MARKETING I UTICAJ MODELА NA KULTURU."
-            },
-            {
-              "tag": "PRAVILO",
-              "text": "NBA PRAVILA NAVODE OGRANIČENJA U VEZI SA UNIFORMAMA I OBUĆOM."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "PATIKE SU PREŠLE U MODU I KULTURU",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "POSLEDICA",
-              "text": "MLADI SU PRIMETILI STIL I POČELI DA NOSE ISTI MODELI."
-            },
-            {
-              "tag": "NAPOMENA",
-              "text": "NEDOSTAJE DIREKTAN NBA.COM IZVOR KOJI POTVRĐUJE TAČAN IZNOS ILI MEHANIZAM KAZNI ZA MICHAELA JORDANA."
-            }
-          ],
-          "question": "KOJE SU TI NAJDRAŽE PATIKE?"
-        },
-        "caption": "MICHAEL JORDAN JE POTPISAO UGOVOR SA NIKEOM I NIKE JE NAPRAVIO NJEGOV PRVI MODEL. NBA JE IMAO PRAVILA O UNIFORMAMA KOJA SU ODNOSILA I NA OBUĆU, A NIKEOV MARKETING JE UBRZO PRETVORIO MODELE U SIMBOL KULTURE.",
-        "hashtags": [
-          "#AirJordan",
-          "#MichaelJordan",
-          "#sneakeristorija",
-          "#basketball",
-          "#Nike",
-          "#retro",
-          "#TrendyPatike"
-        ],
-        "image_prompts": [
-          "MICHAEL JORDAN SA PRVIM MODELIM PATIKA U BOJAMA CRVENA-CRNO-BELA NA TERENU, 1985, AKCIJA",
-          "PAR PATIKA U BOJAMA KOJE JE PROMOVISAO NIKE POSTAVLJENI NA PARKETU SA PUBLIKOM U POZADINI",
-          "GRUPA MLADIH KOJI NOSE SLIČNE PATIKE KAO MICHAEL JORDAN, 1980-TE, ULIČNI STIL"
-        ],
-        "sources": [
-          {
-            "title": "Full-Court Press: How Nike Found Its Footing in College Basketball",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-          },
-          {
-            "title": "How Motion and Emotion Power Jordan Brand Design for the Next Generation",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/jordan-brand-basketball-design/"
-          },
-          {
-            "title": "NBA Official Playing Rules / Player Conduct and Dress (rules document)",
-            "publisher": "NBA.com",
-            "url": "https://cdn.nba.com/manage/2026/01/Official-2025-26-NBA-Playing-Rules.pdf"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Nike je potpisao Michael Jordana i razvio njegov prvi model patika.",
-            "source_urls": [
-              "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-              "https://about.nike.com/en/newsroom/releases/jordan-brand-basketball-design/"
-            ]
-          },
-          {
-            "claim": "Nike je intenzivno promovisao model i koristeći boje i marketing uticao na porast prodaje i kulturu obuće.",
-            "source_urls": [
-              "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-            ]
-          },
-          {
-            "claim": "NBA je imala pravila o uniformama i obuci koja regulišu izgled igrača i nošenje opreme.",
-            "source_urls": [
-              "https://cdn.nba.com/manage/2026/01/Official-2025-26-NBA-Playing-Rules.pdf"
-            ]
-          },
-          {
-            "claim": "NISAM MOGAO PRONAĆI DIREKTAN NBA.COM IZVOR NA DOZVOLJENIM DOMENIMA KOJI JASNO POTVRĐUJE DA JE LIGA SLIČNO KAZNILA MICHAELA JORDANA KAO ŠTO DRAFT NAVODI; ZATO SE TVRDNJA O KONKRETNIM KAZNAMA NE MOŽE POTVRDITI OVDE.",
-            "source_urls": [
-              "https://cdn.nba.com/manage/2026/01/Official-2025-26-NBA-Playing-Rules.pdf"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/en-GB/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/es-419/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/it/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/de/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/fr/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/zh-Hans/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/nl/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://about.nike.com/en/magazine/how-nike-created-the-pegasus-running-shoe",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-basketball-design/",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
-      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
-      "https://about.nike.com/zh-Hant/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf",
-      "https://cdn.nba.com/manage/2026/01/Official-2025-26-NBA-Playing-Rules.pdf",
-      "https://official.nba.com/comments-on-the-rules/",
-      "https://www.nba.com/pacers/news/oneal-determined-come-back-strong-suspension",
-      "https://www.nba.com/news/history-this-date-in-nba-dec",
-      "https://www.nba.com/game/atl-vs-phi-0042000207",
-      "https://www.nba.com/news/wizards-markieff-morris-fined-unsportsmanlike-conduct",
-      "https://www.nba.com/pacers/news/did-nbas-punishment-fit-oneals-crime",
-      "https://www.nba.com/news/derrick-rose-goes-awol-new-york-knicks-new-orleans-pelicans",
-      "https://pr.nba.com/wizards-markieff-morris-fined-3/",
-      "https://www.nba.com/bulls/news/chucks-daily-check-102417",
-      "https://cdn-uat.nba.com/news/power-rankings-2024-25-week-22"
     ]
   }
 }
