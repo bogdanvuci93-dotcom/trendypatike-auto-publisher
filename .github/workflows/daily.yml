@@ -87,29 +87,15 @@ jobs:
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
 
+          python scripts/harden_content_policy.py
+
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v11-readable-serbian:" + JSON.stringify(post))/' src/index.mjs
-
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v12-strict-copy-image-match:" + JSON.stringify(post))/' src/index.mjs
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
-          # "je" is an auxiliary verb in Serbian, not an ambiguous pronoun.
-          # Keep the kid-copy gate strict without rejecting normal sentences
-          # such as "Cortez je imao...".
-          python - <<'PY'
-          from pathlib import Path
-          p = Path("src/content.mjs")
-          s = p.read_text(encoding="utf-8")
-          old = '(?:ga|je|to|taj|ta|ovo|ona|on)'
-          new = '(?:ga|to|taj|ta|ovo|ona|on)'
-          if old not in s:
-              raise SystemExit("Expected kid-copy pronoun pattern not found")
-          p.write_text(s.replace(old, new), encoding="utf-8")
-          PY
-
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "post.force_local_images\|fullbleed-v11-readable-serbian\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
-          grep -n "ga|to|taj|ta|ovo|ona|on" src/content.mjs
+          grep -n "post.force_local_images\|fullbleed-v12-strict-copy-image-match\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
+          grep -n "hardenImagePrompts\|simplifyKidPhrase" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
