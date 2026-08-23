@@ -1,4 +1,150 @@
 {
+  "a168caa2ece7fb7a3f4b8302a9de41c1d1ceb91d583548c0a3e5dddbbfdcb1d5": {
+    "saved_at": "2026-08-23T18:00:08.658Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je Nike Cortez od running modela postao pop-kulturni klasik",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "BILL BOWERMAN JE",
+            "accent": false
+          },
+          {
+            "text": "NAPRAVIO NIKE CORTEZ",
+            "accent": true
+          },
+          {
+            "text": "ZA TRKAČE",
+            "accent": false
+          }
+        ],
+        "subheadline": "Jednostavna priča o nastanku i promeni uloga modela"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "NIKE CORTEZ JE IMAO",
+            "accent": false
+          },
+          {
+            "text": "PUNA SREDNJA PENA",
+            "accent": true
+          },
+          {
+            "text": "ZA BOLJE UMEKŠANJE",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Cortez je bio prvi Nike model sa kontinuiranom jastučićastom srednjom penom koja je ublažavala udar."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Nike: 'The History of the Nike Cortez'."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "About.Nike: 'Bill Bowerman: Nike’s Original Innovator'."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "NIKE CORTEZ JE PREŠAO",
+            "accent": false
+          },
+          {
+            "text": "U POP KULTURU",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Posle uspeha kod trkača, Cortez su nosili ljudi van sporta i postali prepoznatljivi u svakodnevnoj i"
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Nike: 'The History of the Nike Cortez'."
+          }
+        ],
+        "question": "Želiš priču o filmu ili ulici?"
+      },
+      "caption": "Cortez je počeo kao trkački patik, a zahvaljujući dizajnu Bill Bowermana brzo je postao obuća koju ljudi nose svakodnevno. Izvor priče: Nike i About.Nike.",
+      "hashtags": [
+        "#NikeCortez",
+        "#Trčanje",
+        "#RetroSneaker",
+        "#Patike",
+        "#Kultura",
+        "#BillBowerman",
+        "#1970s",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "Close-up of an original 1970s Nike Cortez running shoe on a vintage tartan track, cinematic lighting, worn texture, clear Cortez silhouette",
+        "1970s urban street scene with several people wearing Nike Cortez in retro casual outfits, film-grain, warm tones, cinematic street culture",
+        "Museum-style display of a Nike Cortez on a pedestal with a small descriptive plaque, retro lighting, clean background, archival feel"
+      ],
+      "sources": [
+        {
+          "title": "The History of the Nike Cortez",
+          "publisher": "Nike.com",
+          "url": "https://www.nike.com/a/cortez-history/"
+        },
+        {
+          "title": "Bill Bowerman: Nike’s Original Innovator",
+          "publisher": "About.Nike.com",
+          "url": "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "BILL BOWERMAN JE DIZAJNIRAO NIKE CORTEZ.",
+          "source_urls": [
+            "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator"
+          ]
+        },
+        {
+          "claim": "CORTEZ JE UVEO KOMBINACIJU PUNE SREDNJE PENE KOJA JE POBOLJŠALA UMEKŠANJE.",
+          "source_urls": [
+            "https://www.nike.com/a/cortez-history/"
+          ]
+        },
+        {
+          "claim": "CORTEZ JE NAPUSTIO SAMO TRČANJE I POSTAO DEO POP KULTURE.",
+          "source_urls": [
+            "https://www.nike.com/a/cortez-history/"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/cortez-history/",
+      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/mx/a/la-historia-de-los-cortez/",
+      "https://www.nike.com/t/cortez-womens-shoes-K5CZcgeY",
+      "https://www.nike.com/be/a/geschiedenis-cortez",
+      "https://www.nike.com/be/fr/a/cortez-histoire",
+      "https://www.nike.com/us/es/t/tenis-para-hombre-nike-cortez-textile-Tlm9kW",
+      "https://www.nike.com/ch/it/a/la-storia-di-cortez",
+      "https://about.nike.com/es-ES/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
+      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
+      "https://about.nike.com/fr/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/es-419/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://media.about.nike.com/files/19c9f037-13be-4d9c-8201-3bedea9f3614/Nike-Inside-the-Lines-Code-of-Conduct_May_2019.pdf",
+      "https://media.about.nike.com/files/d3df5655-4772-41c7-af0d-9f1c99badb4b/FY18_Nike_Impact-Report_Final.pdf",
+      "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
+      "https://investors.nike.com/files/doc_downloads/FY15-10-Year-History.pdf",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Women%27s%20Training%20-%20FINAL.pdf"
+    ]
+  },
   "507bdd75d9d58e6192307b44bea14742eaf3e1765c5fd8f33701d9fedc5f9278": {
     "saved_at": "2026-08-22T18:01:54.219Z",
     "schema_name": "trendypatike_verified_post",
