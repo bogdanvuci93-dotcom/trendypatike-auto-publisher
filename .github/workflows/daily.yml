@@ -8,9 +8,6 @@ on:
         required: true
         default: false
         type: boolean
-  push:
-    paths:
-      - "data/manual-publish-trigger.txt"
   schedule:
     - cron: "35 19 * * *"
       timezone: "Europe/Belgrade"
@@ -48,7 +45,7 @@ jobs:
           npm install --omit=dev --no-audit --no-fund
 
       - name: Restore paid-work recovery bundle
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now }}
+        if: ${{ github.event_name == 'schedule' || inputs.publish_now }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -96,18 +93,23 @@ jobs:
 
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
+          # "je" is an auxiliary verb in Serbian, not an ambiguous pronoun.
+          # Keep the kid-copy gate strict without rejecting normal sentences
+          # such as "Cortez je imao...".
           python - <<'PY'
           from pathlib import Path
           p = Path("src/content.mjs")
           s = p.read_text(encoding="utf-8")
           old = '(?:ga|je|to|taj|ta|ovo|ona|on)'
           new = '(?:ga|to|taj|ta|ovo|ona|on)'
-          if old in s:
-              p.write_text(s.replace(old, new), encoding="utf-8")
+          if old not in s:
+              raise SystemExit("Expected kid-copy pronoun pattern not found")
+          p.write_text(s.replace(old, new), encoding="utf-8")
           PY
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
           grep -n "post.force_local_images\|fullbleed-v11-readable-serbian\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
+          grep -n "ga|to|taj|ta|ovo|ona|on" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
@@ -129,19 +131,19 @@ jobs:
           BRAND_GREEN: "#037361"
           BRAND_NAME: "TRENDYPATIKE"
           BRAND_SITE: "trendypatike.com"
-          DRY_RUN: ${{ (github.event_name == 'schedule' || github.event_name == 'push') && 'false' || (inputs.publish_now && 'false' || 'true') }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
         run: npm run run
 
       - name: Build paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         run: node src/recovery.mjs save .recovery
 
       - name: Preserve paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
