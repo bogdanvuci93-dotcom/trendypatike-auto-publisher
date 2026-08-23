@@ -1,4 +1,153 @@
 {
+  "f0d71b9b42e383a2aacff761cfab557c8d79e9ec62e36a54ec643a215abeab9e": {
+    "saved_at": "2026-08-23T20:35:53.861Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "KAKO JE",
+            "accent": false
+          },
+          {
+            "text": "NIKE MAG POSTAO FUTURISTIČKA",
+            "accent": true
+          },
+          {
+            "text": "IKONA",
+            "accent": false
+          }
+        ],
+        "subheadline": "Film je stvorio želju — Nike je kasnije napravio stvarne patike."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "U FILMU 1989.",
+            "accent": true
+          },
+          {
+            "text": "NIJE POSTOJALO AUTOMATSKO ZA",
+            "accent": false
+          },
+          {
+            "text": "TEZANJE PERTLI",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALBACK",
+            "text": "Na snimanju su ljudi iz ekipe vukli konce da izgledaju kao da se pertle same zatežu."
+          },
+          {
+            "tag": "IZVOR",
+            "text": "Nike opisuje kako je efekat zatezanja na snimanju bio izveden konopcima iza scene."
+          },
+          {
+            "tag": "DETALJ",
+            "text": "Originalne scene su inspirisale Nike da istraži stvarne tehnologije za zatezanje pertli."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "NIKE JE NAPRAVIO PRAVE NIKE",
+            "accent": true
+          },
+          {
+            "text": "MAG SA AUTOMATSKIM ZATEZANJ",
+            "accent": false
+          },
+          {
+            "text": "EM PERTLI",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALBACK",
+            "text": "Nike je 2011. i 2016. predstavio limitirane NIKE MAG verzije sa električnim zatezanjem pertli."
+          },
+          {
+            "tag": "BROJKE",
+            "text": "2011. parovi su se prodavali na aukciji za Fondaciju Michael J. Fox; 2016. izdan je model sa 'powerl"
+          }
+        ],
+        "question": "Hoćemo li videti novo izdanje NIKE MAG?"
+      },
+      "caption": "Film Back to the Future je pokazao ideju. Nike je tu ideju pretvorio u stvarne patike sa električnim zatezanjem pertli i podržao Fondaciju Michael J. Fox. #NIKEMAG #BackToTheFuture #sneakeristorija #autopertle #futurizam",
+      "hashtags": [
+        "#NIKEMAG",
+        "#BackToTheFuture",
+        "#sneakeristorija",
+        "#autopertle",
+        "#futurizam"
+      ],
+      "image_prompts": [
+        "Futuristic full-view NIKE MAG sneaker floating, neon 1980s science-fiction editorial lighting, visible glowing panel and strap, shoe centered, cinematic, child-friendly composition",
+        "Michael J. Fox wearing NIKE MAG on Back to the Future II set, crew member pulling strings behind the shoe to fake lacing, neon studio lights, clear 1989 movie set look",
+        "Close-up macro cross-section of NIKE MAG power-lace mechanism, lacing motor and cable visible, shoe detail occupying 65% of frame, technical but child-friendly view"
+      ],
+      "sources": [
+        {
+          "title": "From the Archives: The Evolution of Nike Air Mag",
+          "publisher": "Nike.com",
+          "url": "https://www.nike.com/a/nike-air-mag/"
+        },
+        {
+          "title": "Back for the Future: Nike Partners with the Michael J. Fox Foundation",
+          "publisher": "Nike Investor Relations (NIKE, Inc.)",
+          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Na snimanju Back to the Future II 1989. efekat samozatezanja pertli je postignut povlačenjem konaca iza scene.",
+          "source_urls": [
+            "https://www.nike.com/a/nike-air-mag/",
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+          ]
+        },
+        {
+          "claim": "Nike je 2011. i 2016. predstavio limitirane verzije NIKE MAG sa električnim/automatskim zatezanjem pertli i podržao Fondaciju Michael J. Fox.",
+          "source_urls": [
+            "https://www.nike.com/a/nike-air-mag/",
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
+          ]
+        },
+        {
+          "claim": "Ideja iz filma je navela Nike da istraži tehnologije kao što su Adapt i 'power laces'.",
+          "source_urls": [
+            "https://www.nike.com/a/nike-air-mag/"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/nike-air-mag/",
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
+      "https://www.nike.com/us/es/a/nike-air-mag",
+      "https://www.nike.com/es/a/nike-air-mag",
+      "https://www.nike.com/at/a/nike-air-mag/",
+      "https://www.nike.com/launch/t/behind-design-adapt-auto-max-na",
+      "https://www.nike.com/es/ca/a/nike-air-mag",
+      "https://www.nike.com/ca/fr/a/nike-air-mag",
+      "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1",
+      "https://www.nike.com/nl/a/nike-air-mag",
+      "https://www.nike.com/it/a/nike-air-mag?msockid=19a330ac76d762ed29a5260a771b6319",
+      "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
+      "https://media.about.nike.com/files/e1963fb1-0138-4a54-ae37-e73c8a4fc4cd/FY20-NIKE-Inc.-Impact-Report_Executive-Summary1.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY10-11_Nike_CR_report.pdf",
+      "https://media.about.nike.com/files/a9da025c-fc41-486c-99df-bfb41bef2d41/FY21_NIKE-Impact-Report_Executive-Summary_Geo.pdf",
+      "https://media.about.nike.com/files/82228197-54ee-47cf-aa99-0b5b7e2072f0/FY14-15_NIKE_Executive_Summary.pdf",
+      "https://media.about.nike.com/files/598ea21b-1f07-4bc7-b340-bfe66fff5847/FY22-NIKE%2C-Inc.-Impact-Report.pdf"
+    ]
+  },
   "9d82da0e748291835ad8321cf31b299a33147d524b9c36c6c61b0b3e099ff867": {
     "saved_at": "2026-08-23T18:00:37.746Z",
     "schema_name": "trendypatike_verified_post",
