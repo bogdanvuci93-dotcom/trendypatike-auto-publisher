@@ -1,4 +1,153 @@
 {
+  "9d82da0e748291835ad8321cf31b299a33147d524b9c36c6c61b0b3e099ff867": {
+    "saved_at": "2026-08-23T18:00:37.746Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "Sve ključne tvrdnje potvrđene iz Nike arhiva i About.Nike; izvori navedeni.",
+      "post": {
+        "topic_title": "Kako je Nike Cortez od running modela postao pop-kulturni klasik",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "BILL BOWERMAN JE",
+              "accent": false
+            },
+            {
+              "text": "NAPRAVIO NIKE CORTEZ",
+              "accent": true
+            },
+            {
+              "text": "KAO PATIKE ZA TRČANJE",
+              "accent": false
+            }
+          ],
+          "subheadline": "JEDNOSTAVNA PRIČA O NASTANKU I PROMENI ULOGE"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "CORTEZ JE IMAO",
+              "accent": false
+            },
+            {
+              "text": "PUNA SREDNJA PENA",
+              "accent": true
+            },
+            {
+              "text": "ZA BOLJE UMEKŠANJE",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Model je prvi put kombinovao celu srednju penu i spužvast sloj ispod gornjeg dela."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Nike: 'The History of the Nike Cortez'."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "About.Nike: 'Bill Bowerman: Nike’s Original Innovator'."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "NIKE CORTEZ JE PREŠAO",
+              "accent": false
+            },
+            {
+              "text": "U POP KULTURU",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Nakon uspeha kod trkača, ljudi su nosili Cortez u svakodnevnom životu i modnim stilovima."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Nike: 'The History of the Nike Cortez'."
+            }
+          ],
+          "question": "ŽELIŠ PRIČU O FILMU ILI O ULICI?"
+        },
+        "caption": "CORTEZ JE NASTAO KAO PATIKA ZA TRČANJE, A POSTAO JE I SVAKODNEVNA SILUETA.",
+        "hashtags": [
+          "#NIKECORTEZ",
+          "#TRČANJE",
+          "#RETROSNEAKER",
+          "#PATIKE",
+          "#BILLBOWERMAN",
+          "#1970S",
+          "#TRENDYPATIKE"
+        ],
+        "image_prompts": [
+          "CLOSE-UP OF AN ORIGINAL 1970S NIKE CORTEZ RUNNING SHOE ON A VINTAGE TARTAN TRACK, CINEMATIC LIGHTING, WORN TEXTURE, CLEAR CORTEZ SILHOUETTE",
+          "1970S URBAN STREET SCENE WITH SEVERAL PEOPLE WEARING NIKE CORTEZ IN RETRO CASUAL OUTFITS, FILM-GRAIN, WARM TONES",
+          "MUSEUM-STYLE DISPLAY OF A NIKE CORTEZ ON A PEDESTAL WITH A SMALL DESCRIPTIVE PLAQUE, RETRO LIGHTING, ARCHIVAL FEEL"
+        ],
+        "sources": [
+          {
+            "title": "The History of the Nike Cortez",
+            "publisher": "Nike.com",
+            "url": "https://www.nike.com/a/cortez-history/"
+          },
+          {
+            "title": "Bill Bowerman: Nike’s Original Innovator",
+            "publisher": "About.Nike.com",
+            "url": "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "BILL BOWERMAN JE DIZAJNIRAO NIKE CORTEZ.",
+            "source_urls": [
+              "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
+            ]
+          },
+          {
+            "claim": "CORTEZ JE UVEO KOMBINACIJU CELE SREDNJE PENE SA SPUŽVASTIM SLOJEM ISPOD GORNJEG DELA.",
+            "source_urls": [
+              "https://www.nike.com/a/cortez-history/"
+            ]
+          },
+          {
+            "claim": "CORTEZ JE PREŠAO IZ TRČANJA U SVAKODNEVNU I MODNU UPOTREBU.",
+            "source_urls": [
+              "https://www.nike.com/a/cortez-history/"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/cortez-history?msockid=13825367708164153e4045ea71ff65de",
+      "https://about.nike.com/es-ES/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/es-419/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/fr/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.smithsonianmag.com/arts-culture/one-under-the-sun-155647928/",
+      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/it/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
+      "https://about.nike.com/nl/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/sg/t/cortez-textile-mens-shoes-HhM7W9",
+      "https://about.nike.com/stories/jess-hull-interview-offseason-training",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
+      "https://media.about.nike.com/files/19c9f037-13be-4d9c-8201-3bedea9f3614/Nike-Inside-the-Lines-Code-of-Conduct_May_2019.pdf",
+      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY10-11_Nike_CR_report.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY07_09_Nike__CR_report.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf"
+    ]
+  },
   "a168caa2ece7fb7a3f4b8302a9de41c1d1ceb91d583548c0a3e5dddbbfdcb1d5": {
     "saved_at": "2026-08-23T18:00:08.658Z",
     "schema_name": "trendypatike_post",
