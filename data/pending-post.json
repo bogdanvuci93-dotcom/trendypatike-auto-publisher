@@ -136,5 +136,10 @@
     "public/posts/2026-08-23-nike-mag-38d30dbf1214/02.jpg",
     "public/posts/2026-08-23-nike-mag-38d30dbf1214/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014365940944388"
+    ],
+    "carousel_id": ""
+  }
 }
