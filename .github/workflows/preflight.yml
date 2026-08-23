@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - "src/**"
+      - "scripts/**"
       - "assets/**"
       - "data/topics.json"
       - "data/fallback-posts.json"
@@ -42,7 +43,7 @@ jobs:
       - name: Install pinned dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Mirror live fallback library
+      - name: Mirror live policy
         run: |
           set -euo pipefail
           jq empty data/fallback-posts.json
@@ -56,6 +57,8 @@ jobs:
           fi
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
+          python scripts/harden_content_policy.py
+          grep -n "hardenImagePrompts\|simplifyKidPhrase" src/content.mjs
           echo "Preflight fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher self-test
