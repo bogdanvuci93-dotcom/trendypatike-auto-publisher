@@ -137,8 +137,20 @@
         "https://www.nike.com/a/cortez-history/",
         "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
       ]
+    },
+    {
+      "date": "2026-08-23",
+      "topic_id": "nike-mag",
+      "seed_topic": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
+      "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
+      "media_id": "17900770803348033",
+      "sources": [
+        "https://www.nike.com/a/nike-air-mag",
+        "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
+        "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
+      ]
     }
   ],
   "last_publish_date": "2026-08-23",
-  "last_media_id": "18194393386385753"
+  "last_media_id": "17900770803348033"
 }
