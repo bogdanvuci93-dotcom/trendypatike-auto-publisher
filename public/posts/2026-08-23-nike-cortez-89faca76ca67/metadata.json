@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-23",
-  "stage": "ready",
+  "generated_at": "2026-08-23T20:26:50.638Z",
   "fingerprint": "89faca76ca67",
   "seed": {
     "id": "nike-cortez",
@@ -133,10 +132,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-23-nike-cortez-89faca76ca67/01.jpg",
-    "public/posts/2026-08-23-nike-cortez-89faca76ca67/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
