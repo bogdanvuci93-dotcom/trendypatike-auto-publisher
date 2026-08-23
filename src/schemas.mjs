@@ -3,7 +3,10 @@ const headlineLine = {
   additionalProperties: false,
   required: ["text", "accent"],
   properties: {
-    text: { type: "string", maxLength: 28 },
+    // Do not force the model to cut Serbian words at an arbitrary character
+    // boundary. Rendering has its own word-aware wrapping and every slide is
+    // independently capped to 18 visible words by content.mjs.
+    text: { type: "string", minLength: 1, maxLength: 120 },
     accent: { type: "boolean" }
   }
 };
