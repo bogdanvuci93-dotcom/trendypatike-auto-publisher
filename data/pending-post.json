@@ -131,5 +131,10 @@
     "public/posts/2026-08-24-jordan-13-last-dance-auction-43bed1af6f2b/01.jpg",
     "public/posts/2026-08-24-jordan-13-last-dance-auction-43bed1af6f2b/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014497142944388"
+    ],
+    "carousel_id": ""
+  }
 }
