@@ -149,8 +149,20 @@
         "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
         "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
       ]
+    },
+    {
+      "date": "2026-08-24",
+      "topic_id": "jordan-13-last-dance-auction",
+      "seed_topic": "Kako su Michael Jordanove Air Jordan 13 iz Last Dance postale milionski aukcijski rekord",
+      "topic_title": "Kako su Michael Jordanove Air Jordan 13 iz Last Dance postale milionski aukcijski rekord",
+      "media_id": "17884224957474816",
+      "sources": [
+        "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game?locale=en",
+        "https://www.sothebys.com/en/consign/sports-memorabilia",
+        "https://www.sothebys.com/en/digital-catalogues/victoriam-part-i"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-23",
-  "last_media_id": "17900770803348033"
+  "last_publish_date": "2026-08-24",
+  "last_media_id": "17884224957474816"
 }
