@@ -1,4 +1,130 @@
 {
+  "24348265424c88f72078e4bb3f9af36f2664d8eb106f3f3e9d1086d7f9f21e3a": {
+    "saved_at": "2026-08-24T18:22:06.100Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako su Michael Jordanove Air Jordan 13 iz Last Dance postale milionski aukcijski rekord",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "AIR JORDAN 13 IZ LAST DANCE",
+            "accent": true
+          },
+          {
+            "text": "IZLAZE NA AUKCIJU KOD SOTHEBY'S",
+            "accent": true
+          }
+        ],
+        "subheadline": "Par nošen na NBA finalu 1998., ponuđen na Sotheby’s aukciji"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "PAR JE POTVRĐEN KAO NOŠEN U SEZONI 1997–1998",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Sotheby’s navodi da su to Air Jordan 13 koje je nosio Michael Jordan u 1998."
+          },
+          {
+            "tag": "WOW",
+            "text": "Sotheby’s već drži rekord za najskuplje nošene patike — AIR SHIP iz rookie sezone prodat za 1,47 MIL"
+          },
+          {
+            "tag": "DETAIL",
+            "text": "Ovaj AJ 13 lot je izložen u Sotheby’s katalogu kao ‘The Last Dance’ par"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "ŽELIŠ LI DA POGLEDAŠ DETALJE LOT-A",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Sotheby’s daje fotografije, opis i potvrdu mečeva za par patika."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Pogledaj Sotheby’s stranicu lota za tačne slike i opis."
+          }
+        ],
+        "question": "Hoćeš linkove do Sotheby’s stranica?"
+      },
+      "caption": "Air Jordan 13 nošene u sezoni ‘The Last Dance’ našle su se u Sotheby’s katalogu i postavile nove vrednosne primere za MJ memorabiliju. Pogledaj aukcijske stranice za slike i tačne podatke o prodaji.",
+      "hashtags": [
+        "#MichaelJordan",
+        "#AirJordan13",
+        "#LastDance",
+        "#Sothebys",
+        "#SneakerAukcija",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "Close-up photo of a single pair of NIKE AIR JORDAN 13 black and red, game-worn scuffs, size 13, 1998 Finals era, shoe occupying 65% of frame, premium auction editorial lighting",
+        "Macro close-up of NIKE AIR SHIP rookie year sneaker showing wear and signature details, 65% frame, museum-auction style lighting",
+        "Wide editorial shot of Michael Jordan 1998 Finals era wearing black red AIR JORDAN 13 on-court action, clear view of shoes and court, premium auction photo style"
+      ],
+      "sources": [
+        {
+          "title": "Michael Jordan 1998 NBA Finals ‘The Last Dance’ Game Worn and Signed Air Jordan XIIIs",
+          "publisher": "Sotheby’s",
+          "url": "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game"
+        },
+        {
+          "title": "Sell Sports Memorabilia with Sotheby’s — records and notable sales (mentions Air Ship sale)",
+          "publisher": "Sotheby’s",
+          "url": "https://www.sothebys.com/en/sell/sports-memorabilia?_amp=true"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Sotheby’s je u svom izveštaju naveo da su Air Jordan 13 iz 1998. izložene kao nošene od strane Michaela Jordana.",
+          "source_urls": [
+            "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game"
+          ]
+        },
+        {
+          "claim": "Sotheby’s navodi da su najskuplje prodate nošene patike bile Michael Jordanove Rookie Air Ship, prodate za 1,47 MILIONA DOLARA.",
+          "source_urls": [
+            "https://www.sothebys.com/en/sell/sports-memorabilia?_amp=true"
+          ]
+        },
+        {
+          "claim": "Sotheby’s katalog za ‘The Last Dance’ sadrži detalje lota i fotografije Air Jordan 13.",
+          "source_urls": [
+            "https://www.sothebys.com/en/digital-catalogues/victoriam-part-i"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
+      "https://www.sothebys.com/en/articles/top-10-most-valuable-nba-jerseys-ever-sold-at-sothebys",
+      "https://www.sothebys.com/en/sell/sports-memorabilia?_amp=true",
+      "https://www.sothebys.com/en/consign/sports-memorabilia",
+      "https://www.sothebys.com/en/buy/auction/2024/court-classics-basketball-sneakers/michael-jordan-chicago-bulls-1997-1998-the-last?locale=it",
+      "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game?locale=en",
+      "https://www.sothebys.com/en/digital-catalogues/victoriam-part-i",
+      "https://www.sothebys.com/en/buy/auction/2024/court-classics-basketball-sneakers/michael-jordan-chicago-bulls-the-last-dance-1997",
+      "https://www.sothebys.com/en/digital-catalogues/victoriam-part-ii",
+      "https://www.sothebys.com/en/digital-catalogues/invictus-part-i",
+      "https://www.sothebys.com/en/departments/luxury-collectibles?0000019d-2aeb-d99a-a1bf-7bffb03c0000-page=14&_fragmentContext=WyIvY29yZS9wYWdlL0RlcGFydG1lbnREZXRhaWxQYWdlLmhicyIsImFib3ZlIiwiYWJvdmU6MSIsImZyYWdtZW50UGFyYW1zIiwiZnJhZ21lbnRQYXJhbXMiLCJmcmFnbWVudFBhcmFtcyIsImZyYWdtZW50UGFyYW1zIiwiZnJhZ21lbnRQYXJhbXMiLCJmcmFnbWVudFBhcmFtcyIsImZyYWdtZW50UGFyYW1zIiwiZnJhZ21lbnRQYXJhbXMiLCJmcmFnbWVudFBhcmFtcyIsImZyYWdtZW50UGFyYW1zIiwiZnJhZ21lbnRQYXJhbXMiLCJmcmFnbWVudFBhcmFtcyIsIi9jb3JlL2xpc3QvTGlzdC5oYnMiLCJmcmFnbWVudFBhcmFtcyJd&_fragmentId=0000019d-2aeb-d99a-a1bf-7bffb03c0000&_fragmentParent=0000016d-16fd-d23f-affd-f6fdebac0001&_fragmentSignature=ba2d0381b697e509f23f4e0136b2ce71eed7d6c5&locale=fr",
+      "https://www.sothebys.com/en/departments/sneakers-collectibles",
+      "https://www.sothebys.com/results-n10748.pdf",
+      "https://www.sothebys.com/design-agenda-the-collection-of-michael-maharam-catalogue.pdf",
+      "https://www.sothebys.com/n10750-price-list.pdf",
+      "https://www.sothebys.com/n10706-ricky-jay.pdf?locale=en"
+    ]
+  },
   "fab29cc4501d6170deb3cabb181a0971e655b3e0605d47ff7c740e347b24a325": {
     "saved_at": "2026-08-23T20:42:40.992Z",
     "schema_name": "trendypatike_verified_post",
@@ -2179,151 +2305,6 @@
       "https://report.adidas-group.com/2017/media/pdf/EN/adidas_AR_2017_Shareholders_EN.pdf",
       "https://report.adidas-group.com/2019/en/servicepages/downloads/files/additional_information_adidas_ar19.pdf",
       "https://report.adidas-group.com/2019/en/servicepages/downloads/files/adidas_annual_report_2019.pdf"
-    ]
-  },
-  "f6398c2ca7d7574c7dd6ce63505cf21ceacb0cf46c1b3679557442a2dec1a612": {
-    "saved_at": "2026-08-21T10:47:41.412Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je adidas Superstar iz košarke prešao u hip-hop i ulicu",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "SUPERSTAR JE NASTAO KAO KOŠARKAŠKA PATKA",
-            "accent": true
-          },
-          {
-            "text": "SA POZNATIM 'SHELL‑TOE' PREDNJIM DELOM",
-            "accent": false
-          }
-        ],
-        "subheadline": "RUN‑DMC JE PRETVORIO PATIKU U HIP‑HOP ZNAK"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "IZ TERENA NA SCENU: RUN‑DMC SKIDA PERTLE",
-            "accent": true
-          },
-          {
-            "text": "I PEVA 'MY ADIDAS' — PATIKA POSTAJE ULIC",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "Fakt",
-            "text": "SUPERSTAR JE PRVOBITNO DIZAJNIRAN ZA KOŠARKU SADAŠNJE ŠKOLE."
-          },
-          {
-            "tag": "Fakt",
-            "text": "RUN‑DMC JE NOSIO SUPERSTAR I NAPISAO PESMU KOJA JE UTVRDILA NJEN STATUS ULIČNE IKONE."
-          },
-          {
-            "tag": "Fakt",
-            "text": "DANAS JE SUPERSTAR SIMBOL HIP‑HOPA I STREET STYLA."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "SUPERSTAR JE POSTALA GLOBALNA ULICNA IK",
-            "accent": true
-          },
-          {
-            "text": "ONA I DALJE IMA SVOJ ORIGINALNI SHELL‑TO",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "Fakt",
-            "text": "SUPERSTAR SE RAZVILA IZ MODELA SUPERGRIP I POSTALA LOW‑TOP KOŠARKAŠKA PATIKA."
-          },
-          {
-            "tag": "Fakt",
-            "text": "1980‑IH RUN‑DMC JE POMOGAO DA PATIKA PREĐE U HIP‑HOP KULTURU."
-          }
-        ],
-        "question": "Koja boja ti najviše liči na ulicu?"
-      },
-      "caption": "Superstar je počeo kao košarkaška patika sa prepoznatljivim shell‑toe, a Run‑DMC je svoju ljubav ka njima pretvorio u pesmu i izgled ulice. Danas je Superstar symbol hip‑hop i street stila.",
-      "hashtags": [
-        "#Superstar",
-        "#adidas",
-        "#HipHop",
-        "#StreetStyle",
-        "#ShellToe",
-        "#RunDMC",
-        "#Trendypatike"
-      ],
-      "image_prompts": [
-        "close-up vintage shell-toe adidas Superstar sneaker on a wooden basketball court, clear view of shell toe and leather upper, 1970s basketball atmosphere",
-        "Run-DMC on stage holding adidas Superstar sneakers, late 1980s hip-hop concert scene, crowd and microphones visible, performers without laces",
-        "modern street scene with people wearing adidas Superstar shoes in different colors, urban mural background, daytime"
-      ],
-      "sources": [
-        {
-          "title": "We Gave the World a Superstar: The Brief History of a Timeless Original",
-          "publisher": "adidas.com",
-          "url": "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original"
-        },
-        {
-          "title": "Hip Hop's Superstar: How Music Influenced Sneaker Style",
-          "publisher": "adidas.com",
-          "url": "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style"
-        },
-        {
-          "title": "History - adidas Group",
-          "publisher": "adidas-group.com",
-          "url": "https://www.adidas-group.com/en/about/history"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Superstar je prvobitno dizajnirana kao low‑top košarkaška patika sa shell‑toe.",
-          "source_urls": [
-            "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
-            "https://www.adidas-group.com/en/about/history"
-          ]
-        },
-        {
-          "claim": "Run‑DMC je popularizovao Superstar u hip‑hop kulturi pesmom 'My Adidas'.",
-          "source_urls": [
-            "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style",
-            "https://www.adidas-group.com/en/about/history"
-          ]
-        },
-        {
-          "claim": "Superstar je danas deo streetwear i hip‑hop ikonografije.",
-          "source_urls": [
-            "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
-            "https://www.adidas.com/us/go/campaign/originals/archive/superstar"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.adidas.com/us/blog/1060274-we-gave-the-world-a-superstar-the-brief-history-of-a-timeless-original",
-      "https://www.adidas-group.com/en/about/history",
-      "https://www.adidas.com/us/blog/1003128-hip-hops-superstar-how-music-influenced-sneaker-style",
-      "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
-      "https://www.adidas.com/us/go/campaign/originals/archive/superstar",
-      "https://www.adidas.com/us/blog/966200-the-history-of-adidas-basketball-origins-of-the-2023-collection",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history",
-      "https://www.adidas.com/us/blog/469118-adidas-superstar-shoes-a-history-of-shelltoe-style",
-      "https://report.adidas-group.com/2024/en/group-management-report-our-company/description-of-business-model/product-and-marketing.html",
-      "https://news.adidas.com/superstar",
-      "https://report.adidas-group.com/2020/en/at-a-glance/2020-stories/product-highlights.html",
-      "https://www.adidas-group.com/en/magazine/series/history",
-      "https://report.adidas-group.com/2018/fileadmin/user_upload/adidas_Annual_Report_GB-2018_Shareholders_EN.pdf",
-      "https://report.adidas-group.com/2019/en/servicepages/downloads/files/adidas_annual_report_2019.pdf",
-      "https://report.adidas-group.com/2025/en/_assets/downloads/our-company-adidas-ar25.pdf",
-      "https://report.adidas-group.com/2024/en/_assets/downloads/our-company-adidas-ar24.pdf",
-      "https://brand.assets.adidas.com/image/upload/v1734702932/Ty_C_EOSS_2f8b9d2cd1.pdf",
-      "https://brand.assets.adidas.com/image/upload/v1756739852/PE_TC_ADICLUB_FESTIVAL_retail_adidas_d4cb26abac.pdf"
     ]
   }
 }
