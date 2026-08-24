@@ -1,1 +1,130 @@
-{}
+{
+  "date": "2026-08-24",
+  "stage": "verified",
+  "fingerprint": "43bed1af6f2b",
+  "seed": {
+    "id": "jordan-13-last-dance-auction",
+    "topic": "Kako su Michael Jordanove Air Jordan 13 iz Last Dance postale milionski aukcijski rekord",
+    "category": "Michael Jordan / rekord / novac",
+    "preferred_domains": [
+      "sothebys.com",
+      "nike.com",
+      "nba.com"
+    ],
+    "visual_subject": "Michael Jordan 1998 Finals era, black red Air Jordan 13, premium auction editorial, record price visual"
+  },
+  "post": {
+    "topic_title": "Kako su Michael Jordanove Air Jordan 13 iz Last Dance postale milionski aukcijski rekord",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "AIR JORDAN 13 IZ THE LAST DANCE",
+          "accent": true
+        },
+        {
+          "text": "IZLOŽENE NA SOTHEBY'S AUKCIJI",
+          "accent": false
+        }
+      ],
+      "subheadline": "PAR NOŠEN U NBA FINALU 1998. I IZLOŽEN U KATALOGU SOTHEBY'S."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PAR JE FOTOMATCHIRAN I AUTENTIFIKOVAN",
+          "accent": false
+        },
+        {
+          "text": "PROCENA 2 DO 4 MILIONA DOLARA",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "Sotheby’s opisuje par kao nošen od strane Michaela Jordana u Finalu 1998."
+        },
+        {
+          "tag": "WOW",
+          "text": "Sotheby’s navodi rekordnu prodaju Michael Jordan Rookie AIR SHIP patika za 1,47 miliona dolara."
+        },
+        {
+          "tag": "DETAIL",
+          "text": "Katalog uključuje fotografije, certifikat MeiGray i fotomatching izveštaj."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "HOĆEŠ LI LINKOVE DO STRANICA LOTA?",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "Sotheby’s stranice sadrže sve slike i informacije o prodaji i stanju."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "Mogu poslati direktne Sotheby’s stranice lota i kataloga ako želiš."
+        }
+      ],
+      "question": "Hoćeš linkove do Sotheby’s stranica?"
+    },
+    "caption": "AIR JORDAN 13 iz Finala 1998. fotomatchirane su i izložene na Sotheby’s, sa procenom 2,4 miliona USD.",
+    "hashtags": [
+      "#MichaelJordan",
+      "#AirJordan13",
+      "#TheLastDance",
+      "#Sothebys",
+      "#SneakerAukcija",
+      "#TrendyPatike"
+    ],
+    "image_prompts": [
+      "Close-up photo of NIKE AIR JORDAN 13 black and red, game-worn scuffs, size 13, 1998 NBA Finals era, shoe filling 65% of frame, museum-auction lighting, show signed toe-box and MeiGray tag EXACT SLIDE FACT TO ILLUSTRATE: AIR JORDAN 13 IZ THE LAST DANCE IZLOŽENE NA SOTHEBY'S AUKCIJI. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "Macro close-up of NIKE AIR SHIP rookie year sneaker, game-worn details and stitching, shoe filling 65% of frame, museum-auction lighting, emphasize sole and signature details in high resolution EXACT SLIDE FACT TO ILLUSTRATE: PAR JE FOTOMATCHIRAN I AUTENTIFIKOVAN PROCENA 2 DO 4 MILIONA DOLARA. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic.",
+      "Wide editorial shot showing MICHAEL JORDAN wearing black red AIR JORDAN 13 on-court during 1998 NBA Finals, clear view of shoes and court, premium auction photo style EXACT SLIDE FACT TO ILLUSTRATE: HOĆEŠ LI LINKOVE DO STRANICA LOTA?. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic."
+    ],
+    "sources": [
+      {
+        "title": "Michael Jordan 1998 NBA Finals ‘The Last Dance’ Game Worn and Signed Air Jordan XIIIs",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game?locale=en"
+      },
+      {
+        "title": "Sell Sports Memorabilia with Sotheby’s, records and notable sales",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/consign/sports-memorabilia"
+      },
+      {
+        "title": "VICTORIAM | PART I, digital catalogue (Michael Jordan Air Jordan XIIIs)",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/digital-catalogues/victoriam-part-i"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Sotheby’s opisuje par kao nošen od strane Michaela Jordana u Finalu 1998.",
+        "source_urls": [
+          "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game?locale=en",
+          "https://www.sothebys.com/en/digital-catalogues/victoriam-part-i"
+        ]
+      },
+      {
+        "claim": "Sotheby’s je procenio par na 2 000 000 do 4 000 000 USD u katalogu lota.",
+        "source_urls": [
+          "https://www.sothebys.com/en/buy/auction/2023/victoriam-part-i/michael-jordan-1998-nba-finals-the-last-dance-game?locale=en"
+        ]
+      },
+      {
+        "claim": "Sotheby’s navodi da su najskuplje nošene patike Michael Jordanove Rookie AIR SHIP, prodate za 1,47 miliona USD.",
+        "source_urls": [
+          "https://www.sothebys.com/en/consign/sports-memorabilia"
+        ]
+      }
+    ]
+  }
+}
