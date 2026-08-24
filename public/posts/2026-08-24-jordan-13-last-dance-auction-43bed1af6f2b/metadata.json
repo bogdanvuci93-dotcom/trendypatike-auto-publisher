@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-24",
-  "stage": "ready",
+  "generated_at": "2026-08-24T18:23:27.653Z",
   "fingerprint": "43bed1af6f2b",
   "seed": {
     "id": "jordan-13-last-dance-auction",
@@ -126,10 +125,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-24-jordan-13-last-dance-auction-43bed1af6f2b/01.jpg",
-    "public/posts/2026-08-24-jordan-13-last-dance-auction-43bed1af6f2b/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
