@@ -1,4 +1,141 @@
 {
+  "471e51aaf025d669b27f490d2e598001d6b771b4a732d1e011c13a215ae7cc6c": {
+    "saved_at": "2026-08-25T17:21:24.903Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "Sotheby’s sources confirm provenance, photomatch analysis, private 2021 sale to RARES for $1.8M.",
+      "post": {
+        "topic_title": "Kako su Kanye Westove Nike Air Yeezy sa Grammy nastupa prodate za ogroman iznos",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "KANYE WEST NA GRAMMY-U 2008",
+              "accent": true
+            },
+            {
+              "text": "NOSIO JE CRNE NIKE AIR YEEZY",
+              "accent": true
+            }
+          ],
+          "subheadline": "KRATKA PRIČA O PATIKAMA KOJE SU PROMENILE KOLEKCIONARSTVO"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "PATIKE SU PRODATE PRIVATNO 2021 ZA 1,8 MILIONA DOLARA",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "SOTHEBY’S JE 2021 POTVRDIO PRIVATNU PRODAJU KUPCU RARES."
+            },
+            {
+              "tag": "DETALJ",
+              "text": "SOTHEBY’S JE POREĐENJEM FOTOGRAFIJA POTVRDIO DA SU TO PATIKE SA NASTUPA."
+            },
+            {
+              "tag": "IZVOR",
+              "text": "Analiza je uključivala ožiljke, nabor i perforacije na koži."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "NE KORISTITE OVU SLIDU",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "NOTE",
+              "text": "Rezervno polje — ne koristi se."
+            },
+            {
+              "tag": "EXTRA",
+              "text": "— — — — — — — — — —"
+            }
+          ],
+          "question": "—"
+        },
+        "caption": "KANYE WEST JE NA 50. GRAMMY-IMA 2008 NOSIO CRNE NIKE AIR YEEZY. SOTHEBY’S JE 2021 PRIVATNO PRODAO PATIKE KUPCU RARES ZA 1,8 MILIONA DOLARA.",
+        "hashtags": [
+          "#KanyeWest",
+          "#AirYeezy",
+          "#Sothebys",
+          "#Grammy2008",
+          "#RARES",
+          "#TrendyPatike"
+        ],
+        "image_prompts": [
+          "FOTO KANYE WEST NA 50. GRAMMY-IMA 10. FEBRUARA 2008, PUNA TELA, JASAN PRIKAZ CRNIH NIKE AIR YEEZY NA NOGAMA, SCENSKO OSVETLJENJE",
+          "PAR CRNIH NIKE AIR YEEZY U LASEROVANOJ DRVENOJ KUTIJI KOJE JE PRODAO SOTHEBY'S, DETALJ PARE, BOX VELIKE, MUZEJSKO OSVETLJENJE, JASAN POGLED NA REMEN I PERFORACIJE, PRIKAZ PARE KOJU JE KUPIO RARES",
+          ""
+        ],
+        "sources": [
+          {
+            "title": "Kanye West ‘Grammy Worn’ Nike Air Yeezy Sample",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"
+          },
+          {
+            "title": "Sole Traders – Behind the Hype and Headlines of Sneaker Investment",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment"
+          },
+          {
+            "title": "SOTHEBY'S TO OFFER KANYE WEST 'GRAMMY WORN' NIKE AIR YEEZY SAMPLE FROM 2008",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Patike koje je Kanye nosio na Grammy-ima 2008 su prodate privatno 2021 za 1,8 miliona dolara.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
+              "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true"
+            ]
+          },
+          {
+            "claim": "Sotheby’s je 2021 potvrdio privatnu prodaju kupcu RARES.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
+              "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true"
+            ]
+          },
+          {
+            "claim": "Patike su identifikovane poređenjem fotografija i analize oštećenja i perforacija.",
+            "source_urls": [
+              "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample",
+      "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
+      "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true",
+      "https://www.sothebys.com/en/articles/2021-historic-year-in-review",
+      "https://www.sothebys.com/en/press/2021-historic-year-in-review",
+      "https://www.sothebys.com/en/articles?_requestType=ajax&p=219&s=0",
+      "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-yeezy-2-mismatch-sample-signed-by-kanye",
+      "https://www.sothebys.com/en/articles?_requestType=ajax&p=216&s=0",
+      "https://www.sothebys.com/en/digital-catalogues/scarce-air",
+      "https://www.sothebys.com/en/buy/auction/2021/scarce-air",
+      "https://www.sothebys.com/en/buy/auction/2022/modern-collectibles/nike-air-yeezy-2-red-october-size-9-5",
+      "https://www.sothebys.com/en/buy/fashion/_nike-air-yeezy-2-red-october-sample-96ed",
+      "https://www.sothebys.com/results-n10748.pdf",
+      "https://www.sothebys.com/n10750-price-list.pdf",
+      "https://www.sothebys.com/en/treasures-l21307-catalogue.pdf",
+      "https://www.sothebys.com/chinese-art-from-the-brooklyn-museum-price-list.pdf"
+    ]
+  },
   "f90ebc88ce794266d67e995b4ff24c8eaa9406cc5170cac841119949746461d9": {
     "saved_at": "2026-08-25T17:20:51.518Z",
     "schema_name": "trendypatike_post",
@@ -2127,155 +2264,6 @@
       "https://media.about.nike.com/files/bd966cae-2644-4f28-b120-17131c0b005b/ZION-3_Zion-Soundbites.pdf",
       "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
       "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_M_W_Jordan.pdf?cb=20200915"
-    ]
-  },
-  "7e088a0e7819555b83d5d6eb5e9703c35b854d4c4fc71521808c1fc473b88c60": {
-    "saved_at": "2026-08-21T12:14:51.876Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All major factual claims verified on Nike domains (nike.com and about.nike.com). Draft rewritten to meet clarity, simplicity, and formatting rules.",
-      "post": {
-        "topic_title": "Kako je Air Force 1 od košarkaške patike postao globalni lifestyle klasik",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "AIR FORCE 1 JE DIZAJNIRAN 1982. ZA KOŠAR",
-              "accent": true
-            },
-            {
-              "text": "PRVA PATIKA SA NIKE AIR AMORTIZACIJOM.",
-              "accent": true
-            },
-            {
-              "text": "DIZAJN: BRUCE KILGORE.",
-              "accent": false
-            }
-          ],
-          "subheadline": "POSTALA JE IKONA ULIČNE MODE I KULTURE."
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "1982: AIR FORCE 1 JE PREDSTAVLJEN KAO KO",
-              "accent": true
-            },
-            {
-              "text": "POČETAK NA TERENU; BRZO JE PRIMETAN U B",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FAKT",
-              "text": "1982: NIKE JE PUSTIO AIR FORCE 1 — PRVA KOŠARKAŠKA PATIKA SA NIKE AIR. (NIKE)."
-            },
-            {
-              "tag": "FAKT",
-              "text": "1983–1985: IGRAČI NBA LIGE SU NOŠENJEM DAVALI VIDLJIVOST, A DO 1985. PATIKA POČINJE DA PRELAZI U ULICU. (NIKE)."
-            },
-            {
-              "tag": "FAKT",
-              "text": "DIZAJNER BRUCE KILGORE JE RADIO NA SILUETI; RANI UZORCI UKAZUJU NA PROMENE MATERIJALA I DIZAJNA. (NIKE SNKRS)."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "OD 1985. DO DANAS: OGRANIČENA IZDANJA I",
-              "accent": true
-            },
-            {
-              "text": "NIKE NASTAVLJA SARADNJE I NOVA IZDANJA (",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FAKT",
-              "text": "OD 1985.: AIR FORCE 1 JE POSTAO MODELSKI I ULICNI SIMBOL KROZ OGRANIČENA IZDANJA I KULTURNE PRIMENE. (NIKE)."
-            },
-            {
-              "tag": "FAKT",
-              "text": "NIKE IZDANJA UKLJUČUJU SPECIJALNE PROIZVODE I SKATE VERZIJU 'NIKE SB AIR FORCE 1' KOJU JE NIKE ZVANIČNO PREDSTAVIO. (about.nike.com)."
-            }
-          ],
-          "question": "KOJI JE TVOJ OMILJENI BELE PATIKE?"
-        },
-        "caption": "JEDNOSTAVNO: AIR FORCE 1 JE NASTAO 1982. KAO KOŠARKAŠKA PATIKA SA NIKE AIR; OD 1985. JE PREŠAO U ULIČNU IKONU ZAHVALJUĆI OGRANIČENIM IZDANJIMA, KULTURI I SARADNJAMA.",
-        "hashtags": [
-          "#AirForce1",
-          "#TrendyPatike",
-          "#PatikeKultura",
-          "#Nike",
-          "#UličniStil"
-        ],
-        "image_prompts": [
-          "WHITE AIR FORCE 1 ON A 1982 INDOOR BASKETBALL COURT, SINGLE SHOE CENTERED, FOCUS ON AIR SOLE AND LEATHER, 1980S LIGHTING",
-          "PAIR OF WHITE AIR FORCE 1s ON A CITY SIDEWALK NEXT TO GRAFFITI AND A BOOMBOX, DAYTIME, SHOWING STREET TRANSITION (1985-STYLE)",
-          "CLOSE-UP OF NIKE SB AIR FORCE 1 SKATE VERSION ON A SKATE RAMP WITH BOARD AND STICKERED BOX, PRODUCT LAUNCH AESTHETIC"
-        ],
-        "sources": [
-          {
-            "title": "Air Force 1. Nike.com (product/history pages)",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/Air-Force-1/"
-          },
-          {
-            "title": "DNA Artifacts - Air Force 1 Prototype (1982). Nike SNKRS",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982"
-          },
-          {
-            "title": "The All‑New Nike SB Air Force 1 Delivers a Refined Fit and Iconic Style — NIKE, Inc.",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Air Force 1 je dizajniran i predstavljen 1982. kao prva košarkaška patika sa Nike Air amortizacijom.",
-            "source_urls": [
-              "https://www.nike.com/Air-Force-1/",
-              "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982"
-            ]
-          },
-          {
-            "claim": "Do sredine 1980‑ih (oko 1985.) Air Force 1 prelazi sa terena na uličnu modu zahvaljujući vidljivosti u NBA i ograničenim izdanjima.",
-            "source_urls": [
-              "https://www.nike.com/Air-Force-1/",
-              "https://www.nike.com/ph/a/air-force-1-history/"
-            ]
-          },
-          {
-            "claim": "Nike i dalje koristi Air Force 1 kroz specijalna izdanja i nove verzije, uključujući Nike SB Air Force 1 skate izdanja.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/Air-Force-1/",
-      "https://www.nike.com/launch/t/nike-dna-artifacts-air-force-1-prototype-1982",
-      "https://about.nike.com/en/newsroom/releases/nike-unveils-new-grail-skate-shoe-nike-sb-air-force-1",
-      "https://www.nike.com/ph/a/air-force-1-history/",
-      "https://www.nike.com/a/air-force-1-sizing",
-      "https://www.nike.com/ch/a/air-force-1-history/",
-      "https://about.nike.com/en/newsroom?area=newsroom&page=2&type=release",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/Nike-Launches-Marketing-Campaign-To-Debut-Its-New-Air-Force-25-And-Celebrate-Its-Air-Force-1/default.aspx",
-      "https://www.nike.com/t/air-force-1-07-mens-shoes-XVPIszaq/FZ0627-010",
-      "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
-      "https://www.nike.com/be/fr/a/air-force-1-histoire",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2006/Nike-Air-Force-1-Music-Project-Celebrates-25-Years-of-a-Cultural-Icon/default.aspx",
-      "https://media.about.nike.com/files/d3df5655-4772-41c7-af0d-9f1c99badb4b/FY18_Nike_Impact-Report_Final.pdf",
-      "https://nmp.about.nike.com/originals/about/prod/a9da025c-fc41-486c-99df-bfb41bef2d41/FY21_NIKE-Impact-Report.pdf?s=1b83e0bd219538617f6714dab7d659fe4ee67c0cf9c86bb996b8eee60e5021a3",
-      "https://investors.nike.com/files/doc_financials/2012/docs/nike-2012-form-10K.pdf",
-      "https://media.about.nike.com/files/9e0cc4dd-8d70-4476-964b-dc8fef9bb636/FY23_Nike_Impact_Report.pdf?download=inline",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
     ]
   }
 }
