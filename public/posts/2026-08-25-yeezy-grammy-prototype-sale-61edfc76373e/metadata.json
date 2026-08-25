@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-25",
-  "stage": "ready",
+  "generated_at": "2026-08-25T17:22:40.951Z",
   "fingerprint": "61edfc76373e",
   "seed": {
     "id": "yeezy-grammy-prototype-sale",
@@ -122,10 +121,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-25-yeezy-grammy-prototype-sale-61edfc76373e/01.jpg",
-    "public/posts/2026-08-25-yeezy-grammy-prototype-sale-61edfc76373e/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
