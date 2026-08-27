@@ -1,4 +1,135 @@
 {
+  "65d0189cbce1aca31aa890ab254aa8b12035471436e0dc7f1f63860423218c9e": {
+    "saved_at": "2026-08-27T21:29:52.621Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela pažnju i velike cene",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "LOUIS VUITTON x NIKE",
+            "accent": true
+          },
+          {
+            "text": "AIR FORCE 1 NA AUKCIJI SOTHEBY'S",
+            "accent": false
+          }
+        ],
+        "subheadline": "200 pari, pilot koferi i posebne boje"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "PRODAT JE PAKET OD 200 PAROVA",
+            "accent": true
+          },
+          {
+            "text": "POČETNA PONUDA JE BILA 2,000 DOLARA",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Sotheby’s je stavio na aukciju 200 specijalnih parova, start 2,000 DOLARA po paru."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Sotheby’s press objava potvrđuje 200 pari i startnu cenu 2,000 DOLARA."
+          },
+          {
+            "tag": "DETAIL",
+            "text": "Parovi dolaze uz Louis Vuitton pilot kofer u narandžastoj boji."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "POJEDINAČNI PAR JE DOSTIGAO DO",
+            "accent": false
+          },
+          {
+            "text": "175,000 DOLARA",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Na listingu Sotheby’s neki parovi su ocenjeni i prodati po cenama do 175,000 DOLARA."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Sotheby’s katalog prikazuje para sa cenom do 175,000 DOLARA."
+          }
+        ],
+        "question": "Želite priču o paru koji je otišao za 175,000?"
+      },
+      "caption": "Sotheby’s je u januaru 2022. aukcionisao 200 specijalnih LOUIS VUITTON x NIKE AIR FORCE 1 parova koje je dizajnirao Virgil Abloh. Parovi su išli od startnih 2,000 DOLARA, a neki primerci su dostizali šestocifrene iznose, kao što pokazuje katalog Sotheby’s. Izvori u objavama su direktni iz Sotheby’s sajta.",
+      "hashtags": [
+        "#AirForce1",
+        "#LouisVuitton",
+        "#VirgilAbloh",
+        "#Aukcija",
+        "#Sothebys",
+        "#Luksuz",
+        "#SneakerPriče"
+      ],
+      "image_prompts": [
+        "High-resolution editorial photo of the Louis Vuitton and Nike “Air Force 1” by Virgil Abloh displayed with the orange Louis Vuitton pilot case, shoe and case filling 75% of frame, studio lighting, premium luxury look",
+        "Close-up macro of the Louis Vuitton and Nike “Air Force 1” by Virgil Abloh showing Monogram and Damier patterns and orange pilot case cushion detail, shoe occupying 80% of frame",
+        "Close-up of a Louis Vuitton and Nike “Air Force 1” by Virgil Abloh with a visible Sotheby’s price tag reading \"$175,000\", shoe filling 70% of frame, clear price tag, editorial auction scene"
+      ],
+      "sources": [
+        {
+          "title": "The Louis Vuitton and Nike expression of the “Air Force 1” by Virgil Abloh Auction at Sotheby’s — Press Release",
+          "publisher": "Sotheby’s",
+          "url": "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+        },
+        {
+          "title": "Louis Vuitton Sneakers — Sotheby’s listing (catalog entries showing high prices)",
+          "publisher": "Sotheby’s",
+          "url": "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Sotheby’s je aukcionisao 200 parova Louis Vuitton x Nike “Air Force 1” i startna ponuda je bila 2,000 DOLARA.",
+          "source_urls": [
+            "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+          ]
+        },
+        {
+          "claim": "Na Sotheby’s listingu pojedinačni parovi su prikazani sa cenama do 175,000 DOLARA.",
+          "source_urls": [
+            "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton"
+          ]
+        },
+        {
+          "claim": "Proceeds of the auction were designated for The Virgil Abloh “Post-Modern” Scholarship Fund (charity).",
+          "source_urls": [
+            "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/buy/fashion/sneaker/nike/air-force-1",
+      "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton?locale=en",
+      "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton",
+      "https://www.sothebys.com/en/buy/fashion/sneaker?sortBy=prod_product_items_lowEstimate_desc",
+      "https://www.sothebys.com/en/buy/fashion/sneaker?query=patta",
+      "https://www.sothebys.com/en/buy/fashion/streetwear/louis-vuitton",
+      "https://www.sothebys.com/en/buy/fashion/sneaker?locale=en&query=Air%2520Force%25201%2520low",
+      "https://www.sothebys.com/en/buy/fashion/sneaker?query=Louis%2520Vuitton",
+      "https://www.sothebys.com/en/buy/auction/2025/sneakers-3",
+      "https://www.sothebys.com/en/buy/fashion?creators=Louis%2520Vuitton&locale=en",
+      "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
+      "https://www.sothebys.com/en/buy/auction/2022/40-for-40-the-air-force-1-collection"
+    ]
+  },
   "e97d62e5a1df8182171065910d9b688275dfd828cd8e1d9932527480bf89edf0": {
     "saved_at": "2026-08-27T06:58:54.378Z",
     "schema_name": "trendypatike_verified_post",
@@ -2133,143 +2264,6 @@
       "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
       "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
       "https://nmp.about.nike.com/originals/about/prod/be19ec03-e139-46b6-9b6c-d44a5c699110/FY23_Nike_Impact_Report.pdf?dl=0&s=f925bbe4e72d90d9425b5e7afd9b6ace067caf3371a22b15a6a04aeb1a53c026"
-    ]
-  },
-  "3fa514515d1316e0d7c67d2c3a22a384fee6110eec6a3f71ea304d156bca6e6b": {
-    "saved_at": "2026-08-21T18:12:02.676Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "AIR JORDAN 11 JE DRES ZA KOŠARKU",
-            "accent": false
-          },
-          {
-            "text": "SA SJAJNIM LAKOM KOJI LIČI NA ODELO",
-            "accent": true
-          }
-        ],
-        "subheadline": "Kako patent-koža promenila izgled patike na terenu"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "PATENT LEATHER DONELA ELEGANCIJU NA TERČ",
-            "accent": false
-          },
-          {
-            "text": "PATENT LEATHER",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Air Jordan 11 je prvi put izašao 1995. i uveo patent-kožu na ozbiljne košarkaške patike."
-          },
-          {
-            "tag": "SOURCE",
-            "text": "Nike opis istorije i dizajna Air Jordan 11, uključujući upotrebu patent-kože i njegovu vezu sa sezonama Michaela Jordana."
-          },
-          {
-            "tag": "LINKS",
-            "text": "https://www.nike.com/fi/a/air-jordan-11-history  \nhttps://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "NIJE SAMO ZA TEREN — POSTALA JE I SLAVLJ",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Patika se pojavljuje i u pop kulturi i proslavljena je kao spoj sporta i formalnog stila."
-          },
-          {
-            "tag": "SOURCE",
-            "text": "Nike o nasleđu i proslavi 30. godišnjice modela."
-          }
-        ],
-        "question": "Hoćemo li još ovakvih spajanja?"
-      },
-      "caption": "Air Jordan 11 je promenio pravila: uveo je sjajnu, formalnu plastiku na prave košarkaške patike i tako spojio teren i stil. Izvori: Nike istorija AJ11 i SNKRS opisi modela.",
-      "hashtags": [
-        "#AirJordan11",
-        "#TrendyPatike",
-        "#PatentLeather",
-        "#Kosarka",
-        "#SneakerDizajn",
-        "#JordanBrand"
-      ],
-      "image_prompts": [
-        "Close-up of Air Jordan 11 sneaker with glossy patent leather on a basketball court at night, spotlight reflection, premium details, child-friendly composition",
-        "Air Jordan 11 in white and black patent leather showcased on a polished arena floor with championship banners in background, cinematic lighting, premium mood",
-        "Artistic studio shot of Air Jordan 11 patent leather sneaker next to a formal black jacket on a hanger, showing contrast between basketball and formal attire"
-      ],
-      "sources": [
-        {
-          "title": "The History of the Air Jordan 11",
-          "publisher": "Nike.com",
-          "url": "https://www.nike.com/fi/a/air-jordan-11-history"
-        },
-        {
-          "title": "Air Jordan 11 Retro '72-10' Release (SNKRS)",
-          "publisher": "Nike.com",
-          "url": "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-        },
-        {
-          "title": "Air Jordan 11 30th Anniversary",
-          "publisher": "NIKE, Inc. (about.nike.com)",
-          "url": "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-285"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Air Jordan 11 je originalno izašao 1995.",
-          "source_urls": [
-            "https://www.nike.com/fi/a/air-jordan-11-history"
-          ]
-        },
-        {
-          "claim": "Model koristi patent-kožu (patent leather) da bi dao elegantan sjaj na terenu.",
-          "source_urls": [
-            "https://www.nike.com/fi/a/air-jordan-11-history",
-            "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-          ]
-        },
-        {
-          "claim": "Jordan Brand je obeležio 30. godišnjicu modela specijalnim izdanjima.",
-          "source_urls": [
-            "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-285"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.nike.com/launch/t/air-jordan-11-retro-72-10",
-      "https://www.nike.com/fi/a/air-jordan-11-history",
-      "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-285",
-      "https://www.nike.com/launch/t/behind-design-air-jordan-11-cap-and-gown?msockid=018f7cf0a1c46f9b217c6a32a0f36e14",
-      "https://www.nike.com/a/aj11-gamma-release-info?msockid=369ee14a9e4a64f728e9f7f49f626522",
-      "https://www.nike.com/a/air-jordan-11-varsity-red-release/",
-      "https://www.nike.com/nl/a/air-jordan-11-geschiedenis",
-      "https://www.nike.com/pl/a/air-jordan-11-historia",
-      "https://www.nike.com/jp/jordan/air-jordan-11",
-      "https://www.nike.com/ch/a/air-jordan-11-geschichte",
-      "https://www.nike.com/ch/fr/a/histoire-air-jordan-11",
-      "https://www.nike.com/be/fr/a/histoire-air-jordan-11",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
-      "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf",
-      "https://nmp.about.nike.com/originals/about/prod/f37dfe60-0341-4db1-8ab9-6156da717313/FY24-NIKE%2C-Inc.-Sustainability-Data.pdf?dl=0&s=3c9dcc586ffb3a8e8eb9ec308a6e9fb972888d2e5dc1f92dc889c5d537af12d9"
     ]
   }
 }
