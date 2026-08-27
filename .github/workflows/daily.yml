@@ -9,7 +9,9 @@ on:
         default: false
         type: boolean
   schedule:
-    - cron: "0 18 * * *"
+    - cron: "7 18 * * *"
+      timezone: "Europe/Belgrade"
+    - cron: "37 18 * * *"
       timezone: "Europe/Belgrade"
 
 permissions:
