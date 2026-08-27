@@ -1,1 +1,128 @@
-{}
+{
+  "date": "2026-08-27",
+  "stage": "verified",
+  "fingerprint": "166de3cb8fca",
+  "seed": {
+    "id": "nike-moon-shoe-auction",
+    "topic": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
+    "category": "Nike istorija / aukcija / novac",
+    "preferred_domains": [
+      "sothebys.com",
+      "about.nike.com",
+      "nike.com"
+    ],
+    "visual_subject": "rare vintage Nike Moon Shoe, waffle sole close-up, museum auction editorial"
+  },
+  "post": {
+    "topic_title": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "KAKO JE NIKE MOON SHOE POSTAO NAJSKUPLJI PAR PATIKA NA AUKCIJI",
+          "accent": true
+        },
+        {
+          "text": "JEDNOSTAVNO OBJAŠNJENJE ZA SVAKOG",
+          "accent": false
+        }
+      ],
+      "subheadline": "JEDNOSTAVNO OBJAŠNJENJE ZA SVAKOG."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PRODAT JE ZA 437,500 DOLARA NA AUKCIJI SOTHEBY'S U NJUJORKU 2019",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "SAŽETAK",
+          "text": "RUČNO NAPRAVLJEN PROTOTIP BILL BOWERMAN 1972; SAČUVANO JE VEOMA MALO PAROVA."
+        },
+        {
+          "tag": "AUKCIJA",
+          "text": "SOTHEBY'S JE PRODAO PAR KROZ ONLINE AUKCIJU 'STADIUM GOODS' U JULU 2019."
+        },
+        {
+          "tag": "ZAŠTO VREDI",
+          "text": "BILL BOWERMAN JE ULIJEVAO TEČNU GUMU U APARAT ZA VAFLI DA NAPRAVI NOVI ĐON; TO JE POBOLJŠALO PRIJEM."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "N/A",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "",
+          "text": "No slide 3 used - placeholder."
+        },
+        {
+          "tag": "",
+          "text": "Never displayed - schema requirement."
+        }
+      ],
+      "question": "Da li ste znali?"
+    },
+    "caption": "RANI NIKE MOON SHOE JE RUČNO NAPRAVLJEN PROTOTIP IZ 1972. GODINE, KOJI JE BILL BOWERMAN NAPRAVIO KORIŠĆENJEM APARATA ZA VAFLI. JEDAN PAR JE 2019. PRODAT NA SOTHEBY'S ZA 437,500 DOLARA, JER JE SAČUVANO MNOGO MALO ORIGINALNIH PAROVA I OVO JE RANI PRIMJER WAFFLE ĐONA.",
+    "hashtags": [
+      "#MoonShoe",
+      "#NikeHistory",
+      "#Sothebys",
+      "#VintageSneakers",
+      "#WaffleSole",
+      "#TrendyPatike",
+      "#SneakerAukcija"
+    ],
+    "image_prompts": [
+      "MUSEUM-STYLE PHOTO OF A SINGLE NIKE MOON SHOE FROM 1972 ON A PEDESTAL; FULL SHOE VISIBLE; NEUTRAL MUSEUM LIGHTING; LABEL READING 'NIKE MOON SHOE' VISIBLE; NO BRANDING FROM TRENDYPATIKE. EXACT SLIDE FACT TO ILLUSTRATE: KAKO JE NIKE MOON SHOE POSTAO NAJSKUPLJI PAR PATIKA NA AUKCIJI JEDNOSTAVNO OBJAŠNJENJE ZA SVAKOG. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic.",
+      "EXTREME CLOSE-UP MACRO OF THE WAFFLE SOLE ON A 1972 NIKE MOON SHOE SHOWING THE WAFFLE PATTERN; SOLE FILLS AT LEAST 65% OF FRAME; HIGH DETAIL; MUSEUM LIGHTING; LABEL 'NIKE MOON SHOE' VISIBLE; NO TRENDYPATIKE BRANDING. EXACT SLIDE FACT TO ILLUSTRATE: PRODAT JE ZA 437,500 DOLARA NA AUKCIJI SOTHEBY'S U NJUJORKU 2019. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic.",
+      "REJECTED: GENERIC AUCTION SCENE. ONLY FIRST TWO IMAGES USED. EXACT SLIDE FACT TO ILLUSTRATE: N/A. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic."
+    ],
+    "sources": [
+      {
+        "title": "From Waffle Iron to World Stage: The True Story of the Nike Moon Shoe",
+        "publisher": "NIKE, Inc.",
+        "url": "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+      },
+      {
+        "title": "Rare Nike Racing Flats Set Auction Record | Online Auctions | Sotheby’s",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat"
+      },
+      {
+        "title": "1970s Nike ‘Moon Shoe’ | Lot page",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Nike Moon Shoe prodat je za 437,500 DOLARA na aukciji 2019.",
+        "source_urls": [
+          "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+          "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+        ]
+      },
+      {
+        "claim": "Moon Shoe je ručno napravljen prototip iz oko 1972. koji je izumio Bill Bowerman i dao prvi waffle đon.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+        ]
+      },
+      {
+        "claim": "Par je prodat kroz Sotheby’s online aukciju 'Stadium Goods' u julu 2019. u Njujorku.",
+        "source_urls": [
+          "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+          "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+        ]
+      }
+    ]
+  }
+}
