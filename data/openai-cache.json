@@ -1,4 +1,161 @@
 {
+  "3145b11edba0bd2a3119d0efee6bee437fb76c9f948fcedc921f6b4164fbca6c": {
+    "saved_at": "2026-08-27T21:52:33.104Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All major factual claims verified on Sotheby’s pages: 200 pairs offered; total proceeds $25.3 million; proceeds to The Virgil Abloh “Post‑Modern” Scholarship Fund; individual high sale $352,800; auction dates and pilot case details documented.",
+      "post": {
+        "topic_title": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "SOTHEBY'S PRODAO 200 PARA",
+              "accent": true
+            },
+            {
+              "text": "LOUIS VUITTON X NIKE AIR FORCE 1",
+              "accent": true
+            }
+          ],
+          "subheadline": "ONLINE AUKCIJA 26 JANUAR – 9 FEBRUAR 2022."
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "AUKCIJA JE PRIKUPILA 25,3 MILIONA DOLARA",
+              "accent": true
+            },
+            {
+              "text": "PRIHOD IDE FONDU VIRGIL ABLOH",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Najskuplji par prodat je za 352.800 USD; većina parova preko 100.000 USD."
+            },
+            {
+              "tag": "DETALJ",
+              "text": "Svaki par dolazi sa narandžastim Louis Vuitton pilot koferom iz Fiesso d'Artico, Italija."
+            },
+            {
+              "tag": "SOURCE_NOTE",
+              "text": "Rezultati i katalog dostupni su na sajtu Sotheby’s."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": " ",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "N/A - SLIDE NE KORISTI SE."
+            },
+            {
+              "tag": "SOURCE_NOTE",
+              "text": "N/A - SLIDE NE KORISTI SE."
+            }
+          ],
+          "question": "Želite tekst za objavu i tagove?"
+        },
+        "caption": "SOTHEBY’S JE U JANUARU–FEBRUARU 2022. PRODAO 200 PARA LOUIS VUITTON X NIKE AIR FORCE 1 I PRIKUPIO 25,3 MILIONA DOLARA ZA FOND VIRGIL ABLOH.",
+        "hashtags": [
+          "#TrendyPatike",
+          "#AirForce1",
+          "#LouisVuitton",
+          "#Sothebys",
+          "#VirgilAbloh",
+          "#SneakerAukcija",
+          "#Luksuz",
+          "#Stipendije"
+        ],
+        "image_prompts": [
+          "NARANDŽASTI LOUIS VUITTON PILOT KOFER SA JEDNIM PAROM LOUIS VUITTON X NIKE AIR FORCE 1 U SREDINI, KOFER I OBUĆA VIDLJIVI, STUDIJSKO OSVETLJENJE, VISOKA REZOLUCIJA.",
+          "MAKRO SLIKA LOUIS VUITTON X NIKE AIR FORCE 1, MODEL PUNOM POGLAVLJU, VIDLJIV MONOGRAM I SVOOSH, VIDLJIVA CENA NA KARTICI: \"$352,800\", OBUĆA POPUNJAVA NAJMANJE 65% FREJMA.",
+          "NARANDŽASTI LOUIS VUITTON PILOT KOFER OTVOREN SA PAROM LOUIS VUITTON X NIKE AIR FORCE 1 UNUTRA, KOFER I OBUĆA CENTRIRANI, LUKSUZNA AUKCIJSKA POZORNICA."
+        ],
+        "sources": [
+          {
+            "title": "Louis Vuitton x Nike Air Force One | Exclusive Auction Release",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
+          },
+          {
+            "title": "The Louis Vuitton and Nike “Air Force 1” by Virgil Abloh (Digital Catalogue)",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
+          },
+          {
+            "title": "Press release: The Louis Vuitton and Nike expression of the “Air Force 1” by Virgil Abloh Auction at Sotheby’s",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+          },
+          {
+            "title": "2022 in Review: A Gold‑Medal Year for Collectibles",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Aukcija je ponudila 200 pari Louis Vuitton x Nike Air Force 1.",
+            "source_urls": [
+              "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+              "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+            ]
+          },
+          {
+            "claim": "Aukcija je prikupila ukupno 25,3 MILIONA DOLARA.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+              "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
+            ]
+          },
+          {
+            "claim": "Prihod je namenjen The Virgil Abloh “Post‑Modern” Scholarship Fund.",
+            "source_urls": [
+              "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+              "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+            ]
+          },
+          {
+            "claim": "Najskuplji pojedinačni par prodat je za 352.800 USD; većina parova prodata je preko 100.000 USD.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
+              "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
+      "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+      "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+      "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh?locale=en",
+      "https://www.sothebys.com/en/brands/nike-x-louis-vuitton",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh?locale=en&showDetails=",
+      "https://www.sothebys.com/en/digital-catalogues/string-theory",
+      "https://www.sothebys.com/en/digital-catalogues/fifty",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/f2e69520-896c-4a72-88e0-5c4f330b5b68",
+      "https://www.sothebys.com/en/pdf/the-jubilee-season-catalogue",
+      "https://www.sothebys.com/results-n10748.pdf",
+      "https://www.sothebys.com/en/pdf/l22303.pdf",
+      "https://www.sothebys.com/en/pdfs/catalogue-pf2238.pdf",
+      "https://www.sothebys.com/en/pdfs/l22703-catalogue.pdf"
+    ]
+  },
   "514ca93c7466fe86dcbac3c52c165e6425d76df3dee8258397eaa6158ef7f902": {
     "saved_at": "2026-08-27T21:52:05.710Z",
     "schema_name": "trendypatike_post",
@@ -2120,159 +2277,6 @@
       "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
       "https://investors.nike.com/files/doc_downloads/FY15-10-Year-History.pdf",
       "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Women%27s%20Training%20-%20FINAL.pdf"
-    ]
-  },
-  "507bdd75d9d58e6192307b44bea14742eaf3e1765c5fd8f33701d9fedc5f9278": {
-    "saved_at": "2026-08-22T18:01:54.219Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All main claims verified on nike.com and about.nike.com pages; URLs present in web search results.",
-      "post": {
-        "topic_title": "Kako je Nike Dunk krenuo sa koledž košarke i stigao do sneaker kulture",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "KAKO JE",
-              "accent": false
-            },
-            {
-              "text": "NIKE DUNK",
-              "accent": true
-            },
-            {
-              "text": "POČEO KAO KOLEDŽ PATIKA 1985",
-              "accent": true
-            }
-          ],
-          "subheadline": "KRATKA PRIČA OD TERENA DO ULICE"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "ROĐEN U PROGRAMU COLLEGE",
-              "accent": false
-            },
-            {
-              "text": "COLORS 1985‑86",
-              "accent": true
-            },
-            {
-              "text": "KAO PATRONSKA BOJA TIMA",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FELT FACT",
-              "text": "DUNK je nastao u okviru College Colors programa tokom sezone 1985‑86."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike: The History of the Nike Dunk. nike.com"
-            },
-            {
-              "tag": "SOURCE",
-              "text": "About.Nike: Full‑Court Press. about.nike.com"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "SKATERI SU GA OTKRILI",
-              "accent": false
-            },
-            {
-              "text": "PA JE",
-              "accent": false
-            },
-            {
-              "text": "NIKE SB POBOLJŠAO SA JASTUČI",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FELT FACT",
-              "text": "U 1990‑tim skateri su nosili DUNK; početkom 2000‑ih Nike SB prilagodio model."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike: The History of the Nike Dunk. nike.com"
-            }
-          ],
-          "question": "KOJI TI JE OMILJENI PAR?"
-        },
-        "caption": "DUNK JE POČEO NA KOLEDŽU 1985‑86, PA JE POSTAO SIMBOL SNEAKER KULTURE.",
-        "hashtags": [
-          "#NIKE DUNK",
-          "#DUNK STORY",
-          "#KOŠARKA",
-          "#SKATE",
-          "#SNEAKER KULTURA",
-          "#TRENDYPATIKE"
-        ],
-        "image_prompts": [
-          "1985 college basketball high‑top sneakers in bright team color blocking on a vintage gym floor, players in 80s warmups, cinematic lighting",
-          "1990s thrift store scene with worn Nike Dunk shoes on a skateboard outside a concrete skate spot, urban feel",
-          "early 2000s Nike SB Dunk Low Pro in a skate shop display with padded tongue visible and a skateboarder performing a trick nearby"
-        ],
-        "sources": [
-          {
-            "title": "The History of the Nike Dunk",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/a/dunk-history/"
-          },
-          {
-            "title": "Full‑Court Press: How Nike Found Its Footing in College Basketball",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-          },
-          {
-            "title": "DNA Artifacts - SB Dunk",
-            "publisher": "Nike.com (SNKRS)",
-            "url": "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Dunk je nastao unutar Nike College Colors programa u sezoni 1985‑86.",
-            "source_urls": [
-              "https://www.nike.com/a/dunk-history/",
-              "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-            ]
-          },
-          {
-            "claim": "Skateri su tokom 1990‑ih otkrili Dunk u second‑hand radnjama i nosili ga na ulici.",
-            "source_urls": [
-              "https://www.nike.com/a/dunk-history/"
-            ]
-          },
-          {
-            "claim": "Nike SB je početkom 2000‑ih prilagodio Dunk modelu za skate, dodavši jastučiće i druge izmene.",
-            "source_urls": [
-              "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk",
-              "https://www.nike.com/a/dunk-history/"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/a/dunk-history/",
-      "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://www.nike.com/be/en/a/dunk-history",
-      "https://about.nike.com/en-GB/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://www.nike.com/launch/t/nike-dna-artifacts-sb-dunk",
-      "https://www.nike.com/jp/en/a/dunk-history",
-      "https://www.nike.com/gb/a/dunk-history/",
-      "https://about.nike.com/en/magazine/page/2",
-      "https://www.nike.com/launch/t/dna-artifacts-nike-sb-dunk-low-pro-eric-koston",
-      "https://www.nike.com/id/a/dunk-history/",
-      "https://about.nike.com/en/stories?page=7",
-      "https://about.nike.com/en/magazine?page=3"
     ]
   }
 }
