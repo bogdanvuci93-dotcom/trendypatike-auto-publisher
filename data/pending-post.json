@@ -129,5 +129,10 @@
     "public/posts/2026-08-27-nike-moon-shoe-auction-166de3cb8fca/01.jpg",
     "public/posts/2026-08-27-nike-moon-shoe-auction-166de3cb8fca/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014823887944388"
+    ],
+    "carousel_id": ""
+  }
 }
