@@ -1,4 +1,143 @@
 {
+  "e97d62e5a1df8182171065910d9b688275dfd828cd8e1d9932527480bf89edf0": {
+    "saved_at": "2026-08-27T06:58:54.378Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "Sve ključne tvrdnje potvrđene su iz NIKE (about.nike.com) i Sotheby’s (sothebys.com). Cene, godina i porijeklo potvrđeni su upotrebom dozvoljenih izvora.",
+      "post": {
+        "topic_title": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "KAKO JE NIKE MOON SHOE POSTAO NAJSKUPLJI PAR PATIKA NA AUKCIJI",
+              "accent": true
+            },
+            {
+              "text": "JEDNOSTAVNO OBJAŠNJENJE ZA SVAKOG",
+              "accent": false
+            }
+          ],
+          "subheadline": "JEDNOSTAVNO OBJAŠNJENJE ZA SVAKOG"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "PRODAT JE ZA 437,500 DOLARA NA AUKCIJI SOTHEBY'S U NJUJORKU 2019",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "SAŽETAK",
+              "text": "RUČNO NAPRAVLJEN PROTOTIP BILL BOWERMAN 1972; SAČUVANO JE VEOMA MALO PAROVA."
+            },
+            {
+              "tag": "AUKCIJA",
+              "text": "SOTHEBY'S JE PRODAO PAR KROZ ONLINE AUKCIJU 'STADIUM GOODS' U JULU 2019."
+            },
+            {
+              "tag": "ZAŠTO VREDI",
+              "text": "BILL BOWERMAN JE ULIJEVAO TEČNU GUMU U APARAT ZA VAFLI DA NAPRAVI NOVI ĐON; TO JE POBOLJŠALO PRIJEM."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "N/A",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "",
+              "text": "No slide 3 used - placeholder"
+            },
+            {
+              "tag": "",
+              "text": "Never displayed - schema requirement"
+            }
+          ],
+          "question": ""
+        },
+        "caption": "RANI NIKE MOON SHOE JE RUČNO NAPRAVLJEN PROTOTIP IZ 1972. GODINE, KOJI JE BILL BOWERMAN NAPRAVIO KORIŠĆENJEM APARATA ZA VAFLI. JEDAN PAR JE 2019. PRODAT NA SOTHEBY'S ZA 437,500 DOLARA, JER JE SAČUVANO MNOGO MALO ORIGINALNIH PAROVA I OVO JE RANI PRIMJER WAFFLE ĐONA.",
+        "hashtags": [
+          "#MoonShoe",
+          "#NikeHistory",
+          "#Sothebys",
+          "#VintageSneakers",
+          "#WaffleSole",
+          "#TrendyPatike",
+          "#SneakerAukcija"
+        ],
+        "image_prompts": [
+          "MUSEUM-STYLE PHOTO OF A SINGLE NIKE MOON SHOE FROM 1972 ON A PEDESTAL; FULL SHOE VISIBLE; NEUTRAL MUSEUM LIGHTING; LABEL READING 'NIKE MOON SHOE' VISIBLE; NO BRANDING FROM TRENDYPATIKE.",
+          "EXTREME CLOSE-UP MACRO OF THE WAFFLE SOLE ON A 1972 NIKE MOON SHOE SHOWING THE WAFFLE PATTERN; SOLE FILLS AT LEAST 65% OF FRAME; HIGH DETAIL; MUSEUM LIGHTING; LABEL 'NIKE MOON SHOE' VISIBLE; NO TRENDYPATIKE BRANDING.",
+          "REJECTED: GENERIC AUCTION SCENE. ONLY FIRST TWO IMAGES USED. "
+        ],
+        "sources": [
+          {
+            "title": "From Waffle Iron to World Stage: The True Story of the Nike Moon Shoe",
+            "publisher": "NIKE, Inc.",
+            "url": "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+          },
+          {
+            "title": "Rare Nike Racing Flats Set Auction Record | Online Auctions | Sotheby’s",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat"
+          },
+          {
+            "title": "1970s Nike ‘Moon Shoe’ | Lot page",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Nike Moon Shoe prodat je za 437,500 DOLARA na aukciji 2019.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+              "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+            ]
+          },
+          {
+            "claim": "Moon Shoe je ručno napravljen prototip iz oko 1972. koji je izumio Bill Bowerman i dao prvi waffle đon.",
+            "source_urls": [
+              "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
+            ]
+          },
+          {
+            "claim": "Par je prodat kroz Sotheby’s online aukciju 'Stadium Goods' u julu 2019. u Njujorku.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+              "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
+      "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+      "https://about.nike.com/en/newsroom/releases/nike-jacquemus-moon-shoe-official-images",
+      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/en-GB",
+      "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494",
+      "https://about.nike.com/de/magazine/from-waffle-iron-to-world-stage-the-true-story-of-the-nike-moon-shoe",
+      "https://about.nike.com/es-419/magazine/from-waffle-iron-to-world-stage-the-true-story-of-the-nike-moon-shoe",
+      "https://about.nike.com/zh-Hans/magazine/from-waffle-iron-to-world-stage-the-true-story-of-the-nike-moon-shoe",
+      "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+      "https://about.nike.com/en/magazine/why-tom-sachs-created-his-latest-version-of-the-nikecraft-general-purpose-shoe",
+      "https://about.nike.com/fr/magazine/from-waffle-iron-to-world-stage-the-true-story-of-the-nike-moon-shoe",
+      "https://media.about.nike.com/files/82228197-54ee-47cf-aa99-0b5b7e2072f0/FY14-15_NIKE_Sustainable_Business_Report.pdf",
+      "https://media.about.nike.com/files/6cbd26ae-7222-45f8-ae29-885429852268/FY16-17-Nike-Sustainable-Business-Report_FINAL.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf"
+    ]
+  },
   "02e17180e62a54e1e0f3cca1b5c5b5eb61ea23c30113c5d84193bb2079adc570": {
     "saved_at": "2026-08-27T06:58:12.713Z",
     "schema_name": "trendypatike_post",
@@ -2131,147 +2270,6 @@
       "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
       "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf",
       "https://nmp.about.nike.com/originals/about/prod/f37dfe60-0341-4db1-8ab9-6156da717313/FY24-NIKE%2C-Inc.-Sustainability-Data.pdf?dl=0&s=3c9dcc586ffb3a8e8eb9ec308a6e9fb972888d2e5dc1f92dc889c5d537af12d9"
-    ]
-  },
-  "c3a0e413b0e92200cc13e12f433e352918c940628df1ec1ec06bd6c9437aea87": {
-    "saved_at": "2026-08-21T13:20:03.290Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All key claims verified on Nike domains: Tinker Hatfield designed the Air Jordan 3 (1988); the Jumpman image/logo originated with MJ wearing the Air Jordan 3 at the 1988 Slam Dunk Contest; elephant print was introduced on the Air Jordan 3. Sources from nike.com and about.nike.com confirm these facts",
-      "post": {
-        "topic_title": "Zašto je Air Jordan 3 bio prelomni model za Jordan liniju",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "AIR JORDAN 3 JE IZDVOJEN 1988. I PROMENI",
-              "accent": false
-            },
-            {
-              "text": "TINKER HATFIELD JE DIZAJNIRAO OVAJ MODEl",
-              "accent": false
-            },
-            {
-              "text": "MODEl JE NAPRAVIO NOVI IDENTITET ZA LINİ",
-              "accent": false
-            }
-          ],
-          "subheadline": "PRVI PUT: JUMPMAN I ELEPHANT PRINT NA MODELU"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "TINKER HATFIELD JE DIZAJNIRAO AIR JORDAN",
-              "accent": false
-            },
-            {
-              "text": "PRVI PUT ZA JORDAN LINIJU 1988.",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FACT",
-              "text": "Tinker Hatfield je dizajnirao Air Jordan 3, prvi model koji je on kreirao za Jordan liniju (premijera 1988)."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike - The History of the Air Jordan 3."
-            },
-            {
-              "tag": "SOURCE_URL",
-              "text": "https://www.nike.com/fi/a/air-jordan-3-history"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "JUMPMAN LOGO JE NASTAO SA AIR JORDAN 3",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FACT",
-              "text": "Slika Michaela Jordana u skoku u Air Jordan 3 na trećem Slam Dunk takmičenju dovela je do pojave Jumpman ikonografije."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike - The History of the Air Jordan 3."
-            }
-          ],
-          "question": "KOJI DETALJ NAJVIŠE VOLIŠ?"
-        },
-        "caption": "AIR JORDAN 3 JE PRELOMNI JER JE TINKER DIZAJNIRAO MODEL, NASTAO JE JUMPMAN I UVEDEN JE ELEPHANT PRINT—ELEMENTI KOJI SU OBLIKOVALI IDENTITET BRANDA.",
-        "hashtags": [
-          "#AirJordan3",
-          "#JordanBrand",
-          "#TinkerHatfield",
-          "#ElephantPrint",
-          "#SneakerIstorija",
-          "#TrendyPatike"
-        ],
-        "image_prompts": [
-          "COVER: WHITE/CEMENT AIR JORDAN 3 ON A CLEAN BACKGROUND, SHOE AND SILHOUETTE VISIBLE, BOLD FRAMING, HIGH CONTRAST",
-          "SLIDE2: PORTRAIT SHOT OF TINKER HATFIELD SKETCHING A SNEAKER BESIDE A WHITE/CEMENT AIR JORDAN 3, CLEAR FOCUS ON DESIGN PROCESS, WARM STUDIO LIGHT",
-          "SLIDE3: MJ IN ACTION SILHOUETTE-LIKE COMPOSITION OF A PLAYER MAKING A DUNK WITH VISIBLE JUMPMAN-SYLE SILHOUETTE ON THE SHOE, EMPHASIS ON JUMPMAN ICON"
-        ],
-        "sources": [
-          {
-            "title": "The History of the Air Jordan 3",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/fi/a/air-jordan-3-history"
-          },
-          {
-            "title": "Jordan Brand and Levi’s Unveil New Colorways of the Air Jordan 3",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Tinker Hatfield je dizajnirao Air Jordan 3 i to je bio njegov prvi model za Jordan liniju (premijera 1988).",
-            "source_urls": [
-              "https://www.nike.com/fi/a/air-jordan-3-history"
-            ]
-          },
-          {
-            "claim": "Slika Michaela Jordana u skoku u Air Jordan 3 dovela je do pojave Jumpman ikonografije koja je vezana za liniju.",
-            "source_urls": [
-              "https://www.nike.com/fi/a/air-jordan-3-history"
-            ]
-          },
-          {
-            "claim": "Elephant print je prvi put uveden kao dizajnerski element na Air Jordan 3.",
-            "source_urls": [
-              "https://www.nike.com/fi/a/air-jordan-3-history",
-              "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/fi/a/air-jordan-3-history",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2008/Jordan-Brand-Launches-AIR-JORDAN-XX3-Celebrating-23-Years-of-a-Legacy/default.aspx",
-      "https://www.nike.com/pl/a/historia-air-jordan-3",
-      "https://www.nike.com/ch/it/a/la-storia-di-air-jordan-3",
-      "https://www.nike.com/us/en/launch/s/behind-the-design-air-jordan-3-a-ma-maniere/1",
-      "https://www.nike.com/be/de/a/die-geschichte-des-air-jordan-3",
-      "https://www.nike.com/us/es/jordan/air-jordan-3",
-      "https://www.nike.com/it/a/la-storia-di-air-jordan-3",
-      "https://www.nike.com/ie/a/air-jordan-3-history",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-levis-air-jordan-3-official-images",
-      "https://www.nike.com/cz/a/historie-air-jordan-3",
-      "https://www.nike.com/nl/a/geschiedenis-van-air-jordan-3",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
-      "https://media.about.nike.com/files/bd966cae-2644-4f28-b120-17131c0b005b/ZION-3_Zion-Soundbites.pdf",
-      "https://media.about.nike.com/files/f37dfe60-0341-4db1-8ab9-6156da717313/FY24-NIKE%2C-Inc.-Sustainability-Data.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
-      "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf"
     ]
   }
 }
