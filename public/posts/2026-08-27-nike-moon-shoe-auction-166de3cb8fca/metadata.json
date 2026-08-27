@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-27",
-  "stage": "ready",
+  "generated_at": "2026-08-27T06:59:44.732Z",
   "fingerprint": "166de3cb8fca",
   "seed": {
     "id": "nike-moon-shoe-auction",
@@ -124,10 +123,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-27-nike-moon-shoe-auction-166de3cb8fca/01.jpg",
-    "public/posts/2026-08-27-nike-moon-shoe-auction-166de3cb8fca/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
