@@ -185,8 +185,21 @@
         "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
         "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
       ]
+    },
+    {
+      "date": "2026-08-27",
+      "topic_id": "louis-vuitton-nike-af1-auction",
+      "seed_topic": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
+      "topic_title": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
+      "media_id": "18114236719975991",
+      "sources": [
+        "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+        "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+        "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
+        "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-26",
-  "last_media_id": "17894270631668398"
+  "last_publish_date": "2026-08-27",
+  "last_media_id": "18114236719975991"
 }
