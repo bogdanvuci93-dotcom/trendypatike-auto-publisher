@@ -90,6 +90,7 @@ jobs:
           jq empty data/fallback-posts.json
 
           python scripts/harden_content_policy.py
+          python scripts/fix_copy_overflow.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
           sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v12-strict-copy-image-match:" + JSON.stringify(post))/' src/index.mjs
@@ -97,7 +98,7 @@ jobs:
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
           grep -n "post.force_local_images\|fullbleed-v12-strict-copy-image-match\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
-          grep -n "hardenImagePrompts\|simplifyKidPhrase" src/content.mjs
+          grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
