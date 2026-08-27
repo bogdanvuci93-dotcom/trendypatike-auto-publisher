@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-27",
-  "stage": "ready",
+  "generated_at": "2026-08-27T21:53:23.977Z",
   "fingerprint": "1327939ea115",
   "seed": {
     "id": "louis-vuitton-nike-af1-auction",
@@ -141,10 +140,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-27-louis-vuitton-nike-af1-auction-1327939ea115/01.jpg",
-    "public/posts/2026-08-27-louis-vuitton-nike-af1-auction-1327939ea115/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
