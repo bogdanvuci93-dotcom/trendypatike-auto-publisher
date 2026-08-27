@@ -1,1 +1,145 @@
-{}
+{
+  "date": "2026-08-27",
+  "stage": "verified",
+  "fingerprint": "1327939ea115",
+  "seed": {
+    "id": "louis-vuitton-nike-af1-auction",
+    "topic": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
+    "category": "Air Force 1 / luksuz / aukcija / novac",
+    "preferred_domains": [
+      "sothebys.com",
+      "nike.com"
+    ],
+    "visual_subject": "Louis Vuitton Nike Air Force 1 luxury sneaker, orange trunk, premium auction editorial"
+  },
+  "post": {
+    "topic_title": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "SOTHEBY'S PRODAO 200 PARA",
+          "accent": true
+        },
+        {
+          "text": "LOUIS VUITTON X NIKE AIR FORCE 1",
+          "accent": true
+        }
+      ],
+      "subheadline": "ONLINE AUKCIJA 26 JANUAR, 9 FEBRUAR 2022."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "AUKCIJA JE PRIKUPILA 25,3 MILIONA DOLARA",
+          "accent": true
+        },
+        {
+          "text": "PRIHOD IDE FONDU VIRGIL ABLOH",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "Najskuplji par prodat je za 352.800 USD; većina parova preko 100.000 USD."
+        },
+        {
+          "tag": "DETALJ",
+          "text": "Svaki par dolazi sa narandžastim Louis Vuitton pilot koferom iz Fiesso d'Artico, Italija."
+        },
+        {
+          "tag": "SOURCE_NOTE",
+          "text": "Rezultati i katalog dostupni su na sajtu Sotheby’s."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "PATIKA IMA ZANIMLJIVU PRIČU",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "N/A - SLIDE NE KORISTI SE."
+        },
+        {
+          "tag": "SOURCE_NOTE",
+          "text": "N/A - SLIDE NE KORISTI SE."
+        }
+      ],
+      "question": "Želite tekst za objavu i tagove?"
+    },
+    "caption": "SOTHEBY’S JE U JANUARU,FEBRUARU 2022. PRODAO 200 PARA LOUIS VUITTON X NIKE AIR FORCE 1 I PRIKUPIO 25,3 MILIONA DOLARA ZA FOND VIRGIL ABLOH.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#AirForce1",
+      "#LouisVuitton",
+      "#Sothebys",
+      "#VirgilAbloh",
+      "#SneakerAukcija",
+      "#Luksuz",
+      "#Stipendije"
+    ],
+    "image_prompts": [
+      "NARANDŽASTI LOUIS VUITTON PILOT KOFER SA JEDNIM PAROM LOUIS VUITTON X NIKE AIR FORCE 1 U SREDINI, KOFER I OBUĆA VIDLJIVI, STUDIJSKO OSVETLJENJE, VISOKA REZOLUCIJA. EXACT SLIDE FACT TO ILLUSTRATE: SOTHEBY'S PRODAO 200 PARA LOUIS VUITTON X NIKE AIR FORCE 1. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "MAKRO SLIKA LOUIS VUITTON X NIKE AIR FORCE 1, MODEL PUNOM POGLAVLJU, VIDLJIV MONOGRAM I SVOOSH, VIDLJIVA CENA NA KARTICI: \"$352,800\", OBUĆA POPUNJAVA NAJMANJE 65% FREJMA. EXACT SLIDE FACT TO ILLUSTRATE: AUKCIJA JE PRIKUPILA 25,3 MILIONA DOLARA PRIHOD IDE FONDU VIRGIL ABLOH. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic.",
+      "NARANDŽASTI LOUIS VUITTON PILOT KOFER OTVOREN SA PAROM LOUIS VUITTON X NIKE AIR FORCE 1 UNUTRA, KOFER I OBUĆA CENTRIRANI, LUKSUZNA AUKCIJSKA POZORNICA. EXACT SLIDE FACT TO ILLUSTRATE: PATIKA IMA ZANIMLJIVU PRIČU. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic."
+    ],
+    "sources": [
+      {
+        "title": "Louis Vuitton x Nike Air Force One | Exclusive Auction Release",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
+      },
+      {
+        "title": "The Louis Vuitton and Nike “Air Force 1” by Virgil Abloh (Digital Catalogue)",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
+      },
+      {
+        "title": "Press release: The Louis Vuitton and Nike expression of the “Air Force 1” by Virgil Abloh Auction at Sotheby’s",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+      },
+      {
+        "title": "2022 in Review: A Gold,Medal Year for Collectibles",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Aukcija je ponudila 200 pari Louis Vuitton x Nike Air Force 1.",
+        "source_urls": [
+          "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+          "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+        ]
+      },
+      {
+        "claim": "Aukcija je prikupila ukupno 25,3 MILIONA DOLARA.",
+        "source_urls": [
+          "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+          "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
+        ]
+      },
+      {
+        "claim": "Prihod je namenjen The Virgil Abloh “Post,Modern” Scholarship Fund.",
+        "source_urls": [
+          "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+          "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+        ]
+      },
+      {
+        "claim": "Najskuplji pojedinačni par prodat je za 352.800 USD; većina parova prodata je preko 100.000 USD.",
+        "source_urls": [
+          "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
+          "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
+        ]
+      }
+    ]
+  }
+}
