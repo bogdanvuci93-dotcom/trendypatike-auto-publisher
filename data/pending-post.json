@@ -146,5 +146,10 @@
     "public/posts/2026-08-27-louis-vuitton-nike-af1-auction-1327939ea115/01.jpg",
     "public/posts/2026-08-27-louis-vuitton-nike-af1-auction-1327939ea115/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18014914808944388"
+    ],
+    "carousel_id": ""
+  }
 }
