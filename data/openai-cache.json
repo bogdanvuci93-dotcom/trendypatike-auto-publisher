@@ -1,4 +1,157 @@
 {
+  "9514f9842e4a093a08f8516794fd03f7e9d67571bd31c9a8af946e72c2d0264c": {
+    "saved_at": "2026-08-27T21:30:36.396Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All major factual claims verified on Sotheby’s pages: 200 pairs, starting bid $2,000, pilot case, auction dates, total raised $25.3M, highest individual lot listed at $175,000. All sources are Sotheby’s URLs.",
+      "post": {
+        "topic_title": "KAKO JE AUKCIJA LOUIS VUITTON X NIKE AIR FORCE 1 DONELA DESEtINE MILIONA DOLARA",
+        "slide_count": 3,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "LOUIS VUITTON X NIKE AIR FORCE 1 NA AUKCIJI SOTHEBY'S PRODATIH 200 PAROVA",
+              "accent": true
+            },
+            {
+              "text": "SVAKI PAR JE IZAĐEN U ORANŽNOM LOUIS VUITTON KOFERU",
+              "accent": false
+            }
+          ],
+          "subheadline": "AUKCIJA JANUAR 2022, POMOĆ ZA VIRGIL ABLOH FOND"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "SOTHEBY'S IZRADAO 200 PAROVA SA POČETNOM PONUDBOM 2 000 DOLARA I ORANŽNIM KOFEROM",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Sotheby’s je ponudio 200 pari, startna ponuda 2 000 DOLARA po paru."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Sotheby’s press objava i aukcijski katalog potvrđuju broj pari i startnu cenu."
+            },
+            {
+              "tag": "DETAIL",
+              "text": "Svaki par dolazi uz Louis Vuitton pilot kofer iz kolekcije Proleće-Leto 2022."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "AUKCIJA JE PRIKUPILA 25,3 MILIONA DOLARA; NAJVIŠE 175 000 DOLARA ZA JEDAN PAR",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Sotheby’s izveštava da aukcija ukupno donela 25,3 miliona dolara."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Sotheby’s artikli i katalogi pokazuju zbirni iznos i liste sa najvišim cenama."
+            }
+          ],
+          "question": "ŽELITE PRIČU O PARU KOJI JE PRODAT ZA 175 000 DOLARA?"
+        },
+        "caption": "Sotheby’s je u januaru 2022. ponudio 200 pari Louis Vuitton x Nike Air Force 1 by Virgil Abloh. Početna ponuda bila je 2 000 dolara, parovi su dolazili sa narandžastim pilot koferom, a aukcija je prikupila 25,3 miliona dolara za The Virgil Abloh \"Post-Modern\" Scholarship Fund.",
+        "hashtags": [
+          "#AirForce1",
+          "#LouisVuitton",
+          "#VirgilAbloh",
+          "#Aukcija",
+          "#Sothebys",
+          "#SneakerPriče"
+        ],
+        "image_prompts": [
+          "Editorial photo of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH displayed with the orange Louis Vuitton pilot case, shoe and case filling 75% of frame, studio lighting, premium luxury look",
+          "Close-up macro of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH showing Monogram and Damier calfskin detail and orange pilot case cushion, shoe detail filling 80% of frame",
+          "Close-up of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH with Sotheby\u0019s price tag reading \"$175,000\", shoe filling 70% of frame, clear price tag, editorial auction scene"
+        ],
+        "sources": [
+          {
+            "title": "The Louis Vuitton and Nike expression of the “Air Force 1” by Virgil Abloh Auction at Sotheby’s — Press Release",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
+          },
+          {
+            "title": "The Louis Vuitton and Nike “Air Force 1” by Virgil Abloh | 2022 | Sotheby's (auction catalog)",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
+          },
+          {
+            "title": "Louis Vuitton x Nike Air Force One | Exclusive Auction Release (Sotheby’s article)",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
+          },
+          {
+            "title": "Nike x Louis Vuitton | History & Sales Information (Sotheby’s listings showing $175,000)",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/brands/nike-x-louis-vuitton"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Sotheby’s je aukcionisao 200 parova Louis Vuitton x Nike “Air Force 1” sa početnom ponudom 2 000 DOLARA po paru.",
+            "source_urls": [
+              "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
+              "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
+            ]
+          },
+          {
+            "claim": "Svaki par je prodavan uz narandžasti Louis Vuitton pilot kofer iz Proleće-Leto 2022 kolekcije.",
+            "source_urls": [
+              "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+              "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/1f53141c-86fb-416e-9ade-becb139744ab"
+            ]
+          },
+          {
+            "claim": "Aukcija je prikupila ukupno 25,3 MILIONA DOLARA, a Sotheby’s navodi pojedinačne liste sa cenama do 175 000 DOLARA.",
+            "source_urls": [
+              "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+              "https://www.sothebys.com/en/brands/nike-x-louis-vuitton"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/1f53141c-86fb-416e-9ade-becb139744ab",
+      "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/e0e0c33d-d718-4f93-a39c-f7c421e3256a",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh/size-10-nike-x-louis-vuitton-air-force-1-pilot-11",
+      "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/e946580a-678d-4bfc-8c95-d3e6d5feb003",
+      "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
+      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh/size-7-5-nike-x-louis-vuitton-air-force-1-pilot-10",
+      "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
+      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/f2e69520-896c-4a72-88e0-5c4f330b5b68",
+      "https://www.sothebys.com/en/pdf/the-jubilee-season-catalogue",
+      "https://www.sothebys.com/en/pdf-l22002-mod-eve.pdf",
+      "https://www.sothebys.com/en/pdf-l22004-day.pdf",
+      "https://www.sothebys.com/en/brands/nike-x-louis-vuitton",
+      "https://www.sothebys.com/en/articles/string-theory-the-ultimate-selection-of-rare-sneakers-and-collectibles",
+      "https://www.sothebys.com/en/buy/fashion/sneaker?sortBy=prod_product_items_lowEstimate_desc",
+      "https://www.sothebys.com/en/digital-catalogues/string-theory",
+      "https://www.sothebys.com/en/articles/the-pinnacle-of-sneaker-construction-louis-vuitton-x-nike-air-force-one",
+      "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton",
+      "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-1-all-about-the-coveted-general-release-pairs",
+      "https://www.sothebys.com/en/articles/the-history-behind-the-louis-vuitton-nike-air-force-1-by-virgil-abloh",
+      "https://www.sothebys.com/en/articles/team-picks-7-best-louis-vuitton-sneakers-to-buy-now",
+      "https://www.sothebys.com/en/buy/fashion/sneaker/lifestyle",
+      "https://www.sothebys.com/en/brands/nike-air-force-1"
+    ]
+  },
   "65d0189cbce1aca31aa890ab254aa8b12035471436e0dc7f1f63860423218c9e": {
     "saved_at": "2026-08-27T21:29:52.621Z",
     "schema_name": "trendypatike_post",
@@ -2123,147 +2276,6 @@
       "https://admin.about.nike.com/media/files/9b025164-240b-4836-a67a-40606c5ad2dc/FINAL_NBACityEdition_Messaging_2023-2024.pdf",
       "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_M_Basketball.pdf?cb=20200915",
       "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_M_Basketball.pdf"
-    ]
-  },
-  "584aac7769c8d1ed8edc2d23afaf09ee36545142c4ada7cc53cb3f66d14ea2f1": {
-    "saved_at": "2026-08-21T18:12:28.767Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All factual claims verified on nike.com and about.nike.com pages.",
-      "post": {
-        "topic_title": "Kako je Air Jordan 11 spojio košarku i elegantan dizajn",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "AIR JORDAN 11 UVEO PATENT KOŽU NA TEREN",
-              "accent": true
-            },
-            {
-              "text": "I TIME DONEO ELEGANCIJU NA KOŠARKAŠKE PĀ",
-              "accent": false
-            }
-          ],
-          "subheadline": "Kako patent-koža promenila izgled patike na terenu"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "PATENT KOŽA JE DAO SJAJ I FORMALNI IZGĽD",
-              "accent": true
-            },
-            {
-              "text": "PATENT-LEATHER JE POSTAO SIGNATURA MODEA",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Air Jordan 11 je prvobitno predstavljen 1995. i koristio je patent-kožu kako bi dobio sjajan, ‘formalni’ izgled koji se isticao na terenu."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike: istorija i opisi modela Air Jordan 11 (nike.com)."
-            },
-            {
-              "tag": "LINKS",
-              "text": "https://www.nike.com/fi/a/air-jordan-11-history\nhttps://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "NIJE SAMO PATIKA ZA IGRU — POSTALA JE KĽ",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Model je postao deo pop-kulture i Jordan Brand je obeležio njegovo nasleđe specijalnim izdanjima, uključujući kampanje za 30. godišnjicu."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "NIKE, Inc. najava i galerija za 30. godišnjicu Air Jordan 11 (about.nike.com)."
-            }
-          ],
-          "question": "Hoćemo li još ovakvih spajanja?"
-        },
-        "caption": "AIR JORDAN 11 JE PROMENIO IZGLED KOŠARKAŠKIH PATIKA UVEVŠI PATENT-KOŽU — spoj sporta i formalnog stila potvrđen u Nike arhivama.",
-        "hashtags": [
-          "#AirJordan11",
-          "#TrendyPatike",
-          "#PatentLeather",
-          "#Kosarka",
-          "#SneakerDizajn",
-          "#JordanBrand"
-        ],
-        "image_prompts": [
-          "CLOSE-UP OF AIR JORDAN 11 WITH GLOSSY PATENT LEATHER ON A BASKETBALL COURT, SPOTLIGHT REFLECTION, SHOWING PATENT PANEL DETAIL (MATCHES COVER FACT)",
-          "AIR JORDAN 11 PATENT LEATHER DETAIL NEXT TO A FORMAL BLACK JACKET ON A POISED STAGE, CONTRASTING BASKETBALL AND FORMAL STYLE (MATCHES SLIDE 2 FACT)",
-          "NOTE: ONLY THE FIRST TWO IMAGE PROMPTS ARE USED (ONE PER SLIDE)."
-        ],
-        "sources": [
-          {
-            "title": "The History of the Air Jordan 11",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/fi/a/air-jordan-11-history"
-          },
-          {
-            "title": "Air Jordan 11 Retro '72-10' Release (SNKRS)",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-          },
-          {
-            "title": "Jordan Brand Unveils Exclusive Air Jordan 11 Styles to Celebrate the Silhouette’s 30th Anniversary",
-            "publisher": "NIKE, Inc. (about.nike.com)",
-            "url": "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Air Jordan 11 je originalno predstavljen 1995.",
-            "source_urls": [
-              "https://www.nike.com/fi/a/air-jordan-11-history",
-              "https://www.nike.com/jordan/air-jordan-11"
-            ]
-          },
-          {
-            "claim": "Model koristi patent-kožu (patent leather) da bi dao elegantan sjaj na terenu.",
-            "source_urls": [
-              "https://www.nike.com/fi/a/air-jordan-11-history",
-              "https://www.nike.com/launch/t/air-jordan-11-retro-72-10"
-            ]
-          },
-          {
-            "claim": "Jordan Brand je obeležio 30. godišnjicu modela u posebnoj kampanji i kolekciji.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air",
-      "https://www.nike.com/launch/t/air-jordan-11-retro-72-10",
-      "https://www.nike.com/jordan/air-jordan-11",
-      "https://www.nike.com/launch/t/air-jordan-11-retro-black-concord-white/",
-      "https://www.nike.com/fi/a/air-jordan-11-history",
-      "https://www.nike.com/jordan/air-jordan-11?msockid=05acaa3284a66b660f35bc4085aa6aa7",
-      "https://about.nike.com/en/newsroom/collections",
-      "https://about.nike.com/en/newsroom/search?area=newsroom&q=Jordan",
-      "https://www.nike.com/launch/t/behind-design-air-jordan-11-cap-and-gown?msockid=018f7cf0a1c46f9b217c6a32a0f36e14",
-      "https://www.nike.com/a/aj11-gamma-release-info?msockid=369ee14a9e4a64f728e9f7f49f626522",
-      "https://www.nike.com/a/air-jordan-11-varsity-red-release/",
-      "https://www.nike.com/jordan/air-jordan-11?msockid=219bdead2d056a1e0273c8df2c266ba7",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
-      "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://nmp.about.nike.com/originals/about/prod/be19ec03-e139-46b6-9b6c-d44a5c699110/FY23_Nike_Impact_Report.pdf?dl=0&s=f925bbe4e72d90d9425b5e7afd9b6ace067caf3371a22b15a6a04aeb1a53c026"
     ]
   }
 }
