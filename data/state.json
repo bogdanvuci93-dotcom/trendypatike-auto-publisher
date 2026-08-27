@@ -173,8 +173,20 @@
         "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
         "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true"
       ]
+    },
+    {
+      "date": "2026-08-27",
+      "topic_id": "nike-moon-shoe-auction",
+      "seed_topic": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
+      "topic_title": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
+      "media_id": "18104686808142794",
+      "sources": [
+        "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
+        "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
+        "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-25",
-  "last_media_id": "17894270631668398"
+  "last_publish_date": "2026-08-27",
+  "last_media_id": "18104686808142794"
 }
