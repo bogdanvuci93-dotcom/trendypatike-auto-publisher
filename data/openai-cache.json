@@ -1,173 +1,143 @@
 {
   "631fd5e6ad51edebdfeab4cfdc1b1b394411c3dd1586af7c8b888425ccac00b1": {
-    "saved_at": "2026-08-28T21:52:09.150Z",
+    "saved_at": "2026-08-28T22:00:48.014Z",
     "schema_name": "trendypatike_post",
     "value": {
       "topic_title": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
-      "slide_count": 3,
+      "slide_count": 2,
       "cover": {
         "headline_lines": [
           {
-            "text": "MICHAEL JORDAN NOSIO OVE PATIKE",
+            "text": "MICHAEL JORDAN",
+            "accent": true
+          },
+          {
+            "text": "OVE PATIKE POSTALE AUKCIJSKI REKORD",
             "accent": false
-          },
-          {
-            "text": "AIR JORDAN 1",
-            "accent": true
-          },
-          {
-            "text": "1985",
-            "accent": true
           }
         ],
-        "subheadline": "Priča o slomu table i patiki koje su postavile rekord"
+        "subheadline": "Kratka priča o utakmici i paru koji je oborio rekord."
       },
       "slide2": {
         "headline_lines": [
           {
-            "text": "PAR PRODAT NA AUKCIJI ZA",
+            "text": "AIR JORDAN 1 'SHATTERED BACKBOARD'",
+            "accent": true
+          },
+          {
+            "text": "PRODATO ZA",
             "accent": false
           },
           {
             "text": "$615.000",
             "accent": true
-          },
-          {
-            "text": "REKORD ZA PATIKE NA CHRISTIE’S",
-            "accent": false
           }
         ],
         "facts": [
           {
             "tag": "FALLBACK",
-            "text": "Par AIR JORDAN 1 iz 1985. prodat je na Christie’s online aukciji 2020. za $615.000."
+            "text": "Par AIR JORDAN 1 NOŠEN U IZLOŽBENOJ UTAKMICI U TRIESTU 25. 8. 1985 prodat je za $615.000 na aukciji."
+          },
+          {
+            "tag": "DETAIL",
+            "text": "Christie’s navodi da je igra bila u Tries te 1985. i da se komad slomljenog stakla našao u đonu leve"
           },
           {
             "tag": "SOURCE",
-            "text": "Christie’s zvanični izveštaj o rezultatima aukcije: Original Air, avgust 2020."
-          },
-          {
-            "tag": "KONTEXT",
-            "text": "Aukcija je bila deo Christie’s i Stadium Goods saradnje koja je prikazala raritetne Jordan parove."
+            "text": "Christie’s aukcijska stranica i press release dokumentuju prodaju i priču o \"Shattered Backboard\"."
           }
         ]
       },
       "slide3": {
         "headline_lines": [
           {
-            "text": "U IZLOŽBENOJ UTAKMICI U TRIESTU",
+            "text": "--",
             "accent": false
-          },
-          {
-            "text": "MJ JE RAZBIO STAKLENU TABLU",
-            "accent": false
-          },
-          {
-            "text": "DEO STAKLA OSTAO U ĐONU",
-            "accent": true
           }
         ],
         "facts": [
           {
             "tag": "FALLBACK",
-            "text": "Tokom leta 1985. Michael Jordan je u Italiji zagnjurio zakucavanje koje je razbilo tablu; komad stak"
+            "text": "--PUTANJA-- } ],\"question\":\"\"},"
           },
           {
-            "tag": "DETAIL",
-            "text": "Jedan komad razbijene table je pronađen u đonu leve patike — zbog toga par ima posebnu istorijsku ta"
+            "tag": "_ignore_extra_fields",
+            "text": "placeholder to satisfy schema constraints"
           }
         ],
-        "question": "Da li vas iznenađuje cena?"
+        "question": ""
       },
-      "caption": "Michael Jordan je leta 1985. u Italiji zakucao toliko snažno da je razbio tablu. Par AIR JORDAN 1 iz te utakmice prodat je na Christie’s aukciji 2020. za $615.000 — vrednost je podignuta jer je deo razbijene table ostao u đonu. Izvori: Christie’s i Nike.",
+      "caption": "Michael Jordan je 25. 8. 1985. u Tries te, Italija, razbio staklo prilikom zakucavanja. PAR AIR JORDAN 1 iz te utakmice, sa komadićem stakla u đonu, prodat je na Christie’s aukciji za $615.000, što je učinilo ovaj par rekordnim za patike. Izvori: Christie’s katalog i press release, članak NBA o Jordanovoj 1985. godini.",
       "hashtags": [
         "#MichaelJordan",
-        "#AirJordan1",
         "#ShatteredBackboard",
+        "#AirJordan1",
+        "#Christies",
         "#TrendyPatike",
-        "#Aukcija",
-        "#SneakerStory",
-        "#Christies"
+        "#SneakerHistoria"
       ],
       "image_prompts": [
-        "Close-up photo of MICHAEL JORDAN wearing AIR JORDAN 1 on-court during the 1985 exhibition game in Trieste, Italy, mid-motion dunk, stadium crowd blurred, authentic 1985 game look, shoe and player clearly visible, high detail",
-        "Macro close-up of the LEFT AIR JORDAN 1 game-worn 1985 pair showing a small glass shard embedded in the sole, shoe occupies 70%+ of frame, worn scuffs visible, museum-style lighting, high-resolution detail",
-        "Historic action photo of MICHAEL JORDAN dunking in the 1985 Trieste exhibition game with backboard shattering, Air Jordan 1 visible on his feet, dramatic broken glass pieces mid-air, wide composition"
+        "Historic 1985 exhibition dunk scene showing MICHAEL JORDAN mid-air in 1985, clearly wearing AIR JORDAN 1 'Shattered Backboard' sneakers, shattered glass flying behind him, stadium crowd, vintage 1980s photo style, shoe visible on his feet, dynamic action, high resolution",
+        "Close-up macro of LEFT AIR JORDAN 1 'Shattered Backboard' sneaker sole showing a visible shard of broken backboard glass embedded in the sole, shoe fills 70% of frame, studio lighting, high detail, documentary style",
+        "Auction room scene with a pair of AIR JORDAN 1 on display under glass and a Christie’s auction paddle on a table, gavel and sterile museum-style lighting, editorial photo"
       ],
       "sources": [
         {
-          "title": "Results | Christie's 'Gamechangers' series totals $1,149,000, August 2020",
+          "title": "Original Air: Michael Jordan Game-Worn and Player Exclusive Sneaker Rarities",
           "publisher": "Christie’s",
-          "url": "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/"
+          "url": "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
         },
         {
-          "title": "RELEASE | Christie’s reveals the top lot and full catalogue for \"Original Air: Michael Jordan Game-Worn and Player Exclusive Sneaker Rarities\"",
+          "title": "Christie’s press release: Original Air top lot and catalogue",
           "publisher": "Christie’s",
           "url": "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
         },
         {
-          "title": "Shattered Backboard. Nike SNKRS",
-          "publisher": "Nike",
-          "url": "https://www.nike.com/launch/t/air-jordan-1-retro-hi-og-rmstd-lel0"
+          "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
+          "publisher": "NBA.com",
+          "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
         }
       ],
       "claims": [
         {
-          "claim": "Par AIR JORDAN 1 iz 1985. prodat je na Christie’s online aukciji 2020. za $615.000.",
+          "claim": "Par AIR JORDAN 1 'SHATTERED BACKBOARD' nošen u izložbenoj utakmici 25. 8. 1985. prodat je za $615.000 na Christie’s.",
           "source_urls": [
-            "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
+            "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
             "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
           ]
         },
         {
-          "claim": "Michael Jordan je 1985. u izložbenoj utakmici u Tries te razbio staklenu tablu; taj trenutak je inspirisao \"Shattered Backboard\" boju.",
+          "claim": "U opisu aukcije Christie’s navodi da je komadić slomljenog stakla ostao u đonu leve patike.",
           "source_urls": [
-            "https://www.nike.com/launch/t/air-jordan-1-retro-hi-og-rmstd-lel0",
-            "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+            "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
+            "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
           ]
         },
         {
-          "claim": "Christie’s izveštaj navodi da je aukcijski rezultat za tu grupu rariteta postavio novi rekord za patike kao kategoriju.",
+          "claim": "Kontekst Jordanove 1985. godine i rasta njegove popularnosti potvrđuje NBA članak o 1985. godini.",
           "source_urls": [
-            "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/"
+            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
           ]
         }
       ]
     },
     "searchUrls": [
-      "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/",
-      "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
-      "https://www.nike.com/launch/t/air-jordan-1-retro-hi-og-rmstd-lel0",
-      "https://www.christies.com/stories/sneakers-collecting-guide-41e5e822c78643698d4e9b95f41f0cad",
-      "https://www.nba.com/news/jersey-worn-by-michael-jordan-rookie-preseason-sold-for-4-215-million",
-      "https://press.christies.com/original-air-takes-flight-the-evolution-and-influence-of-air-jordan-sneakers/",
-      "https://www.nike.com/cz/launch/t/air-jordan-1-high-og-shattered-backboard-emea",
-      "https://www.nike.com/lu/de/t/air-jordan-1-retro-high-og-shattered-backboard-schuh-oSRhapAE/DZ5485-008",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-original-1985-air-jordan-1-chicago-sneakers-8/173059?sc_lang=zh",
-      "https://www.nike.com/tw/launch/t/air-jordan-1-high-og-shattered-backboard/",
-      "https://www.christies.com/auctions/gamechangers",
-      "https://www.nike.com/lu/de/launch/t/air-jordan-1-high-og-shattered-backboard-emea",
-      "https://www.christies.com/presscenter/pdf/10100/REL_CHRISTIES_ORIGINAL%20AIR%20PART%20II_JUNE%202021_FINAL_10100_1.pdf",
-      "https://www.nike.com/th/launch/t/air-jordan-1-high-og-shattered-backboard",
-      "https://press.christies.com/wp-content/uploads/2023/09/4948527be8dfde3c9b7ba7d7231dc314.pdf",
-      "https://cdn-gleague.nba.com/sites/1612709915/2025/11/Media-Guide-2025-26.pdf",
-      "https://cdn.nba.com/teams/uploads/sites/1610612755/2023/10/Full_Media_Guide_23-24-1.pdf",
-      "https://press.christies.com/wp-content/uploads/2023/09/e03b90cc977a0527bda6523696e2d0ae.pdf",
       "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
-      "https://www.christies.com/presscenter/pdf/10556/RESULTS_Six%20Rings_10556_1.pdf",
-      "https://press.christies.com/six-rings-legacy-of-the-goat-achievesnbsprecord-price-for-a-michael-jordan-rookie-card/",
-      "https://www.christies.com/presscenter/pdf/9916/CHRISTIE%27S%20LUXURY%20MARKET%20REPORT%202020_9916_1.pdf",
-      "https://onlineonly.christies.com/s/six-rings-legacy-goat/michael-jordan-game-worn-dual-signed-player-exclusive-air-jordan-low-5/153431",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-dual-signed-player-exclusive-jordan-vii-hare-7/173056",
-      "https://onlineonly.christies.com/s/original-air-takes-flight-evolution-influence-air-jordan-sneakers/air-jordan-12-taxi-michael-jordan-game-worn-14/122680",
-      "https://press.christies.com/christies-luxury-market-report-2020/",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-dual-signed-air-jordan-v-sneakers-3/173053",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-original-1985-air-jordan-1-chicago-sneakers-8/173059",
-      "https://onlineonly.christies.com/sso?objectid=20003.14",
-      "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/air-jordan-1-typs-mj-player-exclusive-signed-sneaker-2/93967",
-      "https://www.christies.com/presscenter/pdf/9723/REL_CHRISTIES_ORIGINAL%20AIR_JULY_AUGUST%202020_9723_1.pdf",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-dual-signed-original-jordan-xi-concord-6/173055",
-      "https://press.christies.com/wp-content/uploads/2023/09/685c5a23b52f7353c6d7e8a1bb01f766.pdf"
+      "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
+      "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/",
+      "https://press.christies.com/wp-content/uploads/2023/09/e03b90cc977a0527bda6523696e2d0ae.pdf",
+      "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
+      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-original-1985-air-jordan-1-chicago-sneakers-8/173059?sc_lang=zh",
+      "https://onlineonly.christies.com/s/six-rings-legacy-goat/michael-jordan-dual-signed-original-1985-air-jordan-1-chicago-sneakers-1/153428",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054",
+      "https://www.christies.com/presscenter/pdf/10100/REL_CHRISTIES_ORIGINAL%20AIR%20PART%20II_JUNE%202021_FINAL_10100_1.pdf",
+      "https://press.christies.com/original-air-takes-flight-the-evolution-and-influence-of-air-jordan-sneakers?lang=eng",
+      "https://cdn-uat.nba.com/news/looking-back-5-memorable-dunk-contests",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054?sc_lang=zh-cn",
+      "https://www.nba.com/bulls/features/michael-jordans-debut-30-years-ago",
+      "https://press.christies.com/wp-content/uploads/2023/09/bce0eb3ba831e9e5483accfa32a36d06.pdf",
+      "https://www.nba.com/watch/video/michael-jordan-tying-up-sneakers-at-first-all-star-game-in-1985"
     ]
   },
   "c1cc0daab24512a066b7ed9c2cab81bda7720ef610320e9bee3ea2b3794aa572": {
