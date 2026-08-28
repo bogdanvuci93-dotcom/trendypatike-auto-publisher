@@ -198,8 +198,21 @@
         "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
         "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles"
       ]
+    },
+    {
+      "date": "2026-08-28",
+      "topic_id": "jordan-shattered-backboard-auction",
+      "seed_topic": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
+      "topic_title": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
+      "media_id": "17904484815518197",
+      "sources": [
+        "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
+        "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/",
+        "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
+        "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-27",
-  "last_media_id": "18114236719975991"
+  "last_publish_date": "2026-08-28",
+  "last_media_id": "17904484815518197"
 }
