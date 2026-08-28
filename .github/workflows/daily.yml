@@ -8,11 +8,6 @@ on:
         required: true
         default: false
         type: boolean
-  push:
-    branches:
-      - main
-    paths:
-      - "data/manual-backup-publish.txt"
   schedule:
     - cron: "7 18 * * *"
       timezone: "Europe/Belgrade"
@@ -52,7 +47,7 @@ jobs:
           npm install --omit=dev --no-audit --no-fund
 
       - name: Restore paid-work recovery bundle
-        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now }}
+        if: ${{ github.event_name == 'schedule' || inputs.publish_now }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -126,19 +121,19 @@ jobs:
           BRAND_GREEN: "#037361"
           BRAND_NAME: "TRENDYPATIKE"
           BRAND_SITE: "trendypatike.com"
-          DRY_RUN: ${{ (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) && 'false' || 'true' }}
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
         run: npm run run
 
       - name: Build paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         run: node src/recovery.mjs save .recovery
 
       - name: Preserve paid-work recovery bundle
-        if: ${{ always() && (github.event_name == 'schedule' || github.event_name == 'push' || inputs.publish_now) }}
+        if: ${{ always() && (github.event_name == 'schedule' || inputs.publish_now) }}
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
