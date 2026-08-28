@@ -1,1 +1,154 @@
-{}
+{
+  "date": "2026-08-28",
+  "stage": "verified",
+  "fingerprint": "af7077b1cc2b",
+  "seed": {
+    "id": "jordan-shattered-backboard-auction",
+    "topic": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
+    "category": "Michael Jordan / košarka / aukcija",
+    "preferred_domains": [
+      "christies.com",
+      "nike.com",
+      "nba.com"
+    ],
+    "visual_subject": "Michael Jordan 1985 exhibition game, shattered backboard moment, game-worn Nike sneakers, auction editorial"
+  },
+  "post": {
+    "topic_title": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "MICHAEL JORDAN",
+          "accent": true
+        },
+        {
+          "text": "OVE PATIKE POSTALE AUKCIJSKI REKORD",
+          "accent": false
+        }
+      ],
+      "subheadline": "KRATKA PRIČA O UTAKMICI I PARU KOJI JE OBUJAO REKORD."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "AIR JORDAN",
+          "accent": true
+        },
+        {
+          "text": "1",
+          "accent": true
+        },
+        {
+          "text": "'SHATTERED BACKBOARD'",
+          "accent": true
+        },
+        {
+          "text": "PRODATO ZA",
+          "accent": false
+        },
+        {
+          "text": "$615.000",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "PAR JE NOŠEN U IZLOŽBENOJ UTAKMICI U TRSTU, 25. AVGUSTA 1985."
+        },
+        {
+          "tag": "DETAIL",
+          "text": "CHRISTIE’S NAVODI DA JE KOMADIĆ RAZBIJENOG STAKLA OSTAO U ĐONU LEVE PATIKE."
+        },
+        {
+          "tag": "SOURCE",
+          "text": "PRODAJA JE ZAVRŠENA NA CHRISTIE’S AUKCIJI, FINALNA CENA $615.000 (AUGUST 2020 REZULTAT)."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "--",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FALLBACK",
+          "text": "--PUTANJA-- } ],\"question\":\"\"},."
+        },
+        {
+          "tag": "_ignore_extra_fiel",
+          "text": "placeholder to satisfy schema constraints."
+        }
+      ],
+      "question": "Da li ste znali?"
+    },
+    "caption": "MICHAEL JORDAN JE 25. AVGUSTA 1985. U TRSTU, ITALIJA, ZAKUCAO I RAZBIO STAKLO. PAR AIR JORDAN 1 IZ TE UTAKMICE, SA KOMADIĆEM STAKLA U ĐONU LEVE PATIKE, PRODAT JE NA CHRISTIE’S AUKCIJI ZA $615.000, ŠTO JE POSTAVILO REKORD ZA PATIKE. IZVORI: CHRISTIE’S KATALOG I PRESS RELEASE; NBA.COM ZA KONTEKST 1985. GODINE.",
+    "hashtags": [
+      "#MichaelJordan",
+      "#ShatteredBackboard",
+      "#AirJordan1",
+      "#Christies",
+      "#TrendyPatike",
+      "#SneakerHistoria"
+    ],
+    "image_prompts": [
+      "AKCIONA SCENA: MICHAEL JORDAN U VAZDUHU U IZLOŽBENOJ UTAKMICI U TRSTU 25. AVGUST 1985, JASNO NOSI AIR JORDAN 1 'SHATTERED BACKBOARD', RAZBIJENO STAKLO LETI IZA, STADION, VINTAGE 1985 FOTOGRAFIJA, PATIKA VIDLJIVA NA NOGAMA. EXACT SLIDE FACT TO ILLUSTRATE: MICHAEL JORDAN OVE PATIKE POSTALE AUKCIJSKI REKORD. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic.",
+      "MAKRO SLIKA LEVE AIR JORDAN 1 'SHATTERED BACKBOARD' - ĐON SA VIDLJIVIM KOMADIĆEM STAKLA UĐENIM U ĐON, PATIKA POPUNJAVA 70% FREJMA, STUDIJSKO OSVETLJENJE, DOKUMENTARNI STIL. EXACT SLIDE FACT TO ILLUSTRATE: AIR JORDAN 1 'SHATTERED BACKBOARD' PRODATO ZA $615.000. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "AUKCIJSKA SCENA: PAR AIR JORDAN 1 'SHATTERED BACKBOARD' NA PRIKAZU ISPOD STAKLA U CHRISTIE’S SAJTU ILI SALONU, PULT SA AUKCIJSKIM PLODDETOM, ČEKIĆ I MUZEJSKO OSVETLJENJE, UREDAN EDITORIJALNI STIL EXACT SLIDE FACT TO ILLUSTRATE: --. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic."
+    ],
+    "sources": [
+      {
+        "title": "Original Air: Michael Jordan Game-Worn and Player Exclusive Sneaker Rarities - Christie’s",
+        "publisher": "Christie’s",
+        "url": "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
+      },
+      {
+        "title": "Christie’s press release: Original Air top lot and catalogue",
+        "publisher": "Christie’s",
+        "url": "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+      },
+      {
+        "title": "Results | Christie’s: Original Air sale reached final price $615,000 for top lot",
+        "publisher": "Christie’s",
+        "url": "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/"
+      },
+      {
+        "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike - NBA.com",
+        "publisher": "NBA.com",
+        "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Par AIR JORDAN 1 nošen u izložbenoj utakmici u Trstu 25. avgusta 1985.",
+        "source_urls": [
+          "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+        ]
+      },
+      {
+        "claim": "Jedan komadić slomljenog stakla ostao je u đonu leve patike, kako navodi Christie’s.",
+        "source_urls": [
+          "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
+          "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
+        ]
+      },
+      {
+        "claim": "Par je prodat na Christie’s aukciji i dostigao finalnu cenu od $615.000 (august 2020 rezultat).",
+        "source_urls": [
+          "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
+          "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+        ]
+      },
+      {
+        "claim": "Kontekst Jordanove 1985. godine i Nike partnerstva potvrđuje NBA članak o 1985. godini.",
+        "source_urls": [
+          "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+        ]
+      }
+    ]
+  }
+}
