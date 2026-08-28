@@ -1,4 +1,168 @@
 {
+  "d4ac6928b5b69d97c2120d34b62bea4a0ab9eb81848e3a66ad41f0afa4fe4ce9": {
+    "saved_at": "2026-08-28T22:01:22.227Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "Sve ključne tvrdnje potvrđene Christie's izvorima; NBA izvor daje dodatni kontekst 1985. godine.",
+      "post": {
+        "topic_title": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "MICHAEL JORDAN",
+              "accent": true
+            },
+            {
+              "text": "OVE PATIKE POSTALE AUKCIJSKI REKORD",
+              "accent": false
+            }
+          ],
+          "subheadline": "KRATKA PRIČA O UTAKMICI I PARU KOJI JE OBUJAO REKORD."
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "AIR JORDAN 1 'SHATTERED BACKBOARD'",
+              "accent": true
+            },
+            {
+              "text": "PRODATO ZA",
+              "accent": false
+            },
+            {
+              "text": "$615.000",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "PAR JE NOŠEN U IZLOŽBENOJ UTAKMICI U TRSTU, 25. AVGUSTA 1985."
+            },
+            {
+              "tag": "DETAIL",
+              "text": "CHRISTIE’S NAVODI DA JE KOMADIĆ RAZBIJENOG STAKLA OSTAO U ĐONU LEVE PATIKE."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "PRODAJA JE ZAVRŠENA NA CHRISTIE’S AUKCIJI, FINALNA CENA $615.000 (AUGUST 2020 REZULTAT)."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "--",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "--PUTANJA-- } ],\"question\":\"\"},"
+            },
+            {
+              "tag": "_ignore_extra_fields",
+              "text": "placeholder to satisfy schema constraints"
+            }
+          ],
+          "question": ""
+        },
+        "caption": "MICHAEL JORDAN JE 25. AVGUSTA 1985. U TRSTU, ITALIJA, ZAKUCAO I RAZBIO STAKLO. PAR AIR JORDAN 1 IZ TE UTAKMICE, SA KOMADIĆEM STAKLA U ĐONU LEVE PATIKE, PRODAT JE NA CHRISTIE’S AUKCIJI ZA $615.000, ŠTO JE POSTAVILO REKORD ZA PATIKE. IZVORI: CHRISTIE’S KATALOG I PRESS RELEASE; NBA.COM ZA KONTEKST 1985. GODINE.",
+        "hashtags": [
+          "#MichaelJordan",
+          "#ShatteredBackboard",
+          "#AirJordan1",
+          "#Christies",
+          "#TrendyPatike",
+          "#SneakerHistoria"
+        ],
+        "image_prompts": [
+          "AKCIONA SCENA: MICHAEL JORDAN U VAZDUHU U IZLOŽBENOJ UTAKMICI U TRSTU 25. AVGUST 1985, JASNO NOSI AIR JORDAN 1 'SHATTERED BACKBOARD', RAZBIJENO STAKLO LETI IZA, STADION, VINTAGE 1985 FOTOGRAFIJA, PATIKA VIDLJIVA NA NOGAMA.",
+          "MAKRO SLIKA LEVE AIR JORDAN 1 'SHATTERED BACKBOARD' - ĐON SA VIDLJIVIM KOMADIĆEM STAKLA UĐENIM U ĐON, PATIKA POPUNJAVA 70% FREJMA, STUDIJSKO OSVETLJENJE, DOKUMENTARNI STIL.",
+          "AUKCIJSKA SCENA: PAR AIR JORDAN 1 'SHATTERED BACKBOARD' NA PRIKAZU ISPOD STAKLA U CHRISTIE’S SAJTU ILI SALONU, PULT SA AUKCIJSKIM PLODDETOM, ČEKIĆ I MUZEJSKO OSVETLJENJE, UREDAN EDITORIJALNI STIL"
+        ],
+        "sources": [
+          {
+            "title": "Original Air: Michael Jordan Game-Worn and Player Exclusive Sneaker Rarities - Christie’s",
+            "publisher": "Christie’s",
+            "url": "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
+          },
+          {
+            "title": "Christie’s press release: Original Air top lot and catalogue",
+            "publisher": "Christie’s",
+            "url": "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+          },
+          {
+            "title": "Results | Christie’s: Original Air sale reached final price $615,000 for top lot",
+            "publisher": "Christie’s",
+            "url": "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/ "
+          },
+          {
+            "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike - NBA.com",
+            "publisher": "NBA.com",
+            "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Par AIR JORDAN 1 nošen u izložbenoj utakmici u Trstu 25. avgusta 1985.",
+            "source_urls": [
+              "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+            ]
+          },
+          {
+            "claim": "Jedan komadić slomljenog stakla ostao je u đonu leve patike, kako navodi Christie’s.",
+            "source_urls": [
+              "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
+              "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
+            ]
+          },
+          {
+            "claim": "Par je prodat na Christie’s aukciji i dostigao finalnu cenu od $615.000 (august 2020 rezultat).",
+            "source_urls": [
+              "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
+              "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
+            ]
+          },
+          {
+            "claim": "Kontekst Jordanove 1985. godine i Nike partnerstva potvrđuje NBA članak o 1985. godini.",
+            "source_urls": [
+              "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/",
+      "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
+      "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
+      "https://press.christies.com/wp-content/uploads/2023/09/e03b90cc977a0527bda6523696e2d0ae.pdf",
+      "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
+      "https://press.christies.com/original-air-takes-flight-the-evolution-and-influence-of-air-jordan-sneakers?lang=eng",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-original-1985-air-jordan-1-chicago-sneakers-8/173059?sc_lang=zh",
+      "https://www.christies.com/presscenter/pdf/10100/REL_CHRISTIES_ORIGINAL%20AIR%20PART%20II_JUNE%202021_FINAL_10100_1.pdf",
+      "https://press.christies.com/release-christies-announces-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities-july-2020?lang=eng",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054",
+      "https://onlineonly.christies.com/s/original-air-takes-flight-evolution-influence-air-jordan-sneakers/overview/2035?sc_lang=en",
+      "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/672348be15cd2784adfec9c1d43c1914-JPG",
+      "https://press.christies.com/wp-content/uploads/2023/09/4948527be8dfde3c9b7ba7d7231dc314.pdf",
+      "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/lots/1853",
+      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054?sc_lang=zh-cn",
+      "https://onlineonly.christies.com/s/original-air-takes-flight-evolution-influence-air-jordan-sneakers/complete-set-original-air-jordan-1-14-11/122683",
+      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+      "https://cdn.nba.com/teams/uploads/sites/1610612760/2022/10/explorers-activity-221101.pdf",
+      "https://www.nba.com/pacers/mike-young-2017-draft-prospect",
+      "https://store.nba.com/basketball-essentials/mens-jordan-brand-orange-mars-270-shattered-backboard-sneakers/t-14692785%2Bp-0499835301088%2Bz-9-260403229",
+      "https://www.nba.com/pacers/news/boomers_dunk_show_2012_01_21.html",
+      "https://cdn-uat.nba.com/news/history-all-star-recap-1985",
+      "https://wnbastore.nba.com/jordan-brand-jerseys/br-240110%2Bd-2305063016%2Bz-938-1569674487?_ref=p-DLP%3Am-SIDE_NAV&pageSize=72&sortOption=TopSellers",
+      "https://cdn-uat.nba.com/news/team-usa-claws-back-from-16-down-to-defeat-germany"
+    ]
+  },
   "631fd5e6ad51edebdfeab4cfdc1b1b394411c3dd1586af7c8b888425ccac00b1": {
     "saved_at": "2026-08-28T22:00:48.014Z",
     "schema_name": "trendypatike_post",
@@ -2090,155 +2254,6 @@
       "https://media.about.nike.com/files/a9da025c-fc41-486c-99df-bfb41bef2d41/FY21_NIKE-Impact-Report_Executive-Summary_Geo.pdf",
       "https://media.about.nike.com/files/82228197-54ee-47cf-aa99-0b5b7e2072f0/FY14-15_NIKE_Executive_Summary.pdf",
       "https://media.about.nike.com/files/598ea21b-1f07-4bc7-b340-bfe66fff5847/FY22-NIKE%2C-Inc.-Impact-Report.pdf"
-    ]
-  },
-  "9d82da0e748291835ad8321cf31b299a33147d524b9c36c6c61b0b3e099ff867": {
-    "saved_at": "2026-08-23T18:00:37.746Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "Sve ključne tvrdnje potvrđene iz Nike arhiva i About.Nike; izvori navedeni.",
-      "post": {
-        "topic_title": "Kako je Nike Cortez od running modela postao pop-kulturni klasik",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "BILL BOWERMAN JE",
-              "accent": false
-            },
-            {
-              "text": "NAPRAVIO NIKE CORTEZ",
-              "accent": true
-            },
-            {
-              "text": "KAO PATIKE ZA TRČANJE",
-              "accent": false
-            }
-          ],
-          "subheadline": "JEDNOSTAVNA PRIČA O NASTANKU I PROMENI ULOGE"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "CORTEZ JE IMAO",
-              "accent": false
-            },
-            {
-              "text": "PUNA SREDNJA PENA",
-              "accent": true
-            },
-            {
-              "text": "ZA BOLJE UMEKŠANJE",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Model je prvi put kombinovao celu srednju penu i spužvast sloj ispod gornjeg dela."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike: 'The History of the Nike Cortez'."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "About.Nike: 'Bill Bowerman: Nike’s Original Innovator'."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "NIKE CORTEZ JE PREŠAO",
-              "accent": false
-            },
-            {
-              "text": "U POP KULTURU",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Nakon uspeha kod trkača, ljudi su nosili Cortez u svakodnevnom životu i modnim stilovima."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Nike: 'The History of the Nike Cortez'."
-            }
-          ],
-          "question": "ŽELIŠ PRIČU O FILMU ILI O ULICI?"
-        },
-        "caption": "CORTEZ JE NASTAO KAO PATIKA ZA TRČANJE, A POSTAO JE I SVAKODNEVNA SILUETA.",
-        "hashtags": [
-          "#NIKECORTEZ",
-          "#TRČANJE",
-          "#RETROSNEAKER",
-          "#PATIKE",
-          "#BILLBOWERMAN",
-          "#1970S",
-          "#TRENDYPATIKE"
-        ],
-        "image_prompts": [
-          "CLOSE-UP OF AN ORIGINAL 1970S NIKE CORTEZ RUNNING SHOE ON A VINTAGE TARTAN TRACK, CINEMATIC LIGHTING, WORN TEXTURE, CLEAR CORTEZ SILHOUETTE",
-          "1970S URBAN STREET SCENE WITH SEVERAL PEOPLE WEARING NIKE CORTEZ IN RETRO CASUAL OUTFITS, FILM-GRAIN, WARM TONES",
-          "MUSEUM-STYLE DISPLAY OF A NIKE CORTEZ ON A PEDESTAL WITH A SMALL DESCRIPTIVE PLAQUE, RETRO LIGHTING, ARCHIVAL FEEL"
-        ],
-        "sources": [
-          {
-            "title": "The History of the Nike Cortez",
-            "publisher": "Nike.com",
-            "url": "https://www.nike.com/a/cortez-history/"
-          },
-          {
-            "title": "Bill Bowerman: Nike’s Original Innovator",
-            "publisher": "About.Nike.com",
-            "url": "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "BILL BOWERMAN JE DIZAJNIRAO NIKE CORTEZ.",
-            "source_urls": [
-              "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator"
-            ]
-          },
-          {
-            "claim": "CORTEZ JE UVEO KOMBINACIJU CELE SREDNJE PENE SA SPUŽVASTIM SLOJEM ISPOD GORNJEG DELA.",
-            "source_urls": [
-              "https://www.nike.com/a/cortez-history/"
-            ]
-          },
-          {
-            "claim": "CORTEZ JE PREŠAO IZ TRČANJA U SVAKODNEVNU I MODNU UPOTREBU.",
-            "source_urls": [
-              "https://www.nike.com/a/cortez-history/"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/a/cortez-history?msockid=13825367708164153e4045ea71ff65de",
-      "https://about.nike.com/es-ES/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://about.nike.com/es-419/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://about.nike.com/fr/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://www.smithsonianmag.com/arts-culture/one-under-the-sun-155647928/",
-      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://about.nike.com/it/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
-      "https://about.nike.com/nl/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://www.nike.com/sg/t/cortez-textile-mens-shoes-HhM7W9",
-      "https://about.nike.com/stories/jess-hull-interview-offseason-training",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
-      "https://media.about.nike.com/files/19c9f037-13be-4d9c-8201-3bedea9f3614/Nike-Inside-the-Lines-Code-of-Conduct_May_2019.pdf",
-      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY10-11_Nike_CR_report.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY07_09_Nike__CR_report.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf"
     ]
   }
 }
