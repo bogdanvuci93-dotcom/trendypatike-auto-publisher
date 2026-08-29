@@ -1,4 +1,156 @@
 {
+  "cdafc43920028a8a0f52fcb8194c71b5f7d4088ad318ed48ea28a1db05db153d": {
+    "saved_at": "2026-08-29T16:12:52.028Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Kako je Kobe Bryant uticao na razvoj moderne košarkaške obuće",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "KOBE BRYANT",
+            "accent": true
+          },
+          {
+            "text": "NAPRAVIO JE PATIKE KOJE POMAŽU IGRI",
+            "accent": false
+          }
+        ],
+        "subheadline": "Kratka priča o modelima i tehnologijama koje je uveo Kobe"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "KOBE 3 UVEO NISKU PATIKU NA TERENU",
+            "accent": true
+          },
+          {
+            "text": "2008",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Kobe 3 je nosio za MVP sezonu 2007–08 i postao uzor niskim patikama za košarku."
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Detalji o dizajnu i uticaju Kobe 3 su dokumentovani na NIKE magazinu."
+          },
+          {
+            "tag": "URL",
+            "text": "https://about.nike.com/en/magazine/nike-kobe-3-history"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "KOBE 9 UVEO FLYKNIT U KOŠARKU",
+            "accent": true
+          },
+          {
+            "text": "KOBE V BILA JE NAJLAGANIJA I NAJNIŽA PATIKA",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Kobe 9 je prva Nike košarkaška patika sa Flyknit materijalom; Kobe V je promovisan kao najniži i naj"
+          },
+          {
+            "tag": "SOURCE",
+            "text": "Nike objašnjava Flyknit na Kobe 9 i najavu Kobe V kao „niže i lakše“ u press materijalima."
+          }
+        ],
+        "question": "Koji Kobe model ti se najviše sviđa?"
+      },
+      "caption": "Kratko: Kobe je terao Nike da pravi lakše, niže i preciznije patike — od Kobe I do Kobe 9. Njegovi modeli su ubrzali prelazak igrača na niske i tehnički napredne patike. Izvori: NIKE i NBA.",
+      "hashtags": [
+        "#Kobe",
+        "#Mamba",
+        "#TrendyPatike",
+        "#Kobe9",
+        "#Kobe3",
+        "#Flyknit",
+        "#Nike"
+      ],
+      "image_prompts": [
+        "Close-up action photo of KOBE BRYANT wearing KOBE 3 on a basketball court, low-angle, player mid-dribble, shoe occupying at least 65% of frame",
+        "Macro cutaway of KOBE 9 showing FLYKNIT upper and sole cross-section, 65% of frame, studio lighting, clear texture detail",
+        "Studio shot of NIKE ZOOM KOBE V low-profile basketball shoe on court floor, side view, shoe filling most of frame, emphasis on thin profile"
+      ],
+      "sources": [
+        {
+          "title": "The History of the Kobe III — NIKE, Inc.",
+          "publisher": "about.nike.com",
+          "url": "https://about.nike.com/en/magazine/nike-kobe-3-history"
+        },
+        {
+          "title": "Kobe Vault: Kobe I · Nike SNKRS",
+          "publisher": "nike.com",
+          "url": "https://www.nike.com/launch/t/vault-kobe-1"
+        },
+        {
+          "title": "Nike and Kobe Bryant Launch New Zoom Kobe V, Lower & Lighter (press release)",
+          "publisher": "investors.nike.com",
+          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
+        },
+        {
+          "title": "Kobe 9 Protro: How Kobe Bryant’s Endless Pursuit of Perfection Redefined a Masterpiece",
+          "publisher": "nike.com",
+          "url": "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51"
+        },
+        {
+          "title": "Kobe Bryant coverage and stories",
+          "publisher": "nba.com",
+          "url": "https://www.nba.com/news/archive-75-kobe-bryant"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Kobe 3 je pokrenuo trend niskih patika u profesionalnoj košarci i nosio se tokom MVP sezone 2007–08.",
+          "source_urls": [
+            "https://about.nike.com/en/magazine/nike-kobe-3-history"
+          ]
+        },
+        {
+          "claim": "Kobe 9 je prva Nike košarkaška patika koja je koristila Flyknit materijal.",
+          "source_urls": [
+            "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51"
+          ]
+        },
+        {
+          "claim": "Nike je predstavio Kobe V kao najnižu i najlakšu patiku u liniji 2009. godine.",
+          "source_urls": [
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/magazine/nike-kobe-3-history",
+      "https://about.nike.com/en/newsroom/collections/nike-basketball-footwear/Nike-Kobe-VI-Protro",
+      "https://www.nike.com/launch/t/vault-kobe-1",
+      "https://www.nba.com/news/nba-sneaker-culture-jarrett-allen",
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx",
+      "https://www.nba.com/news/kobe-bryant-presence-2020-nba-finals",
+      "https://www.nba.com/news/nba-mailbag-june-7-2023",
+      "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51",
+      "https://www.nba.com/lakers/160411_kobeshoes?cid=tw",
+      "https://www.nba.com/news/archive-75-kobe-bryant",
+      "https://investors.nike.com/files/doc_financials/2014/docs/nike-shareholders-letter-2014.pdf",
+      "https://www.nba.com/lakers/news/160212_kobemj",
+      "https://www.nike.com/Kobe?msockid=054f4bb2a9ee612e1cea5d0da88e6042",
+      "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
+      "https://media.about.nike.com/files/7bf37705-b9a3-4635-aa30-e45273c1b562/FY19-Nike-Inc.-Impact-Report.pdf",
+      "https://media.about.nike.com/files/daa09042-86f4-435e-a6ba-902c9c6c67e2/CathySparks_NIKEInc_GC_GM.pdf",
+      "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf"
+    ]
+  },
   "d4ac6928b5b69d97c2120d34b62bea4a0ab9eb81848e3a66ad41f0afa4fe4ce9": {
     "saved_at": "2026-08-28T22:01:22.227Z",
     "schema_name": "trendypatike_verified_post",
@@ -2105,155 +2257,6 @@
       "https://www.nike.com/be/fr/a/nike-air-mag",
       "https://www.nike.com/be/a/nike-air-mag",
       "https://investors.nike.com/Search-Results/default.aspx?PageNumber=294&SearchTerm="
-    ]
-  },
-  "f0d71b9b42e383a2aacff761cfab557c8d79e9ec62e36a54ec643a215abeab9e": {
-    "saved_at": "2026-08-23T20:35:53.861Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
-      "slide_count": 3,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "KAKO JE",
-            "accent": false
-          },
-          {
-            "text": "NIKE MAG POSTAO FUTURISTIČKA",
-            "accent": true
-          },
-          {
-            "text": "IKONA",
-            "accent": false
-          }
-        ],
-        "subheadline": "Film je stvorio želju — Nike je kasnije napravio stvarne patike."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "U FILMU 1989.",
-            "accent": true
-          },
-          {
-            "text": "NIJE POSTOJALO AUTOMATSKO ZA",
-            "accent": false
-          },
-          {
-            "text": "TEZANJE PERTLI",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALBACK",
-            "text": "Na snimanju su ljudi iz ekipe vukli konce da izgledaju kao da se pertle same zatežu."
-          },
-          {
-            "tag": "IZVOR",
-            "text": "Nike opisuje kako je efekat zatezanja na snimanju bio izveden konopcima iza scene."
-          },
-          {
-            "tag": "DETALJ",
-            "text": "Originalne scene su inspirisale Nike da istraži stvarne tehnologije za zatezanje pertli."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "NIKE JE NAPRAVIO PRAVE NIKE",
-            "accent": true
-          },
-          {
-            "text": "MAG SA AUTOMATSKIM ZATEZANJ",
-            "accent": false
-          },
-          {
-            "text": "EM PERTLI",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALBACK",
-            "text": "Nike je 2011. i 2016. predstavio limitirane NIKE MAG verzije sa električnim zatezanjem pertli."
-          },
-          {
-            "tag": "BROJKE",
-            "text": "2011. parovi su se prodavali na aukciji za Fondaciju Michael J. Fox; 2016. izdan je model sa 'powerl"
-          }
-        ],
-        "question": "Hoćemo li videti novo izdanje NIKE MAG?"
-      },
-      "caption": "Film Back to the Future je pokazao ideju. Nike je tu ideju pretvorio u stvarne patike sa električnim zatezanjem pertli i podržao Fondaciju Michael J. Fox. #NIKEMAG #BackToTheFuture #sneakeristorija #autopertle #futurizam",
-      "hashtags": [
-        "#NIKEMAG",
-        "#BackToTheFuture",
-        "#sneakeristorija",
-        "#autopertle",
-        "#futurizam"
-      ],
-      "image_prompts": [
-        "Futuristic full-view NIKE MAG sneaker floating, neon 1980s science-fiction editorial lighting, visible glowing panel and strap, shoe centered, cinematic, child-friendly composition",
-        "Michael J. Fox wearing NIKE MAG on Back to the Future II set, crew member pulling strings behind the shoe to fake lacing, neon studio lights, clear 1989 movie set look",
-        "Close-up macro cross-section of NIKE MAG power-lace mechanism, lacing motor and cable visible, shoe detail occupying 65% of frame, technical but child-friendly view"
-      ],
-      "sources": [
-        {
-          "title": "From the Archives: The Evolution of Nike Air Mag",
-          "publisher": "Nike.com",
-          "url": "https://www.nike.com/a/nike-air-mag/"
-        },
-        {
-          "title": "Back for the Future: Nike Partners with the Michael J. Fox Foundation",
-          "publisher": "Nike Investor Relations (NIKE, Inc.)",
-          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Na snimanju Back to the Future II 1989. efekat samozatezanja pertli je postignut povlačenjem konaca iza scene.",
-          "source_urls": [
-            "https://www.nike.com/a/nike-air-mag/",
-            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
-          ]
-        },
-        {
-          "claim": "Nike je 2011. i 2016. predstavio limitirane verzije NIKE MAG sa električnim/automatskim zatezanjem pertli i podržao Fondaciju Michael J. Fox.",
-          "source_urls": [
-            "https://www.nike.com/a/nike-air-mag/",
-            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
-          ]
-        },
-        {
-          "claim": "Ideja iz filma je navela Nike da istraži tehnologije kao što su Adapt i 'power laces'.",
-          "source_urls": [
-            "https://www.nike.com/a/nike-air-mag/"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.nike.com/a/nike-air-mag/",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
-      "https://www.nike.com/us/es/a/nike-air-mag",
-      "https://www.nike.com/es/a/nike-air-mag",
-      "https://www.nike.com/at/a/nike-air-mag/",
-      "https://www.nike.com/launch/t/behind-design-adapt-auto-max-na",
-      "https://www.nike.com/es/ca/a/nike-air-mag",
-      "https://www.nike.com/ca/fr/a/nike-air-mag",
-      "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/nl/a/nike-air-mag",
-      "https://www.nike.com/it/a/nike-air-mag?msockid=19a330ac76d762ed29a5260a771b6319",
-      "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
-      "https://media.about.nike.com/files/e1963fb1-0138-4a54-ae37-e73c8a4fc4cd/FY20-NIKE-Inc.-Impact-Report_Executive-Summary1.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY10-11_Nike_CR_report.pdf",
-      "https://media.about.nike.com/files/a9da025c-fc41-486c-99df-bfb41bef2d41/FY21_NIKE-Impact-Report_Executive-Summary_Geo.pdf",
-      "https://media.about.nike.com/files/82228197-54ee-47cf-aa99-0b5b7e2072f0/FY14-15_NIKE_Executive_Summary.pdf",
-      "https://media.about.nike.com/files/598ea21b-1f07-4bc7-b340-bfe66fff5847/FY22-NIKE%2C-Inc.-Impact-Report.pdf"
     ]
   }
 }
