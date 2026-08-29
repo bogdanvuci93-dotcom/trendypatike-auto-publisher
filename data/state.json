@@ -211,8 +211,22 @@
         "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
         "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
       ]
+    },
+    {
+      "date": "2026-08-29",
+      "topic_id": "kobe-nike-line",
+      "seed_topic": "Kako je Kobe Bryant uticao na razvoj moderne košarkaške obuće",
+      "topic_title": "Kako je Kobe Bryant uticao na razvoj moderne košarkaške obuće",
+      "media_id": "18125378200835380",
+      "sources": [
+        "https://about.nike.com/en/magazine/nike-kobe-3-history",
+        "https://www.nike.com/launch/t/vault-kobe-9",
+        "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51",
+        "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx",
+        "https://www.nba.com/news/archive-75-kobe-bryant"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-28",
-  "last_media_id": "17904484815518197"
+  "last_publish_date": "2026-08-29",
+  "last_media_id": "18125378200835380"
 }
