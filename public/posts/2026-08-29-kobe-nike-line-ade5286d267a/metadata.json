@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-29",
-  "stage": "ready",
+  "generated_at": "2026-08-29T16:15:04.884Z",
   "fingerprint": "ade5286d267a",
   "seed": {
     "id": "kobe-nike-line",
@@ -169,11 +168,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-29-kobe-nike-line-ade5286d267a/01.jpg",
-    "public/posts/2026-08-29-kobe-nike-line-ade5286d267a/02.jpg",
-    "public/posts/2026-08-29-kobe-nike-line-ade5286d267a/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
