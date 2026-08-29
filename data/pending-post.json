@@ -175,5 +175,10 @@
     "public/posts/2026-08-29-kobe-nike-line-ade5286d267a/02.jpg",
     "public/posts/2026-08-29-kobe-nike-line-ade5286d267a/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18015164483944388"
+    ],
+    "carousel_id": ""
+  }
 }
