@@ -92,14 +92,15 @@ jobs:
           python scripts/harden_content_policy.py
           python scripts/fix_copy_overflow.py
           python scripts/format_semantic_accents.py
+          python scripts/scroll_stop_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v12-strict-copy-image-match:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v13-scroll-stop:" + JSON.stringify(post))/' src/index.mjs
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "post.force_local_images\|fullbleed-v12-strict-copy-image-match\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
-          grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|normalizeMoneyNotation\|semanticAccentSegments" src/content.mjs
+          grep -n "post.force_local_images\|fullbleed-v13-scroll-stop\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
+          grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|normalizeMoneyNotation\|semanticAccentSegments\|SCROLL-STOP VISUAL" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
