@@ -130,5 +130,10 @@
     "public/posts/2026-08-30-air-jordan-1-banned-myth-d3b30ba4504e/01.jpg",
     "public/posts/2026-08-30-air-jordan-1-banned-myth-d3b30ba4504e/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18015314528944388"
+    ],
+    "carousel_id": ""
+  }
 }
