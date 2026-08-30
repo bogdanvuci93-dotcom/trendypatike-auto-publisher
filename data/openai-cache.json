@@ -1,4 +1,141 @@
 {
+  "af9a3925d7b311dbcf377441f6c5c76c8f53068afa5de3dba1f076bde74d1d4b": {
+    "saved_at": "2026-08-30T16:13:19.114Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All visible claims are supported by NBA and Nike sources from allowed domains; cover and slides rewritten to meet style and clarity rules.",
+      "post": {
+        "topic_title": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "NBA NIJE KAZNILA AIR JORDAN 1",
+              "accent": false
+            },
+            {
+              "text": "TO JE MIT",
+              "accent": true
+            }
+          ],
+          "subheadline": "PRIČA JE POMERENA: DRUGA PATIKA JE BILA U SREDIŠTU"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "NBA JE KRITIKOVALA BOJE PATIKA",
+              "accent": false
+            },
+            {
+              "text": "1985",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FELJTON",
+              "text": "NBA članak kaže da je Michael Jordan na 1985 All‑Star vikendu imao patike koje je liga nazvala \"zab{"
+            },
+            {
+              "tag": "NAPOMENA NIKE",
+              "text": "Nike i SNKRS navode da je Michael Jordan pre AIR JORDAN 1 nosio model AIR SHIP u istim crno‑crvenim "
+            },
+            {
+              "tag": "KONKRETNO",
+              "text": "Jasne fotografije iz 1984/1985 pokazuju MJ u NIKE AIR SHIP pre nego što je AIR JORDAN 1 postala masl"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "STVARNO: MODEL AIR SHIP JE BIO U PRIPISIVANJU",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "KONKRETNO",
+              "text": "Fotografije i izvori NBA potvrđuju da je AIR SHIP model koji je Jordan nosio pre nego što je priča o"
+            },
+            {
+              "tag": "MIT",
+              "text": "S vremenom ljudi su pomešali AIR SHIP i AIR JORDAN 1 pa je nastao mit da je AJ1 bila jedina \"zabran"
+            }
+          ],
+          "question": "Želite da dodamo originalne fotografije AIR SHIP sa 1984‑198"
+        },
+        "caption": "MIT RAZBIJEN: NBA je kritikovala boje patika 1985. Patika koja se povezuje sa tim incidentom je NIKE AIR SHIP, a ne jedino AIR JORDAN 1. Izvori su iz NBA i NIKE.",
+        "hashtags": [
+          "#MichaelJordan",
+          "#AIRSHIP",
+          "#AIRJORDAN1",
+          "#NIKE",
+          "#NBA",
+          "#TrendyPatike"
+        ],
+        "image_prompts": [
+          "1984 action close‑up: MICHAEL JORDAN wearing NIKE AIR SHIP black‑red on court, shoe details filling 70% of frame, vintage photo look, referee and scoreboard visible",
+          "Studio close‑up: NIKE AIR SHIP 1984 black‑red, leather and strap details visible, shoe fills 80% of frame, vintage lighting",
+          "Studio close‑up: AIR JORDAN 1 High black‑red, side profile and toe cap visible, shoe fills 80% of frame"
+        ],
+        "sources": [
+          {
+            "title": "All‑Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
+            "publisher": "NBA.com",
+            "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+          },
+          {
+            "title": "Jordan Air Ship x Awake NY 'University Red' (product page)",
+            "publisher": "NIKE, Inc.",
+            "url": "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "NBA je 1985. kritikovala patike koje je Michael Jordan nosio na All‑Star vikendu (opisuje ih kao \"zabranjene\" u kontekstu oblačenja).",
+            "source_urls": [
+              "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+            ]
+          },
+          {
+            "claim": "Michael Jordan je pre AIR JORDAN 1 nosio model AIR SHIP u sličnim crno‑crvenim bojama; Nike priznaje vezu AIR SHIP sa ranim Jordanovim nastupima.",
+            "source_urls": [
+              "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+            ]
+          },
+          {
+            "claim": "Javna verzija mita pomešala je AIR SHIP i AIR JORDAN 1; direktni izvori pokazuju da je AIR SHIP bio model iz ranijeg perioda koji se vezuje za kontroverzu.",
+            "source_urls": [
+              "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+              "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+      "https://www.nba.com/news/history-all-star-recap-1985",
+      "https://www.nba.com/jordan-week",
+      "https://www.nba.com/news/nba-75-players-won-all-star-saturday",
+      "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/",
+      "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte",
+      "https://www.nba.com/bulls/features/how-michael-jordan-bulls-and-isiah-thomas-pistons-became-ultimate-rivalry",
+      "https://www.nba.com/pacers/news/last-slam-dunk-contest-in-indiana-was-legendary",
+      "https://www.nba.com/news/looking-back-5-memorable-dunk-contests",
+      "https://www.nba.com/clippers/news/all-star-weekend-big-jordan-brand-its-athletes",
+      "https://www.nba.com/bulls/history/michael-jordans-top-10-nba-all-star-games-weekends",
+      "https://official.nba.com/rule-no-2-duties-of-the-officials/",
+      "https://cdn.nba.com/teams/uploads/sites/1610612758/2022/07/kings_media_guide_2021-22_FINAL.pdf",
+      "https://ak-static-int.nba.com/wp-content/uploads/sites/3/2015/12/2015-16-NBA-Rule-Book.pdf",
+      "https://ak-static-int.nba.com/wp-content/uploads/sites/3/2016/10/2016-17-Media-Guide-Pacers.pdf",
+      "https://cdn.nba.com/teams/uploads/sites/1610612754/2025/10/2025-26-Indiana-Pacers-Media-Guide-web.pdf",
+      "https://cdn.nba.com/teams/uploads/sites/1610612758/2025/01/2024-25-Sacramento-Kings-Media-Guide.pdf",
+      "https://cdn.nba.com/teams/uploads/sites/1610612740/2023/10/Pelicans-2324-Media-Guide.pdf"
+    ]
+  },
   "abdd9c80c3f1768db4c5e270b484ced36f339c2c86a325031a6950426a7a05ce": {
     "saved_at": "2026-08-30T16:12:55.009Z",
     "schema_name": "trendypatike_post",
@@ -2138,147 +2275,6 @@
       "https://www.sothebys.com/design-agenda-the-collection-of-michael-maharam-catalogue.pdf",
       "https://www.sothebys.com/n10750-price-list.pdf",
       "https://www.sothebys.com/n10706-ricky-jay.pdf?locale=en"
-    ]
-  },
-  "fab29cc4501d6170deb3cabb181a0971e655b3e0605d47ff7c740e347b24a325": {
-    "saved_at": "2026-08-23T20:42:40.992Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All major factual claims verified on nike.com pages about the NIKE MAG (appearance in 1989 film, 2011 charity release of 1,500 pairs, 2016 Adaptive Fit limited 89 pairs). All sources are Nike domains.",
-      "post": {
-        "topic_title": "Kako je Back to the Future pretvorio Nike MAG u futurističku ikonu",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "BACK TO THE FUTURE NAPRAVIO JE",
-              "accent": false
-            },
-            {
-              "text": "NIKE MAG",
-              "accent": true
-            },
-            {
-              "text": "FUTURISTIČKOM IKONOM",
-              "accent": false
-            }
-          ],
-          "subheadline": "FILM JE DAO IDEJU, A NIKE JE NAPRAVIO STVARNU PATIKU"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "NIKE MAG SE POJAVIO U FILMU BACK TO THE FUTURE II 1989.",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "Fakt",
-              "text": "Patika se vidi u sceni iz 1989. i inspirisala je stvarnu verziju."
-            },
-            {
-              "tag": "Izvor",
-              "text": "Nike arhiva opisuje pojavljivanje i uticaj modela."
-            },
-            {
-              "tag": "Linkovi",
-              "text": "https://www.nike.com/a/nike-air-mag"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "NIKE JE 2011 I 2016 PUSTIO DVE LIMITIRANE VERZIJE NIKE MAG",
-              "accent": false
-            },
-            {
-              "text": "2011 • 2016",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "Fakt",
-              "text": "2011. Nike je prodao 1.500 parova na aukciji; prihod je išao Fondu Majkla Dž. Foksa."
-            },
-            {
-              "tag": "Fakt",
-              "text": "2016. izdato je 89 parova sa Adaptive Fit (sistem samouzatezanja)."
-            }
-          ],
-          "question": "ŽELITE LI VIŠE DETALJA O SISTEMU SAMOZATEZANJA?"
-        },
-        "caption": "FILM JE DAO IDEJU; NIKE JE 2011. PRODAO 1.500 PAROVA ZA DOBROTOVORNE SVRHE; 2016. IZDATO JE 89 PAROVA SA SAMOUZATEZANJEM.",
-        "hashtags": [
-          "#NIKEMAG",
-          "#BackToTheFuture",
-          "#FUTURIZAM",
-          "#SNEAKERKULTURA",
-          "#TrendyPatike",
-          "#SELFLACING",
-          "#RETRO"
-        ],
-        "image_prompts": [
-          "NIKE MAG, FULL SHOE, FUTURISTIC HIGH TOP, STRAP AND GLOWING LED, PRODUCT SHOT, NIKE MAG CENTERED",
-          "NIKE MAG ON BACK TO THE FUTURE II FILM SET WITH MICHAEL J. FOX, 1989 STYLE, SHOW SHOE ON ACTOR, CINEMATIC LIGHTING",
-          "CLOSE-UP MACRO OF NIKE MAG ADAPTIVE FIT MECHANISM 2016 EDITION, VISIBLE ELECTRONIC LACING PARTS, SHOE DETAIL FILLING 80% OF FRAME"
-        ],
-        "sources": [
-          {
-            "title": "From the Archives: The Evolution of Nike Air Mag",
-            "publisher": "Nike",
-            "url": "https://www.nike.com/a/nike-air-mag"
-          },
-          {
-            "title": "Back for the Future: Nike Partners with the Michael J. Fox Foundation",
-            "publisher": "Nike Investor Relations",
-            "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
-          },
-          {
-            "title": "Inside The Vault. Nike SNKRS – Adaptive Fit and MAG history",
-            "publisher": "Nike SNKRS",
-            "url": "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Nike MAG se pojavio u filmu Back to the Future II 1989.",
-            "source_urls": [
-              "https://www.nike.com/a/nike-air-mag"
-            ]
-          },
-          {
-            "claim": "Nike je 2011. pustio limitiranu verziju NIKE MAG (1.500 parova) i prihod je išao Fondu Majkla Dž. Foksa.",
-            "source_urls": [
-              "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Parkinsons-Disease/default.aspx"
-            ]
-          },
-          {
-            "claim": "2016. Nike je izdao verziju NIKE MAG sa Adaptive Fit (sistem samouzatezanja) u limitiranom tiražu od 89 parova.",
-            "source_urls": [
-              "https://www.nike.com/a/nike-air-mag",
-              "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/a/nike-air-mag",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2011/Back-for-the-Future-Nike-Partners-with-the-Michael-J-Fox-Foundation-and-Original-Film-Creators-to-Pursue-a-Future-without-Par/default.aspx",
-      "https://www.nike.com/gb/a/nike-air-mag?msockid=152cb618b20b64831fa5a0c9b3a06559",
-      "https://investors.nike.com/Search-Results/default.aspx?PageNumber=294&SearchTerm=",
-      "https://www.nike.com/a/pegasus-history",
-      "https://www.nike.com/gb/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/pl/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/se/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/dk/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/de/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/be/fr/launch/t/inside-the-vault-automax-adaptive-fit1",
-      "https://www.nike.com/it/launch/t/inside-the-vault-automax-adaptive-fit1"
     ]
   }
 }
