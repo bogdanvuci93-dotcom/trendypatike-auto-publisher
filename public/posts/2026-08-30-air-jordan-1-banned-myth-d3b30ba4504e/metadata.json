@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-30",
-  "stage": "ready",
+  "generated_at": "2026-08-30T16:14:07.135Z",
   "fingerprint": "d3b30ba4504e",
   "seed": {
     "id": "air-jordan-1-banned-myth",
@@ -125,10 +124,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-30-air-jordan-1-banned-myth-d3b30ba4504e/01.jpg",
-    "public/posts/2026-08-30-air-jordan-1-banned-myth-d3b30ba4504e/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
