@@ -1,1 +1,129 @@
-{}
+{
+  "date": "2026-08-30",
+  "stage": "verified",
+  "fingerprint": "d3b30ba4504e",
+  "seed": {
+    "id": "air-jordan-1-banned-myth",
+    "topic": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1: priča iza čuvenog banned mita",
+    "category": "Michael Jordan / mit / NBA / kontroverza",
+    "preferred_domains": [
+      "nike.com",
+      "about.nike.com",
+      "nba.com"
+    ],
+    "visual_subject": "1984 NBA game editorial, Michael Jordan era, black-red Nike Air Ship versus Air Jordan 1 comparison, referee controversy"
+  },
+  "post": {
+    "topic_title": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "NBA NIJE KAZNILA AIR JORDAN",
+          "accent": false
+        },
+        {
+          "text": "1",
+          "accent": true
+        },
+        {
+          "text": "TO JE MIT",
+          "accent": true
+        }
+      ],
+      "subheadline": "PRIČA JE POMERENA: DRUGA PATIKA JE BILA U SREDIŠTU."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "NBA JE KRITIKOVALA BOJE PATIKA",
+          "accent": false
+        },
+        {
+          "text": "1985",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FELJTON",
+          "text": "NBA članak kaže da je Michael Jordan na 1985 All,Star vikendu imao patike koje je liga nazvala \"zab{."
+        },
+        {
+          "tag": "NAPOMENA NIKE",
+          "text": "Nike i SNKRS navode da je Michael Jordan pre AIR JORDAN 1 nosio model AIR SHIP u istim crno,crvenim."
+        },
+        {
+          "tag": "KONKRETNO",
+          "text": "Jasne fotografije iz 1984/1985 pokazuju MJ u NIKE AIR SHIP pre nego što je AIR JORDAN 1 postala masl."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "STVARNO: MODEL AIR SHIP JE BIO U PRIPISIVANJU",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "KONKRETNO",
+          "text": "Fotografije i izvori NBA potvrđuju da je AIR SHIP model koji je Jordan nosio pre nego što je priča o."
+        },
+        {
+          "tag": "MIT",
+          "text": "S vremenom ljudi su pomešali AIR SHIP i AIR JORDAN 1 pa je nastao mit da je Air Jordan 1 bila jedina \"zabran."
+        }
+      ],
+      "question": "Želite da dodamo originalne fotografije AIR?"
+    },
+    "caption": "MIT RAZBIJEN: NBA je kritikovala boje patika 1985. Patika koja se povezuje sa tim incidentom je NIKE AIR SHIP, a ne jedino AIR JORDAN 1. Izvori su iz NBA i NIKE.",
+    "hashtags": [
+      "#MichaelJordan",
+      "#AIRSHIP",
+      "#AIRJORDAN1",
+      "#NIKE",
+      "#NBA",
+      "#TrendyPatike"
+    ],
+    "image_prompts": [
+      "1984 action close,up: MICHAEL JORDAN wearing NIKE AIR SHIP black,red on court, shoe details filling 70% of frame, vintage photo look, referee and scoreboard visible EXACT SLIDE FACT TO ILLUSTRATE: NBA NIJE KAZNILA AIR JORDAN 1 TO JE MIT. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "Studio close,up: NIKE AIR SHIP 1984 black,red, leather and strap details visible, shoe fills 80% of frame, vintage lighting EXACT SLIDE FACT TO ILLUSTRATE: NBA JE KRITIKOVALA BOJE PATIKA 1985. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Studio close,up: AIR JORDAN 1 High black,red, side profile and toe cap visible, shoe fills 80% of frame EXACT SLIDE FACT TO ILLUSTRATE: STVARNO: MODEL AIR SHIP JE BIO U PRIPISIVANJU. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject."
+    ],
+    "sources": [
+      {
+        "title": "All,Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
+        "publisher": "NBA.com",
+        "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+      },
+      {
+        "title": "Jordan Air Ship x Awake NY 'University Red' (product page)",
+        "publisher": "NIKE, Inc.",
+        "url": "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "NBA je 1985. kritikovala patike koje je Michael Jordan nosio na All,Star vikendu (opisuje ih kao \"zabranjene\" u kontekstu oblačenja).",
+        "source_urls": [
+          "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
+        ]
+      },
+      {
+        "claim": "Michael Jordan je pre AIR JORDAN 1 nosio model AIR SHIP u sličnim crno,crvenim bojama; Nike priznaje vezu AIR SHIP sa ranim Jordanovim nastupima.",
+        "source_urls": [
+          "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+        ]
+      },
+      {
+        "claim": "Javna verzija mita pomešala je AIR SHIP i AIR JORDAN 1; direktni izvori pokazuju da je AIR SHIP bio model iz ranijeg perioda koji se vezuje za kontroverzu.",
+        "source_urls": [
+          "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+          "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+        ]
+      }
+    ]
+  }
+}
