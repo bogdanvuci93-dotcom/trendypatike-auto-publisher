@@ -48,7 +48,7 @@ new = '''FACT RULES:
 - At least ONE used slide after the cover should contain a verified WOW NUMBER whenever a reliable source provides one: documented auction/sale price, original retail price, production quantity, pairs made, record, contract value, fine, year gap or another surprising concrete number.
 - For rare/collectible shoes, actively search for the strongest documented price fact. Prefer an actual recorded auction/sale price with the year and auction/source over vague current "worth" or unstable resale estimates.
 - Never invent a price and never present an asking price or unsourced resale estimate as value. If no reliable money figure exists, use another verified surprising number instead.
-- Write money in a form Serbian readers instantly understand, e.g. "2,2 MILIONA DOLARA", and make the number a green accent when it is the slide's main hook.
+- Write money with a compact currency symbol/code, e.g. "$2,2 MILIONA", "€350.000" or "7.990 RSD", and make the amount a green accent when it is the slide's main hook.
 - Use only facts supported by pages you actually found now.'''
 s = replace_once(s, old, new, "writer mass-interest and numbers")
 
