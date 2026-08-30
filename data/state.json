@@ -225,8 +225,19 @@
         "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx",
         "https://www.nba.com/news/archive-75-kobe-bryant"
       ]
+    },
+    {
+      "date": "2026-08-30",
+      "topic_id": "air-jordan-1-banned-myth",
+      "seed_topic": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1: priča iza čuvenog banned mita",
+      "topic_title": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1",
+      "media_id": "17957329782226862",
+      "sources": [
+        "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
+        "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-29",
-  "last_media_id": "18125378200835380"
+  "last_publish_date": "2026-08-30",
+  "last_media_id": "17957329782226862"
 }
