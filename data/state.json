@@ -236,8 +236,20 @@
         "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
         "https://www.nike.com/launch/t/jordan-air-ship-x-awake-ny-university-red/"
       ]
+    },
+    {
+      "date": "2026-08-31",
+      "topic_id": "run-dmc-my-adidas",
+      "seed_topic": "Kako je jedan Run-D.M.C. koncert pretvorio publiku sa podignutim adidas patikama u istorijski poslovni trenutak",
+      "topic_title": "Kako je jedan Run-D.M.C. koncert pretvorio publiku sa podignutim adidas patikama u istorijski poslovni trenutak",
+      "media_id": "17903803845487395",
+      "sources": [
+        "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf",
+        "https://www.adidas-group.com/en/about/history",
+        "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-30",
-  "last_media_id": "17957329782226862"
+  "last_publish_date": "2026-08-31",
+  "last_media_id": "17903803845487395"
 }
