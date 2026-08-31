@@ -1,1 +1,144 @@
-{}
+{
+  "date": "2026-08-31",
+  "stage": "verified",
+  "fingerprint": "a46682276fb7",
+  "seed": {
+    "id": "run-dmc-my-adidas",
+    "topic": "Kako je jedan Run-D.M.C. koncert pretvorio publiku sa podignutim adidas patikama u istorijski poslovni trenutak",
+    "category": "Run-D.M.C. / muzika / adidas / biznis",
+    "preferred_domains": [
+      "news.adidas.com",
+      "adidas-group.com",
+      "adidas.com",
+      "smithsonianmag.com"
+    ],
+    "visual_subject": "Run-D.M.C. 1980s concert, huge crowd holding adidas Superstar sneakers in the air, dramatic stage editorial"
+  },
+  "post": {
+    "topic_title": "Kako je jedan Run-D.M.C. koncert pretvorio publiku sa podignutim adidas patikama u istorijski poslovni trenutak",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "PUBLIKA PODIGLA",
+          "accent": false
+        },
+        {
+          "text": "ADIDAS SUPERSTAR",
+          "accent": true
+        },
+        {
+          "text": ", TO JE POSTALO POSAO",
+          "accent": false
+        }
+      ],
+      "subheadline": "KAKO PESMA \"MY ADIDAS\" I GEST NA KONCERTU DONELI SPONZORSTVO 1986."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "RUN,D.M.C. IZVEO \"MY ADIDAS\",",
+          "accent": false
+        },
+        {
+          "text": "40.000",
+          "accent": true
+        },
+        {
+          "text": "LJUDI PODIGLO PATIKE",
+          "accent": false
+        },
+        {
+          "text": "1986.",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FAKT",
+          "text": "Run,D.M.C. je na koncertu podigao adidas Superstar patike pred oko 40.000 ljudi; adidas je potom skl."
+        },
+        {
+          "tag": "FAKT",
+          "text": "Adidas je 1986. potvrdio saradnju/sponzorstvo nakon pesme „My Adidas“."
+        },
+        {
+          "tag": "BROJ",
+          "text": "U jednom periodu oko 75% profesionalnih košarkaša u SAD nosilo je modele adidas poput Superstar."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "PATIKA IMA ZANIMLJIVU PRIČU",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FAKT",
+          "text": "N/A as no third slide used."
+        },
+        {
+          "tag": "EVIDENCIJA",
+          "text": "N/A due to two-slide format."
+        }
+      ],
+      "question": "Da li ste znali?"
+    },
+    "caption": "RUN,D.M.C. je pevao „MY ADIDAS“ i na sceni podigao ADIDAS SUPERSTAR patike pred masom; taj javni gest doveo je do formalne saradnje sa adidasom 1986. Izvori: adidas, Smithsonian.",
+    "hashtags": [
+      "#RunDMC",
+      "#ADIDASSUPERSTAR",
+      "#MYADIDAS",
+      "#HIPHOPISTORIJA",
+      "#SNEAKERKULTURA",
+      "#TrendyPatike"
+    ],
+    "image_prompts": [
+      "Run,D.M.C. performing on a 1980s stage while thousands of fans hold white adidas Superstar sneakers high in the air, shell,toe visible, editorial concert photograph showing the crowd and the band EXACT SLIDE FACT TO ILLUSTRATE: PUBLIKA PODIGLA ADIDAS SUPERSTAR, TO JE POSTALO POSAO. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Close-up shot of a crowd holding white adidas Superstar shoes aloft at a Run,D.M.C. concert, shell,toe filling most of the frame, 1980s concert lighting EXACT SLIDE FACT TO ILLUSTRATE: RUN,D.M.C. IZVEO \"MY ADIDAS\", 40.000 LJUDI PODIGLO PATIKE 1986.. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Portrait of Run,D.M.C. on stage wearing white adidas Superstar sneakers, laceless, 1980s documentary style EXACT SLIDE FACT TO ILLUSTRATE: PATIKA IMA ZANIMLJIVU PRIČU. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "sources": [
+      {
+        "title": "ADIDAS SUPERSTAR SHOES: A HISTORY OF SHELL,TOE STYLE",
+        "publisher": "adidas News",
+        "url": "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf"
+      },
+      {
+        "title": "History - adidas Group (mentions concert and partnership)",
+        "publisher": "adidas,group.com",
+        "url": "https://www.adidas-group.com/en/about/history"
+      },
+      {
+        "title": "A Brief History of America’s Obsession With Sneakers (mentions \"My Adidas\" sponsorship)",
+        "publisher": "Smithsonian Magazine",
+        "url": "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Run,D.M.C. je pesmom „My Adidas“ i gestom podizanja patika na koncertu izazvao partnerstvo/sponzorstvo sa adidasom 1986.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/about/history",
+          "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf",
+          "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
+        ]
+      },
+      {
+        "claim": "Na tom koncertu oko 40.000 ljudi podiglo je adidas patike, trenutak koji je adidas zabeležio kao okidač za promociju izvan sporta.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/about/history"
+        ]
+      },
+      {
+        "claim": "Adidas navodi da je „u jednom trenutku\" oko 75% profesionalnih košarkaša u SAD nosilo modele adidas poput Superstar.",
+        "source_urls": [
+          "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf"
+        ]
+      }
+    ]
+  }
+}
