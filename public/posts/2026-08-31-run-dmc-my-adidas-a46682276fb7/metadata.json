@@ -1,6 +1,5 @@
 {
-  "date": "2026-08-31",
-  "stage": "ready",
+  "generated_at": "2026-08-31T16:17:14.423Z",
   "fingerprint": "a46682276fb7",
   "seed": {
     "id": "run-dmc-my-adidas",
@@ -140,10 +139,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-08-31-run-dmc-my-adidas-a46682276fb7/01.jpg",
-    "public/posts/2026-08-31-run-dmc-my-adidas-a46682276fb7/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
