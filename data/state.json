@@ -248,8 +248,20 @@
         "https://www.adidas-group.com/en/about/history",
         "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
       ]
+    },
+    {
+      "date": "2026-09-01",
+      "topic_id": "kipchoge-breaking2-nike",
+      "seed_topic": "Eliudu Kipchogeu je falilo samo nekoliko sekundi da maraton prvi put spusti ispod dva sata",
+      "topic_title": "Eliud Kipchoge / rekord / Nike / vreme",
+      "media_id": "18114484460296268",
+      "sources": [
+        "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
+        "https://www.nike.com/hr/zoomx",
+        "https://about.nike.com/en/newsroom/releases/unpacking-nike-breaking2-race-strategy"
+      ]
     }
   ],
-  "last_publish_date": "2026-08-31",
-  "last_media_id": "17903803845487395"
+  "last_publish_date": "2026-09-01",
+  "last_media_id": "18114484460296268"
 }
