@@ -1,4 +1,157 @@
 {
+  "14e55e4283c6e9219169aa4afe82c3cc4b47ab0cc92e15796d660162f24d663b": {
+    "saved_at": "2026-09-01T16:41:41.095Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Eliud Kipchoge / rekord / Nike / vreme",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "ELIUD KIPCHOGE",
+            "accent": true
+          },
+          {
+            "text": "MANJKALO MU",
+            "accent": false
+          },
+          {
+            "text": "25 SEKUNDI DO 2:00",
+            "accent": true
+          }
+        ],
+        "subheadline": "Breaking2, Monca 2017 — Kipchoge je trčao 2:00:25."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "TRČAO JE",
+            "accent": false
+          },
+          {
+            "text": "2:00:25",
+            "accent": true
+          },
+          {
+            "text": "U MONCI, ITALIJA",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FAKT",
+            "text": "Eliud Kipchoge je na Nike Breaking2 u Monci istrčao 2:00:25, ostavši 25 sekundi iznad dve sata."
+          },
+          {
+            "tag": "PRODUKT",
+            "text": "Kipchoge i paceri su nosili Nike ZoomX Vaporfly 4%, razvijen zbog pokušaja ispod dva sata."
+          },
+          {
+            "tag": "TAČAN DOKAZ",
+            "text": "Nike zvanični izveštaji i stranice proizvoda potvrđuju vreme i modeli patika."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Pitanje",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "",
+            "text": "Ne koristi se slide 3."
+          },
+          {
+            "tag": "",
+            "text": "Pitanje: Želiš objavu o INEOS 1:59 iz 2019?"
+          }
+        ],
+        "question": "Želiš INEOS 1:59 priču?"
+      },
+      "caption": "Na Nike Breaking2 u Monci (maj 2017) Eliud Kipchoge je istrčao 2:00:25 — falilo mu je 25 sekundi do magične granice od dva sata. Nike izvori potvrđuju vreme i patiku ZoomX Vaporfly 4% koja je korišćena tokom pokušaja. Želiš da napravimo i video/karusel sa detaljima patike?",
+      "hashtags": [
+        "#EliudKipchoge",
+        "#Breaking2",
+        "#Nike",
+        "#Vaporfly",
+        "#maraton",
+        "#rekord",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "Dramatic shot of Eliud Kipchoge crossing the Breaking2 finish line in Monza, giant race clock reading 2:00:25 above the track, a line of pacers behind him and Nike ZoomX Vaporfly 4% visible on his feet, high contrast, child-readable composition",
+        "Close-up macro of Nike ZoomX Vaporfly 4% on Eliud Kipchoge's foot during Breaking2, shoe occupying 65% of frame, race clock in background showing 2:00:25, Monza circuit, sharp detail of foam and carbon plate",
+        "Eliud Kipchoge running in INEOS 1:59 challenge in Vienna, showing 1:59:40 on a giant clock, pacers and Nike shoes, cinematic wide shot, clear and bold for a child to recognize"
+      ],
+      "sources": [
+        {
+          "title": "Nike Introduces Breaking2",
+          "publisher": "about.nike.com",
+          "url": "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2"
+        },
+        {
+          "title": "Nike ZoomX Origins / ZoomX product page",
+          "publisher": "nike.com",
+          "url": "https://www.nike.com/hr/zoomx"
+        },
+        {
+          "title": "An Inside Look at Nike’s Breaking2 Project",
+          "publisher": "about.nike.com",
+          "url": "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Eliud Kipchoge je na Breaking2 u Monci istrčao 2:00:25 (falilo mu 25 sekundi do dva sata).",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
+            "https://www.nike.com/hr/zoomx"
+          ]
+        },
+        {
+          "claim": "Kipchoge je trčao u Nike ZoomX Vaporfly 4% tokom Breaking2 pokušaja.",
+          "source_urls": [
+            "https://www.nike.com/hr/zoomx",
+            "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/"
+          ]
+        },
+        {
+          "claim": "Informacije su potvrđene na zvaničnim Nike stranicama.",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
+            "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/hr/zoomx",
+      "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
+      "https://www.nike.com/ca/fr/zoomx",
+      "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/",
+      "https://about.nike.com/en/newsroom/releases/six-reasons-why-breaking2-goes-beyond-26-2-miles",
+      "https://about.nike.com/en/newsroom/releases/unpacking-nike-breaking2-race-strategy",
+      "https://www.nike.com/gb/running/breaking2",
+      "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
+      "https://www.nike.com/at/laufen/breaking2",
+      "https://www.nike.com/jp/running/breaking2",
+      "https://www.nike.com/gr/treksimo/breaking2",
+      "https://about.nike.com/en/newsroom/releases/nike-and-eliud-kipchoge-celebrate-20-years",
+      "https://media.about.nike.com/files/d8403f70-1dc5-4ad2-803e-d4663418083b/CesarGarcia_NIKEInc_EMEA_GM.pdf",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=848280&parentDocumentId=848278&skipCopyright=true&skipWatermark=true",
+      "https://gstatic.olympics.com/s3/mc2026/press/Press%20Kit/Press%20Kit%20Olympic%20Opening%20Ceremony/MICO26_CER_OOC_Programme.pdf",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3156584&parentDocumentId=3156582&skipCopyright=true&skipWatermark=true",
+      "https://milanocortina2026.olympics.com/en/bobsled",
+      "https://library.olympics.com/fiba/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=2955499&parentDocumentId=208501&skipCopyright=true&skipWatermark=true",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=208905&parentDocumentId=176545&skipCopyright=true&skipWatermark=true",
+      "https://library.olympics.com/Default/doc/EBSCO_SPORTDiscus/133524041/efficacy-of-ketogenic-diet-on-body-composition-during-resistance-training-in-trained-men-769-board-3?_lg=en-GB",
+      "https://museumschools.olympics.com/selection/timeslotpass?date=28.05.2026&ot=0&productId=10229155186119",
+      "https://library.olympics.com/doc/SYRACUSE/207158/fil-magazine-official-publication-of-the-international-luge-federation-vol-1-may-2019"
+    ]
+  },
   "e198ffafa895d5762acb447e3415f2470c28c1a01aa84cddb916f102cb4f2320": {
     "saved_at": "2026-08-31T16:16:19.663Z",
     "schema_name": "trendypatike_verified_post",
@@ -2164,138 +2317,6 @@
       "https://www.sothebys.com/n10750-price-list.pdf",
       "https://www.sothebys.com/en/treasures-l21307-catalogue.pdf",
       "https://www.sothebys.com/chinese-art-from-the-brooklyn-museum-price-list.pdf"
-    ]
-  },
-  "f90ebc88ce794266d67e995b4ff24c8eaa9406cc5170cac841119949746461d9": {
-    "saved_at": "2026-08-25T17:20:51.518Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako su Kanye Westove Nike Air Yeezy sa Grammy nastupa prodate za ogroman iznos",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "KANYE WEST NA GRAMMY-U 2008",
-            "accent": true
-          },
-          {
-            "text": "NOSIO JE CRNE NIKE AIR YEEZY",
-            "accent": true
-          }
-        ],
-        "subheadline": "Kratka priča o patikama koje su promenile kolekcionarstvo"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "PATIKE KOJE JE NOSIO KANYE PRODATE SU ZA",
-            "accent": false
-          },
-          {
-            "text": "1,8 MILIONA DOLARA",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Sotheby’s je 2021. potvrdio privatnu prodaju kupcu RARES."
-          },
-          {
-            "tag": "DETALJ",
-            "text": "Patike su bile uzete sa Kanye-jevog nastupa na 50. Grammy dodeli 2008."
-          },
-          {
-            "tag": "IZVOR",
-            "text": "Dokazi i analiza poređenja fotografija potvrdili su da su to bile patike sa nastupa."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "NE KORISTITE OVU SLIDU",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "NOTE",
-            "text": "Rezervno polje — ne koristi se."
-          },
-          {
-            "tag": "EXTRA",
-            "text": "— — — — — — — — — —"
-          }
-        ],
-        "question": "—"
-      },
-      "caption": "Kanye West je na 2008. Grammy-ima nosio crne Nike Air Yeezy. Te iste patike Sotheby’s je 2021. privatno prodao kupcu RARES za 1,8 MILIONA DOLARA. Ovo je prodaja koja je oborila rekord za patike na aukciji.",
-      "hashtags": [
-        "#KanyeWest",
-        "#AirYeezy",
-        "#Sothebys",
-        "#SneakerHistory",
-        "#Grammy2008",
-        "#RARES",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Close-up photo of KANYE WEST on stage at the 2008 Grammy Awards wearing black Nike Air Yeezy, dramatic stage lighting, full body shot, clear view of the shoes",
-        "Macro close-up of the exact black Nike Air Yeezy prototype: strap, creasing and perforated leather filling 65% of frame, studio lighting, high detail",
-        "Editorial luxury sale scene: a pair of black Nike Air Yeezy in a custom wooden box on a pedestal in a gallery, soft museum lighting, empty background"
-      ],
-      "sources": [
-        {
-          "title": "Kanye West ‘Grammy Worn’ Nike Air Yeezy Sample",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"
-        },
-        {
-          "title": "Sole Traders – sneaker investment and record sale note",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Patike koje je Kanye nosio na Grammy-ima 2008 su prodate za 1,8 MILIONA DOLARA.",
-          "source_urls": [
-            "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample",
-            "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment"
-          ]
-        },
-        {
-          "claim": "Sotheby’s je potvrdio privatnu prodaju 2021. kupcu RARES.",
-          "source_urls": [
-            "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
-            "https://www.sothebys.com/en/press/2021-historic-year-in-review"
-          ]
-        },
-        {
-          "claim": "Patike su identifikovane kao one sa Kanye-jevog nastupa uz fotopoređenje i analiza.",
-          "source_urls": [
-            "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample",
-      "https://www.sothebys.com/en/digital-catalogues/from-the-archive-day-2-kanye-west-prototype-nike-air-yeezy",
-      "https://www.sothebys.com/en/articles/sole-traders-behind-the-hype-and-headlines-of-sneaker-investment",
-      "https://www.sothebys.com/en/buy/auction/2022/hip-hop/nike-dunk-high-grammy-sample-size-12",
-      "https://www.sothebys.com/en/articles/kanye-west-grammy-worn-nike-air-yeezy-sample-from-2008-1?_amp=true",
-      "https://www.sothebys.com/en/press/sothebys-to-auction-from-the-archive",
-      "https://www.sothebys.com/en/press/2021-historic-year-in-review",
-      "https://www.sothebys.com/en/buy/fashion/_Nike-Air-Yeezy-1-Zen-Grey-Sample-or-Size-9",
-      "https://www.sothebys.com/en/digital-catalogues/scarce-air",
-      "https://www.sothebys.com/buy/c9b92206-527f-41c2-b520-09abd0e7d913/lots/7e3dff3f-6d75-4915-9e55-8aae80bf302a",
-      "https://www.sothebys.com/from-the-archive",
-      "https://www.sothebys.com/en/buy/auction/2020/from-the-archive-day-2-kanye-west-designed-nike-air-yeezy-prototypes/kanye-west-and-mark-smith-designed-nike-air-yeezy?locale=en",
-      "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
-      "https://www.sothebys.com/en/treasures-l21307-catalogue.pdf",
-      "https://www.sothebys.com/sothebys-ny-important-design-catalog.pdf"
     ]
   }
 }
