@@ -158,5 +158,10 @@
     "public/posts/2026-09-01-kipchoge-breaking2-nike-3bad6dfa3a94/01.jpg",
     "public/posts/2026-09-01-kipchoge-breaking2-nike-3bad6dfa3a94/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18015615434944388"
+    ],
+    "carousel_id": ""
+  }
 }
