@@ -124,5 +124,10 @@
     "public/posts/2026-09-02-fallback-vans-authentic-ac3cba548c95/02.jpg",
     "public/posts/2026-09-02-fallback-vans-authentic-ac3cba548c95/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18015742814944388"
+    ],
+    "carousel_id": ""
+  }
 }
