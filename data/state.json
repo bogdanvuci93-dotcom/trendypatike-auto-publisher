@@ -260,8 +260,19 @@
         "https://www.nike.com/hr/zoomx",
         "https://about.nike.com/en/newsroom/releases/unpacking-nike-breaking2-race-strategy"
       ]
+    },
+    {
+      "date": "2026-09-02",
+      "topic_id": "fallback-vans-authentic",
+      "seed_topic": "Kako je prvi Vans model postao Authentic",
+      "topic_title": "Kako je prvi Vans model postao Authentic",
+      "media_id": "18011680835751127",
+      "sources": [
+        "https://www.vans.com/en-gb/since-66",
+        "https://www.vans.com/en-us/news/the-story-of-the-authentic"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-01",
-  "last_media_id": "18114484460296268"
+  "last_publish_date": "2026-09-02",
+  "last_media_id": "18011680835751127"
 }
