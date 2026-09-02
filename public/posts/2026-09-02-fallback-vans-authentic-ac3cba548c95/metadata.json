@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-02",
-  "stage": "ready",
+  "generated_at": "2026-09-02T16:28:35.771Z",
   "fingerprint": "ac3cba548c95",
   "seed": {
     "id": "fallback-vans-authentic",
@@ -118,11 +117,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-02-fallback-vans-authentic-ac3cba548c95/01.jpg",
-    "public/posts/2026-09-02-fallback-vans-authentic-ac3cba548c95/02.jpg",
-    "public/posts/2026-09-02-fallback-vans-authentic-ac3cba548c95/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
