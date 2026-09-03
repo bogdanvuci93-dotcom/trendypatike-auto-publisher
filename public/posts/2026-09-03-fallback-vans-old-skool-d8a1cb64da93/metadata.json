@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-03",
-  "stage": "ready",
+  "generated_at": "2026-09-03T16:27:16.189Z",
   "fingerprint": "d8a1cb64da93",
   "seed": {
     "id": "fallback-vans-old-skool",
@@ -118,11 +117,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-03-fallback-vans-old-skool-d8a1cb64da93/01.jpg",
-    "public/posts/2026-09-03-fallback-vans-old-skool-d8a1cb64da93/02.jpg",
-    "public/posts/2026-09-03-fallback-vans-old-skool-d8a1cb64da93/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
