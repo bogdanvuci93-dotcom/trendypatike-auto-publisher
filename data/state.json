@@ -271,8 +271,19 @@
         "https://www.vans.com/en-gb/since-66",
         "https://www.vans.com/en-us/news/the-story-of-the-authentic"
       ]
+    },
+    {
+      "date": "2026-09-03",
+      "topic_id": "fallback-vans-old-skool",
+      "seed_topic": "Kako je Vans Old Skool dobio poznatu bočnu liniju",
+      "topic_title": "Kako je Vans Old Skool dobio poznatu bočnu liniju",
+      "media_id": "18105347530932981",
+      "sources": [
+        "https://www.vans.com/en-gb/since-66",
+        "https://www.vans.com/en-us/c/shoes/icons-5195"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-02",
-  "last_media_id": "18011680835751127"
+  "last_publish_date": "2026-09-03",
+  "last_media_id": "18105347530932981"
 }
