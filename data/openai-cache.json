@@ -1,4 +1,166 @@
 {
+  "8a11aae64fb5d120ca462af0a9b303ce0d993ffe975e673d6fa604f19c949fa6": {
+    "saved_at": "2026-09-04T16:21:24.737Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "NIKE VAPORFLY",
+            "accent": true
+          },
+          {
+            "text": "POMAŽE TRKAČIMA DA TRČE",
+            "accent": false
+          },
+          {
+            "text": "4%",
+            "accent": true
+          }
+        ],
+        "subheadline": "Nike tvrdi prosečno poboljšanje od 4% u ekonomiji trčanja."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "KAKO TO RADI:",
+            "accent": false
+          },
+          {
+            "text": "DEBLJI SLOJ PENE +",
+            "accent": false
+          },
+          {
+            "text": "UGLJIČNA PLOČA",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "OSNOVNO",
+            "text": "Nike kaže da kombinacija specijalne pene ZoomX i pune karbon‑ploče vraća energiju i smanjuje gubitak"
+          },
+          {
+            "tag": "IZVOR",
+            "text": "Nike: opisi Vaporfly modela i objašnjenja tehnologije (ZoomX + FlyPlate)."
+          },
+          {
+            "tag": "ISTORIJA",
+            "text": "Nike je prvobitno predstavio model 'Vaporfly 4%' i navodio prosečno poboljšanje od 4% u istraživanj​"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Pitanje: DA LI JE TO FER?",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "KONTEKST",
+            "text": "Zbog jasnog broja i koristi, neki stručnjaci i takmičenja su počeli da preispituju pravila o obući i"
+          },
+          {
+            "tag": "NAPOMENA",
+            "text": "(Detaljnije izvore vidi u tvrdnjama ispod.)"
+          }
+        ],
+        "question": "Da li bi ovo trebalo zabraniti?"
+      },
+      "caption": "Nike je javno rekao da Vaporfly kombinuje ZoomX pjenu i karbon‑ploču, navodeći prosečno poboljšanje od 4% u ekonomiji trčanja — to je pokrenulo raspravu o poštenju rekorda i pravilima na takmičenjima. Izvori su Nike-ovi zvanični tekstovi o modelima i Breaking2 projektu.",
+      "hashtags": [
+        "#Nike",
+        "#Vaporfly",
+        "#rekord",
+        "#trčanje",
+        "#tehnologija",
+        "#kontroverza",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "Close-up cutaway of a Nike Vaporfly shoe showing the ZoomX foam midsole and full-length carbon FlyPlate occupying 65%+ of frame, studio lighting, editorial macro, label 'Vaporfly'.",
+        "Elite marathon finish line with Eliud Kipchoge style runner crossing, wearing Nike Vaporfly/Alphafly style shoes, finish clock visible, officials in background, editorial sports photo.",
+        "Close-up of a stopwatch and race officials looking at times next to a displayed Nike Vaporfly shoe on a table, editorial investigative style."
+      ],
+      "sources": [
+        {
+          "title": "Sandy Bodecker: The Man Behind Breaking2",
+          "publisher": "NIKE, Inc.",
+          "url": "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2"
+        },
+        {
+          "title": "Introducing the Nike Zoom Vaporfly Elite Featuring Nike ZoomX Midsole",
+          "publisher": "NIKE, Inc.",
+          "url": "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+        },
+        {
+          "title": "Nike Vaporfly 4 Men's Road Racing Shoes — product page",
+          "publisher": "Nike.com",
+          "url": "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/HF6414-300"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Nike je javno tvrdio da model 'Vaporfly 4%' donosi prosečno poboljšanje od 4% u ekonomiji trčanja.",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
+            "https://about.nike.com/en/magazine/nike-prototype-testing-process"
+          ]
+        },
+        {
+          "claim": "Prednost dolazi od kombinacije ZoomX pene i pune karbon‑(Fly) ploče koje zajedno vraćaju energiju i daju osećaj 'guranja' napred.",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
+            "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/HF6414-300"
+          ]
+        },
+        {
+          "claim": "Zbog jasno mernih koristi, Vaporfly je izazvao javnu raspravu i preispitivanje pravila u trkačkom sportu.",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
+            "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/a/nike-vaporfly4-streakfly2-release-info/",
+      "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
+      "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/HF6414-300",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en-GB/newsroom/releases/nike-pushes-the-boundaries-of-running-innovation-with-the-vaporfly-4-and-streakfly-2",
+      "https://www.nike.com/id/t/vaporfly-4-road-racing-shoes-PTwDtp/reviews",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3416736&parentDocumentId=3416735&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en/newsroom/releases/nike-vaporfly-3-official-images",
+      "https://www.nike.com/lu/a/info-sortie-nike-vaporfly4-streakfly2",
+      "https://about.nike.com/en/newsroom/releases/nike-official-images-maxfly2-victory2-gthustle3-2024-mercurial",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=849364&parentDocumentId=849363&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en/magazine/eliud-kipchoge-wear-testing-nike-running-zoom-fly-6",
+      "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/reviews",
+      "https://about.nike.com/en-GB/newsroom/releases/nike-air-is-the-athletes-advantage-from-the-track-to-the-court-to-the-pitch",
+      "https://about.nike.com/fr/newsroom/releases/vaporfly-4-et-streakfly-2-nike-repousse-encore-les-limites-de-linnovation-en-matiere-de-running",
+      "https://library.olympics.com/cnospa/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=2875780&parentDocumentId=2875777&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
+      "https://about.nike.com/en/magazine/nike-prototype-testing-process",
+      "https://about.nike.com/en/newsroom/releases/nike-international-running-pack-official-images",
+      "https://about.nike.com/en/newsroom/releases/keely-hodgkinson-speed-and-style-converge-in-her-first-signature-nike-running-collection",
+      "https://about.nike.com/en/magazine/pre-montreal-steve-prefontaine-track-spike-history",
+      "https://about.nike.com/en/newsroom/releases/pegasus-turbo-next-nature-official-images",
+      "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images",
+      "https://about.nike.com/zh-Hans/newsroom/releases/nike-614",
+      "https://about.nike.com/zh-Hans/magazine/how-we-partner-with-athletes-on-new-prototypes",
+      "https://about.nike.com/en/newsroom/releases/nike-running-2025-ekiden-collection/",
+      "https://about.nike.com/es-ES/newsroom/releases/la-velocidad-y-el-estilo-de-keely-hodgkinson-convergen-en-su-primera-coleccion-exclusiva-de-nike-running",
+      "https://media.about.nike.com/files/ef955313-596b-4e89-adad-c48acbf2afd3/FY23-Q4-Combined-NIKE-Press-Release-%26-Schedules---FINAL.pdf",
+      "https://media.about.nike.com/files/2fd5f76d-50a2-4906-b30b-3b6046f36ebf/FY23_Nike_Impact_Report.pdf",
+      "https://media.about.nike.com/files/0bbc28fd-f2c2-4369-ac7d-1169e81e912f/FY18_Q4_Combined_NIKE_Press_Release_and_Schedules_80469.pdf",
+      "https://media.about.nike.com/files/2ae0e202-7da6-4261-a55b-fa60275d0ca7/FY19_Q4_Combined_NIKE_Press_Release_-_Schedules_-_FINAL_88959.pdf"
+    ]
+  },
   "418ade52f07695d0931a5cd052712d8726b926ee644e38c8ff78a64b92a57018": {
     "saved_at": "2026-09-01T16:42:05.830Z",
     "schema_name": "trendypatike_verified_post",
@@ -2181,149 +2343,6 @@
       "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
       "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
       "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf"
-    ]
-  },
-  "02e17180e62a54e1e0f3cca1b5c5b5eb61ea23c30113c5d84193bb2079adc570": {
-    "saved_at": "2026-08-27T06:58:12.713Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je stari Nike Moon Shoe postao jedna od najskupljih patika prodatih na aukciji",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "KAKO JE NIKE MOON SHOE",
-            "accent": true
-          },
-          {
-            "text": "POSTAO NAJSKUPLJI PAR PATIKA",
-            "accent": false
-          }
-        ],
-        "subheadline": "Jednostavno objašnjenje za svaku generaciju"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "PRODAT ZA",
-            "accent": false
-          },
-          {
-            "text": "437,500 DOLARA",
-            "accent": true
-          },
-          {
-            "text": "U 2019.",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "SAŽETAK",
-            "text": "Handmade prototip iz 1972. dizajnirao Bill Bowerman; sačuvano je vrlo malo parova."
-          },
-          {
-            "tag": "AUKCIJA",
-            "text": "Par je prodat na aukciji Sotheby’s tokom online kolekcije Stadium Goods."
-          },
-          {
-            "tag": "ZAŠTO VREDI",
-            "text": "Prvi 'waffle' đon napravljen iz železne ploče, revolucionaran za prijem i udobnost."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": " ",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "",
-            "text": "No slide 3 used - placeholder"
-          },
-          {
-            "tag": "",
-            "text": "Never displayed - schema requirement"
-          }
-        ],
-        "question": ""
-      },
-      "caption": "Rani Nike Moon Shoe je ručno izrađen prototip iz 1972. godine, otac ‘waffle’ đona Bill Bowerman. Jedan očuvan par je 2019. prodat na aukciji Sotheby’s za 437,500 DOLARA, zato što postoji veoma malo originalnih primeraka i jer je ovo tehnički rani model koji je promenio patike za trčanje.",
-      "hashtags": [
-        "#MoonShoe",
-        "#NikeHistory",
-        "#Sothebys",
-        "#VintageSneakers",
-        "#WaffleSole",
-        "#TrendyPatike",
-        "#SneakerAukcija"
-      ],
-      "image_prompts": [
-        "Museum-style photo of a single rare vintage Nike Moon Shoe from 1972 on a pedestal, full shoe visible, neutral museum lighting, label reading 'Nike Moon Shoe' in frame",
-        "Extreme close-up macro of the waffle sole on a Nike Moon Shoe showing waffle pattern and single-piece outsole, sole fills at least 65% of frame, high detail, museum lighting, label 'Nike Moon Shoe' visible",
-        "Auction scene with a Sotheby's placard and a displayed pair of Nike Moon Shoe on a velvet table, auction gavel in foreground, clear Sotheby's branding on placard"
-      ],
-      "sources": [
-        {
-          "title": "The History of the Nike Moon Shoe — NIKE, Inc.",
-          "publisher": "Nike (about.nike.com)",
-          "url": "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
-        },
-        {
-          "title": "1970s Nike ‘Moon Shoe’ | Lot page",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
-        },
-        {
-          "title": "New world auction record for a pair of sneakers — Sotheby’s article",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Nike Moon Shoe prodat je za 437,500 DOLARA na aukciji 2019.",
-          "source_urls": [
-            "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
-            "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
-          ]
-        },
-        {
-          "claim": "Moon Shoe je ručno napravljen prototip iz oko 1972. koji je izumio Bill Bowerman i dao prvi 'waffle' đon.",
-          "source_urls": [
-            "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history"
-          ]
-        },
-        {
-          "claim": "Par je prodat kroz Sotheby’s online aukciju Stadium Goods 2019.",
-          "source_urls": [
-            "https://www.sothebys.com/en/articles/the-hype-is-real-bid-on-100-of-the-rarest-sneakers-ever-produced",
-            "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/magazine/nike-moon-shoe-waffle-iron-true-history",
-      "https://about.nike.com/en-GB/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://www.nike.com/launch/t/dna-artifacts-nike-moon-shoe",
-      "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/56ae842d-3a57-4ac8-a8ce-936d15222494",
-      "https://about.nike.com/en/magazine/why-tom-sachs-created-his-latest-version-of-the-nikecraft-general-purpose-shoe",
-      "https://www.nike.com/running/nike-running-dna-the-roots-of-fast?msockid=3ab83c400d41664a3c3f2a2f0cc1674a",
-      "https://www.sothebys.com/en/articles/the-hype-is-real-bid-on-100-of-the-rarest-sneakers-ever-produced",
-      "https://about.nike.com/en-GB/magazine/the-birth-of-acg-the-summit-that-launched-a-legacy",
-      "https://about.nike.com/en/newsroom/releases/nike-bode-rec-astrograbber-official-images",
-      "https://www.sothebys.com/en/articles/new-world-auction-record-for-a-pair-of-sneakers-set-by-1972-nike-waffle-racing-flat",
-      "https://about.nike.com/nl/magazine/from-waffle-iron-to-world-stage-the-true-story-of-the-nike-moon-shoe",
-      "https://about.nike.com/es-ES/magazine/bill-bowerman-nike-s-original-innovator",
-      "https://media.about.nike.com/files/e1963fb1-0138-4a54-ae37-e73c8a4fc4cd/FY20_NIKE_Inc_Impact_Report2-2.pdf",
-      "https://investors.nike.com/files/doc_financials/2012/docs/nike-2012-form-10K.pdf",
-      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
-      "https://investors.nike.com/files/doc_events/NIKE%20Inc.%20Annual%20Shareholders%20Meeting%20Transcript%209-20-2012.pdf",
-      "https://investors.nike.com/files/doc_financials/2016/NIKE-Inc-2016-Annual-Shareholders-Meeting-Transcript-FINAL.pdf"
     ]
   }
 }
