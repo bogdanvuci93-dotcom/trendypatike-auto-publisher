@@ -93,6 +93,7 @@ jobs:
           python scripts/fix_copy_overflow.py
           python scripts/format_semantic_accents.py
           python scripts/scroll_stop_policy.py
+          python scripts/retry_content_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
           sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v13-scroll-stop:" + JSON.stringify(post))/' src/index.mjs
@@ -101,6 +102,7 @@ jobs:
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
           grep -n "post.force_local_images\|fullbleed-v13-scroll-stop\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
           grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|normalizeMoneyNotation\|semanticAccentSegments\|SCROLL-STOP VISUAL" src/content.mjs
+          grep -n "retry-topic\|repairVisibleText" src/index.mjs src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
@@ -124,7 +126,7 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
-          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_TOPIC_ATTEMPTS: "3"
           MAX_OPENAI_CALLS: "8"
         run: npm run run
 
