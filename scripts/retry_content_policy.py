@@ -41,7 +41,6 @@ new_build = r'''async function buildNewPost({ topics, state, aiTextAvailable }) 
       if (isTopicRejectedError(err)) {
         console.warn(`[retry-topic] Attempt ${attempt}/${maxAttempts} rejected by content/fact-check: ${err.message}`);
         if (seed) {
-          // Mark only inside this run, so the next attempt cannot select the same topic again.
           workingState.posted.push({
             topic_id: seed.id,
             seed_topic: seed.topic,
@@ -50,7 +49,6 @@ new_build = r'''async function buildNewPost({ topics, state, aiTextAvailable }) 
         }
         if (attempt < maxAttempts) continue;
       } else {
-        // Technical/account/network errors should not trigger extra paid research calls.
         console.warn(`[fallback] Dynamic research had a technical/system failure: ${err.message}`);
       }
       break;
@@ -76,15 +74,11 @@ index, count = re.subn(
 if count != 1:
     raise SystemExit('Could not patch buildNewPost exactly once')
 
-# Repair a few harmless presentation failures deterministically before the strict kid-copy gate.
 repair_fn = r'''function repairVisibleText(value=""){
   let text=cleanText(value)
     .replace(/^KAKO\s+TO\s+RADI\s*[:,-]?\s*/i,"")
     .replace(/^ZAŠTO\s+JE\s+TO\s+VAŽNO\s*[:,-]?\s*/i,"");
 
-  // Example: "FLYPLATE KARBONSKA FLYPLATE" -> "KARBONSKA FLYPLATE".
-  // This only removes a duplicated technology/model token around a simple descriptor;
-  // it does not invent or change any factual claim.
   text=text.replace(
     /\b([A-ZČĆŠĐŽ0-9-]{3,})\s+(KARBONSKA|KARBONSKI|KARBONSKO)\s+\1\b/gi,
     "$2 $1"
@@ -100,12 +94,31 @@ if 'function repairVisibleText(value="")' not in content:
         raise SystemExit('Could not find ensureSentence marker')
     content = content[:pos] + repair_fn + content[pos:]
 
-old_normalize = 'function normalizeHeadlineGroup(lines,maxLines){ const cleaned=(lines||[]).map(line=>({text:cleanText(line?.text),accent:line?.accent===true})).filter(line=>line.text);'
-new_normalize = 'function normalizeHeadlineGroup(lines,maxLines){ const cleaned=(lines||[]).map(line=>({text:repairVisibleText(line?.text),accent:line?.accent===true})).filter(line=>line.text);'
-if old_normalize in content:
-    content = content.replace(old_normalize, new_normalize, 1)
-elif new_normalize not in content:
-    raise SystemExit('Could not patch normalizeHeadlineGroup')
+# Other policy scripts may rewrite normalizeHeadlineGroup before this script runs.
+# Patch only the text normalizer inside that function, regardless of spacing or other transforms.
+m = re.search(r'function\s+normalizeHeadlineGroup\s*\(lines\s*,\s*maxLines\s*\)\s*\{(?P<body>.*?)\}', content, flags=re.S)
+if not m:
+    raise SystemExit('Could not find normalizeHeadlineGroup')
+
+block = m.group(0)
+if 'repairVisibleText(line?.text)' not in block:
+    patched_block, replacements = re.subn(
+        r'(text\s*:\s*)(?:cleanText|simplifyKidPhrase|normalizeMoneyNotation)\s*\(\s*line\?\.text\s*\)',
+        r'\1repairVisibleText(line?.text)',
+        block,
+        count=1,
+    )
+    if replacements != 1:
+        # Last-resort: replace the first line?.text expression used for text field.
+        patched_block, replacements = re.subn(
+            r'(text\s*:\s*)[^,}\n]*line\?\.text[^,}\n]*',
+            r'\1repairVisibleText(line?.text)',
+            block,
+            count=1,
+        )
+    if replacements != 1:
+        raise SystemExit('Could not patch normalizeHeadlineGroup text normalizer')
+    content = content[:m.start()] + patched_block + content[m.end():]
 
 index_path.write_text(index, encoding='utf-8')
 content_path.write_text(content, encoding='utf-8')
