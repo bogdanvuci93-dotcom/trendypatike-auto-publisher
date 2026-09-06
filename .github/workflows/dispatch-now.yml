@@ -17,4 +17,4 @@ jobs:
       - name: Trigger live TrendyPatike carousel
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run daily.yml --ref main -f publish_now=true
+        run: gh workflow run daily.yml -R bogdanvuci93-dotcom/trendypatike-auto-publisher --ref main -f publish_now=true
