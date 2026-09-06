@@ -1,0 +1,20 @@
+name: TrendyPatike Dispatch Now
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/dispatch-now.yml'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger live TrendyPatike carousel
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run daily.yml --ref main -f publish_now=true
