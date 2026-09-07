@@ -282,8 +282,20 @@
         "https://www.vans.com/en-gb/since-66",
         "https://www.vans.com/en-us/c/shoes/icons-5195"
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "topic_id": "dassler-brothers-rivalry",
+      "seed_topic": "adidas i PUMA nastali su nakon svađe dvojice braće koja je podelila njihov nemački grad",
+      "topic_title": "adidas i PUMA: svađa braće koja je podelila grad",
+      "media_id": "18181516684419982",
+      "sources": [
+        "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport",
+        "https://www.adidas-group.com/en/about/history",
+        "https://about.puma.com/en/puma/history"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-03",
-  "last_media_id": "18105347530932981"
+  "last_publish_date": "2026-09-07",
+  "last_media_id": "18181516684419982"
 }
