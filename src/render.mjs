@@ -280,6 +280,43 @@ async function renderSlide(source, overlay, logo, outPath) {
   }
 }
 
+export async function runRenderSelfTest() {
+  const tempDir = path.resolve(".tmp-render-selftest");
+  const sourcePath = path.join(tempDir, "source.png");
+  const outPath = path.join(tempDir, "rendered.jpg");
+  await fs.rm(tempDir, { recursive: true, force: true });
+  await fs.mkdir(tempDir, { recursive: true });
+
+  try {
+    const post = {
+      topic_title: "Render self test",
+      cover: {
+        headline_lines: [
+          { text: "NIKE JE 1985. REGISTROVAO AIR JORDAN IME", accent: true },
+          { text: "KAKO BI IZGRADIO POSEBAN BREND OKO MICHAELA JORDANA I NJEGOVE KOŠARKAŠKE PRIČE", accent: false },
+          { text: "A CEO POTEZ JE KASNIJE POSTAO JEDAN OD NAJPOZNATIJIH PRIMERA SPORTSKOG BRENDIRANJA", accent: false }
+        ],
+        subheadline: "Duga misao mora da stane bez sečenja završetka rečenice."
+      },
+      slide2: { headline_lines: [], facts: [{ text: "fallback" }] },
+      slide3: { headline_lines: [], facts: [{ text: "fallback" }] }
+    };
+
+    const source = await localFallbackBuffer(0);
+    await fs.writeFile(sourcePath, source);
+    const logo = await logoBuffer();
+    const overlay = slideOverlay(post, 0);
+    await renderSlide(sourcePath, overlay, logo, outPath);
+
+    const meta = await sharp(outPath).metadata();
+    if (meta.format !== "jpeg" || meta.width !== W || meta.height !== H) {
+      throw new Error(`Render self-test produced invalid output: ${meta.format} ${meta.width}x${meta.height}`);
+    }
+  } finally {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  }
+}
+
 export async function generateAndRender(post, outputDir) {
   await fs.mkdir(outputDir, { recursive: true });
   const logo = await logoBuffer();
