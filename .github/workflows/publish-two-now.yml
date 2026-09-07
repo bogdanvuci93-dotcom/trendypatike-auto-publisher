@@ -108,3 +108,5 @@ jobs:
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
+
+# trigger: 2026-09-07 two-post publish
