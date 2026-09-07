@@ -1,0 +1,19 @@
+name: TrendyPatike Detailed Copy Policy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/detail_copy_policy.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate policy script
+        run: python scripts/detail_copy_policy.py
