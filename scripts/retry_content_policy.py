@@ -21,10 +21,29 @@ new_build = r'''async function buildNewPost({ topics, state, aiTextAvailable }) 
     posted: [...(state.posted || [])]
   };
 
+  // For special catch-up runs, put topics with the strongest broad appeal for a
+  // Serbian audience first: basketball, famous rivalries, money, music and
+  // instantly understandable "nisam znao" stories. Duplicate protection still applies.
+  const serbianPriorityIds = [
+    "dassler-brothers-rivalry",
+    "reebok-pump",
+    "nike-converse-acquisition",
+    "air-jordan-1-auction-record",
+    "run-dmc-my-adidas",
+    "dior-air-jordan-1"
+  ];
+  const topicPool = process.env.SERBIAN_AUDIENCE_NOW === "true"
+    ? [
+        ...serbianPriorityIds.flatMap(id => topics.filter(t => t.id === id)),
+        ...topics.filter(t => !serbianPriorityIds.includes(t.id))
+      ]
+    : topics;
+
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     let seed = null;
     try {
-      seed = await choosePriorityTopic(topics, workingState, { allowMajorNews: attempt === 1 });
+      const allowMajorNews = attempt === 1 && process.env.SKIP_MAJOR_NEWS !== "true";
+      seed = await choosePriorityTopic(topicPool, workingState, { allowMajorNews });
       if (isDuplicateTopic(seed, state)) {
         throw new Error(`Selected topic was already used: ${seed.topic}`);
       }
@@ -109,7 +128,6 @@ if 'repairVisibleText(line?.text)' not in block:
         count=1,
     )
     if replacements != 1:
-        # Last-resort: replace the first line?.text expression used for text field.
         patched_block, replacements = re.subn(
             r'(text\s*:\s*)[^,}\n]*line\?\.text[^,}\n]*',
             r'\1repairVisibleText(line?.text)',
@@ -122,4 +140,4 @@ if 'repairVisibleText(line?.text)' not in block:
 
 index_path.write_text(index, encoding='utf-8')
 content_path.write_text(content, encoding='utf-8')
-print('Resilient topic retry + visible-copy repair policy applied.')
+print('Resilient topic retry + Serbian-audience priority policy applied.')
