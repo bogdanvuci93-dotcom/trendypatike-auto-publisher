@@ -1,4 +1,166 @@
 {
+  "a114aaec19f4754fb4f8cfde26ea4dfc3c32a3f76b66913b60120eb8d36d6374": {
+    "saved_at": "2026-09-07T12:55:14.751Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "NIKE VAPORFLY",
+            "accent": true
+          },
+          {
+            "text": "DAJE LI TRKAČIMA PREVELIKU PREDNOST?",
+            "accent": false
+          }
+        ],
+        "subheadline": "Kratak pregled zašto je jedna patika promenila pravila i diskusiju o fer igri."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "TEHNOLOGIJA KOJA POMAŽE",
+            "accent": false
+          },
+          {
+            "text": "ZOOMX + FLYPLATE",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "SAŽETAK",
+            "text": "Deblji sloj ZoomX pene i puna karbonska Flyplate guraju stopalo napred i vraćaju više energije pri š"
+          },
+          {
+            "tag": "DETALJ",
+            "text": "Nike tvrdi da kombinacija čini trčanje efikasnijim i bržim, pa su elite brzo počele da poboljšavaju "
+          },
+          {
+            "tag": "IZVOR",
+            "text": "Nike: objašnjenja i tehnički opisi modela Vaporfly i Breaking2 eksperimenta."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "REZULTAT KOJI JE UZBUDIO SVET",
+            "accent": false
+          },
+          {
+            "text": "1:59:40 12. OKTOBAR 2019",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "tag": "POJEDNOSTAVLJENO",
+            "text": "Eliud Kipchoge je u eksperimentu Nike prešao maraton za 1:59:40 12.10.2019. Taj rezultat je podigao "
+          },
+          {
+            "tag": "ZAŠTO JE TO VAŽNO",
+            "text": "jer je pokazao koliko tehnologija može da promeni elite — i pokrenuo raspravu o fer prednosti."
+          }
+        ],
+        "question": "Da li je način na koji patike pomažu previše za poštenu trku"
+      },
+      "caption": "Kako funkcioniše tehnologija Vaporfly i zašto je njen uticaj na rekorde postao tema rasprave. Izvori: Nike i olimpijska istraživanja.",
+      "hashtags": [
+        "#Vaporfly",
+        "#Nike",
+        "#maraton",
+        "#tehnologija",
+        "#rekordi",
+        "#ferigra",
+        "#EliudKipchoge"
+      ],
+      "image_prompts": [
+        "Elite marathon finish line, group of elite runners sprinting to finish, close-up on feet wearing Nike Vaporfly, dramatic stadium lighting, editorial photo",
+        "Close-up cutaway of Nike Vaporfly ZoomX midsole and full-length carbon Flyplate, cross-section macro shot, shoe occupies 70% of frame, labeled detail of ZoomX foam and Flyplate",
+        "Eliud Kipchoge crossing finish line in paced attempt, wearing Nike Vaporfly, visible stopwatch and race officials nearby, editorial sports photo"
+      ],
+      "sources": [
+        {
+          "title": "Breaking2 — Nike",
+          "publisher": "nike.com",
+          "url": "https://www.nike.com/gb/running/breaking2"
+        },
+        {
+          "title": "Introducing the Nike Zoom Vaporfly Elite / Breaking2 — NIKE, Inc.",
+          "publisher": "about.nike.com",
+          "url": "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+        },
+        {
+          "title": "Olympics research on sports technology and fairness — Olympic Studies Library",
+          "publisher": "olympics.com",
+          "url": "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Eliud Kipchoge je istrčao 1:59:40 tokom Nike eksperimenta 12.10.2019.",
+          "source_urls": [
+            "https://www.nike.com/gb/running/breaking2",
+            "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+          ]
+        },
+        {
+          "claim": "Vaporfly kombinuje ZoomX penu i punu karbonsku Flyplate koja povećava povrat energije.",
+          "source_urls": [
+            "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images",
+            "https://www.nike.com/a/nike-vaporfly4-streakfly2-release-info/"
+          ]
+        },
+        {
+          "claim": "Olympijska istraživanja i analize tehnologija ističu da oprema koja daje značajnu prednost može pokrenuti etičku raspravu o fer igri.",
+          "source_urls": [
+            "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images",
+      "https://www.nike.com/running/zoom-fly",
+      "https://www.nike.com/a/nike-vaporfly4-streakfly2-release-info/",
+      "https://about.nike.com/en/newsroom/releases/nike-vaporfly-3-official-images",
+      "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/reviews",
+      "https://www.nike.com/us/es/t/tenis-de-carrera-en-pavimento-para-hombre-nike-vaporfly-4-HK05JWOf/II7203-100",
+      "https://www.nike.com/sg/t/vaporfly-4-mens-road-racing-shoes-thYX9JNQ/II7203-100",
+      "https://www.nike.com/au/t/vaporfly-4-mens-road-racing-shoes-ZDMh0C0T",
+      "https://www.nike.com/tw/t/vaporfly-4-%E7%94%B7%E6%AC%BE%E8%B7%AF%E8%B7%91%E7%AB%B6%E9%80%9F%E9%9E%8B-PTwDtp",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
+      "https://about.nike.com/en/magazine/eliud-kipchoge-wear-testing-nike-running-zoom-fly-6",
+      "https://media.about.nike.com/files/7bf37705-b9a3-4635-aa30-e45273c1b562/FY19-Nike-Inc.-Impact-Report.pdf",
+      "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
+      "https://media.about.nike.com/files/dde22b5c-94cb-46dc-8b84-5ac418e2da91/FY22-NIKE%2C-Inc.-Impact-Report.pdf",
+      "https://media.about.nike.com/files/6471edb0-b486-497e-b417-e26c84489f5c/Nike_ReactX-Carbon-Footprint.pdf",
+      "https://about.nike.com/en/newsroom/releases/six-reasons-why-breaking2-goes-beyond-26-2-miles",
+      "https://media.about.nike.com/files/676a010f-56af-416c-addd-6ca4d83c098e/FY23_Nike_Impact_Report.pdf",
+      "https://media.about.nike.com/files/e1963fb1-0138-4a54-ae37-e73c8a4fc4cd/FY20_NIKE_Inc_Impact_Report2-2.pdf",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true",
+      "https://library.olympics.com/default/digitalCollection/DigitalCollectionInlineDownloadHandler.ashx?_cb=20210605141128&documentId=174913&parentDocumentId=174912",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3156584&parentDocumentId=3156582&skipCopyright=true&skipWatermark=true",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=848280&parentDocumentId=848278&skipCopyright=true&skipWatermark=true",
+      "https://library.olympics.com/fiba/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=2955499&parentDocumentId=208501&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en/newsroom/releases/nike-and-eliud-kipchoge-celebrate-20-years",
+      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=2875803&parentDocumentId=2875802&skipCopyright=true&skipWatermark=true",
+      "https://about.nike.com/en-GB/magazine/faith-kipyegon-is-ready-to-make-history",
+      "https://www.nike.com/gb/running/breaking2",
+      "https://www.nike.com/mx/running/breaking2",
+      "https://www.nike.com/es/ca/running/breaking2",
+      "https://www.nike.com/dk/lob/breaking2",
+      "https://www.nike.com/es/running/breaking2",
+      "https://www.nike.com/nl/hardlopen/breaking2",
+      "https://www.nike.com/gr/treksimo/breaking2",
+      "https://www.nike.com/th/running/breaking2",
+      "https://www.nike.com/pl/bieganie/breaking2",
+      "https://www.nike.com/se/lopning/breaking2"
+    ]
+  },
   "9d1c421a261be38b689f33a4a42e2a7b938568be7a33439f593d8bc23e031c47": {
     "saved_at": "2026-09-07T12:49:20.812Z",
     "schema_name": "trendypatike_verified_post",
@@ -2209,142 +2371,6 @@
       "https://cdn.nba.com/teams/uploads/sites/1610612754/2025/10/2025-26-Indiana-Pacers-Media-Guide-web.pdf",
       "https://cdn.nba.com/teams/uploads/sites/1610612758/2025/01/2024-25-Sacramento-Kings-Media-Guide.pdf",
       "https://cdn.nba.com/teams/uploads/sites/1610612740/2023/10/Pelicans-2324-Media-Guide.pdf"
-    ]
-  },
-  "abdd9c80c3f1768db4c5e270b484ced36f339c2c86a325031a6950426a7a05ce": {
-    "saved_at": "2026-08-30T16:12:55.009Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Patika koju je NBA stvarno kaznila nije bila Air Jordan 1",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "NBA NIJE KAZNILA",
-            "accent": false
-          },
-          {
-            "text": "AIR JORDAN 1",
-            "accent": true
-          },
-          {
-            "text": "— TO JE MIT",
-            "accent": false
-          }
-        ],
-        "subheadline": "Kratak odgovor: priča je pojednostavljena i pomešane su dve patike."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "NBA JE IMALA PRAVILO O BOJI PATIKA",
-            "accent": false
-          },
-          {
-            "text": "1984–1985",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FELJTON",
-            "text": "NBA je tada zahtevala patike u bojama tima; liga je kritikovala Jordanove nekonzistentne boje."
-          },
-          {
-            "tag": "NIKE IZVOR",
-            "text": "Nike priznaje da je ranih 1980-ih postojao model AIR SHIP koji je Jordan nosio pre nego što je AIR J"
-          },
-          {
-            "tag": "NBA IZVOR",
-            "text": "NBA članak kaže da je liga odbila početno nošenje kolorne verzije Air Jordan 1 na 1985 All-Star prig"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "STVARNO: AIR SHIP JE Povezana PATIKA",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "KONKRETNOST",
-            "text": "Fotografije i prikazi iz 1984. pokazuju Michael Jordan u Nike Air Ship modelu pre masovne populariz"
-          },
-          {
-            "tag": "MIT",
-            "text": "Tokom vremena javnost je pomešala Air Ship i Air Jordan 1 u priči o 'zabranjenoj' patiki"
-          }
-        ],
-        "question": "Želite da dodamo izvorne fotografije i skenu pravila lige?"
-      },
-      "caption": "MIT RAZBIJEN: Najpoznatija priča o 'zabranjenim' patikama često spaja dve različite patike. NBA je imala pravila o bojama, Jordan je pre 1985. nosio Nike Air Ship, a javnost je kasnije tu priču vezala za Air Jordan 1. Izvori dole potvrđuju ovo razdvajanje.",
-      "hashtags": [
-        "#MichaelJordan",
-        "#AirShip",
-        "#AirJordan1",
-        "#Nike",
-        "#NBA",
-        "#sneakerhistoria",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Editorial 1984 NBA game scene: close-up comparison of a black-red Nike Air Ship on Michael Jordan's feet versus a black-red Air Jordan 1, court action, referee visible, vintage 1984 photo style, shoe details clear, shoes occupy 65% of frame, child-readable composition",
-        "Close-up vintage studio shot of NIKE AIR SHIP sneaker from 1984, black-red colorway, leather and strap details visible, shoe fills 80% of frame, macro of tongue and side panel",
-        "Close-up vintage studio shot of AIR JORDAN 1 High in black and red, show side profile and toe cap, shoe fills 80% of frame"
-      ],
-      "sources": [
-        {
-          "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
-          "publisher": "NBA.com",
-          "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-        },
-        {
-          "title": "Full-Court Press: How Nike Found Its Footing in College Basketball",
-          "publisher": "NIKE, Inc. (About Nike)",
-          "url": "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "NBA je tada imalo pravilo o bojama patika i kritikovala je Jordanove nekonzistentne boje.",
-          "source_urls": [
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-          ]
-        },
-        {
-          "claim": "Michael Jordan je pre Air Jordan 1 nosio Nike Air Ship, a ta je patika često pomešana u mitu o \"zabranjenoj\" AJ1.",
-          "source_urls": [
-            "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-          ]
-        },
-        {
-          "claim": "Priča da je \"Air Jordan 1\" bila jedina \"zabranjena\" patika je pojednostavljeni i spojeni mit.",
-          "source_urls": [
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-            "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/newsroom/releases/air-jordan-39-official-images/Air-Jordan-XXXIX",
-      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-air-jordan-40-official-images",
-      "https://about.nike.com/magazine/10-greatest-nike-air-sports-moments",
-      "https://about.nike.com/en/magazine/air-jordan-20-doernbecher-freestyle-official-images",
-      "https://www.nba.com/bulls/news/jordanhof_yearthirteen_090910.html",
-      "https://about.nike.com/en-GB/newsroom/collections/the-jordan-wings-collection-presents-a-new-vision-of-luxury-streetwear",
-      "https://about.nike.com/en/newsroom/releases/air-jordan-6-infrared-salesman-official-images/The-Air-Jordan-6-Infrared-Salesman",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
-      "https://about.nike.com/en/newsroom/releases/jordan-wings-10-year-anniversary-air-jordan-5-official-images",
-      "https://about.nike.com/en/magazine/full-court-press-how-nike-found-its-footing-in-college-basketball",
-      "https://www.nba.com/news/5-takeaways-last-dance-episodes-3-4?slide=modal",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://about.nike.com/it/newsroom/releases/introducing-the-air-jordan-xxxix",
-      "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf"
     ]
   }
 }
