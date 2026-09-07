@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-07",
-  "stage": "ready",
+  "generated_at": "2026-09-07T07:45:41.187Z",
   "fingerprint": "cf7e99a5df14",
   "seed": {
     "id": "dassler-brothers-rivalry",
@@ -146,10 +145,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-07-dassler-brothers-rivalry-cf7e99a5df14/01.jpg",
-    "public/posts/2026-09-07-dassler-brothers-rivalry-cf7e99a5df14/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
