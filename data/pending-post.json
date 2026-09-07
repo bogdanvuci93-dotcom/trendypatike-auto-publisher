@@ -151,5 +151,10 @@
     "public/posts/2026-09-07-dassler-brothers-rivalry-cf7e99a5df14/01.jpg",
     "public/posts/2026-09-07-dassler-brothers-rivalry-cf7e99a5df14/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18016394735944388"
+    ],
+    "carousel_id": ""
+  }
 }
