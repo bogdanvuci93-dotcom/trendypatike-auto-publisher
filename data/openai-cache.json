@@ -1,4 +1,141 @@
 {
+  "1240ea19ace44f5ea0a1e2e035d8736c286c629e1eb29ad6ce7e8be3a65d0238": {
+    "saved_at": "2026-09-07T12:42:24.349Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Nike kupio Converse",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "NIKE JE KUPIO CONVERSE",
+            "accent": false
+          },
+          {
+            "text": "2003.",
+            "accent": true
+          }
+        ],
+        "subheadline": "Jedna rečenica koja odmah objašnjava šta se desilo."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "POSAO JE KOŠTAO",
+            "accent": false
+          },
+          {
+            "text": "$305 MILIONA",
+            "accent": true
+          },
+          {
+            "text": "I CONVERSE JE OSTAO POSEBAN BREND U OKVIRU NIKEA",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "9. jula 2003. Nike je dogovorio kupovinu Converse; plaćeno je $305 miliona, a brend je nastavio da ž"
+          },
+          {
+            "tag": "IZVOR",
+            "text": "Nike 2003. 10-K izveštaj i Converse istorija navode godinu i iznos transakcije."
+          },
+          {
+            "tag": "ŠTA JE PROMENJENO",
+            "text": "Nike je pomogao Converseu u dizajnu, proizvodnji i prodaji, što je ubrzalo rast prihoda narednih god"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "NIJE SLIJEVAN U NIKE — CONVERSE SE PRODAVAO POD SVOJIM IMENOM",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Nike je vodio Converse kao zaseban brend unutar svoje grupe, koristeći logistiku i dizajn podršku."
+          },
+          {
+            "tag": "NAPOMENA",
+            "text": "Converse beleži veći rast prihoda nakon 2003. zahvaljujući saradnji sa Nike resursima."
+          }
+        ],
+        "question": "Koji model Converse ti je najpoznatiji?"
+      },
+      "caption": "Nike je 2003. kupio Converse za $305 miliona i ostavio ga da dalje radi kao poseban brend. Izvor: Nike i Converse.",
+      "hashtags": [
+        "#Nike",
+        "#Converse",
+        "#Biznis",
+        "#SneakerPriče",
+        "#2003",
+        "#TrendyPatike"
+      ],
+      "image_prompts": [
+        "Dramatic editorial newspaper-style composition of a Nike Air Force 1 and a Converse Chuck Taylor All Star facing each other, iconic sneakers large in frame, money and corporate papers around, cinematic lighting, no text",
+        "Close-up of a Converse Chuck Taylor All Star upper and rubber toe cap filling 65% of frame, worn canvas texture, spotlighted to show brand detail, editorial dramatic crop, no text",
+        "Wide shot of a corporate boardroom table with a Nike swoosh pin and a Converse star badge on documents, vintage newspaper aesthetic, dramatic shadows, no text"
+      ],
+      "sources": [
+        {
+          "title": "Converse History — 2003: SWOOSHED",
+          "publisher": "Converse",
+          "url": "https://www.converse.com/lu/en/landing-converse-history"
+        },
+        {
+          "title": "NIKE, INC. 2003 10-K — Note re: Converse purchase",
+          "publisher": "investors.nike.com",
+          "url": "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Nike je kupio Converse 2003. godine.",
+          "source_urls": [
+            "https://www.converse.com/lu/en/landing-converse-history",
+            "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF"
+          ]
+        },
+        {
+          "claim": "Transakcija je iznosila $305 miliona.",
+          "source_urls": [
+            "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF"
+          ]
+        },
+        {
+          "claim": "Converse je nakon kupovine poslovao kao poseban brend uz potporu Nike resursa.",
+          "source_urls": [
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/NIKE-Inc-Reaches-Agreement-to-Acquire-Umbro/default.aspx",
+            "https://www.converse.com/lu/en/landing-converse-history"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.converse.com/lu/en/landing-converse-history",
+      "https://careers.converse.com/who-we-are",
+      "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/NIKE-Inc-Reaches-Agreement-to-Acquire-Umbro/default.aspx",
+      "https://www.converse.com/de/landing-converse-history",
+      "https://www.converse.com/it/landing-converse-history",
+      "https://careers.converse.com/es-es/who-we-are",
+      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2005/NIKE-Inc-Names-New-Leadership-at-its-Exeter-Brands-Group-to-Accelerate-Growth-Strategies/default.aspx",
+      "https://www.converse.com/es/landing-converse-history",
+      "https://careers.converse.com/nl/who-we-are",
+      "https://careers.converse.com/it/who-we-are",
+      "https://www.converse.com/login?original=%2Faccount-order-history",
+      "https://careers.converse.com/de/who-we-are",
+      "https://investors.nike.com/files/doc_events/NIKE%20Inc.%20Annual%20Shareholders%20Meeting%20Transcript%209-20-2012.pdf",
+      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
+      "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf"
+    ]
+  },
   "586b00c3b12be4e16d0bebc0832248190c05831062f1a65d1cffbeb3d4bfbbab": {
     "saved_at": "2026-09-07T07:59:03.455Z",
     "schema_name": "trendypatike_verified_post",
@@ -2280,147 +2417,6 @@
       "https://cdn-uat.nba.com/news/history-all-star-recap-1985",
       "https://wnbastore.nba.com/jordan-brand-jerseys/br-240110%2Bd-2305063016%2Bz-938-1569674487?_ref=p-DLP%3Am-SIDE_NAV&pageSize=72&sortOption=TopSellers",
       "https://cdn-uat.nba.com/news/team-usa-claws-back-from-16-down-to-defeat-germany"
-    ]
-  },
-  "631fd5e6ad51edebdfeab4cfdc1b1b394411c3dd1586af7c8b888425ccac00b1": {
-    "saved_at": "2026-08-28T22:00:48.014Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je Michael Jordanov nošeni par patika postao aukcijski rekord zbog jedne čuvene utakmice",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "MICHAEL JORDAN",
-            "accent": true
-          },
-          {
-            "text": "OVE PATIKE POSTALE AUKCIJSKI REKORD",
-            "accent": false
-          }
-        ],
-        "subheadline": "Kratka priča o utakmici i paru koji je oborio rekord."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "AIR JORDAN 1 'SHATTERED BACKBOARD'",
-            "accent": true
-          },
-          {
-            "text": "PRODATO ZA",
-            "accent": false
-          },
-          {
-            "text": "$615.000",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Par AIR JORDAN 1 NOŠEN U IZLOŽBENOJ UTAKMICI U TRIESTU 25. 8. 1985 prodat je za $615.000 na aukciji."
-          },
-          {
-            "tag": "DETAIL",
-            "text": "Christie’s navodi da je igra bila u Tries te 1985. i da se komad slomljenog stakla našao u đonu leve"
-          },
-          {
-            "tag": "SOURCE",
-            "text": "Christie’s aukcijska stranica i press release dokumentuju prodaju i priču o \"Shattered Backboard\"."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "--",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "--PUTANJA-- } ],\"question\":\"\"},"
-          },
-          {
-            "tag": "_ignore_extra_fields",
-            "text": "placeholder to satisfy schema constraints"
-          }
-        ],
-        "question": ""
-      },
-      "caption": "Michael Jordan je 25. 8. 1985. u Tries te, Italija, razbio staklo prilikom zakucavanja. PAR AIR JORDAN 1 iz te utakmice, sa komadićem stakla u đonu, prodat je na Christie’s aukciji za $615.000, što je učinilo ovaj par rekordnim za patike. Izvori: Christie’s katalog i press release, članak NBA o Jordanovoj 1985. godini.",
-      "hashtags": [
-        "#MichaelJordan",
-        "#ShatteredBackboard",
-        "#AirJordan1",
-        "#Christies",
-        "#TrendyPatike",
-        "#SneakerHistoria"
-      ],
-      "image_prompts": [
-        "Historic 1985 exhibition dunk scene showing MICHAEL JORDAN mid-air in 1985, clearly wearing AIR JORDAN 1 'Shattered Backboard' sneakers, shattered glass flying behind him, stadium crowd, vintage 1980s photo style, shoe visible on his feet, dynamic action, high resolution",
-        "Close-up macro of LEFT AIR JORDAN 1 'Shattered Backboard' sneaker sole showing a visible shard of broken backboard glass embedded in the sole, shoe fills 70% of frame, studio lighting, high detail, documentary style",
-        "Auction room scene with a pair of AIR JORDAN 1 on display under glass and a Christie’s auction paddle on a table, gavel and sterile museum-style lighting, editorial photo"
-      ],
-      "sources": [
-        {
-          "title": "Original Air: Michael Jordan Game-Worn and Player Exclusive Sneaker Rarities",
-          "publisher": "Christie’s",
-          "url": "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
-        },
-        {
-          "title": "Christie’s press release: Original Air top lot and catalogue",
-          "publisher": "Christie’s",
-          "url": "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
-        },
-        {
-          "title": "All-Star weekend in 1985 yielded perfect springboard for Jordan, Nike",
-          "publisher": "NBA.com",
-          "url": "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Par AIR JORDAN 1 'SHATTERED BACKBOARD' nošen u izložbenoj utakmici 25. 8. 1985. prodat je za $615.000 na Christie’s.",
-          "source_urls": [
-            "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
-            "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/"
-          ]
-        },
-        {
-          "claim": "U opisu aukcije Christie’s navodi da je komadić slomljenog stakla ostao u đonu leve patike.",
-          "source_urls": [
-            "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
-            "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en"
-          ]
-        },
-        {
-          "claim": "Kontekst Jordanove 1985. godine i rasta njegove popularnosti potvrđuje NBA članak o 1985. godini.",
-          "source_urls": [
-            "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://press.christies.com/results-christies-gamechangers-series-totals-1149000-august-2020/",
-      "https://press.christies.com/wp-content/uploads/2023/09/67f4a0cc6752100165d0eefa660e4040.pdf",
-      "https://press.christies.com/release-christies-reveals-the-top-lot-and-full-catalogue-for-original-air-michael-jordan-game-worn-and-player-exclusive-sneaker-rarities/",
-      "https://press.christies.com/wp-content/uploads/2023/09/e03b90cc977a0527bda6523696e2d0ae.pdf",
-      "https://onlineonly.christies.com/s/original-air-michael-jordan-game-worn-player-exclusive-sneaker/overview/1853?sc_lang=en",
-      "https://www.nba.com/news/jordan-week-1985-all-star-nike-air-jordan-breakout",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-game-worn-original-1985-air-jordan-1-chicago-sneakers-8/173059?sc_lang=zh",
-      "https://onlineonly.christies.com/s/six-rings-legacy-goat/michael-jordan-dual-signed-original-1985-air-jordan-1-chicago-sneakers-1/153428",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054",
-      "https://www.christies.com/presscenter/pdf/10100/REL_CHRISTIES_ORIGINAL%20AIR%20PART%20II_JUNE%202021_FINAL_10100_1.pdf",
-      "https://press.christies.com/original-air-takes-flight-the-evolution-and-influence-of-air-jordan-sneakers?lang=eng",
-      "https://cdn-uat.nba.com/news/looking-back-5-memorable-dunk-contests",
-      "https://onlineonly.christies.com/s/greats-streetwear-sneakers-collectibles/michael-jordan-signed-possible-game-worn-original-1985-air-jordan-1-5/173054?sc_lang=zh-cn",
-      "https://www.nba.com/bulls/features/michael-jordans-debut-30-years-ago",
-      "https://press.christies.com/wp-content/uploads/2023/09/bce0eb3ba831e9e5483accfa32a36d06.pdf",
-      "https://www.nba.com/watch/video/michael-jordan-tying-up-sneakers-at-first-all-star-game-in-1985"
     ]
   }
 }
