@@ -1,1 +1,150 @@
-{}
+{
+  "date": "2026-09-07",
+  "stage": "verified",
+  "fingerprint": "cf7e99a5df14",
+  "seed": {
+    "id": "dassler-brothers-rivalry",
+    "topic": "adidas i PUMA nastali su nakon svađe dvojice braće koja je podelila njihov nemački grad",
+    "category": "adidas / PUMA / rivalstvo / porodica",
+    "preferred_domains": [
+      "adidas-group.com",
+      "about.puma.com",
+      "britannica.com"
+    ],
+    "visual_subject": "two rival 1940s German shoe workshops across a divided street, adidas and PUMA origin story, tense cinematic editorial"
+  },
+  "post": {
+    "topic_title": "adidas i PUMA: svađa braće koja je podelila grad",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "DVA BRATA, JEDAN GRAD, DVA BREND-A",
+          "accent": false
+        },
+        {
+          "text": "DASSLER BRAĆA SU SE POSVAĐALA",
+          "accent": false
+        }
+      ],
+      "subheadline": "Kako su Adi i Rudolf Dassler razdvojili svoju radionicu u Herzogenaurachu i osnovali dve kompanije."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "1924",
+          "accent": true
+        },
+        {
+          "text": "SU ZAJEDNO POČELI;",
+          "accent": true
+        },
+        {
+          "text": "1948",
+          "accent": true
+        },
+        {
+          "text": "SU SE RAZIŠLI",
+          "accent": true
+        },
+        {
+          "text": "ADI JE",
+          "accent": true
+        },
+        {
+          "text": "18.8.1949",
+          "accent": true
+        },
+        {
+          "text": "REGISTROVAO",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "FENOMEN",
+          "text": "Braća Adolf (Adi) i Rudolf Dassler su 1924 osnovala radionicu ’Gebrüder Dassler’ u Herzogenaurachu."
+        },
+        {
+          "tag": "FENOMEN",
+          "text": "Zbog svađe 1948 razdvojili su firmu; Rudolf je registrovao PUMA 1. oktobra 1948, a Adi je 18. avgust."
+        },
+        {
+          "tag": "FENOMEN",
+          "text": "Adi je u avgustu 1949 započeo proizvodnju adidas-a sa 47 zaposlenih u Herzogenaurachu."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "DA LI ŽELITE FOTOGRAFIJU DVE RADIONICE?",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "PITANJE",
+          "text": "Možemo staviti arhivsku crno-belu fotografiju radionica u Herzogenaurachu iz perioda oko 1948-1949."
+        },
+        {
+          "tag": "IZVORI",
+          "text": "Arhivske fotografije dostupne u istorijama adidas i PUMA."
+        }
+      ],
+      "question": "Da li želite fotografiju?"
+    },
+    "caption": "Jedna porodična svađa u Herzogenaurachu 1948-1949 stvorila je ADIDAS i PUMA. Izvori: adidas, PUMA, Britannica.",
+    "hashtags": [
+      "#ADIDAS",
+      "#PUMA",
+      "#Herzogenaurach",
+      "#rivalstvo",
+      "#TrendyPatike"
+    ],
+    "image_prompts": [
+      "CINEMATIC 1948-1949 STREET VIEW SHOWING TWO SHOE WORKSHOPS ACROSS A NARROW STREET IN HERZOGENAURACH, ONE WORKSHOP SIGNED 'ADOLF DASSLER' AND THE OTHER SIGNED 'RUDOLF DASSLER', PERIOD WORKERS (ADI DASSLER AND RUDOLF DASSLER) IN 1940S CLOTHING, BLACK-AND-WHITE, HISTORICAL EDITORIAL EXACT SLIDE FACT TO ILLUSTRATE: DVA BRATA, JEDAN GRAD, DVA BREND-A DASSLER BRAĆA SU SE POSVAĐALA. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "CLOSE-UP VINTAGE WORKSHOP EXTERIOR SHOWING A SIGN 'ADOLF DASSLER ADIDAS' ON ONE BUILDING AND A SIGN 'PUMA SCHUHFABRIK RUDOLF DASSLER' ON THE OPPOSITE BUILDING, 1949, HIGH-CONTRAST BLACK-AND-WHITE, ARCHIVE STYLE EXACT SLIDE FACT TO ILLUSTRATE: 1924 SU ZAJEDNO POČELI; 1948 SU SE RAZIŠLI ADI JE 18.8.1949 REGISTROVAO. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "ARCHIVAL PHOTO OF ADI DASSLER AND RUDOLF DASSLER STANDING OUTSIDE SEPARATE WORKSHOPS IN HERZOGENAURACH, 1948-1949, BLACK-AND-WHITE EXACT SLIDE FACT TO ILLUSTRATE: DA LI ŽELITE FOTOGRAFIJU DVE RADIONICE?. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "sources": [
+      {
+        "title": "75 years of adidas: From a Franconian crafts business to a global player in the world of sport",
+        "publisher": "adidas-group.com",
+        "url": "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport"
+      },
+      {
+        "title": "History - adidas Group",
+        "publisher": "adidas-group.com",
+        "url": "https://www.adidas-group.com/en/about/history"
+      },
+      {
+        "title": "PUMA Timeline",
+        "publisher": "about.puma.com",
+        "url": "https://about.puma.com/en/puma/history"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Braća Adolf (Adi) i Rudolf Dassler su zajedno osnovala ’Gebrüder Dassler’ 1924 u Herzogenaurachu.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/about/history",
+          "https://about.puma.com/en/puma/history"
+        ]
+      },
+      {
+        "claim": "Braća su se razišla 1948; Rudolf je registrovao PUMA 1. oktobra 1948.",
+        "source_urls": [
+          "https://about.puma.com/en/puma/history"
+        ]
+      },
+      {
+        "claim": "Adi Dassler je registrovao adidas 18. avgusta 1949 i započeo proizvodnju sa 47 zaposlenih u Herzogenaurachu.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport",
+          "https://www.adidas-group.com/en/about/history"
+        ]
+      }
+    ]
+  }
+}
