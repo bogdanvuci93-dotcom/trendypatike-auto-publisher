@@ -78,15 +78,16 @@ NON-NEGOTIABLE VISIBLE-COPY RULES:
 - Serbian Latin script with correct letters Č, Ć, Š, Đ and Ž.
 - Everyday spoken Serbian understandable to a 10-year-old with ZERO prior knowledge.
 - A child must understand every used slide on the first read without knowing sneaker history.
-- One used slide = ONE complete idea, normally 12-20 words total and NEVER more than 22 words total across headline_lines.
+- One used slide = ONE complete idea. Prefer 12-22 words, but if the topic genuinely needs more context, use up to 40 words rather than cutting the explanation short.
+- 30-40 words are allowed ONLY when they materially improve understanding with essential date, action, object, reason, consequence or comparison. Do not inflate simple topics.
 - Prefer concrete detail over vague summary. When relevant, include the exact year/date, what happened, and why it mattered or what changed because of it.
 - NEVER stop the sentence just because the visual text area is getting full. Finish the thought first. A slide ending with a verb that still needs an object or explanation is invalid. For example, "Nike je 1985. registrovao" is INVALID; say what Nike registered and why that detail matters.
-- If a complete thought is too long, compress it intelligently: remove filler, adjectives and repeated context, but KEEP the subject, action, object and essential date/reason/result so the sentence remains complete.
+- If a complete thought is long, first compress filler, adjectives and repeated context. If the essential explanation still needs 30-40 words, KEEP it complete; the renderer will reduce font size automatically.
 - Every statement must name its subject clearly. Never write vague phrases like "skateri su ga otkrili" when a child cannot know what "ga" means.
 - Prefer ordinary Serbian words. If a specialist term is essential, explain it immediately in simple Serbian on the SAME slide.
 - Do not use English jargon in visible Serbian copy except exact official model/person names. Translate terms such as patent leather into ordinary Serbian, for example "sjajna lakovana koža".
 - NO decorative titles, vague teaser headings, tiny secondary copy, marketing language or academic wording.
-- Every visible text block is rendered LARGE, BOLD and ALL CAPS.
+- Every visible text block is rendered LARGE, BOLD and ALL CAPS, with font size adjusted by code when text is longer.
 - Do not create a separate title plus explanation. The large text itself tells the story directly.
 - Never glue words together. Keep normal spaces around model names, years and numbers: AIR JORDAN 11, not AIRJORDAN11.
 - Avoid awkward machine wording such as "kulturna primena", "modelski simbol", "signatura modela", "uveo eleganciju", "simbol sneaker kulture" or repeated words.
@@ -103,11 +104,11 @@ SEMANTIC GREEN ACCENT RULES:
 
 STRUCTURE:
 - Choose slide_count as 1, 2 or 3. Use ONLY as many slides as the topic deserves. Never pad to 3.
-- Cover headline_lines: 2-3 short phrase segments that together form ONE direct, self-contained, COMPLETE sentence.
+- Cover headline_lines: 2-3 phrase segments that together form ONE direct, self-contained, COMPLETE sentence.
 - Cover subheadline is required by schema but normally not rendered. Keep it simple.
-- Slide 2 headline_lines are the visible slide-2 sentence if used. Use 1-3 short segments that together finish the full thought.
+- Slide 2 headline_lines are the visible slide-2 sentence if used. Use 1-3 segments that together finish the full thought.
 - Slide 2 facts are evidence/support fields. facts[0] must still be a clear fallback sentence.
-- Slide 3 headline_lines are the visible slide-3 sentence if used. Use 1-3 short segments that together finish the full thought.
+- Slide 3 headline_lines are the visible slide-3 sentence if used. Use 1-3 segments that together finish the full thought.
 - Slide 3 facts are evidence/support fields. facts[0] must still be a clear fallback sentence.
 - Keep slide3.question short and never add a slide only for a question.
 
@@ -127,7 +128,7 @@ IMAGE RULES:
 - If text names a person, event, invention, place, specific sneaker or comparison, the image must show that exact subject rather than a generic sneaker.
 - Base images contain NO TrendyPatike logo/name/site/frame/captions/typography/watermark. Code adds branding.
 - Every source URL and claim URL must be an exact page discovered in web search.
-- Never cut a sentence or word to meet a length limit. Rewrite it shorter while preserving a complete thought.`; }
+- Never cut a sentence or word to meet a length limit. Rewrite it shorter only when that keeps every essential part of the thought; otherwise use up to 40 words.`; }
 
 function verifierPrompt(seed,draft){ return `You are an independent fact-checker and Serbian copy editor for TrendyPatike.
 Use web search AGAIN and do not trust the draft blindly.
@@ -139,10 +140,11 @@ Verify every important factual claim. Remove or rewrite anything unsupported. If
 Enforce these rules STRICTLY:
 - Correct Serbian Latin letters Č, Ć, Š, Đ and Ž.
 - A 10-year-old with ZERO prior knowledge must understand every visible sentence on first read.
-- Each USED slide should contain 12-20 words total and MUST NOT exceed 22 words across headline_lines.
+- Prefer 12-22 words per used slide. Allow up to 40 words when a complete and accurate explanation genuinely requires the extra context.
+- 30-40 words are acceptable only for real explanatory value: essential date, action, object, reason, consequence or comparison. Never pad a simple fact.
 - Each visible slide must contain a FINISHED thought, not a fragment. Prefer enough concrete detail to explain what happened, when it happened when relevant, and why it mattered or what followed.
 - Do not allow a slide to end after a verb that still needs an object or explanation. "Nike je 1985. registrovao" is invalid; the final text must say what was registered and complete the idea.
-- If the detailed version is too long, shorten wording by removing filler and repetition, NOT by chopping off the end. Preserve subject + action + object and the essential date/reason/result.
+- If the detailed version is too long, shorten wording by removing filler and repetition, NOT by chopping off the end. If essential meaning still needs more space, keep the complete sentence up to 40 words and let rendering reduce font size.
 - Every pronoun must have an obvious subject on the same slide. Rewrite vague copy like "skateri su ga otkrili" into a sentence that names NIKE DUNK or the exact subject.
 - Use normal spaces between every word, model name and number. AIR JORDAN 11 is correct; AIRJORDAN11 is forbidden.
 - Replace specialist or awkward language with simple Serbian. Translate unexplained English jargon; for example patent leather should become "sjajna lakovana koža" when visible.
@@ -150,7 +152,7 @@ Enforce these rules STRICTLY:
 - Reject or rewrite phrases such as "simbol sneaker kulture", "kulturna primena", "modelski simbol", "signatura modela" and "uveo eleganciju".
 - No visible statement may end unfinished with "sa", "za", "od", "i", "jer", "koji" or a similar connector, or with a bare unfinished action such as "registrovao", "predstavio", "napravio", "dizajnirao" or "lansirao".
 - Before approving each slide, ask: could a child reasonably respond "šta?", "koga?", "kada?", "zašto?" or "i šta onda?" because the sentence was cut off? If yes, rewrite it.
-- ALL visible copy is intended to be LARGE, BOLD and ALL CAPS.
+- ALL visible copy is intended to be LARGE, BOLD and ALL CAPS, with font size automatically reduced for longer complete copy.
 - headline_lines are the preferred visible copy and together form one natural, direct, complete sentence.
 - accent=true is semantic: only key model names, years, people or signature technologies/details may be green.
 - Prefer 1-2 accented phrases per used slide, normally 1-4 words each. Never accent filler words or a random trailing chunk.
@@ -187,7 +189,7 @@ function enforceKidCopy(post){
   used.forEach((lines,index)=>{
     const text=headlineText(lines||[]);
     const count=headlineWordCount(lines||[]);
-    if(count<3||count>22)throw new TopicRejectedError(`Visible copy failed kid-friendly word limit on slide ${index+1}: ${count} words`);
+    if(count<3||count>40)throw new TopicRejectedError(`Visible copy failed complete-thought word limit on slide ${index+1}: ${count} words`);
     if(hasGluedModelToken(text))throw new TopicRejectedError(`Visible copy has glued words/model tokens on slide ${index+1}: ${text}`);
     for(const pattern of AWKWARD_VISIBLE_PATTERNS){
       if(pattern.test(text))throw new TopicRejectedError(`Visible copy is unclear or too technical on slide ${index+1}: ${text}`);
