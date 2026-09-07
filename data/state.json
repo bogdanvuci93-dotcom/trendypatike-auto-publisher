@@ -307,8 +307,19 @@
         "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/",
         "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713"
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "topic_id": "nike-converse-acquisition",
+      "seed_topic": "Nike je kupio nekadašnjeg velikog rivala Converse za stotine miliona dolara",
+      "topic_title": "Nike kupio Converse",
+      "media_id": "18103902389621585",
+      "sources": [
+        "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
+        "https://www.converse.com/lu/en/landing-converse-history"
+      ]
     }
   ],
   "last_publish_date": "2026-09-07",
-  "last_media_id": "18057747038534087"
+  "last_media_id": "18103902389621585"
 }
