@@ -134,5 +134,10 @@
     "public/posts/2026-09-07-nike-converse-acquisition-870894a83ea4/01.jpg",
     "public/posts/2026-09-07-nike-converse-acquisition-870894a83ea4/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18016425155944388"
+    ],
+    "carousel_id": ""
+  }
 }
