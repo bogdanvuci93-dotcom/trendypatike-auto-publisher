@@ -1,4 +1,151 @@
 {
+  "9d1c421a261be38b689f33a4a42e2a7b938568be7a33439f593d8bc23e031c47": {
+    "saved_at": "2026-09-07T12:49:20.812Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": false,
+      "reason": "Ključne tvrdnje o broju proizvedenih pari, rekordnim aukcijskim cenama i tačnim godinama nisu potvrđene na dostupnim Nike domenima (nike.com ili about.nike.com). Potrebni su pouzdani izvori van Nike domena (aukcije, Dior saopštenja, Christie's/Sotheby's) da bi se naveli konkretni brojevi i cene.",
+      "post": {
+        "topic_title": "Zašto je Dior x Air Jordan 1 izazvao navalu kupaca i postao jedan od najpoznatijih luksuznih Jordan modela",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "DIOR X AIR JORDAN 1 JE NEOBIČNA SARADNJA KOJA JE PRIVUKLA VELIKU PAŽNJU",
+              "accent": false
+            },
+            {
+              "text": "DIOR X AIR JORDAN 1",
+              "accent": true
+            }
+          ],
+          "subheadline": "Luksuzna verzija AIR JORDAN 1 napravljena uz učešće modne kuće DIOR privukla je modnu i sneaker publ"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "DIOR JE SA JORDAN BRANDOM NAPRAVIO LUKSUZNU ISTRAŽNU PATIKU KOJA JE NASTALA U ITALIJI I IMALA JE OGRANIČENU DOSTUPNOST",
+              "accent": false
+            },
+            {
+              "text": "DIOR X AIR JORDAN 1",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FAKT",
+              "text": "Nike SNKRS tekstovi i Jordan stranice potvrđuju postojanje saradnje i specifičnu pažnju modne jav"
+            },
+            {
+              "tag": "Ograničenje",
+              "text": "Nike domeni NE SADRŽE zvanične podatke o tačnom broju proizvedenih pari ili dokumentovanim aukcij­sk"
+            },
+            {
+              "tag": "PITANJE",
+              "text": "Za precizne cifre (broj pari, aukcijske prodaje i rekordne cene) potrebno je koristiti izvore van NI"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "NE KORISTITE OVAJ SKICIRANI SADRŽAJ KAO POTPUNU PROVERENU PRICU BEZ DODATNIH AUKCIJSKIH I/ILI DIO",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "AKCIJA",
+              "text": "Ako želite, mogu pretražiti aukcijske sajtove i saopštenja Dior-a i vratiti precizne godine, brojeve"
+            },
+            {
+              "tag": "DA/NE",
+              "text": "Odgovorite SA: 'DA' ako smem da pretražim širi web (aukcije, muzeji, Dior, Christie's/Sotheby's)."
+            }
+          ],
+          "question": "DA ili NE?"
+        },
+        "caption": "Nike sajtovi potvrđuju saradnju DIOR i JORDAN ali ne sadrže sve podatke o proizvodnji i aukcijama. Želite li da pretražim širi web za tačne brojeve i dokumentovane cene?",
+        "hashtags": [
+          "#Dior",
+          "#AirJordan1",
+          "#Jordan",
+          "#luksuz",
+          "#retkost",
+          "#sneakerz"
+        ],
+        "image_prompts": [
+          "Close-up of DIOR X AIR JORDAN 1 shoe showing Dior monogram leather and Jordan Swoosh, shoe filling 70% of frame, studio lighting, luxury craft details",
+          "DIOR X AIR JORDAN 1 in Italian atelier: close-up on shoemaker hands stitching leather, shoe model DIOR X AIR JORDAN 1 visible",
+          "Queue of buyers outside a fashion boutique for DIOR X AIR JORDAN 1 release, visible DIOR X AIR JORDAN 1 shoes in window"
+        ],
+        "sources": [
+          {
+            "title": "Jordan — Nike (Air Jordan 1 archive & product listings)",
+            "publisher": "Nike",
+            "url": "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95"
+          },
+          {
+            "title": "Jordan — Nike (general Jordan Brand pages and SNKRS Paris feature)",
+            "publisher": "Nike",
+            "url": "https://www.nike.com/jordan/"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Nike sajtovi potvrđuju postojanje DIOR x AIR JORDAN 1 kao luksuzne saradnje i ukazuju na ograničenu dostupnost.",
+            "source_urls": [
+              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+              "https://www.nike.com/jordan/"
+            ]
+          },
+          {
+            "claim": "Na nike.com i about.nike.com NISU pronađeni javni podaci o tačnom broju proizvedenih pari ili dokumentovanim aukcijskim cenama za DIOR x AIR JORDAN 1.",
+            "source_urls": [
+              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+              "https://www.nike.com/jordan/"
+            ]
+          },
+          {
+            "claim": "Da bi se naveli verodostojni brojevi i rekordne cene potrebno je pretražiti izvore van Nike domena: aukcijske rezultate, saopštenja Dior-a ili arhive aukcijskih kuća.",
+            "source_urls": [
+              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.nike.com/w/jordan-1-4fokyzabwsqzanjns",
+      "https://www.nike.com/w/jordan-1-13jrmz3hj8mzaj85g",
+      "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
+      "https://www.nike.com/w/jordan-1-air-47w4rzaj85gzayp69zjj95",
+      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+      "https://www.nike.com/t/air-jordan-1-low-mens-shoes-w9HO9jOz/553558-200",
+      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
+      "https://www.nike.com/jordan/ones?msockid=0bee096d79f26cb22e011fbf785c6d16",
+      "https://www.nike.com/us/es/jordan/air-jordan-1/",
+      "https://www.nike.com/us/es/w/jordan-jordan-1-nike-air-calzado-37eefzaj85gzjj95zy7ok",
+      "https://www.nike.com/us/es/w/jordan-1-abwsqzaj85gzanjns",
+      "https://www.nike.com/us/es/w/jordan-1-4foky",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
+      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
+      "https://www.nike.com/JORDAN",
+      "https://www.nike.com/jordan",
+      "https://www.nike.com/jordan/",
+      "https://www.nike.com/Jordan",
+      "https://www.nike.com/ca/launch/t/rock-em-paris-fashion-week",
+      "https://www.nike.com/Jordan/",
+      "https://www.nike.com/fi/t/air-jordan-1-low-N5n7rise/DC0774-108",
+      "https://www.nike.com/jordan?msockid=0bfc04c3c3b5662627f41245c23d670a",
+      "https://www.nike.com/jordan?msockid=2c37e47379e667383f73f219788866c7",
+      "https://www.nike.com/jordan?msockid=26a4e61199a163cf12a3f09a98626201",
+      "https://www.nike.com/jordan/air-jordan-collection?msockid=1126b1b20c1e684330e4a7400dcb6972",
+      "https://www.nike.com/Jordan?msockid=3e48f8360ab16ca80f43ee520bdf6d01"
+    ]
+  },
   "e025a2d3955bda4a083231d85e7e5aad26c02ca7374eb518448a3863e934757a": {
     "saved_at": "2026-09-07T12:48:56.168Z",
     "schema_name": "trendypatike_post",
@@ -2198,175 +2345,6 @@
       "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
       "https://about.nike.com/it/newsroom/releases/introducing-the-air-jordan-xxxix",
       "https://media.about.nike.com/files/da19f5aa-7644-4b82-8604-67d7fa260e0c/H_Wings_Air_Jordan_2_Bio.pdf"
-    ]
-  },
-  "03183c6637ca99c9545641b54ceaa51156163550f544364cff94c19bca67d935": {
-    "saved_at": "2026-08-29T16:13:51.063Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All major claims verified on NIKE and NBA pages (Kobe 3 use in 2007–08 MVP season; Kobe 9 first Nike Basketball Flyknit; Kobe V marketed as lowest‑profile and lightest with documented weight). Copy rewritten to meet TrendyPatike rules and child-friendly Serbian.",
-      "post": {
-        "topic_title": "Kako je Kobe Bryant uticao na razvoj moderne košarkaške obuće",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "KOBE BRYANT NATERAO JE NIKE DA PRAVI LAKŠE PATIKE",
-              "accent": true
-            },
-            {
-              "text": "KRATKO O MODELIMA I TEHNOLOGIJAMA KOJE JE UVEO",
-              "accent": false
-            }
-          ],
-          "subheadline": "PRIČA O KOBE 1 DO KOBE 9"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "KOBE 3 PREDVODIO NISKE PATIKE",
-              "accent": true
-            },
-            {
-              "text": "NA TERENU SEZONA 2007–08",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Kobe je nosio KOBE 3 tokom MVP sezone 2007–08; model je popularizovao niske patike u pro košarci."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "NIKE članak o istoriji Kobe 3 navodi da je model nošen tokom MVP sezone 2007–08."
-            },
-            {
-              "tag": "URL",
-              "text": "https://about.nike.com/en/magazine/nike-kobe-3-history"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "KOBE 9 UVEO JE FLYKNIT U NIKE BASKETBALL",
-              "accent": true
-            },
-            {
-              "text": "ZOOM KOBE V JE TEŽIO 10.6 OZ (NAJLAKŠI U LINII)",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Kobe 9 je prva Nike košarkaška patika sa Flyknit materijalom; Kobe V je promovisan kao najniži i naj"
-            },
-            {
-              "tag": "SOURCE",
-              "text": "NIKE stranice potvrđuju da je Kobe 9 prva Flyknit košarkaška patika, a Nike press materijal navodi 1"
-            }
-          ],
-          "question": "KOJI KOBE MODEL NAJVIŠE VOLEŠ?"
-        },
-        "caption": "KRATKO: KOBE JE GURNUO NIKE KA NIŽIM I LAKŠIM PATIKAMA; MODELI SU UBLAŽILI PRELAZ KA TEHNIČKIM NISKIM PATIKAMA.",
-        "hashtags": [
-          "#KOBE",
-          "#MAMBA",
-          "#TRENDYPATIKE",
-          "#KOBE9",
-          "#KOBE3",
-          "#FLYKNIT",
-          "#NIKE"
-        ],
-        "image_prompts": [
-          "Close-up action photo of KOBE BRYANT wearing KOBE 3 on a basketball court, low-angle, player mid-dribble, the KOBE 3 shoe occupying at least 65% of the frame",
-          "Macro cutaway of KOBE 9 showing FLYKNIT upper and sole cross-section, 65% of frame, studio lighting, clear texture detail of KOBE 9",
-          "Studio macro of ZOOM KOBE V showing low profile and midsole, shoe/detail filling at least 65% of frame"
-        ],
-        "sources": [
-          {
-            "title": "The History of the Kobe III — NIKE, Inc.",
-            "publisher": "about.nike.com",
-            "url": "https://about.nike.com/en/magazine/nike-kobe-3-history"
-          },
-          {
-            "title": "Kobe Vault: Kobe IX — Nike SNKRS",
-            "publisher": "nike.com",
-            "url": "https://www.nike.com/launch/t/vault-kobe-9"
-          },
-          {
-            "title": "Kobe 9 Protro: How Kobe Bryant’s Endless Pursuit of Perfection Redefined a Masterpiece",
-            "publisher": "nike.com",
-            "url": "https://www.nike.com/a/kobe-9-release-info"
-          },
-          {
-            "title": "Nike and Kobe Bryant Launch New Zoom Kobe V, Lower & Lighter (press release)",
-            "publisher": "NIKE Investor Relations",
-            "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
-          },
-          {
-            "title": "Kobe Bryant coverage and stories",
-            "publisher": "nba.com",
-            "url": "https://www.nba.com/news/archive-75-kobe-bryant"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Kobe 3 je nošen tokom Kobeove MVP sezone 2007–08 i pomogao popularizaciji niskih patika.",
-            "source_urls": [
-              "https://about.nike.com/en/magazine/nike-kobe-3-history"
-            ]
-          },
-          {
-            "claim": "Kobe 9 je prva Nike košarkaška patika koja koristi Flyknit materijal.",
-            "source_urls": [
-              "https://www.nike.com/launch/t/vault-kobe-9",
-              "https://www.nike.com/a/kobe-9-release-info"
-            ]
-          },
-          {
-            "claim": "Nike je predstavio Zoom Kobe V kao najniži i najlakši model u liniji; dokumentovana težina 10.6 oz u press materijalima.",
-            "source_urls": [
-              "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/magazine/nike-kobe-3-history",
-      "https://www.nike.com/launch/t/vault-kobe-9",
-      "https://www.nike.com/a/kobe-9-release-info",
-      "https://investors.nike.com/files/doc_financials/2014/docs/nike-shareholders-letter-2014.pdf",
-      "https://www.nike.com/jp/a/kobe-9-release-info/",
-      "https://about.nike.com/en/magazine/page/5",
-      "https://www.nike.com/es/a/informacion-lanzamiento-kobe-9/",
-      "https://www.nike.com/ch/a/kobe-9-release-info",
-      "https://www.nike.com/es/ca/a/informacio-del-llancament-de-les-kobe-9",
-      "https://www.nike.com/be/a/kobe-9-release-info/",
-      "https://www.nike.com/it/a/informazioni-sul-lancio-di-kobe-9",
-      "https://www.nike.com/ca/fr/a/infos-sortie-kobe-9",
-      "https://about.nike.com/fr/newsroom/releases/the-kobe-3-protro-is-a-basketball-icon-reengineered-for-todays-game",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY07_09_Nike__CR_report.pdf",
-      "https://cdn.nba.com/teams/uploads/sites/1610612764/2025/02/WIZARDS_2024_25_COMPLETE-ISSUE-compressed_11zon-1.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://cdn.nba.com/teams/uploads/sites/1610612744/2023/12/2324-gsw-media-guide.pdf",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx",
-      "https://www.nike.com/launch/t/vault-kobe-5?msockid=167d76f6e85e6ca01b1f600be99c6d37",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2008/Nike-Zoom-Kobe-IV-Nike-Unveils-Its-Lightest-and-Strongest-Basketball-Shoe-Ever/default.aspx",
-      "https://www.nike.com/launch/t/kobe-5-black-mamba",
-      "https://www.nike.com/Kobe?msockid=1128599c86d3699914834f3e877d6838",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2008/Nike-and-Kobe-Bryant-Introduce-an-Unconventional-New-Look-for-the-10-Time-All-Star/default.aspx",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-Delivers-Lebron-James-His-Lightest-Shoe-Yet/default.aspx",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/Photo-Advisory----LeBron-V-Shoe-Launches-In-Shanghai/default.aspx",
-      "https://about.nike.com/en/newsroom/collections/nike-basketball-footwear/Nike-Kobe-VI-Protro",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/Nike-LeBron-James-Celebrate-Launch-of-Zoom-LeBron-V-and-New-Basketball-Campaign/default.aspx",
-      "https://www.nike.com/launch/t/vault-kobe-2",
-      "https://www.nike.com/us/es/launch/t/vault-kobe-1"
     ]
   }
 }
