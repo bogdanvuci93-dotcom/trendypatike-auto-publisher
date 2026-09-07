@@ -3,8 +3,9 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PROMPT_FILES = [ROOT / "src" / "openai.mjs", ROOT / "src" / "index.mjs"]
-RENDER_FILES = [ROOT / "src" / "render.mjs"]
+PROMPT_FILES = [ROOT / "src" / "openai.mjs", ROOT / "src" / "index.mjs", ROOT / "src" / "content.mjs"]
+RENDER_FILE = ROOT / "src" / "render.mjs"
+CONTENT_FILE = ROOT / "src" / "content.mjs"
 
 RULES = r'''
 VISIBLE COPY POLICY — COMPLETE THOUGHTS FIRST:
@@ -29,7 +30,10 @@ for path in PROMPT_FILES:
         pos = import_block.end() if import_block else 0
         s = s[:pos] + insert + s[pos:]
         changed = False
-        for pat in [r"(const\s+SYSTEM_PROMPT\s*=\s*`[\s\S]*?)(`;)", r"(const\s+\w*PROMPT\w*\s*=\s*`[\s\S]*?)(`;)"]:
+        for pat in [
+            r"(const\s+SYSTEM_PROMPT\s*=\s*`[\s\S]*?)(`;)",
+            r"(const\s+\w*PROMPT\w*\s*=\s*`[\s\S]*?)(`;)"
+        ]:
             ns, n = re.subn(pat, r"\1\n\n${DETAIL_COPY_POLICY}\2", s, count=1)
             if n:
                 s = ns
@@ -37,16 +41,47 @@ for path in PROMPT_FILES:
                 break
         if not changed:
             s = s.replace("Return valid JSON", "${DETAIL_COPY_POLICY}\n\nReturn valid JSON", 1)
-    s = re.sub(r"target\s+8[-–]14\s+words,\s*hard\s+cap\s+18", "target 12-24 words; complete thought has priority over a hard cap", s, flags=re.I)
+
+    # Remove the old hard 18-word rule that caused chopped thoughts.
+    s = s.replace("normally 8-14 words total and NEVER more than 18 words total across headline_lines",
+                  "normally 12-24 words total when needed; NEVER cut a sentence just to hit a word limit")
+    s = s.replace("Each USED slide should contain 8-14 words total and MUST NOT exceed 18 words across headline_lines",
+                  "Each USED slide should usually contain 12-24 words; complete the thought and shorten naturally instead of truncating")
     s = re.sub(r"8[-–]14\s+words", "12-24 words when needed", s, flags=re.I)
+    s = re.sub(r"hard\s+cap\s+18", "no hard truncation; complete thought first", s, flags=re.I)
     path.write_text(s, encoding="utf-8")
 
-for path in RENDER_FILES:
-    if not path.exists():
-        continue
-    s = path.read_text(encoding="utf-8")
-    s = re.sub(r"Math\.max\((2[4-9]|3[0-2]),", "Math.max(20,", s)
-    s = re.sub(r"minFontSize\s*:\s*(2[4-9]|3[0-2])", "minFontSize: 20", s)
-    path.write_text(s, encoding="utf-8")
+if CONTENT_FILE.exists():
+    s = CONTENT_FILE.read_text(encoding="utf-8")
 
-print("Detailed complete-thought copy policy applied: finish every sentence; compact before cutting; smaller font allowed when needed.")
+    # Override the old capHeadlineWords behavior. The previous implementation used
+    # words.slice(0, remaining), which could literally end copy at e.g. "registrovao".
+    pattern = r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}\nfunction normalizeHeadlineGroup"
+    replacement = '''function capHeadlineWords(lines,maxWords=24){
+  // COMPLETE-THOUGHT POLICY: never chop text mid-sentence to satisfy a word cap.
+  // Generation/repair is responsible for concise copy; rendering will shrink font if needed.
+  return (lines||[])
+    .map(line=>({text:simplifyKidPhrase(line?.text),accent:line?.accent===true}))
+    .filter(line=>line.text);
+}
+function normalizeHeadlineGroup'''
+    s, n = re.subn(pattern, replacement, s, count=1)
+    if n == 0:
+        # Future-proof fallback: neutralize the exact destructive slice if function shape changed.
+        s = s.replace('const kept=words.slice(0,remaining);', 'const kept=words;')
+        s = s.replace('remaining-=kept.length;', 'remaining=Math.max(0,remaining-kept.length);')
+
+    # Make normalizeHeadlineGroup request a softer guideline rather than 18.
+    s = s.replace('return capHeadlineWords(cleaned.slice(0,maxLines),18);',
+                  'return capHeadlineWords(cleaned.slice(0,maxLines),24);')
+    CONTENT_FILE.write_text(s, encoding="utf-8")
+
+if RENDER_FILE.exists():
+    s = RENDER_FILE.read_text(encoding="utf-8")
+    # Existing renderer already auto-fits based on width/height. Let it go smaller
+    # before clipping so a complete sentence stays visible.
+    s = s.replace('preferred: 126,\n    min: 62,', 'preferred: 118,\n    min: 44,')
+    s = s.replace('maxLines: 6,', 'maxLines: 7,')
+    RENDER_FILE.write_text(s, encoding="utf-8")
+
+print("Detailed complete-thought policy applied: no mid-sentence truncation; compact complete sentences; renderer may shrink font to fit.")
