@@ -294,8 +294,21 @@
         "https://www.adidas-group.com/en/about/history",
         "https://about.puma.com/en/puma/history"
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "topic_id": "reebok-pump",
+      "seed_topic": "Reebok je krajem osamdesetih stavio pravo dugme za pumpanje vazduha direktno na košarkašku patiku",
+      "topic_title": "Reebok i pumpa na košarkaškoj patiki",
+      "media_id": "18057747038534087",
+      "sources": [
+        "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte",
+        "https://www.nba.com/watch/video/1991-dunk-contest-dee-pumps-his-way-to-title?plsrc=nba",
+        "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/",
+        "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713"
+      ]
     }
   ],
   "last_publish_date": "2026-09-07",
-  "last_media_id": "18181516684419982"
+  "last_media_id": "18057747038534087"
 }
