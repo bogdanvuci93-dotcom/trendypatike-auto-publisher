@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-07",
-  "stage": "ready",
+  "generated_at": "2026-09-07T12:56:52.197Z",
   "fingerprint": "14aaf6e1071c",
   "seed": {
     "id": "nike-vaporfly-records",
@@ -147,11 +146,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-07-nike-vaporfly-records-14aaf6e1071c/01.jpg",
-    "public/posts/2026-09-07-nike-vaporfly-records-14aaf6e1071c/02.jpg",
-    "public/posts/2026-09-07-nike-vaporfly-records-14aaf6e1071c/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
