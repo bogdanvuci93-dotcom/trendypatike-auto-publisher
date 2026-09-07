@@ -318,8 +318,20 @@
         "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
         "https://www.converse.com/lu/en/landing-converse-history"
       ]
+    },
+    {
+      "date": "2026-09-07",
+      "topic_id": "nike-vaporfly-records",
+      "seed_topic": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+      "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+      "media_id": "17946489555322312",
+      "sources": [
+        "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
+        "https://www.nike.com/gb/running/breaking2",
+        "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
+      ]
     }
   ],
   "last_publish_date": "2026-09-07",
-  "last_media_id": "18103902389621585"
+  "last_media_id": "17946489555322312"
 }
