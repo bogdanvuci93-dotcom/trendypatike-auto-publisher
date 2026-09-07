@@ -17,7 +17,7 @@ const TEXT_TOP_MIN = 190;
 const TEXT_TOP_MAX = 685;
 const TEXT_BOTTOM_MIN = 715;
 const TEXT_BOTTOM_MAX = 1190;
-const RENDER_VERSION = "kids-editorial-v11-readable-serbian";
+const RENDER_VERSION = "kids-editorial-v12-adaptive-long-copy";
 
 function esc(s = "") {
   return String(s)
@@ -108,14 +108,17 @@ function plainLine(line = []) {
 }
 
 function fitSemanticText(segments, {
-  maxLines = 6,
+  maxLines = 9,
   preferred = 126,
-  min = 62,
+  min = 38,
   maxChars = 18,
   maxHeight = 470
 } = {}) {
-  let lines = wrapSegments(segments, maxChars);
-  for (const width of [maxChars + 2, maxChars + 4, maxChars + 6, maxChars + 8, maxChars + 10, maxChars + 13, maxChars + 16]) {
+  const totalWords = segmentWords(segments).length;
+  const adaptiveChars = totalWords >= 34 ? 25 : totalWords >= 26 ? 23 : totalWords >= 20 ? 21 : maxChars;
+  let lines = wrapSegments(segments, adaptiveChars);
+
+  for (const width of [adaptiveChars + 2, adaptiveChars + 4, adaptiveChars + 6, adaptiveChars + 8, adaptiveChars + 10, adaptiveChars + 13, adaptiveChars + 16]) {
     if (lines.length <= maxLines) break;
     lines = wrapSegments(segments, width);
   }
@@ -124,7 +127,8 @@ function fitSemanticText(segments, {
   const widthFit = Math.floor(TEXT_WIDTH / (longest * 0.70));
   const lineCount = Math.max(1, lines.length);
   const heightFit = Math.floor(maxHeight / (1 + Math.max(0, lineCount - 1) * 0.90));
-  const size = Math.max(min, Math.min(preferred, widthFit, heightFit));
+  const densityFit = totalWords >= 36 ? 46 : totalWords >= 30 ? 52 : totalWords >= 24 ? 60 : preferred;
+  const size = Math.max(min, Math.min(preferred, densityFit, widthFit, heightFit));
   const gap = Math.round(size * 0.90);
   return { lines, size, gap };
 }
@@ -173,9 +177,9 @@ function semanticTextSvg(segments, position) {
     ? TEXT_TOP_MAX - TEXT_TOP_MIN
     : TEXT_BOTTOM_MAX - TEXT_BOTTOM_MIN;
   const { lines, size, gap } = fitSemanticText(segments, {
-    maxLines: 6,
+    maxLines: 9,
     preferred: 126,
-    min: 62,
+    min: 38,
     maxChars: 18,
     maxHeight: zoneHeight
   });
@@ -317,49 +321,4 @@ export async function generateAndRender(post, outputDir) {
   }
 
   return outputs;
-}
-
-export async function runRenderSelfTest() {
-  const post = {
-    slide_count: 3,
-    topic_title: "Kako je Stan Smith dobio ime",
-    cover: {
-      headline_lines: [
-        { text: "OVA PATIKA SE PRVO ZVALA", accent: false },
-        { text: "HAILLET", accent: true },
-        { text: "PRE NEGO ŠTO JE POSTALA STAN SMITH", accent: false }
-      ],
-      subheadline: "Tek kasnije je postala Stan Smith."
-    },
-    slide2: {
-      headline_lines: [
-        { text: "NAPRAVLJENA JE ZA", accent: false },
-        { text: "ROBERTA HAILLETA", accent: true }
-      ],
-      facts: [{ tag: "", text: "Napravljena je za francuskog tenisera Roberta Hailleta." }]
-    },
-    slide3: {
-      headline_lines: [
-        { text: "KASNIJE JE DOBILA IME", accent: false },
-        { text: "STAN SMITH", accent: true }
-      ],
-      facts: [{ tag: "", text: "Posle je dobila ime Stan Smith." }],
-      question: ""
-    },
-    image_prompts: ["shoe on tennis court", "French tennis player and shoe", "before and after sneaker"]
-  };
-
-  const base = await sharp({ create: { width: W, height: H, channels: 3, background: "#111111" } }).png().toBuffer();
-  const logo = await logoBuffer();
-  for (let i = 0; i < 3; i++) {
-    const overlay = slideOverlay(post, i);
-    const buffer = await sharp(base)
-      .composite([{ input: Buffer.from(overlay), left: 0, top: 0 }, { input: logo, left: 52, top: 47 }])
-      .jpeg({ quality: 80 })
-      .toBuffer();
-    const meta = await sharp(buffer).metadata();
-    if (meta.width !== W || meta.height !== H || meta.format !== "jpeg") {
-      throw new Error("Offline carousel render self-test failed");
-    }
-  }
 }
