@@ -1,4 +1,156 @@
 {
+  "24c74cba453af6e06e77f75707d559d35089ca13244d49bbe40f10e62537cb8a": {
+    "saved_at": "2026-09-07T07:44:31.525Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All core claims verified on adidas-group.com, about.puma.com and Britannica; dates and sequence confirmed.",
+      "post": {
+        "topic_title": "adidas i PUMA: svađa braće koja je podelila grad",
+        "slide_count": 2,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "DVA BRATA, JEDAN GRAD, DVA BREND-A",
+              "accent": false
+            },
+            {
+              "text": "DASSLER BRAĆA SU SE POSVAĐALA",
+              "accent": true
+            },
+            {
+              "text": "I NAPRAVILA ADIDAS I PUMA",
+              "accent": true
+            }
+          ],
+          "subheadline": "Kako su Adi i Rudolf Dassler razdvojili svoju radionicu u Herzogenaurachu i osnovali dve kompanije."
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "1924 SU ZAJEDNO POČELI; 1948 SU SE RAZIŠLI",
+              "accent": true
+            },
+            {
+              "text": "ADI JE 18.8.1949 REGISTROVAO ADIDAS; RUDOLF JE 1.10.1948 REGISTROVAO PUMA",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FENOMEN",
+              "text": "Braća Adolf (Adi) i Rudolf Dassler su 1924 osnovala radionicu ’Gebrüder Dassler’ u Herzogenaurachu. "
+            },
+            {
+              "tag": "FENOMEN",
+              "text": "Zbog svađe 1948 razdvojili su firmu; Rudolf je registrovao PUMA 1. oktobra 1948, a Adi je 18. avgust"
+            },
+            {
+              "tag": "FENOMEN",
+              "text": "Adi je u avgustu 1949 započeo proizvodnju adidas-a sa 47 zaposlenih u Herzogenaurachu."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "DA LI ŽELITE FOTOGRAFIJU DVE RADIONICE?",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "PITANJE",
+              "text": "Možemo staviti arhivsku crno-belu fotografiju radionica u Herzogenaurachu iz perioda oko 1948-1949."
+            },
+            {
+              "tag": "IZVORI",
+              "text": "Arhivske fotografije dostupne u istorijama adidas i PUMA."
+            }
+          ],
+          "question": "Da li želite fotografiju?"
+        },
+        "caption": "Jedna porodična svađa u Herzogenaurachu 1948-1949 stvorila je ADIDAS i PUMA. Izvori: adidas, PUMA, Britannica.",
+        "hashtags": [
+          "#ADIDAS",
+          "#PUMA",
+          "#Herzogenaurach",
+          "#rivalstvo",
+          "#TrendyPatike"
+        ],
+        "image_prompts": [
+          "CINEMATIC 1948-1949 STREET VIEW SHOWING TWO SHOE WORKSHOPS ACROSS A NARROW STREET IN HERZOGENAURACH, ONE WORKSHOP SIGNED 'ADOLF DASSLER' AND THE OTHER SIGNED 'RUDOLF DASSLER', PERIOD WORKERS (ADI DASSLER AND RUDOLF DASSLER) IN 1940S CLOTHING, BLACK-AND-WHITE, HISTORICAL EDITORIAL",
+          "CLOSE-UP VINTAGE WORKSHOP EXTERIOR SHOWING A SIGN 'ADOLF DASSLER ADIDAS' ON ONE BUILDING AND A SIGN 'PUMA SCHUHFABRIK RUDOLF DASSLER' ON THE OPPOSITE BUILDING, 1949, HIGH-CONTRAST BLACK-AND-WHITE, ARCHIVE STYLE",
+          "ARCHIVAL PHOTO OF ADI DASSLER AND RUDOLF DASSLER STANDING OUTSIDE SEPARATE WORKSHOPS IN HERZOGENAURACH, 1948-1949, BLACK-AND-WHITE"
+        ],
+        "sources": [
+          {
+            "title": "75 years of adidas: From a Franconian crafts business to a global player in the world of sport",
+            "publisher": "adidas-group.com",
+            "url": "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport"
+          },
+          {
+            "title": "History - adidas Group",
+            "publisher": "adidas-group.com",
+            "url": "https://www.adidas-group.com/en/about/history"
+          },
+          {
+            "title": "PUMA Timeline",
+            "publisher": "about.puma.com",
+            "url": "https://about.puma.com/en/puma/history"
+          },
+          {
+            "title": "Adolf Dassler biography and Dassler brothers history",
+            "publisher": "Britannica",
+            "url": "https://www.britannica.com/biography/Adolf-Dassler"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Braća Adolf (Adi) i Rudolf Dassler su zajedno osnovala ’Gebrüder Dassler’ 1924 u Herzogenaurachu.",
+            "source_urls": [
+              "https://www.adidas-group.com/en/about/history",
+              "https://about.puma.com/en/puma/history",
+              "https://www.britannica.com/biography/Adolf-Dassler"
+            ]
+          },
+          {
+            "claim": "Braća su se razišla 1948; Rudolf je registrovao PUMA 1. oktobra 1948.",
+            "source_urls": [
+              "https://about.puma.com/en/puma/history"
+            ]
+          },
+          {
+            "claim": "Adi Dassler je registrovao adidas 18. avgusta 1949 i započeo proizvodnju sa 47 zaposlenih u Herzogenaurachu.",
+            "source_urls": [
+              "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport",
+              "https://www.adidas-group.com/en/about/history"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://about.puma.com/en/puma/history",
+      "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport",
+      "https://www.adidas-group.com/de/media/pressemitteilungen/adidas-feiert-75-jahre-innovation-und-sportgeschichte",
+      "https://www.about.puma.com/de/das-ist-puma/pumas-chronik",
+      "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+      "https://www.adidas-group.com/de/uber-uns/geschichte",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history",
+      "https://www.adidas-group.com/en/about/history",
+      "https://www.adidas-group.com/de/faq",
+      "https://www.adidas-group.com/en/faq",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-its-70th-anniversary-and-the-opening-of-the-arena-building",
+      "https://www.adidas-group.com/de/media/press-releases/adidas-feiert-70-jahriges-jubilaum-und-eroffnet-arena-gebaude",
+      "https://about.puma.com/sites/default/files/financial-report/2000/ar-2000.pdf",
+      "https://report.adidas-group.com/2024/en/_assets/downloads/our-company-adidas-ar24.pdf",
+      "https://report.adidas-group.com/2024/de/_assets/downloads/our-company-adidas-gb24.pdf",
+      "https://about.puma.com/sites/default/files/financial-report/2008/ar-2008.pdf",
+      "https://about.puma.com/sites/default/files/financial-report/1998/ar-1998-de.pdf",
+      "https://about.puma.com/sites/default/files/financial-report/1999/ar-1999.pdf"
+    ]
+  },
   "13404730cff441f5260ee6852aa95985c4367761eb32b0640334c103ebe2feac": {
     "saved_at": "2026-09-07T07:44:12.060Z",
     "schema_name": "trendypatike_post",
@@ -2244,159 +2396,6 @@
       "https://www.sothebys.com/en/buy/_Louis-Vuitton-x-Nike-Air-Force-1-Low-or-Size-7.5",
       "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-black-871d",
       "https://www.sothebys.com/en/buy/sneakers/_lv-x-af1s-lot-195-or-size-14-1d70"
-    ]
-  },
-  "9514f9842e4a093a08f8516794fd03f7e9d67571bd31c9a8af946e72c2d0264c": {
-    "saved_at": "2026-08-27T21:30:36.396Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All major factual claims verified on Sotheby’s pages: 200 pairs, starting bid $2,000, pilot case, auction dates, total raised $25.3M, highest individual lot listed at $175,000. All sources are Sotheby’s URLs.",
-      "post": {
-        "topic_title": "KAKO JE AUKCIJA LOUIS VUITTON X NIKE AIR FORCE 1 DONELA DESEtINE MILIONA DOLARA",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "LOUIS VUITTON X NIKE AIR FORCE 1 NA AUKCIJI SOTHEBY'S PRODATIH 200 PAROVA",
-              "accent": true
-            },
-            {
-              "text": "SVAKI PAR JE IZAĐEN U ORANŽNOM LOUIS VUITTON KOFERU",
-              "accent": false
-            }
-          ],
-          "subheadline": "AUKCIJA JANUAR 2022, POMOĆ ZA VIRGIL ABLOH FOND"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "SOTHEBY'S IZRADAO 200 PAROVA SA POČETNOM PONUDBOM 2 000 DOLARA I ORANŽNIM KOFEROM",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Sotheby’s je ponudio 200 pari, startna ponuda 2 000 DOLARA po paru."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Sotheby’s press objava i aukcijski katalog potvrđuju broj pari i startnu cenu."
-            },
-            {
-              "tag": "DETAIL",
-              "text": "Svaki par dolazi uz Louis Vuitton pilot kofer iz kolekcije Proleće-Leto 2022."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "AUKCIJA JE PRIKUPILA 25,3 MILIONA DOLARA; NAJVIŠE 175 000 DOLARA ZA JEDAN PAR",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "Sotheby’s izveštava da aukcija ukupno donela 25,3 miliona dolara."
-            },
-            {
-              "tag": "SOURCE",
-              "text": "Sotheby’s artikli i katalogi pokazuju zbirni iznos i liste sa najvišim cenama."
-            }
-          ],
-          "question": "ŽELITE PRIČU O PARU KOJI JE PRODAT ZA 175 000 DOLARA?"
-        },
-        "caption": "Sotheby’s je u januaru 2022. ponudio 200 pari Louis Vuitton x Nike Air Force 1 by Virgil Abloh. Početna ponuda bila je 2 000 dolara, parovi su dolazili sa narandžastim pilot koferom, a aukcija je prikupila 25,3 miliona dolara za The Virgil Abloh \"Post-Modern\" Scholarship Fund.",
-        "hashtags": [
-          "#AirForce1",
-          "#LouisVuitton",
-          "#VirgilAbloh",
-          "#Aukcija",
-          "#Sothebys",
-          "#SneakerPriče"
-        ],
-        "image_prompts": [
-          "Editorial photo of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH displayed with the orange Louis Vuitton pilot case, shoe and case filling 75% of frame, studio lighting, premium luxury look",
-          "Close-up macro of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH showing Monogram and Damier calfskin detail and orange pilot case cushion, shoe detail filling 80% of frame",
-          "Close-up of LOUIS VUITTON X NIKE AIR FORCE 1 by VIRGIL ABLOH with Sotheby\u0019s price tag reading \"$175,000\", shoe filling 70% of frame, clear price tag, editorial auction scene"
-        ],
-        "sources": [
-          {
-            "title": "The Louis Vuitton and Nike expression of the “Air Force 1” by Virgil Abloh Auction at Sotheby’s — Press Release",
-            "publisher": "Sotheby’s",
-            "url": "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys"
-          },
-          {
-            "title": "The Louis Vuitton and Nike “Air Force 1” by Virgil Abloh | 2022 | Sotheby's (auction catalog)",
-            "publisher": "Sotheby’s",
-            "url": "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
-          },
-          {
-            "title": "Louis Vuitton x Nike Air Force One | Exclusive Auction Release (Sotheby’s article)",
-            "publisher": "Sotheby’s",
-            "url": "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"
-          },
-          {
-            "title": "Nike x Louis Vuitton | History & Sales Information (Sotheby’s listings showing $175,000)",
-            "publisher": "Sotheby’s",
-            "url": "https://www.sothebys.com/en/brands/nike-x-louis-vuitton"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Sotheby’s je aukcionisao 200 parova Louis Vuitton x Nike “Air Force 1” sa početnom ponudom 2 000 DOLARA po paru.",
-            "source_urls": [
-              "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
-              "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh"
-            ]
-          },
-          {
-            "claim": "Svaki par je prodavan uz narandžasti Louis Vuitton pilot kofer iz Proleće-Leto 2022 kolekcije.",
-            "source_urls": [
-              "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
-              "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/1f53141c-86fb-416e-9ade-becb139744ab"
-            ]
-          },
-          {
-            "claim": "Aukcija je prikupila ukupno 25,3 MILIONA DOLARA, a Sotheby’s navodi pojedinačne liste sa cenama do 175 000 DOLARA.",
-            "source_urls": [
-              "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
-              "https://www.sothebys.com/en/brands/nike-x-louis-vuitton"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.sothebys.com/en/press/the-louis-vuitton-and-nike-expression-of-the-air-force-1-by-virgil-abloh-auction-at-sothebys",
-      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
-      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/1f53141c-86fb-416e-9ade-becb139744ab",
-      "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
-      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/e0e0c33d-d718-4f93-a39c-f7c421e3256a",
-      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62",
-      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh/size-10-nike-x-louis-vuitton-air-force-1-pilot-11",
-      "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e/lots/e946580a-678d-4bfc-8c95-d3e6d5feb003",
-      "https://www.sothebys.com/en/digital-catalogues/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh",
-      "https://www.sothebys.com/en/buy/auction/2022/the-louis-vuitton-and-nike-air-force-1-by-virgil-abloh/size-7-5-nike-x-louis-vuitton-air-force-1-pilot-10",
-      "https://www.sothebys.com/en/articles/2022-in-review-a-gold-medal-year-for-collectibles",
-      "https://www.sothebys.com/buy/02a6c0ac-c5c3-4ca0-bd36-bafcbeaeac62/lots/f2e69520-896c-4a72-88e0-5c4f330b5b68",
-      "https://www.sothebys.com/en/pdf/the-jubilee-season-catalogue",
-      "https://www.sothebys.com/en/pdf-l22002-mod-eve.pdf",
-      "https://www.sothebys.com/en/pdf-l22004-day.pdf",
-      "https://www.sothebys.com/en/brands/nike-x-louis-vuitton",
-      "https://www.sothebys.com/en/articles/string-theory-the-ultimate-selection-of-rare-sneakers-and-collectibles",
-      "https://www.sothebys.com/en/buy/fashion/sneaker?sortBy=prod_product_items_lowEstimate_desc",
-      "https://www.sothebys.com/en/digital-catalogues/string-theory",
-      "https://www.sothebys.com/en/articles/the-pinnacle-of-sneaker-construction-louis-vuitton-x-nike-air-force-one",
-      "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton",
-      "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-1-all-about-the-coveted-general-release-pairs",
-      "https://www.sothebys.com/en/articles/the-history-behind-the-louis-vuitton-nike-air-force-1-by-virgil-abloh",
-      "https://www.sothebys.com/en/articles/team-picks-7-best-louis-vuitton-sneakers-to-buy-now",
-      "https://www.sothebys.com/en/buy/fashion/sneaker/lifestyle",
-      "https://www.sothebys.com/en/brands/nike-air-force-1"
     ]
   }
 }
