@@ -1,4 +1,150 @@
 {
+  "bb8289da02cda08a39ebfe7abaf85eacbe3ef1aa0fbb532ccbc6f9235ce21ea0": {
+    "saved_at": "2026-09-07T07:58:39.771Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Reebok i pumpa na košarkaškoj patiki",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "DEE BROWN PUMPAO PATIKU",
+            "accent": false
+          },
+          {
+            "text": "PRED 1991 DUNK CONTEST",
+            "accent": true
+          },
+          {
+            "text": "i PATIKE SU ODMAH POLETELE",
+            "accent": false
+          }
+        ],
+        "subheadline": "Dee Brown je pred kamerama stisnuo gumeno dugme Pump modela"
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "PATIKA JE IMALA PRAVO GUMENO DUGME",
+            "accent": false
+          },
+          {
+            "text": "REEBOK PUMP",
+            "accent": true
+          },
+          {
+            "text": "koje je naduvavalo unutrašnju kesu",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "ČINJENICA",
+            "text": "Reebok je 1989. predstavio Pump — gumeno dugme na jeziku koje pritiskaš da naduvaš kesu oko stopala."
+          },
+          {
+            "tag": "IZVOR",
+            "text": "Dee Brown je tokom 1991. Slam Dunk Contest-a javno pumpao patiku i time postao simbol modela."
+          },
+          {
+            "tag": "MATERIJAL",
+            "text": "Smithsonian izložba i Reebok stranice dokumentuju prototip iz 1989. i Pump tehnologiju."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "PITANJE",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "PITANJE",
+            "text": "Hoćeš li da napišemo post o originalnim Pump modelima i cenama na aukcijama?"
+          },
+          {
+            "tag": "",
+            "text": "SHORT_PLACEHOLDER_FOR_SCHEMA"
+          }
+        ],
+        "question": "Da li želiš više detalja?"
+      },
+      "caption": "Reebok je na kraju 80-ih ubacio pravo gumeno dugme na košarkašku patiku — to je bio REEBOK PUMP. Dee Brown je 1991. javno stisnuo dugme na sceni i napravio ikoničan trenutak. Izvori: Reebok, NBA i Smithsonian.",
+      "hashtags": [
+        "#ReebokPump",
+        "#DeeBrown",
+        "#SlamDunk",
+        "#90sNostalgija",
+        "#TrendyPatike",
+        "#SneakerPriče",
+        "#Košarka"
+      ],
+      "image_prompts": [
+        "Late 1980s basketball arena, close-up of a high-top Reebok Pump on tongue showing a finger pressing the round rubber pump button, dramatic arena lighting, shoe occupies 70% of frame, 1989 Reebok Pump visible on tongue",
+        "Cutaway macro of a Reebok Pump high-top showing the air bladder being inflated by the tongue pump, cross-section view, shoe fills 80% of frame, retro late-80s color palette",
+        "Wide shot late 1980s basketball court with a dunk contest vibe, crowd blurred, vintage TV camera angle, Reebok Pump high-top visible on player in foreground"
+      ],
+      "sources": [
+        {
+          "title": "Reebok Court Victory Pump Shoes - Product page",
+          "publisher": "Reebok",
+          "url": "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713"
+        },
+        {
+          "title": "Charlotte no stranger to NBA All-Star spotlight (Dee Brown Pump moment)",
+          "publisher": "NBA.com",
+          "url": "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte"
+        },
+        {
+          "title": "Brooklyn Museum sneaker show mentions 1989 Reebok Pump prototype",
+          "publisher": "Smithsonian Magazine",
+          "url": "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Reebok je predstavio Pump koncept 1989. sa gumbenim dugmetom na jeziku.",
+          "source_urls": [
+            "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713",
+            "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/"
+          ]
+        },
+        {
+          "claim": "Dee Brown je tokom 1991. Slam Dunk Contest-a stisnuo Pump na sceni i popularizovao model.",
+          "source_urls": [
+            "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte"
+          ]
+        },
+        {
+          "claim": "Smithsonian navodi 1989. prototip Reebok Pump-a u izložbi o sneaker kulturi.",
+          "source_urls": [
+            "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte",
+      "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/",
+      "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713",
+      "https://www.reebok.com/",
+      "https://www.reebok.com/collections/pump-collection?current=1",
+      "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/",
+      "https://www.reebok.com/pages/search-results",
+      "https://store.nba.com/basketball-essentials/reebok-answer-iv-basketball-shoe/t-25927241%2Bp-0123757499470%2Bz-9-2496912982",
+      "https://www.reebok.com/collections/90s-nostalgia",
+      "https://www.reebok.com/collections/",
+      "https://stores.reebok.com/search",
+      "https://www.reebok.com/collections/frontpage?current=1",
+      "https://public-media.smithsonianmag.com/magazine/downloads/SmithsonianMagazine_July-August_2016.pdf",
+      "https://cdn.nba.com/teams/uploads/sites/1610612754/2025/10/2025-26-Indiana-Pacers-Media-Guide-web.pdf",
+      "https://public.media.smithsonianmag.com/magazine/downloads/SmithsonianMagazine_July-August_2016.pdf",
+      "https://cdn.nba.com/teams/uploads/sites/1610612760/2023/10/mediaguide-2324.pdf",
+      "https://www.nba.com/gamenotes/raptors.pdf"
+    ]
+  },
   "24c74cba453af6e06e77f75707d559d35089ca13244d49bbe40f10e62537cb8a": {
     "saved_at": "2026-09-07T07:44:31.525Z",
     "schema_name": "trendypatike_verified_post",
@@ -2260,142 +2406,6 @@
       "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-pilot-case-us12-b9eb?locale=fr",
       "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton/_louis-vuitton-x-nike-air-force-1-or-size-65-7ca5",
       "https://www.sothebys.com/en/buy/auction/2022/40-for-40-the-air-force-1-collection"
-    ]
-  },
-  "514ca93c7466fe86dcbac3c52c165e6425d76df3dee8258397eaa6158ef7f902": {
-    "saved_at": "2026-08-27T21:54:38.542Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je aukcija Louis Vuitton x Nike Air Force 1 donela desetine miliona dolara",
-      "slide_count": 3,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "LOUIS VUITTON X NIKE AIR FORCE 1",
-            "accent": true
-          },
-          {
-            "text": "NA AUKCIJI PRODAJA UZORAKA I KOFERA",
-            "accent": false
-          }
-        ],
-        "subheadline": "Kratak pregled: šta je išlo na aukciju i zašto je važno"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "UKUPNO 200 PAROVA NA AUKCIJI",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "Fakt",
-            "text": "Louis Vuitton i Nike su 2022. ponudili 200 parova Air Force 1."
-          },
-          {
-            "tag": "Izvor",
-            "text": "Sotheby’s stranica sa opisom lotova i pilot kofera."
-          },
-          {
-            "tag": "Link",
-            "text": "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-or-size-6-9671"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "AUKCIJA JE ODRŽANA KOD SOTHEBY’S U 2022.",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "Fakt",
-            "text": "Prva runda Louis Vuitton x Nike Air Force 1 bila je preko Sotheby’s u januaru–februaru 2022."
-          },
-          {
-            "tag": "Izvor",
-            "text": "Sotheby’s stranica o '40 for 40' i prodajama AF1."
-          }
-        ],
-        "question": "Želite da napišemo priču o najskupljim primercima?"
-      },
-      "caption": "Louis Vuitton x Nike Air Force 1 su 2022. izašli kao ograničenih 200 parova, svaki uz narandžasti pilot kofer. Sotheby’s je izlistao te parove u prodaji i kao 'Buy Now' lotove. Više detalja u izvorima ispod.",
-      "hashtags": [
-        "#AirForce1",
-        "#LouisVuitton",
-        "#VirgilAbloh",
-        "#Sothebys",
-        "#luksuz",
-        "#aukcija",
-        "#sneakernews",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Close-up of LOUIS VUITTON X NIKE AIR FORCE 1 pair with orange pilot case, shoe and case occupying 70% of frame, high-detail studio lighting, show Monogram and Damier leather clearly",
-        "Macro shot of the orange Louis Vuitton pilot case opened, showing a single LOUIS VUITTON X NIKE AIR FORCE 1 inside, pilot case S-lock visible, leather texture close-up",
-        "Editorial scene: single LOUIS VUITTON X NIKE AIR FORCE 1 on a pedestal with Sotheby’s auction room blurred in background, warm gallery lighting"
-      ],
-      "sources": [
-        {
-          "title": "Louis Vuitton x Nike Air Force 1 | Sotheby’s buy page (example lot)",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-or-size-6-9671"
-        },
-        {
-          "title": "40 for 40 | The Air Force 1 Collection | Sotheby’s auction listing",
-          "publisher": "Sotheby’s",
-          "url": "https://www.sothebys.com/en/buy/auction/2022/40-for-40-the-air-force-1-collection"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "200 PAROVA JE PONUDJENO NA AUKCIJI",
-          "source_urls": [
-            "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-or-size-6-9671"
-          ]
-        },
-        {
-          "claim": "LOTOVI SU BILI IZLISTANI KOD SOTHEBY’S U JANUARU–FEBRUARU 2022",
-          "source_urls": [
-            "https://www.sothebys.com/en/buy/auction/2022/40-for-40-the-air-force-1-collection"
-          ]
-        },
-        {
-          "claim": "SVAKI PAR JE DOLAZIO U NARANDŽASTOM PILOT KOFERU",
-          "source_urls": [
-            "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-or-size-6-9671"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.sothebys.com/en/buy/sneakers/air-force-1-collection/_Nike-Air-Force-1-Signed-by-Virgil-Abloh-or-Size-11",
-      "https://www.sothebys.com/en/buy/auction/2022/40-for-40-the-air-force-1-collection",
-      "https://www.sothebys.com/en/sell-sneakers-streetwear-and-modern-collectibles-with-sothebys",
-      "https://www.sothebys.com/en/buy/_Nike-Air-Force-1-Ssense-x-Virgil-Abloh-signed-by-Virgil-Abloh-or-Size-10",
-      "https://www.sothebys.com/en/buy/auction/2022/fifty/nike-air-force-1-low-off-white-complexcon-size-13?locale=en",
-      "https://www.sothebys.com/en/buy/auction/2023/heat/virgil-abloh-signed-nike-air-force-1-ssense-x",
-      "https://www.sothebys.com/en/buy/fashion/sneaker",
-      "https://www.sothebys.com/buy/f0087357-895f-4084-a167-3ed89ae82fc9/lots/579620ce-d17d-4c9e-9c28-cfa87668610b",
-      "https://www.sothebys.com/en/buy/auction/2025/sneakers-2?locale=en&lotFilter=AllLots",
-      "https://www.sothebys.com/buy/f0087357-895f-4084-a167-3ed89ae82fc9",
-      "https://www.sothebys.com/buy/4f5dbdea-0ca8-4363-87c3-dfb9980af97e",
-      "https://www.sothebys.com/en/buy/auction/2025/sneakers-3/virgil-abloh-signed-and-inscribed-off-white-x-nike",
-      "https://www.sothebys.com/en/buy/private-sales/_louis-vuitton-x-nike-air-force-1-or-size-6-9671",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-air-force-1-b332",
-      "https://www.sothebys.com/en/buy/_nike-x-louis-vuitton-air-force-1-low-and-pilot-case-or-size-7.5",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-low-or-size-75-e369?locale=en",
-      "https://www.sothebys.com/en/buy/fashion/sneaker/louis-vuitton/_louis-vuitton-x-nike-air-force-1-or-size-65-7ca5",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-or-size-8-f92c",
-      "https://www.sothebys.com/en/buy/pdp/fashion/sneaker/lifestyle/_louis-vuitton-x-nike-air-force-1-low-or-size-8",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-pilot-case-us12-b9eb",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-low-or-size-8",
-      "https://www.sothebys.com/en/buy/_Louis-Vuitton-x-Nike-Air-Force-1-Low-or-Size-7.5",
-      "https://www.sothebys.com/en/buy/_louis-vuitton-x-nike-air-force-1-black-871d",
-      "https://www.sothebys.com/en/buy/sneakers/_lv-x-af1s-lot-195-or-size-14-1d70"
     ]
   }
 }
