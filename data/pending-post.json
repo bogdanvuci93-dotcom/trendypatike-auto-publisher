@@ -1,1 +1,151 @@
-{}
+{
+  "date": "2026-09-07",
+  "stage": "verified",
+  "fingerprint": "14aaf6e1071c",
+  "seed": {
+    "id": "nike-vaporfly-records",
+    "topic": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+    "category": "Nike / rekord / kontroverza / tehnologija",
+    "preferred_domains": [
+      "nike.com",
+      "about.nike.com",
+      "olympics.com"
+    ],
+    "visual_subject": "elite marathon finish, controversial Nike racing shoe carbon plate cutaway, stopwatch and officials editorial"
+  },
+  "post": {
+    "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "NIKE VAPORFLY",
+          "accent": true
+        },
+        {
+          "text": "DAJE LI TRKAČIMA PREVELIKU PREDNOST?",
+          "accent": false
+        }
+      ],
+      "subheadline": "Jednostavno objašnjenje kako jedna patika promenila pravila i razgovor o poštenoj trci."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "TEHNOLOGIJA KOJA POMAŽE: ZOOMX I KARBONSKA PLOČA",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "SAŽETAK",
+          "text": "Vaporfly kombinuje debelu ZoomX penu i punu karbonsku ploču koja vraća više energije svakim korakom."
+        },
+        {
+          "tag": "DETALJ",
+          "text": "Nike tvrdi da ta kombinacija poboljšava potrošnju energije do oko 4% za elite u poređenju sa ranijim."
+        },
+        {
+          "tag": "IZVOR",
+          "text": "Nike: objašnjenja Vaporfly i Breaking2 projekta."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "VELIKI REZULTAT I RASPRAVA:",
+          "accent": true
+        },
+        {
+          "text": "1:59:40,",
+          "accent": true
+        },
+        {
+          "text": "12.",
+          "accent": true
+        },
+        {
+          "text": "OKTOBAR",
+          "accent": true
+        },
+        {
+          "text": "2019",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "POJEDNOSTAVLJENO",
+          "text": "Eliud Kipchoge istrčao je maraton za 1:59:40 u eksperimentu podržanom od Nike 12.10.2019. Taj pokuš."
+        },
+        {
+          "tag": "ZAŠTO JE VAŽNO",
+          "text": "Rezultat je pokazao koliko obuća utiče na brzinu i pokrenuo raspravu o fer prednosti u atletici."
+        }
+      ],
+      "question": "Da li patika koja vraća značajnu?"
+    },
+    "caption": "Kako Vaporfly radi i zašto je njegova uloga u brzinama izazvala pravila i etičku raspravu. Izvori: Nike i Olimpijski istraživački materijali.",
+    "hashtags": [
+      "#Vaporfly",
+      "#Nike",
+      "#maraton",
+      "#tehnologija",
+      "#rekordi",
+      "#ferigra",
+      "#EliudKipchoge"
+    ],
+    "image_prompts": [
+      "Close-up cross-section of Nike ZoomX Vaporfly midsole showing ZoomX foam and full-length carbon plate, shoe fills 70% of frame, labeled detail of ZoomX foam and carbon Flyplate, model: Nike Zoom Vaporfly EXACT SLIDE FACT TO ILLUSTRATE: NIKE VAPORFLY DAJE LI TRKAČIMA PREVELIKU PREDNOST?. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Eliud Kipchoge crossing finish line in the Nike Breaking2 paced attempt, visible stopwatch and pacemakers, editorial sports photo, date overlay 12 October 2019 EXACT SLIDE FACT TO ILLUSTRATE: TEHNOLOGIJA KOJA POMAŽE: ZOOMX I KARBONSKA PLOČA. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Group of elite runners wearing Nike Vaporfly sprinting on a flat closed course with pacemakers, editorial photo EXACT SLIDE FACT TO ILLUSTRATE: VELIKI REZULTAT I RASPRAVA: 1:59:40, 12. OKTOBAR 2019. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "sources": [
+      {
+        "title": "Introducing the Nike Zoom Vaporfly Elite Featuring Nike ZoomX Midsole",
+        "publisher": "about.nike.com",
+        "url": "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+      },
+      {
+        "title": "Breaking2, Nike",
+        "publisher": "nike.com",
+        "url": "https://www.nike.com/gb/running/breaking2"
+      },
+      {
+        "title": "Olympics research on sports technology and fairness, Olympic Studies Library",
+        "publisher": "olympics.com",
+        "url": "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Eliud Kipchoge je istrčao maraton za 1:59:40 tokom Nike podržanog eksperimenta 12. oktobra 2019.",
+        "source_urls": [
+          "https://www.nike.com/gb/running/breaking2",
+          "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+        ]
+      },
+      {
+        "claim": "Nike opisuje Vaporfly kao kombinaciju debelog ZoomX sloja i pune karbonske ploče koja povećava povrat energije.",
+        "source_urls": [
+          "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
+          "https://www.nike.com/gb/running/breaking2"
+        ]
+      },
+      {
+        "claim": "Nike je izneo procenu o prosečnom poboljšanju potrošnje energije od oko 4% za elite u vezi sa ranijim modelima.",
+        "source_urls": [
+          "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
+          "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
+        ]
+      },
+      {
+        "claim": "Olimpijska istraživanja i analize tehnologije raspravljaju o tome kako oprema koja značajno menja performans utiče na poštenje takmičenja.",
+        "source_urls": [
+          "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
+        ]
+      }
+    ]
+  }
+}
