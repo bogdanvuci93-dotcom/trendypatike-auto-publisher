@@ -1,4 +1,132 @@
 {
+  "e025a2d3955bda4a083231d85e7e5aad26c02ca7374eb518448a3863e934757a": {
+    "saved_at": "2026-09-07T12:48:56.168Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Zašto je Dior x Air Jordan 1 izazvao navalu kupaca",
+      "slide_count": 1,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "DIOR X AIR JORDAN 1 PRAVO ČUDO ZA KUPCE",
+            "accent": false
+          },
+          {
+            "text": "SVE JE BILA JEDNA EKSKLUZIVNA SARADNJA KOJA JE NAPRAVILA HAOS",
+            "accent": false
+          },
+          {
+            "text": "2020",
+            "accent": true
+          }
+        ],
+        "subheadline": "Moguće objašnjenje tražnje i retkosti, izvori Nike / Jordan nisu dostupni za ovu priču."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Ne mogu da završim priču — morate mi dopustiti pretragu iz izvora van nike.com i about.nike.com",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "ZAHTEV",
+            "text": "Tražene potvrde i iznosi za Dior x Air Jordan 1 nisu pronađeni isključivo na nike.com ili about.nike"
+          },
+          {
+            "tag": "PREDLOG",
+            "text": "Ako želite, mogu odmah pretražiti širi web i vratiti tačne godine, broj pari i registrovane cene auk"
+          },
+          {
+            "tag": "NAPOMENA",
+            "text": "Moram koristiti izvore van Nike domena da bih ispravno dokazao rekordne cene i proizvodne brojeve za"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Da li da pretražim širi web i vratim proverene brojeve i izvore?",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "PITANJE",
+            "text": "Odgovorite SA: 'DA' ili 'NE'."
+          },
+          {
+            "tag": "INFO",
+            "text": "Ako kažete 'DA', tražiću aukcijske zapise, datum lansiranja 2020. i precizne podatke iz pouzdanih sa"
+          }
+        ],
+        "question": "DA ili NE?"
+      },
+      "caption": "Ne mogu da završim post koristeći samo nike.com i about.nike.com — tamo nema zvaničnih stranica koje potvrđuju ključne podatke o Dior x Air Jordan 1. Želite da pretražim širi internet za tačne cene, broj pari i godine?",
+      "hashtags": [
+        "#Dior",
+        "#AirJordan1",
+        "#Jordan",
+        "#luksuz",
+        "#retkost",
+        "#sneakerz"
+      ],
+      "image_prompts": [
+        "Dior x Air Jordan 1 luxury launch scene: couture atelier meets basketball court, close-up on DIOR AIR JORDAN 1 shoe with Dior monogram leather front and couture lighting, crowd queue in background, cinematic",
+        "Empty — not used",
+        "Empty — not used"
+      ],
+      "sources": [
+        {
+          "title": "Jordan 1 — Nike",
+          "publisher": "Nike",
+          "url": "https://www.nike.com/jordan/air-jordan-1"
+        },
+        {
+          "title": "Virgil Abloh and Nike Announce New Design Project “The10”",
+          "publisher": "NIKE, Inc.",
+          "url": "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Nemoguće je potvrditi aukcijske cene, tačan broj proizvedenih pari i detaljne podatke o Dior x Air Jordan 1 koristeći samo nike.com i about.nike.com.",
+          "source_urls": [
+            "https://www.nike.com/jordan/air-jordan-1",
+            "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
+          ]
+        },
+        {
+          "claim": "Treba širii pristup izvorima (aukcije, muzej, saopštenja Dior-a ili Christie's/Sotheby's) da bi se pružili verodostojni brojevi.",
+          "source_urls": [
+            "https://www.nike.com/jordan/air-jordan-1"
+          ]
+        },
+        {
+          "claim": "Ako želite potpuni TrendyPatike post sa tačnim WOW brojem (cena ili broj pari), odobrite pretragu šireg weba.",
+          "source_urls": [
+            "https://www.nike.com/jordan/air-jordan-1"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://www.nike.com/w/jordan-1-4fokyzabwsqzanjns",
+      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
+      "https://www.nike.com/w/jordan-1-13jrmz3hj8mzaj85g",
+      "https://www.nike.com/w/jordan-1-jordan-1-jordan-editions-shoes-4fokyz5y0tkzaj85gzy7ok",
+      "https://www.nike.com/w/jordan-1-557pqz8hfx3zaj85g",
+      "https://www.nike.com/w/jordan-1-shoes-1onraz3aqegz4fokyzy7ok",
+      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=1b61277c6c0669f7103531fd6d79689f",
+      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
+      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=29a7a29c035d6d9d319fb40e02356c47",
+      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+      "https://www.nike.com/jordan/ones?msockid=0bee096d79f26cb22e011fbf785c6d16",
+      "https://www.nike.com/t/air-jordan-1-retro-high-og-love-letter-mens-shoes-KVpEM9a8/DZ5485-201",
+      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
+    ]
+  },
   "a908c076414d387544acb3512db6802bde49b6c0734a17c314b72fb9c6f47bd2": {
     "saved_at": "2026-09-07T12:43:12.149Z",
     "schema_name": "trendypatike_verified_post",
@@ -2239,158 +2367,6 @@
       "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2007/Nike-LeBron-James-Celebrate-Launch-of-Zoom-LeBron-V-and-New-Basketball-Campaign/default.aspx",
       "https://www.nike.com/launch/t/vault-kobe-2",
       "https://www.nike.com/us/es/launch/t/vault-kobe-1"
-    ]
-  },
-  "cdafc43920028a8a0f52fcb8194c71b5f7d4088ad318ed48ea28a1db05db153d": {
-    "saved_at": "2026-08-29T16:12:52.028Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je Kobe Bryant uticao na razvoj moderne košarkaške obuće",
-      "slide_count": 3,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "KOBE BRYANT",
-            "accent": true
-          },
-          {
-            "text": "NAPRAVIO JE PATIKE KOJE POMAŽU IGRI",
-            "accent": false
-          }
-        ],
-        "subheadline": "Kratka priča o modelima i tehnologijama koje je uveo Kobe"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "KOBE 3 UVEO NISKU PATIKU NA TERENU",
-            "accent": true
-          },
-          {
-            "text": "2008",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Kobe 3 je nosio za MVP sezonu 2007–08 i postao uzor niskim patikama za košarku."
-          },
-          {
-            "tag": "SOURCE",
-            "text": "Detalji o dizajnu i uticaju Kobe 3 su dokumentovani na NIKE magazinu."
-          },
-          {
-            "tag": "URL",
-            "text": "https://about.nike.com/en/magazine/nike-kobe-3-history"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "KOBE 9 UVEO FLYKNIT U KOŠARKU",
-            "accent": true
-          },
-          {
-            "text": "KOBE V BILA JE NAJLAGANIJA I NAJNIŽA PATIKA",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Kobe 9 je prva Nike košarkaška patika sa Flyknit materijalom; Kobe V je promovisan kao najniži i naj"
-          },
-          {
-            "tag": "SOURCE",
-            "text": "Nike objašnjava Flyknit na Kobe 9 i najavu Kobe V kao „niže i lakše“ u press materijalima."
-          }
-        ],
-        "question": "Koji Kobe model ti se najviše sviđa?"
-      },
-      "caption": "Kratko: Kobe je terao Nike da pravi lakše, niže i preciznije patike — od Kobe I do Kobe 9. Njegovi modeli su ubrzali prelazak igrača na niske i tehnički napredne patike. Izvori: NIKE i NBA.",
-      "hashtags": [
-        "#Kobe",
-        "#Mamba",
-        "#TrendyPatike",
-        "#Kobe9",
-        "#Kobe3",
-        "#Flyknit",
-        "#Nike"
-      ],
-      "image_prompts": [
-        "Close-up action photo of KOBE BRYANT wearing KOBE 3 on a basketball court, low-angle, player mid-dribble, shoe occupying at least 65% of frame",
-        "Macro cutaway of KOBE 9 showing FLYKNIT upper and sole cross-section, 65% of frame, studio lighting, clear texture detail",
-        "Studio shot of NIKE ZOOM KOBE V low-profile basketball shoe on court floor, side view, shoe filling most of frame, emphasis on thin profile"
-      ],
-      "sources": [
-        {
-          "title": "The History of the Kobe III — NIKE, Inc.",
-          "publisher": "about.nike.com",
-          "url": "https://about.nike.com/en/magazine/nike-kobe-3-history"
-        },
-        {
-          "title": "Kobe Vault: Kobe I · Nike SNKRS",
-          "publisher": "nike.com",
-          "url": "https://www.nike.com/launch/t/vault-kobe-1"
-        },
-        {
-          "title": "Nike and Kobe Bryant Launch New Zoom Kobe V, Lower & Lighter (press release)",
-          "publisher": "investors.nike.com",
-          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
-        },
-        {
-          "title": "Kobe 9 Protro: How Kobe Bryant’s Endless Pursuit of Perfection Redefined a Masterpiece",
-          "publisher": "nike.com",
-          "url": "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51"
-        },
-        {
-          "title": "Kobe Bryant coverage and stories",
-          "publisher": "nba.com",
-          "url": "https://www.nba.com/news/archive-75-kobe-bryant"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Kobe 3 je pokrenuo trend niskih patika u profesionalnoj košarci i nosio se tokom MVP sezone 2007–08.",
-          "source_urls": [
-            "https://about.nike.com/en/magazine/nike-kobe-3-history"
-          ]
-        },
-        {
-          "claim": "Kobe 9 je prva Nike košarkaška patika koja je koristila Flyknit materijal.",
-          "source_urls": [
-            "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51"
-          ]
-        },
-        {
-          "claim": "Nike je predstavio Kobe V kao najnižu i najlakšu patiku u liniji 2009. godine.",
-          "source_urls": [
-            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/magazine/nike-kobe-3-history",
-      "https://about.nike.com/en/newsroom/collections/nike-basketball-footwear/Nike-Kobe-VI-Protro",
-      "https://www.nike.com/launch/t/vault-kobe-1",
-      "https://www.nba.com/news/nba-sneaker-culture-jarrett-allen",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2009/Nike-and-Kobe-Bryant-Launch-New-Zoom-Kobe-V-Lower--Lighter/default.aspx",
-      "https://www.nba.com/news/kobe-bryant-presence-2020-nba-finals",
-      "https://www.nba.com/news/nba-mailbag-june-7-2023",
-      "https://www.nike.com/a/kobe-9-release-info/?msockid=3d64914ec94c6bc11b2187d4c8fe6a51",
-      "https://www.nba.com/lakers/160411_kobeshoes?cid=tw",
-      "https://www.nba.com/news/archive-75-kobe-bryant",
-      "https://investors.nike.com/files/doc_financials/2014/docs/nike-shareholders-letter-2014.pdf",
-      "https://www.nba.com/lakers/news/160212_kobemj",
-      "https://www.nike.com/Kobe?msockid=054f4bb2a9ee612e1cea5d0da88e6042",
-      "https://investors.nike.com/files/doc_financials/2016/ar/docs/nike-shareholders-letter-2016.pdf",
-      "https://media.about.nike.com/files/7bf37705-b9a3-4635-aa30-e45273c1b562/FY19-Nike-Inc.-Impact-Report.pdf",
-      "https://media.about.nike.com/files/daa09042-86f4-435e-a6ba-902c9c6c67e2/CathySparks_NIKEInc_GC_GM.pdf",
-      "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf"
     ]
   }
 }
