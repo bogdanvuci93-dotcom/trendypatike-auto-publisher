@@ -5,12 +5,21 @@
 
   export let data: {
     live: boolean;
+    error: string | null;
+    shopCurrency: string;
+    metaCurrency: string;
     overview: { revenue: number; spend: number; roas: number; orders: number; conversionRate: number; cpa: number; sessions: number; addToCart: number; checkout: number };
     trend: { label: string; revenue: number; spend: number }[];
-    ads: { name: string; spend: number; revenue: number; purchases: number; ctr: number; cpc: number; atcRate: number }[];
+    ads: { name: string; spend: number; revenue: number; purchases: number; ctr: number; cpc: number; atcRate: number; currency: string }[];
   };
 
-  const money = (n: number) => `${new Intl.NumberFormat('sr-RS').format(Math.round(n))} RSD`;
+  const money = (n: number, currency = 'RSD') => {
+    try {
+      return new Intl.NumberFormat('sr-RS', { style: 'currency', currency, maximumFractionDigits: currency === 'RSD' ? 0 : 2 }).format(n);
+    } catch {
+      return `${new Intl.NumberFormat('sr-RS', { maximumFractionDigits: 2 }).format(n)} ${currency}`;
+    }
+  };
 </script>
 
 <header>
@@ -21,18 +30,25 @@
   <div class="live"><i></i>{data.live ? 'Live D1 data' : 'Waiting for data'}</div>
 </header>
 
+{#if data.error}
+  <div class="error"><b>Overview diagnostics:</b> {data.error}</div>
+{/if}
+
 <section class="metrics">
-  <MetricCard label="Revenue" value={money(data.overview.revenue)} note="Shopify today" />
-  <MetricCard label="Meta spend" value={money(data.overview.spend)} note="Latest Meta snapshot" />
-  <MetricCard label="ROAS" value={data.overview.roas.toFixed(2)} note="Shopify revenue / Meta spend" />
+  <MetricCard label="Revenue" value={money(data.overview.revenue, data.shopCurrency)} note="Shopify today" />
+  <MetricCard label="Meta spend" value={data.metaCurrency ? money(data.overview.spend, data.metaCurrency) : '—'} note="Latest Meta snapshot" />
+  <MetricCard label="Meta ROAS" value={data.overview.roas.toFixed(2)} note="Meta attributed revenue / spend" />
   <MetricCard label="Orders" value={String(data.overview.orders)} note={`${data.overview.conversionRate.toFixed(2)}% conversion`} />
-  <MetricCard label="CPA" value={money(data.overview.cpa)} note="Meta spend / attributed purchases" />
+  <MetricCard label="CPA" value={data.metaCurrency ? money(data.overview.cpa, data.metaCurrency) : '—'} note="Meta spend / attributed purchases" />
   <MetricCard label="Sessions" value={data.overview.sessions.toLocaleString('sr-RS')} note={`${data.overview.addToCart} ATC · ${data.overview.checkout} checkout`} />
 </section>
 
 <section class="panel chart-panel">
-  <div class="panel-head"><div><div class="eyebrow">7 DAYS</div><h2>Prihod vs. oglašavanje</h2></div></div>
+  <div class="panel-head"><div><div class="eyebrow">7 DAYS</div><h2>Prihod i Meta spend</h2></div></div>
   <PerformanceChart rows={data.trend} />
+  {#if data.metaCurrency && data.metaCurrency !== data.shopCurrency}
+    <div class="currency-note">Shopify je u {data.shopCurrency}, a Meta Ads u {data.metaCurrency}. Linije su prikazane u izvornim valutama i ne treba ih direktno porediti kao isti iznos. FX konverziju dodajemo pre blended ROAS-a.</div>
+  {/if}
 </section>
 
 <div class="cols">
@@ -45,7 +61,7 @@
           <article>
             <div>
               <strong>{ad.name}</strong>
-              <small>{money(ad.spend)} spend · {ad.purchases} purchase · CTR {ad.ctr.toFixed(2)}% · CPC {money(ad.cpc)}</small>
+              <small>{money(ad.spend, ad.currency || data.metaCurrency || 'RSD')} spend · {ad.purchases} purchase · CTR {ad.ctr.toFixed(2)}% · CPC {money(ad.cpc, ad.currency || data.metaCurrency || 'RSD')}</small>
             </div>
             <span class:good={rec.status === 'SCALE' || rec.status === 'KEEP'} class:bad={rec.status === 'PAUSE'} class:warn={rec.status === 'WATCH' || rec.status === 'WEBSITE_ISSUE' || rec.status === 'LOW_SAMPLE'}>{rec.status.replace('_',' ')}</span>
             <p>{rec.reason}</p>
@@ -74,9 +90,11 @@
   h1{font-size:34px;margin:4px 0 0;letter-spacing:-.04em}h2{font-size:20px;margin:4px 0 0}
   .eyebrow{font-size:11px;color:#7e8897;font-weight:800;letter-spacing:.12em}
   .live{font-size:12px;color:#9aa4b3;background:#11151a;border:1px solid #20252d;padding:9px 11px;border-radius:99px}.live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8bf048;margin-right:7px}
+  .error{margin-bottom:12px;padding:13px 14px;border-radius:13px;background:#2c1719;border:1px solid #5b272b;color:#ffb2b7;font-size:13px;line-height:1.45}
   .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:12px}
   .panel{border:1px solid #20242b;background:#101318;border-radius:20px;padding:20px}.chart-panel{margin-bottom:12px}
   .panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .currency-note{margin-top:8px;color:#c8b675;background:#211e12;border:1px solid #3d371d;border-radius:12px;padding:11px 13px;font-size:12px;line-height:1.45}
   .cols{display:grid;grid-template-columns:1.35fr .65fr;gap:12px}
   .list{display:grid;gap:8px}.list article{display:grid;grid-template-columns:1fr auto;gap:5px 16px;padding:15px;background:#0c0f13;border:1px solid #1c2128;border-radius:14px}.list small{display:block;color:#7f8997;margin-top:5px}.list p{grid-column:1/-1;margin:4px 0 0;color:#a9b1bd;font-size:13px}.list span{align-self:start;padding:6px 9px;border-radius:99px;font-size:10px;font-weight:900;background:#242932}.list span.good{background:#17301d;color:#90ee86}.list span.bad{background:#351a1a;color:#ff8f8f}.list span.warn{background:#332b17;color:#ffd472}
   .empty{padding:18px;background:#0c0f13;border:1px dashed #2a313a;border-radius:14px;color:#8e98a7;font-size:13px}
