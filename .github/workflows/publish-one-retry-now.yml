@@ -1,17 +1,17 @@
-name: TrendyPatike Publish One Retry Now
+name: TrendyPatike Publish One Safe Now
 
 on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/publish-one-retry-now.yml'
+      - '.github/run-publish-one.txt'
 
 permissions:
   contents: write
   actions: read
 
 concurrency:
-  group: trendypatike-publish-one-retry-now
+  group: trendypatike-publish-one-safe-now
   cancel-in-progress: false
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Apply Serbia-aware content and reliability policy
+      - name: Apply verified live policy
         run: |
           set -euo pipefail
           jq empty data/fallback-posts.json
@@ -55,13 +55,13 @@ jobs:
           python scripts/retry_content_policy.py
           python scripts/detail_copy_policy.py
           python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v16-attention-story:" + JSON.stringify(post))/' src/index.mjs
-          sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v17-attention-safe:" + JSON.stringify(post))/' src/index.mjs
           npm run check
 
-      - name: Publish second catch-up post with transient retry
+      - name: Publish one post once
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -80,30 +80,4 @@ jobs:
           MAX_OPENAI_CALLS: "8"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
-        run: |
-          set +e
-          npm run run
-          code=$?
-          if [ $code -eq 0 ]; then
-            exit 0
-          fi
-
-          echo "First publish attempt failed. Re-applying runtime policy and retrying once after 20 seconds..."
-          sleep 20
-          git fetch origin main
-          git reset --hard origin/main
-
-          python scripts/harden_content_policy.py
-          python scripts/fix_copy_overflow.py
-          python scripts/format_semantic_accents.py
-          python scripts/scroll_stop_policy.py
-          python scripts/retry_content_policy.py
-          python scripts/detail_copy_policy.py
-          python scripts/attention_story_policy.py
-          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v16-attention-story:" + JSON.stringify(post))/' src/index.mjs
-          sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
-
-          npm run run
-
-# trigger: attention-story retry ready
+        run: npm run run
