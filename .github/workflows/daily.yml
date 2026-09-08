@@ -95,15 +95,16 @@ jobs:
           python scripts/scroll_stop_policy.py
           python scripts/retry_content_policy.py
           python scripts/detail_copy_policy.py
-          # MUST run last: force hook -> event -> cause/context -> consequence -> memorable detail.
           python scripts/attention_story_policy.py
+          # Paid text calls use one background POST, then GET polling; no duplicate submit on timeout.
+          python scripts/background_responses_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v16-attention-story:" + JSON.stringify(post))/' src/index.mjs
-          sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v17-attention-safe:" + JSON.stringify(post))/' src/index.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "post.force_local_images\|fullbleed-v16-attention-story\|AbortSignal.timeout(360000)" src/index.mjs src/openai.mjs
+          grep -n "post.force_local_images\|fullbleed-v17-attention-safe" src/index.mjs
+          grep -n "pollBackgroundResponse\|background: true" src/openai.mjs
           grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|SCROLL-STOP VISUAL\|ATTENTION-FIRST STORY" src/content.mjs
           grep -n "retry-topic\|repairVisibleText" src/index.mjs src/content.mjs
 
