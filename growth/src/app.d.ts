@@ -7,6 +7,7 @@ declare global {
         DB?: D1Database;
         RECORDINGS?: R2Bucket;
         APP_ENCRYPTION_KEY?: string;
+        DASHBOARD_PASSWORD?: string;
         SHOPIFY_CLIENT_ID?: string;
         SHOPIFY_CLIENT_SECRET?: string;
         META_APP_ID?: string;
