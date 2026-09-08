@@ -356,8 +356,20 @@
         "https://www.about.puma.com/en/puma/puma-timeline",
         "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
       ]
+    },
+    {
+      "date": "2026-09-08",
+      "topic_id": "fallback-dassler-brothers-rivalry-v3",
+      "seed_topic": "Kako je raskol braće Dassler napravio adidas i PUMA",
+      "topic_title": "Kako je raskol braće Dassler napravio adidas i PUMA",
+      "media_id": "17900949267569438",
+      "sources": [
+        "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+        "https://www.about.puma.com/en/puma/puma-timeline",
+        "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
+      ]
     }
   ],
   "last_publish_date": "2026-09-08",
-  "last_media_id": "18102074309356557"
+  "last_media_id": "17900949267569438"
 }
