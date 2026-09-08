@@ -145,5 +145,10 @@
     "public/posts/2026-09-08-fallback-dassler-brothers-rivalry-v2-68c2b82bee29/02.jpg",
     "public/posts/2026-09-08-fallback-dassler-brothers-rivalry-v2-68c2b82bee29/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18016544174944388"
+    ],
+    "carousel_id": ""
+  }
 }
