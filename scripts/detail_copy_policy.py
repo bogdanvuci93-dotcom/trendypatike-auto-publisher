@@ -42,7 +42,6 @@ for path in PROMPT_FILES:
         if not changed:
             s = s.replace("Return valid JSON", "${DETAIL_COPY_POLICY}\n\nReturn valid JSON", 1)
 
-    # Remove the old hard 18-word rule that caused chopped thoughts.
     s = s.replace("normally 8-14 words total and NEVER more than 18 words total across headline_lines",
                   "normally 12-24 words total when needed; NEVER cut a sentence just to hit a word limit")
     s = s.replace("Each USED slide should contain 8-14 words total and MUST NOT exceed 18 words across headline_lines",
@@ -54,34 +53,52 @@ for path in PROMPT_FILES:
 if CONTENT_FILE.exists():
     s = CONTENT_FILE.read_text(encoding="utf-8")
 
-    # Override the old capHeadlineWords behavior. The previous implementation used
-    # words.slice(0, remaining), which could literally end copy at e.g. "registrovao".
-    pattern = r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}\nfunction normalizeHeadlineGroup"
-    replacement = '''function capHeadlineWords(lines,maxWords=24){
+    # IMPORTANT: only replace capHeadlineWords itself. The previous regex stretched
+    # through normalizeMoneyNotation/isImportantNumberToken/semanticAccentSegments
+    # and deleted those helpers, causing a runtime ReferenceError after preflight.
+    pattern_with_semantic_helpers = (
+        r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}"
+        r"\nfunction normalizeMoneyNotation"
+    )
+    replacement_with_semantic_helpers = '''function capHeadlineWords(lines,maxWords=24){
   // COMPLETE-THOUGHT POLICY: never chop text mid-sentence to satisfy a word cap.
   // Generation/repair is responsible for concise copy; rendering will shrink font if needed.
   return (lines||[])
     .map(line=>({text:simplifyKidPhrase(line?.text),accent:line?.accent===true}))
     .filter(line=>line.text);
 }
-function normalizeHeadlineGroup'''
-    s, n = re.subn(pattern, replacement, s, count=1)
+function normalizeMoneyNotation'''
+    s, n = re.subn(pattern_with_semantic_helpers, replacement_with_semantic_helpers, s, count=1)
+
     if n == 0:
-        # Future-proof fallback: neutralize the exact destructive slice if function shape changed.
+        # Fallback for versions where semantic helpers have not yet been installed.
+        pattern_plain = r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}\nfunction normalizeHeadlineGroup"
+        replacement_plain = '''function capHeadlineWords(lines,maxWords=24){
+  // COMPLETE-THOUGHT POLICY: never chop text mid-sentence to satisfy a word cap.
+  return (lines||[])
+    .map(line=>({text:simplifyKidPhrase(line?.text),accent:line?.accent===true}))
+    .filter(line=>line.text);
+}
+function normalizeHeadlineGroup'''
+        s, n = re.subn(pattern_plain, replacement_plain, s, count=1)
+
+    if n == 0:
         s = s.replace('const kept=words.slice(0,remaining);', 'const kept=words;')
         s = s.replace('remaining-=kept.length;', 'remaining=Math.max(0,remaining-kept.length);')
 
-    # Make normalizeHeadlineGroup request a softer guideline rather than 18.
     s = s.replace('return capHeadlineWords(cleaned.slice(0,maxLines),18);',
                   'return capHeadlineWords(cleaned.slice(0,maxLines),24);')
+
+    # If semantic accents were present before this policy, they MUST still be present.
+    if "normalizeMoneyNotation" in s and "semanticAccentSegments" not in s:
+        raise SystemExit("Detail-copy policy would remove semanticAccentSegments; refusing to continue")
+
     CONTENT_FILE.write_text(s, encoding="utf-8")
 
 if RENDER_FILE.exists():
     s = RENDER_FILE.read_text(encoding="utf-8")
-    # Existing renderer already auto-fits based on width/height. Let it go smaller
-    # before clipping so a complete sentence stays visible.
     s = s.replace('preferred: 126,\n    min: 62,', 'preferred: 118,\n    min: 44,')
     s = s.replace('maxLines: 6,', 'maxLines: 7,')
     RENDER_FILE.write_text(s, encoding="utf-8")
 
-print("Detailed complete-thought policy applied: no mid-sentence truncation; compact complete sentences; renderer may shrink font to fit.")
+print("Detailed complete-thought policy applied safely: semantic helpers preserved; no mid-sentence truncation.")
