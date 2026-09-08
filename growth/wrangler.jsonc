@@ -8,6 +8,14 @@
     "binding": "ASSETS",
     "directory": ".svelte-kit/cloudflare"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "trendypatike-growth-db",
+      "database_id": "f11864ea-1bb9-467f-a579-be1a47f6665c",
+      "migrations_dir": "migrations"
+    }
+  ],
   "observability": {
     "enabled": true
   }
