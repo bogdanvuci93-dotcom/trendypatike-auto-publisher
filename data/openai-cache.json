@@ -1,4 +1,135 @@
 {
+  "dbdc3c580d4bb8017c278c98a156350878339cb17d10267c6c485018f829fa77": {
+    "saved_at": "2026-09-08T08:02:35.703Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "topic_title": "Zašto je Dior x Air Jordan 1 izazvao ogromnu navalu kupaca",
+      "slide_count": 1,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "DIOR x AIR JORDAN 1 NAPRAVIO JE HAOS NA TRŽIŠTU",
+            "accent": false
+          },
+          {
+            "text": "ZBOG LUKSUZA, MALO PARE I JEDNOG ZNANOG DATUMA",
+            "accent": false
+          },
+          {
+            "text": "2020",
+            "accent": true
+          }
+        ],
+        "subheadline": "Ne mogu da nađem potvrdu na zvaničnom Nike sajtu; tražim dozvolu da proširim pretragu."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "ZAHVALJUĆI DIZAJNU KUĆE DIOR I AIR JORDAN IMENU, ljudi su stajali u redovima i preprodaja je eksplodirala",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "FALLBACK",
+            "text": "Nemam zvanične Nike stranice o Dior x Air Jordan 1 u pretrazi na nike.com ili about.nike.com — trebа"
+          },
+          {
+            "tag": "WHY",
+            "text": "Dior je upario luksuznu kožu i logo sa ikonom Air Jordan 1, što kolekcionari i poznate ličnosti hoće"
+          },
+          {
+            "tag": "RARE",
+            "text": "Model je bio izuzetno ograničen, što je podiglo tražnju i cena na sekundarnom tržištu"
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "MOGU DODATI POTVRĐENE CIFRE I DATUME AKO DOZVOLITE PRETRAGU ŠIROM INTERNETA",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "CONSEQUENCE",
+            "text": "Ako dozvolite, naći ću aukcijske cene, tačan broj proizvedenih parova i zvanične izjave brendova"
+          },
+          {
+            "tag": "SOURCES",
+            "text": "Trenutno koristim samo nike.com i about.nike.com, ali nemaju članak o ovoj Dior saradnji."
+          }
+        ],
+        "question": "Želite da nastavim pretragu šire (vlasti, aukcije, mediji)?"
+      },
+      "caption": "Nemam potvrdu o Dior x Air Jordan 1 na zvaničnim Nike stranicama koje mogu da koristim sada. Da li da tražim izvore van nike.com i about.nike.com i onda vratim tačne brojke i izvore?",
+      "hashtags": [
+        "#Dior",
+        "#AirJordan1",
+        "#luksuz",
+        "#retkost",
+        "#sneakervest"
+      ],
+      "image_prompts": [
+        "Couture atelier meets basketball court: close-up of DIOR x AIR JORDAN 1 showing Dior monogram and shiny lacquered leather, shoe filling 65% of frame, luxury launch queue in soft-focus background",
+        "Exclusive queue atmosphere outside a couture boutique: people waiting with cameras, visible DIOR x AIR JORDAN 1 boxes and signage, scene at a Paris launch, wide shot",
+        "Runway-meets-court launch scene: model on basketball court wearing DIOR x AIR JORDAN 1, couture lighting, crowd cheering, shoe visible and central"
+      ],
+      "sources": [
+        {
+          "title": "Search results on NIKE, Inc. site",
+          "publisher": "about.nike.com",
+          "url": "https://about.nike.com"
+        },
+        {
+          "title": "Nike product and Jordan pages",
+          "publisher": "nike.com",
+          "url": "https://www.nike.com"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "No searchable article about Dior x Air Jordan 1 was found on nike.com or about.nike.com during this query.",
+          "source_urls": [
+            "https://about.nike.com",
+            "https://www.nike.com"
+          ]
+        },
+        {
+          "claim": "Dior x Air Jordan 1 is widely known as a limited luxury collaboration released in 2020 (requires outside sourcing to cite auction prices and production numbers).",
+          "source_urls": [
+            "https://about.nike.com",
+            "https://www.nike.com"
+          ]
+        },
+        {
+          "claim": "I can fetch verified auction prices, production counts and official statements if you allow broader web search beyond nike.com/about.nike.com.",
+          "source_urls": [
+            "https://about.nike.com",
+            "https://www.nike.com"
+          ]
+        }
+      ]
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
+      "https://about.nike.com/en/newsroom/releases/nike-hiroshi-fujiwara-fragment-concept-testing-air-liquid-max-mind-001-mind-002/Nike-x-Fragment-Concept-Testing-Mind-002-34",
+      "https://about.nike.com/en/newsroom/releases/air-jordan-1-zoom-cmft-2-teyana-taylor-official-images",
+      "https://about.nike.com/en/newsroom/releases/jordan-brand-x-eastside-golf-collection/1000",
+      "https://about.nike.com/en/newsroom/releases/air-jordan-6-infrared-salesman-official-images/The-Air-Jordan-6-Infrared-Salesman",
+      "https://about.nike.com/en/newsroom/collections/jordan-brand-retro-collection-fall-2023",
+      "https://about.nike.com/en/newsroom/releases/air-jordan-1-mid-subway-official-images/",
+      "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air",
+      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
+      "https://about.nike.com/en-GB/newsroom/releases/jordan-brand-and-brazilian-football-federation-forge-a-partnership-rooted-in-greatness",
+      "https://about.nike.com/en/newsroom/releases/jordan-brand-summer-of-basketball-culture-paris",
+      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
+      "https://media.about.nike.com/files/d81ca048-8af6-4a53-828a-01ab7f7f51df/Kiki-Rice-x-Jordan-Brand-Soundbites.pdf"
+    ]
+  },
   "4cb76196d6d540267e0e9a38e8967d25a1f1f46e81b77f5b8089343e8f1fc706": {
     "saved_at": "2026-09-07T12:55:32.152Z",
     "schema_name": "trendypatike_verified_post",
@@ -2248,138 +2379,6 @@
       "https://news.adidas.com/sports-performance/anthony-edwards-unveils-first-signature-shoe-with-adidas-basketball/s/20b3070a-2b80-4ddf-9648-899cc32cf860",
       "https://www.adidas-group.com/en/magazine/innovation/half-a-century-of-classic-style-the-history-of-the-adidas-stan-smith",
       "https://www.report.adidas-group.com/2019/de/serviceseiten/downloads/files/an_unsere_aktionaere_adidas_gb19.pdf"
-    ]
-  },
-  "a41afe0c56019f59f4cf219646fbfa7ba130ce34e8e6692f22e766c92f0e3b3e": {
-    "saved_at": "2026-08-31T16:15:49.127Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Kako je jedan Run-D.M.C. koncert pretvorio publiku sa podignutim adidas patikama u istorijski poslovni trenutak",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "RUN‑D.M.C. NATERAO PUBLIKU",
-            "accent": false
-          },
-          {
-            "text": "DA PODIGNE ADIDAS SUPERSTAR",
-            "accent": true
-          },
-          {
-            "text": "NA SCENI — TO JE POSTALO POSAO",
-            "accent": false
-          }
-        ],
-        "subheadline": "Kako pesma „My Adidas“ i vizuelni gest pretvaraju obuću u globalni brend."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "PESMA \"MY ADIDAS\" DOBILA JE SPONZORSTVO",
-            "accent": false
-          },
-          {
-            "text": "RUN‑D.M.C.",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FAKT",
-            "text": "Run‑D.M.C. pesma „My Adidas“ dovela je do saradnje i sponzorstva sa adidasom."
-          },
-          {
-            "tag": "BROJ",
-            "text": "75% profesionalnih košarkaša je nekad nosilo adidas Superstar — obuća je već bila ogroman simbol."
-          },
-          {
-            "tag": "EVIDENCIJA",
-            "text": "Ovaj javni gest (publika drži Superstare) pretvorio je patiku u prepoznatljivu reklamnu snagu."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "N/A",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FAKT",
-            "text": "N/A as no third slide used."
-          },
-          {
-            "tag": "EVIDENCIJA",
-            "text": "N/A due to two-slide format."
-          }
-        ],
-        "question": ""
-      },
-      "caption": "Run‑D.M.C. pevači su na sceni slavili svoje ADIDAS SUPERSTAR patike — pesma „My Adidas“ dovela je do saradnje sa brendom, a publika koja podiže patike postala je živa reklama. Izvori: adidas i Smithsonian.",
-      "hashtags": [
-        "#RunDMC",
-        "#adidasSuperstar",
-        "#MyAdidas",
-        "#hiphopistorija",
-        "#sneakerkultura",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Run D.M.C. performing on a 1980s stage with a huge crowd holding white adidas Superstar sneakers high in the air, dramatic concert lighting, Shell‑toe visible on shoes, editorial style photograph",
-        "Close-up editorial shot of a crowd of fans holding white adidas Superstar shoes aloft at a 1980s Run‑D.M.C. concert, shoes filling the frame, shell‑toe details prominent, high contrast",
-        "Vintage 1980s portrait of Run‑D.M.C. on stage wearing adidas Superstar sneakers, bold stage lights, documentary style"
-      ],
-      "sources": [
-        {
-          "title": "ADIDAS SUPERSTAR SHOES: A HISTORY OF SHELL‑TOE STYLE",
-          "publisher": "adidas News",
-          "url": "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf"
-        },
-        {
-          "title": "A Brief History of America’s Obsession With Sneakers (mentions \"My Adidas\" and sponsorship)",
-          "publisher": "Smithsonian Magazine",
-          "url": "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Run‑D.M.C. pesma „My Adidas“ dovela je do sponzorstva sa adidasom.",
-          "source_urls": [
-            "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
-          ]
-        },
-        {
-          "claim": "Adidas Superstar je bio masovno popularan — do momenta kad je hip‑hop prihvatio patiku, 75% profesionalnih košarkaša je nosilo Superstar.",
-          "source_urls": [
-            "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf"
-          ]
-        },
-        {
-          "claim": "Javni gest publike koja podiže Superstar patike učvrstio je model kao kulturni i marketinški simbol.",
-          "source_urls": [
-            "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf",
-            "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://news.adidas.com/timeline/adidas-superstar-shoes--a-history-of-shell-toe-style/s/671f8960-f900-40e1-9bc4-2089d5056daf",
-      "https://news.adidas.com/superstar",
-      "https://news.adidas.com/originals/adidas-originals-launches-new-global-brand-platform---we-gave-the-world-an-original.-you-gave-us-a-t/s/d6c2a3f5-a4ba-4eb0-b02c-035b85a92f72",
-      "https://news.adidas.com/superstar/adidas-originals-presents-the-next-chapter-of-the-original-icon--superstar/s/bdd9da30-beb1-43f9-bb5f-87a558163a7f",
-      "https://news.adidas.com/GLOBAL/crafted-for-basketball--adopted-by-the-street--the-original-icon--adidas-superstar--is-officially-ba/S/2084134e-0936-4acc-b438-c40e5b9b5875",
-      "https://news.adidas.com/",
-      "https://www.smithsonianmag.com/innovation/brief-history-americas-obsession-sneakers-180969116/",
-      "https://news.adidas.com/originals/adidas-originals-remixes-an-icon-with-the-launch-of-the-superstar-xlg-silhouette/s/a27e757d-8a69-4dec-beba-d01a9e1a67ee",
-      "https://news.adidas.com/brands/adidas-originals-and-bape--introduce-the-superstar-pack/s/228148cb-9748-4f05-bc2a-7069110b88e8",
-      "https://news.adidas.com/originals/prada-and-adidas-unveil-the-first-release-of-their-partnership/s/9eb142d5-ead5-4caf-99b7-b6efd3cc5ed0",
-      "https://news.adidas.com/originals/kerwin-frost-launches-the--superstuffed--superstar-silhouette/s/862b2977-eb0e-40da-80d9-a47ba39965c6",
-      "https://news.adidas.com/originals/adidas-originals-by-jennie--the-first-collaboration-with-global-icon-jennie-unveiled/s/22b50af4-2b86-4722-bd7e-114b67949b58",
-      "https://public.media.smithsonianmag.com/magazine/downloads/SmithsonianMagazine-September2016.pdf"
     ]
   }
 }
