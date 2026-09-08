@@ -1,4 +1,165 @@
 {
+  "12389fe8f94c8e1aabd843e90101573f06097dc88ba0b7fa7200a50f5d242f59": {
+    "saved_at": "2026-09-08T08:03:53.376Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All major factual claims verified on adidas-group.com and Reebok site; sale price corrected to 'do €2,1 milijarde' and dates confirmed.",
+      "post": {
+        "topic_title": "adidas je platio milijarde za Reebok, a godinama kasnije ga prodao: koliko je taj posao vredeo",
+        "slide_count": 3,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "ADIDAS JE KUPIO REEBOK 2006.",
+              "accent": false
+            },
+            {
+              "text": "2006",
+              "accent": true
+            },
+            {
+              "text": "POSLE 15+ GODINA GA JE PRODAO",
+              "accent": false
+            }
+          ],
+          "subheadline": "Velika akvizicija i kasnija prodaja koja je donela stotine miliona evra"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "ADIDAS JE REEBOK KUPIO 2006. DA POJAČA POLOŽAJ PROTIV KONKURENATA",
+              "accent": false
+            },
+            {
+              "text": "2006",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FENOMEN",
+              "text": "Adidas je 2006. preuzeo Reebok kao deo korporativne strategije za rast i konkurenciju."
+            },
+            {
+              "tag": "IZVOR",
+              "text": "Adidas istorija i izveštaji potvrđuju period zajedničkog rada dok nije donesena odluka o prodaji."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "([adidas-group.com](https://www.adidas-group.com/en/about/history?utm_source=openai))"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "REEBOK JE PRODAT ZA DO €2,1 MILIJARDE; ZAVRŠETAK 28.02.2022.",
+              "accent": false
+            },
+            {
+              "text": "€2.100.000.000",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "DOGAĐAJ",
+              "text": "Adidas je potpisao ugovor 12.08.2021. i formalno zaključio prenos 28.02.2022."
+            },
+            {
+              "tag": "POSLEDICA",
+              "text": "Adidas je većinu novca primio u kešu i pokrenuo program otkupa sopstvenih akcija."
+            }
+          ],
+          "question": "Hoćemo li sledeći post o tome kako Reebok radi danas pod ABG"
+        },
+        "caption": "Jednostavno: adidas je kupio Reebok 2006., prodao ga ABG u ugovoru potpisanom 12.08.2021., a prenos je formalno završen 28.02.2022. Ukupna vrednost posla je bila do €2,1 milijarde; većina je plaćena gotovinski.",
+        "hashtags": [
+          "#adidas",
+          "#Reebok",
+          "#biznis",
+          "#akvizicije",
+          "#TrendyPatike"
+        ],
+        "image_prompts": [
+          "Close-up of adidas and Reebok sneakers on a boardroom table with a visible document titled 'Reebok Acquisition 2006' and the year 2006 clearly shown, adidas and Reebok logos visible",
+          "Authentic Brands Group signing scene with a contract dated 12 August 2021, Reebok shoes and documents in focus, handshake in background",
+          "Adidas headquarters with a calendar showing 28 February 2022, papers titled 'Reebok divestiture' and stacked euro banknote prop labelled '€2.100.000.000' in the foreground"
+        ],
+        "sources": [
+          {
+            "title": "adidas to sell Reebok to Authentic Brands Group",
+            "publisher": "adidas-group.com",
+            "url": "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group"
+          },
+          {
+            "title": "adidas completes divestiture of Reebok and launches new share buyback program",
+            "publisher": "adidas-group.com",
+            "url": "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program"
+          },
+          {
+            "title": "About Reebok",
+            "publisher": "reebok.com",
+            "url": "https://www.reebok.com/pages/about-reebok"
+          },
+          {
+            "title": "adidas Annual Report 2021 (note on divestiture)",
+            "publisher": "adidas-group.com",
+            "url": "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf"
+          },
+          {
+            "title": "adidas Annual Report 2024 (note on payments)",
+            "publisher": "adidas-group.com",
+            "url": "https://report.adidas-group.com/2024/en/_assets/downloads/annual-report-adidas-ar24.pdf"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Adidas je započeo formalni proces prodaje Reeboka u februaru 2021. i potpisao ugovor o prodaji 12.08.2021.",
+            "source_urls": [
+              "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group",
+              "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf"
+            ]
+          },
+          {
+            "claim": "Prodaja je formalno završena 28.02.2022., a ukupna vrednost ugovora je do €2,1 milijarde, većina plaćena u kešu.",
+            "source_urls": [
+              "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program",
+              "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group"
+            ]
+          },
+          {
+            "claim": "Adidas je iskoristio većinu novčanih sredstava od prodaje da pokrene program otkupa sopstvenih akcija.",
+            "source_urls": [
+              "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program",
+              "https://www.adidas-group.com/en/investors/share/share-buyback"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group",
+      "https://www.reebok.com/pages/about-reebok",
+      "https://www.reebok.com/",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-starts-divestiture-process-for-reebok",
+      "https://www.adidas-group.com/en/investors/share/share-buyback",
+      "https://www.adidas-group.com/en/about/history",
+      "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf",
+      "https://www.reebok.com/pages/privacy-policy",
+      "https://www.adidas-group.com/en/media/press-releases",
+      "https://report.adidas-group.com/2021/en/servicepages/downloads/files/financial-review-adidas-ar21.pdf",
+      "https://www.adidas-group.com/en/media/press-releases/adidas-continues-share-buyback-program-with-second-tranche-2026",
+      "https://report.adidas-group.com/2025/en/consolidated-financial-statements/notes/additional-information/events-after-the-balance-sheet-date.html",
+      "https://www.reebok.com/pages/ordering-faqs",
+      "https://report.adidas-group.com/2017/media/pdf/EN/adidas_AR_2017_GroupMgmtReport_EN.pdf",
+      "https://report.adidas-group.com/2018/fileadmin/user_upload/adidas_Annual_Report_GB-2018_GroupMgmtReport_EN.pdf",
+      "https://report.adidas-group.com/2024/en/_assets/downloads/annual-report-adidas-ar24.pdf",
+      "https://www.adidas-group.com/en/about/history?utm_source=openai"
+    ]
+  },
   "a2fb7ff2d351579a6d16eea532fcb809874b57523d6814a6daa49a9253250a63": {
     "saved_at": "2026-09-08T08:03:27.881Z",
     "schema_name": "trendypatike_post",
@@ -2222,150 +2383,6 @@
       "https://media.about.nike.com/files/2fd5f76d-50a2-4906-b30b-3b6046f36ebf/FY23_Nike_Impact_Report.pdf",
       "https://media.about.nike.com/files/0bbc28fd-f2c2-4369-ac7d-1169e81e912f/FY18_Q4_Combined_NIKE_Press_Release_and_Schedules_80469.pdf",
       "https://media.about.nike.com/files/2ae0e202-7da6-4261-a55b-fa60275d0ca7/FY19_Q4_Combined_NIKE_Press_Release_-_Schedules_-_FINAL_88959.pdf"
-    ]
-  },
-  "418ade52f07695d0931a5cd052712d8726b926ee644e38c8ff78a64b92a57018": {
-    "saved_at": "2026-09-01T16:42:05.830Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All major factual claims verified on official Nike pages (about.nike.com and nike.com). Times, event (Monza 2017), and shoe model (Nike Zoom VaporFly 4% / ZoomX foam) are supported.",
-      "post": {
-        "topic_title": "Eliud Kipchoge / rekord / Nike / vreme",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "ELIUD KIPCHOGE",
-              "accent": true
-            },
-            {
-              "text": "MANJKALO MU 25 SEKUNDI",
-              "accent": true
-            },
-            {
-              "text": "DO DVA SATA",
-              "accent": true
-            }
-          ],
-          "subheadline": "BREAKING2, MONZA 2017 — 2:00:25"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "ISTRAČAO JE 2:00:25 U MONCI",
-              "accent": true
-            },
-            {
-              "text": "NOSIO NIKE ZOOM VAPORFLY 4%",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FAKT",
-              "text": "NA NIKE BREAKING2 U MONCI (MAJ 2017) ELIUD KIPCHOGE JE ISTRČAO 2:00:25, ŠTO JE 25 SEKUNDI VIŠE OD DV"
-            },
-            {
-              "tag": "FAKT",
-              "text": "KIPCHOGE I PACERI SU KORISTILI NIKE ZOOM VAPORFLY 4% SA ZOOMX PENOM, NAVEDENO NA NIKE STRANICAMA."
-            },
-            {
-              "tag": "TAČAN DOKAZ",
-              "text": "IZVORI: NIKE PRESS SLOBODNI MATERIJALI I STRANICE O ZOOMX / VAPORFLY POTVRĐUJU VREME I MODEL PATIKE."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "PITANJE",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "",
-              "text": "NE KORISTI SE SLIDE 3."
-            },
-            {
-              "tag": "",
-              "text": "PITANJE: ŽELIŠ PRIČU O INEOS 1:59 (BEČ 2019)?"
-            }
-          ],
-          "question": "ŽELIŠ INEOS 1:59 PRIČU?"
-        },
-        "caption": "NA NIKE BREAKING2 U MONCI (MAJ 2017) ELIUD KIPCHOGE JE ISTRČAO 2:00:25 — FALILO MU JE 25 SEKUNDI DO DVA SATA. KIPCHOGE JE TRČAO U NIKE ZOOM VAPORFLY 4% KOJE SADRŽE ZOOMX PENU, PREMA NIKE STRANICAMA.",
-        "hashtags": [
-          "#ELIUDKIPCHOGE",
-          "#BREAKING2",
-          "#NIKE",
-          "#VAPORFLY",
-          "#MARATON",
-          "#REKORD",
-          "#TRENDYPATIKE"
-        ],
-        "image_prompts": [
-          "DRAMATIC SHOT OF ELIUD KIPCHOGE CROSSING THE BREAKING2 FINISH LINE IN MONZA WITH A GIANT CLOCK READING 2:00:25 ABOVE THE TRACK, PACERS BEHIND HIM, NIKE ZOOM VAPORFLY 4% VISIBLE ON HIS FEET, HIGH CONTRAST, SIMPLE COMPOSITION FOR A CHILD",
-          "CLOSE-UP MACRO OF NIKE ZOOM VAPORFLY 4% ON ELIUD KIPCHOGE'S FOOT DURING BREAKING2, SHOE OCCUPYING 65% OF FRAME, CLEAR VIEW OF FOAM AND CARBON PLATE, RACE CLOCK IN BACKGROUND SHOWING 2:00:25",
-          "ELIUD KIPCHOGE RUNNING IN INEOS 1:59 CHALLENGE IN VIENNA, CLOCK SHOWING 1:59:40, PACERS AND NIKE SHOES, WIDE CINEMATIC SHOT"
-        ],
-        "sources": [
-          {
-            "title": "Nike Introduces Breaking2",
-            "publisher": "about.nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2"
-          },
-          {
-            "title": "Nike ZoomX product page / Zoom VaporFly 4% mention",
-            "publisher": "nike.com",
-            "url": "https://www.nike.com/hr/zoomx"
-          },
-          {
-            "title": "Unpacking the Breaking2 Race Strategy",
-            "publisher": "about.nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/unpacking-nike-breaking2-race-strategy"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Eliud Kipchoge je na Breaking2 u Monci istrčao 2:00:25 (falilo mu 25 sekundi do dva sata).",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
-              "https://www.nike.com/gb/running/breaking2"
-            ]
-          },
-          {
-            "claim": "Kipchoge je trčao u Nike Zoom VaporFly 4% sa ZoomX penom tokom Breaking2 pokušaja.",
-            "source_urls": [
-              "https://www.nike.com/hr/zoomx",
-              "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/"
-            ]
-          },
-          {
-            "claim": "Sve navedene činjenice su potvrđene na zvaničnim Nike stranicama.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
-              "https://www.nike.com/hr/zoomx"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/hr/zoomx/",
-      "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
-      "https://www.nike.com/ca/fr/zoomx",
-      "https://about.nike.com/en/newsroom/releases/six-reasons-why-breaking2-goes-beyond-26-2-miles",
-      "https://www.nike.com/lu/de/zoomx/",
-      "https://about.nike.com/en/newsroom/releases/unpacking-nike-breaking2-race-strategy",
-      "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-      "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project/",
-      "https://www.nike.com/ch/it/zoomx/",
-      "https://www.nike.com/at/laufen/breaking2",
-      "https://www.nike.com/gb/running/breaking2",
-      "https://www.nike.com/jp/running/breaking2",
-      "https://media.about.nike.com/files/d8403f70-1dc5-4ad2-803e-d4663418083b/CesarGarcia_NIKEInc_EMEA_GM.pdf"
     ]
   }
 }
