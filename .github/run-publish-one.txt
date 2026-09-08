@@ -1,0 +1,4 @@
+trigger=2026-09-08T10:25:00+02:00
+reason=replace-second-post-only
+preflight=1e4d3594ee509ad0006518f42acac03ebc3f1137:success
+policy=attention-safe-v17
