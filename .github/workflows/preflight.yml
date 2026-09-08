@@ -69,7 +69,7 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
 
-          grep -n "ATTENTION-FIRST STORY\|hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords" src/content.mjs
+          grep -n "ATTENTION-FIRST STORY\|hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|function semanticAccentSegments\|function normalizeMoneyNotation" src/content.mjs
           grep -n "pollBackgroundResponse\|background: true\|45[0-9][0-9][0-9]" src/openai.mjs
           echo "Preflight fallback entries: $(jq length data/fallback-posts.json)"
 
