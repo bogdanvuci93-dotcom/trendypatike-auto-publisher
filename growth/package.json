@@ -1,0 +1,25 @@
+{
+  "name": "trendypatike-growth",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "echarts": "6.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "@sveltejs/adapter-cloudflare": "7.2.9",
+    "@sveltejs/kit": "2.70.3",
+    "@sveltejs/vite-plugin-svelte": "latest",
+    "svelte": "5.57.0",
+    "svelte-check": "latest",
+    "typescript": "latest",
+    "vite": "8.2.2",
+    "wrangler": "latest"
+  }
+}
