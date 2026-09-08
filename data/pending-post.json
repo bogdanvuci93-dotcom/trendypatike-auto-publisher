@@ -1,1 +1,143 @@
-{}
+{
+  "date": "2026-09-08",
+  "stage": "verified",
+  "fingerprint": "33d800b0a76c",
+  "seed": {
+    "id": "fallback-dassler-brothers-rivalry-v3",
+    "topic": "Kako je raskol braće Dassler napravio adidas i PUMA",
+    "category": "adidas / PUMA / rivalstvo / istorija",
+    "preferred_domains": [
+      "adidas-group.com",
+      "about.puma.com"
+    ],
+    "visual_subject": "1940s Herzogenaurach Germany, two rival shoe workshops after a family business split, early adidas and PUMA origin story",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": true,
+    "topic_title": "Kako je raskol braće Dassler napravio adidas i PUMA",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "ADI I RUDOLF SU ZAJEDNO PRAVILI SPORTSKE PATIKE",
+          "accent": false
+        },
+        {
+          "text": "A NJIHOV RASKOL JE KASNIJE STVORIO ADIDAS I PUMA",
+          "accent": true
+        }
+      ],
+      "subheadline": "Jedna porodična fabrika pretvorila se u dva globalna sportska rivala."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "POSLE GODINA NAPETOSTI, BRAĆA SU 1948. PODELILA POSAO",
+          "accent": true
+        },
+        {
+          "text": "RUDOLF JE POKRENUO KOMPANIJU KOJA JE POSTALA PUMA, A ADI JE 1949. REGISTROVAO ADIDAS",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1924",
+          "text": "Adi i Rudolf Dassler zajedno su registrovali Gebrüder Dassler Schuhfabrik i pravili sportske patike u Herzogenaurachu."
+        },
+        {
+          "tag": "1948",
+          "text": "Njihov poslovni i lični odnos se raspao, pa su podelili firmu i nastavili kao konkurenti."
+        },
+        {
+          "tag": "1949",
+          "text": "Rudolfova kompanija postala je PUMA, dok je Adi sledeće godine registrovao adidas."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "NAJNEOBIČNIJE JE ŠTO SU OBA BRENDA OSTALA U ISTOM MALOM NEMAČKOM GRADU",
+          "accent": false
+        },
+        {
+          "text": "PUMA NAVODI DA JE RUDOLF NOVU FIRMU ZAPOČEO SA SAMO 15 ZAPOSLENIH",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "HERZOGENAURACH",
+          "text": "adidas i PUMA i danas imaju sedišta u Herzogenaurachu, gradu u kojem je počela njihova zajednička porodična priča."
+        },
+        {
+          "tag": "15 LJUDI",
+          "text": "PUMA u svojoj istoriji navodi da je Rudolf 1948. novu kompaniju započeo sa 15 zaposlenih."
+        }
+      ],
+      "question": "Da li ste znali da dva svetska sportska brenda imaju korene u istoj porodici i istom gradu?"
+    },
+    "caption": "Pre nego što su adidas i PUMA postali rivali, Adi i Rudolf Dassler zajedno su vodili porodičnu fabriku sportske obuće u Herzogenaurachu. Posle godina napetosti razdvojili su posao 1948. Rudolf je pokrenuo kompaniju koja je postala PUMA, dok je Adi 1949. registrovao adidas. Posebno je zanimljivo što oba brenda i danas imaju sedište u istom nemačkom gradu, a PUMA navodi da je Rudolf novi posao započeo sa samo 15 zaposlenih.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#adidas",
+      "#PUMA",
+      "#Patike",
+      "#SneakerIstorija",
+      "#Zanimljivosti"
+    ],
+    "image_prompts": [
+      "1940s Herzogenaurach Germany, two brothers who once worked together in one athletic shoe workshop now standing apart after a family business split, period-correct clothing, shoe lasts and leather tools visible, tense documentary photography, no readable text",
+      "1948 split-screen style historical scene in Herzogenaurach: two separate small German athletic shoe workshops beginning to compete, workers assembling vintage sports shoes by hand, clear sense of one family business becoming two rivals, no readable text",
+      "cinematic historical-to-modern view of Herzogenaurach Germany showing two separate sports footwear headquarters rooted in the same small town, visual transition from modest 1940s workshops to global brands, no readable text"
+    ],
+    "sources": [
+      {
+        "title": "The History of adidas: A Background of Collaboration and Innovation",
+        "publisher": "adidas Group",
+        "url": "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"
+      },
+      {
+        "title": "PUMA Timeline",
+        "publisher": "PUMA",
+        "url": "https://www.about.puma.com/en/puma/puma-timeline"
+      },
+      {
+        "title": "adidas celebrates 75 years of innovation and sports history",
+        "publisher": "adidas Group",
+        "url": "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Adi and Rudolf Dassler registered Gebrüder Dassler Schuhfabrik in 1924.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+          "https://www.about.puma.com/en/puma/puma-timeline"
+        ]
+      },
+      {
+        "claim": "The brothers split their business in 1948 and became competitors.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+          "https://www.about.puma.com/en/puma/puma-timeline"
+        ]
+      },
+      {
+        "claim": "Rudolf founded the company that became PUMA in 1948, while Adi registered adidas in 1949.",
+        "source_urls": [
+          "https://www.about.puma.com/en/puma/puma-timeline",
+          "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
+        ]
+      },
+      {
+        "claim": "PUMA states Rudolf began the new factory with 15 employees.",
+        "source_urls": [
+          "https://www.about.puma.com/en/puma/puma-timeline"
+        ]
+      }
+    ]
+  }
+}
