@@ -49,8 +49,12 @@ jobs:
       - name: Mirror verified recovery policy without paid API calls
         run: |
           set -euo pipefail
+          jq empty data/fallback-posts.json
+          jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
-          cp data/fallback-posts-attention.json data/fallback-posts.json
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
           python scripts/fix_copy_overflow.py
@@ -73,7 +77,7 @@ jobs:
           PY
 
           grep -n "Forced verified fallback\|function semanticAccentSegments\|function normalizeMoneyNotation" src/index.mjs src/content.mjs
-          echo "Verified attention fallbacks: $(jq length data/fallback-posts.json)"
+          echo "Recovery fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher and render self-test
         env:
