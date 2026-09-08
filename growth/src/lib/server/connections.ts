@@ -1,4 +1,4 @@
-import { encryptSecret } from '$lib/server/crypto';
+import { decryptSecret, encryptSecret } from '$lib/server/crypto';
 
 export type Provider = 'shopify' | 'meta';
 
@@ -28,21 +28,35 @@ export async function saveConnection(opts: {
       scopes=excluded.scopes,
       metadata_json=excluded.metadata_json,
       updated_at=excluded.updated_at
-  `).bind(
-    opts.provider,
-    opts.accountId ?? null,
-    opts.accountName ?? null,
-    token,
-    refresh,
-    opts.expiresAt ?? null,
-    opts.scopes ?? null,
-    JSON.stringify(opts.metadata ?? {}),
-    Date.now()
-  ).run();
+  `).bind(opts.provider, opts.accountId ?? null, opts.accountName ?? null, token, refresh, opts.expiresAt ?? null, opts.scopes ?? null, JSON.stringify(opts.metadata ?? {}), Date.now()).run();
 }
 
 export async function listConnectionStatus(db?: D1Database) {
   if (!db) return [];
   const result = await db.prepare(`SELECT provider, account_id, account_name, token_expires_at, scopes, updated_at FROM connections ORDER BY provider`).all();
   return result.results;
+}
+
+export async function getConnection(db: D1Database, encryptionKey: string, provider: Provider) {
+  const row = await db.prepare(`SELECT provider, account_id, account_name, encrypted_access_token, encrypted_refresh_token, token_expires_at, scopes, metadata_json FROM connections WHERE provider=?1`).bind(provider).first<{
+    provider: Provider;
+    account_id: string | null;
+    account_name: string | null;
+    encrypted_access_token: string;
+    encrypted_refresh_token: string | null;
+    token_expires_at: number | null;
+    scopes: string | null;
+    metadata_json: string;
+  }>();
+  if (!row) return null;
+  return {
+    provider: row.provider,
+    accountId: row.account_id,
+    accountName: row.account_name,
+    accessToken: await decryptSecret(row.encrypted_access_token, encryptionKey),
+    refreshToken: row.encrypted_refresh_token ? await decryptSecret(row.encrypted_refresh_token, encryptionKey) : null,
+    expiresAt: row.token_expires_at,
+    scopes: row.scopes,
+    metadata: JSON.parse(row.metadata_json || '{}') as Record<string, unknown>
+  };
 }
