@@ -2,7 +2,13 @@ import { redirect, json, type Handle } from '@sveltejs/kit';
 import { verifyAdminCookie } from '$lib/server/auth';
 
 const PUBLIC_PREFIXES = ['/_app/', '/favicon', '/robots.txt'];
-const PUBLIC_PATHS = new Set(['/login', '/connect/shopify/callback', '/connect/meta/callback']);
+const PUBLIC_PATHS = new Set([
+  '/login',
+  '/connect/shopify/callback',
+  '/connect/meta/callback',
+  '/tracker.js',
+  '/api/collect'
+]);
 
 export const handle: Handle = async ({ event, resolve }) => {
   const password = event.platform?.env?.DASHBOARD_PASSWORD as string | undefined;
