@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-08",
-  "stage": "ready",
+  "generated_at": "2026-09-08T08:54:23.445Z",
   "fingerprint": "33d800b0a76c",
   "seed": {
     "id": "fallback-dassler-brothers-rivalry-v3",
@@ -139,11 +138,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-08-fallback-dassler-brothers-rivalry-v3-33d800b0a76c/01.jpg",
-    "public/posts/2026-09-08-fallback-dassler-brothers-rivalry-v3-33d800b0a76c/02.jpg",
-    "public/posts/2026-09-08-fallback-dassler-brothers-rivalry-v3-33d800b0a76c/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
