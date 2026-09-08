@@ -32,13 +32,11 @@ jobs:
           package-manager-cache: false
 
       - name: Install dependencies
-        run: |
-          npm install --omit=dev --no-audit --no-fund
+        run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Apply live content and reliability policy
+      - name: Apply attention-first story policy
         run: |
           set -euo pipefail
-
           jq empty data/fallback-posts.json
           if [ -f data/fallback-posts-extra.json ]; then
             jq empty data/fallback-posts-extra.json
@@ -55,14 +53,16 @@ jobs:
           python scripts/format_semantic_accents.py
           python scripts/scroll_stop_policy.py
           python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          # Last policy wins: hook -> event -> cause/context -> consequence -> memorable detail.
+          python scripts/attention_story_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v14-serbia:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v16-attention-story:" + JSON.stringify(post))/' src/index.mjs
           sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
-
           npm run check
 
-      - name: Publish catch-up post 1
+      - name: Publish attention story 1
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -83,12 +83,12 @@ jobs:
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
 
-      - name: Sync latest main before second post
+      - name: Sync state before second post
         run: |
           git fetch origin main
           git status --short
 
-      - name: Publish catch-up post 2
+      - name: Publish attention story 2
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -109,4 +109,4 @@ jobs:
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
 
-# trigger: 2026-09-07 two-post publish
+# trigger: 2026-09-08 attention-story two-post publish
