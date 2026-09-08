@@ -78,14 +78,10 @@ jobs:
           set -euo pipefail
 
           jq empty data/fallback-posts.json
-          if [ -f data/fallback-posts-extra.json ]; then
-            jq empty data/fallback-posts-extra.json
-            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-          else
-            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json > /tmp/fallback-posts.json
-          fi
+          jq empty data/fallback-posts-extra.json
+          jq empty data/fallback-posts-attention.json
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
 
@@ -96,17 +92,17 @@ jobs:
           python scripts/retry_content_policy.py
           python scripts/detail_copy_policy.py
           python scripts/attention_story_policy.py
-          # Paid text calls use one background POST, then GET polling; no duplicate submit on timeout.
           python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v17-attention-safe:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v19-real-image-detailed-copy:" + JSON.stringify(post))/' src/index.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "post.force_local_images\|fullbleed-v17-attention-safe" src/index.mjs
+          grep -n "fullbleed-v19-real-image-detailed-copy" src/index.mjs
+          grep -n "refusing placeholder publish" src/render.mjs
           grep -n "pollBackgroundResponse\|background: true" src/openai.mjs
-          grep -n "hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|SCROLL-STOP VISUAL\|ATTENTION-FIRST STORY" src/content.mjs
-          grep -n "retry-topic\|repairVisibleText" src/index.mjs src/content.mjs
+          grep -n "ATTENTION-FIRST STORY\|capHeadlineWords" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
@@ -130,7 +126,7 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
-          MAX_TOPIC_ATTEMPTS: "3"
+          MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
         run: npm run run
 
