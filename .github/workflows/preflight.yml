@@ -64,6 +64,7 @@ jobs:
           python scripts/detail_copy_policy.py
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
 
           python - <<'PY'
           from pathlib import Path
@@ -77,6 +78,7 @@ jobs:
           PY
 
           grep -n "Forced verified fallback\|function semanticAccentSegments\|function normalizeMoneyNotation" src/index.mjs src/content.mjs
+          grep -n "refusing placeholder publish\|kids-editorial-v13-real-image-long-copy" src/render.mjs
           echo "Recovery fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher and render self-test
