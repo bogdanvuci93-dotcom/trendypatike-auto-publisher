@@ -7,13 +7,15 @@
   if (/^\/(account|challenge|password)(\/|$)/.test(location.pathname)) return;
 
   const script = document.currentScript;
-  if (!script || !script.src) return;
+  if (!script?.src) return;
+
   const collector = `${new URL(script.src).origin}/api/collect`;
   const SID_KEY = 'tp_growth_sid';
   const START_KEY = 'tp_growth_started';
   const LAST_KEY = 'tp_growth_last';
   const SESSION_TTL = 30 * 60 * 1000;
   const now = Date.now();
+  const originalFetch = window.fetch.bind(window);
 
   const uuid = () => {
     if (crypto && typeof crypto.randomUUID === 'function') return crypto.randomUUID().replace(/-/g, '_');
@@ -24,6 +26,7 @@
   let sessionId = localStorage.getItem(SID_KEY) || '';
   let startedAt = Number(localStorage.getItem(START_KEY) || 0);
   const isNewSession = !sessionId || !startedAt || !previousLast || now - previousLast > SESSION_TTL;
+
   if (isNewSession) {
     sessionId = uuid();
     startedAt = now;
@@ -76,22 +79,28 @@
     localStorage.setItem(LAST_KEY, String(t));
     session.lastSeenAt = t;
     if (queue.length >= 10) flush();
-    else if (!flushTimer) flushTimer = window.setTimeout(flush, 1800);
+    else if (!flushTimer) flushTimer = window.setTimeout(flush, 1200);
   };
 
   const flush = () => {
     if (flushTimer) clearTimeout(flushTimer);
     flushTimer = 0;
     if (!queue.length) return;
+
     const events = queue.splice(0, 40);
     const payload = JSON.stringify({ sessionId, session, events });
-    let sent = false;
-    if (navigator.sendBeacon) {
-      try { sent = navigator.sendBeacon(collector, payload); } catch { sent = false; }
-    }
-    if (!sent) {
-      fetch(collector, { method: 'POST', body: payload, mode: 'cors', credentials: 'omit', keepalive: true }).catch(() => {});
-    }
+
+    originalFetch(collector, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: payload,
+      mode: 'cors',
+      credentials: 'omit',
+      keepalive: true
+    }).catch(() => {
+      queue.unshift(...events);
+      if (queue.length > 80) queue.length = 80;
+    });
   };
 
   const device = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
@@ -119,7 +128,11 @@
     if (!el) return '';
     const tag = el.tagName.toLowerCase();
     const id = el.id && /^[A-Za-z][A-Za-z0-9_-]{0,60}$/.test(el.id) ? `#${el.id}` : '';
-    const classes = Array.from(el.classList || []).filter((c) => /^[A-Za-z][A-Za-z0-9_-]{0,40}$/.test(c)).slice(0, 2).map((c) => `.${c}`).join('');
+    const classes = Array.from(el.classList || [])
+      .filter((c) => /^[A-Za-z][A-Za-z0-9_-]{0,40}$/.test(c))
+      .slice(0, 2)
+      .map((c) => `.${c}`)
+      .join('');
     return `${tag}${id}${classes}`.slice(0, 120);
   };
 
@@ -138,16 +151,19 @@
     while (recentClicks.length && t - recentClicks[0].t > 900) recentClicks.shift();
     if (recentClicks.length >= 3) {
       const a = recentClicks[recentClicks.length - 3];
-      const close = Math.hypot(event.clientX - a.x, event.clientY - a.y) < 55;
-      if (close) push('rage_click', { xPct, yPct, docYPct, target });
+      if (Math.hypot(event.clientX - a.x, event.clientY - a.y) < 55) {
+        push('rage_click', { xPct, yPct, docYPct, target });
+      }
     }
 
     const el = event.target instanceof Element ? event.target.closest('a,button,[role="button"],input[type="submit"]') : null;
     if (!el) return;
+
     const href = el instanceof HTMLAnchorElement ? el.getAttribute('href') || '' : '';
     const name = el.getAttribute('name') || '';
     const classes = el.getAttribute('class') || '';
     const dataAction = el.getAttribute('data-action') || el.getAttribute('data-add-to-cart') || '';
+
     if (/\/checkout(?:[/?#]|$)/.test(href) || name === 'checkout') {
       push('checkout_started', { source: target || 'click' });
     }
@@ -164,14 +180,15 @@
     if (/\/checkout/.test(action)) push('checkout_started', { source: 'form' });
   }, true);
 
-  const originalFetch = window.fetch.bind(window);
   window.fetch = async (...args) => {
     const input = args[0];
     const url = typeof input === 'string' ? input : input instanceof Request ? input.url : String(input);
     const response = await originalFetch(...args);
     try {
       const parsed = new URL(url, location.origin);
-      if (response.ok && /\/cart\/add(?:\.js)?$/.test(parsed.pathname)) push('add_to_cart', { source: 'ajax' });
+      if (response.ok && /\/cart\/add(?:\.js)?$/.test(parsed.pathname)) {
+        push('add_to_cart', { source: 'ajax' });
+      }
     } catch {}
     return response;
   };
@@ -190,7 +207,7 @@
     }
   };
   addEventListener('scroll', onScroll, { passive: true });
-  setTimeout(onScroll, 1000);
+  setTimeout(onScroll, 800);
 
   const wrapHistory = (name) => {
     const original = history[name];
@@ -202,8 +219,16 @@
   };
   wrapHistory('pushState');
   wrapHistory('replaceState');
+
   addEventListener('popstate', () => setTimeout(recordPage, 0));
-  addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+  addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flush();
+  });
   addEventListener('pagehide', flush);
-  setInterval(() => { session.lastSeenAt = Date.now(); localStorage.setItem(LAST_KEY, String(session.lastSeenAt)); flush(); }, 15000);
+
+  setInterval(() => {
+    session.lastSeenAt = Date.now();
+    localStorage.setItem(LAST_KEY, String(session.lastSeenAt));
+    flush();
+  }, 15000);
 })();
