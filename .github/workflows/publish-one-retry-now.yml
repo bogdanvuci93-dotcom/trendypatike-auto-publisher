@@ -37,8 +37,12 @@ jobs:
       - name: Apply verified zero-text-cost policy
         run: |
           set -euo pipefail
+          jq empty data/fallback-posts.json
+          jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
-          cp data/fallback-posts-attention.json data/fallback-posts.json
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
           python scripts/fix_copy_overflow.py
