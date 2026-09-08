@@ -3,12 +3,12 @@
   const money = (n:number) => `${new Intl.NumberFormat('sr-RS').format(Math.round(n))} RSD`;
 </script>
 
-<header><div class="eyebrow">SHOPIFY · 30 DAY SYNC</div><h1>Products</h1><p>Koji proizvodi stvarno donose prihod i prodaju.</p></header>
+<header><div class="eyebrow">SHOPIFY · LAST 30 DAYS</div><h1>Products</h1><p>Koji proizvodi stvarno donose prihod i prodaju.</p></header>
 
 <section class="metrics">
   <div><span>Revenue</span><b>{money(data.totals.revenue)}</b></div>
   <div><span>Units</span><b>{data.totals.units}</b></div>
-  <div><span>Order lines</span><b>{data.totals.orders}</b></div>
+  <div><span>Orders</span><b>{data.totals.orders}</b></div>
   <div><span>Products</span><b>{data.totals.products}</b></div>
 </section>
 
