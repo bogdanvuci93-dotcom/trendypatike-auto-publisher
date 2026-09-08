@@ -1,4 +1,130 @@
 {
+  "7e04ca6b6eb08acd5dfc22ec57c725b14fe4957e71f039825eba5a9eeb6cf96b": {
+    "saved_at": "2026-09-08T08:21:43.026Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": false,
+      "reason": "Nema zvaničnih stranica ili objava na nike.com ili about.nike.com koje potvrđuju saradnju \"DIOR X AIR JORDAN 1\" ili daju podatke o datumu, ceni i lansiranju.",
+      "post": {
+        "topic_title": "Zašto je Dior x Air Jordan 1 izazvao navalu kupaca — izvor provera",
+        "slide_count": 1,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "NE MOGU OBJAVITI TEKST O DIOR X AIR JORDAN 1",
+              "accent": false
+            },
+            {
+              "text": "NA NJUKE DOMENE NEMA ZVANIČNE DOKUMENTACIJE O TEJ SARADNJI",
+              "accent": true
+            }
+          ],
+          "subheadline": "Pregledao sam nike.com i about.nike.com — nema stranice koja potvrđuje Dior x Air Jordan 1."
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "NIKE SAJT I ABOUT.NIKE NISU OBJAVILI SARADNJU DIOR X AIR JORDAN 1",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "fallback",
+              "text": "Nije pronađen zvaničan sadržaj o Dior x Air Jordan 1 na nike.com ili about.nike.com."
+            },
+            {
+              "tag": "izvor",
+              "text": "Pregledane stranice: katalog Air Jordan 1 i objava o Virgil Abloh projektu na NIKE newsroomu."
+            },
+            {
+              "tag": "napomena",
+              "text": "Da bih dao tačne razloge navale kupaca (datumi, cene, broj primeraka), potrebni su izvori izvan NIKE"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "DA LI DA PROŠIRIM PRETRAGU NA MODNE I NOVINSKE IZVORE?",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "akcija",
+              "text": "Ako date dozvolu, tražiću pouzdane modne portale, aukcijske objave i istorijske izveštaje."
+            },
+            {
+              "tag": "upozorenje",
+              "text": "Zahtevi za izvore iz drugih domena su potrebni jer NIKE stranice ne potvrđuju tvrdnje."
+            }
+          ],
+          "question": "Da li da pretražim širi internet za potvrdu datuma i reakcij"
+        },
+        "caption": "Ne mogu napisati verodostojan tekst za TrendyPatike dok NIKE domeni ne potvrde saradnju. Recite DA ako želite da tražim potvrde iz drugih, pouzdanih izvora.",
+        "hashtags": [
+          "#Dior",
+          "#AirJordan1",
+          "#TrendyPatike",
+          "#izvor_provera"
+        ],
+        "image_prompts": [
+          "Empty NIKE product listing page for AIR JORDAN 1, clear NIKE branding, studio lighting, product grid visible",
+          "NIKE newsroom page about a designer collaboration, editorial header, neutral background",
+          "Generic closed storefront with no Dior x Air Jordan 1 signage, ropes and empty display"
+        ],
+        "sources": [
+          {
+            "title": "Nike Air Jordan 1 Shoes",
+            "publisher": "nike.com",
+            "url": "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok"
+          },
+          {
+            "title": "Virgil Abloh and Nike Announce New Design Project “The10”",
+            "publisher": "about.nike.com",
+            "url": "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Na nike.com nije pronađena zvanična stranica ili saopštenje koje dokumentuje saradnju DIOR X AIR JORDAN 1.",
+            "source_urls": [
+              "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok"
+            ]
+          },
+          {
+            "claim": "Na about.nike.com nije objava koja opisuje DIOR X AIR JORDAN 1; pronađena je objava o projektu Virgil Abloh i Nike, koja nije ista saradnja.",
+            "source_urls": [
+              "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
+            ]
+          },
+          {
+            "claim": "Da bi se potvrdili datumi, cena i reakcija kupaca za Dior x Air Jordan 1, potrebni su pouzdani izvori izvan NIKE domena (modni portali, aukcijske liste, izjave Diora).",
+            "source_urls": [
+              "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
+              "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
+      "https://www.nike.com/w/jordan-1-4fokyzabwsqzanjns",
+      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
+      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
+      "https://www.nike.com/w/jordan-1-shoes-5clidzaj85gzy7ok",
+      "https://www.nike.com/w/jordan-1-shoes-1onraz3aqegz4fokyzy7ok",
+      "https://www.nike.com/w/jordan-1-jordan-1-jordan-editions-shoes-4fokyz5y0tkzaj85gzy7ok",
+      "https://www.nike.com/t/air-jordan-1-low-womens-shoes-rJrHLw/DC0774-107",
+      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=1b61277c6c0669f7103531fd6d79689f",
+      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=29a7a29c035d6d9d319fb40e02356c47",
+      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
+      "https://www.nike.com/t/air-jordan-1-low-se-r4hJb1/IR7560-010",
+      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
+    ]
+  },
   "b209a049665a063610869d4e1f118c3f93c2b2d65316ecdeb33431c8f38fd5d6": {
     "saved_at": "2026-09-08T08:21:26.281Z",
     "schema_name": "trendypatike_post",
@@ -2174,179 +2300,6 @@
       "https://about.puma.com/sites/default/files/financial-report/2018/geschaeftsbericht-2018-de.pdf",
       "https://report.adidas-group.com/2017/media/pdf/EN/adidas_AR_2017_EN.pdf",
       "https://report.adidas-group.com/2022/en/_assets/downloads/annual-report-adidas-ar22.pdf"
-    ]
-  },
-  "0b709b862e645bc94e9437f4ba188648c5f265817d451528bd1779160454ee6a": {
-    "saved_at": "2026-09-04T16:21:51.183Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "Sve ključne tvrdnje potvrđene na NIKE-ovim stranicama: Vaporfly je promovisan kao model koji daje prosečno 4% bolje ekonomije trčanja; prednost se pripisuje kombinaciji ZoomX pene i karbonske Flyplate; Nike je povezao to s Breaking2 projektom i javnim diskusijama o uticaju tehnologije na rekorde.",
-      "post": {
-        "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "NIKE VAPORFLY DAJE POBOLJŠANJE",
-              "accent": false
-            },
-            {
-              "text": "PROSEČNO",
-              "accent": false
-            },
-            {
-              "text": "4%",
-              "accent": true
-            }
-          ],
-          "subheadline": "NIKE JE NAVEO PROSEČNO POBOLJŠANJE OD 4% U EKONOMIJI TRČANJA."
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "KAKO TO RADI: ZOOMX PENA + FLYPLATE",
-              "accent": false
-            },
-            {
-              "text": "KARBONSKA FLYPLATE",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "OSNOVNO",
-              "text": "NIKE KAŽE: KOMBINIJEMO LAKU ZOOMX PJENU I PUNU KARBONSKU FLYPLATE."
-            },
-            {
-              "tag": "IZVOR",
-              "text": "NIKE: OPIS VAPORFLY MODELA I OBJAŠNJENJE TEHNOLOGIJE (ZOOMX + FLYPLATE)."
-            },
-            {
-              "tag": "ISTORIJA",
-              "text": "NIKE JE POVEZAO MODEL SA PROJEKTOM BREAKING2 I NAVEO MERLJIVU PREDNOST."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "DA LI JE TO FER?",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "KONTEKST",
-              "text": "NIJE JEDINSTVEN ODGOVOR — TEHNOLOGIJA JE POKRENULA JAVNU RASPRAVU O REKORDIMA I PRAVILIMA."
-            },
-            {
-              "tag": "NAPOMENA",
-              "text": "DETALJNI IZVORI U NAVEDENIM LINKOVIMA."
-            }
-          ],
-          "question": "DA LI OVO TREBA REGULISATI?"
-        },
-        "caption": "NIKE JE JAVNO PRIZNAO DA VAPORFLY KOMBINUJE ZOOMX PJENU I KARBONSKU FLYPLATE I NAVEO PROSEČNO POBOLJŠANJE OD 4% — TO JE POKRENULO DISKUSIJU O UTICAJU TEHNOLOGIJE NA REKORDE.",
-        "hashtags": [
-          "#NIKE",
-          "#VAPORFLY",
-          "#REKORD",
-          "#TRČANJE",
-          "#TEHNOLOGIJA",
-          "#KONTROVERZA",
-          "#TrendyPatike"
-        ],
-        "image_prompts": [
-          "CLOSE-UP CUTAWAY OF A NIKE VAPORFLY SHOE SHOWING THE ZOOMX FOAM MIDSOLE AND FULL-LENGTH CARBON FLYPLATE FILLING 65%+ OF FRAME, STUDIO MACRO, LABEL 'VAPORFLY'.",
-          "CLOSE-UP MACRO CROSS-SECTION OF NIKE VAPORFLY ZOOMX FOAM AND FULL-LENGTH CARBON FLYPLATE, 65%+ FRAME, EDITORIAL TECH DETAIL, NO BRANDING OTHER THAN SHOE MODEL.",
-          "ELIUD KIPCHOGE STYLE ELITE MARATHON FINISHER WEARING NIKE VAPORFLY, FINISH CLOCK VISIBLE, EDITORIAL SPORTS PHOTO."
-        ],
-        "sources": [
-          {
-            "title": "Sandy Bodecker: The Man Behind Breaking2",
-            "publisher": "NIKE, Inc.",
-            "url": "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2"
-          },
-          {
-            "title": "Introducing the Nike Zoom Vaporfly Elite Featuring Nike ZoomX Midsole",
-            "publisher": "NIKE, Inc.",
-            "url": "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
-          },
-          {
-            "title": "Nike Pushes the Boundaries of Running Innovation with the Vaporfly 4 and Streakfly 2",
-            "publisher": "NIKE, Inc.",
-            "url": "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images"
-          },
-          {
-            "title": "Nike Vaporfly 4 Men's Road Racing Shoes — product page",
-            "publisher": "NIKE, Inc.",
-            "url": "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/II7203-100"
-          },
-          {
-            "title": "How Nike Partners With Athletes to Test New Prototypes",
-            "publisher": "NIKE, Inc.",
-            "url": "https://about.nike.com/en/magazine/nike-prototype-testing-process"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Nike je javno tvrdio da model \"Vaporfly 4%\" donosi prosečno poboljšanje od 4% u ekonomiji trčanja.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-              "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
-            ]
-          },
-          {
-            "claim": "Prednost dolazi od kombinacije ZoomX pene i pune karbonske Flyplate koje zajedno daju povrat energije i osećaj potiska napred.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images",
-              "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/II7203-100"
-            ]
-          },
-          {
-            "claim": "Nike je povezao model sa projektom Breaking2 i opisao ga kao proizvod koji može promeniti granice trčanja, što je izazvalo javnu raspravu o uticaju tehnologije na rekorde.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-              "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-      "https://about.nike.com/en/newsroom/releases/vaporfly-4-streakfly-2-official-images",
-      "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
-      "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
-      "https://about.nike.com/en/newsroom/releases/pegasus-turbo-next-nature-official-images",
-      "https://about.nike.com/en/newsroom/releases/keely-hodgkinson-speed-and-style-converge-in-her-first-signature-nike-running-collection",
-      "https://about.nike.com/en/newsroom/releases/inside-look-at-nike-breaking2-project",
-      "https://about.nike.com/es-419/newsroom/releases/nike-desafia-los-limites-de-la-innovacion-para-correr-con-los-vaporfly-4-y-los-streakfly-2",
-      "https://about.nike.com/es-ES/newsroom/releases/nike-supera-los-limites-de-la-innovacion-en-el-running-con-las-vaporfly-4-y-las-streakfly-2",
-      "https://about.nike.com/en/magazine/nike-prototype-testing-process",
-      "https://www.nike.com/t/vaporfly-4-mens-road-racing-shoes-HK05JWOf/II7203-100",
-      "https://about.nike.com/en/newsroom/releases/nike-acg-ultrafly-official-images",
-      "https://media.about.nike.com/files/d8403f70-1dc5-4ad2-803e-d4663418083b/CesarGarcia_NIKEInc_EMEA_GM.pdf",
-      "https://media.about.nike.com/files/e1963fb1-0138-4a54-ae37-e73c8a4fc4cd/FY20_NIKE_Inc_Impact_Report2-2.pdf",
-      "https://media.about.nike.com/files/9e0cc4dd-8d70-4476-964b-dc8fef9bb636/FY23_Nike_Impact_Report.pdf?download=inline",
-      "https://media.about.nike.com/files/2ae0e202-7da6-4261-a55b-fa60275d0ca7/FY19_Q4_Combined_NIKE_Press_Release_-_Schedules_-_FINAL_88959.pdf",
-      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=848280&parentDocumentId=848278&skipCopyright=true&skipWatermark=true",
-      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=849364&parentDocumentId=849363&skipCopyright=true&skipWatermark=true",
-      "https://library.olympics.com/default/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=174911&parentDocumentId=174910&skipCopyright=true&skipWatermark=true",
-      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3416736&parentDocumentId=3416735&skipCopyright=true&skipWatermark=true",
-      "https://newsroom.olympics.com/record/3174",
-      "https://newsroom.olympics.com/record/3615",
-      "https://newsroom.olympics.com/record/1142",
-      "https://newsroom.olympics.com/",
-      "https://library.olympics.com/CNOSPA/doc/SYRACUSE/68529/doping-in-elite-sport-the-politics-of-drugs-in-the-olympic-movement-ed-wayne-wilson-and-edward-derse?_lg=en-GB",
-      "https://newsroom.olympics.com/r/3615",
-      "https://newsroom.olympics.com/copyright",
-      "https://library.olympics.com/Default/doc/SYRACUSE/3154900/prohibited-list-2024-world-anti-doping-code-international-standard-world-anti-doping-agency",
-      "https://newsroom.olympics.com/record/1285",
-      "https://library.olympics.com/Default/doc/SYRACUSE/3417002/prohibited-list-2025-world-anti-doping-code-international-standard-world-anti-doping-agency",
-      "https://library.olympics.com/Default/detailstatic.aspx?RSC_BASE=SYRACUSE&RSC_DOCID=34271&TITLE=sports-programmes-august-20-29-2004-athens-2004-organising-committee-for-the-olympic-games-athens-20&_lg=en-GB",
-      "https://library.olympics.com/Default/doc/SYRACUSE/3417002/prohibited-list-2025-world-anti-doping-code-international-standard-code-mondial-antidopage-standard-?_lg=en-GB"
     ]
   }
 }
