@@ -9,7 +9,7 @@
       "emergency_only": true
     },
     "post": {
-      "force_local_images": false,
+      "force_local_images": true,
       "topic_title": "Kako je raskol braće Dassler napravio adidas i PUMA",
       "slide_count": 3,
       "cover": {
