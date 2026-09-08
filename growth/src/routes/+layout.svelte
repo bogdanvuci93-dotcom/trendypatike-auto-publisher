@@ -1,3 +1,8 @@
+<script lang="ts">
+  import { page } from '$app/stores';
+  const active = (path: string) => path === '/' ? $page.url.pathname === '/' : $page.url.pathname.startsWith(path);
+</script>
+
 <svelte:head>
   <title>TrendyPatike Growth</title>
   <meta name="description" content="TrendyPatike growth intelligence dashboard" />
@@ -7,14 +12,14 @@
   <aside>
     <div class="brand"><span>TP</span><strong>Growth</strong></div>
     <nav>
-      <a class="active" href="/">Overview</a>
-      <a href="/ads">Ads</a>
-      <a href="/products">Products</a>
-      <a href="/funnel">Funnel</a>
-      <a href="/sessions">Sessions</a>
-      <a href="/heatmaps">Heatmaps</a>
-      <a href="/ai">AI</a>
-      <a href="/settings">Settings</a>
+      <a class:active={active('/')} href="/">Overview</a>
+      <a class:active={active('/ads')} href="/ads">Ads</a>
+      <a class:active={active('/products')} href="/products">Products</a>
+      <a class:active={active('/funnel')} href="/funnel">Funnel</a>
+      <a class:active={active('/sessions')} href="/sessions">Sessions</a>
+      <a class:active={active('/heatmaps')} href="/heatmaps">Heatmaps</a>
+      <a class:active={active('/ai')} href="/ai">AI</a>
+      <a class:active={active('/settings')} href="/settings">Settings</a>
     </nav>
     <div class="free">0 € mode<br/><small>hard-cost guard enabled</small></div>
   </aside>
@@ -32,7 +37,7 @@
   .brand span{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:#8bf048;color:#0b1408;font-weight:900}
   nav{display:grid;gap:6px}
   nav a{padding:11px 12px;border-radius:10px;color:#929cab;font-size:14px}
-  nav a:hover,.active{background:#171b21;color:#fff}
+  nav a:hover,nav a.active{background:#171b21;color:#fff}
   .free{margin-top:auto;padding:12px;border-radius:12px;background:#101a10;border:1px solid #213321;color:#aaf28b;font-weight:700;font-size:12px}
   .free small{font-weight:500;color:#72946b}
   main{padding:30px;max-width:1500px;width:100%;margin:0 auto}
