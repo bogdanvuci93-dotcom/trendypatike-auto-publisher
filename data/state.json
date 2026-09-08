@@ -344,8 +344,20 @@
         "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf",
         "https://report.adidas-group.com/2024/en/_assets/downloads/annual-report-adidas-ar24.pdf"
       ]
+    },
+    {
+      "date": "2026-09-08",
+      "topic_id": "fallback-dassler-brothers-rivalry-v2",
+      "seed_topic": "Kako je svađa braće Dassler stvorila adidas i PUMA",
+      "topic_title": "Kako je svađa braće Dassler stvorila adidas i PUMA",
+      "media_id": "18102074309356557",
+      "sources": [
+        "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
+        "https://www.about.puma.com/en/puma/puma-timeline",
+        "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
+      ]
     }
   ],
   "last_publish_date": "2026-09-08",
-  "last_media_id": "18181899835418806"
+  "last_media_id": "18102074309356557"
 }
