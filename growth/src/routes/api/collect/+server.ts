@@ -1,11 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
-const ALLOWED_ORIGINS = new Set([
-  'https://trendypatike.com',
-  'https://www.trendypatike.com'
-]);
-
 const ALLOWED_TYPES = new Set([
   'session_start',
   'page_view',
@@ -17,9 +12,30 @@ const ALLOWED_TYPES = new Set([
   'checkout_started'
 ]);
 
+function hostAllowed(hostname: string) {
+  const host = hostname.toLowerCase().replace(/\.$/, '');
+  return host === 'trendypatike.com'
+    || host === 'www.trendypatike.com'
+    || host === 'trendypatike.myshopify.com'
+    || host.endsWith('.trendypatike.com');
+}
+
+function sourceAllowed(request: Request) {
+  const candidates = [request.headers.get('origin'), request.headers.get('referer')].filter(Boolean) as string[];
+  for (const value of candidates) {
+    try {
+      if (hostAllowed(new URL(value).hostname)) return true;
+    } catch {
+      // ignore malformed browser headers
+    }
+  }
+  return false;
+}
+
 function cors(origin: string | null) {
+  // Echo the browser Origin. POST still performs strict hostname validation above.
   return {
-    'Access-Control-Allow-Origin': origin && ALLOWED_ORIGINS.has(origin) ? origin : 'https://trendypatike.com',
+    'Access-Control-Allow-Origin': origin || 'https://trendypatike.com',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
@@ -69,8 +85,15 @@ export const OPTIONS: RequestHandler = async ({ request }) => {
 
 export const POST: RequestHandler = async ({ request, platform }) => {
   const origin = request.headers.get('origin');
-  if (!origin || !ALLOWED_ORIGINS.has(origin)) {
-    return json({ ok: false, error: 'Origin not allowed' }, { status: 403, headers: cors(origin) });
+  if (!sourceAllowed(request)) {
+    let originHost = '';
+    let refererHost = '';
+    try { originHost = origin ? new URL(origin).hostname : ''; } catch {}
+    try { refererHost = request.headers.get('referer') ? new URL(request.headers.get('referer') as string).hostname : ''; } catch {}
+    return json(
+      { ok: false, error: 'Storefront source not allowed', originHost, refererHost },
+      { status: 403, headers: cors(origin) }
+    );
   }
 
   const db = platform?.env?.DB;
