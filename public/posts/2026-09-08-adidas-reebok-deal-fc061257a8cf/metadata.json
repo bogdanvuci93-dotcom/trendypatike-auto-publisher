@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-08",
-  "stage": "ready",
+  "generated_at": "2026-09-08T08:17:56.454Z",
   "fingerprint": "fc061257a8cf",
   "seed": {
     "id": "adidas-reebok-deal",
@@ -176,11 +175,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-08-adidas-reebok-deal-fc061257a8cf/01.jpg",
-    "public/posts/2026-09-08-adidas-reebok-deal-fc061257a8cf/02.jpg",
-    "public/posts/2026-09-08-adidas-reebok-deal-fc061257a8cf/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
