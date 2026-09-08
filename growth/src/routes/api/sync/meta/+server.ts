@@ -27,6 +27,8 @@ export const POST: RequestHandler = async ({ platform, fetch }) => {
 
   let ads = 0;
   const snapshotTs = Date.now();
+  const activeAccounts: { id: string; name: string; currency: string; ads: number }[] = [];
+
   for (const account of accounts) {
     const insightsUrl = new URL(`https://graph.facebook.com/${version}/${account.id}/insights`);
     insightsUrl.searchParams.set('level', 'ad');
@@ -37,18 +39,44 @@ export const POST: RequestHandler = async ({ platform, fetch }) => {
     const insightsRes = await fetch(insightsUrl);
     if (!insightsRes.ok) continue;
     const insights = await insightsRes.json() as { data?: any[] };
+    let accountAds = 0;
 
     for (const row of insights.data ?? []) {
       if (!row.ad_id) continue;
       ads++;
+      accountAds++;
       const purchases = actionValue(row.actions, ['purchase','offsite_conversion.fb_pixel_purchase','omni_purchase']);
       const purchaseValue = actionValue(row.action_values, ['purchase','offsite_conversion.fb_pixel_purchase','omni_purchase']);
-      await db.prepare(`INSERT INTO ad_snapshots(snapshot_ts,account_id,campaign_id,adset_id,ad_id,ad_name,spend,impressions,clicks,purchases,purchase_value)
-        VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)`)
-        .bind(snapshotTs, account.id, row.campaign_id ?? null, row.adset_id ?? null, row.ad_id, row.ad_name ?? null, Number(row.spend || 0), Number(row.impressions || 0), Number(row.clicks || 0), purchases, purchaseValue)
+      await db.prepare(`INSERT INTO ad_snapshots(
+        snapshot_ts,account_id,account_name,currency,campaign_id,adset_id,ad_id,ad_name,spend,impressions,clicks,purchases,purchase_value
+      ) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)`)
+        .bind(
+          snapshotTs,
+          account.id,
+          account.name ?? account.id,
+          account.currency ?? null,
+          row.campaign_id ?? null,
+          row.adset_id ?? null,
+          row.ad_id,
+          row.ad_name ?? null,
+          Number(row.spend || 0),
+          Number(row.impressions || 0),
+          Number(row.clicks || 0),
+          purchases,
+          purchaseValue
+        )
         .run();
+    }
+
+    if (accountAds > 0) {
+      activeAccounts.push({
+        id: account.id,
+        name: account.name ?? account.id,
+        currency: account.currency ?? '',
+        ads: accountAds
+      });
     }
   }
 
-  return json({ ok: true, provider: 'meta', accounts: accounts.length, ads, snapshotTs });
+  return json({ ok: true, provider: 'meta', accounts: accounts.length, activeAccounts, ads, snapshotTs });
 };
