@@ -52,6 +52,7 @@ jobs:
           python scripts/detail_copy_policy.py
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
 
           python - <<'PY'
           from pathlib import Path
@@ -64,8 +65,9 @@ jobs:
           p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
           PY
 
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v18-verified-fallback:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v19-real-image-detailed-copy:" + JSON.stringify(post))/' src/index.mjs
           grep -n "Forced verified fallback" src/index.mjs
+          grep -n "refusing placeholder publish" src/render.mjs
           npm run check
 
       - name: Publish one verified post once
