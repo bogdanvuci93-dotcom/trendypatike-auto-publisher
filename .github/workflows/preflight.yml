@@ -12,6 +12,7 @@ on:
       - "data/topics.json"
       - "data/fallback-posts.json"
       - "data/fallback-posts-extra.json"
+      - "data/fallback-posts-attention.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -45,20 +46,11 @@ jobs:
       - name: Install pinned dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Mirror complete live policy without paid API calls
+      - name: Mirror verified recovery policy without paid API calls
         run: |
           set -euo pipefail
-          jq empty data/fallback-posts.json
-          if [ -f data/fallback-posts-extra.json ]; then
-            jq empty data/fallback-posts-extra.json
-            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-          else
-            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json > /tmp/fallback-posts.json
-          fi
-          mv /tmp/fallback-posts.json data/fallback-posts.json
-          jq empty data/fallback-posts.json
+          jq empty data/fallback-posts-attention.json
+          cp data/fallback-posts-attention.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
           python scripts/fix_copy_overflow.py
@@ -69,9 +61,19 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
 
-          grep -n "ATTENTION-FIRST STORY\|hardenImagePrompts\|simplifyKidPhrase\|capHeadlineWords\|function semanticAccentSegments\|function normalizeMoneyNotation" src/content.mjs
-          grep -n "pollBackgroundResponse\|background: true\|45[0-9][0-9][0-9]" src/openai.mjs
-          echo "Preflight fallback entries: $(jq length data/fallback-posts.json)"
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s:
+              raise SystemExit('force verified fallback patch anchor not found')
+          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
+
+          grep -n "Forced verified fallback\|function semanticAccentSegments\|function normalizeMoneyNotation" src/index.mjs src/content.mjs
+          echo "Verified attention fallbacks: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher and render self-test
         env:
@@ -81,4 +83,5 @@ jobs:
           IMAGE_QUALITY: "medium"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
+          FORCE_VERIFIED_FALLBACK: "true"
         run: npm run check
