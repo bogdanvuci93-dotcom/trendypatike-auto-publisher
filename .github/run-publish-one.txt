@@ -1,4 +1,4 @@
-trigger=2026-09-08T10:41:00+02:00
-reason=verified-dassler-replacement
-preflight=34205754829:success
-policy=attention-safe-v18-zero-text-cost
+trigger=2026-09-08T10:50:00+02:00
+reason=post-fix-real-image-long-copy-validation
+preflight=34206600924:success
+policy=attention-safe-v19-real-image-long-copy
