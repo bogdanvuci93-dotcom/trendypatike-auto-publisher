@@ -1,52 +1,52 @@
 [
   {
     "seed": {
-      "id": "fallback-dassler-brothers-rivalry-v2",
-      "topic": "Kako je svađa braće Dassler stvorila adidas i PUMA",
+      "id": "fallback-dassler-brothers-rivalry-v3",
+      "topic": "Kako je raskol braće Dassler napravio adidas i PUMA",
       "category": "adidas / PUMA / rivalstvo / istorija",
       "preferred_domains": ["adidas-group.com", "about.puma.com"],
-      "visual_subject": "1940s Herzogenaurach Germany, two rival shoe workshops after a family split, early adidas and PUMA origin story",
+      "visual_subject": "1940s Herzogenaurach Germany, two rival shoe workshops after a family business split, early adidas and PUMA origin story",
       "emergency_only": true
     },
     "post": {
-      "force_local_images": true,
-      "topic_title": "Kako je svađa braće Dassler stvorila adidas i PUMA",
+      "force_local_images": false,
+      "topic_title": "Kako je raskol braće Dassler napravio adidas i PUMA",
       "slide_count": 3,
       "cover": {
         "headline_lines": [
-          {"text": "DVA BRATA SU SE POSVAĐALA", "accent": false},
-          {"text": "I NASTALA SU DVA GIGANTA", "accent": true}
+          {"text": "ADI I RUDOLF SU ZAJEDNO PRAVILI SPORTSKE PATIKE", "accent": false},
+          {"text": "A NJIHOV RASKOL JE KASNIJE STVORIO ADIDAS I PUMA", "accent": true}
         ],
-        "subheadline": "Njihov porodični raskol pretvorio se u jedno od najvećih rivalstava u istoriji patika."
+        "subheadline": "Jedna porodična fabrika pretvorila se u dva globalna sportska rivala."
       },
       "slide2": {
         "headline_lines": [
-          {"text": "1948. SU PODELILI FIRMU", "accent": true},
-          {"text": "I POSTALI RIVALI", "accent": false}
+          {"text": "POSLE GODINA NAPETOSTI, BRAĆA SU 1948. PODELILA POSAO", "accent": true},
+          {"text": "RUDOLF JE POKRENUO KOMPANIJU KOJA JE POSTALA PUMA, A ADI JE 1949. REGISTROVAO ADIDAS", "accent": false}
         ],
         "facts": [
           {"tag": "1924", "text": "Adi i Rudolf Dassler zajedno su registrovali Gebrüder Dassler Schuhfabrik i pravili sportske patike u Herzogenaurachu."},
-          {"tag": "1948", "text": "Posle godina napetosti njihov poslovni i lični odnos se raspao, pa su podelili firmu i krenuli svako svojim putem."},
-          {"tag": "POSLEDICA", "text": "Rudolf je osnovao kompaniju koja je postala PUMA, dok je Adi sledeće godine registrovao adidas."}
+          {"tag": "1948", "text": "Njihov poslovni i lični odnos se raspao, pa su podelili firmu i nastavili kao konkurenti."},
+          {"tag": "1949", "text": "Rudolfova kompanija postala je PUMA, dok je Adi sledeće godine registrovao adidas."}
         ]
       },
       "slide3": {
         "headline_lines": [
-          {"text": "ISTI MALI GRAD", "accent": false},
-          {"text": "DVA SVETSKA BRENDA", "accent": true}
+          {"text": "NAJNEOBIČNIJE JE ŠTO SU OBA BRENDA OSTALA U ISTOM MALOM NEMAČKOM GRADU", "accent": false},
+          {"text": "PUMA NAVODI DA JE RUDOLF NOVU FIRMU ZAPOČEO SA SAMO 15 ZAPOSLENIH", "accent": true}
         ],
         "facts": [
-          {"tag": "HERZOGENAURACH", "text": "Oba globalna brenda i danas imaju sedište u istom nemačkom gradu u kojem je počela porodična priča."},
-          {"tag": "DETALJ", "text": "PUMA navodi da je Rudolf 1948. krenuo sa 15 zaposlenih, samo nekoliko meseci nakon razlaza sa bratom."}
+          {"tag": "HERZOGENAURACH", "text": "adidas i PUMA i danas imaju sedišta u Herzogenaurachu, gradu u kojem je počela njihova zajednička porodična priča."},
+          {"tag": "15 LJUDI", "text": "PUMA u svojoj istoriji navodi da je Rudolf 1948. novu kompaniju započeo sa 15 zaposlenih."}
         ],
-        "question": "Da li ste znali da su adidas i PUMA nastali iz iste porodice?"
+        "question": "Da li ste znali da dva svetska sportska brenda imaju korene u istoj porodici i istom gradu?"
       },
-      "caption": "Pre nego što su adidas i PUMA postali rivali, njihovi osnivači Adi i Rudolf Dassler vodili su jednu porodičnu fabriku sportske obuće. Njihov odnos se raspao 1948, podelili su posao i postali konkurenti: Rudolf je osnovao kompaniju koja je postala PUMA, a Adi je 1949. registrovao adidas. Najluđi detalj je što oba brenda i danas imaju sedište u istom malom nemačkom gradu, Herzogenaurachu.",
+      "caption": "Pre nego što su adidas i PUMA postali rivali, Adi i Rudolf Dassler zajedno su vodili porodičnu fabriku sportske obuće u Herzogenaurachu. Posle godina napetosti razdvojili su posao 1948. Rudolf je pokrenuo kompaniju koja je postala PUMA, dok je Adi 1949. registrovao adidas. Posebno je zanimljivo što oba brenda i danas imaju sedište u istom nemačkom gradu, a PUMA navodi da je Rudolf novi posao započeo sa samo 15 zaposlenih.",
       "hashtags": ["#TrendyPatike", "#adidas", "#PUMA", "#Patike", "#SneakerIstorija", "#Zanimljivosti"],
       "image_prompts": [
-        "1948 Herzogenaurach Germany, two brothers leaving one historic shoe workshop in opposite directions, tense cinematic documentary scene, sports shoes and workshop tools, no readable text",
-        "split-view of two rival late-1940s German shoe workshops across the same small town, craftsmen making athletic shoes, family rivalry atmosphere, no readable text",
-        "aerial cinematic view of Herzogenaurach Germany connecting two major sportswear headquarters symbolically, historic-to-modern transition, no readable text"
+        "1940s Herzogenaurach Germany, two brothers who once worked together in one athletic shoe workshop now standing apart after a family business split, period-correct clothing, shoe lasts and leather tools visible, tense documentary photography, no readable text",
+        "1948 split-screen style historical scene in Herzogenaurach: two separate small German athletic shoe workshops beginning to compete, workers assembling vintage sports shoes by hand, clear sense of one family business becoming two rivals, no readable text",
+        "cinematic historical-to-modern view of Herzogenaurach Germany showing two separate sports footwear headquarters rooted in the same small town, visual transition from modest 1940s workshops to global brands, no readable text"
       ],
       "sources": [
         {"title": "The History of adidas: A Background of Collaboration and Innovation", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"},
