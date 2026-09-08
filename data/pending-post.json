@@ -182,5 +182,10 @@
     "public/posts/2026-09-08-adidas-reebok-deal-fc061257a8cf/02.jpg",
     "public/posts/2026-09-08-adidas-reebok-deal-fc061257a8cf/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18016541906944388"
+    ],
+    "carousel_id": ""
+  }
 }
