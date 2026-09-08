@@ -17,7 +17,7 @@ concurrency:
 jobs:
   publish-one:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -34,19 +34,11 @@ jobs:
       - name: Install dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Apply verified live policy
+      - name: Apply verified zero-text-cost policy
         run: |
           set -euo pipefail
-          jq empty data/fallback-posts.json
-          if [ -f data/fallback-posts-extra.json ]; then
-            jq empty data/fallback-posts-extra.json
-            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-          else
-            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json > /tmp/fallback-posts.json
-          fi
-          mv /tmp/fallback-posts.json data/fallback-posts.json
+          jq empty data/fallback-posts-attention.json
+          cp data/fallback-posts-attention.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
           python scripts/fix_copy_overflow.py
@@ -57,11 +49,22 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
 
-          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v17-attention-safe:" + JSON.stringify(post))/' src/index.mjs
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s:
+              raise SystemExit('force verified fallback patch anchor not found')
+          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
+
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v18-verified-fallback:" + JSON.stringify(post))/' src/index.mjs
+          grep -n "Forced verified fallback" src/index.mjs
           npm run check
 
-      - name: Publish one post once
+      - name: Publish one verified post once
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -76,7 +79,8 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: "false"
           FORCE_RUN: "true"
-          MAX_TOPIC_ATTEMPTS: "3"
+          FORCE_VERIFIED_FALLBACK: "true"
+          MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
