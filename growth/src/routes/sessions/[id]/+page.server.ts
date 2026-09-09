@@ -5,10 +5,13 @@ export const load: PageServerLoad = async ({ platform, params }) => {
   const db = platform?.env?.DB;
   if (!db) throw error(503, 'Database unavailable');
 
-  const session = await db.prepare(`
-    SELECT id,started_at,last_seen_at,landing_path,referrer,utm_source,utm_campaign,fbclid
-    FROM sessions WHERE id=?1
-  `).bind(params.id).first<any>();
+  const [session, replay] = await Promise.all([
+    db.prepare(`
+      SELECT id,started_at,last_seen_at,landing_path,referrer,utm_source,utm_campaign,fbclid
+      FROM sessions WHERE id=?1
+    `).bind(params.id).first<any>(),
+    db.prepare(`SELECT COUNT(*) AS chunks,COALESCE(SUM(bytes),0) AS bytes FROM replay_chunks WHERE session_id=?1`).bind(params.id).first<any>()
+  ]);
   if (!session) throw error(404, 'Session not found');
 
   const result = await db.prepare(`
@@ -63,6 +66,7 @@ export const load: PageServerLoad = async ({ platform, params }) => {
 
   return {
     session:{id:String(session.id),startedAt:Number(session.started_at||0),lastSeenAt:Number(session.last_seen_at||0),landingPath:String(session.landing_path||'/'),referrer:String(session.referrer||''),utmSource:String(session.utm_source||''),utmCampaign:String(session.utm_campaign||''),fbclid:String(session.fbclid||'')},
-    events,journey,lastPath,exitStage,likelyReason,summary:{productViews,atc,checkout,rage,dead}
+    events,journey,lastPath,exitStage,likelyReason,summary:{productViews,atc,checkout,rage,dead},
+    replay:{available:Number(replay?.chunks||0)>0,chunks:Number(replay?.chunks||0),bytes:Number(replay?.bytes||0)}
   };
 };
