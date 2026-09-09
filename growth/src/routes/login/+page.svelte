@@ -17,7 +17,7 @@
     {:else}
       <form method="POST">
         <label for="password">Lozinka</label>
-        <input id="password" name="password" type="password" autocomplete="current-password" autofocus required />
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
         {#if form?.error}<div class="error">{form.error}</div>{/if}
         <button>Uđi u dashboard</button>
       </form>
