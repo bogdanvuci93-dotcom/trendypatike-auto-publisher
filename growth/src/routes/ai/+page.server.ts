@@ -1,8 +1,7 @@
 import type { PageServerLoad } from './$types';
+import { validOrderSql } from '$lib/server/orders';
 
 const DAY = 24 * 60 * 60 * 1000;
-const VALID_ORDER_SQL = `cancelled=0 AND UPPER(COALESCE(financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
-const VALID_ORDER_SQL_O = `o.cancelled=0 AND UPPER(COALESCE(o.financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
 
 export const load: PageServerLoad = async ({ platform }) => {
   const db = platform?.env?.DB;
@@ -17,23 +16,20 @@ export const load: PageServerLoad = async ({ platform }) => {
   const now = Date.now();
   const from30 = now - 30 * DAY;
   const from7 = now - 7 * DAY;
+  const metaSince = new Date(now - 6 * DAY).toISOString().slice(0,10);
 
   const [shop, topProduct, sessionTotals, adResult] = await Promise.all([
     db.prepare(`
-      SELECT
-        COALESCE(SUM(total), 0) AS revenue,
-        COUNT(*) AS orders
+      SELECT COALESCE(SUM(total), 0) AS revenue, COUNT(*) AS orders
       FROM shopify_orders
-      WHERE ${VALID_ORDER_SQL} AND created_at >= ?1
+      WHERE ${validOrderSql()} AND created_at >= ?1
     `).bind(from30).first<{ revenue: number; orders: number }>(),
 
     db.prepare(`
-      SELECT
-        MAX(i.title) AS title,
-        COALESCE(SUM(i.line_total), 0) AS revenue
+      SELECT MAX(i.title) AS title, COALESCE(SUM(i.line_total), 0) AS revenue
       FROM shopify_order_items i
       JOIN shopify_orders o ON o.id=i.order_id
-      WHERE ${VALID_ORDER_SQL_O} AND o.created_at >= ?1
+      WHERE ${validOrderSql('o')} AND o.created_at >= ?1
       GROUP BY COALESCE(i.product_id, i.title)
       ORDER BY revenue DESC
       LIMIT 1
@@ -58,26 +54,23 @@ export const load: PageServerLoad = async ({ platform }) => {
     }>(),
 
     db.prepare(`
-      WITH latest AS (
-        SELECT ad_id, MAX(snapshot_ts) AS max_ts
-        FROM ad_snapshots
-        GROUP BY ad_id
-      )
       SELECT
-        a.account_name,
-        a.currency,
-        a.ad_id,
-        a.ad_name,
-        a.spend,
-        a.impressions,
-        a.clicks,
-        a.purchases,
-        a.purchase_value
-      FROM ad_snapshots a
-      JOIN latest l ON l.ad_id=a.ad_id AND l.max_ts=a.snapshot_ts
-      ORDER BY a.spend DESC
+        account_id,
+        MAX(account_name) AS account_name,
+        MAX(currency) AS currency,
+        ad_id,
+        MAX(ad_name) AS ad_name,
+        SUM(spend) AS spend,
+        SUM(impressions) AS impressions,
+        SUM(clicks) AS clicks,
+        SUM(purchases) AS purchases,
+        SUM(purchase_value) AS purchase_value
+      FROM meta_daily
+      WHERE day >= ?1
+      GROUP BY account_id,ad_id
+      ORDER BY spend DESC
       LIMIT 50
-    `).all()
+    `).bind(metaSince).all()
   ]);
 
   const revenue = Number(shop?.revenue || 0);
