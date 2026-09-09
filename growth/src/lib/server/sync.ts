@@ -9,6 +9,22 @@ export type SyncEnv = {
 
 const DAY = 86400000;
 
+async function beginSync(db: D1Database, provider: string, minIntervalMs = 0) {
+  const now = Date.now();
+  if (minIntervalMs > 0) {
+    const state = await db.prepare(`SELECT last_attempt_at FROM sync_state WHERE provider=?1`).bind(provider).first<{ last_attempt_at:number|null }>();
+    const lastAttempt = Number(state?.last_attempt_at || 0);
+    if (lastAttempt && now - lastAttempt < minIntervalMs) return false;
+  }
+
+  await db.prepare(`
+    INSERT INTO sync_state(provider,last_success_at,last_attempt_at,last_error,result_json)
+    VALUES(?1,NULL,?2,NULL,'{}')
+    ON CONFLICT(provider) DO UPDATE SET last_attempt_at=excluded.last_attempt_at
+  `).bind(provider, now).run();
+  return true;
+}
+
 async function setSyncState(db: D1Database, provider: string, ok: boolean, result: unknown, error = '') {
   const now = Date.now();
   await db.prepare(`
@@ -38,7 +54,7 @@ query RecentOrders($query: String!, $after: String) {
         nodes {
           title
           quantity
-          product { id }
+          product { id handle }
           variant { id }
           discountedTotalSet { shopMoney { amount } }
         }
@@ -47,15 +63,20 @@ query RecentOrders($query: String!, $after: String) {
   }
 }`;
 
-export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch) {
+export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, lookbackDays = 31, minIntervalMs = 0) {
   const db = env.DB;
   const key = env.APP_ENCRYPTION_KEY;
   if (!db || !key) throw new Error('Database/encryption not configured');
+
+  const allowed = await beginSync(db, 'shopify', minIntervalMs);
+  if (!allowed) return { ok:true, provider:'shopify', skipped:true, reason:'recent_sync' };
+
   try {
     const connection = await getConnection(db, key, 'shopify');
     if (!connection?.accountId) throw new Error('Shopify is not connected');
 
-    const since = new Date(Date.now() - 31 * DAY).toISOString().slice(0, 10);
+    const days = Math.max(1, Math.min(31, Math.round(lookbackDays || 31)));
+    const since = new Date(Date.now() - days * DAY).toISOString().slice(0, 10);
     let after: string | null = null;
     let fetchedOrders = 0;
     let validOrders = 0;
@@ -117,19 +138,21 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch) {
         for (const item of order.lineItems?.nodes ?? []) {
           itemCount++;
           await db.prepare(`
-            INSERT INTO shopify_order_items(order_id,product_id,variant_id,title,quantity,line_total)
-            VALUES(?1,?2,?3,?4,?5,?6)
+            INSERT INTO shopify_order_items(order_id,product_id,variant_id,title,quantity,line_total,product_handle)
+            VALUES(?1,?2,?3,?4,?5,?6,?7)
             ON CONFLICT(order_id,variant_id,title) DO UPDATE SET
               product_id=excluded.product_id,
               quantity=excluded.quantity,
-              line_total=excluded.line_total
+              line_total=excluded.line_total,
+              product_handle=excluded.product_handle
           `).bind(
             order.id,
             item.product?.id ?? null,
             item.variant?.id ?? null,
             String(item.title || '').slice(0, 200),
             Number(item.quantity || 0),
-            Number(item.discountedTotalSet?.shopMoney?.amount || 0)
+            Number(item.discountedTotalSet?.shopMoney?.amount || 0),
+            String(item.product?.handle || '').slice(0, 160) || null
           ).run();
         }
       }
@@ -144,12 +167,12 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch) {
       )
     `).run();
 
-    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, items: itemCount, since };
+    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, items: itemCount, since, lookbackDays:days };
     await setSyncState(db, 'shopify', true, result);
     return result;
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Shopify sync failed';
-    if (db) await setSyncState(db, 'shopify', false, {}, message).catch(() => {});
+    await setSyncState(db, 'shopify', false, {}, message).catch(() => {});
     throw e;
   }
 }
@@ -176,11 +199,15 @@ async function readPagedMeta(url: URL, fetchFn: typeof fetch) {
   return rows;
 }
 
-export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days = 7) {
+export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days = 7, minIntervalMs = 0) {
   const db = env.DB;
   const key = env.APP_ENCRYPTION_KEY;
   const version = env.META_GRAPH_VERSION || 'v24.0';
   if (!db || !key) throw new Error('Database/encryption not configured');
+
+  const allowed = await beginSync(db, 'meta', minIntervalMs);
+  if (!allowed) return { ok:true, provider:'meta', skipped:true, reason:'recent_sync' };
+
   try {
     const connection = await getConnection(db, key, 'meta');
     if (!connection) throw new Error('Meta Ads is not connected');
@@ -194,8 +221,9 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
     const accountsPayload = await accountsRes.json() as any;
     const accounts = accountsPayload.data ?? [];
 
+    const safeDays = Math.max(1, Math.min(35, Math.round(days || 7)));
     const until = new Date().toISOString().slice(0, 10);
-    const since = new Date(Date.now() - Math.max(0, days - 1) * DAY).toISOString().slice(0, 10);
+    const since = new Date(Date.now() - Math.max(0, safeDays - 1) * DAY).toISOString().slice(0, 10);
     let ads = 0;
     let rowsStored = 0;
     const activeAccounts: { id: string; name: string; currency: string; ads: number }[] = [];
@@ -206,7 +234,7 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
       insightsUrl.searchParams.set('time_range', JSON.stringify({ since, until }));
       insightsUrl.searchParams.set('time_increment', '1');
       insightsUrl.searchParams.set('limit', '500');
-      insightsUrl.searchParams.set('fields', 'date_start,date_stop,campaign_id,campaign_name,adset_id,adset_name,ad_id,ad_name,spend,impressions,clicks,actions,action_values');
+      insightsUrl.searchParams.set('fields', 'date_start,date_stop,campaign_id,campaign_name,adset_id,adset_name,ad_id,ad_name,spend,impressions,reach,frequency,clicks,inline_link_clicks,actions,action_values');
       insightsUrl.searchParams.set('access_token', connection.accessToken);
 
       const insightRows = await readPagedMeta(insightsUrl, fetchFn);
@@ -214,13 +242,18 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
       for (const row of insightRows) {
         if (!row.ad_id || !row.date_start) continue;
         adIds.add(String(row.ad_id));
+
         const purchases = actionValue(row.actions, ['offsite_conversion.fb_pixel_purchase','purchase','omni_purchase']);
         const purchaseValue = actionValue(row.action_values, ['offsite_conversion.fb_pixel_purchase','purchase','omni_purchase']);
+        const landingPageViews = actionValue(row.actions, ['landing_page_view','omni_landing_page_view']);
+        const addToCart = actionValue(row.actions, ['offsite_conversion.fb_pixel_add_to_cart','add_to_cart','omni_add_to_cart']);
+        const checkouts = actionValue(row.actions, ['offsite_conversion.fb_pixel_initiate_checkout','initiate_checkout','omni_initiated_checkout']);
+
         await db.prepare(`
           INSERT INTO meta_daily(
             day,account_id,account_name,currency,campaign_id,campaign_name,adset_id,adset_name,ad_id,ad_name,
-            spend,impressions,clicks,purchases,purchase_value,synced_at
-          ) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13,?14,?15,?16)
+            spend,impressions,clicks,purchases,purchase_value,synced_at,reach,frequency,link_clicks,landing_page_views,add_to_cart,checkouts
+          ) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13,?14,?15,?16,?17,?18,?19,?20,?21,?22)
           ON CONFLICT(day,account_id,ad_id) DO UPDATE SET
             account_name=excluded.account_name,
             currency=excluded.currency,
@@ -234,6 +267,12 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
             clicks=excluded.clicks,
             purchases=excluded.purchases,
             purchase_value=excluded.purchase_value,
+            reach=excluded.reach,
+            frequency=excluded.frequency,
+            link_clicks=excluded.link_clicks,
+            landing_page_views=excluded.landing_page_views,
+            add_to_cart=excluded.add_to_cart,
+            checkouts=excluded.checkouts,
             synced_at=excluded.synced_at
         `).bind(
           row.date_start,
@@ -251,7 +290,13 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
           Number(row.clicks || 0),
           purchases,
           purchaseValue,
-          Date.now()
+          Date.now(),
+          Number(row.reach || 0),
+          Number(row.frequency || 0),
+          Number(row.inline_link_clicks || 0),
+          landingPageViews,
+          addToCart,
+          checkouts
         ).run();
         rowsStored++;
       }
@@ -262,12 +307,12 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
     const cutoff = new Date(Date.now() - 35 * DAY).toISOString().slice(0, 10);
     await db.prepare(`DELETE FROM meta_daily WHERE day < ?1`).bind(cutoff).run();
 
-    const result = { ok: true, provider: 'meta', accounts: accounts.length, activeAccounts, ads, rows: rowsStored, since, until, days };
+    const result = { ok: true, provider: 'meta', accounts: accounts.length, activeAccounts, ads, rows: rowsStored, since, until, days:safeDays };
     await setSyncState(db, 'meta', true, result);
     return result;
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Meta sync failed';
-    if (db) await setSyncState(db, 'meta', false, {}, message).catch(() => {});
+    await setSyncState(db, 'meta', false, {}, message).catch(() => {});
     throw e;
   }
 }
