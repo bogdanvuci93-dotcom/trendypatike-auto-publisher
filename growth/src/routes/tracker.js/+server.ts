@@ -7,7 +7,7 @@ const SOURCE = String.raw`(() => {
   var ORIGIN='https://trendypatike-growth.bogdanvuci93.workers.dev';
   var COLLECTOR=ORIGIN+'/api/collect';
   var SITE='tp_20260909';
-  var VERSION='2026-09-09.6';
+  var VERSION='2026-09-09.7';
   var host=String(location.hostname||'').toLowerCase();
   if(!(host==='trendypatike.com'||host.endsWith('.trendypatike.com')||host.endsWith('.myshopify.com')||host.endsWith('.shopifypreview.com')))return;
   if(/^\/(account|challenge|password)(\/|$)/.test(location.pathname))return;
@@ -46,11 +46,7 @@ const SOURCE = String.raw`(() => {
   var pageStarted=Date.now(),lastTick=pageStarted,activeMs=0,visibleMs=0,maxScroll=0,lastInteraction=null;
   var tick=function(){var t=Date.now(),d=Math.min(30000,Math.max(0,t-lastTick));if(document.visibilityState==='visible'){visibleMs+=d;if(document.hasFocus())activeMs+=d;}lastTick=t;};
   var resetPage=function(){currentPath=location.pathname||'/';pageStarted=Date.now();lastTick=pageStarted;activeMs=0;visibleMs=0;maxScroll=0;lastInteraction=null;};
-  var pageExit=function(reason,path){
-    tick();
-    var dh=docHeight(),vp=viewport(),top=clampPct(scrollY/dh*100),mid=clampPct((scrollY+innerHeight/2)/dh*100),bottom=clampPct((scrollY+innerHeight)/dh*100);
-    send('page_exit',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll,reason:reason||'navigate',scrollY:Math.round(scrollY),docHeight:dh,exitTopPct:top,exitMidPct:mid,exitBottomPct:bottom,vw:vp.vw,vh:vp.vh,device:vp.device,lastInteraction:lastInteraction},path||currentPath);
-  };
+  var pageExit=function(reason,path){tick();var dh=docHeight(),vp=viewport(),top=clampPct(scrollY/dh*100),mid=clampPct((scrollY+innerHeight/2)/dh*100),bottom=clampPct((scrollY+innerHeight)/dh*100);send('page_exit',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll,reason:reason||'navigate',scrollY:Math.round(scrollY),docHeight:dh,exitTopPct:top,exitMidPct:mid,exitBottomPct:bottom,vw:vp.vw,vh:vp.vh,device:vp.device,lastInteraction:lastInteraction},path||currentPath);};
   var page=function(){currentPath=location.pathname||'/';var vp=viewport();send('page_view',{vw:vp.vw,vh:vp.vh,device:vp.device,docHeight:docHeight()},currentPath);if(currentPath.indexOf('/products/')===0){var h=(currentPath.split('/products/')[1]||'').split('/')[0];send('product_view',{handle:h},currentPath);}if(currentPath==='/cart'||currentPath.indexOf('/cart/')===0)send('cart_view',{source:'page'},currentPath);};
 
   if(fresh)send('session_start',{vw:innerWidth,vh:innerHeight,screenW:screen.width,screenH:screen.height,device:device(),lang:navigator.language||''});
@@ -60,21 +56,7 @@ const SOURCE = String.raw`(() => {
   var safeLabel=function(el){if(!el)return '';var v=el.getAttribute('aria-label')||el.getAttribute('title')||el.getAttribute('data-track')||'';if(!v){v=(el.textContent||'').replace(/\s+/g,' ').trim();}return v.slice(0,100);};
   var mutationSeq=0;try{new MutationObserver(function(){mutationSeq++;}).observe(document.documentElement,{subtree:true,childList:true,attributes:true});}catch(e){}
   var clicks=[];
-  document.addEventListener('click',function(ev){
-    var dh=docHeight(),xp=clampPct(ev.clientX/Math.max(innerWidth,1)*100),yp=clampPct(ev.clientY/Math.max(innerHeight,1)*100),docY=scrollY+ev.clientY,dyp=clampPct(docY/dh*100);
-    var interactive=ev.target instanceof Element?ev.target.closest('a,button,[role="button"],input[type="submit"],[data-action]'):null;
-    var target=desc(interactive||ev.target),label=safeLabel(interactive),href=interactive&&interactive.getAttribute?interactive.getAttribute('href')||'':'';
-    var vp=viewport(),clickMeta={xPct:xp,yPct:yp,docYPct:dyp,docYpx:Math.round(docY),docHeight:dh,clientX:Math.round(ev.clientX),clientY:Math.round(ev.clientY),target:target,label:label,href:href,vw:vp.vw,vh:vp.vh,device:vp.device};
-    lastInteraction={label:label,target:target,href:href,ts:Date.now(),docYPct:dyp};
-    send('click',clickMeta,currentPath);
-    var t=Date.now();clicks.push({t:t,x:ev.clientX,y:ev.clientY});while(clicks.length&&t-clicks[0].t>900)clicks.shift();if(clicks.length>=3){var a=clicks[clicks.length-3];if(Math.hypot(ev.clientX-a.x,ev.clientY-a.y)<55)send('rage_click',clickMeta,currentPath);}
-    if(!interactive)return;
-    var name=interactive.getAttribute('name')||'',classes=interactive.getAttribute('class')||'',act=interactive.getAttribute('data-action')||interactive.getAttribute('data-add-to-cart')||'';
-    if(/\/checkout(?:[/?#]|$)/.test(href)||name==='checkout')send('checkout_started',{source:label||target},currentPath);
-    if(/\/cart(?:[/?#]|$)/.test(href))send('cart_view',{source:label||target},currentPath);
-    if(name==='add'||/add[-_ ]?to[-_ ]?cart/i.test(classes+' '+act+' '+label))send('add_to_cart',{source:label||target,product:currentPath.indexOf('/products/')===0?currentPath.split('/products/')[1]:''},currentPath);
-    var beforeUrl=location.href,beforeMutation=mutationSeq;setTimeout(function(){if(location.href===beforeUrl&&mutationSeq===beforeMutation&&!/\/checkout/.test(href)&&!name&&!/add[-_ ]?to[-_ ]?cart/i.test(classes+' '+act+' '+label)){send('dead_click',clickMeta,currentPath);}},900);
-  },true);
+  document.addEventListener('click',function(ev){var dh=docHeight(),xp=clampPct(ev.clientX/Math.max(innerWidth,1)*100),yp=clampPct(ev.clientY/Math.max(innerHeight,1)*100),docY=scrollY+ev.clientY,dyp=clampPct(docY/dh*100);var interactive=ev.target instanceof Element?ev.target.closest('a,button,[role="button"],input[type="submit"],[data-action]'):null;var target=desc(interactive||ev.target),label=safeLabel(interactive),href=interactive&&interactive.getAttribute?interactive.getAttribute('href')||'':'';var vp=viewport(),clickMeta={xPct:xp,yPct:yp,docYPct:dyp,docYpx:Math.round(docY),docHeight:dh,clientX:Math.round(ev.clientX),clientY:Math.round(ev.clientY),target:target,label:label,href:href,vw:vp.vw,vh:vp.vh,device:vp.device};lastInteraction={label:label,target:target,href:href,ts:Date.now(),docYPct:dyp};send('click',clickMeta,currentPath);var t=Date.now();clicks.push({t:t,x:ev.clientX,y:ev.clientY});while(clicks.length&&t-clicks[0].t>900)clicks.shift();if(clicks.length>=3){var a=clicks[clicks.length-3];if(Math.hypot(ev.clientX-a.x,ev.clientY-a.y)<55)send('rage_click',clickMeta,currentPath);}if(!interactive)return;var name=interactive.getAttribute('name')||'',classes=interactive.getAttribute('class')||'',act=interactive.getAttribute('data-action')||interactive.getAttribute('data-add-to-cart')||'';if(/\/checkout(?:[/?#]|$)/.test(href)||name==='checkout')send('checkout_started',{source:label||target},currentPath);if(/\/cart(?:[/?#]|$)/.test(href))send('cart_view',{source:label||target},currentPath);if(name==='add'||/add[-_ ]?to[-_ ]?cart/i.test(classes+' '+act+' '+label))send('add_to_cart',{source:label||target,product:currentPath.indexOf('/products/')===0?currentPath.split('/products/')[1]:''},currentPath);var beforeUrl=location.href,beforeMutation=mutationSeq;setTimeout(function(){if(location.href===beforeUrl&&mutationSeq===beforeMutation&&!/\/checkout/.test(href)&&!name&&!/add[-_ ]?to[-_ ]?cart/i.test(classes+' '+act+' '+label)){send('dead_click',clickMeta,currentPath);}},900);},true);
 
   document.addEventListener('submit',function(ev){var f=ev.target instanceof HTMLFormElement?ev.target:null;if(!f)return;var a=f.getAttribute('action')||'';if(/\/cart\/add/.test(a))send('add_to_cart',{source:'form',product:currentPath.indexOf('/products/')===0?currentPath.split('/products/')[1]:''},currentPath);if(/\/checkout/.test(a))send('checkout_started',{source:'form'},currentPath);},true);
 
@@ -91,7 +73,9 @@ const SOURCE = String.raw`(() => {
   var navigate=function(reason,fn,args){var old=currentPath;pageExit(reason,old);var r=fn.apply(history,args);reached={};resetPage();setTimeout(page,0);return r;};
   ['pushState','replaceState'].forEach(function(k){var fn=history[k];if(typeof fn==='function')history[k]=function(){return navigate(k,fn,arguments);};});
   addEventListener('popstate',function(){var old=currentPath;pageExit('popstate',old);reached={};resetPage();setTimeout(page,0);});
+
   window.__TP_GROWTH_STATUS__={version:VERSION,collector:COLLECTOR,sessionId:sid};
+  try{var replay=document.createElement('script');replay.src=ORIGIN+'/replay.js?v=20260909-1';replay.async=true;replay.crossOrigin='anonymous';document.head.appendChild(replay);}catch(e){}
 })();`;
 
 export const GET: RequestHandler = async () => new Response(SOURCE, {
