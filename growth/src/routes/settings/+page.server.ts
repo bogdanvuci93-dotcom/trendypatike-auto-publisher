@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { listConnectionStatus } from '$lib/server/connections';
 
-const TRACKER_VERSION = '20260909-5';
+const TRACKER_VERSION = '20260909-6';
 
 export const load: PageServerLoad = async ({ platform, url }) => {
   const env = platform?.env;
@@ -44,7 +44,7 @@ export const load: PageServerLoad = async ({ platform, url }) => {
       shopify: Boolean(env?.SHOPIFY_CLIENT_ID && env?.SHOPIFY_CLIENT_SECRET),
       meta: Boolean(env?.META_APP_ID && env?.META_APP_SECRET)
     },
-    autosync: { shopifyMinutes: 5, metaMinutes: 15, state: syncState },
+    autosync: { browserSeconds: 30, serverMinutes: 1, fullMinutes: 15, state: syncState },
     tracker: {
       scriptUrl: `${url.origin}/tracker.js?v=${TRACKER_VERSION}`,
       sessions24h: trackerSessions24h,
