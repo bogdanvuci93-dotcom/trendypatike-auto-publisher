@@ -3,6 +3,7 @@ import type { RequestHandler } from './$types';
 import { getConnection } from '$lib/server/connections';
 
 const INVALID_FINANCIAL_STATUSES = new Set(['REFUNDED', 'PARTIALLY_REFUNDED', 'VOIDED']);
+const INVALID_RETURN_STATUSES = new Set(['RETURN_REQUESTED', 'IN_PROGRESS', 'INSPECTION_COMPLETE', 'RETURNED']);
 
 const QUERY = `#graphql
 query RecentOrders($query: String!) {
@@ -12,6 +13,7 @@ query RecentOrders($query: String!) {
       createdAt
       cancelledAt
       displayFinancialStatus
+      returnStatus
       totalPriceSet { shopMoney { amount currencyCode } }
       currentTotalPriceSet { shopMoney { amount currencyCode } }
       lineItems(first: 100) {
@@ -54,21 +56,27 @@ export const POST: RequestHandler = async ({ platform, fetch }) => {
   let ignoredOrderCount = 0;
 
   for (const order of orders) {
-    const status = String(order.displayFinancialStatus || '').toUpperCase();
-    const excluded = Boolean(order.cancelledAt) || INVALID_FINANCIAL_STATUSES.has(status);
-    const money = order.currentTotalPriceSet?.shopMoney || order.totalPriceSet?.shopMoney;
-
-    await db.prepare(`INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at)
-      VALUES(?1,?2,?3,?4,?5,?6,?7)
-      ON CONFLICT(id) DO UPDATE SET total=excluded.total,currency=excluded.currency,financial_status=excluded.financial_status,cancelled=excluded.cancelled,synced_at=excluded.synced_at`)
-      .bind(order.id, Date.parse(order.createdAt), Number(money?.amount || 0), money?.currencyCode || 'RSD', status || null, order.cancelledAt ? 1 : 0, Date.now())
-      .run();
+    const financialStatus = String(order.displayFinancialStatus || '').toUpperCase();
+    const returnStatus = String(order.returnStatus || 'NO_RETURN').toUpperCase();
+    const excluded = Boolean(order.cancelledAt)
+      || INVALID_FINANCIAL_STATUSES.has(financialStatus)
+      || INVALID_RETURN_STATUSES.has(returnStatus);
 
     if (excluded) {
       ignoredOrderCount++;
-      await db.prepare(`DELETE FROM shopify_order_items WHERE order_id=?1`).bind(order.id).run();
+      await db.batch([
+        db.prepare(`DELETE FROM shopify_order_items WHERE order_id=?1`).bind(order.id),
+        db.prepare(`DELETE FROM shopify_orders WHERE id=?1`).bind(order.id)
+      ]);
       continue;
     }
+
+    const money = order.currentTotalPriceSet?.shopMoney || order.totalPriceSet?.shopMoney;
+    await db.prepare(`INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at)
+      VALUES(?1,?2,?3,?4,?5,0,?6)
+      ON CONFLICT(id) DO UPDATE SET created_at=excluded.created_at,total=excluded.total,currency=excluded.currency,financial_status=excluded.financial_status,cancelled=0,synced_at=excluded.synced_at`)
+      .bind(order.id, Date.parse(order.createdAt), Number(money?.amount || 0), money?.currencyCode || 'RSD', financialStatus || null, Date.now())
+      .run();
 
     validOrderCount++;
     for (const item of order.lineItems?.nodes ?? []) {
@@ -81,6 +89,7 @@ export const POST: RequestHandler = async ({ platform, fetch }) => {
     }
   }
 
+  // Clean legacy rows that were saved by older versions before exclusion logic existed.
   await db.prepare(`
     DELETE FROM shopify_order_items
     WHERE order_id IN (
@@ -88,6 +97,11 @@ export const POST: RequestHandler = async ({ platform, fetch }) => {
       WHERE cancelled=1
          OR UPPER(COALESCE(financial_status,'')) IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')
     )
+  `).run();
+  await db.prepare(`
+    DELETE FROM shopify_orders
+    WHERE cancelled=1
+       OR UPPER(COALESCE(financial_status,'')) IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')
   `).run();
 
   return json({
