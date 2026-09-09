@@ -7,6 +7,7 @@ const PUBLIC_PATHS = new Set([
   '/connect/shopify/callback',
   '/connect/meta/callback',
   '/tracker.js',
+  '/replay.js',
   '/api/collect',
   '/api/replay/collect'
 ]);
@@ -15,7 +16,6 @@ export const handle: Handle = async ({ event, resolve }) => {
   const password = event.platform?.env?.DASHBOARD_PASSWORD as string | undefined;
   const encryptionKey = event.platform?.env?.APP_ENCRYPTION_KEY as string | undefined;
 
-  // Until DASHBOARD_PASSWORD is configured, preserve current setup flow.
   if (!password || !encryptionKey) return resolve(event);
 
   const path = event.url.pathname;
