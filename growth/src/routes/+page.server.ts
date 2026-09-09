@@ -1,7 +1,8 @@
 import type { PageServerLoad } from './$types';
+import { validOrderSql } from '$lib/server/orders';
 
 const TZ = 'Europe/Belgrade';
-const VALID_ORDER_SQL = `cancelled=0 AND UPPER(COALESCE(financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
+const DAY = 86400000;
 
 function dayKey(ms: number) {
   const parts = new Intl.DateTimeFormat('en-GB', {
@@ -33,14 +34,33 @@ export const load: PageServerLoad = async ({ platform }) => {
   try {
     const now = Date.now();
     const today = dayKey(now);
-    const recentFrom = now - 8 * 86400000;
+    const metaFrom = dayKey(now - 6 * DAY);
+    const recentFrom = now - 8 * DAY;
     const trackerFrom = now - 36 * 3600000;
 
-    const [ordersResult, sessionsResult, eventsResult, latest] = await Promise.all([
-      db.prepare(`SELECT created_at,total,currency FROM shopify_orders WHERE created_at >= ?1 AND ${VALID_ORDER_SQL} ORDER BY created_at ASC`).bind(recentFrom).all(),
+    const [ordersResult, sessionsResult, eventsResult, metaResult, adResult] = await Promise.all([
+      db.prepare(`SELECT created_at,total,currency FROM shopify_orders WHERE created_at >= ?1 AND ${validOrderSql()} ORDER BY created_at ASC`).bind(recentFrom).all(),
       db.prepare(`SELECT id,started_at FROM sessions WHERE started_at >= ?1`).bind(trackerFrom).all(),
       db.prepare(`SELECT session_id,type,event_ts FROM events WHERE event_ts >= ?1 AND type IN ('add_to_cart','checkout_started')`).bind(trackerFrom).all(),
-      db.prepare(`SELECT MAX(snapshot_ts) AS ts FROM ad_snapshots`).first<{ ts: number | null }>()
+      db.prepare(`SELECT day,currency,spend,purchases,purchase_value FROM meta_daily WHERE day >= ?1 ORDER BY day ASC`).bind(metaFrom).all(),
+      db.prepare(`
+        SELECT
+          account_id,
+          MAX(account_name) AS account_name,
+          ad_id,
+          MAX(ad_name) AS ad_name,
+          MAX(currency) AS currency,
+          SUM(spend) AS spend,
+          SUM(impressions) AS impressions,
+          SUM(clicks) AS clicks,
+          SUM(purchases) AS purchases,
+          SUM(purchase_value) AS purchase_value
+        FROM meta_daily
+        WHERE day >= ?1
+        GROUP BY account_id,ad_id
+        ORDER BY spend DESC
+        LIMIT 12
+      `).bind(metaFrom).all()
     ]);
 
     const orderRows = ordersResult.results as any[];
@@ -63,30 +83,13 @@ export const load: PageServerLoad = async ({ platform }) => {
     const addToCart = atcSessions.size;
     const checkout = checkoutSessions.size;
 
-    let spend = 0;
-    let metaPurchases = 0;
-    let metaRevenue = 0;
-    let metaCurrency = '';
-    let adRows: any[] = [];
-
-    if (latest?.ts) {
-      const adsResult = await db.prepare(`
-        SELECT ad_name, spend, impressions, clicks, purchases, purchase_value, currency
-        FROM ad_snapshots
-        WHERE snapshot_ts=?1
-        ORDER BY spend DESC
-        LIMIT 12
-      `).bind(latest.ts).all();
-      adRows = adsResult.results as any[];
-      const currencies = [...new Set(adRows.map((r) => String(r.currency || '')).filter(Boolean))];
-      metaCurrency = currencies.length === 1 ? currencies[0] : '';
-      if (currencies.length <= 1) {
-        spend = adRows.reduce((sum, r) => sum + Number(r.spend || 0), 0);
-        metaPurchases = adRows.reduce((sum, r) => sum + Number(r.purchases || 0), 0);
-        metaRevenue = adRows.reduce((sum, r) => sum + Number(r.purchase_value || 0), 0);
-      }
-    }
-
+    const metaRows = metaResult.results as any[];
+    const metaCurrencies = [...new Set(metaRows.map((r) => String(r.currency || '')).filter(Boolean))];
+    const metaCurrency = metaCurrencies.length === 1 ? metaCurrencies[0] : '';
+    const comparableMetaRows = metaCurrencies.length <= 1 ? metaRows : [];
+    const spend = comparableMetaRows.reduce((sum, r) => sum + Number(r.spend || 0), 0);
+    const metaPurchases = comparableMetaRows.reduce((sum, r) => sum + Number(r.purchases || 0), 0);
+    const metaRevenue = comparableMetaRows.reduce((sum, r) => sum + Number(r.purchase_value || 0), 0);
     const roas = spend > 0 ? metaRevenue / spend : 0;
     const cpa = metaPurchases > 0 ? spend / metaPurchases : 0;
     const conversionRate = sessions > 0 ? (orders / sessions) * 100 : 0;
@@ -94,22 +97,25 @@ export const load: PageServerLoad = async ({ platform }) => {
     const keys: string[] = [];
     const trend: { label: string; revenue: number; spend: number }[] = [];
     for (let i = 6; i >= 0; i--) {
-      const d = new Date(now - i * 86400000);
+      const d = new Date(now - i * DAY);
       const key = dayKey(d.getTime());
       keys.push(key);
       trend.push({
-        label: `${new Intl.DateTimeFormat('sr-RS', { timeZone: TZ, day: '2-digit', month: '2-digit' }).format(d)}`,
+        label: new Intl.DateTimeFormat('sr-RS', { timeZone: TZ, day: '2-digit', month: '2-digit' }).format(d),
         revenue: 0,
-        spend: key === today ? spend : 0
+        spend: 0
       });
     }
     for (const row of orderRows) {
-      const key = dayKey(Number(row.created_at));
-      const idx = keys.indexOf(key);
+      const idx = keys.indexOf(dayKey(Number(row.created_at)));
       if (idx >= 0) trend[idx].revenue += Number(row.total || 0);
     }
+    for (const row of comparableMetaRows) {
+      const idx = keys.indexOf(String(row.day || ''));
+      if (idx >= 0) trend[idx].spend += Number(row.spend || 0);
+    }
 
-    const ads = adRows.map((row) => {
+    const ads = (adResult.results as any[]).map((row) => {
       const impressions = Number(row.impressions || 0);
       const clicks = Number(row.clicks || 0);
       const adSpend = Number(row.spend || 0);
