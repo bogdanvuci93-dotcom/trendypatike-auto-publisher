@@ -7,7 +7,8 @@ const PUBLIC_PATHS = new Set([
   '/connect/shopify/callback',
   '/connect/meta/callback',
   '/tracker.js',
-  '/api/collect'
+  '/api/collect',
+  '/api/replay/collect'
 ]);
 
 export const handle: Handle = async ({ event, resolve }) => {
