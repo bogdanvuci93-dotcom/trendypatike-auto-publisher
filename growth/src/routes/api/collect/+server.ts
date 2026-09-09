@@ -9,7 +9,7 @@ const ALLOWED_TYPES = new Set([
 const DAY = 24 * 60 * 60 * 1000;
 const MAX_FUTURE_SKEW = 5 * 60 * 1000;
 const BEACON_SITE = 'tp_20260909';
-const COLLECTOR_VERSION = '2026-09-09.4';
+const COLLECTOR_VERSION = '2026-09-09.5';
 const GIF = new Uint8Array([71,73,70,56,57,97,1,0,1,0,128,0,0,0,0,0,255,255,255,33,249,4,1,0,0,0,0,44,0,0,0,0,1,0,1,0,0,2,2,68,1,0,59]);
 
 function hostAllowed(hostname: string) {
@@ -56,15 +56,20 @@ function safeMeta(type: string, input: unknown) {
     const n = Number(meta[key]);
     if (Number.isFinite(n)) out[key] = Math.max(min, Math.min(max, n));
   };
+  const viewport = () => {
+    number('vw',0,10000);
+    number('vh',0,10000);
+    out.device = text(meta.device,30);
+  };
 
   if (type === 'session_start') {
     number('vw',0,10000); number('vh',0,10000); number('screenW',0,10000); number('screenH',0,10000);
     out.device = text(meta.device,30); out.lang = text(meta.lang,20);
   } else if (type === 'click' || type === 'rage_click' || type === 'dead_click') {
-    number('xPct',0,100); number('yPct',0,100); number('docYPct',0,100);
+    number('xPct',0,100); number('yPct',0,100); number('docYPct',0,100); viewport();
     out.target = text(meta.target,120); out.label = text(meta.label,100); out.href = text(meta.href,300);
   } else if (type === 'scroll_depth') {
-    number('depth',0,100);
+    number('depth',0,100); viewport();
   } else if (type === 'add_to_cart' || type === 'cart_view' || type === 'checkout_started') {
     out.source = text(meta.source,100); out.product = text(meta.product,160);
   } else if (type === 'product_view') {
