@@ -6,11 +6,10 @@ export default {
     return app.fetch(request, env, ctx);
   },
 
-  async scheduled(_controller, env, ctx) {
-    const job = Promise.allSettled([
-      syncShopify(env),
-      syncMeta(env, fetch, 7)
-    ]).then((results) => {
+  async scheduled(controller, env, ctx) {
+    const tasks = [syncShopify(env)];
+    if (controller.cron === '*/15 * * * *') tasks.push(syncMeta(env, fetch, 7));
+    const job = Promise.allSettled(tasks).then((results) => {
       for (const result of results) {
         if (result.status === 'rejected') console.error('Automatic Growth sync failed', result.reason);
       }
