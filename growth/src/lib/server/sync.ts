@@ -155,11 +155,11 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch) {
 }
 
 function actionValue(rows: { action_type?: string; value?: string }[] | undefined, names: string[]) {
-  let total = 0;
-  for (const row of rows ?? []) {
-    if (row.action_type && names.includes(row.action_type)) total += Number(row.value || 0);
+  for (const name of names) {
+    const row = rows?.find((r) => r.action_type === name);
+    if (row) return Number(row.value || 0);
   }
-  return total;
+  return 0;
 }
 
 async function readPagedMeta(url: URL, fetchFn: typeof fetch) {
@@ -214,8 +214,8 @@ export async function syncMeta(env: SyncEnv, fetchFn: typeof fetch = fetch, days
       for (const row of insightRows) {
         if (!row.ad_id || !row.date_start) continue;
         adIds.add(String(row.ad_id));
-        const purchases = actionValue(row.actions, ['purchase','offsite_conversion.fb_pixel_purchase','omni_purchase']);
-        const purchaseValue = actionValue(row.action_values, ['purchase','offsite_conversion.fb_pixel_purchase','omni_purchase']);
+        const purchases = actionValue(row.actions, ['offsite_conversion.fb_pixel_purchase','purchase','omni_purchase']);
+        const purchaseValue = actionValue(row.action_values, ['offsite_conversion.fb_pixel_purchase','purchase','omni_purchase']);
         await db.prepare(`
           INSERT INTO meta_daily(
             day,account_id,account_name,currency,campaign_id,campaign_name,adset_id,adset_name,ad_id,ad_name,
