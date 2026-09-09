@@ -7,8 +7,11 @@ export default {
   },
 
   async scheduled(controller, env, ctx) {
-    const tasks = [syncShopify(env)];
-    if (controller.cron === '*/15 * * * *') tasks.push(syncMeta(env, fetch, 7));
+    const fast = controller.cron === '* * * * *';
+    const tasks = fast
+      ? [syncShopify(env, fetch, 2, 20000), syncMeta(env, fetch, 1, 20000)]
+      : [syncShopify(env, fetch, 31), syncMeta(env, fetch, 7)];
+
     const job = Promise.allSettled(tasks).then((results) => {
       for (const result of results) {
         if (result.status === 'rejected') console.error('Automatic Growth sync failed', result.reason);
