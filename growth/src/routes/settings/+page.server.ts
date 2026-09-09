@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { listConnectionStatus } from '$lib/server/connections';
 
-const TRACKER_VERSION = '20260909-4';
+const TRACKER_VERSION = '20260909-5';
 
 export const load: PageServerLoad = async ({ platform, url }) => {
   const env = platform?.env;
