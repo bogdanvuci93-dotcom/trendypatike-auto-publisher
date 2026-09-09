@@ -2,7 +2,7 @@
   if (window.__TP_GROWTH_TRACKER__) return;
   window.__TP_GROWTH_TRACKER__ = true;
 
-  const allowedHosts = new Set(['trendypatike.com', 'www.trendypatike.com']);
+  const allowedHosts = new Set(['trendypatike.com', 'www.trendypatike.com', 'trendypatike.myshopify.com']);
   if (!allowedHosts.has(location.hostname)) return;
   if (/^\/(account|challenge|password)(\/|$)/.test(location.pathname)) return;
 
@@ -17,23 +17,30 @@
   const now = Date.now();
   const originalFetch = window.fetch.bind(window);
 
+  const getItem = (storage, key) => {
+    try { return storage.getItem(key); } catch { return null; }
+  };
+  const setItem = (storage, key, value) => {
+    try { storage.setItem(key, value); } catch {}
+  };
+
   const uuid = () => {
-    if (crypto && typeof crypto.randomUUID === 'function') return crypto.randomUUID().replace(/-/g, '_');
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID().replace(/-/g, '_');
     return `tp_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 14)}`;
   };
 
-  const previousLast = Number(localStorage.getItem(LAST_KEY) || 0);
-  let sessionId = localStorage.getItem(SID_KEY) || '';
-  let startedAt = Number(localStorage.getItem(START_KEY) || 0);
+  const previousLast = Number(getItem(localStorage, LAST_KEY) || 0);
+  let sessionId = getItem(localStorage, SID_KEY) || '';
+  let startedAt = Number(getItem(localStorage, START_KEY) || 0);
   const isNewSession = !sessionId || !startedAt || !previousLast || now - previousLast > SESSION_TTL;
 
   if (isNewSession) {
     sessionId = uuid();
     startedAt = now;
-    localStorage.setItem(SID_KEY, sessionId);
-    localStorage.setItem(START_KEY, String(startedAt));
+    setItem(localStorage, SID_KEY, sessionId);
+    setItem(localStorage, START_KEY, String(startedAt));
   }
-  localStorage.setItem(LAST_KEY, String(now));
+  setItem(localStorage, LAST_KEY, String(now));
 
   const params = new URLSearchParams(location.search);
   const safeReferrer = (() => {
@@ -49,24 +56,35 @@
   const session = {
     startedAt,
     lastSeenAt: now,
-    landingPath: isNewSession ? location.pathname : (sessionStorage.getItem('tp_growth_landing') || location.pathname),
-    referrer: isNewSession ? safeReferrer : (sessionStorage.getItem('tp_growth_ref') || ''),
-    utmSource: isNewSession ? (params.get('utm_source') || '') : (sessionStorage.getItem('tp_growth_utm_source') || ''),
-    utmCampaign: isNewSession ? (params.get('utm_campaign') || '') : (sessionStorage.getItem('tp_growth_utm_campaign') || ''),
-    fbclid: isNewSession ? (params.get('fbclid') || '') : (sessionStorage.getItem('tp_growth_fbclid') || '')
+    landingPath: isNewSession ? location.pathname : (getItem(sessionStorage, 'tp_growth_landing') || location.pathname),
+    referrer: isNewSession ? safeReferrer : (getItem(sessionStorage, 'tp_growth_ref') || ''),
+    utmSource: isNewSession ? (params.get('utm_source') || '') : (getItem(sessionStorage, 'tp_growth_utm_source') || ''),
+    utmCampaign: isNewSession ? (params.get('utm_campaign') || '') : (getItem(sessionStorage, 'tp_growth_utm_campaign') || ''),
+    fbclid: isNewSession ? (params.get('fbclid') || '') : (getItem(sessionStorage, 'tp_growth_fbclid') || '')
   };
 
   if (isNewSession) {
-    sessionStorage.setItem('tp_growth_landing', session.landingPath);
-    sessionStorage.setItem('tp_growth_ref', session.referrer);
-    sessionStorage.setItem('tp_growth_utm_source', session.utmSource);
-    sessionStorage.setItem('tp_growth_utm_campaign', session.utmCampaign);
-    sessionStorage.setItem('tp_growth_fbclid', session.fbclid);
+    setItem(sessionStorage, 'tp_growth_landing', session.landingPath);
+    setItem(sessionStorage, 'tp_growth_ref', session.referrer);
+    setItem(sessionStorage, 'tp_growth_utm_source', session.utmSource);
+    setItem(sessionStorage, 'tp_growth_utm_campaign', session.utmCampaign);
+    setItem(sessionStorage, 'tp_growth_fbclid', session.fbclid);
   }
 
   let queue = [];
   let flushTimer = 0;
+  let retryTimer = 0;
+  let retryDelay = 1500;
+  let inFlight = false;
   const seen = new Map();
+
+  const scheduleFlush = (delay = 1200) => {
+    if (flushTimer) return;
+    flushTimer = window.setTimeout(() => {
+      flushTimer = 0;
+      void flush();
+    }, delay);
+  };
 
   const pathOnly = () => location.pathname.slice(0, 500) || '/';
   const push = (type, meta = {}, path = pathOnly()) => {
@@ -76,31 +94,55 @@
     if ((type === 'add_to_cart' || type === 'checkout_started') && t - last < 1200) return;
     seen.set(key, t);
     queue.push({ type, path, ts: t, meta });
-    localStorage.setItem(LAST_KEY, String(t));
+    setItem(localStorage, LAST_KEY, String(t));
     session.lastSeenAt = t;
-    if (queue.length >= 10) flush();
-    else if (!flushTimer) flushTimer = window.setTimeout(flush, 1200);
+    if (queue.length >= 10) void flush();
+    else scheduleFlush();
   };
 
-  const flush = () => {
+  const requeue = (events) => {
+    queue.unshift(...events);
+    if (queue.length > 120) queue.length = 120;
+  };
+
+  const flush = async () => {
     if (flushTimer) clearTimeout(flushTimer);
     flushTimer = 0;
-    if (!queue.length) return;
+    if (inFlight || !queue.length) return;
 
     const events = queue.splice(0, 40);
     const payload = JSON.stringify({ sessionId, session, events });
+    inFlight = true;
 
-    originalFetch(collector, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-      body: payload,
-      mode: 'cors',
-      credentials: 'omit',
-      keepalive: true
-    }).catch(() => {
-      queue.unshift(...events);
-      if (queue.length > 80) queue.length = 80;
-    });
+    try {
+      const response = await originalFetch(collector, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: payload,
+        mode: 'cors',
+        credentials: 'omit',
+        keepalive: true
+      });
+      if (!response.ok) throw new Error(`collector_${response.status}`);
+      retryDelay = 1500;
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+        retryTimer = 0;
+      }
+    } catch {
+      requeue(events);
+      if (!retryTimer) {
+        const delay = retryDelay;
+        retryTimer = window.setTimeout(() => {
+          retryTimer = 0;
+          void flush();
+        }, delay);
+      }
+      retryDelay = Math.min(60000, retryDelay * 2);
+    } finally {
+      inFlight = false;
+      if (queue.length && !retryTimer) scheduleFlush(250);
+    }
   };
 
   const device = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
@@ -193,6 +235,20 @@
     return response;
   };
 
+  if (window.XMLHttpRequest) {
+    const originalOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+      let pathname = '';
+      try { pathname = new URL(String(url), location.origin).pathname; } catch {}
+      if (/\/cart\/add(?:\.js)?$/.test(pathname)) {
+        this.addEventListener('load', () => {
+          if (this.status >= 200 && this.status < 400) push('add_to_cart', { source: 'xhr' });
+        }, { once: true });
+      }
+      return originalOpen.call(this, method, url, ...rest);
+    };
+  }
+
   const milestones = [25, 50, 75, 90, 100];
   const reached = new Set();
   const onScroll = () => {
@@ -222,13 +278,13 @@
 
   addEventListener('popstate', () => setTimeout(recordPage, 0));
   addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') flush();
+    if (document.visibilityState === 'hidden') void flush();
   });
-  addEventListener('pagehide', flush);
+  addEventListener('pagehide', () => { void flush(); });
 
   setInterval(() => {
     session.lastSeenAt = Date.now();
-    localStorage.setItem(LAST_KEY, String(session.lastSeenAt));
-    flush();
+    setItem(localStorage, LAST_KEY, String(session.lastSeenAt));
+    void flush();
   }, 15000);
 })();
