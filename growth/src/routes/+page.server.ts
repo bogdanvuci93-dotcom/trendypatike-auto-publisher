@@ -37,8 +37,8 @@ export const load: PageServerLoad = async ({ platform }) => {
 
     const [ordersResult, sessionsResult, eventsResult, latest] = await Promise.all([
       db.prepare(`SELECT created_at,total,currency FROM shopify_orders WHERE created_at >= ?1 AND cancelled=0 ORDER BY created_at ASC`).bind(recentFrom).all(),
-      db.prepare(`SELECT started_at FROM sessions WHERE started_at >= ?1`).bind(trackerFrom).all(),
-      db.prepare(`SELECT type,event_ts FROM events WHERE event_ts >= ?1`).bind(trackerFrom).all(),
+      db.prepare(`SELECT id,started_at FROM sessions WHERE started_at >= ?1`).bind(trackerFrom).all(),
+      db.prepare(`SELECT session_id,type,event_ts FROM events WHERE event_ts >= ?1 AND type IN ('add_to_cart','checkout_started')`).bind(trackerFrom).all(),
       db.prepare(`SELECT MAX(snapshot_ts) AS ts FROM ad_snapshots`).first<{ ts: number | null }>()
     ]);
 
@@ -50,9 +50,17 @@ export const load: PageServerLoad = async ({ platform }) => {
     const shopCurrency = shopCurrencies.length === 1 ? shopCurrencies[0] : 'RSD';
 
     const sessions = (sessionsResult.results as any[]).filter((r) => dayKey(Number(r.started_at)) === today).length;
-    const todayEvents = (eventsResult.results as any[]).filter((r) => dayKey(Number(r.event_ts)) === today);
-    const addToCart = todayEvents.filter((r) => r.type === 'add_to_cart').length;
-    const checkout = todayEvents.filter((r) => r.type === 'checkout_started').length;
+    const atcSessions = new Set<string>();
+    const checkoutSessions = new Set<string>();
+    for (const row of eventsResult.results as any[]) {
+      if (dayKey(Number(row.event_ts || 0)) !== today) continue;
+      const sessionId = String(row.session_id || '');
+      if (!sessionId) continue;
+      if (row.type === 'add_to_cart') atcSessions.add(sessionId);
+      if (row.type === 'checkout_started') checkoutSessions.add(sessionId);
+    }
+    const addToCart = atcSessions.size;
+    const checkout = checkoutSessions.size;
 
     let spend = 0;
     let metaPurchases = 0;
