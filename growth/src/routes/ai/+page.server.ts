@@ -1,6 +1,8 @@
 import type { PageServerLoad } from './$types';
 
 const DAY = 24 * 60 * 60 * 1000;
+const VALID_ORDER_SQL = `cancelled=0 AND UPPER(COALESCE(financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
+const VALID_ORDER_SQL_O = `o.cancelled=0 AND UPPER(COALESCE(o.financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
 
 export const load: PageServerLoad = async ({ platform }) => {
   const db = platform?.env?.DB;
@@ -22,7 +24,7 @@ export const load: PageServerLoad = async ({ platform }) => {
         COALESCE(SUM(total), 0) AS revenue,
         COUNT(*) AS orders
       FROM shopify_orders
-      WHERE cancelled=0 AND created_at >= ?1
+      WHERE ${VALID_ORDER_SQL} AND created_at >= ?1
     `).bind(from30).first<{ revenue: number; orders: number }>(),
 
     db.prepare(`
@@ -31,7 +33,7 @@ export const load: PageServerLoad = async ({ platform }) => {
         COALESCE(SUM(i.line_total), 0) AS revenue
       FROM shopify_order_items i
       JOIN shopify_orders o ON o.id=i.order_id
-      WHERE o.cancelled=0 AND o.created_at >= ?1
+      WHERE ${VALID_ORDER_SQL_O} AND o.created_at >= ?1
       GROUP BY COALESCE(i.product_id, i.title)
       ORDER BY revenue DESC
       LIMIT 1

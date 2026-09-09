@@ -2,20 +2,49 @@
   if (window.__TP_GROWTH_TRACKER__) return;
   window.__TP_GROWTH_TRACKER__ = true;
 
-  const allowedHosts = new Set(['trendypatike.com', 'www.trendypatike.com', 'trendypatike.myshopify.com']);
-  if (!allowedHosts.has(location.hostname)) return;
+  const TRACKER_VERSION = '2026-09-09.2';
+  const BEACON_SITE = 'tp_20260909';
+  const FALLBACK_ORIGIN = 'https://trendypatike-growth.bogdanvuci93.workers.dev';
+
+  const hostAllowed = (hostname) => {
+    const host = String(hostname || '').toLowerCase().replace(/\.$/, '');
+    return host === 'trendypatike.com'
+      || host.endsWith('.trendypatike.com')
+      || host.endsWith('.myshopify.com')
+      || host.endsWith('.shopifypreview.com');
+  };
+
+  if (!hostAllowed(location.hostname)) return;
   if (/^\/(account|challenge|password)(\/|$)/.test(location.pathname)) return;
 
-  const script = document.currentScript;
-  if (!script?.src) return;
+  const script = document.currentScript || Array.from(document.scripts).reverse().find((s) => {
+    try { return /\/tracker\.js(?:\?|$)/.test(new URL(s.src, location.href).pathname + new URL(s.src, location.href).search); }
+    catch { return false; }
+  });
 
-  const collector = `${new URL(script.src).origin}/api/collect`;
+  let collectorOrigin = FALLBACK_ORIGIN;
+  try {
+    if (script?.src) collectorOrigin = new URL(script.src, location.href).origin;
+  } catch {}
+  const collector = `${collectorOrigin}/api/collect`;
+
+  const status = {
+    version: TRACKER_VERSION,
+    collector,
+    host: location.hostname,
+    startedAt: Date.now(),
+    transport: 'pending',
+    lastFlushAt: 0,
+    lastError: ''
+  };
+  window.__TP_GROWTH_STATUS__ = status;
+
   const SID_KEY = 'tp_growth_sid';
   const START_KEY = 'tp_growth_started';
   const LAST_KEY = 'tp_growth_last';
   const SESSION_TTL = 30 * 60 * 1000;
   const now = Date.now();
-  const originalFetch = window.fetch.bind(window);
+  const originalFetch = typeof window.fetch === 'function' ? window.fetch.bind(window) : null;
 
   const getItem = (storage, key) => {
     try { return storage.getItem(key); } catch { return null; }
@@ -77,8 +106,9 @@
   let retryDelay = 1500;
   let inFlight = false;
   const seen = new Map();
+  const beaconImages = new Set();
 
-  const scheduleFlush = (delay = 1200) => {
+  const scheduleFlush = (delay = 500) => {
     if (flushTimer) return;
     flushTimer = window.setTimeout(() => {
       flushTimer = 0;
@@ -94,15 +124,62 @@
     if ((type === 'add_to_cart' || type === 'checkout_started') && t - last < 1200) return;
     seen.set(key, t);
     queue.push({ type, path, ts: t, meta });
+    if (queue.length > 120) queue = queue.slice(-120);
     setItem(localStorage, LAST_KEY, String(t));
     session.lastSeenAt = t;
-    if (queue.length >= 10) void flush();
+    if (queue.length >= 8) void flush();
     else scheduleFlush();
   };
 
   const requeue = (events) => {
     queue.unshift(...events);
     if (queue.length > 120) queue.length = 120;
+  };
+
+  const imageBeacon = (event) => {
+    try {
+      const q = new URLSearchParams({
+        site: BEACON_SITE,
+        sid: sessionId,
+        st: String(startedAt),
+        ls: String(Date.now()),
+        lp: String(session.landingPath || '/').slice(0, 500),
+        us: String(session.utmSource || '').slice(0, 120),
+        uc: String(session.utmCampaign || '').slice(0, 180),
+        t: String(event.type || '').slice(0, 40),
+        p: String(event.path || '/').slice(0, 500),
+        ts: String(event.ts || Date.now()),
+        m: JSON.stringify(event.meta || {}).slice(0, 1500),
+        cb: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+      });
+      const img = new Image();
+      beaconImages.add(img);
+      const done = () => beaconImages.delete(img);
+      img.onload = done;
+      img.onerror = done;
+      img.referrerPolicy = 'origin';
+      img.src = `${collector}?${q.toString()}`;
+      status.transport = 'image-fallback';
+      status.lastFlushAt = Date.now();
+      return true;
+    } catch (e) {
+      status.lastError = e instanceof Error ? e.message : 'image beacon failed';
+      return false;
+    }
+  };
+
+  const fallbackBatch = (events) => {
+    for (const event of events) imageBeacon(event);
+  };
+
+  const scheduleRetry = () => {
+    if (retryTimer) return;
+    const delay = retryDelay;
+    retryTimer = window.setTimeout(() => {
+      retryTimer = 0;
+      void flush();
+    }, delay);
+    retryDelay = Math.min(60000, retryDelay * 2);
   };
 
   const flush = async () => {
@@ -112,8 +189,13 @@
 
     const events = queue.splice(0, 40);
     const payload = JSON.stringify({ sessionId, session, events });
-    inFlight = true;
 
+    if (!originalFetch) {
+      fallbackBatch(events);
+      return;
+    }
+
+    inFlight = true;
     try {
       const response = await originalFetch(collector, {
         method: 'POST',
@@ -121,30 +203,44 @@
         body: payload,
         mode: 'cors',
         credentials: 'omit',
+        cache: 'no-store',
         keepalive: true
       });
-      if (!response.ok) throw new Error(`collector_${response.status}`);
+
+      if (!response.ok) {
+        if (response.status >= 500) {
+          requeue(events);
+          status.lastError = `collector_${response.status}`;
+          scheduleRetry();
+          return;
+        }
+        throw new Error(`collector_${response.status}`);
+      }
+
       retryDelay = 1500;
       if (retryTimer) {
         clearTimeout(retryTimer);
         retryTimer = 0;
       }
-    } catch {
-      requeue(events);
-      if (!retryTimer) {
-        const delay = retryDelay;
-        retryTimer = window.setTimeout(() => {
-          retryTimer = 0;
-          void flush();
-        }, delay);
+      status.transport = 'fetch';
+      status.lastFlushAt = Date.now();
+      status.lastError = '';
+    } catch (e) {
+      if (navigator.onLine === false) {
+        requeue(events);
+        status.lastError = 'offline';
+        scheduleRetry();
+      } else {
+        fallbackBatch(events);
+        status.lastError = e instanceof Error ? e.message : 'fetch failed';
       }
-      retryDelay = Math.min(60000, retryDelay * 2);
     } finally {
       inFlight = false;
       if (queue.length && !retryTimer) scheduleFlush(250);
     }
   };
 
+  let reached = new Set();
   const device = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
   if (isNewSession) {
     push('session_start', {
@@ -158,12 +254,14 @@
   }
 
   const recordPage = () => {
+    reached = new Set();
     push('page_view');
     if (location.pathname.startsWith('/products/')) {
       push('product_view', { handle: location.pathname.split('/products/')[1]?.split('/')[0] || '' });
     }
   };
   recordPage();
+  scheduleFlush(100);
 
   const targetDescriptor = (node) => {
     const el = node instanceof Element ? node : null;
@@ -222,18 +320,20 @@
     if (/\/checkout/.test(action)) push('checkout_started', { source: 'form' });
   }, true);
 
-  window.fetch = async (...args) => {
-    const input = args[0];
-    const url = typeof input === 'string' ? input : input instanceof Request ? input.url : String(input);
-    const response = await originalFetch(...args);
-    try {
-      const parsed = new URL(url, location.origin);
-      if (response.ok && /\/cart\/add(?:\.js)?$/.test(parsed.pathname)) {
-        push('add_to_cart', { source: 'ajax' });
-      }
-    } catch {}
-    return response;
-  };
+  if (originalFetch) {
+    window.fetch = async (...args) => {
+      const input = args[0];
+      const url = typeof input === 'string' ? input : input instanceof Request ? input.url : String(input);
+      const response = await originalFetch(...args);
+      try {
+        const parsed = new URL(url, location.origin);
+        if (response.ok && /\/cart\/add(?:\.js)?$/.test(parsed.pathname)) {
+          push('add_to_cart', { source: 'ajax' });
+        }
+      } catch {}
+      return response;
+    };
+  }
 
   if (window.XMLHttpRequest) {
     const originalOpen = XMLHttpRequest.prototype.open;
@@ -250,7 +350,6 @@
   }
 
   const milestones = [25, 50, 75, 90, 100];
-  const reached = new Set();
   const onScroll = () => {
     const doc = document.documentElement;
     const max = Math.max(1, doc.scrollHeight - innerHeight);
@@ -267,6 +366,7 @@
 
   const wrapHistory = (name) => {
     const original = history[name];
+    if (typeof original !== 'function') return;
     history[name] = function (...args) {
       const result = original.apply(this, args);
       setTimeout(recordPage, 0);
@@ -277,14 +377,20 @@
   wrapHistory('replaceState');
 
   addEventListener('popstate', () => setTimeout(recordPage, 0));
+  addEventListener('online', () => scheduleFlush(50));
   addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') void flush();
+    if (document.visibilityState === 'hidden' && queue.length) {
+      const events = queue.splice(0, 40);
+      fallbackBatch(events);
+    }
   });
-  addEventListener('pagehide', () => { void flush(); });
+  addEventListener('pagehide', () => {
+    if (queue.length) fallbackBatch(queue.splice(0, 40));
+  });
 
   setInterval(() => {
     session.lastSeenAt = Date.now();
     setItem(localStorage, LAST_KEY, String(session.lastSeenAt));
-    void flush();
+    if (queue.length) void flush();
   }, 15000);
 })();

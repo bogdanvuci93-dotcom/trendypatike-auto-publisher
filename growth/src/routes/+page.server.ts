@@ -1,6 +1,7 @@
 import type { PageServerLoad } from './$types';
 
 const TZ = 'Europe/Belgrade';
+const VALID_ORDER_SQL = `cancelled=0 AND UPPER(COALESCE(financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
 
 function dayKey(ms: number) {
   const parts = new Intl.DateTimeFormat('en-GB', {
@@ -36,7 +37,7 @@ export const load: PageServerLoad = async ({ platform }) => {
     const trackerFrom = now - 36 * 3600000;
 
     const [ordersResult, sessionsResult, eventsResult, latest] = await Promise.all([
-      db.prepare(`SELECT created_at,total,currency FROM shopify_orders WHERE created_at >= ?1 AND cancelled=0 ORDER BY created_at ASC`).bind(recentFrom).all(),
+      db.prepare(`SELECT created_at,total,currency FROM shopify_orders WHERE created_at >= ?1 AND ${VALID_ORDER_SQL} ORDER BY created_at ASC`).bind(recentFrom).all(),
       db.prepare(`SELECT id,started_at FROM sessions WHERE started_at >= ?1`).bind(trackerFrom).all(),
       db.prepare(`SELECT session_id,type,event_ts FROM events WHERE event_ts >= ?1 AND type IN ('add_to_cart','checkout_started')`).bind(trackerFrom).all(),
       db.prepare(`SELECT MAX(snapshot_ts) AS ts FROM ad_snapshots`).first<{ ts: number | null }>()

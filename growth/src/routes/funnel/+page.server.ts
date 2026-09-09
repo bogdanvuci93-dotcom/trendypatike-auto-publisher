@@ -2,6 +2,7 @@ import type { PageServerLoad } from './$types';
 
 const TZ = 'Europe/Belgrade';
 const LOOKBACK = 36 * 60 * 60 * 1000;
+const VALID_ORDER_SQL = `cancelled=0 AND UPPER(COALESCE(financial_status,'')) NOT IN ('REFUNDED','PARTIALLY_REFUNDED','VOIDED')`;
 
 function dayKey(ms: number) {
   const parts = new Intl.DateTimeFormat('en-GB', {
@@ -29,7 +30,7 @@ export const load: PageServerLoad = async ({ platform }) => {
       FROM events
       WHERE event_ts>=?1 AND type IN ('product_view','add_to_cart','checkout_started')
     `).bind(from).all(),
-    db.prepare(`SELECT created_at,total FROM shopify_orders WHERE created_at>=?1 AND cancelled=0`).bind(from).all()
+    db.prepare(`SELECT created_at,total FROM shopify_orders WHERE created_at>=?1 AND ${VALID_ORDER_SQL}`).bind(from).all()
   ]);
 
   const sessions = (sessionResult.results as any[])

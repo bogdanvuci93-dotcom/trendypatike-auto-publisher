@@ -14,13 +14,19 @@ const ALLOWED_TYPES = new Set([
 
 const DAY = 24 * 60 * 60 * 1000;
 const MAX_FUTURE_SKEW = 5 * 60 * 1000;
+const BEACON_SITE = 'tp_20260909';
+const COLLECTOR_VERSION = '2026-09-09.2';
+const GIF = new Uint8Array([
+  71,73,70,56,57,97,1,0,1,0,128,0,0,0,0,0,255,255,255,33,249,4,1,0,0,0,0,
+  44,0,0,0,0,1,0,1,0,0,2,2,68,1,0,59
+]);
 
 function hostAllowed(hostname: string) {
   const host = hostname.toLowerCase().replace(/\.$/, '');
   return host === 'trendypatike.com'
-    || host === 'www.trendypatike.com'
-    || host === 'trendypatike.myshopify.com'
-    || host.endsWith('.trendypatike.com');
+    || host.endsWith('.trendypatike.com')
+    || host.endsWith('.myshopify.com')
+    || host.endsWith('.shopifypreview.com');
 }
 
 function trustedOrigin(value: string | null) {
@@ -48,13 +54,21 @@ function sourceAllowed(request: Request) {
   }
 }
 
+function beaconSourceAllowed(request: Request, url: URL) {
+  if (sourceAllowed(request)) return true;
+  if (url.searchParams.get('site') !== BEACON_SITE) return false;
+  const dest = request.headers.get('sec-fetch-dest');
+  return !dest || dest === 'image' || dest === 'empty';
+}
+
 function cors(origin: string | null) {
   const allowed = trustedOrigin(origin) || 'https://trendypatike.com';
   return {
     'Access-Control-Allow-Origin': allowed,
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
+    'Cache-Control': 'no-store',
     Vary: 'Origin'
   };
 }
@@ -100,38 +114,10 @@ function safeMeta(type: string, input: unknown) {
   return out;
 }
 
-export const OPTIONS: RequestHandler = async ({ request }) => {
-  const origin = request.headers.get('origin');
-  if (!trustedOrigin(origin)) {
-    return new Response(null, { status: 403, headers: { Vary: 'Origin' } });
-  }
-  return new Response(null, { status: 204, headers: cors(origin) });
-};
-
-export const POST: RequestHandler = async ({ request, platform }) => {
-  const origin = request.headers.get('origin');
-  if (!sourceAllowed(request)) {
-    return json(
-      { ok: false, error: 'Storefront source not allowed' },
-      { status: 403, headers: cors(origin) }
-    );
-  }
-
-  const db = platform?.env?.DB;
-  if (!db) return json({ ok: false, error: 'Database unavailable' }, { status: 503, headers: cors(origin) });
-
-  let body: any;
-  try {
-    const raw = await request.text();
-    if (raw.length > 50000) throw new Error('payload too large');
-    body = JSON.parse(raw);
-  } catch {
-    return json({ ok: false, error: 'Invalid payload' }, { status: 400, headers: cors(origin) });
-  }
-
+async function persist(db: any, body: any) {
   const sessionId = text(body?.sessionId, 80);
   if (!/^[A-Za-z0-9_-]{10,80}$/.test(sessionId)) {
-    return json({ ok: false, error: 'Invalid session id' }, { status: 400, headers: cors(origin) });
+    return { ok: false as const, status: 400, error: 'Invalid session id' };
   }
 
   const session = body?.session && typeof body.session === 'object' ? body.session : {};
@@ -143,7 +129,11 @@ export const POST: RequestHandler = async ({ request, platform }) => {
     db.prepare(`
       INSERT INTO sessions(id,started_at,last_seen_at,landing_path,referrer,utm_source,utm_campaign,fbclid,purchased,revenue)
       VALUES(?1,?2,?3,?4,?5,?6,?7,?8,0,0)
-      ON CONFLICT(id) DO UPDATE SET last_seen_at=MAX(sessions.last_seen_at, excluded.last_seen_at)
+      ON CONFLICT(id) DO UPDATE SET
+        last_seen_at=MAX(sessions.last_seen_at, excluded.last_seen_at),
+        landing_path=CASE WHEN sessions.landing_path IS NULL OR sessions.landing_path='' THEN excluded.landing_path ELSE sessions.landing_path END,
+        utm_source=CASE WHEN sessions.utm_source IS NULL OR sessions.utm_source='' THEN excluded.utm_source ELSE sessions.utm_source END,
+        utm_campaign=CASE WHEN sessions.utm_campaign IS NULL OR sessions.utm_campaign='' THEN excluded.utm_campaign ELSE sessions.utm_campaign END
     `).bind(
       sessionId,
       startedAt,
@@ -178,9 +168,98 @@ export const POST: RequestHandler = async ({ request, platform }) => {
   try {
     const results = await db.batch(statements);
     const accepted = (results.slice(1) as any[]).reduce((sum, result) => sum + Number(result?.meta?.changes || 0), 0);
-    return json({ ok: true, accepted }, { headers: cors(origin) });
+    return { ok: true as const, accepted };
   } catch (e) {
     console.error('Storefront collector persistence failed', e instanceof Error ? e.message : 'unknown error');
-    return json({ ok: false, error: 'Collector persistence failed' }, { status: 500, headers: cors(origin) });
+    return { ok: false as const, status: 500, error: 'Collector persistence failed' };
   }
+}
+
+function gifResponse() {
+  return new Response(GIF, {
+    status: 200,
+    headers: {
+      'Content-Type': 'image/gif',
+      'Cache-Control': 'no-store, max-age=0',
+      'Cross-Origin-Resource-Policy': 'cross-origin'
+    }
+  });
+}
+
+export const OPTIONS: RequestHandler = async ({ request }) => {
+  const origin = request.headers.get('origin');
+  if (!trustedOrigin(origin)) {
+    return new Response(null, { status: 403, headers: { Vary: 'Origin', 'Cache-Control': 'no-store' } });
+  }
+  return new Response(null, { status: 204, headers: cors(origin) });
+};
+
+export const GET: RequestHandler = async ({ request, platform, url }) => {
+  const db = platform?.env?.DB;
+  if (url.searchParams.get('health') === '1') {
+    if (!db) return json({ ok: false, db: false, version: COLLECTOR_VERSION }, { status: 503, headers: { 'Cache-Control': 'no-store' } });
+    try {
+      await db.prepare('SELECT 1').first();
+      return json({ ok: true, db: true, version: COLLECTOR_VERSION }, { headers: { 'Cache-Control': 'no-store' } });
+    } catch {
+      return json({ ok: false, db: false, version: COLLECTOR_VERSION }, { status: 503, headers: { 'Cache-Control': 'no-store' } });
+    }
+  }
+
+  if (!db || !beaconSourceAllowed(request, url)) return gifResponse();
+
+  let meta: Record<string, unknown> = {};
+  try {
+    const rawMeta = url.searchParams.get('m') || '{}';
+    if (rawMeta.length <= 1500) meta = JSON.parse(rawMeta);
+  } catch {}
+
+  await persist(db, {
+    sessionId: url.searchParams.get('sid') || '',
+    session: {
+      startedAt: url.searchParams.get('st'),
+      lastSeenAt: url.searchParams.get('ls'),
+      landingPath: url.searchParams.get('lp') || '/',
+      referrer: '',
+      utmSource: url.searchParams.get('us') || '',
+      utmCampaign: url.searchParams.get('uc') || '',
+      fbclid: ''
+    },
+    events: [{
+      type: url.searchParams.get('t') || '',
+      path: url.searchParams.get('p') || '/',
+      ts: url.searchParams.get('ts'),
+      meta
+    }]
+  });
+
+  return gifResponse();
+};
+
+export const POST: RequestHandler = async ({ request, platform }) => {
+  const origin = request.headers.get('origin');
+  if (!sourceAllowed(request)) {
+    return json(
+      { ok: false, error: 'Storefront source not allowed' },
+      { status: 403, headers: cors(origin) }
+    );
+  }
+
+  const db = platform?.env?.DB;
+  if (!db) return json({ ok: false, error: 'Database unavailable' }, { status: 503, headers: cors(origin) });
+
+  let body: any;
+  try {
+    const raw = await request.text();
+    if (raw.length > 50000) throw new Error('payload too large');
+    body = JSON.parse(raw);
+  } catch {
+    return json({ ok: false, error: 'Invalid payload' }, { status: 400, headers: cors(origin) });
+  }
+
+  const result = await persist(db, body);
+  if (!result.ok) {
+    return json({ ok: false, error: result.error }, { status: result.status, headers: cors(origin) });
+  }
+  return json({ ok: true, accepted: result.accepted, version: COLLECTOR_VERSION }, { headers: cors(origin) });
 };
