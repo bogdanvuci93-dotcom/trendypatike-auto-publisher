@@ -1,8 +1,14 @@
 const te = new TextEncoder();
 const td = new TextDecoder();
 
+function normalizeBase64(value: string) {
+  const clean = String(value || '').trim().replace(/-/g, '+').replace(/_/g, '/');
+  const pad = clean.length % 4;
+  return pad ? clean + '='.repeat(4 - pad) : clean;
+}
+
 function fromBase64(value: string) {
-  const binary = atob(value);
+  const binary = atob(normalizeBase64(value));
   return Uint8Array.from(binary, (c) => c.charCodeAt(0));
 }
 
@@ -14,7 +20,7 @@ function toBase64(value: Uint8Array) {
 
 async function importKey(secret: string) {
   const raw = fromBase64(secret);
-  if (raw.byteLength !== 32) throw new Error('APP_ENCRYPTION_KEY must be 32 bytes encoded as base64');
+  if (raw.byteLength !== 32) throw new Error('APP_ENCRYPTION_KEY must decode to exactly 32 bytes (standard base64 or base64url)');
   return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['encrypt', 'decrypt']);
 }
 
