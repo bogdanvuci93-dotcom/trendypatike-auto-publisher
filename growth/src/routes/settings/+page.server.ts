@@ -44,7 +44,7 @@ export const load: PageServerLoad = async ({ platform, url }) => {
       shopify: Boolean(env?.SHOPIFY_CLIENT_ID && env?.SHOPIFY_CLIENT_SECRET),
       meta: Boolean(env?.META_APP_ID && env?.META_APP_SECRET)
     },
-    autosync: { intervalMinutes: 15, state: syncState },
+    autosync: { shopifyMinutes: 5, metaMinutes: 15, state: syncState },
     tracker: {
       scriptUrl: `${url.origin}/tracker.js?v=${TRACKER_VERSION}`,
       sessions24h: trackerSessions24h,
