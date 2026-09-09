@@ -18,7 +18,7 @@ export const load:PageServerLoad=async({platform})=>{
       SELECT session_id,SUM(page_active) AS active_ms FROM page_activity GROUP BY session_id
     )
     SELECT
-      s.id,s.started_at,s.last_seen_at,s.landing_path,s.referrer,s.utm_source,s.utm_campaign,s.fbclid,
+      s.id,s.started_at,s.last_seen_at,s.landing_path,s.referrer,s.utm_source,s.utm_campaign,s.fbclid,s.purchased,
       COUNT(e.id) AS events,
       SUM(CASE WHEN e.type='page_view' THEN 1 ELSE 0 END) AS page_views,
       SUM(CASE WHEN e.type='product_view' THEN 1 ELSE 0 END) AS product_views,
@@ -37,13 +37,17 @@ export const load:PageServerLoad=async({platform})=>{
     WHERE s.last_seen_at>=?1
     GROUP BY s.id
     ORDER BY s.last_seen_at DESC
-    LIMIT 250
+    LIMIT 1500
   `).bind(Date.now()-SEVEN_DAYS).all();
 
   const rows=(result.results as any[]).map((r)=>{
-    const productViews=Number(r.product_views||0),addToCart=Number(r.add_to_cart||0),checkout=Number(r.checkout_started||0);
-    return{id:String(r.id),startedAt:Number(r.started_at||0),lastSeenAt:Number(r.last_seen_at||0),landingPath:String(r.landing_path||'/'),lastPath:String(r.last_path||r.landing_path||'/'),referrer:String(r.referrer||''),utmSource:String(r.utm_source||''),utmCampaign:String(r.utm_campaign||''),fbclid:String(r.fbclid||''),events:Number(r.events||0),pageViews:Number(r.page_views||0),productViews,addToCart,cartViews:Number(r.cart_views||0),checkout,rageClicks:Number(r.rage_clicks||0),deadClicks:Number(r.dead_clicks||0),activeMs:Number(r.active_ms||0),maxScroll:Number(r.max_scroll||0),replayAvailable:Number(r.replay_chunks||0)>0,exitStage:checkout>0?'checkout':addToCart>0?'cart':productViews>0?'product':'browse'};
-  });
+    const productViews=Number(r.product_views||0),addToCart=Number(r.add_to_cart||0),checkout=Number(r.checkout_started||0),purchased=Boolean(r.purchased);
+    const exitStage=checkout>0?'checkout':addToCart>0?'cart':productViews>0?'product':'browse';
+    const priority=purchased?'converted':checkout>0?'checkout':addToCart>0?'cart':productViews>0?'product':'browse';
+    const priorityScore=priority==='checkout'?4:priority==='cart'?3:priority==='product'?2:priority==='converted'?0:1;
+    return{id:String(r.id),startedAt:Number(r.started_at||0),lastSeenAt:Number(r.last_seen_at||0),landingPath:String(r.landing_path||'/'),lastPath:String(r.last_path||r.landing_path||'/'),referrer:String(r.referrer||''),utmSource:String(r.utm_source||''),utmCampaign:String(r.utm_campaign||''),fbclid:String(r.fbclid||''),events:Number(r.events||0),pageViews:Number(r.page_views||0),productViews,addToCart,cartViews:Number(r.cart_views||0),checkout,rageClicks:Number(r.rage_clicks||0),deadClicks:Number(r.dead_clicks||0),activeMs:Number(r.active_ms||0),maxScroll:Number(r.max_scroll||0),replayAvailable:Number(r.replay_chunks||0)>0,purchased,exitStage,priority,priorityScore};
+  }).sort((a,b)=>b.priorityScore-a.priorityScore||b.lastSeenAt-a.lastSeenAt).slice(0,500);
+
   const stages={browse:0,product:0,cart:0,checkout:0};
   for(const row of rows)stages[row.exitStage as keyof typeof stages]++;
   const avgActiveMs=rows.length?rows.reduce((s,r)=>s+r.activeMs,0)/rows.length:0;
