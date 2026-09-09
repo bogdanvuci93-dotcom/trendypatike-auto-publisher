@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { listConnectionStatus } from '$lib/server/connections';
+import { getConnection, listConnectionStatus } from '$lib/server/connections';
 
 const TRACKER_VERSION = '20260909-6';
 
@@ -8,6 +8,10 @@ export const load: PageServerLoad = async ({ platform, url }) => {
   let trackerSessions24h = 0;
   let trackerLastSeenAt = 0;
   let syncState: Record<string,{lastSuccessAt:number;lastAttemptAt:number;lastError:string;result:Record<string,unknown>}> = {};
+  const connectionHealth: Record<string,{ok:boolean;error:string}> = {
+    shopify: { ok: false, error: '' },
+    meta: { ok: false, error: '' }
+  };
 
   if (env?.DB) {
     try {
@@ -33,10 +37,23 @@ export const load: PageServerLoad = async ({ platform, url }) => {
         };
       }
     } catch {}
+
+    if (env.APP_ENCRYPTION_KEY) {
+      for (const provider of ['shopify','meta'] as const) {
+        try {
+          const connection = await getConnection(env.DB, env.APP_ENCRYPTION_KEY, provider);
+          connectionHealth[provider] = { ok: Boolean(connection?.accessToken), error: connection ? '' : 'Nema sačuvane veze' };
+        } catch (e) {
+          const message = e instanceof Error ? e.message : 'Token ne može da se dešifruje';
+          connectionHealth[provider] = { ok: false, error: message };
+        }
+      }
+    }
   }
 
   return {
     connections: await listConnectionStatus(env?.DB),
+    connectionHealth,
     connected: url.searchParams.get('connected'),
     configured: {
       db: Boolean(env?.DB),
