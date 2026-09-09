@@ -70,7 +70,7 @@
   <div class="head"><div class="eyebrow">PRIORITETI</div><h2>Šta bih sada uradio</h2></div>
   <div class="cards">
     {#each insights as item}
-      <article class={item.level}>
+      <article class:good={item.level === 'good'} class:watch={item.level === 'watch'} class:action={item.level === 'action'}>
         <div class="badge">{item.level === 'good' ? 'GOOD' : item.level === 'watch' ? 'WATCH' : 'ACTION'}</div>
         <h3>{item.title}</h3>
         <p>{item.body}</p>
