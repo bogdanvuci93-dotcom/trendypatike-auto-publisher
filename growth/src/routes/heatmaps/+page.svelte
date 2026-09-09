@@ -14,16 +14,16 @@
 
 {#if data.pages.length}
   <section class="controls">
-    <label>Page</label>
-    <select bind:value={selected}>{#each data.pages as p}<option value={p.path}>{p.path} · {p.totalClicks} clicks</option>{/each}</select>
+    <label for="heatmap-page">Page</label>
+    <select id="heatmap-page" bind:value={selected}>{#each data.pages as p}<option value={p.path}>{p.path} · {p.totalClicks} clicks</option>{/each}</select>
   </section>
 
   {#if page}
     <section class="metrics">
       <div><span>Clicks</span><b>{page.totalClicks}</b></div>
       <div><span>Rage clicks</span><b>{page.rageClicks}</b></div>
-      <div><span>Scroll events</span><b>{page.scrolls.length}</b></div>
-      <div><span>Max scroll</span><b>{page.maxScroll.toFixed(0)}%</b></div>
+      <div><span>Scroll sessions</span><b>{page.scrolls.length}</b></div>
+      <div><span>Avg. max scroll</span><b>{page.avgScroll.toFixed(0)}%</b></div>
     </section>
 
     <div class="grid">
@@ -43,12 +43,12 @@
           {@const count = page.scrolls.filter((d)=>d>=mark).length}
           <div class="scroll-row"><span>{mark}%</span><div><i style={`width:${page.scrolls.length ? Math.min(100,(count/page.scrolls.length)*100) : 0}%`}></i></div><b>{count}</b></div>
         {/each}
-        <div class="note">Ovo je normalizovana mapa, ne screenshot stranice. Kad sakupimo dovoljno podataka možemo dodati vizuelni overlay/replay bez plaćenog servisa.</div>
+        <div class="note">Svaka sesija se računa jednom po svom najvećem dostignutom scroll nivou, pa brojevi ne dupliraju istog posetioca na 25%, 50%, 75% itd. Click mapa je normalizovana, ne screenshot stranice.</div>
       </section>
     </div>
   {/if}
 {:else}
-  <div class="empty">Još nema click/scroll podataka. Dodaj tracker u Shopify temu i sačekaj prve posete.</div>
+  <div class="empty">Još nema click/scroll podataka. Proveri tracker u Settings i otvori nekoliko stranica na shopu da stignu prve sesije.</div>
 {/if}
 
 <style>
