@@ -7,7 +7,7 @@ const SOURCE = String.raw`(() => {
   var ORIGIN='https://trendypatike-growth.bogdanvuci93.workers.dev';
   var COLLECTOR=ORIGIN+'/api/collect';
   var SITE='tp_20260909';
-  var VERSION='2026-09-09.5';
+  var VERSION='2026-09-09.6';
   var host=String(location.hostname||'').toLowerCase();
   if(!(host==='trendypatike.com'||host.endsWith('.trendypatike.com')||host.endsWith('.myshopify.com')||host.endsWith('.shopifypreview.com')))return;
   if(/^\/(account|challenge|password)(\/|$)/.test(location.pathname))return;
@@ -31,21 +31,27 @@ const SOURCE = String.raw`(() => {
 
   var device=function(){return innerWidth<768?'mobile':innerWidth<1100?'tablet':'desktop';};
   var viewport=function(){return {vw:innerWidth,vh:innerHeight,device:device()};};
+  var docHeight=function(){return Math.max(document.documentElement.scrollHeight,(document.body&&document.body.scrollHeight)||0,innerHeight,1);};
+  var clampPct=function(n){return Math.max(0,Math.min(100,Number(n)||0));};
   var alive=[];
   var send=function(type,meta,path){try{
     var ts=Date.now();set(localStorage,LAST,ts);
     var q=new URLSearchParams();q.set('site',SITE);q.set('sid',sid);q.set('st',String(started));q.set('ls',String(ts));
     q.set('lp',String(landing||'/').slice(0,500));q.set('rf',String(ref||'').slice(0,500));q.set('us',String(utmSource||'').slice(0,120));q.set('uc',String(utmCampaign||'').slice(0,180));q.set('fb',String(fbclid||'').slice(0,300));
-    q.set('t',String(type||'').slice(0,40));q.set('p',String(path||location.pathname||'/').slice(0,500));q.set('ts',String(ts));q.set('m',JSON.stringify(meta||{}).slice(0,1800));q.set('cb',String(ts)+'_'+Math.random().toString(36).slice(2,8));
+    q.set('t',String(type||'').slice(0,40));q.set('p',String(path||location.pathname||'/').slice(0,500));q.set('ts',String(ts));q.set('m',JSON.stringify(meta||{}).slice(0,2400));q.set('cb',String(ts)+'_'+Math.random().toString(36).slice(2,8));
     var img=new Image();alive.push(img);var done=function(){var i=alive.indexOf(img);if(i>=0)alive.splice(i,1)};img.onload=done;img.onerror=done;img.referrerPolicy='origin';img.src=COLLECTOR+'?'+q.toString();
   }catch(e){}};
 
   var currentPath=location.pathname||'/';
-  var pageStarted=Date.now(),lastTick=pageStarted,activeMs=0,visibleMs=0,maxScroll=0;
+  var pageStarted=Date.now(),lastTick=pageStarted,activeMs=0,visibleMs=0,maxScroll=0,lastInteraction=null;
   var tick=function(){var t=Date.now(),d=Math.min(30000,Math.max(0,t-lastTick));if(document.visibilityState==='visible'){visibleMs+=d;if(document.hasFocus())activeMs+=d;}lastTick=t;};
-  var resetPage=function(){currentPath=location.pathname||'/';pageStarted=Date.now();lastTick=pageStarted;activeMs=0;visibleMs=0;maxScroll=0;};
-  var pageExit=function(reason,path){tick();send('page_exit',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll,reason:reason||'navigate'},path||currentPath);};
-  var page=function(){currentPath=location.pathname||'/';send('page_view',{},currentPath);if(currentPath.indexOf('/products/')===0){var h=(currentPath.split('/products/')[1]||'').split('/')[0];send('product_view',{handle:h},currentPath);}if(currentPath==='/cart'||currentPath.indexOf('/cart/')===0)send('cart_view',{source:'page'},currentPath);};
+  var resetPage=function(){currentPath=location.pathname||'/';pageStarted=Date.now();lastTick=pageStarted;activeMs=0;visibleMs=0;maxScroll=0;lastInteraction=null;};
+  var pageExit=function(reason,path){
+    tick();
+    var dh=docHeight(),vp=viewport(),top=clampPct(scrollY/dh*100),mid=clampPct((scrollY+innerHeight/2)/dh*100),bottom=clampPct((scrollY+innerHeight)/dh*100);
+    send('page_exit',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll,reason:reason||'navigate',scrollY:Math.round(scrollY),docHeight:dh,exitTopPct:top,exitMidPct:mid,exitBottomPct:bottom,vw:vp.vw,vh:vp.vh,device:vp.device,lastInteraction:lastInteraction},path||currentPath);
+  };
+  var page=function(){currentPath=location.pathname||'/';var vp=viewport();send('page_view',{vw:vp.vw,vh:vp.vh,device:vp.device,docHeight:docHeight()},currentPath);if(currentPath.indexOf('/products/')===0){var h=(currentPath.split('/products/')[1]||'').split('/')[0];send('product_view',{handle:h},currentPath);}if(currentPath==='/cart'||currentPath.indexOf('/cart/')===0)send('cart_view',{source:'page'},currentPath);};
 
   if(fresh)send('session_start',{vw:innerWidth,vh:innerHeight,screenW:screen.width,screenH:screen.height,device:device(),lang:navigator.language||''});
   page();
@@ -55,10 +61,11 @@ const SOURCE = String.raw`(() => {
   var mutationSeq=0;try{new MutationObserver(function(){mutationSeq++;}).observe(document.documentElement,{subtree:true,childList:true,attributes:true});}catch(e){}
   var clicks=[];
   document.addEventListener('click',function(ev){
-    var dh=Math.max(document.documentElement.scrollHeight,(document.body&&document.body.scrollHeight)||0,innerHeight,1),xp=Math.max(0,Math.min(100,ev.clientX/Math.max(innerWidth,1)*100)),yp=Math.max(0,Math.min(100,ev.clientY/Math.max(innerHeight,1)*100)),dyp=Math.max(0,Math.min(100,(scrollY+ev.clientY)/dh*100));
+    var dh=docHeight(),xp=clampPct(ev.clientX/Math.max(innerWidth,1)*100),yp=clampPct(ev.clientY/Math.max(innerHeight,1)*100),docY=scrollY+ev.clientY,dyp=clampPct(docY/dh*100);
     var interactive=ev.target instanceof Element?ev.target.closest('a,button,[role="button"],input[type="submit"],[data-action]'):null;
     var target=desc(interactive||ev.target),label=safeLabel(interactive),href=interactive&&interactive.getAttribute?interactive.getAttribute('href')||'':'';
-    var vp=viewport(),clickMeta={xPct:xp,yPct:yp,docYPct:dyp,target:target,label:label,href:href,vw:vp.vw,vh:vp.vh,device:vp.device};
+    var vp=viewport(),clickMeta={xPct:xp,yPct:yp,docYPct:dyp,docYpx:Math.round(docY),docHeight:dh,clientX:Math.round(ev.clientX),clientY:Math.round(ev.clientY),target:target,label:label,href:href,vw:vp.vw,vh:vp.vh,device:vp.device};
+    lastInteraction={label:label,target:target,href:href,ts:Date.now(),docYPct:dyp};
     send('click',clickMeta,currentPath);
     var t=Date.now();clicks.push({t:t,x:ev.clientX,y:ev.clientY});while(clicks.length&&t-clicks[0].t>900)clicks.shift();if(clicks.length>=3){var a=clicks[clicks.length-3];if(Math.hypot(ev.clientX-a.x,ev.clientY-a.y)<55)send('rage_click',clickMeta,currentPath);}
     if(!interactive)return;
@@ -75,9 +82,9 @@ const SOURCE = String.raw`(() => {
   if(window.XMLHttpRequest){var open=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(method,url){var args=Array.prototype.slice.call(arguments),p='';try{p=new URL(String(url),location.origin).pathname}catch(e){}if(/\/cart\/add(?:\.js)?$/.test(p)){this.addEventListener('load',function(){if(this.status>=200&&this.status<400)send('add_to_cart',{source:'xhr',product:currentPath.indexOf('/products/')===0?currentPath.split('/products/')[1]:''},currentPath);},{once:true});}return open.apply(this,args);};}
 
   var milestones=[25,50,75,90,100],reached={};
-  var scroll=function(){var max=Math.max(1,document.documentElement.scrollHeight-innerHeight),d=Math.max(0,Math.min(100,Math.round(scrollY/max*100)));if(d>maxScroll)maxScroll=d;milestones.forEach(function(m){if(d>=m&&!reached[m]){reached[m]=1;var vp=viewport();send('scroll_depth',{depth:m,vw:vp.vw,vh:vp.vh,device:vp.device},currentPath);}});};addEventListener('scroll',scroll,{passive:true});setTimeout(scroll,700);
+  var scroll=function(){var max=Math.max(1,document.documentElement.scrollHeight-innerHeight),d=clampPct(Math.round(scrollY/max*100));if(d>maxScroll)maxScroll=d;milestones.forEach(function(m){if(d>=m&&!reached[m]){reached[m]=1;var vp=viewport();send('scroll_depth',{depth:m,vw:vp.vw,vh:vp.vh,device:vp.device},currentPath);}});};addEventListener('scroll',scroll,{passive:true});setTimeout(scroll,700);
 
-  setInterval(function(){tick();if(document.visibilityState==='visible')send('heartbeat',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll},currentPath);},20000);
+  setInterval(function(){tick();if(document.visibilityState==='visible')send('heartbeat',{activeMs:activeMs,visibleMs:visibleMs,maxScroll:maxScroll,scrollY:Math.round(scrollY),docHeight:docHeight()},currentPath);},20000);
   addEventListener('visibilitychange',function(){tick();});
   addEventListener('pagehide',function(){pageExit('pagehide',currentPath);});
 
