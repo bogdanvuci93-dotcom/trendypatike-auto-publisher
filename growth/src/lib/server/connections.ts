@@ -1,4 +1,4 @@
-import { decryptSecret, encryptSecret } from '$lib/server/crypto';
+import { decryptSecret, encryptSecret } from './crypto';
 
 export type Provider = 'shopify' | 'meta';
 
