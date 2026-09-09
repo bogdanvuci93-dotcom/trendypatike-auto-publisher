@@ -12,6 +12,9 @@ const ALLOWED_TYPES = new Set([
   'checkout_started'
 ]);
 
+const DAY = 24 * 60 * 60 * 1000;
+const MAX_FUTURE_SKEW = 5 * 60 * 1000;
+
 function hostAllowed(hostname: string) {
   const host = hostname.toLowerCase().replace(/\.$/, '');
   return host === 'trendypatike.com'
@@ -20,22 +23,35 @@ function hostAllowed(hostname: string) {
     || host.endsWith('.trendypatike.com');
 }
 
-function sourceAllowed(request: Request) {
-  const candidates = [request.headers.get('origin'), request.headers.get('referer')].filter(Boolean) as string[];
-  for (const value of candidates) {
-    try {
-      if (hostAllowed(new URL(value).hostname)) return true;
-    } catch {
-      // ignore malformed browser headers
-    }
+function trustedOrigin(value: string | null) {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol === 'https:' && hostAllowed(url.hostname)) return url.origin;
+  } catch {
+    // malformed header
   }
-  return false;
+  return null;
+}
+
+function sourceAllowed(request: Request) {
+  const origin = request.headers.get('origin');
+  if (trustedOrigin(origin)) return true;
+
+  const referer = request.headers.get('referer');
+  if (!referer) return false;
+  try {
+    const url = new URL(referer);
+    return url.protocol === 'https:' && hostAllowed(url.hostname);
+  } catch {
+    return false;
+  }
 }
 
 function cors(origin: string | null) {
-  // Echo the browser Origin. POST still performs strict hostname validation above.
+  const allowed = trustedOrigin(origin) || 'https://trendypatike.com';
   return {
-    'Access-Control-Allow-Origin': origin || 'https://trendypatike.com',
+    'Access-Control-Allow-Origin': allowed,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Max-Age': '86400',
@@ -45,6 +61,12 @@ function cors(origin: string | null) {
 
 function text(value: unknown, max = 500) {
   return String(value ?? '').slice(0, max);
+}
+
+function boundedTime(value: unknown, fallback: number, now: number) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return fallback;
+  return Math.max(now - 30 * DAY, Math.min(now + MAX_FUTURE_SKEW, n));
 }
 
 function safeMeta(type: string, input: unknown) {
@@ -80,18 +102,17 @@ function safeMeta(type: string, input: unknown) {
 
 export const OPTIONS: RequestHandler = async ({ request }) => {
   const origin = request.headers.get('origin');
+  if (!trustedOrigin(origin)) {
+    return new Response(null, { status: 403, headers: { Vary: 'Origin' } });
+  }
   return new Response(null, { status: 204, headers: cors(origin) });
 };
 
 export const POST: RequestHandler = async ({ request, platform }) => {
   const origin = request.headers.get('origin');
   if (!sourceAllowed(request)) {
-    let originHost = '';
-    let refererHost = '';
-    try { originHost = origin ? new URL(origin).hostname : ''; } catch {}
-    try { refererHost = request.headers.get('referer') ? new URL(request.headers.get('referer') as string).hostname : ''; } catch {}
     return json(
-      { ok: false, error: 'Storefront source not allowed', originHost, refererHost },
+      { ok: false, error: 'Storefront source not allowed' },
       { status: 403, headers: cors(origin) }
     );
   }
@@ -115,14 +136,14 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 
   const session = body?.session && typeof body.session === 'object' ? body.session : {};
   const now = Date.now();
-  const startedAt = Number.isFinite(Number(session.startedAt)) ? Number(session.startedAt) : now;
-  const lastSeenAt = Number.isFinite(Number(session.lastSeenAt)) ? Number(session.lastSeenAt) : now;
+  const startedAt = boundedTime(session.startedAt, now, now);
+  const lastSeenAt = Math.max(startedAt, boundedTime(session.lastSeenAt, now, now));
 
   const statements = [
     db.prepare(`
       INSERT INTO sessions(id,started_at,last_seen_at,landing_path,referrer,utm_source,utm_campaign,fbclid,purchased,revenue)
       VALUES(?1,?2,?3,?4,?5,?6,?7,?8,0,0)
-      ON CONFLICT(id) DO UPDATE SET last_seen_at=excluded.last_seen_at
+      ON CONFLICT(id) DO UPDATE SET last_seen_at=MAX(sessions.last_seen_at, excluded.last_seen_at)
     `).bind(
       sessionId,
       startedAt,
@@ -140,14 +161,26 @@ export const POST: RequestHandler = async ({ request, platform }) => {
     const type = text(event?.type, 40);
     if (!ALLOWED_TYPES.has(type)) continue;
     const path = text(event?.path, 500) || '/';
-    const ts = Number.isFinite(Number(event?.ts)) ? Number(event.ts) : now;
+    const ts = Math.max(startedAt, boundedTime(event?.ts, now, now));
     const metaJson = JSON.stringify(safeMeta(type, event?.meta));
     statements.push(
-      db.prepare(`INSERT INTO events(session_id,type,path,event_ts,meta_json) VALUES(?1,?2,?3,?4,?5)`)
-        .bind(sessionId, type, path, ts, metaJson)
+      db.prepare(`
+        INSERT INTO events(session_id,type,path,event_ts,meta_json)
+        SELECT ?1,?2,?3,?4,?5
+        WHERE NOT EXISTS (
+          SELECT 1 FROM events
+          WHERE session_id=?1 AND type=?2 AND path=?3 AND event_ts=?4
+        )
+      `).bind(sessionId, type, path, ts, metaJson)
     );
   }
 
-  await db.batch(statements);
-  return json({ ok: true, accepted: Math.max(0, statements.length - 1) }, { headers: cors(origin) });
+  try {
+    const results = await db.batch(statements);
+    const accepted = (results.slice(1) as any[]).reduce((sum, result) => sum + Number(result?.meta?.changes || 0), 0);
+    return json({ ok: true, accepted }, { headers: cors(origin) });
+  } catch (e) {
+    console.error('Storefront collector persistence failed', e instanceof Error ? e.message : 'unknown error');
+    return json({ ok: false, error: 'Collector persistence failed' }, { status: 500, headers: cors(origin) });
+  }
 };
