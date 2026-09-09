@@ -1,4 +1,5 @@
-ALTER TABLE shopify_order_items ADD COLUMN product_handle TEXT;
-
-CREATE INDEX IF NOT EXISTS idx_shopify_order_items_handle ON shopify_order_items(product_handle);
-CREATE INDEX IF NOT EXISTS idx_meta_daily_account_day ON meta_daily(account_id, day);
+-- Legacy migration kept for D1 migration-history compatibility.
+-- Schema normalization is handled by 0009_repair_schema.sql.
+CREATE TABLE IF NOT EXISTS __growth_migration_marker (
+  id INTEGER PRIMARY KEY
+);
