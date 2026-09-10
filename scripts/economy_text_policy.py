@@ -5,8 +5,12 @@ INDEX = Path("src/index.mjs")
 OPENAI = Path("src/openai.mjs")
 
 s = INDEX.read_text(encoding="utf-8")
-s, news_count = re.subn(r"allowMajorNews\s*:\s*true", "allowMajorNews: false", s)
-if news_count == 0 and "allowMajorNews: false" not in s:
+s = s.replace(
+    'const allowMajorNews = attempt === 1 && process.env.SKIP_MAJOR_NEWS !== "true";',
+    'const allowMajorNews = false;'
+)
+s, _ = re.subn(r"allowMajorNews\s*:\s*true", "allowMajorNews: false", s)
+if 'const allowMajorNews = false;' not in s and 'allowMajorNews: false' not in s:
     raise SystemExit("Economy policy failed: could not disable major-news gate")
 INDEX.write_text(s, encoding="utf-8")
 
