@@ -40,8 +40,9 @@ jobs:
           jq empty data/fallback-posts.json
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
+          jq empty data/fallback-posts-safe.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
@@ -53,6 +54,7 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
           python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
 
           python - <<'PY'
           from pathlib import Path
@@ -65,7 +67,7 @@ jobs:
           p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
           PY
 
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v19-real-image-detailed-copy:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v20-low-cost-real-image:" + JSON.stringify(post))/' src/index.mjs
           grep -n "Forced verified fallback" src/index.mjs
           grep -n "refusing placeholder publish" src/render.mjs
           npm run check
@@ -87,7 +89,7 @@ jobs:
           FORCE_RUN: "true"
           FORCE_VERIFIED_FALLBACK: "true"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "8"
+          MAX_OPENAI_CALLS: "4"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
