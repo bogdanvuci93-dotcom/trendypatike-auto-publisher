@@ -99,7 +99,7 @@ jobs:
           sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v20-low-cost-real-image:" + JSON.stringify(post))/' src/index.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "allowMajorNews: false" src/index.mjs
+          grep -n "allowMajorNews = false" src/index.mjs
           grep -n "maxOutputTokens = 6000\|structuredAttempt <= 1" src/openai.mjs
           grep -n "refusing placeholder publish" src/render.mjs
 
