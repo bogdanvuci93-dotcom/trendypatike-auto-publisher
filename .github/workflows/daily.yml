@@ -11,8 +11,6 @@ on:
   schedule:
     - cron: "7 18 * * *"
       timezone: "Europe/Belgrade"
-    - cron: "37 18 * * *"
-      timezone: "Europe/Belgrade"
 
 permissions:
   contents: write
@@ -25,7 +23,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -73,15 +71,16 @@ jobs:
           fi
           exit 0
 
-      - name: Apply live visual and reliability policy
+      - name: Apply live visual and low-cost reliability policy
         run: |
           set -euo pipefail
 
           jq empty data/fallback-posts.json
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
+          jq empty data/fallback-posts-safe.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
 
@@ -94,15 +93,15 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
           python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v19-real-image-detailed-copy:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v20-low-cost-real-image:" + JSON.stringify(post))/' src/index.mjs
 
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "fullbleed-v19-real-image-detailed-copy" src/index.mjs
+          grep -n "allowMajorNews: false" src/index.mjs
+          grep -n "maxOutputTokens = 6000\|structuredAttempt <= 1" src/openai.mjs
           grep -n "refusing placeholder publish" src/render.mjs
-          grep -n "pollBackgroundResponse\|background: true" src/openai.mjs
-          grep -n "ATTENTION-FIRST STORY\|capHeadlineWords" src/content.mjs
 
       - name: Zero-cost code and render preflight
         env:
@@ -127,7 +126,7 @@ jobs:
           DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "8"
+          MAX_OPENAI_CALLS: "4"
         run: npm run run
 
       - name: Build paid-work recovery bundle
