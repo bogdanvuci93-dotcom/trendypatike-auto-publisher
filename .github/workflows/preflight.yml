@@ -92,6 +92,6 @@ jobs:
           IMAGE_MODEL: "gpt-image-1-mini"
           IMAGE_QUALITY: "medium"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "4"
+          MAX_OPENAI_CALLS: "6"
           FORCE_VERIFIED_FALLBACK: "true"
         run: npm run check
