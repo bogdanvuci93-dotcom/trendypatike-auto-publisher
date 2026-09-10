@@ -17,7 +17,7 @@
           {"text": "1984. ADIDAS JE STAVIO KOMPJUTER U PATIKU", "accent": true},
           {"text": "DOK JE TO JOŠ ZVUČALO KAO NAUČNA FANTASTIKA", "accent": false}
         ],
-        "subheadline": "Micropacer je merio podatke o trčanju decenijama pre današnjih pametnih satova."
+        "subheadline": "Micropacer je pratio podatke o performansama mnogo pre današnjih pametnih satova."
       },
       "slide2": {
         "headline_lines": [
@@ -26,26 +26,36 @@
         ],
         "facts": [
           {"tag": "1984", "text": "adidas navodi da je Micropacer predstavljen 1984. kao inovacija sa sistemom koji je sportistima davao podatke o performansama."},
-          {"tag": "ZAŠTO JE BITNO", "text": "Ideja da sama obuća prati podatke bila je tada toliko neobična da je adidas Micropacer opisao kao kompjuter za stopala."}
+          {"tag": "IDEJA", "text": "U vreme kada računar nije bio uobičajen lični uređaj, adidas je elektronsku tehnologiju smestio direktno u obuću za trčanje."},
+          {"tag": "ZAŠTO JE BITNO", "text": "Micropacer je zato ostao rani primer ideje da sportska obuća ne služi samo za kretanje već i za praćenje rezultata."}
         ]
       },
       "slide3": {
-        "headline_lines": [],
-        "facts": [],
-        "question": "Da li biste 1984. verovali da patika može da meri vaše trčanje?"
+        "headline_lines": [
+          {"text": "ONO ŠTO DANAS RADI SAT", "accent": false},
+          {"text": "ADIDAS JE JOŠ 1984. POKUŠAO DA STAVI U PATIKU", "accent": true}
+        ],
+        "facts": [
+          {"tag": "FUTURISTIČKI", "text": "adidas je u svojoj istoriji Micropacer opisao kao 'computer for your feet', jer je nosiocu pružao podatke o performansama."},
+          {"tag": "NASLEĐE", "text": "Model se danas pamti kao jedan od neobičnijih ranih spojeva sportske obuće i digitalne tehnologije."}
+        ],
+        "question": "Da li biste 1984. verovali da patika može da prati vaše trčanje?"
       },
-      "caption": "Godine 1984. adidas je predstavio Micropacer, patiku sa elektronskim sistemom za praćenje podataka o performansama. U vreme kada kompjuteri još nisu bili svakodnevni uređaji, ideja da jedan završi u patiki bila je potpuno futuristička. Zato je Micropacer ostao jedan od najranijih primera spajanja obuće i digitalne tehnologije.",
+      "caption": "Godine 1984. adidas je predstavio Micropacer, patiku sa elektronskim sistemom za praćenje podataka o performansama. U vreme kada računari još nisu bili svakodnevni lični uređaji, ideja da jedan završi u sportskoj obući bila je potpuno futuristička. Zato je Micropacer ostao jedan od ranih primera spajanja patika i digitalne tehnologije.",
       "hashtags": ["#TrendyPatike", "#adidas", "#Micropacer", "#SneakerIstorija", "#Patike", "#Tehnologija"],
       "image_prompts": [
         "1984 retro-futuristic running shoe inspired by adidas Micropacer, small electronic performance module integrated into the shoe, dramatic dark editorial studio scene, period-correct 1980s materials, no readable text",
-        "1980s runner examining a futuristic electronic running shoe with a small integrated performance module, retro training environment, cinematic documentary style, no readable text"
+        "1980s runner examining a futuristic electronic running shoe with a small integrated performance module, retro training environment, cinematic documentary style, no readable text",
+        "close editorial detail of an early 1980s performance running shoe with a compact electronic module, vintage technology mood, realistic materials, no readable text"
       ],
       "sources": [
-        {"title": "History", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/about/history"}
+        {"title": "History", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/about/history"},
+        {"title": "Geschichte", "publisher": "adidas Group", "url": "https://www.adidas-group.com/de/uber-uns/geschichte"}
       ],
       "claims": [
         {"claim": "adidas introduced the Micropacer in 1984.", "source_urls": ["https://www.adidas-group.com/en/about/history"]},
-        {"claim": "The Micropacer featured a system that provided performance statistics to athletes.", "source_urls": ["https://www.adidas-group.com/en/about/history"]}
+        {"claim": "The Micropacer featured a system that provided performance statistics to athletes.", "source_urls": ["https://www.adidas-group.com/en/about/history"]},
+        {"claim": "adidas describes the Micropacer as a computer for your feet.", "source_urls": ["https://www.adidas-group.com/en/about/history", "https://www.adidas-group.com/de/uber-uns/geschichte"]}
       ]
     }
   },
@@ -76,19 +86,27 @@
         ],
         "facts": [
           {"tag": "1991", "text": "PUMA navodi da je DISC System bio prva sportska patika bez pertli i da je zatezanje rešeno diskom povezanim sa unutrašnjim žicama."},
-          {"tag": "1992", "text": "Već sledeće godine PUMA DISC tehnologija pojavila se na Olimpijskim igrama u Barseloni, gde je Heike Drechsler osvojila zlato u skoku udalj."}
+          {"tag": "KAKO RADI", "text": "Okretanjem diska unutrašnje žice su zatezale gornji deo patike kako bi se obuća prilagodila stopalu bez klasičnog vezivanja."},
+          {"tag": "1992", "text": "Već sledeće godine DISC tehnologija pojavila se na Olimpijskim igrama u Barseloni, gde je Heike Drechsler osvojila zlato u skoku udalj."}
         ]
       },
       "slide3": {
-        "headline_lines": [],
-        "facts": [],
+        "headline_lines": [
+          {"text": "OD ČUDNE IDEJE DO OLIMPIJSKOG ZLATA", "accent": false},
+          {"text": "ZA SAMO GODINU DANA", "accent": true}
+        ],
+        "facts": [
+          {"tag": "7,14 M", "text": "PUMA navodi da je Heike Drechsler u Barseloni 1992. skočila 7,14 metara i osvojila prvo olimpijsko zlato u karijeri."},
+          {"tag": "DETALJ", "text": "DISC je time iz tehnološkog eksperimenta vrlo brzo stigao na jednu od najvećih sportskih pozornica na svetu."}
+        ],
         "question": "Da li biste pre izabrali disk ili klasične pertle?"
       },
-      "caption": "PUMA je 1991. predstavila DISC System, sportsku patiku bez klasičnih pertli. Okretanjem diska unutrašnje žice zatezale su gornji deo oko stopala. Već 1992. tehnologija je stigla na Olimpijske igre u Barseloni, gde je Heike Drechsler u DISC modelu osvojila zlato u skoku udalj.",
+      "caption": "PUMA je 1991. predstavila DISC System, sportsku patiku bez klasičnih pertli. Okretanjem diska unutrašnje žice zatezale su gornji deo oko stopala. Već 1992. tehnologija je stigla na Olimpijske igre u Barseloni, gde je Heike Drechsler u DISC spikes osvojila zlato u skoku udalj.",
       "hashtags": ["#TrendyPatike", "#PUMA", "#DISC", "#SneakerIstorija", "#Patike", "#Tehnologija"],
       "image_prompts": [
         "1991 futuristic running shoe inspired by PUMA DISC, prominent rotary tightening disc on the upper, internal wire lacing concept, dark premium editorial product photography, no readable text",
-        "1992 athletics stadium scene with a female long jumper wearing futuristic laceless track spikes with a visible rotary disc system, cinematic sports photography, no readable text"
+        "1992 athletics stadium scene with a female long jumper wearing futuristic laceless track spikes with a visible rotary disc system, cinematic sports photography, no readable text",
+        "close-up of a 1990s laceless sports shoe rotary tightening disc and internal wire system, premium dark editorial macro photography, no readable text"
       ],
       "sources": [
         {"title": "PUMA Timeline", "publisher": "PUMA", "url": "https://about.puma.com/en/this-is-puma/history"},
