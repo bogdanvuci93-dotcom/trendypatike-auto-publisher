@@ -13,6 +13,7 @@ on:
       - "data/fallback-posts.json"
       - "data/fallback-posts-extra.json"
       - "data/fallback-posts-attention.json"
+      - "data/fallback-posts-safe.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -46,14 +47,15 @@ jobs:
       - name: Install pinned dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Mirror verified recovery policy without paid API calls
+      - name: Mirror live policy without paid API calls
         run: |
           set -euo pipefail
           jq empty data/fallback-posts.json
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
+          jq empty data/fallback-posts-safe.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
@@ -65,6 +67,7 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
           python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
 
           python - <<'PY'
           from pathlib import Path
@@ -77,7 +80,8 @@ jobs:
           p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
           PY
 
-          grep -n "Forced verified fallback\|function semanticAccentSegments\|function normalizeMoneyNotation" src/index.mjs src/content.mjs
+          grep -n "allowMajorNews: false" src/index.mjs
+          grep -n "maxOutputTokens = 6000\|structuredAttempt <= 1" src/openai.mjs
           grep -n "refusing placeholder publish\|kids-editorial-v13-real-image-long-copy" src/render.mjs
           echo "Recovery fallback entries: $(jq length data/fallback-posts.json)"
 
@@ -88,6 +92,6 @@ jobs:
           IMAGE_MODEL: "gpt-image-1-mini"
           IMAGE_QUALITY: "medium"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "8"
+          MAX_OPENAI_CALLS: "4"
           FORCE_VERIFIED_FALLBACK: "true"
         run: npm run check
