@@ -1,101 +1,37 @@
 import type { PageServerLoad } from './$types';
 
-const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+const TZ='Europe/Belgrade';
+const DAY=86400000;
+type ClickPoint={x:number;y:number;rage:boolean;dead:boolean;target:string;label:string;href:string;sessionId:string;vw:number;vh:number;device:string};
+type PageGroup={path:string;clicks:ClickPoint[];scrollBySession:Map<string,number>;activeBySession:Map<string,number>;visibleBySession:Map<string,number>;targetCounts:Map<string,{target:string;label:string;href:string;clicks:number;rage:number;dead:number}>;pageSessions:Set<string>;exitSessions:Set<string>;atcSessions:Set<string>;checkoutSessions:Set<string>;exitAfterInteraction:Map<string,number>;totalClicks:number;rageClicks:number;deadClicks:number};
+function parseMeta(raw:unknown){try{return JSON.parse(String(raw||'{}')) as Record<string,any>;}catch{return{};}}
+function median(values:number[]){if(!values.length)return 0;const s=[...values].sort((a,b)=>a-b),m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+function normalizeDevice(value:string,vw:number){const v=value.toLowerCase();if(['mobile','tablet','desktop'].includes(v))return v;if(vw>0)return vw<768?'mobile':vw<1100?'tablet':'desktop';return'unknown';}
+function dayKey(ms:number){const p=new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(ms));const g=(t:string)=>p.find(x=>x.type===t)?.value||'';return`${g('year')}-${g('month')}-${g('day')}`;}
+function zonedStart(key:string){const [y,m,d]=key.split('-').map(Number);let guess=Date.UTC(y,m-1,d);const parts=new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(guess));const n=(t:string)=>Number(parts.find(x=>x.type===t)?.value||0);const represented=Date.UTC(n('year'),n('month')-1,n('day'),n('hour'),n('minute'),n('second'));return guess-(represented-guess);}
+function rangeWindow(range:string){const now=Date.now(),today=dayKey(now),todayStart=zonedStart(today);if(range==='today')return{range,start:todayStart,end:now,label:'Danas'};if(range==='yesterday'){const yKey=dayKey(todayStart-1);return{range,start:zonedStart(yKey),end:todayStart,label:'Juče'};}if(range==='30d')return{range,start:now-30*DAY,end:now,label:'Poslednjih 30 dana'};return{range:'7d',start:now-7*DAY,end:now,label:'Poslednjih 7 dana'};}
 
-type SessionView = { vw:number; vh:number; device:string };
-type ClickPoint = { x:number;y:number;rage:boolean;dead:boolean;target:string;label:string;href:string;sessionId:string;vw:number;vh:number;device:string };
-type PageGroup = {
-  path:string;
-  clicks:ClickPoint[];
-  scrollBySession:Map<string,number>;
-  activeBySession:Map<string,number>;
-  visibleBySession:Map<string,number>;
-  targetCounts:Map<string,{target:string;label:string;href:string;clicks:number;rage:number;dead:number}>;
-  pageSessions:Set<string>;
-  exitSessions:Set<string>;
-  totalClicks:number;
-  rageClicks:number;
-  deadClicks:number;
-};
-
-function parseMeta(raw: unknown) { try { return JSON.parse(String(raw || '{}')) as Record<string,unknown>; } catch { return {}; } }
-function median(values:number[]) { if (!values.length) return 0; const sorted=[...values].sort((a,b)=>a-b); const mid=Math.floor(sorted.length/2); return sorted.length%2?sorted[mid]:(sorted[mid-1]+sorted[mid])/2; }
-function normalizeDevice(value:string, vw:number) { const v=value.toLowerCase(); if(['mobile','tablet','desktop'].includes(v))return v; if(vw>0)return vw<768?'mobile':vw<1100?'tablet':'desktop'; return 'unknown'; }
-
-export const load: PageServerLoad = async ({ platform }) => {
-  const db = platform?.env?.DB;
-  if (!db) return { pages: [], totals:{sessions:0,avgActiveMs:0,topExitPath:'',topExitCount:0} };
-
-  const since = Date.now() - SEVEN_DAYS;
-  const [eventResult, sessionResult] = await Promise.all([
-    db.prepare(`
-      SELECT session_id,path,type,meta_json,event_ts
-      FROM events
-      WHERE event_ts >= ?1
-        AND type IN ('session_start','page_view','click','rage_click','dead_click','scroll_depth','heartbeat','page_exit')
-      ORDER BY event_ts DESC
-      LIMIT 24000
-    `).bind(since).all(),
-    db.prepare(`SELECT id,started_at,last_seen_at FROM sessions WHERE started_at>=?1`).bind(since).all()
+export const load:PageServerLoad=async({platform,url})=>{
+  const db=platform?.env?.DB;const period=rangeWindow(url.searchParams.get('range')||'7d');
+  if(!db)return{pages:[],period,totals:{sessions:0,avgActiveMs:0,topExitPath:'',topExitCount:0}};
+  const [eventResult,sessionResult]=await Promise.all([
+    db.prepare(`SELECT session_id,path,type,meta_json,event_ts FROM events WHERE event_ts>=?1 AND event_ts<?2 AND type IN ('session_start','page_view','product_view','click','rage_click','dead_click','scroll_depth','heartbeat','page_exit','add_to_cart','cart_view','checkout_started') ORDER BY event_ts DESC LIMIT 50000`).bind(period.start,period.end).all(),
+    db.prepare(`SELECT id,started_at,last_seen_at FROM sessions WHERE started_at>=?1 AND started_at<?2`).bind(period.start,period.end).all()
   ]);
-
-  const rows=eventResult.results as any[];
-  const sessionViews=new Map<string,SessionView>();
-  for(const row of rows){ if(row.type!=='session_start')continue; const meta=parseMeta(row.meta_json); const vw=Math.max(0,Math.min(3000,Number(meta.vw)||0)); const vh=Math.max(0,Math.min(3000,Number(meta.vh)||0)); sessionViews.set(String(row.session_id||''),{vw,vh,device:normalizeDevice(String(meta.device||''),vw)}); }
-
-  const byPath=new Map<string,PageGroup>();
-  const getGroup=(path:string)=>{ let g=byPath.get(path); if(!g){g={path,clicks:[],scrollBySession:new Map(),activeBySession:new Map(),visibleBySession:new Map(),targetCounts:new Map(),pageSessions:new Set(),exitSessions:new Set(),totalClicks:0,rageClicks:0,deadClicks:0};byPath.set(path,g);} return g; };
-
-  for(const row of rows){
-    if(row.type==='session_start')continue;
-    const path=String(row.path||'/'), sessionId=String(row.session_id||'');
-    const g=getGroup(path); if(sessionId)g.pageSessions.add(sessionId);
-    const meta=parseMeta(row.meta_json), view=sessionViews.get(sessionId);
-    const metaVw=Number(meta.vw)||0, metaVh=Number(meta.vh)||0;
-    const vw=Math.max(0,Math.min(3000,metaVw||view?.vw||0)), vh=Math.max(0,Math.min(3000,metaVh||view?.vh||0));
-    const device=normalizeDevice(String(meta.device||view?.device||''),vw);
-
-    if(['click','rage_click','dead_click'].includes(row.type)){
-      const x=Number(meta.xPct), y=Number(meta.docYPct), target=String(meta.target||'').slice(0,120), label=String(meta.label||'').slice(0,100), href=String(meta.href||'').slice(0,300);
-      if(Number.isFinite(x)&&Number.isFinite(y))g.clicks.push({x:Math.max(0,Math.min(100,x)),y:Math.max(0,Math.min(100,y)),rage:row.type==='rage_click',dead:row.type==='dead_click',target,label,href,sessionId,vw,vh,device});
-      const key=`${label}|${target}|${href}`, agg=g.targetCounts.get(key)||{target,label,href,clicks:0,rage:0,dead:0};
-      if(row.type==='click'){g.totalClicks++;agg.clicks++;} if(row.type==='rage_click'){g.rageClicks++;agg.rage++;} if(row.type==='dead_click'){g.deadClicks++;agg.dead++;} g.targetCounts.set(key,agg);
-    }
-    if(row.type==='scroll_depth'){const depth=Number(meta.depth);if(sessionId&&Number.isFinite(depth))g.scrollBySession.set(sessionId,Math.max(g.scrollBySession.get(sessionId)||0,Math.max(0,Math.min(100,depth))));}
-    if(row.type==='heartbeat'||row.type==='page_exit'){
-      const active=Math.max(0,Number(meta.activeMs)||0), visible=Math.max(0,Number(meta.visibleMs)||0), scroll=Math.max(0,Number(meta.maxScroll)||0);
-      if(sessionId){g.activeBySession.set(sessionId,Math.max(g.activeBySession.get(sessionId)||0,active));g.visibleBySession.set(sessionId,Math.max(g.visibleBySession.get(sessionId)||0,visible));g.scrollBySession.set(sessionId,Math.max(g.scrollBySession.get(sessionId)||0,scroll));}
-      if(row.type==='page_exit'&&sessionId)g.exitSessions.add(sessionId);
-    }
+  const rows=eventResult.results as any[];const sessionViews=new Map<string,{vw:number;vh:number;device:string}>();
+  for(const row of rows){if(row.type!=='session_start')continue;const meta=parseMeta(row.meta_json),vw=Math.max(0,Math.min(3000,Number(meta.vw)||0)),vh=Math.max(0,Math.min(3000,Number(meta.vh)||0));sessionViews.set(String(row.session_id||''),{vw,vh,device:normalizeDevice(String(meta.device||''),vw)});}
+  const byPath=new Map<string,PageGroup>();const get=(path:string)=>{let g=byPath.get(path);if(!g){g={path,clicks:[],scrollBySession:new Map(),activeBySession:new Map(),visibleBySession:new Map(),targetCounts:new Map(),pageSessions:new Set(),exitSessions:new Set(),atcSessions:new Set(),checkoutSessions:new Set(),exitAfterInteraction:new Map(),totalClicks:0,rageClicks:0,deadClicks:0};byPath.set(path,g);}return g;};
+  for(const row of rows){if(row.type==='session_start')continue;const path=String(row.path||'/'),sid=String(row.session_id||''),g=get(path),meta=parseMeta(row.meta_json),view=sessionViews.get(sid);if(sid)g.pageSessions.add(sid);const vw=Math.max(0,Math.min(3000,Number(meta.vw)||view?.vw||0)),vh=Math.max(0,Math.min(3000,Number(meta.vh)||view?.vh||0)),device=normalizeDevice(String(meta.device||view?.device||''),vw);
+    if(['click','rage_click','dead_click'].includes(row.type)){const x=Number(meta.xPct),y=Number(meta.docYPct),target=String(meta.target||'').slice(0,120),label=String(meta.label||'').slice(0,100),href=String(meta.href||'').slice(0,300);if(Number.isFinite(x)&&Number.isFinite(y))g.clicks.push({x:Math.max(0,Math.min(100,x)),y:Math.max(0,Math.min(100,y)),rage:row.type==='rage_click',dead:row.type==='dead_click',target,label,href,sessionId:sid,vw,vh,device});const key=`${label}|${target}|${href}`,a=g.targetCounts.get(key)||{target,label,href,clicks:0,rage:0,dead:0};if(row.type==='click'){g.totalClicks++;a.clicks++;}if(row.type==='rage_click'){g.rageClicks++;a.rage++;}if(row.type==='dead_click'){g.deadClicks++;a.dead++;}g.targetCounts.set(key,a);}
+    if(row.type==='scroll_depth'){const d=Number(meta.depth);if(sid&&Number.isFinite(d))g.scrollBySession.set(sid,Math.max(g.scrollBySession.get(sid)||0,Math.max(0,Math.min(100,d))));}
+    if(row.type==='add_to_cart'&&sid)g.atcSessions.add(sid);if(row.type==='checkout_started'&&sid)g.checkoutSessions.add(sid);
+    if(row.type==='heartbeat'||row.type==='page_exit'){const active=Math.max(0,Number(meta.activeMs)||0),visible=Math.max(0,Number(meta.visibleMs)||0),scroll=Math.max(0,Number(meta.maxScroll)||0);if(sid){g.activeBySession.set(sid,Math.max(g.activeBySession.get(sid)||0,active));g.visibleBySession.set(sid,Math.max(g.visibleBySession.get(sid)||0,visible));g.scrollBySession.set(sid,Math.max(g.scrollBySession.get(sid)||0,scroll));}if(row.type==='page_exit'&&sid){g.exitSessions.add(sid);const li=meta.lastInteraction||{};const key=String(li.label||li.target||'Bez poslednje interakcije').slice(0,120);g.exitAfterInteraction.set(key,(g.exitAfterInteraction.get(key)||0)+1);}}
   }
-
-  const pages=[...byPath.values()].map((g)=>{
-    const scrolls=[...g.scrollBySession.values()];
-    const activeTimes=[...g.activeBySession.values()];
-    const visibleTimes=[...g.visibleBySession.values()];
-    const deviceSessions=new Map<string,Set<string>>();
-    for(const p of g.clicks){if(!deviceSessions.has(p.device))deviceSessions.set(p.device,new Set());if(p.sessionId)deviceSessions.get(p.device)?.add(p.sessionId);}
-    for(const sid of g.pageSessions){const device=sessionViews.get(sid)?.device||'unknown';if(!deviceSessions.has(device))deviceSessions.set(device,new Set());deviceSessions.get(device)?.add(sid);}
-    const rankedDevices=[...deviceSessions.entries()].map(([device,sessions])=>({device,sessions:sessions.size})).sort((a,b)=>b.sessions-a.sessions);
-    const defaultDevice=rankedDevices.find((d)=>d.device!=='unknown')?.device||rankedDevices[0]?.device||'desktop';
-    const viewportPoints=g.clicks.filter((p)=>p.device===defaultDevice&&p.vw>0); const fallbackPoints=g.clicks.filter((p)=>p.vw>0); const sourcePoints=viewportPoints.length?viewportPoints:fallbackPoints;
-    const snapshotWidth=Math.round(Math.max(320,Math.min(1800,median(sourcePoints.map((p)=>p.vw))||(defaultDevice==='mobile'?390:defaultDevice==='tablet'?820:1366))));
-    const snapshotHeight=Math.round(Math.max(500,Math.min(1600,median(sourcePoints.map((p)=>p.vh).filter(Boolean))||(defaultDevice==='mobile'?844:768))));
-    const sessions=g.pageSessions.size;
-    const exits=g.exitSessions.size;
-    return {
-      path:g.path,clicks:g.clicks,scrolls,totalClicks:g.totalClicks,rageClicks:g.rageClicks,deadClicks:g.deadClicks,
-      sessions,exits,exitRate:sessions?exits/sessions*100:0,
-      avgActiveMs:activeTimes.length?activeTimes.reduce((a,b)=>a+b,0)/activeTimes.length:0,
-      avgVisibleMs:visibleTimes.length?visibleTimes.reduce((a,b)=>a+b,0)/visibleTimes.length:0,
-      avgScroll:scrolls.length?scrolls.reduce((a,b)=>a+b,0)/scrolls.length:0,maxScroll:scrolls.length?Math.max(...scrolls):0,
-      targets:[...g.targetCounts.values()].sort((a,b)=>(b.clicks+b.rage+b.dead)-(a.clicks+a.rage+a.dead)).slice(0,25),
-      defaultDevice,snapshotWidth,snapshotHeight,devices:rankedDevices
-    };
-  }).sort((a,b)=>(b.sessions*4+b.totalClicks)-(a.sessions*4+a.totalClicks)).slice(0,60);
-
-  const sessionRows=sessionResult.results as any[];
-  const avgActiveMs=sessionRows.length?sessionRows.reduce((sum,r)=>sum+Math.max(0,Number(r.last_seen_at||0)-Number(r.started_at||0)),0)/sessionRows.length:0;
-  const topExit=pages.slice().sort((a,b)=>b.exits-a.exits)[0];
-  return { pages, totals:{sessions:sessionRows.length,avgActiveMs,topExitPath:topExit?.path||'',topExitCount:topExit?.exits||0} };
+  const pages=[...byPath.values()].map(g=>{const scrolls=[...g.scrollBySession.values()],active=[...g.activeBySession.values()],visible=[...g.visibleBySession.values()],deviceSessions=new Map<string,Set<string>>();for(const p of g.clicks){if(!deviceSessions.has(p.device))deviceSessions.set(p.device,new Set());if(p.sessionId)deviceSessions.get(p.device)?.add(p.sessionId);}for(const sid of g.pageSessions){const d=sessionViews.get(sid)?.device||'unknown';if(!deviceSessions.has(d))deviceSessions.set(d,new Set());deviceSessions.get(d)?.add(sid);}const devices=[...deviceSessions.entries()].map(([device,s])=>({device,sessions:s.size})).sort((a,b)=>b.sessions-a.sessions),defaultDevice=devices.find(d=>d.device!=='unknown')?.device||devices[0]?.device||'desktop',vp=g.clicks.filter(p=>p.device===defaultDevice&&p.vw>0),fb=g.clicks.filter(p=>p.vw>0),src=vp.length?vp:fb,snapshotWidth=Math.round(Math.max(320,Math.min(1800,median(src.map(p=>p.vw))||(defaultDevice==='mobile'?390:defaultDevice==='tablet'?820:1366)))),snapshotHeight=Math.round(Math.max(500,Math.min(1600,median(src.map(p=>p.vh).filter(Boolean))||(defaultDevice==='mobile'?844:768)))),sessions=g.pageSessions.size,exits=g.exitSessions.size,targets=[...g.targetCounts.values()].sort((a,b)=>(b.clicks+b.rage+b.dead)-(a.clicks+a.rage+a.dead)).slice(0,25),irritations=targets.filter(t=>t.rage+t.dead>0).sort((a,b)=>(b.rage+b.dead)-(a.rage+a.dead)).slice(0,5),exitInteractions=[...g.exitAfterInteraction.entries()].map(([label,count])=>({label,count})).sort((a,b)=>b.count-a.count).slice(0,5),atc=g.atcSessions.size,checkout=g.checkoutSessions.size,avgActiveMs=active.length?active.reduce((a,b)=>a+b,0)/active.length:0,avgScroll=scrolls.length?scrolls.reduce((a,b)=>a+b,0)/scrolls.length:0,exitRate=sessions?exits/sessions*100:0,checkoutFromAtc=atc?checkout/atc*100:0;
+    let diagnosis='Nema dovoljno jakog signala za zaključak.';if(exits>=5&&exitRate>=55&&avgActiveMs<10000)diagnosis=`${exitRate.toFixed(0)}% poseta se završava ovde, a aktivno vreme je samo ${Math.round(avgActiveMs/1000)}s — kupci uglavnom odlaze pre dubljeg istraživanja.`;else if(avgScroll<40&&sessions>=10)diagnosis=`Prosečan kupac stiže do ${avgScroll.toFixed(0)}% stranice — sadržaj i CTA ispod toga većina verovatno ne vidi.`;else if(irritations.length)diagnosis=`Najviše znakova frustracije ima element „${irritations[0].label||irritations[0].target||'nepoznat element'}“ (${irritations[0].rage} rage, ${irritations[0].dead} dead).`;
+    let funnelSignal='Nema dovoljno ATC/checkout podataka na ovoj stranici.';if(atc>=3)funnelSignal=checkout?`${atc} sesija je dodalo u korpu; ${checkout} je stiglo do checkout signala (${checkoutFromAtc.toFixed(0)}%).`:`${atc} sesija je dodalo u korpu, ali nijedna ovde nije zabeležila checkout signal.`;
+    return{path:g.path,clicks:g.clicks,scrolls,totalClicks:g.totalClicks,rageClicks:g.rageClicks,deadClicks:g.deadClicks,sessions,exits,exitRate,avgActiveMs,avgVisibleMs:visible.length?visible.reduce((a,b)=>a+b,0)/visible.length:0,avgScroll,maxScroll:scrolls.length?Math.max(...scrolls):0,targets,irritations,exitInteractions,atc,checkout,checkoutFromAtc,diagnosis,funnelSignal,defaultDevice,snapshotWidth,snapshotHeight,devices};
+  }).sort((a,b)=>(b.sessions*4+b.totalClicks)-(a.sessions*4+a.totalClicks)).slice(0,80);
+  const sessionRows=sessionResult.results as any[],avgActiveMs=sessionRows.length?sessionRows.reduce((s,r)=>s+Math.max(0,Number(r.last_seen_at||0)-Number(r.started_at||0)),0)/sessionRows.length:0,topExit=pages.slice().sort((a,b)=>b.exits-a.exits)[0];
+  return{pages,period,totals:{sessions:sessionRows.length,avgActiveMs,topExitPath:topExit?.path||'',topExitCount:topExit?.exits||0}};
 };
