@@ -8,6 +8,16 @@ export type SyncEnv = {
 };
 
 const DAY = 86400000;
+const SESSION_ATTR_KEYS = new Set(['_tp_growth_session','tp_growth_session']);
+
+function storefrontSessionId(order: any) {
+  for (const attr of order?.customAttributes ?? []) {
+    if (!SESSION_ATTR_KEYS.has(String(attr?.key || ''))) continue;
+    const value = String(attr?.value || '').slice(0, 80);
+    if (/^[A-Za-z0-9_-]{10,80}$/.test(value)) return value;
+  }
+  return '';
+}
 
 async function beginSync(db: D1Database, provider: string, minIntervalMs = 0) {
   const now = Date.now();
@@ -48,6 +58,7 @@ query RecentOrders($query: String!, $after: String) {
       cancelledAt
       displayFinancialStatus
       returnStatus
+      customAttributes { key value }
       totalPriceSet { shopMoney { amount currencyCode } }
       currentTotalPriceSet { shopMoney { amount currencyCode } }
       lineItems(first: 100) {
@@ -76,12 +87,14 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
     if (!connection?.accountId) throw new Error('Shopify is not connected');
 
     const days = Math.max(1, Math.min(31, Math.round(lookbackDays || 31)));
-    const since = new Date(Date.now() - days * DAY).toISOString().slice(0, 10);
+    const sinceMs = Date.now() - days * DAY;
+    const since = new Date(sinceMs).toISOString().slice(0, 10);
     let after: string | null = null;
     let fetchedOrders = 0;
     let validOrders = 0;
     let ignoredOrders = 0;
     let itemCount = 0;
+    let linkedOrders = 0;
 
     do {
       const response = await fetchFn(`https://${connection.accountId}/admin/api/2026-07/graphql.json`, {
@@ -105,10 +118,12 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
         const returnStatus = String(order.returnStatus || 'NO_RETURN').toUpperCase();
         const excluded = isExcludedShopifyOrder(order);
         const money = order.currentTotalPriceSet?.shopMoney || order.totalPriceSet?.shopMoney;
+        const sessionId = storefrontSessionId(order) || null;
+        if (sessionId) linkedOrders++;
 
         await db.prepare(`
-          INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at,return_status)
-          VALUES(?1,?2,?3,?4,?5,?6,?7,?8)
+          INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at,return_status,session_id)
+          VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9)
           ON CONFLICT(id) DO UPDATE SET
             created_at=excluded.created_at,
             total=excluded.total,
@@ -116,7 +131,8 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
             financial_status=excluded.financial_status,
             cancelled=excluded.cancelled,
             synced_at=excluded.synced_at,
-            return_status=excluded.return_status
+            return_status=excluded.return_status,
+            session_id=COALESCE(excluded.session_id,shopify_orders.session_id)
         `).bind(
           order.id,
           Date.parse(order.createdAt),
@@ -125,7 +141,8 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
           financialStatus || null,
           order.cancelledAt ? 1 : 0,
           Date.now(),
-          returnStatus
+          returnStatus,
+          sessionId
         ).run();
 
         if (excluded) {
@@ -167,7 +184,23 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
       )
     `).run();
 
-    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, items: itemCount, since, lookbackDays:days };
+    await db.prepare(`
+      UPDATE sessions
+      SET purchased=CASE WHEN EXISTS(
+            SELECT 1 FROM shopify_orders o
+            WHERE o.session_id=sessions.id AND ${validOrderSql('o')}
+          ) THEN 1 ELSE 0 END,
+          revenue=COALESCE((
+            SELECT SUM(o.total) FROM shopify_orders o
+            WHERE o.session_id=sessions.id AND ${validOrderSql('o')}
+          ),0)
+      WHERE id IN (
+        SELECT DISTINCT session_id FROM shopify_orders
+        WHERE session_id IS NOT NULL AND created_at>=?1
+      )
+    `).bind(sinceMs).run();
+
+    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, linkedOrders, items: itemCount, since, lookbackDays:days };
     await setSyncState(db, 'shopify', true, result);
     return result;
   } catch (e) {
