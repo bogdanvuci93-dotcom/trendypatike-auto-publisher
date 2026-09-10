@@ -1,0 +1,104 @@
+[
+  {
+    "seed": {
+      "id": "fallback-adidas-micropacer-1984",
+      "topic": "Kako je adidas 1984. stavio kompjuter u patiku",
+      "category": "adidas / tehnologija / istorija",
+      "preferred_domains": ["adidas-group.com"],
+      "visual_subject": "1984 adidas Micropacer running shoe with small electronic performance module, retro-futuristic running technology",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je adidas 1984. stavio kompjuter u patiku",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "1984. ADIDAS JE STAVIO KOMPJUTER U PATIKU", "accent": true},
+          {"text": "DOK JE TO JOŠ ZVUČALO KAO NAUČNA FANTASTIKA", "accent": false}
+        ],
+        "subheadline": "Micropacer je merio podatke o trčanju decenijama pre današnjih pametnih satova."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "MICROPACER JE PRATIO PERFORMANSE TRKAČA", "accent": false},
+          {"text": "I PRETVORIO PATIKU U MALI ELEKTRONSKI ALAT", "accent": true}
+        ],
+        "facts": [
+          {"tag": "1984", "text": "adidas navodi da je Micropacer predstavljen 1984. kao inovacija sa sistemom koji je sportistima davao podatke o performansama."},
+          {"tag": "ZAŠTO JE BITNO", "text": "Ideja da sama obuća prati podatke bila je tada toliko neobična da je adidas Micropacer opisao kao kompjuter za stopala."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [],
+        "facts": [],
+        "question": "Da li biste 1984. verovali da patika može da meri vaše trčanje?"
+      },
+      "caption": "Godine 1984. adidas je predstavio Micropacer, patiku sa elektronskim sistemom za praćenje podataka o performansama. U vreme kada kompjuteri još nisu bili svakodnevni uređaji, ideja da jedan završi u patiki bila je potpuno futuristička. Zato je Micropacer ostao jedan od najranijih primera spajanja obuće i digitalne tehnologije.",
+      "hashtags": ["#TrendyPatike", "#adidas", "#Micropacer", "#SneakerIstorija", "#Patike", "#Tehnologija"],
+      "image_prompts": [
+        "1984 retro-futuristic running shoe inspired by adidas Micropacer, small electronic performance module integrated into the shoe, dramatic dark editorial studio scene, period-correct 1980s materials, no readable text",
+        "1980s runner examining a futuristic electronic running shoe with a small integrated performance module, retro training environment, cinematic documentary style, no readable text"
+      ],
+      "sources": [
+        {"title": "History", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/about/history"}
+      ],
+      "claims": [
+        {"claim": "adidas introduced the Micropacer in 1984.", "source_urls": ["https://www.adidas-group.com/en/about/history"]},
+        {"claim": "The Micropacer featured a system that provided performance statistics to athletes.", "source_urls": ["https://www.adidas-group.com/en/about/history"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-puma-disc-1991",
+      "topic": "Kako je PUMA 1991. napravila prvu sportsku patiku bez pertli",
+      "category": "PUMA / tehnologija / istorija",
+      "preferred_domains": ["about.puma.com"],
+      "visual_subject": "1991 PUMA DISC running shoe with rotary tightening disc and internal wire lacing system",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kako je PUMA 1991. napravila prvu sportsku patiku bez pertli",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "PUMA JE 1991. IZBACILA SPORTSKU PATIKU BEZ PERTLI", "accent": true},
+          {"text": "ZATEZALA SE OKRETANJEM JEDNOG DISKA", "accent": false}
+        ],
+        "subheadline": "DISC System je koristio unutrašnje žice koje su stezale gornji deo patike."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "SISTEM JE BIO TOLIKO NEOBIČAN DA JE VEĆ 1992. STIGAO NA OLIMPIJSKU SCENU", "accent": false},
+          {"text": "HEIKE DRECHSLER JE U DISC SPIKES OSVOJILA ZLATO U SKOKU UDALJ", "accent": true}
+        ],
+        "facts": [
+          {"tag": "1991", "text": "PUMA navodi da je DISC System bio prva sportska patika bez pertli i da je zatezanje rešeno diskom povezanim sa unutrašnjim žicama."},
+          {"tag": "1992", "text": "Već sledeće godine PUMA DISC tehnologija pojavila se na Olimpijskim igrama u Barseloni, gde je Heike Drechsler osvojila zlato u skoku udalj."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [],
+        "facts": [],
+        "question": "Da li biste pre izabrali disk ili klasične pertle?"
+      },
+      "caption": "PUMA je 1991. predstavila DISC System, sportsku patiku bez klasičnih pertli. Okretanjem diska unutrašnje žice zatezale su gornji deo oko stopala. Već 1992. tehnologija je stigla na Olimpijske igre u Barseloni, gde je Heike Drechsler u DISC modelu osvojila zlato u skoku udalj.",
+      "hashtags": ["#TrendyPatike", "#PUMA", "#DISC", "#SneakerIstorija", "#Patike", "#Tehnologija"],
+      "image_prompts": [
+        "1991 futuristic running shoe inspired by PUMA DISC, prominent rotary tightening disc on the upper, internal wire lacing concept, dark premium editorial product photography, no readable text",
+        "1992 athletics stadium scene with a female long jumper wearing futuristic laceless track spikes with a visible rotary disc system, cinematic sports photography, no readable text"
+      ],
+      "sources": [
+        {"title": "PUMA Timeline", "publisher": "PUMA", "url": "https://about.puma.com/en/this-is-puma/history"},
+        {"title": "Heike Drechsler", "publisher": "PUMA", "url": "https://about.puma.com/en/node/1769"}
+      ],
+      "claims": [
+        {"claim": "PUMA launched the DISC System in 1991 as the first laceless sports shoe.", "source_urls": ["https://about.puma.com/en/this-is-puma/history"]},
+        {"claim": "Turning the DISC tightened internal wires around the upper.", "source_urls": ["https://about.puma.com/en/this-is-puma/history"]},
+        {"claim": "Heike Drechsler won Olympic long jump gold in 1992 wearing PUMA DISC spikes.", "source_urls": ["https://about.puma.com/en/node/1769"]}
+      ]
+    }
+  }
+]
