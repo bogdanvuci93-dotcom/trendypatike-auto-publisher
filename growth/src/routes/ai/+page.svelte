@@ -20,7 +20,7 @@
     messages=[...messages,{role:'user',text:q}];input='';loading=true;
     try{
       const r=await fetch('/api/advisor/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({message:q,period})});
-      const x=await r.json();
+      const x:any=await r.json();
       messages=[...messages,{role:'assistant',title:x.title||'Analiza',text:x.answer||x.error||'Nisam uspeo da analiziram.',evidence:x.evidence||[],actions:x.actions||[],limitations:x.limitations,meta:x.ok?`${x.ai?'PRAVI AI':'DATA FALLBACK'} · ${x.pagesReviewed||0} stranica · ${x.replaysReviewed||0} prioritetnih replay-a · ${x.aiRequestsRemaining??'—'} AI upita ostalo danas`:undefined}];
     }catch(e){messages=[...messages,{role:'assistant',title:'Greška',text:'Analiza trenutno nije uspela. Pokušaj ponovo.'}];}
     finally{loading=false;setTimeout(()=>document.getElementById('ai-chat')?.scrollIntoView({behavior:'smooth',block:'start'}),50);}
@@ -37,7 +37,7 @@
       actionBusy=a.id;
       try{
         const r=await fetch('/api/advisor/action',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({provider:a.provider})});
-        const x=await r.json();
+        const x:any=await r.json();
         messages=[...messages,{role:'assistant',title:x.ok?'Gotovo':'Akcija nije uspela',text:x.ok?`${a.provider==='meta'?'Meta Ads':'Shopify'} podaci su osveženi. Pitaj me ponovo i analiziraću sveže podatke.`:(x.error||'Greška pri osvežavanju.')}];
       }finally{actionBusy='';}
     }
