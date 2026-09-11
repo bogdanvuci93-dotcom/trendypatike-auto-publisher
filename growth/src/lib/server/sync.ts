@@ -1,5 +1,5 @@
 import { getConnection } from './connections';
-import { isExcludedShopifyOrder, validOrderSql } from './orders';
+import { deliveryStatusFromOrder, isExcludedShopifyOrder, validOrderSql } from './orders';
 
 export type SyncEnv = {
   DB?: D1Database;
@@ -57,8 +57,14 @@ query RecentOrders($query: String!, $after: String) {
       createdAt
       cancelledAt
       displayFinancialStatus
+      displayFulfillmentStatus
       returnStatus
       customAttributes { key value }
+      fulfillments(first: 10) {
+        status
+        displayStatus
+        deliveredAt
+      }
       totalPriceSet { shopMoney { amount currencyCode } }
       currentTotalPriceSet { shopMoney { amount currencyCode } }
       lineItems(first: 100) {
@@ -116,14 +122,16 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
       for (const order of orders) {
         const financialStatus = String(order.displayFinancialStatus || '').toUpperCase();
         const returnStatus = String(order.returnStatus || 'NO_RETURN').toUpperCase();
+        const fulfillmentStatus = String(order.displayFulfillmentStatus || '').toUpperCase();
+        const deliveryStatus = deliveryStatusFromOrder(order);
         const excluded = isExcludedShopifyOrder(order);
         const money = order.currentTotalPriceSet?.shopMoney || order.totalPriceSet?.shopMoney;
         const sessionId = storefrontSessionId(order) || null;
         if (sessionId) linkedOrders++;
 
         await db.prepare(`
-          INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at,return_status,session_id)
-          VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9)
+          INSERT INTO shopify_orders(id,created_at,total,currency,financial_status,cancelled,synced_at,return_status,session_id,fulfillment_status,delivery_status)
+          VALUES(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)
           ON CONFLICT(id) DO UPDATE SET
             created_at=excluded.created_at,
             total=excluded.total,
@@ -132,7 +140,9 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
             cancelled=excluded.cancelled,
             synced_at=excluded.synced_at,
             return_status=excluded.return_status,
-            session_id=COALESCE(excluded.session_id,shopify_orders.session_id)
+            session_id=COALESCE(excluded.session_id,shopify_orders.session_id),
+            fulfillment_status=excluded.fulfillment_status,
+            delivery_status=excluded.delivery_status
         `).bind(
           order.id,
           Date.parse(order.createdAt),
@@ -142,7 +152,9 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
           order.cancelledAt ? 1 : 0,
           Date.now(),
           returnStatus,
-          sessionId
+          sessionId,
+          fulfillmentStatus || null,
+          deliveryStatus || null
         ).run();
 
         if (excluded) {
@@ -200,7 +212,7 @@ export async function syncShopify(env: SyncEnv, fetchFn: typeof fetch = fetch, l
       )
     `).bind(sinceMs).run();
 
-    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, linkedOrders, items: itemCount, since, lookbackDays:days };
+    const result = { ok: true, provider: 'shopify', orders: validOrders, ignoredOrders, fetchedOrders, linkedOrders, items: itemCount, since, lookbackDays:days, revenueRule:'fulfilled_and_not_cancelled_refunded_returned' };
     await setSyncState(db, 'shopify', true, result);
     return result;
   } catch (e) {

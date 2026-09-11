@@ -3,94 +3,81 @@ import type { RequestHandler } from './$types';
 import { validOrderSql } from '$lib/server/orders';
 
 const DAY = 86400000;
+const AI_MODEL = '@cf/zai-org/glm-4.7-flash';
+const DAILY_AI_LIMIT = 30;
 const pct = (a:number,b:number) => b ? (a/b)*100 : 0;
 const fmt = (n:number) => new Intl.NumberFormat('sr-RS',{maximumFractionDigits:1}).format(n);
 
 type Action = { id:string; label:string; kind:'link'|'sync'; href?:string; provider?:'shopify'|'meta'; tone?:'primary'|'warn' };
+type AiBinding = { run:(model:string,input:Record<string,unknown>)=>Promise<any> };
+
+function parseMeta(raw:unknown){ try{return JSON.parse(String(raw||'{}')) as Record<string,any>;}catch{return{};} }
+function dayKey(ms:number){return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Belgrade',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(ms));}
+function zonedStart(key:string){const [y,m,d]=key.split('-').map(Number);let guess=Date.UTC(y,m-1,d);const p=new Intl.DateTimeFormat('en-US',{timeZone:'Europe/Belgrade',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(guess));const n=(t:string)=>Number(p.find(x=>x.type===t)?.value||0);const represented=Date.UTC(n('year'),n('month')-1,n('day'),n('hour'),n('minute'),n('second'));return guess-(represented-guess);}
+function rangeWindow(range:string){const now=Date.now(),today=dayKey(now),start=zonedStart(today);if(range==='today')return{key:'today',start,end:now,label:'Danas'};if(range==='yesterday'){const y=dayKey(start-1);return{key:'yesterday',start:zonedStart(y),end:start,label:'Juče'};}if(range==='30d')return{key:'30d',start:now-30*DAY,end:now,label:'30 dana'};return{key:'7d',start:now-7*DAY,end:now,label:'7 dana'};}
+
+function replaySummaries(rows:any[], ids:string[]){
+  const map=new Map<string,{routes:Set<string>;clicks:number;clickLabels:Map<string,number>;scrollMax:number;device:string;vw:number;vh:number;first:number;last:number;packets:number}>();
+  for(const id of ids)map.set(id,{routes:new Set(),clicks:0,clickLabels:new Map(),scrollMax:0,device:'',vw:0,vh:0,first:Infinity,last:0,packets:0});
+  for(const row of rows){const id=String(row.session_id||''),g=map.get(id);if(!g)continue;g.packets++;let events:any[]=[];try{events=JSON.parse(String(row.data_json||'[]'));}catch{continue;}for(const ev of events){const t=Number(ev?.t||0);if(t){g.first=Math.min(g.first,t);g.last=Math.max(g.last,t);}if(ev?.kind==='route'&&ev.path)g.routes.add(String(ev.path).slice(0,160));if(ev?.kind==='viewport'){g.device=String(ev.device||g.device);g.vw=Number(ev.vw||g.vw);g.vh=Number(ev.vh||g.vh);if(ev.path)g.routes.add(String(ev.path).slice(0,160));}if(ev?.kind==='click'){g.clicks++;const label=String(ev.label||'klik bez oznake').replace(/\s+/g,' ').trim().slice(0,100);g.clickLabels.set(label,(g.clickLabels.get(label)||0)+1);}if(ev?.kind==='scroll')g.scrollMax=Math.max(g.scrollMax,Number(ev.y||0));}}
+  return ids.map((id,index)=>{const g=map.get(id)!;return{ref:`R${index+1}`,sessionId:id,packets:g.packets,durationSec:g.last&&Number.isFinite(g.first)?Math.round((g.last-g.first)/1000):0,device:g.device||'unknown',viewport:g.vw&&g.vh?`${g.vw}x${g.vh}`:'unknown',routes:[...g.routes].slice(0,8),clicks:g.clicks,topClicks:[...g.clickLabels.entries()].sort((a,b)=>b[1]-a[1]).slice(0,6).map(([label,count])=>({label,count})),maxScrollY:Math.round(g.scrollMax)};});
+}
+
+function fallbackAnswer(context:any){
+  const f=context.funnel;const p=context.pages?.[0];const irritation=context.interactions?.find((x:any)=>Number(x.rage||0)+Number(x.dead||0)>0);let bottleneck='Nema dovoljno podataka za siguran zaključak.';
+  if(f.productViews>=5&&f.pdpToAtc<4)bottleneck=`Najveći pad je pre korpe: PDP→ATC je ${fmt(f.pdpToAtc)}%.`;
+  else if(f.atc>=3&&f.atcToCheckout<40)bottleneck=`Najveći pad je posle korpe: ATC→checkout je ${fmt(f.atcToCheckout)}%.`;
+  else if(f.checkout>=3&&f.checkoutToPurchase<45)bottleneck=`Najveći pad je na checkoutu: checkout→preuzeta kupovina je ${fmt(f.checkoutToPurchase)}%.`;
+  return `DIJAGNOZA\n${bottleneck}\n\nŠTA SAM VIDEO U HEATMAP/REPLAY\n${p?`Najposećenija kritična stranica je ${p.path}: ${p.visits} poseta, ${p.exits} izlaza, prosečno aktivno ${Math.round(Number(p.activeMs||0)/1000)}s i scroll ${fmt(Number(p.avgScroll||0))}%.`: 'Nema dovoljno page podataka.'}${irritation?` Najjači signal frustracije je „${irritation.label}“ (${irritation.rage} rage / ${irritation.dead} dead).`:''}\n\nKONKRETAN FIX\nPrvo menjaj tačno korak sa najvećim padom, pa proveri rezultat na istoj stopi narednih 100+ sesija. Ako je PDP problem: podigni izbor veličine, cenu/dostavu i Add to cart iznad prvog prevoja. Ako je cart problem: prikaži konačnu cenu i dostavu pre checkout dugmeta. Ako je checkout problem: proveri načine plaćanja, dostavu i neočekivane troškove.`;
+}
 
 export const POST: RequestHandler = async ({ request, platform }) => {
-  const db = platform?.env?.DB;
+  const env = (platform?.env ?? {}) as any;
+  const db = env.DB as D1Database | undefined;
   if (!db) return json({ ok:false, error:'D1 nije dostupan' }, { status:503 });
   const body = await request.json().catch(()=>({})) as { message?:string; period?:string };
-  const message = String(body.message || '').trim().slice(0,800);
+  const message = String(body.message || '').trim().slice(0,1400);
   if (!message) return json({ ok:false, error:'Napiši pitanje.' }, { status:400 });
+  const period=rangeWindow(String(body.period||'7d'));
+  const dayFrom=new Date(period.start).toISOString().slice(0,10),dayTo=new Date(Math.max(period.start,period.end-1)).toISOString().slice(0,10);
 
-  const now = Date.now();
-  const period = ['today','yesterday','7d','30d'].includes(String(body.period)) ? String(body.period) : '7d';
-  let from = now - 7*DAY, to = now;
-  if(period==='today'){ const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Belgrade'})); d.setHours(0,0,0,0); from=d.getTime(); }
-  if(period==='yesterday'){ const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Belgrade'})); d.setHours(0,0,0,0); to=d.getTime(); from=to-DAY; }
-  if(period==='30d') from=now-30*DAY;
-
-  const dayFrom = new Date(from).toISOString().slice(0,10);
-  const dayTo = new Date(Math.max(from,to-1)).toISOString().slice(0,10);
-
-  const [shop,sessions,topExit,topProduct,meta] = await Promise.all([
-    db.prepare(`SELECT COUNT(*) orders, COALESCE(SUM(total),0) revenue FROM shopify_orders WHERE ${validOrderSql()} AND created_at>=?1 AND created_at<?2`).bind(from,to).first<any>(),
-    db.prepare(`SELECT COUNT(DISTINCT s.id) sessions,
-      COUNT(DISTINCT CASE WHEN e.type='product_view' THEN s.id END) product_views,
-      COUNT(DISTINCT CASE WHEN e.type='add_to_cart' THEN s.id END) atc,
-      COUNT(DISTINCT CASE WHEN e.type='checkout_started' THEN s.id END) checkout,
-      COUNT(DISTINCT CASE WHEN s.purchased=1 THEN s.id END) purchased,
-      COUNT(DISTINCT CASE WHEN e.type='rage_click' THEN s.id END) rage,
-      COUNT(DISTINCT CASE WHEN e.type='dead_click' THEN s.id END) dead
-      FROM sessions s LEFT JOIN events e ON e.session_id=s.id AND e.event_ts>=?1 AND e.event_ts<?2
-      WHERE s.started_at>=?1 AND s.started_at<?2`).bind(from,to).first<any>(),
-    db.prepare(`SELECT path, COUNT(DISTINCT session_id) exits,
-      AVG(CAST(json_extract(meta_json,'$.activeMs') AS REAL)) active_ms,
-      AVG(CAST(json_extract(meta_json,'$.maxScroll') AS REAL)) scroll
-      FROM events WHERE type='page_exit' AND event_ts>=?1 AND event_ts<?2 GROUP BY path ORDER BY exits DESC LIMIT 1`).bind(from,to).first<any>(),
-    db.prepare(`SELECT MAX(i.title) title, COUNT(DISTINCT o.id) orders, SUM(i.line_total) revenue
-      FROM shopify_order_items i JOIN shopify_orders o ON o.id=i.order_id
-      WHERE ${validOrderSql('o')} AND o.created_at>=?1 AND o.created_at<?2
-      GROUP BY COALESCE(i.product_id,i.title) ORDER BY revenue DESC LIMIT 1`).bind(from,to).first<any>(),
-    db.prepare(`SELECT COALESCE(SUM(spend),0) spend, COALESCE(SUM(impressions),0) impressions,
-      COALESCE(SUM(clicks),0) clicks, COALESCE(SUM(purchases),0) purchases, COALESCE(SUM(purchase_value),0) purchase_value,
-      COALESCE(SUM(reach),0) reach, COALESCE(SUM(link_clicks),0) link_clicks, COALESCE(SUM(landing_page_views),0) landing_views,
-      COALESCE(SUM(add_to_cart),0) atc, COALESCE(SUM(checkouts),0) checkouts
-      FROM meta_daily WHERE day>=?1 AND day<=?2`).bind(dayFrom,dayTo).first<any>()
+  const [shop,sessions,pagesResult,interactionsResult,topProduct,meta,metaAds,important] = await Promise.all([
+    db.prepare(`SELECT COUNT(*) orders,COALESCE(SUM(total),0) revenue FROM shopify_orders WHERE ${validOrderSql()} AND created_at>=?1 AND created_at<?2`).bind(period.start,period.end).first<any>(),
+    db.prepare(`SELECT COUNT(DISTINCT s.id) sessions,COUNT(DISTINCT CASE WHEN e.type='product_view' THEN s.id END) product_views,COUNT(DISTINCT CASE WHEN e.type='add_to_cart' THEN s.id END) atc,COUNT(DISTINCT CASE WHEN e.type='checkout_started' THEN s.id END) checkout,COUNT(DISTINCT CASE WHEN s.purchased=1 THEN s.id END) purchased,COUNT(DISTINCT CASE WHEN e.type='rage_click' THEN s.id END) rage,COUNT(DISTINCT CASE WHEN e.type='dead_click' THEN s.id END) dead FROM sessions s LEFT JOIN events e ON e.session_id=s.id AND e.event_ts>=?1 AND e.event_ts<?2 WHERE s.started_at>=?1 AND s.started_at<?2`).bind(period.start,period.end).first<any>(),
+    db.prepare(`SELECT path,COUNT(DISTINCT CASE WHEN type IN ('page_view','product_view') THEN session_id END) visits,COUNT(DISTINCT CASE WHEN type='page_exit' THEN session_id END) exits,COUNT(DISTINCT CASE WHEN type='add_to_cart' THEN session_id END) atc,COUNT(DISTINCT CASE WHEN type='checkout_started' THEN session_id END) checkout,SUM(CASE WHEN type='rage_click' THEN 1 ELSE 0 END) rage,SUM(CASE WHEN type='dead_click' THEN 1 ELSE 0 END) dead,AVG(CASE WHEN type='page_exit' THEN CAST(json_extract(meta_json,'$.activeMs') AS REAL) END) active_ms,AVG(CASE WHEN type IN ('page_exit','heartbeat') THEN CAST(json_extract(meta_json,'$.maxScroll') AS REAL) END) avg_scroll FROM events WHERE event_ts>=?1 AND event_ts<?2 GROUP BY path HAVING COUNT(DISTINCT CASE WHEN type IN ('page_view','product_view') THEN session_id END)>0 ORDER BY visits DESC LIMIT 15`).bind(period.start,period.end).all(),
+    db.prepare(`SELECT path,COALESCE(NULLIF(CAST(json_extract(meta_json,'$.label') AS TEXT),''),NULLIF(CAST(json_extract(meta_json,'$.target') AS TEXT),''),'bez oznake') label,SUM(CASE WHEN type='click' THEN 1 ELSE 0 END) clicks,SUM(CASE WHEN type='rage_click' THEN 1 ELSE 0 END) rage,SUM(CASE WHEN type='dead_click' THEN 1 ELSE 0 END) dead FROM events WHERE event_ts>=?1 AND event_ts<?2 AND type IN ('click','rage_click','dead_click') GROUP BY path,label ORDER BY (rage+dead) DESC,clicks DESC LIMIT 30`).bind(period.start,period.end).all(),
+    db.prepare(`SELECT MAX(i.title) title,COUNT(DISTINCT o.id) orders,SUM(i.line_total) revenue FROM shopify_order_items i JOIN shopify_orders o ON o.id=i.order_id WHERE ${validOrderSql('o')} AND o.created_at>=?1 AND o.created_at<?2 GROUP BY COALESCE(i.product_id,i.title) ORDER BY revenue DESC LIMIT 1`).bind(period.start,period.end).first<any>(),
+    db.prepare(`SELECT COALESCE(SUM(spend),0) spend,COALESCE(SUM(impressions),0) impressions,COALESCE(SUM(clicks),0) clicks,COALESCE(SUM(purchases),0) purchases,COALESCE(SUM(purchase_value),0) purchase_value,COALESCE(SUM(link_clicks),0) link_clicks,COALESCE(SUM(landing_page_views),0) landing_views,COALESCE(SUM(add_to_cart),0) atc,COALESCE(SUM(checkouts),0) checkouts FROM meta_daily WHERE day>=?1 AND day<=?2`).bind(dayFrom,dayTo).first<any>(),
+    db.prepare(`SELECT MAX(account_name) account_name,MAX(currency) currency,ad_id,MAX(ad_name) ad_name,SUM(spend) spend,SUM(impressions) impressions,SUM(clicks) clicks,SUM(purchases) purchases,SUM(purchase_value) purchase_value FROM meta_daily WHERE day>=?1 AND day<=?2 GROUP BY ad_id ORDER BY spend DESC LIMIT 8`).bind(dayFrom,dayTo).all(),
+    db.prepare(`SELECT s.id,s.started_at,s.last_seen_at,s.landing_path,s.utm_source,s.purchased,s.revenue,(SELECT COUNT(*) FROM events e WHERE e.session_id=s.id AND e.type='product_view' AND e.event_ts>=?1 AND e.event_ts<?2) product_views,(SELECT COUNT(*) FROM events e WHERE e.session_id=s.id AND e.type='add_to_cart' AND e.event_ts>=?1 AND e.event_ts<?2) atc,(SELECT COUNT(*) FROM events e WHERE e.session_id=s.id AND e.type='checkout_started' AND e.event_ts>=?1 AND e.event_ts<?2) checkout,(SELECT COUNT(*) FROM events e WHERE e.session_id=s.id AND e.type='rage_click' AND e.event_ts>=?1 AND e.event_ts<?2) rage,(SELECT COUNT(*) FROM events e WHERE e.session_id=s.id AND e.type='dead_click' AND e.event_ts>=?1 AND e.event_ts<?2) dead,(SELECT path FROM events e WHERE e.session_id=s.id AND e.type='page_exit' AND e.event_ts>=?1 AND e.event_ts<?2 ORDER BY e.event_ts DESC LIMIT 1) exit_path,(SELECT meta_json FROM events e WHERE e.session_id=s.id AND e.type='page_exit' AND e.event_ts>=?1 AND e.event_ts<?2 ORDER BY e.event_ts DESC LIMIT 1) exit_meta,(SELECT COUNT(*) FROM replay_chunks r WHERE r.session_id=s.id) replay_chunks FROM sessions s WHERE s.started_at>=?1 AND s.started_at<?2 ORDER BY checkout DESC,atc DESC,product_views DESC,s.started_at DESC LIMIT 16`).bind(period.start,period.end).all()
   ]);
 
-  const s = Number(sessions?.sessions||0), pdp=Number(sessions?.product_views||0), atc=Number(sessions?.atc||0), checkout=Number(sessions?.checkout||0), purchased=Number(sessions?.purchased||0);
-  const atcRate=pct(atc,pdp||s), checkoutRate=pct(checkout,atc), purchaseRate=pct(purchased,checkout||s);
-  const spend=Number(meta?.spend||0), impressions=Number(meta?.impressions||0), clicks=Number(meta?.clicks||0), mp=Number(meta?.purchases||0), pv=Number(meta?.purchase_value||0);
-  const ctr=pct(clicks,impressions), cpc=clicks?spend/clicks:0, cpm=impressions?spend/impressions*1000:0, roas=spend?pv/spend:0;
-  const q=message.toLowerCase();
-  const actions:Action[]=[];
-  let title='Analiza prodavnice';
-  const evidence:string[]=[];
-  let answer='';
+  const imp=(important.results as any[]),ids=imp.map(r=>String(r.id));
+  let replayRows:any[]=[];
+  if(ids.length){const ph=ids.map((_,i)=>`?${i+1}`).join(',');const rr=await db.prepare(`SELECT session_id,data_json,created_at FROM replay_chunks WHERE session_id IN (${ph}) ORDER BY created_at ASC LIMIT 160`).bind(...ids).all();replayRows=rr.results as any[];}
+  const replay=replaySummaries(replayRows,ids);
 
-  const funnelText = `U izabranom periodu imaš ${s} sesija, ${pdp} sesija sa proizvodom, ${atc} ATC, ${checkout} checkout i ${purchased} potvrđenih kupovina povezanih sa tracker sesijom. PDP→ATC je ${fmt(atcRate)}%, ATC→checkout ${fmt(checkoutRate)}%, a checkout→kupovina ${fmt(purchaseRate)}%.`;
+  const f={sessions:Number(sessions?.sessions||0),productViews:Number(sessions?.product_views||0),atc:Number(sessions?.atc||0),checkout:Number(sessions?.checkout||0),purchased:Number(sessions?.purchased||0),rage:Number(sessions?.rage||0),dead:Number(sessions?.dead||0),pdpToAtc:pct(Number(sessions?.atc||0),Number(sessions?.product_views||0)||Number(sessions?.sessions||0)),atcToCheckout:pct(Number(sessions?.checkout||0),Number(sessions?.atc||0)),checkoutToPurchase:pct(Number(sessions?.purchased||0),Number(sessions?.checkout||0))};
+  const pages=(pagesResult.results as any[]).map(r=>({path:String(r.path||'/'),visits:Number(r.visits||0),exits:Number(r.exits||0),exitRate:Number(r.visits||0)?Number(r.exits||0)/Number(r.visits||0)*100:0,atc:Number(r.atc||0),checkout:Number(r.checkout||0),rage:Number(r.rage||0),dead:Number(r.dead||0),activeMs:Number(r.active_ms||0),avgScroll:Number(r.avg_scroll||0)}));
+  const interactions=(interactionsResult.results as any[]).map(r=>({path:String(r.path||'/'),label:String(r.label||'bez oznake').slice(0,100),clicks:Number(r.clicks||0),rage:Number(r.rage||0),dead:Number(r.dead||0)}));
+  const sessionEvidence=imp.map((r,i)=>{const exit=parseMeta(r.exit_meta),rep=replay[i];return{ref:`R${i+1}`,source:String(r.utm_source||'direct'),durationSec:Math.round(Math.max(0,Number(r.last_seen_at||0)-Number(r.started_at||0))/1000),landing:String(r.landing_path||'/'),productViews:Number(r.product_views||0),atc:Number(r.atc||0),checkout:Number(r.checkout||0),purchased:Boolean(r.purchased),fulfilledRevenue:Number(r.revenue||0),rage:Number(r.rage||0),dead:Number(r.dead||0),exitPath:String(r.exit_path||''),exitActiveSec:Math.round(Number(exit.activeMs||0)/1000),exitScroll:Number(exit.maxScroll||0),lastInteraction:exit.lastInteraction?.label||exit.lastInteraction?.target||'',replay:{available:Number(r.replay_chunks||0)>0,device:rep?.device,viewport:rep?.viewport,routes:rep?.routes,clicks:rep?.clicks,topClicks:rep?.topClicks,maxScrollY:rep?.maxScrollY,durationSec:rep?.durationSec}};});
+  const mSpend=Number(meta?.spend||0),mImpressions=Number(meta?.impressions||0),mClicks=Number(meta?.clicks||0),mPurchases=Number(meta?.purchases||0),mValue=Number(meta?.purchase_value||0);
+  const context={period:period.label,revenueRule:'Prihod i orders uključuju samo Shopify porudžbine koje su FULFILLED, nisu otkazane/refundirane/vraćene; ako postoji shipment status, mora biti završni uspešan status.',shopify:{fulfilledRevenue:Number(shop?.revenue||0),fulfilledOrders:Number(shop?.orders||0),topProduct:topProduct?{title:String(topProduct.title||''),orders:Number(topProduct.orders||0),revenue:Number(topProduct.revenue||0)}:null},funnel:f,pages,interactions,replaySessions:sessionEvidence,meta:{spend:mSpend,impressions:mImpressions,clicks:mClicks,purchases:mPurchases,purchaseValue:mValue,ctr:pct(mClicks,mImpressions),cpc:mClicks?mSpend/mClicks:0,cpm:mImpressions?mSpend/mImpressions*1000:0,roas:mSpend?mValue/mSpend:0,linkClicks:Number(meta?.link_clicks||0),landingViews:Number(meta?.landing_views||0),atc:Number(meta?.atc||0),checkouts:Number(meta?.checkouts||0),topAds:(metaAds.results as any[]).map(r=>({name:String(r.ad_name||''),account:String(r.account_name||''),currency:String(r.currency||''),spend:Number(r.spend||0),impressions:Number(r.impressions||0),clicks:Number(r.clicks||0),purchases:Number(r.purchases||0),purchaseValue:Number(r.purchase_value||0)}))}};
 
-  if(/oglas|meta|ads|cpm|ctr|cpc|roas|kampanj/.test(q)){
-    title='Meta Ads — šta podaci govore';
-    answer=`${funnelText} Meta je potrošila ${fmt(spend)} u valuti naloga, CTR je ${fmt(ctr)}%, CPC ${fmt(cpc)}, CPM ${fmt(cpm)}, a ROAS ${fmt(roas)}. ${clicks>=20 && atcRate<4 ? 'Oglasi dovode klikove, ali veliki deo problema nastaje posle klika — prioritet je proizvodna stranica, ponuda i izbor veličine, ne povećanje budžeta.' : mp===0 && spend>0 ? 'Nema pripisanih Meta kupovina, zato ne bih povećavao budžet dok se ne proveri funnel posle klika.' : 'Rezultat oglasa treba čitati zajedno sa storefront funnelom, ne samo po CTR-u.'}`;
-    evidence.push(`Spend ${fmt(spend)}`,`CTR ${fmt(ctr)}%`,`CPC ${fmt(cpc)}`,`CPM ${fmt(cpm)}`,`ROAS ${fmt(roas)}`);
-    actions.push({id:'ads',label:'Otvori detalje oglasa',kind:'link',href:'/ads',tone:'primary'},{id:'meta-sync',label:'Osveži Meta sada',kind:'sync',provider:'meta'});
-  } else if(/checkout|korpa|cart|atc|odust|kupovin/.test(q)){
-    title='Gde kupci odustaju';
-    let bottleneck='Najveći pad trenutno nije moguće pouzdano izdvojiti.';
-    if(pdp>=5 && atcRate<5) bottleneck=`Najveći problem je pre korpe: samo ${fmt(atcRate)}% sesija sa proizvodom dodaje u korpu. Fokusiraj cenu, veličine, dostavu, CTA i poverenje na PDP-u.`;
-    else if(atc>=3 && checkoutRate<40) bottleneck=`Najveći problem je posle ATC: samo ${fmt(checkoutRate)}% ATC sesija nastavlja na checkout. Proveri cart drawer, cenu dostave, checkout CTA i neočekivane troškove.`;
-    else if(checkout>=3 && purchaseRate<45) bottleneck=`Najveći problem je checkout: samo ${fmt(purchaseRate)}% checkout sesija ima potvrđenu kupovinu. Prioritet su checkout friction, dostava, način plaćanja i poverenje.`;
-    answer=`${funnelText} ${bottleneck}`;
-    evidence.push(`PDP→ATC ${fmt(atcRate)}%`,`ATC→Checkout ${fmt(checkoutRate)}%`,`Checkout→Kupovina ${fmt(purchaseRate)}%`);
-    actions.push({id:'sessions',label:'Pusti najbitnije replay-e',kind:'link',href:'/sessions?filter=important',tone:'primary'},{id:'heat',label:'Otvori Heatmaps',kind:'link',href:'/heatmaps'});
-  } else if(/proizvod|patik|model|lot|šta da menj|sta da menj/.test(q)){
-    title='Proizvodi — šta prvo menjati';
-    const top=String(topProduct?.title||'');
-    answer=`${funnelText} ${top ? `Najviše prihoda u periodu nosi ${top} (${fmt(Number(topProduct?.revenue||0))} RSD). ` : ''}${atcRate<4 ? 'Prvo bih radio na proizvodnoj stranici: jasniji izbor veličine, vidljivija dostava/rok, jači CTA iznad prevoja i više poverenja oko zamene/povrata.' : 'PDP nije očigledno glavno usko grlo; proveri korpu i checkout pre većih promena na proizvodu.'}`;
-    if(top) evidence.push(`Top proizvod: ${top}`,`Prihod: ${fmt(Number(topProduct?.revenue||0))} RSD`);
-    evidence.push(`PDP→ATC ${fmt(atcRate)}%`);
-    actions.push({id:'products',label:'Otvori proizvode',kind:'link',href:'/products',tone:'primary'},{id:'heat',label:'Pogledaj klikove na PDP-u',kind:'link',href:'/heatmaps'});
-  } else {
-    title='Šta bih sada uradio';
-    const exit = topExit?.path ? ` Najčešći izlaz je ${topExit.path} (${Number(topExit.exits||0)} izlaza; prosečno aktivno ${Math.round(Number(topExit.active_ms||0)/1000)} s).` : '';
-    answer=`${funnelText}${exit} ${atcRate<4 ? 'Prvi prioritet: PDP→ATC je slab — proveri proizvodnu stranicu i replay sesije bez ATC.' : checkoutRate<40 && atc>0 ? 'Prvi prioritet: ljudi dodaju u korpu ali ne nastavljaju na checkout — pregledaj ATC bez checkout replay-e.' : purchaseRate<45 && checkout>0 ? 'Prvi prioritet: checkout gubi previše ljudi — pregledaj checkout bez kupovine.' : 'Nema jednog dramatičnog uskog grla; sledeće proveri Meta kvalitet saobraćaja i stranice sa najviše izlaza.'}`;
-    evidence.push(`Sesije ${s}`,`PDP ${pdp}`,`ATC ${atc}`,`Checkout ${checkout}`,`Kupovine ${purchased}`);
-    actions.push({id:'sessions',label:'Otvori najbitnije sesije',kind:'link',href:'/sessions?filter=important',tone:'primary'},{id:'shop-sync',label:'Osveži Shopify',kind:'sync',provider:'shopify'},{id:'meta-sync',label:'Osveži Meta',kind:'sync',provider:'meta'});
-  }
+  const evidence=[`${period.label}: ${f.sessions} sesija · ${f.productViews} PDP · ${f.atc} ATC · ${f.checkout} checkout · ${f.purchased} preuzetih kupovina`,`PDP→ATC ${fmt(f.pdpToAtc)}% · ATC→Checkout ${fmt(f.atcToCheckout)}% · Checkout→preuzeta kupovina ${fmt(f.checkoutToPurchase)}%`,`${sessionEvidence.filter(s=>s.replay.available).length} prioritetnih replay sesija analizirano`];
+  const worstPage=[...pages].sort((a,b)=>(b.exitRate*b.visits)-(a.exitRate*a.visits))[0];if(worstPage)evidence.push(`${worstPage.path}: ${fmt(worstPage.exitRate)}% izlaza · ${Math.round(worstPage.activeMs/1000)}s aktivno · ${fmt(worstPage.avgScroll)}% scroll`);const irritation=interactions.find(x=>x.rage+x.dead>0);if(irritation)evidence.push(`Frustracija: ${irritation.label} · ${irritation.rage} rage · ${irritation.dead} dead`);
 
-  return json({ok:true,title,answer,evidence,actions,period,generatedAt:Date.now(),limitations:'Mogu automatski da osvežim podatke i odvedem te na tačan problem. Izmene Shopify teme/proizvoda još ne izvršavam bez posebne write dozvole i potvrde.'});
+  const q=message.toLowerCase();const actions:Action[]=[{id:'important',label:'Pusti najbitnije replay-e',kind:'link',href:`/sessions?filter=important&range=${period.key}`,tone:'primary'},{id:'heatmaps',label:'Otvori Heatmaps',kind:'link',href:`/heatmaps?range=${period.key}`}];if(/meta|oglas|ads|kampanj|cpm|ctr|cpc|roas/.test(q))actions.unshift({id:'ads',label:'Otvori oglase',kind:'link',href:'/ads',tone:'primary'});if(/proizvod|pdp|patik|model|velič|velicin/.test(q))actions.unshift({id:'products',label:'Otvori proizvode',kind:'link',href:'/products',tone:'primary'});actions.push({id:'shop-sync',label:'Osveži Shopify',kind:'sync',provider:'shopify'},{id:'meta-sync',label:'Osveži Meta',kind:'sync',provider:'meta'});
+
+  const utcDay=new Date().toISOString().slice(0,10);const usage=await db.prepare('SELECT requests,tokens FROM advisor_usage WHERE day=?1').bind(utcDay).first<any>().catch(()=>null);const used=Number(usage?.requests||0);const ai=env.AI as AiBinding|undefined;
+  let answer='';let aiUsed=false;let aiError='';let model='data-fallback';let tokenUsage=0;
+  if(ai&&used<DAILY_AI_LIMIT){
+    const system=`Ti si senior e-commerce CRO i performance marketing analitičar za TrendyPatike. Odgovaraš na srpskom. Imaš stvarne agregirane Shopify, Meta Ads, heatmap i session replay signale ispod. NE izmišljaj podatke i NE tvrdi uzrok ako ga podaci ne dokazuju. Kada korisnik pita "zašto", rangiraj 2-4 najverovatnije hipoteze i za svaku navedi konkretan dokaz, broj sesija/replaya/klikova i nivo sigurnosti VISOK/SREDNJI/NIZAK. Replay nije psihološki dokaz: koristi redosled stranica, klikove, scroll, rage/dead klikove, vreme i exit elemente. Prihod tretiraj kao stvarni samo po revenueRule. Svaki odgovor mora biti konkretan i da sadrži sekcije: DIJAGNOZA, ŠTA SAM VIDEO U HEATMAP/REPLAY, ZAŠTO VEROVATNO, KONKRETAN FIX, KAKO MERIMO POSLE IZMENE. U KONKRETAN FIX napiši tačno koju stranicu/element/copy/layout menjati i kojim redosledom. Ako nema dovoljno dokaza, napiši šta tačno nedostaje. Nemoj generičke savete bez veze sa datim brojkama. Ne tvrdi da si vizuelno gledao video; analiziraš stvarne replay događaje i heatmap signale.`;
+    const compact=JSON.stringify(context).slice(0,30000);
+    try{const result=await ai.run(AI_MODEL,{messages:[{role:'system',content:system},{role:'user',content:`Pitanje vlasnika: ${message}\n\nPODACI:\n${compact}`}],max_completion_tokens:1100,temperature:0.2});answer=String(result?.choices?.[0]?.message?.content||result?.response||'').trim();tokenUsage=Number(result?.usage?.total_tokens||result?.usage?.totalTokens||0);if(answer){aiUsed=true;model=AI_MODEL;}else aiError='AI nije vratio tekst.';}catch(e){aiError=e instanceof Error?e.message:'Workers AI greška';}
+    await db.prepare(`INSERT INTO advisor_usage(day,requests,tokens,updated_at) VALUES(?1,1,?2,?3) ON CONFLICT(day) DO UPDATE SET requests=advisor_usage.requests+1,tokens=advisor_usage.tokens+excluded.tokens,updated_at=excluded.updated_at`).bind(utcDay,tokenUsage,Date.now()).run().catch(()=>{});
+  } else if(!ai) aiError='Workers AI binding nije dostupan.'; else aiError='Dnevni AI hard-limit je dostignut.';
+  if(!answer)answer=fallbackAnswer(context);
+
+  return json({ok:true,title:aiUsed?'AI analiza iz stvarnih podataka':'Analiza iz podataka',answer,evidence,actions,period:period.key,generatedAt:Date.now(),ai:aiUsed,model,replaysReviewed:sessionEvidence.filter(s=>s.replay.available).length,pagesReviewed:pages.length,aiRequestsRemaining:Math.max(0,DAILY_AI_LIMIT-used-(ai?1:0)),limitations:aiUsed?'AI je analizirao agregate, heatmap signale i stvarne replay događaje. Ne čitamo email, telefon, adresu ni vrednosti input polja. Automatske izmene Shopify teme ne izvršavam bez write dozvole i tvog odobrenja.':`AI trenutno nije korišćen (${aiError}). Prikazan je deterministički fallback iz istih podataka.`});
 };
