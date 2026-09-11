@@ -130,5 +130,10 @@
     "public/posts/2026-09-11-fallback-adidas-micropacer-1984-fe4bf9512833/01.jpg",
     "public/posts/2026-09-11-fallback-adidas-micropacer-1984-fe4bf9512833/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18016996712944388"
+    ],
+    "carousel_id": ""
+  }
 }
