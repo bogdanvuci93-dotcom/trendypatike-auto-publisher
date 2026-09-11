@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-11",
-  "stage": "ready",
+  "generated_at": "2026-09-11T16:22:46.425Z",
   "fingerprint": "fe4bf9512833",
   "seed": {
     "id": "fallback-adidas-micropacer-1984",
@@ -125,10 +124,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-11-fallback-adidas-micropacer-1984-fe4bf9512833/01.jpg",
-    "public/posts/2026-09-11-fallback-adidas-micropacer-1984-fe4bf9512833/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
