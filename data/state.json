@@ -368,8 +368,19 @@
         "https://www.about.puma.com/en/puma/puma-timeline",
         "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history"
       ]
+    },
+    {
+      "date": "2026-09-11",
+      "topic_id": "fallback-adidas-micropacer-1984",
+      "seed_topic": "Kako je adidas 1984. stavio kompjuter u patiku",
+      "topic_title": "Kako je adidas 1984. stavio kompjuter u patiku",
+      "media_id": "17946254925296955",
+      "sources": [
+        "https://www.adidas-group.com/en/about/history",
+        "https://www.adidas-group.com/de/uber-uns/geschichte"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-08",
-  "last_media_id": "17900949267569438"
+  "last_publish_date": "2026-09-11",
+  "last_media_id": "17946254925296955"
 }
