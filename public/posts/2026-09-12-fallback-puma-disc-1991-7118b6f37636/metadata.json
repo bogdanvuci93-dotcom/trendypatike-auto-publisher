@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-12",
-  "stage": "ready",
+  "generated_at": "2026-09-12T16:22:21.420Z",
   "fingerprint": "7118b6f37636",
   "seed": {
     "id": "fallback-puma-disc-1991",
@@ -124,10 +123,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-12-fallback-puma-disc-1991-7118b6f37636/01.jpg",
-    "public/posts/2026-09-12-fallback-puma-disc-1991-7118b6f37636/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
