@@ -379,8 +379,19 @@
         "https://www.adidas-group.com/en/about/history",
         "https://www.adidas-group.com/de/uber-uns/geschichte"
       ]
+    },
+    {
+      "date": "2026-09-12",
+      "topic_id": "fallback-puma-disc-1991",
+      "seed_topic": "Kako je PUMA 1991. napravila prvu sportsku patiku bez pertli",
+      "topic_title": "Kako je PUMA 1991. napravila prvu sportsku patiku bez pertli",
+      "media_id": "18114293770822928",
+      "sources": [
+        "https://about.puma.com/en/this-is-puma/history",
+        "https://about.puma.com/en/node/1769"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-11",
-  "last_media_id": "17946254925296955"
+  "last_publish_date": "2026-09-12",
+  "last_media_id": "18114293770822928"
 }
