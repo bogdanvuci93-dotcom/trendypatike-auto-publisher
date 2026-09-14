@@ -1,4 +1,4 @@
-trigger=2026-09-08T10:50:00+02:00
-reason=post-fix-real-image-long-copy-validation
-preflight=34206600924:success
-policy=attention-safe-v19-real-image-long-copy
+trigger=2026-09-14T12:25:00+02:00
+reason=fresh-verified-pool-after-daily-failures
+preflight=34833033325:success
+policy=verified-pool-v21-real-image
