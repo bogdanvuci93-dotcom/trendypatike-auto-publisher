@@ -390,8 +390,19 @@
         "https://about.puma.com/en/this-is-puma/history",
         "https://about.puma.com/en/node/1769"
       ]
+    },
+    {
+      "date": "2026-09-14",
+      "topic_id": "fallback-nike-swoosh-35",
+      "seed_topic": "Kako je jedan od najpoznatijih logotipa na svetu plaćen samo 35 dolara",
+      "topic_title": "Nike Swoosh je prvobitno plaćen samo 35 dolara",
+      "media_id": "18438456679133870",
+      "sources": [
+        "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
+        "https://www.pdx.edu/alumni/legendary-design"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-12",
-  "last_media_id": "18114293770822928"
+  "last_publish_date": "2026-09-14",
+  "last_media_id": "18438456679133870"
 }
