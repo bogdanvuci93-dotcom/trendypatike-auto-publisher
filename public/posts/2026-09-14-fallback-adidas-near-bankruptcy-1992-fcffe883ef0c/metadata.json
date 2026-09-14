@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-14",
-  "stage": "ready",
+  "generated_at": "2026-09-14T11:33:48.416Z",
   "fingerprint": "fcffe883ef0c",
   "seed": {
     "id": "fallback-adidas-near-bankruptcy-1992",
@@ -127,10 +126,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-14-fallback-adidas-near-bankruptcy-1992-fcffe883ef0c/01.jpg",
-    "public/posts/2026-09-14-fallback-adidas-near-bankruptcy-1992-fcffe883ef0c/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
