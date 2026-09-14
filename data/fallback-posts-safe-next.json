@@ -1,0 +1,122 @@
+[
+  {
+    "seed": {
+      "id": "fallback-nike-swoosh-35",
+      "topic": "Kako je jedan od najpoznatijih logotipa na svetu plaćen samo 35 dolara",
+      "category": "Nike / dizajn / istorija",
+      "preferred_domains": ["about.nike.com", "pdx.edu"],
+      "visual_subject": "1971 design studio, young graphic design student sketching an athletic shoe stripe, vintage running shoe on desk",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Nike Swoosh je prvobitno plaćen samo 35 dolara",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "NIKE JE SVOJ ČUVENI SWOOSH 1971. PLATIO SAMO 35 $", "accent": true},
+          {"text": "A PHIL KNIGHT U POČETKU NIJE BIO ODUŠEVLJEN DIZAJNOM", "accent": false}
+        ],
+        "subheadline": "Studentkinja dizajna Carolyn Davidson napravila je znak koji će kasnije postati globalno prepoznatljiv simbol."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "DAVIDSON JE NAPRAVILA VIŠE PREDLOGA, A TIM JE IZABRAO ZAKRIVLJENU LINIJU", "accent": false},
+          {"text": "ONA JE TREBALO DA PRENOSI OSEĆAJ KRETANJA", "accent": true}
+        ],
+        "facts": [
+          {"tag": "1971", "text": "Phil Knight je angažovao Carolyn Davidson, tada studentkinju dizajna na Portland State University, da napravi vizuelni znak za novi Nike proizvod."},
+          {"tag": "35 $", "text": "Nike i Portland State navode da je Davidson za završeni Swoosh poslala račun od samo 35 dolara."},
+          {"tag": "OBRT", "text": "Knight nije bio oduševljen prvim utiskom, ali je prihvatio znak jer je proizvodnja morala brzo da krene; logo je kasnije postao simbol brenda."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "LOGO KOJI JE KOŠTAO 35 $", "accent": true},
+          {"text": "POSTAO JE JEDAN OD NAJPREPOZNATLJIVIJIH ZNAKOVA U SPORTU", "accent": false}
+        ],
+        "facts": [
+          {"tag": "DETALJ", "text": "Prve Nike cipele sa novim znakom pojavile su se početkom sedamdesetih, dok kompanija još nije bila globalni gigant kakav je danas."},
+          {"tag": "KASNIJE", "text": "Portland State navodi da je Davidson godinama kasnije dobila i Nike akcije kao priznanje za doprinos kompaniji."}
+        ],
+        "question": "Da li biste verovali u logo od 35 dolara da ste ga videli 1971?"
+      },
+      "caption": "Jedan od najprepoznatljivijih znakova u sportu počeo je kao studentski dizajnerski posao. Phil Knight je 1971. angažovao Carolyn Davidson da napravi znak za novu Nike obuću. Davidson je nacrtala više predloga, izabran je zakrivljeni Swoosh, a njen račun za rad bio je samo 35 $. Još zanimljivije: Knight u početku nije bio naročito oduševljen dizajnom, ali je proizvodnja morala da krene. Znak koji mu tada nije delovao posebno kasnije je postao simbol globalnog brenda.",
+      "hashtags": ["#TrendyPatike", "#Nike", "#Swoosh", "#SneakerIstorija", "#Patike", "#Dizajn"],
+      "image_prompts": [
+        "cinematic 1971 graphic design studio, young female design student sketching a curved athletic shoe stripe on paper, vintage running shoe on desk, warm analog documentary photography, no readable text, no exact brand logo",
+        "early 1970s athletic footwear design meeting, sketches spread on table, vintage running shoe prototype, dramatic editorial photography, authentic period clothing, no readable text, no exact logo",
+        "close-up vintage 1970s design desk with shoe sketches, pencils, tracing paper and athletic shoe prototype, cinematic documentary light, no readable text, no exact logo"
+      ],
+      "sources": [
+        {"title": "The Nike Swoosh Logo: From Humble Beginnings to Global Icon", "publisher": "NIKE, Inc.", "url": "https://about.nike.com/en/magazine/nike-swoosh-logo-history"},
+        {"title": "Legendary by Design", "publisher": "Portland State University", "url": "https://www.pdx.edu/alumni/legendary-design"}
+      ],
+      "claims": [
+        {"claim": "Carolyn Davidson designed the Nike Swoosh while she was a Portland State design student.", "source_urls": ["https://about.nike.com/en/magazine/nike-swoosh-logo-history", "https://www.pdx.edu/alumni/legendary-design"]},
+        {"claim": "Davidson billed Phil Knight 35 dollars for the Swoosh work.", "source_urls": ["https://about.nike.com/en/magazine/nike-swoosh-logo-history", "https://www.pdx.edu/alumni/legendary-design"]},
+        {"claim": "Phil Knight was not initially enthusiastic about the chosen design.", "source_urls": ["https://about.nike.com/en/magazine/nike-swoosh-logo-history", "https://www.pdx.edu/alumni/legendary-design"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-adidas-near-bankruptcy-1992",
+      "topic": "Kako je adidas 1992. završio blizu bankrota pa se vratio",
+      "category": "adidas / biznis / istorija",
+      "preferred_domains": ["adidas-group.com"],
+      "visual_subject": "early 1990s sportswear company office under pressure, vintage athletic shoes, turnaround business story",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "adidas je 1992. bio blizu bankrota",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "ADIDAS JE 1992. ZABELEŽIO REKORDAN GUBITAK", "accent": true},
+          {"text": "I BIO TOLIKO BLIZU BANKROTA DA MU JE TREBAO POTPUNI ZAOKRET", "accent": false}
+        ],
+        "subheadline": "Brend koji danas deluje nedodirljivo početkom devedesetih prolazio je kroz jednu od najtežih faza u svojoj istoriji."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "LOŠE ODLUKE NOVOG RUKOVODSTVA GURNULE SU KOMPANIJU U KRIZU", "accent": false},
+          {"text": "A 1993. STIŽE NOVI DIREKTOR I MENJA PRAVAC", "accent": true}
+        ],
+        "facts": [
+          {"tag": "1992", "text": "adidas u svojoj zvaničnoj istoriji navodi da su loše strateške odluke dovele do rekordnog gubitka i približile kompaniju bankrotu."},
+          {"tag": "1993", "text": "Robert Louis-Dreyfus preuzeo je vođenje kompanije i zaključio da adidas ne mora da se izmisli ponovo, već da mora bolje da iskoristi ono što već radi dobro."},
+          {"tag": "PREOKRET", "text": "Nova strategija pojačala je marketing postojećih proizvoda i pomogla adidasu da se vrati na put rasta posle krize početkom devedesetih."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "OD GOTOVO BANKROTA", "accent": true},
+          {"text": "DO POVRATKA MEĐU NAJVEĆE SPORTSKE BRENDOVE", "accent": false}
+        ],
+        "facts": [
+          {"tag": "POUKA", "text": "Kriza nije nastala zato što adidas nije imao poznate proizvode, već zato što je kompanija izgubila pravac u upravljanju i prodaji."},
+          {"tag": "1995", "text": "Samo nekoliko godina posle rekordnog gubitka, adidas je 1995. izašao na berzu, što je označilo novu fazu kompanije."}
+        ],
+        "question": "Da li biste 1992. verovali da će adidas ponovo postati globalni gigant?"
+      },
+      "caption": "Početkom devedesetih adidas nije izgledao kao nedodirljiv globalni gigant. Posle promene vlasništva i loših strateških odluka, kompanija je 1992. zabeležila rekordan gubitak i, prema sopstvenoj istoriji, završila blizu bankrota. Preokret dolazi 1993. kada Robert Louis-Dreyfus preuzima kompaniju i menja pravac: umesto da izmišlja potpuno novi adidas, fokusira se na ono što brend već radi dobro i pojačava marketing. Već 1995. adidas izlazi na berzu.",
+      "hashtags": ["#TrendyPatike", "#adidas", "#SneakerIstorija", "#Patike", "#Biznis", "#Istorija"],
+      "image_prompts": [
+        "cinematic early 1990s German sportswear company office in crisis, vintage athletic shoes and financial papers on desk, dramatic documentary photography, no readable text, no exact brand logo",
+        "1993 business turnaround meeting inside sports footwear company, executives around table with vintage sneakers and product sketches, moody editorial photography, no readable text, no exact logo",
+        "early 1990s athletic footwear archive with vintage running shoes and business documents, dramatic comeback mood, premium documentary photography, no readable text"
+      ],
+      "sources": [
+        {"title": "History", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/about/history"},
+        {"title": "The History of adidas: A Background of Collaboration and Innovation", "publisher": "adidas Group", "url": "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"}
+      ],
+      "claims": [
+        {"claim": "adidas recorded a record loss in 1992 and came close to bankruptcy.", "source_urls": ["https://www.adidas-group.com/en/about/history", "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"]},
+        {"claim": "Robert Louis-Dreyfus became CEO in 1993 and changed the company's direction.", "source_urls": ["https://www.adidas-group.com/en/about/history", "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"]},
+        {"claim": "adidas went public in 1995.", "source_urls": ["https://www.adidas-group.com/en/about/history", "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"]}
+      ]
+    }
+  }
+]
