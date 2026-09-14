@@ -132,5 +132,10 @@
     "public/posts/2026-09-14-fallback-adidas-near-bankruptcy-1992-fcffe883ef0c/01.jpg",
     "public/posts/2026-09-14-fallback-adidas-near-bankruptcy-1992-fcffe883ef0c/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017410127944388"
+    ],
+    "carousel_id": ""
+  }
 }
