@@ -401,8 +401,19 @@
         "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
         "https://www.pdx.edu/alumni/legendary-design"
       ]
+    },
+    {
+      "date": "2026-09-14",
+      "topic_id": "fallback-adidas-near-bankruptcy-1992",
+      "seed_topic": "Kako je adidas 1992. završio blizu bankrota pa se vratio",
+      "topic_title": "adidas je 1992. bio blizu bankrota",
+      "media_id": "18125430277896035",
+      "sources": [
+        "https://www.adidas-group.com/en/about/history",
+        "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"
+      ]
     }
   ],
   "last_publish_date": "2026-09-14",
-  "last_media_id": "18438456679133870"
+  "last_media_id": "18125430277896035"
 }
