@@ -1,4 +1,4 @@
-trigger=2026-09-14T12:25:00+02:00
-reason=fresh-verified-pool-after-daily-failures
-preflight=34833033325:success
-policy=verified-pool-v21-real-image
+trigger=2026-09-14T13:33:00+02:00
+reason=scroll-stop-cover-and-permanent-final-cta
+preflight=34838691827:success
+policy=attention-v22-scroll-stop-final-cta
