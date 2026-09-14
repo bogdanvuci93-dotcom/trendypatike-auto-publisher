@@ -14,6 +14,7 @@ on:
       - "data/fallback-posts-extra.json"
       - "data/fallback-posts-attention.json"
       - "data/fallback-posts-safe.json"
+      - "data/fallback-posts-safe-next.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -54,8 +55,9 @@ jobs:
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
           jq empty data/fallback-posts-safe.json
+          jq empty data/fallback-posts-safe-next.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
