@@ -52,18 +52,11 @@ jobs:
         run: |
           set +e
           rm -rf /tmp/trendypatike-recovery /tmp/trendypatike-recovery.zip
-          RESPONSE="$(curl -fsSL \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts?name=trendypatike-recovery&per_page=100")"
+          RESPONSE="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts?name=trendypatike-recovery&per_page=100")"
           ARTIFACT_ID="$(printf '%s' "$RESPONSE" | jq -r '[.artifacts[] | select(.expired == false)] | max_by(.created_at).id // empty')"
           if [ -n "$ARTIFACT_ID" ]; then
             mkdir -p /tmp/trendypatike-recovery
-            curl -fsSL \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${ARTIFACT_ID}/zip" \
-              -o /tmp/trendypatike-recovery.zip
+            curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${ARTIFACT_ID}/zip" -o /tmp/trendypatike-recovery.zip
             unzip -oq /tmp/trendypatike-recovery.zip -d /tmp/trendypatike-recovery
             node src/recovery.mjs restore /tmp/trendypatike-recovery
           else
@@ -71,16 +64,16 @@ jobs:
           fi
           exit 0
 
-      - name: Apply live visual and low-cost reliability policy
+      - name: Apply live visual and verified-pool policy
         run: |
           set -euo pipefail
-
           jq empty data/fallback-posts.json
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
           jq empty data/fallback-posts-safe.json
+          jq empty data/fallback-posts-safe-next.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
           jq empty data/fallback-posts.json
 
@@ -95,12 +88,20 @@ jobs:
           python scripts/require_real_images.py
           python scripts/economy_text_policy.py
 
-          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v20-low-cost-real-image:" + JSON.stringify(post))/' src/index.mjs
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s:
+              raise SystemExit('force verified fallback patch anchor not found')
+          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
 
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v21-verified-pool-real-image:" + JSON.stringify(post))/' src/index.mjs
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
-          grep -n "allowMajorNews = false" src/index.mjs
-          grep -n "maxOutputTokens = 6000\|structuredAttempt <= 1" src/openai.mjs
           grep -n "refusing placeholder publish" src/render.mjs
 
       - name: Zero-cost code and render preflight
@@ -110,7 +111,7 @@ jobs:
           IMAGE_MODEL: "gpt-image-1-mini"
         run: npm run check
 
-      - name: Generate, verify and publish
+      - name: Generate image and publish verified post
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -125,8 +126,10 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || (inputs.publish_now && 'false' || 'true') }}
           FORCE_RUN: "false"
+          FORCE_VERIFIED_FALLBACK: "true"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "4"
+          MAX_OPENAI_CALLS: "6"
+          SKIP_MAJOR_NEWS: "true"
         run: npm run run
 
       - name: Build paid-work recovery bundle
