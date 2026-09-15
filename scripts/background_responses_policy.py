@@ -123,7 +123,9 @@ new_extract = '''function extractSearchUrls(json) {
     if (typeof value.url === "string" && /^https?:\\/\\//i.test(value.url)) urls.add(value.url);
     Object.values(value).forEach(visit);
   };
-  visit(json.output || []);
+  // Background retrieval can place tool/source metadata outside `output`.
+  // Traverse the complete response object so web evidence is not dropped.
+  visit(json);
   return [...urls];
 }'''
 if new_extract not in s:
@@ -146,4 +148,4 @@ s = s.replace('''      if (!retryable || structuredAttempt >= 2) throw err;
       await sleep(3000);''', '''      if (!retryable || structuredAttempt >= 1) throw err;''')
 
 OPENAI.write_text(s, encoding="utf-8")
-print("Background Responses policy applied: compact paid response, free polling, and complete web-search evidence extraction.")
+print("Background Responses policy applied: compact paid response, free polling, and full-payload web evidence extraction.")
