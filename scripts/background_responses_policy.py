@@ -100,9 +100,6 @@ if new_return not in s:
         raise SystemExit("background policy: openaiFetch return anchor not found")
     s = s.replace(old_return, new_return, 1)
 
-# Responses API web_search sources are source objects whose URL does not
-# necessarily carry type="url". Traverse only response.output, but accept
-# every http(s) `url` field there so action.sources evidence is preserved.
 old_extract = '''function extractSearchUrls(json) {
   const urls = new Set();
   const visit = value => {
@@ -134,5 +131,19 @@ if new_extract not in s:
         raise SystemExit("background policy: extractSearchUrls anchor not found")
     s = s.replace(old_extract, new_extract, 1)
 
+# The schema is small; 12k-24k token budgets encouraged runaway web-search
+# responses. Keep generation compact and fail fast instead of paying for a
+# second giant response. A complete carousel fits comfortably under 6k.
+s = s.replace('''  maxOutputTokens = 12000,''', '''  maxOutputTokens = 6000,''')
+s = s.replace('''  const normalizedMaxOutputTokens = Math.max(2000, Math.min(Number(maxOutputTokens) || 12000, 24000));''', '''  const normalizedMaxOutputTokens = Math.max(2500, Math.min(Number(maxOutputTokens) || 6000, 7000));''')
+s = s.replace('''  for (let structuredAttempt = 1; structuredAttempt <= 2; structuredAttempt++) {
+    const outputBudget = structuredAttempt === 1
+      ? normalizedMaxOutputTokens
+      : Math.min(24000, Math.max(normalizedMaxOutputTokens + 6000, Math.ceil(normalizedMaxOutputTokens * 1.5)));''', '''  for (let structuredAttempt = 1; structuredAttempt <= 1; structuredAttempt++) {
+    const outputBudget = normalizedMaxOutputTokens;''')
+s = s.replace('''      if (!retryable || structuredAttempt >= 2) throw err;
+      console.warn(`[structured] ${schemaName} malformed/incomplete; retrying SAME request once with larger output budget.`);
+      await sleep(3000);''', '''      if (!retryable || structuredAttempt >= 1) throw err;''')
+
 OPENAI.write_text(s, encoding="utf-8")
-print("Background Responses policy applied: one paid POST, free polling, and complete web-search evidence extraction.")
+print("Background Responses policy applied: compact paid response, free polling, and complete web-search evidence extraction.")
