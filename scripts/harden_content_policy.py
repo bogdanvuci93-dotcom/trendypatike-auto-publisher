@@ -126,5 +126,12 @@ s = replace_once(s, old, new, "fresh topic mass-interest filter")
 # 6) Fix the earlier auxiliary-verb bug in source as well, so workflow no longer depends on runtime sed for it.
 s = s.replace('(?:ga|je|to|taj|ta|ovo|ona|on)', '(?:ga|to|taj|ta|ovo|ona|on)')
 
+# 7) The pronoun guard should treat explicit sneaker model names as valid anchors.
+# Keep the guard strict; only expand the subject vocabulary rather than disabling it.
+s = s.replace(
+    '(?:air jordan|nike|adidas|puma|reebok|vans|dunk|patika|model|đon|koža|tinker|michael|skater|košarkaš)',
+    '(?:air jordan|air max plus|air max|tn|nike|adidas|puma|reebok|vans|dunk|patika|model|đon|koža|tinker|michael|skater|košarkaš)'
+)
+
 CONTENT.write_text(s, encoding="utf-8")
-print("Strict kid-copy, mass-interest, wow-number and image-to-fact policy applied.")
+print("Strict kid-copy, mass-interest, wow-number, model-aware pronoun and image-to-fact policy applied.")
