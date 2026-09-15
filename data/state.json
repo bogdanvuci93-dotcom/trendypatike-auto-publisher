@@ -412,8 +412,21 @@
         "https://www.adidas-group.com/en/about/history",
         "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation"
       ]
+    },
+    {
+      "date": "2026-09-15",
+      "topic_id": "nike-tn-air-max-plus-hype",
+      "seed_topic": "Zašto je Nike Air Max Plus, poznat kao TN, od futurističke patike iz 1998. postao ogroman ulični fenomen",
+      "topic_title": "Zašto je Nike Air Max Plus (TN) ogroman ulični fenomen",
+      "media_id": "18138586804612102",
+      "sources": [
+        "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus",
+        "https://www.nike.com/pl/launch/t/behind-design-air-max-plus-og",
+        "https://www.gq.com/story/supreme-nike-air-max-plus",
+        "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-14",
-  "last_media_id": "18125430277896035"
+  "last_publish_date": "2026-09-15",
+  "last_media_id": "18138586804612102"
 }
