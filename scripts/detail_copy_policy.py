@@ -53,9 +53,6 @@ for path in PROMPT_FILES:
 if CONTENT_FILE.exists():
     s = CONTENT_FILE.read_text(encoding="utf-8")
 
-    # IMPORTANT: only replace capHeadlineWords itself. The previous regex stretched
-    # through normalizeMoneyNotation/isImportantNumberToken/semanticAccentSegments
-    # and deleted those helpers, causing a runtime ReferenceError after preflight.
     pattern_with_semantic_helpers = (
         r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}"
         r"\nfunction normalizeMoneyNotation"
@@ -71,7 +68,6 @@ function normalizeMoneyNotation'''
     s, n = re.subn(pattern_with_semantic_helpers, replacement_with_semantic_helpers, s, count=1)
 
     if n == 0:
-        # Fallback for versions where semantic helpers have not yet been installed.
         pattern_plain = r"function capHeadlineWords\(lines,maxWords=18\)\{[\s\S]*?\n\}\nfunction normalizeHeadlineGroup"
         replacement_plain = '''function capHeadlineWords(lines,maxWords=24){
   // COMPLETE-THOUGHT POLICY: never chop text mid-sentence to satisfy a word cap.
@@ -89,7 +85,38 @@ function normalizeHeadlineGroup'''
     s = s.replace('return capHeadlineWords(cleaned.slice(0,maxLines),18);',
                   'return capHeadlineWords(cleaned.slice(0,maxLines),24);')
 
-    # If semantic accents were present before this policy, they MUST still be present.
+    # Deterministic repair for a narrow class of otherwise-valid posts where the
+    # verifier starts a slide with "ON JE..." even though the person's full name
+    # is already explicit in the topic. We do NOT disable the pronoun guard.
+    repair_helper = '''function repairExplicitPersonSubject(post){
+  const title=cleanText(post?.topic_title||"");
+  const known=[
+    "Virgil Abloh","Travis Scott","Michael Jordan","Phil Knight","Kanye West",
+    "LeBron James","Cristiano Ronaldo","Serena Williams","Bad Bunny",
+    "Pharrell Williams","Michael J. Fox","Eminem","Rihanna","Jay-Z"
+  ];
+  const person=known.find(name=>title.toLowerCase().includes(name.toLowerCase()));
+  if(!person)return post;
+  const groups=[post.cover?.headline_lines,post.slide2?.headline_lines,post.slide3?.headline_lines];
+  for(const lines of groups){
+    if(!Array.isArray(lines)||!lines.length)continue;
+    const first=lines[0];
+    if(first?.text && /^ON JE\\b/i.test(first.text)) first.text=first.text.replace(/^ON JE\\b/i,`${person.toUpperCase()} JE`);
+  }
+  return post;
+}
+'''
+    if "function repairExplicitPersonSubject(post)" not in s:
+        anchor = "function normalizePostForPublishing(post){"
+        if anchor not in s:
+            raise SystemExit("Detail-copy policy: normalizePostForPublishing anchor missing")
+        s = s.replace(anchor, repair_helper + anchor, 1)
+
+    # Run the repair before the strict copy guard. It only expands an explicit
+    # known subject; all word-count, dangling-ending and clarity checks remain.
+    if "repairExplicitPersonSubject(value); enforceKidCopy(value);" not in s:
+        s = s.replace("enforceKidCopy(value);", "repairExplicitPersonSubject(value); enforceKidCopy(value);", 1)
+
     if "normalizeMoneyNotation" in s and "semanticAccentSegments" not in s:
         raise SystemExit("Detail-copy policy would remove semanticAccentSegments; refusing to continue")
 
@@ -101,4 +128,4 @@ if RENDER_FILE.exists():
     s = s.replace('maxLines: 6,', 'maxLines: 7,')
     RENDER_FILE.write_text(s, encoding="utf-8")
 
-print("Detailed complete-thought policy applied safely: semantic helpers preserved; no mid-sentence truncation.")
+print("Detailed complete-thought policy applied safely: explicit person subjects repaired; no mid-sentence truncation.")
