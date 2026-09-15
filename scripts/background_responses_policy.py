@@ -12,7 +12,9 @@ async function pollBackgroundResponse(responseId) {
   while (Date.now() < deadline) {
     await sleep(4000);
     try {
-      const res = await fetch(`${API}/responses/${encodeURIComponent(responseId)}`, {
+      const pollUrl = new URL(`${API}/responses/${encodeURIComponent(responseId)}`);
+      pollUrl.searchParams.append("include[]", "web_search_call.action.sources");
+      const res = await fetch(pollUrl, {
         headers: {
           "Authorization": `Bearer ${cfg.openaiKey}`,
           "X-Client-Request-Id": makeClientRequestId("tp-poll")
@@ -123,8 +125,6 @@ new_extract = '''function extractSearchUrls(json) {
     if (typeof value.url === "string" && /^https?:\\/\\//i.test(value.url)) urls.add(value.url);
     Object.values(value).forEach(visit);
   };
-  // Background retrieval can place tool/source metadata outside `output`.
-  // Traverse the complete response object so web evidence is not dropped.
   visit(json);
   return [...urls];
 }'''
@@ -133,9 +133,6 @@ if new_extract not in s:
         raise SystemExit("background policy: extractSearchUrls anchor not found")
     s = s.replace(old_extract, new_extract, 1)
 
-# The schema is small; 12k-24k token budgets encouraged runaway web-search
-# responses. Keep generation compact and fail fast instead of paying for a
-# second giant response. A complete carousel fits comfortably under 6k.
 s = s.replace('''  maxOutputTokens = 12000,''', '''  maxOutputTokens = 6000,''')
 s = s.replace('''  const normalizedMaxOutputTokens = Math.max(2000, Math.min(Number(maxOutputTokens) || 12000, 24000));''', '''  const normalizedMaxOutputTokens = Math.max(2500, Math.min(Number(maxOutputTokens) || 6000, 7000));''')
 s = s.replace('''  for (let structuredAttempt = 1; structuredAttempt <= 2; structuredAttempt++) {
@@ -148,4 +145,4 @@ s = s.replace('''      if (!retryable || structuredAttempt >= 2) throw err;
       await sleep(3000);''', '''      if (!retryable || structuredAttempt >= 1) throw err;''')
 
 OPENAI.write_text(s, encoding="utf-8")
-print("Background Responses policy applied: compact paid response, free polling, and full-payload web evidence extraction.")
+print("Background Responses policy applied: compact paid response, free polling with source include, and full-payload web evidence extraction.")
