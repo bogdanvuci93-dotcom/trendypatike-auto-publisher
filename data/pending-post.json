@@ -153,5 +153,10 @@
     "public/posts/2026-09-15-off-white-nike-the-ten-1af32e557b6e/02.jpg",
     "public/posts/2026-09-15-off-white-nike-the-ten-1af32e557b6e/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017593949944388"
+    ],
+    "carousel_id": ""
+  }
 }
