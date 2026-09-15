@@ -1,4 +1,151 @@
 {
+  "ccfb3d8f2eafd2f14e9465e2ccfb8fb7c861af0f00987a3a7af26a230d96e501": {
+    "saved_at": "2026-09-15T16:30:43.635Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "post": {
+        "cover": {
+          "subheadline": "Kratka priča o projektu koji je promenio sneaker svet",
+          "headline_lines": [
+            {
+              "text": "VIRGIL ABLOH RAZBIO 10 NIKE KLASIKA I NAPRAVIO HYPE 2017.",
+              "accent": false
+            },
+            {
+              "text": "10",
+              "accent": true
+            },
+            {
+              "text": "2017.",
+              "accent": true
+            }
+          ]
+        },
+        "topic_title": "Kako je Virgil Abloh rastavio deset Nike klasika i napravio hype",
+        "hashtags": [
+          "#VirgilAbloh",
+          "#OffWhite",
+          "#Nike",
+          "#TheTen",
+          "#TrendyPatike",
+          "#sneakerkultura"
+        ],
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "POSLEDICA: NIKE JE PONOVO IZDAVAO OFF‑WHITE VERSIJE I PRIZNAO REKONSTRUKCIJU KAO DIZAJN‑JEZIK",
+              "accent": false
+            },
+            {
+              "text": "AIR VAPORMAX X OFF‑WHITE",
+              "accent": true
+            }
+          ],
+          "question": "Želiš video iz studija gde se vidi kako su uklanjali spoljne",
+          "facts": [
+            {
+              "text": "Nike je kasnije ponovo izdao AIR VAPORMAX X OFF‑WHITE i druge modele iz The Ten.",
+              "tag": "nike.com"
+            },
+            {
+              "text": "GQ piše da je The Ten postao globalni fenomen koji je povezao visoku modu i sneaker kulturu.",
+              "tag": "gq.com"
+            }
+          ]
+        },
+        "image_prompts": [
+          "Photo‑realistic editorial studio: Virgil Abloh design studio table with a deconstructed Air Jordan 1 Off‑White showing exposed tongue foam, silver stitched Swoosh, red zip tie, shot close‑up, dramatic softbox lighting, shoe occupies 70% frame, high fashion magazine style",
+          "Close macro shot: AIR VAPORMAX X OFF‑WHITE midsole and transparent VaporMax Air‑Sole unit with exposed stitching and raw edges, model name visible on shoe, occupies 80% frame, high detail, clean white background",
+          "Portrait scene: Virgil Abloh in his design studio holding a partially deconstructed Nike Air Force 1 with visible inner foam and marker sketches on table, editorial cinematic lighting"
+        ],
+        "caption": "Virgil Abloh je 2017. u projektu THE TEN otvoreno rastavio 10 modela — pokazao unutrašnju penu, grube šavove i dodao ziptajl. Nike je kasnije ponovo izdao neke od tih modela, potvrđujući uticaj projekta. Izvori: Nike, GQ.",
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "ŠTA JE URADIO: OTVORIO JE GORNJI SLOJ, OTKRIO UNUTRAŠNJU PENU I DODAO ZIPTAJL",
+              "accent": false
+            },
+            {
+              "text": "REKONSTRUKCIJA",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "text": "Abloh je „rekonstruisao“ deset modela i sistematski naglasio ručni, 'uradi sam' izgled.",
+              "tag": "about.nike.com"
+            },
+            {
+              "text": "The Ten je podeljen na dve teme: REVEALING i GHOSTING, pet modela u svakoj temi.",
+              "tag": "about.nike.com"
+            },
+            {
+              "text": "Nike SNKRS stranica potvrđuje relansiranje AIR VAPORMAX X OFF‑WHITE.",
+              "tag": "nike.com"
+            }
+          ]
+        },
+        "claims": [
+          {
+            "claim": "The Ten su bile 10 rekonstruisanih modela Nike i Converse koje je konceptualno uredio Virgil Abloh.",
+            "source_urls": [
+              "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+              "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+            ]
+          },
+          {
+            "claim": "Nike je kasnije ponovo izdao modele iz The Ten, uključujući AIR VAPORMAX X OFF‑WHITE.",
+            "source_urls": [
+              "https://www.nike.com/launch/t/the-ten-air-vapormax-off-white-white",
+              "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history"
+            ]
+          },
+          {
+            "claim": "Mediji kao GQ opisuju The Ten kao globalni fenomen koji je pomerio odnos između visoke mode i sneaker kulture.",
+            "source_urls": [
+              "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "publisher": "Nike (About.Nike.com)",
+            "title": "The History of Nike x Virgil Abloh's “The Ten”",
+            "url": "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history"
+          },
+          {
+            "publisher": "Nike (Nike.com SNKRS)",
+            "title": "AIR VAPORMAX X OFF‑WHITE — THE TEN",
+            "url": "https://www.nike.com/launch/t/the-ten-air-vapormax-off-white-white"
+          },
+          {
+            "publisher": "GQ",
+            "title": "Virgil Abloh Made His Life Into a Fairytale—and Then Made It the Blueprint for Fashion",
+            "url": "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+          }
+        ],
+        "slide_count": 3
+      },
+      "reason": "Svi važni navodi proverljivi su na dozvoljenim domenu (about.nike.com, nike.com, gq.com). Tekst je prepravljeno u jasnu, kratku srpsku latinicu sa ispravnim dijakritičkim slovima i jednostavnim rečenicama za decu."
+    },
+    "searchUrls": [
+      "https://media.about.nike.com/files/71c3115a-c931-43f7-b95e-8835b7b4d173/JordanBrand_Eastside_OlajuwonAjanaku_OpEd.pdf?download=inline",
+      "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+      "https://www.nike.com/launch/t/the-ten-air-vapormax-off-white-white",
+      "https://about.nike.com/en/magazine/page/5",
+      "https://www.nike.com/jp/launch/t/the-ten-air-max-97-off-white",
+      "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary",
+      "https://about.nike.com/en/newsroom/releases/nike-and-va-securities-to-present-virgil-abloh-the-codes-c-o-architecture",
+      "https://about.nike.com/es-419/newsroom/releases/nike-honors-virgil-ablohs-legacy-at-codes-europes-first-exhibit-from-the-virgil-abloh-archive",
+      "https://about.nike.com/zh-Hans/newsroom/releases/nike-honors-virgil-ablohs-legacy-at-codes-europes-first-exhibit-from-the-virgil-abloh-archive",
+      "https://www.gq.com/story/virgil-abloh-fashion-remembrances",
+      "https://about.nike.com/zh-Hant/newsroom/releases/nike-honors-virgil-ablohs-legacy-at-codes-europes-first-exhibit-from-the-virgil-abloh-archive",
+      "https://about.nike.com/it/newsroom/releases/nike-honors-virgil-ablohs-legacy-at-codes-europes-first-exhibit-from-the-virgil-abloh-archive",
+      "https://about.nike.com/ja/newsroom/releases/nike-honors-virgil-ablohs-legacy-at-codes-europes-first-exhibit-from-the-virgil-abloh-archive",
+      "https://media.about.nike.com/files/7bf37705-b9a3-4635-aa30-e45273c1b562/FY19-Nike-Inc.-Impact-Report.pdf"
+    ]
+  },
   "4512dcb278c64a78fc900e6fed06f8e325130af15024345af9f073fcf5344d6b": {
     "saved_at": "2026-09-15T16:30:10.574Z",
     "schema_name": "trendypatike_post",
@@ -2153,144 +2300,6 @@
       "https://www.nike.com/jordan/ones?msockid=0bee096d79f26cb22e011fbf785c6d16",
       "https://www.nike.com/t/air-jordan-1-retro-high-og-love-letter-mens-shoes-KVpEM9a8/DZ5485-201",
       "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
-    ]
-  },
-  "a908c076414d387544acb3512db6802bde49b6c0734a17c314b72fb9c6f47bd2": {
-    "saved_at": "2026-09-07T12:43:12.149Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "Sve ključne tvrdnje potvrđene iz Nike 2003 10-K i Converse istorije; izvori su dozvoljeni domeni.",
-      "post": {
-        "topic_title": "Nike kupio Converse",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "NIKE JE KUPIO CONVERSE",
-              "accent": false
-            },
-            {
-              "text": "2003.",
-              "accent": true
-            }
-          ],
-          "subheadline": "9. jula 2003. Nike je za Converse platio $305.000 i ostavio ga da radi kao poseban brend."
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "POSAO JE KOŠTAO",
-              "accent": false
-            },
-            {
-              "text": "$305.000",
-              "accent": true
-            },
-            {
-              "text": "CONVERSE JE OSTAO POSEBAN BREND U OKVIRU NIKEA",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FALLBACK",
-              "text": "9. jula 2003. Nike je ugovorio kupovinu svih akcija Converse Inc. za $305.000 gotovinom."
-            },
-            {
-              "tag": "IZVOR",
-              "text": "Nike 2003. godišnji izveštaj (Form 10-K) navodi datum i iznos transakcije."
-            },
-            {
-              "tag": "ŠTA JE PROMENJENO",
-              "text": "Posle kupovine Converse je nastavio da prodaje patike pod svojim imenom uz pomoć Nike-a u dizajnu i,"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "NIJE KORIŠĆENO (SLIDE_COUNT=2)",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "NAPOMENA",
-              "text": "Prihvaćen samo format od 2 slajda prema jačini priče i pravilima objave."
-            },
-            {
-              "tag": "FALLBACK",
-              "text": "Detaljnije informacije nalaze se u izvorima navedenim ispod."
-            }
-          ],
-          "question": ""
-        },
-        "caption": "Nike je 9. jula 2003. kupio Converse za $305.000; Converse je ostao zaseban brend uz podršku Nike resursa.",
-        "hashtags": [
-          "#Nike",
-          "#Converse",
-          "#Biznis",
-          "#2003",
-          "#TrendyPatike"
-        ],
-        "image_prompts": [
-          "Editorial close-up of a Converse Chuck Taylor All Star high top beside a Nike corporate Swoosh logo on a contract document, dramatic lighting, no text",
-          "Wide photo of the Converse Inc. headquarters building with a Nike logo flag nearby and a signed agreement on a table showing $305.000, no text, corporate style, documentary look.",
-          ""
-        ],
-        "sources": [
-          {
-            "title": "NIKE, INC. 2003 Form 10-K — Note re: Converse purchase",
-            "publisher": "investors.nike.com",
-            "url": "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF"
-          },
-          {
-            "title": "Converse History — 2003: SWOOSHED",
-            "publisher": "Converse",
-            "url": "https://www.converse.com/lu/en/landing-converse-history"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Nike je kupio Converse 9. jula 2003.",
-            "source_urls": [
-              "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
-              "https://www.converse.com/lu/en/landing-converse-history"
-            ]
-          },
-          {
-            "claim": "Transakcija je iznosila $305.000.",
-            "source_urls": [
-              "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF"
-            ]
-          },
-          {
-            "claim": "Posle kupovine Converse je nastavio da posluje kao poseban brend uz podršku Nike resursa.",
-            "source_urls": [
-              "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
-              "https://www.converse.com/lu/en/landing-converse-history"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.converse.com/lu/en/landing-converse-history",
-      "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
-      "https://careers.converse.com/who-we-are",
-      "https://www.converse.com/c/converse-history",
-      "https://www.converse.com/login?original=%2Faccount-order-history",
-      "https://www.converse.com/de/landing-converse-history",
-      "https://www.converse.com/us",
-      "https://www.converse.com/es/landing-converse-history",
-      "https://careers.converse.com/es-es/who-we-are",
-      "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2006/NIKE-Inc-Hires-Lee-Bird-to-Head-Subsidiaries/default.aspx",
-      "https://www.converse.com/it/landing-converse-history",
-      "https://careers.converse.com/de/who-we-are",
-      "https://www.converse.com/shop/world-cup-collection",
-      "https://investors.nike.com/files/doc_financials/2012/docs/nike-2012-form-10K.pdf",
-      "https://investors.nike.com/files/doc_financials/2017/Q4/NIKE-Inc.-FY17-10K-Filing.pdf"
     ]
   }
 }
