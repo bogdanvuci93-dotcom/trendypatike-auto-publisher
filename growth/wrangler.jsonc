@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "trendypatike-growth",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "trendypatike-growth-db",
+      "database_id": "f11864ea-1bb9-467f-a579-be1a47f6665c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "triggers": {
+    "crons": ["*/5 * * * *", "*/15 * * * *", "17 */6 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
