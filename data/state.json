@@ -425,8 +425,20 @@
         "https://www.gq.com/story/supreme-nike-air-max-plus",
         "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
       ]
+    },
+    {
+      "date": "2026-09-15",
+      "topic_id": "off-white-nike-the-ten",
+      "seed_topic": "Kako je Virgil Abloh rastavio deset Nike klasika i od kolekcije The Ten napravio jedan od najvećih sneaker hype trenutaka",
+      "topic_title": "Kako je Virgil Abloh rastavio deset Nike klasika i napravio hype",
+      "media_id": "18096999458414525",
+      "sources": [
+        "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+        "https://www.nike.com/launch/t/the-ten-air-vapormax-off-white-white",
+        "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+      ]
     }
   ],
   "last_publish_date": "2026-09-15",
-  "last_media_id": "18138586804612102"
+  "last_media_id": "18096999458414525"
 }
