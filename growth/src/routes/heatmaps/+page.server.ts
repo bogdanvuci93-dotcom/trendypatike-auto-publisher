@@ -1,18 +1,14 @@
 import type { PageServerLoad } from './$types';
+import { analyticsPeriod } from '$lib/server/period';
 
-const TZ='Europe/Belgrade';
-const DAY=86400000;
 type ClickPoint={x:number;y:number;rage:boolean;dead:boolean;target:string;label:string;href:string;sessionId:string;vw:number;vh:number;device:string};
 type PageGroup={path:string;clicks:ClickPoint[];scrollBySession:Map<string,number>;activeBySession:Map<string,number>;visibleBySession:Map<string,number>;targetCounts:Map<string,{target:string;label:string;href:string;clicks:number;rage:number;dead:number}>;pageSessions:Set<string>;exitSessions:Set<string>;atcSessions:Set<string>;checkoutSessions:Set<string>;exitAfterInteraction:Map<string,number>;totalClicks:number;rageClicks:number;deadClicks:number};
 function parseMeta(raw:unknown){try{return JSON.parse(String(raw||'{}')) as Record<string,any>;}catch{return{};}}
 function median(values:number[]){if(!values.length)return 0;const s=[...values].sort((a,b)=>a-b),m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}
 function normalizeDevice(value:string,vw:number){const v=value.toLowerCase();if(['mobile','tablet','desktop'].includes(v))return v;if(vw>0)return vw<768?'mobile':vw<1100?'tablet':'desktop';return'unknown';}
-function dayKey(ms:number){const p=new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(ms));const g=(t:string)=>p.find(x=>x.type===t)?.value||'';return`${g('year')}-${g('month')}-${g('day')}`;}
-function zonedStart(key:string){const [y,m,d]=key.split('-').map(Number);let guess=Date.UTC(y,m-1,d);const parts=new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(guess));const n=(t:string)=>Number(parts.find(x=>x.type===t)?.value||0);const represented=Date.UTC(n('year'),n('month')-1,n('day'),n('hour'),n('minute'),n('second'));return guess-(represented-guess);}
-function rangeWindow(range:string){const now=Date.now(),today=dayKey(now),todayStart=zonedStart(today);if(range==='today')return{range,start:todayStart,end:now,label:'Danas'};if(range==='yesterday'){const yKey=dayKey(todayStart-1);return{range,start:zonedStart(yKey),end:todayStart,label:'Juče'};}if(range==='30d')return{range,start:now-30*DAY,end:now,label:'Poslednjih 30 dana'};return{range:'7d',start:now-7*DAY,end:now,label:'Poslednjih 7 dana'};}
 
 export const load:PageServerLoad=async({platform,url})=>{
-  const db=platform?.env?.DB;const period=rangeWindow(url.searchParams.get('range')||'7d');
+  const db=platform?.env?.DB;const period=analyticsPeriod(url);
   if(!db)return{pages:[],period,totals:{sessions:0,avgActiveMs:0,topExitPath:'',topExitCount:0}};
   const [eventResult,sessionResult]=await Promise.all([
     db.prepare(`SELECT session_id,path,type,meta_json,event_ts FROM events WHERE event_ts>=?1 AND event_ts<?2 AND type IN ('session_start','page_view','product_view','click','rage_click','dead_click','scroll_depth','heartbeat','page_exit','add_to_cart','cart_view','checkout_started') ORDER BY event_ts DESC LIMIT 50000`).bind(period.start,period.end).all(),
