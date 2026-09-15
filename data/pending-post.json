@@ -146,5 +146,10 @@
     "public/posts/2026-09-15-nike-tn-air-max-plus-hype-276292927d92/02.jpg",
     "public/posts/2026-09-15-nike-tn-air-max-plus-hype-276292927d92/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017592467944388"
+    ],
+    "carousel_id": ""
+  }
 }
