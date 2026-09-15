@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-15",
-  "stage": "ready",
+  "generated_at": "2026-09-15T16:34:19.988Z",
   "fingerprint": "1af32e557b6e",
   "seed": {
     "id": "off-white-nike-the-ten",
@@ -147,11 +146,5 @@
       }
     ],
     "slide_count": 3
-  },
-  "image_paths": [
-    "public/posts/2026-09-15-off-white-nike-the-ten-1af32e557b6e/01.jpg",
-    "public/posts/2026-09-15-off-white-nike-the-ten-1af32e557b6e/02.jpg",
-    "public/posts/2026-09-15-off-white-nike-the-ten-1af32e557b6e/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
