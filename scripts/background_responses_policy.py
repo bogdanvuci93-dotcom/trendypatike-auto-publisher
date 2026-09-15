@@ -100,5 +100,39 @@ if new_return not in s:
         raise SystemExit("background policy: openaiFetch return anchor not found")
     s = s.replace(old_return, new_return, 1)
 
+# Responses API web_search sources are source objects whose URL does not
+# necessarily carry type="url". Traverse only response.output, but accept
+# every http(s) `url` field there so action.sources evidence is preserved.
+old_extract = '''function extractSearchUrls(json) {
+  const urls = new Set();
+  const visit = value => {
+    if (!value) return;
+    if (Array.isArray(value)) return value.forEach(visit);
+    if (typeof value !== "object") return;
+    if (value.type === "url" && typeof value.url === "string") urls.add(value.url);
+    if (value.type === "url_citation" && typeof value.url === "string") urls.add(value.url);
+    if (["open_page", "find_in_page"].includes(value.type) && typeof value.url === "string") urls.add(value.url);
+    Object.values(value).forEach(visit);
+  };
+  visit(json.output || []);
+  return [...urls];
+}'''
+new_extract = '''function extractSearchUrls(json) {
+  const urls = new Set();
+  const visit = value => {
+    if (!value) return;
+    if (Array.isArray(value)) return value.forEach(visit);
+    if (typeof value !== "object") return;
+    if (typeof value.url === "string" && /^https?:\\/\\//i.test(value.url)) urls.add(value.url);
+    Object.values(value).forEach(visit);
+  };
+  visit(json.output || []);
+  return [...urls];
+}'''
+if new_extract not in s:
+    if old_extract not in s:
+        raise SystemExit("background policy: extractSearchUrls anchor not found")
+    s = s.replace(old_extract, new_extract, 1)
+
 OPENAI.write_text(s, encoding="utf-8")
-print("Background Responses policy applied: one paid POST, then free polling; no duplicate submit on ambiguous timeout.")
+print("Background Responses policy applied: one paid POST, free polling, and complete web-search evidence extraction.")
