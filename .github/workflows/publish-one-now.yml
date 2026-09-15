@@ -1,4 +1,5 @@
 name: TrendyPatike Publish One Now
+# trigger: unicode-safe-guard-v24
 
 on:
   push:
@@ -56,7 +57,7 @@ jobs:
           python scripts/require_real_images.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v23-single-catchup:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v24-single-catchup:" + JSON.stringify(post))/' src/index.mjs
           grep -n "refusing placeholder publish" src/render.mjs
           npm run check
 
