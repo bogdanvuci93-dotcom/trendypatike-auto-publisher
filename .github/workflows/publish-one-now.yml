@@ -34,19 +34,15 @@ jobs:
       - name: Install dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Apply Serbia-aware content and reliability policy
+      - name: Apply current safe content and reliability policy
         run: |
           set -euo pipefail
 
           jq empty data/fallback-posts.json
-          if [ -f data/fallback-posts-extra.json ]; then
-            jq empty data/fallback-posts-extra.json
-            jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
-          else
-            jq 'map(.post.slide_count = (.post.slide_count // 3))' \
-              data/fallback-posts.json > /tmp/fallback-posts.json
-          fi
+          jq empty data/fallback-posts-extra.json
+          jq empty data/fallback-posts-attention.json
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
@@ -54,19 +50,22 @@ jobs:
           python scripts/format_semantic_accents.py
           python scripts/scroll_stop_policy.py
           python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v14-serbia:" + JSON.stringify(post))/' src/index.mjs
-          sed -i 's/AbortSignal\.timeout(180000)/AbortSignal.timeout(360000)/g' src/openai.mjs
-
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v23-single-catchup:" + JSON.stringify(post))/' src/index.mjs
+          grep -n "refusing placeholder publish" src/render.mjs
           npm run check
 
-      - name: Publish second catch-up post
+      - name: Publish exactly one catch-up post
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          IG_API_VERSION: v25.0
           TEXT_MODEL: "gpt-5-mini"
           VERIFY_MODEL: "gpt-5-mini"
           IMAGE_MODEL: "gpt-image-1-mini"
@@ -76,7 +75,7 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: "false"
           FORCE_RUN: "true"
-          MAX_TOPIC_ATTEMPTS: "3"
+          MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "8"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
