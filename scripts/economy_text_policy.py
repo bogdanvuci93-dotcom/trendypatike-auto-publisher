@@ -17,8 +17,8 @@ INDEX.write_text(s, encoding="utf-8")
 o = OPENAI.read_text(encoding="utf-8")
 o = o.replace('maxOutputTokens = 12000,', 'maxOutputTokens = 6000,')
 o = re.sub(
-    r'const normalizedMaxOutputTokens = Math\.max\(2000, Math\.min\(Number\(maxOutputTokens\) \|\| \d+, \d+\)\);',
-    'const normalizedMaxOutputTokens = Math.max(2000, Math.min(Number(maxOutputTokens) || 6000, 8000));',
+    r'const normalizedMaxOutputTokens = Math\.max\(\d+, Math\.min\(Number\(maxOutputTokens\) \|\| \d+, \d+\)\);',
+    'const normalizedMaxOutputTokens = Math.max(2500, Math.min(Number(maxOutputTokens) || 6000, 7000));',
     o,
     count=1
 )
@@ -38,11 +38,11 @@ o = o.replace(
 
 checks = [
     'maxOutputTokens = 6000,',
-    'Number(maxOutputTokens) || 6000, 8000',
+    'Number(maxOutputTokens) || 6000, 7000',
     'structuredAttempt <= 1'
 ]
 missing = [x for x in checks if x not in o]
 if missing:
     raise SystemExit(f"Economy policy failed OpenAI checks: {missing}")
 OPENAI.write_text(o, encoding="utf-8")
-print("Economy text policy applied: major-news gate off, one structured attempt only, 6k default / 8k hard cap.")
+print("Economy text policy applied: major-news gate off, one structured attempt only, 6k default / 7k hard cap.")
