@@ -1,5 +1,5 @@
-trigger=2026-09-15T18:17:00+02:00
-policy=viral-attention-v21-full-payload-evidence
-fix=d8ab05979f20f4d8a7f5da2350bf54e88756afac
-preflight=34993824076:success
+trigger=2026-09-15T18:20:00+02:00
+policy=viral-attention-v22-background-source-include
+fix=d85e813056a9aca70f15ffcefbe9218041ab5f46
+preflight=34994130162:success
 request=publish-two-now
