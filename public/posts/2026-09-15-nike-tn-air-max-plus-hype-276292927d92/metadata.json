@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-15",
-  "stage": "ready",
+  "generated_at": "2026-09-15T16:24:36.533Z",
   "fingerprint": "276292927d92",
   "seed": {
     "id": "nike-tn-air-max-plus-hype",
@@ -140,11 +139,5 @@
       }
     ],
     "slide_count": 3
-  },
-  "image_paths": [
-    "public/posts/2026-09-15-nike-tn-air-max-plus-hype-276292927d92/01.jpg",
-    "public/posts/2026-09-15-nike-tn-air-max-plus-hype-276292927d92/02.jpg",
-    "public/posts/2026-09-15-nike-tn-air-max-plus-hype-276292927d92/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
