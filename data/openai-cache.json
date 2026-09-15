@@ -1,4 +1,149 @@
 {
+  "df5e05fceeb51e08904bc33d003b01ff4c946c689983cf21dee34c8a519bc73a": {
+    "saved_at": "2026-09-15T16:19:54.166Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "cover": {
+        "subheadline": "Zašto je TN postao ulični fenomen",
+        "headline_lines": [
+          {
+            "text": "PATIKA KOJA JE IZGLEDALA KAO IZ BUDUĆNOSTI",
+            "accent": false
+          },
+          {
+            "text": "1998.",
+            "accent": true
+          },
+          {
+            "text": "NIKE AIR MAX PLUS (TN) PROMENIO JE ULICU",
+            "accent": false
+          }
+        ]
+      },
+      "topic_title": "Zašto je Nike Air Max Plus (TN) ogroman ulični fenomen",
+      "hashtags": [
+        "#NikeTN",
+        "#AirMaxPlus",
+        "#TrendyPatike",
+        "#sneakeri",
+        "#ulica",
+        "#90s"
+      ],
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Danas TN živi u kolaboracijama i second‑hand cenama koje pokreću histeriju",
+            "accent": false
+          },
+          {
+            "text": "€180–€234 (primeri rane popularnosti)",
+            "accent": true
+          }
+        ],
+        "question": "Kako to utiče na ulični stil?",
+        "facts": [
+          {
+            "text": "TN je iz 1998. postao hit opet kroz retro talas i kolaboracije, što je podiglo potražnju i cene.",
+            "tag": "GQ"
+          },
+          {
+            "text": "Originalni dizajner Sean McDowell rekao je da je inspiracija bila zalazak sunca nad morem.",
+            "tag": "Nike SNKRS"
+          }
+        ]
+      },
+      "image_prompts": [
+        "Close-up of Nike Air Max Plus TN in original 1998 gradient 'Sunrise' colorway, large view of upper and visible Tuned Air sole, shoe occupies 75% of frame, late-1990s street vibe, high contrast editorial lighting",
+        "Nike Air Max Plus TN in black/blue and 'Tiger' gradient colorways on a 1990s European street scene, two distinct shoes shown large, models wearing wide trousers, clear 1998-to-now style contrast, energetic editorial mood",
+        "Macro cutaway of Nike Air Max Plus TN Tuned Air system and gradient midsole, cross-section showing multiple air units and foam, shoe detail occupies 80% of frame, technical but bold editorial style"
+      ],
+      "caption": "Nike Air Max Plus (TN) je 1998. šokirao izgledom i tehnikom (Tuned Air). Dizajner Sean McDowell je crpeo ideje iz zalaska sunca, a 2000‑ih i 2020‑ih TN se vratio kroz retro, kolaboracije i uličnu modu — što je podiglo potražnju i cene. Izvori: GQ, Nike SNKRS.",
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "DIZAJN KOJI JE ŠOKIRAO: TALASASTE LINIJE I TUNED AIR",
+            "accent": false
+          },
+          {
+            "text": "Sean McDowell",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "text": "Sean McDowell je 1998. dizajnirao TN koristeći neobične proizvodne metode i Tuned Air amortizaciju, ",
+            "tag": "Nike SNKRS"
+          },
+          {
+            "text": "GQ beleži da su boje poput 'Tiger' i 'Hyper Blue' učinile model vidljivim na ulici i u modnim kolab­",
+            "tag": "GQ"
+          },
+          {
+            "text": "Primer cena iz GQ: rani OG parovi oko €180–€234 na tržištu drugog vlasnika, što pokazuje rast vred­",
+            "tag": "GQ"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim": "Dizajn je inspirisan zalaskom sunca i koristio je Tuned Air sistem.",
+          "source_urls": [
+            "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus",
+            "https://www.nike.com/pl/launch/t/behind-design-air-max-plus-og"
+          ]
+        },
+        {
+          "claim": "Model je od 1998. postao ulični klasik, a kasnije su kolaboracije i retro izdanja podigla potražnju.",
+          "source_urls": [
+            "https://www.gq.com/story/supreme-nike-air-max-plus",
+            "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
+          ]
+        },
+        {
+          "claim": "Rane cene na second‑hand tržištu bile su oko €180–€234 prema GQ izveštajima.",
+          "source_urls": [
+            "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Nike SNKRS",
+          "title": "Behind The Design: Nike Air VaporMax Plus / Air Max Plus OG pages",
+          "url": "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus"
+        },
+        {
+          "publisher": "GQ",
+          "title": "The Newest Supreme x Nike Collab Has Something for Everyone",
+          "url": "https://www.gq.com/story/supreme-nike-air-max-plus"
+        },
+        {
+          "publisher": "GQ",
+          "title": "The 8 Most Popular Sneakers of Summer 2017",
+          "url": "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
+        }
+      ],
+      "slide_count": 3
+    },
+    "searchUrls": [
+      "https://www.gq.com/campaigns/neimanmarcus-sweeps/Neiman_Marcus_x_GQ_Rules_2.pdf",
+      "https://www.gq.com/story/supreme-nike-air-max-plus",
+      "https://www.gq.com/story/8-most-popular-sneakers-summer-2017",
+      "https://www.gq.com/story/greatest-nike-air-max-colorways",
+      "https://www.gq.com/story/nike-air-max-sunder-release-date",
+      "https://www.gq.com/story/nike-air-max-day-2026",
+      "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus",
+      "https://www.nike.com/pl/launch/t/behind-design-air-max-plus-og",
+      "https://www.gq.com/story/nike-air-max-720-sneaker-of-the-week",
+      "https://www.gq.com/story/nike-50-greatest-sneaker-collaborations",
+      "https://www.nike.com/se/launch/t/behind-design-air-vapormax-plus",
+      "https://www.gq.com/story/nike-air-max-1-97-restock",
+      "https://www.nike.com/hu/launch/t/behind-design-air-max-plus-og",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf"
+    ]
+  },
   "7e04ca6b6eb08acd5dfc22ec57c725b14fe4957e71f039825eba5a9eeb6cf96b": {
     "saved_at": "2026-09-08T08:21:43.026Z",
     "schema_name": "trendypatike_verified_post",
@@ -2149,157 +2294,6 @@
       "https://about.puma.com/sites/default/files/financial-report/2008/ar-2008.pdf",
       "https://about.puma.com/sites/default/files/financial-report/1998/ar-1998-de.pdf",
       "https://about.puma.com/sites/default/files/financial-report/1999/ar-1999.pdf"
-    ]
-  },
-  "13404730cff441f5260ee6852aa95985c4367761eb32b0640334c103ebe2feac": {
-    "saved_at": "2026-09-07T07:44:12.060Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "adidas i PUMA: svađa braće koja je podelila grad",
-      "slide_count": 2,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "BRAĆA DASSLER SE POSVAĐALA",
-            "accent": true
-          },
-          {
-            "text": "I PODIJELILA GRAD",
-            "accent": false
-          },
-          {
-            "text": "NA ADIDAS I PUMA",
-            "accent": true
-          }
-        ],
-        "subheadline": "Kako je sukob dvojice braće podelio Herzogenaurach i stvorio dva svetska brenda."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "RAZLAZ 1948 U HERZOGENAURACH",
-            "accent": true
-          },
-          {
-            "text": "DVE RADIONICE PREKO ULICE",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FENOMEN",
-            "text": "Braća Adolf (Adi) i Rudolf Dassler su 1924 osnovali 'Gebrüder Dassler'. Nakon svađe 1948 razišli su "
-          },
-          {
-            "tag": "FENOMEN",
-            "text": "Adi je 1949 registrovao adidas; Rudolf je ubrzo osnovao PUMA, obe firme iz istog grada."
-          },
-          {
-            "tag": "IZVORI",
-            "text": "Dokazi u istoriji kompanija: adidas i PUMA zvanične istorije i Britannica."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "PITANJE",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "PITANJE",
-            "text": "Želite li da stavimo staru fotografiju dve radionice preko ulice?"
-          },
-          {
-            "tag": "IZVORI",
-            "text": "Koristimo arhivske fotografije iz adidas i PUMA istorije."
-          }
-        ],
-        "question": "Da li želite fotografiju?"
-      },
-      "caption": "Jedna porodična svađa iz 1948. stvorila je ADIDAS i PUMA — firme koje su se takmičile iz istog nemačkog grada Herzogenaurach. Izvori: adidas, PUMA i Britannica.",
-      "hashtags": [
-        "#adidas",
-        "#PUMA",
-        "#rivalstvo",
-        "#Herzogenaurach",
-        "#sneakeristorija",
-        "#TrendyPatike"
-      ],
-      "image_prompts": [
-        "Cinematic 1940s split-street scene showing two rival German shoe workshops across a narrow street in Herzogenaurach, one workshop labeled 'adidas' and the other labeled 'PUMA', tense atmosphere, black-and-white with cinematic lighting, period workers in 1940s clothing, close architectural details, editorial style",
-        "Close-up vintage workshop exterior showing a sign 'adidas' on one building and 'PUMA' on the opposite building across the street, 1940s German town Herzogenaurach, cinematic high-contrast black-and-white, tense editorial mood",
-        "Wide cinematic editorial shot of Herzogenaurach main street from 1940s, two small shoe factories on opposite sides, dramatic sky, no logos or text overlays"
-      ],
-      "sources": [
-        {
-          "title": "75 years of adidas: From a Franconian crafts business to a global player in the world of sport",
-          "publisher": "adidas-group.com",
-          "url": "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport"
-        },
-        {
-          "title": "PUMA Timeline",
-          "publisher": "about.puma.com",
-          "url": "https://about.puma.com/en/puma/history"
-        },
-        {
-          "title": "Adolf Dassler biography and Dassler brothers history",
-          "publisher": "Britannica",
-          "url": "https://www.britannica.com/biography/Adolf-Dassler"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Braća Adolf (Adi) i Rudolf Dassler osnovali su zajedno 'Gebrüder Dassler' 1924, a razišli su se 1948.",
-          "source_urls": [
-            "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
-            "https://about.puma.com/en/puma/history",
-            "https://www.britannica.com/biography/Adolf-Dassler"
-          ]
-        },
-        {
-          "claim": "Adi Dassler je 1949 registrovao adidas; Rudolf je uskoro osnovao PUMA. Oba brenda nastala su u Herzogenaurach.",
-          "source_urls": [
-            "https://www.adidas-group.com/en/about/history",
-            "https://about.puma.com/en/puma/history"
-          ]
-        },
-        {
-          "claim": "Grad Herzogenaurach je decenijama nosio podelu zbog rivalstva između zaposlenih adidas i PUMA.",
-          "source_urls": [
-            "https://about.puma.com/en/puma/history",
-            "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.adidas-group.com/en/factsheet-75-years-of-adidas-from-a-franconian-crafts-business-to-a-global-player-in-the-world-of-sport",
-      "https://www.adidas-group.com/en/about/history",
-      "https://www.adidas-group.com/en/magazine/innovation/the-history-of-adidas-a-background-of-collaboration-and-innovation",
-      "https://about.puma.com/en/puma/history",
-      "https://www.adidas-group.com/en/faq",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-75-years-of-innovation-and-sports-history",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-celebrates-its-70th-anniversary-and-the-opening-of-the-arena-building",
-      "https://www.adidas-group.com/en/magazine/innovation/adolf-dassler-the-creative-and-innovative-leader-behind-adidas?trk=article-ssr-frontend-pulse_little-text-block",
-      "https://www.adidas-group.com/de/factsheet-75-jahre-adidas-vom-frankischen-handwerksbetrieb-zu-einem-weltunternehmen-des-sports",
-      "https://www.adidas-group.com/en/magazine/innovation/adidas-superstar-how-an-icon-was-born",
-      "https://www.adidas-group.com/en/about/executive-board",
-      "https://www.adidas-group.com/en/magazine/innovation/the-history-of-the-tracksuit-from-athletes-to-athleisure",
-      "https://report.adidas-group.com/2023/en/_assets/downloads/annual-report-adidas-ar23.pdf",
-      "https://about.puma.com/sites/default/files/financial-report/2010/ar-2010.pdf",
-      "https://about.puma.com/sites/default/files/financial-report/2014/ar-2014.pdf",
-      "https://report.adidas-group.com/2019/en/servicepages/downloads/files/adidas_annual_report_2019.pdf",
-      "https://about.puma.com/sites/default/files/financial-report/2017/ar-2017.pdf",
-      "https://about.puma.com/sites/default/files/financial-report/2019/puma-ar-2019-annual-report.pdf",
-      "https://report.adidas-group.com/2024/en/_assets/downloads/our-company-adidas-ar24.pdf",
-      "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf",
-      "https://report.adidas-group.com/2025/en/_assets/downloads/annual-report-adidas-ar25.pdf",
-      "https://about.puma.com/sites/default/files/financial-report/2018/geschaeftsbericht-2018-de.pdf",
-      "https://report.adidas-group.com/2017/media/pdf/EN/adidas_AR_2017_EN.pdf",
-      "https://report.adidas-group.com/2022/en/_assets/downloads/annual-report-adidas-ar22.pdf"
     ]
   }
 }
