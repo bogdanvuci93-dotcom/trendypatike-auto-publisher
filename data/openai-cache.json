@@ -1,4 +1,142 @@
 {
+  "ce729bdb58a3b1f03375e87b08ddafa5aaaaeda3c0b3e958cabf32ec2c6e7213": {
+    "saved_at": "2026-09-15T16:26:45.363Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "All main factual claims are supported by Nike and GQ articles cited.",
+      "post": {
+        "topic_title": "Kako je Virgil Abloh rastavio deset Nike klasika i od kolekcije The Ten napravio jedan od najvećih sneaker hype trenutaka",
+        "slide_count": 3,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "KAKO JE VIRGIL ABLOH RAZLOŽIO DESETAK NIKE MODELА",
+              "accent": false
+            },
+            {
+              "text": "I STVORIO KOLEGEKCIJU 'THE TEN' 2017.",
+              "accent": true
+            }
+          ],
+          "subheadline": "Kratka i jasna priča o dekonstukciji, vizuelnim potpisima i brzom uspehu kolekcije."
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "ON JE OTVORIO PENU I ŠAVOVE I NAPRAVIO 'RECONSTRUCTED' ODSLOJENE MODELE",
+              "accent": false
+            },
+            {
+              "text": "DODAO JE VIDLJIVE ŠAVOVE, IZLOŽENU PENU I PLASTIČNU VEZICU-KAO POTPIS",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Abloh je namerno otkrio unutrašnje delove cipela i upotrebio estetske dodatke da naglasi građu."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "Opis dizajnerskih odluka i primera (izložena penu, šavovi, ziplok) potvrđuju Nike i GQ članci."
+            },
+            {
+              "tag": "URLS",
+              "text": "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history  https://www.gq.com/story/virg"
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "REZULTAT: 2017. GODINE 'THE TEN' JE IZAZVALO VELIKU POTRAŽNJU I SKOK CIJENA",
+              "accent": false
+            },
+            {
+              "text": "PARA MODELA JE DOBILO LISTE ČEKANJA I VISOKU TRAŽNJU NA SEKUNDARNOM TRŽIŠTU",
+              "accent": true
+            }
+          ],
+          "facts": [
+            {
+              "tag": "FALLBACK",
+              "text": "Kolekcija je brzo postala tražena; modeli su se rasprodavali i postajali skuplji na preprodaji."
+            },
+            {
+              "tag": "SOURCE",
+              "text": "GQ i Nike dokumentuju datum, pristup dizajnu i tržišni efekat kolekcije."
+            }
+          ],
+          "question": "Koji NIKE model iz kolekcije 'THE TEN' ti izgleda najzanimљv"
+        },
+        "caption": "Virgil Abloh je 2017. razložio deset klasičnih modela, otkrio njihove unutrašnje delove i dodao svoj vizuelni potpis — to je pokrenulo snažan hype i rast cena.",
+        "hashtags": [
+          "#VirgilAbloh",
+          "#TheTen",
+          "#OffWhite",
+          "#Nike",
+          "#sneakerkultura",
+          "#TrendyPatike",
+          "#hype",
+          "#2017"
+        ],
+        "image_prompts": [
+          "Editorial photo of Virgil Abloh at a worktable with a deconstructed OFF-WHITE x NIKE AIR JORDAN 1 showing exposed foam, visible stitching, and a plastic zip tie, high-fashion lighting",
+          "Close-up studio shot of an OFF-WHITE x NIKE AIR MAX 90 with exposed inner foam, visible stitching, text labels and a plastic tie on laces, clean white background, editorial style",
+          "Wide editorial of multiple OFF-WHITE x NIKE sneakers laid out with tools, torn panels, sketches and an orange tag, dramatic shadows"
+        ],
+        "sources": [
+          {
+            "title": "The History of Nike x Virgil Abloh's “The Ten”",
+            "publisher": "NIKE, Inc.",
+            "url": "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history"
+          },
+          {
+            "title": "Virgil Abloh Made His Life Into a Fairytale—and Then Made It the Blueprint for Fashion",
+            "publisher": "GQ",
+            "url": "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "Virgil Abloh je 2017. rekonstruisao deset Nike i Converse modela koristeći izloženu penu i vidljive šavove kao dizajnerski element.",
+            "source_urls": [
+              "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+              "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+            ]
+          },
+          {
+            "claim": "Kolekcija 'The Ten' je objavljena 2017. i izazvala velike liste čekanja i porast cena na sekundarnom tržištu.",
+            "source_urls": [
+              "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+              "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
+            ]
+          },
+          {
+            "claim": "NIKE-ov članak dokumentuje Ablohov proces, podelu kolekcije na 'REVEALING' i 'GHOSTING' i vremenski okvir izrade.",
+            "source_urls": [
+              "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://about.nike.com/en/magazine/virgil-abloh-nike-the-ten-history",
+      "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary",
+      "https://about.nike.com/en/magazine/page/5",
+      "https://www.gq.com/story/virgil-abloh-design-legacy",
+      "https://www.gq.com/about/virgil-abloh",
+      "https://www.gq.com/story/virgil-abloh-cover-story-spring-2019",
+      "https://www.gq.com/story/virgil-abloh-profile",
+      "https://www.gq.com/story/off-white-virgil-abloh-flames-emoji",
+      "https://www.gq.com/story/virgil-abloh-has-died",
+      "https://www.gq.com/story/virgil-abloh-louis-vuitton-menswear-designer",
+      "https://www.gq.com/story/in-search-of-virgil-abloh",
+      "https://www.gq.com/story/paradigm-shift-in-paris-pari-dukovic-portfolio"
+    ]
+  },
   "5a6e06693d1328e615547da6e3ee07aaa7d5454bd3428d314d9aee5e954e434b": {
     "saved_at": "2026-09-15T16:26:18.552Z",
     "schema_name": "trendypatike_post",
@@ -2145,161 +2283,6 @@
       "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
       "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
       "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf"
-    ]
-  },
-  "586b00c3b12be4e16d0bebc0832248190c05831062f1a65d1cffbeb3d4bfbbab": {
-    "saved_at": "2026-09-07T07:59:03.455Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "Sve ključne tvrdnje potvrđene iz autorizovanih izvora: Smithsonian potvrđuje 1989. prototip Reebok Pump, a NBA dokumentuje Dee Brown-ov javni potez tokom 1991 Slam Dunk Contest-a. Reebok stranice potvrđuju Pump kolekciju i nasleđe.",
-      "post": {
-        "topic_title": "Reebok i pumpa na košarkaškoj patiki",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "DEE BROWN STISNUO PUMPU 1991 I POBEDIO",
-              "accent": false
-            },
-            {
-              "text": "DEE BROWN",
-              "accent": true
-            },
-            {
-              "text": "1991",
-              "accent": true
-            }
-          ],
-          "subheadline": "STISNUO JE GUMENO DUGME PUMP NA JEZIKU PATIKE"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "REEBOK JE IMAO PROTOTIP PUMP 1989",
-              "accent": false
-            },
-            {
-              "text": "PUMP",
-              "accent": true
-            },
-            {
-              "text": "1989",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "ČINJENICA",
-              "text": "Reebok je razvio PUMP sistem sa gumenim dugmetom na jeziku; u muzejskoj izložbi postoji prototip iz "
-            },
-            {
-              "tag": "IZVOR",
-              "text": "Dee Brown je tokom 1991. Slam Dunk Contest-a pred kamerama stisnuo Pump na patici i to je postao pre"
-            },
-            {
-              "tag": "IZVORI",
-              "text": "Smithsonian dokumentuje 1989. prototip; NBA opisuje Dee Brown-ov nastup; Reebok prikazuje Pump nasle"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "PITANJE",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "PITANJE",
-              "text": "Želiš li post sa više slika, datumima i izlistanim izvorima aukcija?"
-            },
-            {
-              "tag": "",
-              "text": "SHORT_PLACEHOLDER_FOR_SCHEMA"
-            }
-          ],
-          "question": "Da li želiš više detalja?"
-        },
-        "caption": "REEBOK JE KRAJEM 80-ИХ IMAO PUMP SA GUMENIM DUGMETOM NA JEZIKU. DEE BROWN JE 1991. JAVNO STISNUO PUMPU I TO JE POSTAO IKOniČAN MOMENT.",
-        "hashtags": [
-          "#ReebokPump",
-          "#DeeBrown",
-          "#SlamDunk",
-          "#90sNostalgija",
-          "#TrendyPatike",
-          "#SneakerPriče",
-          "#Košarka"
-        ],
-        "image_prompts": [
-          "Close-up of Dee Brown wearing Reebok Pump high-top in 1991 Dunk Contest, finger pressing round rubber Pump button on tongue, arena crowd blurred, shoe and Pump button fill 70% of frame",
-          "Macro cutaway close-up of 1989 Reebok Pump prototype tongue showing round rubber pump button and internal air bladder, shoe detail fills 80% of frame, retro late-80s color palette, labeled 'Reebok Pump 1989 prototype'.",
-          ""
-        ],
-        "sources": [
-          {
-            "title": "Dee Brown dunk contest lookback and Pump moment",
-            "publisher": "NBA.com",
-            "url": "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte"
-          },
-          {
-            "title": "1991 Dunk Contest video: Dee pumps his way to title",
-            "publisher": "NBA.com",
-            "url": "https://www.nba.com/watch/video/1991-dunk-contest-dee-pumps-his-way-to-title?plsrc=nba"
-          },
-          {
-            "title": "Brooklyn Museum sneaker show mentions 1989 Reebok Pump prototype",
-            "publisher": "Smithsonian Magazine",
-            "url": "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/"
-          },
-          {
-            "title": "Reebok Court Victory Pump product / Pump heritage",
-            "publisher": "Reebok",
-            "url": "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Reebok je imao prototip Pump sa gumenim dugmetom na jeziku iz 1989.",
-            "source_urls": [
-              "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/"
-            ]
-          },
-          {
-            "claim": "Dee Brown je tokom 1991. Slam Dunk Contest-a javno stisnuo Pump i postao prepoznatljiv zbog toga.",
-            "source_urls": [
-              "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte",
-              "https://www.nba.com/watch/video/1991-dunk-contest-dee-pumps-his-way-to-title?plsrc=nba"
-            ]
-          },
-          {
-            "claim": "Reebok zvanično prikazuje Pump nasleđe i kolekciju na svojoj stranici.",
-            "source_urls": [
-              "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713",
-              "https://www.reebok.com/collections/pump-collection?current=1"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nba.com/news/jordan-week-1991-all-star-game-charlotte",
-      "https://www.nba.com/watch/video/1991-dunk-contest-dee-pumps-his-way-to-title?plsrc=nba",
-      "https://www.nba.com/news/history-all-star-recap-1991",
-      "https://www.nba.com/watch/video/lookback-at-dee-brown-1991-dunk-contest",
-      "https://www.nba.com/28628",
-      "https://store.nba.com/boston-celtics/unsigned-boston-celtics-dee-brown-fanatics-authentic-iconic-no-look-dunk-during-1991-slam-dunk-contest-photograph/t-36473897%2Bp-8291480231193%2Bz-9-126965501",
-      "https://www.smithsonianmag.com/travel/running-shoes-date-back-to-the-1860s-and-other-revelations-from-the-brooklyn-museums-sneaker-show-180955967/",
-      "https://www.reebok.com/products/reebok-court-victory-pump-shoes-chalk-vector-red-flash-red-116713",
-      "https://www.reebok.com/",
-      "https://www.reebok.com/collections/pump-collection?current=1",
-      "https://www.reebok.com/pages/sport",
-      "https://www.reebok.com/pages/search-results",
-      "https://cdn.nba.com/teams/uploads/sites/1610612753/2022/11/orlando-magic-media-guide-2022-23.pdf",
-      "https://statsdmz.nba.com/pdfs/20071229/20071229_LADBAK_book.pdf",
-      "https://statsdmz.nba.com/pdfs/20071221/20071221_COLANA_book.pdf",
-      "https://statsdmz.nba.com/pdfs/20140131/20140131_DELMNE_book.pdf"
     ]
   }
 }
