@@ -1,4 +1,4 @@
-trigger=2026-09-15T15:35:00+02:00
-policy=viral-attention-v18
-preflight=578f74e66365c6e9d482efbae834b46f0eb35ac4:success
+trigger=2026-09-15T16:55:00+02:00
+policy=viral-attention-v19-evidence-fix
+fix=681960e26e7a0a27dc883c91754c63b0bda91afb
 request=publish-two-now
