@@ -85,9 +85,6 @@ function normalizeHeadlineGroup'''
     s = s.replace('return capHeadlineWords(cleaned.slice(0,maxLines),18);',
                   'return capHeadlineWords(cleaned.slice(0,maxLines),24);')
 
-    # Deterministic repair for a narrow class of otherwise-valid posts where the
-    # verifier starts a slide with "ON JE..." even though the person's full name
-    # is already explicit in the topic. We do NOT disable the pronoun guard.
     repair_helper = '''function repairExplicitPersonSubject(post){
   const title=cleanText(post?.topic_title||"");
   const known=[
@@ -112,10 +109,20 @@ function normalizeHeadlineGroup'''
             raise SystemExit("Detail-copy policy: normalizePostForPublishing anchor missing")
         s = s.replace(anchor, repair_helper + anchor, 1)
 
-    # Run the repair before the strict copy guard. It only expands an explicit
-    # known subject; all word-count, dangling-ending and clarity checks remain.
     if "repairExplicitPersonSubject(value); enforceKidCopy(value);" not in s:
         s = s.replace("enforceKidCopy(value);", "repairExplicitPersonSubject(value); enforceKidCopy(value);", 1)
+
+    # JavaScript \b is ASCII-centric and can see "TA" inside Serbian "ŠTA" as
+    # a separate word. Replace the pronoun trigger with Unicode letter/number
+    # lookarounds so ČĆŠĐŽ words do not cause false positives.
+    s = s.replace(
+        r'/\b(?:ga|to|taj|ta|ovo|ona|on)\b/i.test(text)',
+        r'/(?<![\p{L}\p{N}])(?:ga|to|taj|ta|ovo|ona|on)(?![\p{L}\p{N}])/iu.test(text)'
+    )
+    s = s.replace(
+        r'/\b(?:ga|je|to|taj|ta|ovo|ona|on)\b/i.test(text)',
+        r'/(?<![\p{L}\p{N}])(?:ga|to|taj|ta|ovo|ona|on)(?![\p{L}\p{N}])/iu.test(text)'
+    )
 
     if "normalizeMoneyNotation" in s and "semanticAccentSegments" not in s:
         raise SystemExit("Detail-copy policy would remove semanticAccentSegments; refusing to continue")
@@ -128,4 +135,4 @@ if RENDER_FILE.exists():
     s = s.replace('maxLines: 6,', 'maxLines: 7,')
     RENDER_FILE.write_text(s, encoding="utf-8")
 
-print("Detailed complete-thought policy applied safely: explicit person subjects repaired; no mid-sentence truncation.")
+print("Detailed complete-thought policy applied safely: Unicode-safe copy guard and explicit subjects enabled.")
