@@ -1,5 +1,4 @@
-trigger=2026-09-15T18:24:00+02:00
-policy=viral-attention-v23-model-aware-copy
-fix=750b304ac17b1d5ba35724a5b710ba3f2699991e
-preflight=34994565014:success
+trigger=2026-09-16T13:30:00+02:00
+policy=viral-attention-v24-unicode-safe
+fix=05e14917c854444d14726bb50a2adcf8b4f1f549
 request=publish-two-now
