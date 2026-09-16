@@ -437,8 +437,23 @@
         "https://www.nike.com/launch/t/the-ten-air-vapormax-off-white-white",
         "https://www.gq.com/story/virgil-abloh-fashion-dreamer-obituary"
       ]
+    },
+    {
+      "date": "2026-09-16",
+      "topic_id": "travis-scott-reverse-swoosh",
+      "seed_topic": "Kako je Travis Scott okrenuo Nike Swoosh unazad i od jednog detalja napravio prepoznatljiv znak svoje sneaker saradnje",
+      "topic_title": "Kako je Travis Scott okrenuo Nike Swoosh unazad",
+      "media_id": "18103321520460966",
+      "sources": [
+        "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date",
+        "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown",
+        "https://www.gq.com/story/travis-scott-nike-most-powerful-collaborator",
+        "https://www.nike.com/launch/t/air-jordan-1-low-travis-scott-sail-ridgerock/",
+        "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus",
+        "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-15",
-  "last_media_id": "18096999458414525"
+  "last_publish_date": "2026-09-16",
+  "last_media_id": "18103321520460966"
 }
