@@ -1,4 +1,168 @@
 {
+  "73d1639dbae6d45669907bb13b1805d295ffa11226ae345717e497392a71a574": {
+    "saved_at": "2026-09-16T11:32:49.041Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "post": {
+        "cover": {
+          "subheadline": "Kratak pregled kako je jedan detalj postao simbol saradnje",
+          "headline_lines": [
+            {
+              "text": "TRAVIS SCOTT JE OKRENUO Swoosh I NAPRAVIO SVOJ POTPIS",
+              "accent": false
+            },
+            {
+              "text": "2017",
+              "accent": true
+            }
+          ]
+        },
+        "topic_title": "Kako je Travis Scott okrenuo Nike Swoosh unazad",
+        "hashtags": [
+          "#TravisScott",
+          "#Nike",
+          "#CactusJack",
+          "#SneakerStory",
+          "#TrendyPatike",
+          "#ReverseSwoosh"
+        ],
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "Posledica: svaki njegov veliki drop brzo se rasproda i menja modne trendove",
+              "accent": false
+            }
+          ],
+          "question": "Želite li da znate koji model ga je proslavio?",
+          "facts": [
+            {
+              "text": "Travis Scott od 2019. na nekim izdanjima koristi obrnut Swoosh kao prepoznatljiv detalj.",
+              "tag": "source"
+            },
+            {
+              "text": "GQ navodi da su Air Jordan 1 ‘Dark Mocha’ iz 2019. pomogli da obrnuti Swoosh postane njegov zaštitni",
+              "tag": "source"
+            }
+          ]
+        },
+        "image_prompts": [
+          "Close-up macro of an AIR JORDAN 1 'Dark Mocha' lateral side showing the reversed Swoosh stitched across the panel, nubuck and leather visible, shoe filling 70% of frame, high detail",
+          "Travis Scott wearing AIR FORCE 1 'Travis Scott' from 2017 on stage with removable Swoosh visible, concert lighting, medium shot",
+          "CJ1 T-Rexx 'Bright Cactus' on a white background showing the reversed Swoosh and 'JACK' outsole text, shoe filling 75% of frame"
+        ],
+        "caption": "Travis Scott je od saradnje sa Nike počeo 2017. a obrnut Swoosh postao je vizuelni potpis koji se često pojavljuje na modelima kao AIR JORDAN 1 i CJ1 T-REXX. Izvori: GQ, Nike SNKRS.",
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "Prvi veliki primer široke pažnje bio je AIR JORDAN 1 ‘Dark Mocha’ iz 2019.",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "text": "Nike SNKRS i GQ dokumentuju obrnut Swoosh na Air Jordan 1 i drugim Travis modelima.",
+              "tag": "source"
+            },
+            {
+              "text": "Nike prikazuje CJ1 T-Rexx i druge novije Travis modele sa obrnutim Swooshom na proizvodnim stranicma",
+              "tag": "source"
+            },
+            {
+              "text": "Saradnja je počela 2017. kada je Travis potpisao projekte sa Nike, uključujući Air Force 1 iz 2017.",
+              "tag": "source"
+            }
+          ]
+        },
+        "claims": [
+          {
+            "claim": "Travis Scott koristi obrnut Swoosh kao svoj potpis na nekim Nike modelima od 2019.",
+            "source_urls": [
+              "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date",
+              "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown"
+            ]
+          },
+          {
+            "claim": "Nike SNKRS prikazuje obrnut Swoosh na modelima AIR JORDAN 1 i CJ1 T-Rexx.",
+            "source_urls": [
+              "https://www.nike.com/launch/t/air-jordan-1-travis-scott-velvet-brown-and-dark-mocha/",
+              "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus"
+            ]
+          },
+          {
+            "claim": "Travis je prvi veći Nike projekat imao 2017. sa Air Force 1 remiksom koji je izašao u okviru AF-100 kolekcije.",
+            "source_urls": [
+              "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "publisher": "GQ",
+            "title": "Travis Scott Is About to Release His Boldest, Brightest Air Jordan 1s Yet",
+            "url": "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date"
+          },
+          {
+            "publisher": "GQ",
+            "title": "Travis Scott’s Latest Air Jordan 1 Is About to Close the Year Out with a Bang",
+            "url": "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown"
+          },
+          {
+            "publisher": "GQ",
+            "title": "How Travis Scott Took Over the Sneaker World",
+            "url": "https://www.gq.com/story/travis-scott-nike-most-powerful-collaborator"
+          },
+          {
+            "publisher": "Nike",
+            "title": "Air Jordan 1 Low x Travis Scott 'Sail and Ridgerock' on Nike SNKRS",
+            "url": "https://www.nike.com/launch/t/air-jordan-1-travis-scott-sail-ridgerock/"
+          },
+          {
+            "publisher": "Nike",
+            "title": "CJ1 T-Rexx 'Bright Cactus' Release Page on Nike SNKRS",
+            "url": "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus"
+          },
+          {
+            "publisher": "Nike",
+            "title": "Air Force 1 Low 'Travis Scott' Release Page on Nike SNKRS (2017)",
+            "url": "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
+          }
+        ],
+        "slide_count": 3
+      },
+      "reason": "Svi ključni navodi u tekstu su potkrepljeni stranicama GQ i Nike SNKRS iz web pretrage; tvrdnje koje nisu podržane izvorima su izbačene ili preformulisane."
+    },
+    "searchUrls": [
+      "https://niketeam.nike.com/niketeamsports/content/pdf/catalog_thumbs/NTS_Nike_Kids.pdf?cb=20200915",
+      "https://www.gq.com/story/bradley-cooper-air-jordan-1-travis-scott/",
+      "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date",
+      "https://www.gq.com/story/fragment-design-travis-scott-air-jordan-1-low-military-blue",
+      "https://www.gq.com/story/air-jordan-1-travis-scott-golf-shoe",
+      "https://www.gq.com/story/travis-scott-jordan-release",
+      "https://www.gq.com/story/travis-scott-nike-hiroshi-fujiwara",
+      "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown",
+      "https://www.gq.com/story/travis-scott-nike-most-powerful-collaborator",
+      "https://www.gq.com/story/the-16-greatest-air-jordan-1-colorways-of-all-time-ranked",
+      "https://www.gq.com/story/travis-scott-nike-moon-shoe-odyssey-premiere-07-15-2026",
+      "https://www.gq.com/story/ben-affleck-fragment-design-travis-scott-air-jordan-1",
+      "https://www.nike.com/launch/t/jordan-cj1-t-rexx-green-spark",
+      "https://investors.nike.com/files/doc_downloads/2023/414759-1-_5_Nike-NPS-Combo_Form-10-K_WR.pdf",
+      "https://investors.nike.com/files/doc_financials/2017/Q4/NIKE-Inc.-FY17-10K-Filing.pdf",
+      "https://www.gq.com/campaigns/neimanmarcus-sweeps/Neiman_Marcus_x_GQ_Rules_2.pdf",
+      "https://www.nike.com/launch/t/air-force-1-low-travis-scott",
+      "https://www.nike.com/launch/t/fj2851-102-little-kids-cj1-t-rexx-bright-cactus",
+      "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus",
+      "https://www.nike.com/launch/t/little-kids-air-force-1-cactus-jack",
+      "https://www.nike.com/launch/t/jordan-x-travis-scott-signature-apparel-collection",
+      "https://www.nike.com/us/es/launch/t/cj1-t-rexx-bright-cactus",
+      "https://www.nike.com/launch/t/air-jordan-1-low-travis-scott-sail-ridgerock/",
+      "https://www.nike.com/us/es/launch/t/jordan-cj1-t-rexx-green-spark",
+      "https://www.nike.com/us/es/launch/t/cj1-t-rexx-black-and-dark-mocha",
+      "https://www.nike.com/au/launch/t/dm7866-202-air-jordan-1-low-og-sp-astla",
+      "https://www.gq.com/story/travis-scott-nike-resume-partnership",
+      "https://www.gq.com/story/jordan-brand-top-selling-shoes-february"
+    ]
+  },
   "189a5936e8e54fe46c8ac3775e9698ad5a1ea901b12ef242c444be236ef1f624": {
     "saved_at": "2026-09-16T11:32:08.328Z",
     "schema_name": "trendypatike_post",
@@ -2159,153 +2323,6 @@
       "https://www.nike.com/th/running/breaking2",
       "https://www.nike.com/pl/bieganie/breaking2",
       "https://www.nike.com/se/lopning/breaking2"
-    ]
-  },
-  "9d1c421a261be38b689f33a4a42e2a7b938568be7a33439f593d8bc23e031c47": {
-    "saved_at": "2026-09-07T12:49:20.812Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": false,
-      "reason": "Ključne tvrdnje o broju proizvedenih pari, rekordnim aukcijskim cenama i tačnim godinama nisu potvrđene na dostupnim Nike domenima (nike.com ili about.nike.com). Potrebni su pouzdani izvori van Nike domena (aukcije, Dior saopštenja, Christie's/Sotheby's) da bi se naveli konkretni brojevi i cene.",
-      "post": {
-        "topic_title": "Zašto je Dior x Air Jordan 1 izazvao navalu kupaca i postao jedan od najpoznatijih luksuznih Jordan modela",
-        "slide_count": 2,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "DIOR X AIR JORDAN 1 JE NEOBIČNA SARADNJA KOJA JE PRIVUKLA VELIKU PAŽNJU",
-              "accent": false
-            },
-            {
-              "text": "DIOR X AIR JORDAN 1",
-              "accent": true
-            }
-          ],
-          "subheadline": "Luksuzna verzija AIR JORDAN 1 napravljena uz učešće modne kuće DIOR privukla je modnu i sneaker publ"
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "DIOR JE SA JORDAN BRANDOM NAPRAVIO LUKSUZNU ISTRAŽNU PATIKU KOJA JE NASTALA U ITALIJI I IMALA JE OGRANIČENU DOSTUPNOST",
-              "accent": false
-            },
-            {
-              "text": "DIOR X AIR JORDAN 1",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "FAKT",
-              "text": "Nike SNKRS tekstovi i Jordan stranice potvrđuju postojanje saradnje i specifičnu pažnju modne jav"
-            },
-            {
-              "tag": "Ograničenje",
-              "text": "Nike domeni NE SADRŽE zvanične podatke o tačnom broju proizvedenih pari ili dokumentovanim aukcij­sk"
-            },
-            {
-              "tag": "PITANJE",
-              "text": "Za precizne cifre (broj pari, aukcijske prodaje i rekordne cene) potrebno je koristiti izvore van NI"
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "NE KORISTITE OVAJ SKICIRANI SADRŽAJ KAO POTPUNU PROVERENU PRICU BEZ DODATNIH AUKCIJSKIH I/ILI DIO",
-              "accent": false
-            }
-          ],
-          "facts": [
-            {
-              "tag": "AKCIJA",
-              "text": "Ako želite, mogu pretražiti aukcijske sajtove i saopštenja Dior-a i vratiti precizne godine, brojeve"
-            },
-            {
-              "tag": "DA/NE",
-              "text": "Odgovorite SA: 'DA' ako smem da pretražim širi web (aukcije, muzeji, Dior, Christie's/Sotheby's)."
-            }
-          ],
-          "question": "DA ili NE?"
-        },
-        "caption": "Nike sajtovi potvrđuju saradnju DIOR i JORDAN ali ne sadrže sve podatke o proizvodnji i aukcijama. Želite li da pretražim širi web za tačne brojeve i dokumentovane cene?",
-        "hashtags": [
-          "#Dior",
-          "#AirJordan1",
-          "#Jordan",
-          "#luksuz",
-          "#retkost",
-          "#sneakerz"
-        ],
-        "image_prompts": [
-          "Close-up of DIOR X AIR JORDAN 1 shoe showing Dior monogram leather and Jordan Swoosh, shoe filling 70% of frame, studio lighting, luxury craft details",
-          "DIOR X AIR JORDAN 1 in Italian atelier: close-up on shoemaker hands stitching leather, shoe model DIOR X AIR JORDAN 1 visible",
-          "Queue of buyers outside a fashion boutique for DIOR X AIR JORDAN 1 release, visible DIOR X AIR JORDAN 1 shoes in window"
-        ],
-        "sources": [
-          {
-            "title": "Jordan — Nike (Air Jordan 1 archive & product listings)",
-            "publisher": "Nike",
-            "url": "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95"
-          },
-          {
-            "title": "Jordan — Nike (general Jordan Brand pages and SNKRS Paris feature)",
-            "publisher": "Nike",
-            "url": "https://www.nike.com/jordan/"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Nike sajtovi potvrđuju postojanje DIOR x AIR JORDAN 1 kao luksuzne saradnje i ukazuju na ograničenu dostupnost.",
-            "source_urls": [
-              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
-              "https://www.nike.com/jordan/"
-            ]
-          },
-          {
-            "claim": "Na nike.com i about.nike.com NISU pronađeni javni podaci o tačnom broju proizvedenih pari ili dokumentovanim aukcijskim cenama za DIOR x AIR JORDAN 1.",
-            "source_urls": [
-              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
-              "https://www.nike.com/jordan/"
-            ]
-          },
-          {
-            "claim": "Da bi se naveli verodostojni brojevi i rekordne cene potrebno je pretražiti izvore van Nike domena: aukcijske rezultate, saopštenja Dior-a ili arhive aukcijskih kuća.",
-            "source_urls": [
-              "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://www.nike.com/w/jordan-1-4fokyzabwsqzanjns",
-      "https://www.nike.com/w/jordan-1-13jrmz3hj8mzaj85g",
-      "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
-      "https://www.nike.com/w/jordan-1-air-47w4rzaj85gzayp69zjj95",
-      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
-      "https://www.nike.com/t/air-jordan-1-low-mens-shoes-w9HO9jOz/553558-200",
-      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
-      "https://www.nike.com/jordan/ones?msockid=0bee096d79f26cb22e011fbf785c6d16",
-      "https://www.nike.com/us/es/jordan/air-jordan-1/",
-      "https://www.nike.com/us/es/w/jordan-jordan-1-nike-air-calzado-37eefzaj85gzjj95zy7ok",
-      "https://www.nike.com/us/es/w/jordan-1-abwsqzaj85gzanjns",
-      "https://www.nike.com/us/es/w/jordan-1-4foky",
-      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://www.nike.com/JORDAN",
-      "https://www.nike.com/jordan",
-      "https://www.nike.com/jordan/",
-      "https://www.nike.com/Jordan",
-      "https://www.nike.com/ca/launch/t/rock-em-paris-fashion-week",
-      "https://www.nike.com/Jordan/",
-      "https://www.nike.com/fi/t/air-jordan-1-low-N5n7rise/DC0774-108",
-      "https://www.nike.com/jordan?msockid=0bfc04c3c3b5662627f41245c23d670a",
-      "https://www.nike.com/jordan?msockid=2c37e47379e667383f73f219788866c7",
-      "https://www.nike.com/jordan?msockid=26a4e61199a163cf12a3f09a98626201",
-      "https://www.nike.com/jordan/air-jordan-collection?msockid=1126b1b20c1e684330e4a7400dcb6972",
-      "https://www.nike.com/Jordan?msockid=3e48f8360ab16ca80f43ee520bdf6d01"
     ]
   }
 }
