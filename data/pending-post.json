@@ -1,1 +1,153 @@
-{}
+{
+  "date": "2026-09-16",
+  "stage": "verified",
+  "fingerprint": "91e4b4aef00f",
+  "seed": {
+    "id": "travis-scott-reverse-swoosh",
+    "topic": "Kako je Travis Scott okrenuo Nike Swoosh unazad i od jednog detalja napravio prepoznatljiv znak svoje sneaker saradnje",
+    "category": "Travis Scott / Nike / celebrity / hype",
+    "preferred_domains": [
+      "nike.com",
+      "gq.com"
+    ],
+    "visual_subject": "Travis Scott style stage energy beside Nike sneakers with oversized reverse Swoosh, concert lights and premium sneaker close-up"
+  },
+  "post": {
+    "cover": {
+      "subheadline": "Kratak pregled kako je jedan detalj postao simbol saradnje.",
+      "headline_lines": [
+        {
+          "text": "TRAVIS SCOTT JE OKRENUO Swoosh I NAPRAVIO SVOJ POTPIS",
+          "accent": false
+        },
+        {
+          "text": "2017",
+          "accent": true
+        }
+      ]
+    },
+    "topic_title": "Kako je Travis Scott okrenuo Nike Swoosh unazad",
+    "hashtags": [
+      "#TravisScott",
+      "#Nike",
+      "#CactusJack",
+      "#SneakerStory",
+      "#TrendyPatike",
+      "#ReverseSwoosh"
+    ],
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "Posledica: svaki njegov veliki drop brzo se rasproda i menja modne trendove",
+          "accent": false
+        }
+      ],
+      "question": "Želite li da znate koji model?",
+      "facts": [
+        {
+          "text": "Travis Scott od 2019. na nekim izdanjima koristi obrnut Swoosh kao prepoznatljiv detalj.",
+          "tag": "source"
+        },
+        {
+          "text": "GQ navodi da su Air Jordan 1 ‘Dark Mocha’ iz 2019. pomogli da obrnuti Swoosh postane njegov zaštitni.",
+          "tag": "source"
+        }
+      ]
+    },
+    "image_prompts": [
+      "Close-up macro of an AIR JORDAN 1 'Dark Mocha' lateral side showing the reversed Swoosh stitched across the panel, nubuck and leather visible, shoe filling 70% of frame, high detail EXACT SLIDE FACT TO ILLUSTRATE: TRAVIS SCOTT JE OKRENUO Swoosh I NAPRAVIO SVOJ POTPIS 2017. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Travis Scott wearing AIR FORCE 1 'Travis Scott' from 2017 on stage with removable Swoosh visible, concert lighting, medium shot EXACT SLIDE FACT TO ILLUSTRATE: Prvi veliki primer široke pažnje bio je AIR JORDAN 1 ‘Dark Mocha’ iz 2019.. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "CJ1 T-Rexx 'Bright Cactus' on a white background showing the reversed Swoosh and 'JACK' outsole text, shoe filling 75% of frame EXACT SLIDE FACT TO ILLUSTRATE: Posledica: svaki njegov veliki drop brzo se rasproda i menja modne trendove. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "caption": "Travis Scott je od saradnje sa Nike počeo 2017. a obrnut Swoosh postao je vizuelni potpis koji se često pojavljuje na modelima kao AIR JORDAN 1 i CJ1 T-REXX. Izvori: GQ, Nike SNKRS.",
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "Prvi veliki primer široke pažnje bio je AIR JORDAN",
+          "accent": false
+        },
+        {
+          "text": "1",
+          "accent": true
+        },
+        {
+          "text": "‘Dark Mocha’ iz",
+          "accent": false
+        },
+        {
+          "text": "2019.",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "text": "Nike SNKRS i GQ dokumentuju obrnut Swoosh na Air Jordan 1 i drugim Travis modelima.",
+          "tag": "source"
+        },
+        {
+          "text": "Nike prikazuje CJ1 T-Rexx i druge novije Travis modele sa obrnutim Swooshom na proizvodnim stranicma.",
+          "tag": "source"
+        },
+        {
+          "text": "Saradnja je počela 2017. kada je Travis potpisao projekte sa Nike, uključujući Air Force 1 iz 2017.",
+          "tag": "source"
+        }
+      ]
+    },
+    "claims": [
+      {
+        "claim": "Travis Scott koristi obrnut Swoosh kao svoj potpis na nekim Nike modelima od 2019.",
+        "source_urls": [
+          "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date",
+          "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown"
+        ]
+      },
+      {
+        "claim": "Nike SNKRS prikazuje obrnut Swoosh na modelima AIR JORDAN 1 i CJ1 T-Rexx.",
+        "source_urls": [
+          "https://www.nike.com/launch/t/air-jordan-1-travis-scott-velvet-brown-and-dark-mocha/",
+          "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus"
+        ]
+      },
+      {
+        "claim": "Travis je prvi veći Nike projekat imao 2017. sa Air Force 1 remiksom koji je izašao u okviru AF-100 kolekcije.",
+        "source_urls": [
+          "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "GQ",
+        "title": "Travis Scott Is About to Release His Boldest, Brightest Air Jordan 1s Yet",
+        "url": "https://www.gq.com/story/travis-scott-air-jordan-1-low-canary-release-date"
+      },
+      {
+        "publisher": "GQ",
+        "title": "Travis Scott’s Latest Air Jordan 1 Is About to Close the Year Out with a Bang",
+        "url": "https://www.gq.com/story/travis-scott-air-jordan-1-low-og-velvet-brown"
+      },
+      {
+        "publisher": "GQ",
+        "title": "How Travis Scott Took Over the Sneaker World",
+        "url": "https://www.gq.com/story/travis-scott-nike-most-powerful-collaborator"
+      },
+      {
+        "publisher": "Nike",
+        "title": "Air Jordan 1 Low x Travis Scott 'Sail and Ridgerock' on Nike SNKRS",
+        "url": "https://www.nike.com/launch/t/air-jordan-1-low-travis-scott-sail-ridgerock/"
+      },
+      {
+        "publisher": "Nike",
+        "title": "CJ1 T-Rexx 'Bright Cactus' Release Page on Nike SNKRS",
+        "url": "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus"
+      },
+      {
+        "publisher": "Nike",
+        "title": "Air Force 1 Low 'Travis Scott' Release Page on Nike SNKRS (2017)",
+        "url": "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
+      }
+    ],
+    "slide_count": 3
+  }
+}
