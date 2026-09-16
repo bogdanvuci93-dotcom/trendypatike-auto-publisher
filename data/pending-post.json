@@ -155,5 +155,10 @@
     "public/posts/2026-09-16-travis-scott-reverse-swoosh-91e4b4aef00f/02.jpg",
     "public/posts/2026-09-16-travis-scott-reverse-swoosh-91e4b4aef00f/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017692949944388"
+    ],
+    "carousel_id": ""
+  }
 }
