@@ -1,1 +1,151 @@
-{}
+{
+  "date": "2026-09-17",
+  "stage": "verified",
+  "fingerprint": "263d05dcbeb3",
+  "seed": {
+    "id": "eminem-air-jordan-charity",
+    "topic": "Kako su Eminemove retke Air Jordan saradnje postale kolekcionarski trofeji i završavale na humanitarnim aukcijama",
+    "category": "Eminem / Air Jordan / muzika / retkost / aukcija",
+    "preferred_domains": [
+      "sothebys.com",
+      "christies.com",
+      "nike.com",
+      "gq.com"
+    ],
+    "visual_subject": "Eminem inspired recording studio, ultra-rare Air Jordan collaboration on display, auction hammer and concert atmosphere"
+  },
+  "post": {
+    "topic_title": "Kako su Eminemove retke Air Jordan saradnje postale kolekcionarski trofeji i završavale na humanitarnim aukcijama",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "Eminemove retke AIR JORDAN saradnje postale su vredni kolekcionarski trofeji",
+          "accent": false
+        },
+        {
+          "text": "Eminem",
+          "accent": true
+        },
+        {
+          "text": "i ograničena izdanja doprineli su aukcijama za dobrotvorne svrhe",
+          "accent": false
+        }
+      ],
+      "subheadline": "Parovi su bili ograničeni, često potpisani i povremeno prodati na aukcijama radi podrške humanitarn​."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "2005. Nike i Eminem napravili su AIR JORDAN 4 ‘ENCORE’ kao poklon za bliske saradnike",
+          "accent": false
+        },
+        {
+          "text": "2005",
+          "accent": true
+        },
+        {
+          "text": "tiraž je bio izrazito mali, prema Sotheby’s, navodno oko 50 pari",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "Sotheby’s katalog",
+          "text": "Sotheby’s opisuje ‘ENCORE’ iz 2005. i navodi da su para bile praćene Eminemovom potpisanom kartom."
+        },
+        {
+          "tag": "Procena vrednosti",
+          "text": "Na aukciji Sotheby’s model je imao procenu u rasponu od približno 28.000,60.000 USD, zavisno od lota."
+        },
+        {
+          "tag": "Zašto je važno",
+          "text": "Mali tiraž i potpis Eminema povećali su kolekcionarsku cenu i tražnju."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "2015. Eminem, Carhartt i Jordan napravili su AIR JORDAN 4 ‘BLACK CHROME’ i deo pari je prodan za dobrotvorne svrhe",
+          "accent": false
+        },
+        {
+          "text": "Eminem x Carhartt",
+          "accent": true
+        },
+        {
+          "text": "deset pari je pušteno na eBay aukciju, a prihodi su išli Marshall Mathers Foundation",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "Sotheby’s opis",
+          "text": "Sotheby’s navodi da su 2015. parovi prvobitno poklonjeni prijateljima, a zatim je 10 pari prodato na."
+        },
+        {
+          "tag": "Humanitarni",
+          "text": "eBay aukcija je podržala Michigan State University Community Music School i Marshall Mathers Fond za."
+        }
+      ],
+      "question": "Želiš da pripremimo objavu sa cenama?"
+    },
+    "caption": "Retki modeli AIR JORDAN 4 vezani za Eminema dobijaju visoku vrednost zbog malih tiraža, potpisa i aukcija koje su često podržavale humanitarne projekte.",
+    "hashtags": [
+      "#Eminem",
+      "#AirJordan",
+      "#sneakerculture",
+      "#aukcija",
+      "#dobročinstvo",
+      "#TrendyPatike",
+      "#retkepatike",
+      "#Jordan"
+    ],
+    "image_prompts": [
+      "Studio sa prigušenim svetlom i Eminemom pored izložbenog postolja sa AIR JORDAN 4 ‘ENCORE’, fokus na par i potpisanu karticu",
+      "Crni AIR JORDAN 4 ‘BLACK CHROME’ na postolju od Carhartt platna sa potpisanom kutijom i kataloškim listom na stolu",
+      "Scena aukcije sa parom AIR JORDAN 4 na bini, gavlom u pokretu i publici koja prati ponude"
+    ],
+    "sources": [
+      {
+        "title": "Nike Air Jordan IV Retro Eminem ‘ENCORE’ with Marshall Mathers Signed Card",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with"
+      },
+      {
+        "title": "Eminem Signed Box | Nike Air Jordan 4 Retro Eminem ‘Carhartt' Sample",
+        "publisher": "Sotheby’s",
+        "url": "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem"
+      },
+      {
+        "title": "A Pair of Eminem x Carhartt x Air Jordan Sneakers Could Cost You $30,000",
+        "publisher": "GQ",
+        "url": "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "2005. Nike i Eminem su napravili AIR JORDAN 4 ‘ENCORE’, a navodno je oko 50 pari podeljeno prijateljima i porodici.",
+        "source_urls": [
+          "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+          "https://www.sothebys.com/en/buy/auction/2023/emergence/eminem-signed-nike-air-jordan-4-retro-eminem?locale=en"
+        ]
+      },
+      {
+        "claim": "2015. Eminem x Carhartt AIR JORDAN 4 ‘BLACK CHROME’, prvobitno poklonjeni parovi, a dodatnih 10 pari je pušteno na eBay aukciju za Marshall Mathers Foundation i Michigan State University Community Music School.",
+        "source_urls": [
+          "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem",
+          "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+        ]
+      },
+      {
+        "claim": "Aukcijske i sekundarne prodaje podižu cenu ovih modela; neki primerci su na aukcijama dostizali procene od desetina hiljada dolara.",
+        "source_urls": [
+          "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+          "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+        ]
+      }
+    ]
+  }
+}
