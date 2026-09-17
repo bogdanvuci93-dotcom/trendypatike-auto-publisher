@@ -132,5 +132,10 @@
     "public/posts/2026-09-17-fallback-eminem-carhartt-aj4-227k-3f996a707d20/01.jpg",
     "public/posts/2026-09-17-fallback-eminem-carhartt-aj4-227k-3f996a707d20/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017822792944388"
+    ],
+    "carousel_id": ""
+  }
 }
