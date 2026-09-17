@@ -153,5 +153,10 @@
     "public/posts/2026-09-17-eminem-air-jordan-charity-263d05dcbeb3/02.jpg",
     "public/posts/2026-09-17-eminem-air-jordan-charity-263d05dcbeb3/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18017823080944388"
+    ],
+    "carousel_id": ""
+  }
 }
