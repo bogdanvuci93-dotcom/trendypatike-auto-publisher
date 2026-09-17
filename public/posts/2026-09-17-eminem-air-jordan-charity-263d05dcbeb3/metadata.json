@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-17",
-  "stage": "ready",
+  "generated_at": "2026-09-17T12:02:05.074Z",
   "fingerprint": "263d05dcbeb3",
   "seed": {
     "id": "eminem-air-jordan-charity",
@@ -147,11 +146,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-17-eminem-air-jordan-charity-263d05dcbeb3/01.jpg",
-    "public/posts/2026-09-17-eminem-air-jordan-charity-263d05dcbeb3/02.jpg",
-    "public/posts/2026-09-17-eminem-air-jordan-charity-263d05dcbeb3/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
