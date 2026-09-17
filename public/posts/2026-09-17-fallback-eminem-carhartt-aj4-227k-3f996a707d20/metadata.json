@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-17",
-  "stage": "ready",
+  "generated_at": "2026-09-17T11:59:19.287Z",
   "fingerprint": "3f996a707d20",
   "seed": {
     "id": "fallback-eminem-carhartt-aj4-227k",
@@ -127,10 +126,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-17-fallback-eminem-carhartt-aj4-227k-3f996a707d20/01.jpg",
-    "public/posts/2026-09-17-fallback-eminem-carhartt-aj4-227k-3f996a707d20/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
