@@ -34,14 +34,17 @@ jobs:
       - name: Install dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Apply attention-first detailed story policy
+      - name: Apply verified hype policy and zero-cost checks
         run: |
           set -euo pipefail
           jq empty data/fallback-posts.json
           jq empty data/fallback-posts-extra.json
           jq empty data/fallback-posts-attention.json
+          jq empty data/fallback-posts-safe.json
+          jq empty data/fallback-posts-safe-next.json
+          jq empty data/fallback-posts-hype-next.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
@@ -53,13 +56,27 @@ jobs:
           python scripts/attention_story_policy.py
           python scripts/background_responses_policy.py
           python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
+
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s:
+              raise SystemExit('force verified fallback patch anchor not found')
+          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v19-real-image-detailed-copy:" + JSON.stringify(post))/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v25-hype-real-image-cta:" + JSON.stringify(post))/' src/index.mjs
+          grep -n "Forced verified fallback" src/index.mjs
           grep -n "refusing placeholder publish" src/render.mjs
+          grep -n "LAJKUJ + ZAPRATI ZA JOŠ" src/render.mjs
           npm run check
 
-      - name: Publish attention story 1
+      - name: Publish verified hype story 1
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -74,8 +91,9 @@ jobs:
           BRAND_SITE: trendypatike.com
           DRY_RUN: "false"
           FORCE_RUN: "true"
+          FORCE_VERIFIED_FALLBACK: "true"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "8"
+          MAX_OPENAI_CALLS: "6"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
@@ -85,7 +103,7 @@ jobs:
           git fetch origin main
           git status --short
 
-      - name: Publish attention story 2
+      - name: Publish verified hype story 2
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -100,8 +118,9 @@ jobs:
           BRAND_SITE: trendypatike.com
           DRY_RUN: "false"
           FORCE_RUN: "true"
+          FORCE_VERIFIED_FALLBACK: "true"
           MAX_TOPIC_ATTEMPTS: "1"
-          MAX_OPENAI_CALLS: "8"
+          MAX_OPENAI_CALLS: "6"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
         run: npm run run
