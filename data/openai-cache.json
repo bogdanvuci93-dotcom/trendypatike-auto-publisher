@@ -1,4 +1,176 @@
 {
+  "d802eaab2d689e7eb013feab72c91f4e08c0fac6e2c952cd4022a22957202b0b": {
+    "saved_at": "2026-09-17T12:01:03.173Z",
+    "schema_name": "trendypatike_verified_post",
+    "value": {
+      "publish_ok": true,
+      "reason": "Sve ključne tvrdnje potvrđene iz Sotheby’s i GQ; podaci o tiražu, aukcijama i humanitarnim donacijama su dokumentovani.",
+      "post": {
+        "topic_title": "Kako su Eminemove retke Air Jordan saradnje postale kolekcionarski trofeji i završavale na humanitarnim aukcijama",
+        "slide_count": 3,
+        "cover": {
+          "headline_lines": [
+            {
+              "text": "Eminemove retke AIR JORDAN saradnje postale su vredni kolekcionarski trofeji",
+              "accent": false
+            },
+            {
+              "text": "Eminem",
+              "accent": true
+            },
+            {
+              "text": "i ograničena izdanja doprineli su aukcijama za dobrotvorne svrhe",
+              "accent": false
+            }
+          ],
+          "subheadline": "Parovi su bili ograničeni, često potpisani i povremeno prodati na aukcijama radi podrške humanitarn​"
+        },
+        "slide2": {
+          "headline_lines": [
+            {
+              "text": "2005. Nike i Eminem napravili su AIR JORDAN 4 ‘ENCORE’ kao poklon za bliske saradnike",
+              "accent": false
+            },
+            {
+              "text": "2005",
+              "accent": true
+            },
+            {
+              "text": "tiraž je bio izrazito mali — prema Sotheby’s, navodno oko 50 pari",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "Sotheby’s katalog",
+              "text": "Sotheby’s opisuje ‘ENCORE’ iz 2005. i navodi da su para bile praćene Eminemovom potpisanom kartom."
+            },
+            {
+              "tag": "Procena vrednosti",
+              "text": "Na aukciji Sotheby’s model je imao procenu u rasponu od približno 28.000–60.000 USD, zavisno od lota"
+            },
+            {
+              "tag": "Zašto je važno",
+              "text": "Mali tiraž i potpis Eminema povećali su kolekcionarsku cenu i tražnju."
+            }
+          ]
+        },
+        "slide3": {
+          "headline_lines": [
+            {
+              "text": "2015. Eminem, Carhartt i Jordan napravili su AIR JORDAN 4 ‘BLACK CHROME’ i deo pari je prodan za dobrotvorne svrhe",
+              "accent": false
+            },
+            {
+              "text": "Eminem x Carhartt",
+              "accent": true
+            },
+            {
+              "text": "deset pari je pušteno na eBay aukciju, a prihodi su išli Marshall Mathers Foundation",
+              "accent": false
+            }
+          ],
+          "facts": [
+            {
+              "tag": "Sotheby’s opis",
+              "text": "Sotheby’s navodi da su 2015. parovi prvobitno poklonjeni prijateljima, a zatim je 10 pari prodato na"
+            },
+            {
+              "tag": "Humanitarni rezultat",
+              "text": "eBay aukcija je podržala Michigan State University Community Music School i Marshall Mathers Fond za"
+            }
+          ],
+          "question": "Želiš da pripremimo objavu sa cenama sa poslednjih aukcija?"
+        },
+        "caption": "Retki modeli AIR JORDAN 4 vezani za Eminema dobijaju visoku vrednost zbog malih tiraža, potpisa i aukcija koje su često podržavale humanitarne projekte.",
+        "hashtags": [
+          "#Eminem",
+          "#AirJordan",
+          "#sneakerculture",
+          "#aukcija",
+          "#dobročinstvo",
+          "#TrendyPatike",
+          "#retkepatike",
+          "#Jordan"
+        ],
+        "image_prompts": [
+          "Studio sa prigušenim svetlom i Eminemom pored izložbenog postolja sa AIR JORDAN 4 ‘ENCORE’, fokus na par i potpisanu karticu",
+          "Crni AIR JORDAN 4 ‘BLACK CHROME’ na postolju od Carhartt platna sa potpisanom kutijom i kataloškim listom na stolu",
+          "Scena aukcije sa parom AIR JORDAN 4 na bini, gavlom u pokretu i publici koja prati ponude"
+        ],
+        "sources": [
+          {
+            "title": "Nike Air Jordan IV Retro Eminem ‘ENCORE’ with Marshall Mathers Signed Card",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with"
+          },
+          {
+            "title": "Eminem Signed Box | Nike Air Jordan 4 Retro Eminem ‘Carhartt' Sample",
+            "publisher": "Sotheby’s",
+            "url": "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem"
+          },
+          {
+            "title": "A Pair of Eminem x Carhartt x Air Jordan Sneakers Could Cost You $30,000",
+            "publisher": "GQ",
+            "url": "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+          }
+        ],
+        "claims": [
+          {
+            "claim": "2005. Nike i Eminem su napravili AIR JORDAN 4 ‘ENCORE’, a navodno je oko 50 pari podeljeno prijateljima i porodici.",
+            "source_urls": [
+              "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+              "https://www.sothebys.com/en/buy/auction/2023/emergence/eminem-signed-nike-air-jordan-4-retro-eminem?locale=en"
+            ]
+          },
+          {
+            "claim": "2015. Eminem x Carhartt AIR JORDAN 4 ‘BLACK CHROME’ — prvobitno poklonjeni parovi, a dodatnih 10 pari je pušteno na eBay aukciju za Marshall Mathers Foundation i Michigan State University Community Music School.",
+            "source_urls": [
+              "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem",
+              "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+            ]
+          },
+          {
+            "claim": "Aukcijske i sekundarne prodaje podižu cenu ovih modela; neki primerci su na aukcijama dostizali procene od desetina hiljada dolara.",
+            "source_urls": [
+              "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+              "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+            ]
+          }
+        ]
+      }
+    },
+    "searchUrls": [
+      "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem?locale=en",
+      "https://www.gq.com/story/eminem-oscars-2020-lose-yourself",
+      "https://www.gq.com/story/super-bowl-style-winners-losers",
+      "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay",
+      "https://www.gq.com/video/watch/gq-my-life-in-sneakers-reggie-saunders",
+      "https://www.gq.com/story/off-white-air-jordan-2",
+      "https://www.gq.com/about/jordans?page=2",
+      "https://www.gq.com/story/mark-wahlberg-sneaker-collection-worth-over-100-k",
+      "https://www.gq.com/story/y2k-era-air-jordans-are-having-a-moment",
+      "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles",
+      "https://www.gq.com/story/the-2026-gq-sneaker-survey",
+      "https://www.gq.com/about/air-jordans",
+      "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+      "https://www.sothebys.com/buy/c9b92206-527f-41c2-b520-09abd0e7d913/lots/d007da36-ad2a-4b76-a427-6c4af16a61dd",
+      "https://www.sothebys.com/en/buy/auction/2023/emergence/eminem-signed-nike-air-jordan-4-retro-eminem?locale=en",
+      "https://www.sothebys.com/en/digital-catalogues/scarce-air",
+      "https://www.sothebys.com/en/buy/auction/2025/sneakers-4/nike-air-jordan-4-retro-eminem-encore-sample-2005",
+      "https://www.sothebys.com/en/buy/auction/2025/sneakers-3/nike-air-jordan-4-retro-eminem-encore-original-cut",
+      "https://www.sothebys.com/en/articles/a-closer-look-the-nike-air-jordan-4-retro",
+      "https://www.sothebys.com/en/buy/auction/2023/emergence",
+      "https://www.sothebys.com/buy/c9b92206-527f-41c2-b520-09abd0e7d913/lots/f2d0a133-9320-4a66-bb9b-1330668a6284",
+      "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-size-11-5",
+      "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-stockx?locale=en",
+      "https://www.sothebys.com/buy/3238a895-45e0-4933-8f09-0b0d38a0ea9f/lots/5b7ea041-dc55-495b-bc8f-12bfaaad1622",
+      "https://www.sothebys.com/en/pdf/pf2206-catalogue.pdf",
+      "https://www.sothebys.com/en/pdfs/catalogue-pf2238.pdf",
+      "https://www.sothebys.com/en/doc/palazzo-volpi-revele.pdf",
+      "https://www.sothebys.com/en/magnificent-jewels.pdf"
+    ]
+  },
   "feec26240019835369c55242709c0baa477b3665cfcdb3a799a6bef72381904e": {
     "saved_at": "2026-09-17T12:00:35.053Z",
     "schema_name": "trendypatike_post",
@@ -2169,152 +2341,6 @@
       "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
       "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
       "https://media.about.nike.com/files/d81ca048-8af6-4a53-828a-01ab7f7f51df/Kiki-Rice-x-Jordan-Brand-Soundbites.pdf"
-    ]
-  },
-  "4cb76196d6d540267e0e9a38e8967d25a1f1f46e81b77f5b8089343e8f1fc706": {
-    "saved_at": "2026-09-07T12:55:32.152Z",
-    "schema_name": "trendypatike_verified_post",
-    "value": {
-      "publish_ok": true,
-      "reason": "All key factual claims verified on allowed domains (nike.com, about.nike.com, olympics.com). Text rewritten to meet Serbian copy rules and readability constraints.",
-      "post": {
-        "topic_title": "Zašto je Nike Vaporfly pokrenuo pitanje da li patika daje trkačima preveliku prednost",
-        "slide_count": 3,
-        "cover": {
-          "headline_lines": [
-            {
-              "text": "NIKE VAPORFLY",
-              "accent": true
-            },
-            {
-              "text": "DAJE LI TRKAČIMA PREVELIKU PREDNOST?",
-              "accent": false
-            }
-          ],
-          "subheadline": "Jednostavno objašnjenje kako jedna patika promenila pravila i razgovor o poštenoj trci."
-        },
-        "slide2": {
-          "headline_lines": [
-            {
-              "text": "TEHNOLOGIJA KOJA POMAŽE: ZOOMX I KARBONSKA PLOČA",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "SAŽETAK",
-              "text": "Vaporfly kombinuje debelu ZoomX penu i punu karbonsku ploču koja vraća više energije svakim korakom."
-            },
-            {
-              "tag": "DETALJ",
-              "text": "Nike tvrdi da ta kombinacija poboljšava potrošnju energije do oko 4% za elite u poređenju sa ranijim"
-            },
-            {
-              "tag": "IZVOR",
-              "text": "Nike: objašnjenja Vaporfly i Breaking2 projekta."
-            }
-          ]
-        },
-        "slide3": {
-          "headline_lines": [
-            {
-              "text": "VELIKI REZULTAT I RASPRAVA: 1:59:40, 12. OKTOBAR 2019",
-              "accent": true
-            }
-          ],
-          "facts": [
-            {
-              "tag": "POJEDNOSTAVLJENO",
-              "text": "Eliud Kipchoge istrčao je maraton za 1:59:40 u eksperimentu podržanom od Nike 12.10.2019. Taj pokuš"
-            },
-            {
-              "tag": "ZAŠTO JE VAŽNO",
-              "text": "Rezultat je pokazao koliko obuća utiče na brzinu i pokrenuo raspravu o fer prednosti u atletici."
-            }
-          ],
-          "question": "Da li patika koja vraća značajnu energiju previše pomaže poš"
-        },
-        "caption": "Kako Vaporfly radi i zašto je njegova uloga u brzinama izazvala pravila i etičku raspravu. Izvori: Nike i Olimpijski istraživački materijali.",
-        "hashtags": [
-          "#Vaporfly",
-          "#Nike",
-          "#maraton",
-          "#tehnologija",
-          "#rekordi",
-          "#ferigra",
-          "#EliudKipchoge"
-        ],
-        "image_prompts": [
-          "Close-up cross-section of Nike ZoomX Vaporfly midsole showing ZoomX foam and full-length carbon plate, shoe fills 70% of frame, labeled detail of ZoomX foam and carbon Flyplate, model: Nike Zoom Vaporfly",
-          "Eliud Kipchoge crossing finish line in the Nike Breaking2 paced attempt, visible stopwatch and pacemakers, editorial sports photo, date overlay 12 October 2019",
-          "Group of elite runners wearing Nike Vaporfly sprinting on a flat closed course with pacemakers, editorial photo"
-        ],
-        "sources": [
-          {
-            "title": "Introducing the Nike Zoom Vaporfly Elite Featuring Nike ZoomX Midsole",
-            "publisher": "about.nike.com",
-            "url": "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
-          },
-          {
-            "title": "Breaking2 — Nike",
-            "publisher": "nike.com",
-            "url": "https://www.nike.com/gb/running/breaking2"
-          },
-          {
-            "title": "Olympics research on sports technology and fairness — Olympic Studies Library",
-            "publisher": "olympics.com",
-            "url": "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
-          }
-        ],
-        "claims": [
-          {
-            "claim": "Eliud Kipchoge je istrčao maraton za 1:59:40 tokom Nike podržanog eksperimenta 12. oktobra 2019.",
-            "source_urls": [
-              "https://www.nike.com/gb/running/breaking2",
-              "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
-            ]
-          },
-          {
-            "claim": "Nike opisuje Vaporfly kao kombinaciju debelog ZoomX sloja i pune karbonske ploče koja povećava povrat energije.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
-              "https://www.nike.com/gb/running/breaking2"
-            ]
-          },
-          {
-            "claim": "Nike je izneo procenu o prosečnom poboljšanju potrošnje energije od oko 4% za elite u vezi sa ranijim modelima.",
-            "source_urls": [
-              "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-              "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole"
-            ]
-          },
-          {
-            "claim": "Olimpijska istraživanja i analize tehnologije raspravljaju o tome kako oprema koja značajno menja performans utiče na poštenje takmičenja.",
-            "source_urls": [
-              "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3286384&parentDocumentId=3286381&skipCopyright=true&skipWatermark=true"
-            ]
-          }
-        ]
-      }
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/newsroom/releases/introducing-nike-zoom-vaporfly-elite-featuring-zoomx-midsole",
-      "https://about.nike.com/en/newsroom/releases/nike-introduces-breaking2",
-      "https://about.nike.com/en/newsroom/releases/sandy-bodecker-the-man-behind-nike-breaking2",
-      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
-      "https://www.nike.com/my/running/breaking2",
-      "https://www.nike.com/fr/running/breaking2",
-      "https://about.nike.com/en/magazine/nike-prototype-testing-process",
-      "https://www.nike.com/at/laufen/breaking2",
-      "https://www.nike.com/nl/hardlopen/breaking2",
-      "https://www.nike.com/dk/lob/breaking2",
-      "https://www.nike.com/es/running/breaking2",
-      "https://www.nike.com/jp/running/breaking2",
-      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=3416736&parentDocumentId=3416735&skipCopyright=true&skipWatermark=true",
-      "https://media.about.nike.com/files/d8403f70-1dc5-4ad2-803e-d4663418083b/CesarGarcia_NIKEInc_EMEA_GM.pdf",
-      "https://library.olympics.com/default/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=1854884&parentDocumentId=1854882&skipCopyright=true&skipWatermark=true",
-      "https://library.olympics.com/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=208679&parentDocumentId=208677&skipCopyright=true&skipWatermark=true",
-      "https://library.olympics.com/cnomar/digitalCollection/DigitalCollectionAttachmentDownloadHandler.ashx?documentId=156782&parentDocumentId=27936&skipCopyright=true&skipWatermark=true"
     ]
   }
 }
