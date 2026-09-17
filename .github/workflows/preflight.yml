@@ -15,6 +15,7 @@ on:
       - "data/fallback-posts-attention.json"
       - "data/fallback-posts-safe.json"
       - "data/fallback-posts-safe-next.json"
+      - "data/fallback-posts-hype-next.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
@@ -56,8 +57,9 @@ jobs:
           jq empty data/fallback-posts-attention.json
           jq empty data/fallback-posts-safe.json
           jq empty data/fallback-posts-safe-next.json
+          jq empty data/fallback-posts-hype-next.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
@@ -84,7 +86,8 @@ jobs:
 
           grep -n "allowMajorNews = false" src/index.mjs
           grep -n "maxOutputTokens = 6000\|structuredAttempt <= 1" src/openai.mjs
-          grep -n "refusing placeholder publish\|kids-editorial-v13-real-image-long-copy" src/render.mjs
+          grep -n "refusing placeholder publish" src/render.mjs
+          grep -n "LAJKUJ + ZAPRATI ZA JOŠ" src/render.mjs
           echo "Recovery fallback entries: $(jq length data/fallback-posts.json)"
 
       - name: Offline publisher and render self-test
