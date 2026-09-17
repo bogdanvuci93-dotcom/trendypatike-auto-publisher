@@ -1,4 +1,4 @@
-trigger=2026-09-16T13:30:00+02:00
-policy=viral-attention-v24-unicode-safe
-fix=05e14917c854444d14726bb50a2adcf8b4f1f549
+trigger=2026-09-17T13:58:00+02:00
+policy=verified-hype-v25-real-image-cta
+preflight=35218398895:success
 request=publish-two-now
