@@ -463,8 +463,20 @@
         "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11",
         "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"
       ]
+    },
+    {
+      "date": "2026-09-17",
+      "topic_id": "eminem-air-jordan-charity",
+      "seed_topic": "Kako su Eminemove retke Air Jordan saradnje postale kolekcionarski trofeji i završavale na humanitarnim aukcijama",
+      "topic_title": "Kako su Eminemove retke Air Jordan saradnje postale kolekcionarski trofeji i završavale na humanitarnim aukcijama",
+      "media_id": "18096624599264895",
+      "sources": [
+        "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-encore-with",
+        "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem",
+        "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
+      ]
     }
   ],
   "last_publish_date": "2026-09-17",
-  "last_media_id": "18377325196238272"
+  "last_media_id": "18096624599264895"
 }
