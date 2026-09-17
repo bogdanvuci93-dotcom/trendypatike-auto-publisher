@@ -4,7 +4,7 @@
       "id": "fallback-eminem-carhartt-aj4-227k",
       "topic": "Kako je 10 Eminem x Carhartt Air Jordan 4 pari prikupilo 227.000 dolara na humanitarnoj aukciji",
       "category": "Eminem / Air Jordan 4 / muzika / aukcija / novac",
-      "preferred_domains": ["sothebys.com"],
+      "preferred_domains": ["sothebys.com", "shadyrecords.com"],
       "visual_subject": "rare black Eminem x Carhartt Air Jordan 4 style sneaker in a premium auction display, hip-hop studio atmosphere, charity auction energy",
       "emergency_only": true
     },
@@ -26,8 +26,8 @@
         ],
         "facts": [
           {"tag": "2015", "text": "Sotheby's navodi da su Eminem, Carhartt i Jordan Brand napravili ekskluzivni Air Jordan 4 Black Chrome, prvobitno namenjen prijateljima i porodici repera."},
-          {"tag": "10 PARI", "text": "Dodatnih deset pari napravljeno je za eBay aukciju u korist Marshall Mathers Foundation."},
-          {"tag": "227.000 $", "text": "Aukcija je prikupila ukupno 227.000 dolara i podržala program Community Music School pri Michigan State University."}
+          {"tag": "10 PARI", "text": "Shady Records je 2015. objavio da će tačno deset pari friends-and-family izdanja biti ponuđeno na eBay aukciji za Marshall Mathers Foundation."},
+          {"tag": "227.000 $", "text": "Sotheby's navodi da je aukcija prikupila ukupno 227.000 dolara i podržala Community Music School pri Michigan State University."}
         ]
       },
       "slide3": {
@@ -41,7 +41,7 @@
         ],
         "question": "Koliko biste vi platili za jedan od samo nekoliko ovakvih pari?"
       },
-      "caption": "Jedna od najluđih veza između repa, patika i aukcija: Eminem, Carhartt i Jordan Brand su 2015. napravili ekskluzivni Air Jordan 4 Black Chrome. Sotheby's navodi da je dodatnih 10 pari otišlo na eBay humanitarnu aukciju i da je ukupno prikupljeno 227.000 $. Novac je podržao Marshall Mathers Foundation i Community Music School pri Michigan State University. Mali broj pari + Eminem ime + Jordan 4 silueta = kolekcionarski trofej.",
+      "caption": "Jedna od najluđih veza između repa, patika i aukcija: Eminem, Carhartt i Jordan Brand su 2015. napravili ekskluzivni Air Jordan 4 Black Chrome. Shady Records je najavio da će 10 pari biti ponuđeno na eBay aukciji za Marshall Mathers Foundation, a Sotheby's navodi da je ukupno prikupljeno 227.000 $. Novac je podržao Community Music School pri Michigan State University. Mali broj pari + Eminem ime + Jordan 4 silueta = kolekcionarski trofej.",
       "hashtags": ["#TrendyPatike", "#Eminem", "#AirJordan4", "#Jordan", "#SneakerHype", "#Patike"],
       "image_prompts": [
         "premium editorial product photograph of a rare black workwear-inspired Air Jordan 4 style sneaker in an auction display case, hip-hop recording studio lights in background, dramatic contrast, no readable text, no watermark",
@@ -49,12 +49,13 @@
         "close editorial detail of black canvas basketball sneaker with metallic hardware and premium collector display, dramatic auction lighting, realistic materials, no readable text"
       ],
       "sources": [
-        {"title": "Nike Air Jordan IV Retro 'Eminem x Carhartt'", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"}
+        {"title": "Nike Air Jordan IV Retro 'Eminem x Carhartt'", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"},
+        {"title": "Eminem X Jordan X Carhartt Collaboration", "publisher": "Shady Records", "url": "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"}
       ],
       "claims": [
-        {"claim": "In 2015 Eminem, Carhartt and Jordan Brand created the exclusive Air Jordan IV Black Chrome collaboration.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
-        {"claim": "Ten additional pairs were made for an eBay charity auction.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
-        {"claim": "The auction raised 227,000 dollars and supported the Marshall Mathers Foundation and Michigan State University's Community Music School.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]}
+        {"claim": "In 2015 Eminem, Carhartt and Jordan Brand created the exclusive Air Jordan IV Black Chrome collaboration.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11", "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"]},
+        {"claim": "Ten pairs were offered through eBay to benefit the Marshall Mathers Foundation.", "source_urls": ["https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/", "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
+        {"claim": "The auction raised 227,000 dollars and supported Michigan State University's Community Music School.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]}
       ]
     }
   },
