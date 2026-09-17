@@ -1,0 +1,122 @@
+[
+  {
+    "seed": {
+      "id": "fallback-eminem-carhartt-aj4-227k",
+      "topic": "Kako je 10 Eminem x Carhartt Air Jordan 4 pari prikupilo 227.000 dolara na humanitarnoj aukciji",
+      "category": "Eminem / Air Jordan 4 / muzika / aukcija / novac",
+      "preferred_domains": ["sothebys.com"],
+      "visual_subject": "rare black Eminem x Carhartt Air Jordan 4 style sneaker in a premium auction display, hip-hop studio atmosphere, charity auction energy",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "10 Eminem x Carhartt Jordan 4 pari prikupilo je 227.000 $",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "SAMO 10 EMINEM x CARHARTT JORDAN 4 PARI", "accent": false},
+          {"text": "PRIKUPILO JE 227.000 $ NA AUKCIJI", "accent": true}
+        ],
+        "subheadline": "Jedna od najređih muzičkih sneaker saradnji pretvorena je u humanitarnu aukciju."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "2015. SU EMINEM, CARHARTT I JORDAN NAPRAVILI EKSKLUZIVNI AJ4", "accent": false},
+          {"text": "DESET DODATNIH PARI PRODATO JE ZA DOBROTVORNE SVRHE I UKUPNO JE PRIKUPLJENO 227.000 $", "accent": true}
+        ],
+        "facts": [
+          {"tag": "2015", "text": "Sotheby's navodi da su Eminem, Carhartt i Jordan Brand napravili ekskluzivni Air Jordan 4 Black Chrome, prvobitno namenjen prijateljima i porodici repera."},
+          {"tag": "10 PARI", "text": "Dodatnih deset pari napravljeno je za eBay aukciju u korist Marshall Mathers Foundation."},
+          {"tag": "227.000 $", "text": "Aukcija je prikupila ukupno 227.000 dolara i podržala program Community Music School pri Michigan State University."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "OD REPEROVOG POKLONA DO KOLEKCIONARSKOG TROFEJA", "accent": false},
+          {"text": "RETKOST I PRIČA IZA MODELA GURAJU GA U VRH SNEAKER KOLEKCIONARSTVA", "accent": true}
+        ],
+        "facts": [
+          {"tag": "RETKO", "text": "Model je zbog veoma male količine postao jedan od najtraženijih Air Jordan 4 collabova među kolekcionarima."},
+          {"tag": "MUZIKA + PATIKE", "text": "Priča spaja Eminemovu muzičku karijeru, Jordan kulturu, workwear estetiku Carhartta i humanitarnu aukciju."}
+        ],
+        "question": "Koliko biste vi platili za jedan od samo nekoliko ovakvih pari?"
+      },
+      "caption": "Jedna od najluđih veza između repa, patika i aukcija: Eminem, Carhartt i Jordan Brand su 2015. napravili ekskluzivni Air Jordan 4 Black Chrome. Sotheby's navodi da je dodatnih 10 pari otišlo na eBay humanitarnu aukciju i da je ukupno prikupljeno 227.000 $. Novac je podržao Marshall Mathers Foundation i Community Music School pri Michigan State University. Mali broj pari + Eminem ime + Jordan 4 silueta = kolekcionarski trofej.",
+      "hashtags": ["#TrendyPatike", "#Eminem", "#AirJordan4", "#Jordan", "#SneakerHype", "#Patike"],
+      "image_prompts": [
+        "premium editorial product photograph of a rare black workwear-inspired Air Jordan 4 style sneaker in an auction display case, hip-hop recording studio lights in background, dramatic contrast, no readable text, no watermark",
+        "charity sneaker auction scene with ten rare black basketball sneakers displayed in luxury cases, auction paddles and hip-hop studio atmosphere, cinematic realistic photography, no readable text",
+        "close editorial detail of black canvas basketball sneaker with metallic hardware and premium collector display, dramatic auction lighting, realistic materials, no readable text"
+      ],
+      "sources": [
+        {"title": "Nike Air Jordan IV Retro 'Eminem x Carhartt'", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"}
+      ],
+      "claims": [
+        {"claim": "In 2015 Eminem, Carhartt and Jordan Brand created the exclusive Air Jordan IV Black Chrome collaboration.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
+        {"claim": "Ten additional pairs were made for an eBay charity auction.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
+        {"claim": "The auction raised 227,000 dollars and supported the Marshall Mathers Foundation and Michigan State University's Community Music School.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "fallback-air-dior-5m-demand",
+      "topic": "Kako je Dior x Air Jordan 1 napravio milionsku potražnju za luksuznom patikom",
+      "category": "Dior / Air Jordan 1 / luksuz / hype / potražnja",
+      "preferred_domains": ["dior.com", "gq.com", "nike.com"],
+      "visual_subject": "Dior x Air Jordan 1 style luxury basketball sneaker in a Paris couture atelier, premium grey leather, enormous exclusive release demand",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Više od 5 miliona ljudi pokušalo je da kupi Dior x Air Jordan 1",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "PREKO 5 MILIONA LJUDI HTELO JE DIOR x AIR JORDAN 1", "accent": true},
+          {"text": "A NAPRAVLJENO JE SAMO OKO 13.000 PARI", "accent": false}
+        ],
+        "subheadline": "Luksuzna moda i sneaker hype sudarili su se u jednom od najtraženijih Jordan dropova."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "DIOR JE ZADRŽAO PREPOZNATLJIVU AJ1 SILUETU, ALI JU JE RADIO KAO LUKSUZNI PROIZVOD", "accent": false},
+          {"text": "GQ NAVODI DA JE POTRAŽNJA PREŠLA 5 MILIONA REGISTRACIJA ZA OKO 13.000 PARI", "accent": true}
+        ],
+        "facts": [
+          {"tag": "AIR DIOR", "text": "Dior je za Air Dior projekat zadržao prepoznatljivu Air Jordan 1 siluetu, uz italijansku kožu, Dior sivu boju i couture nivo izrade."},
+          {"tag": "13.000", "text": "GQ je izvestio da je globalno napravljeno oko 13.000 pari Dior x Air Jordan 1."},
+          {"tag": "5+ MILIONA", "text": "Isti izvor navodi da je više od pet miliona ljudi pokušalo da dođe do para na lansiranju, što pokazuje razmeru hypea."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "KOŠARKAŠKA PATIKA JE UŠLA U SVET VISOKE MODE", "accent": false},
+          {"text": "A OGRANIČENA KOLIČINA JE PRETVORILA DROP U GLOBALNU TRKU ZA PAR", "accent": true}
+        ],
+        "facts": [
+          {"tag": "LUKSUZ", "text": "Air Dior je spojio Jordan nasleđe sa Dior materijalima i načinom izrade koji je bliži luksuznim torbama nego klasičnoj sportskoj obući."},
+          {"tag": "HYPE", "text": "Ogroman odnos između broja zainteresovanih i dostupnih pari postao je deo reputacije ovog modela."}
+        ],
+        "question": "Da li biste čekali drop sa milionima drugih ljudi zbog jednog para?"
+      },
+      "caption": "Dior x Air Jordan 1 je jedan od najboljih primera kada luksuz i sneaker kultura potpuno eksplodiraju zajedno. Dior je zadržao AJ1 oblik, ali ga je izradio kao luksuzni proizvod sa italijanskom kožom i couture detaljima. GQ je izvestio da je napravljeno oko 13.000 pari, dok je više od 5 miliona ljudi pokušalo da ih kupi. To je otprilike stotine zainteresovanih na svaki dostupan par — zato je Air Dior odmah postao simbol ekstremne ekskluzivnosti.",
+      "hashtags": ["#TrendyPatike", "#AirDior", "#Dior", "#AirJordan1", "#SneakerHype", "#Jordan"],
+      "image_prompts": [
+        "luxury grey high-top basketball sneaker inspired by Dior and Air Jordan 1 displayed in a Paris couture atelier, premium Italian leather, dramatic fashion editorial lighting, one dominant focal sneaker, no readable text, no watermark",
+        "exclusive luxury sneaker release scene with a single grey high-top basketball sneaker in a glass display, huge blurred crowd waiting outside a fashion boutique, premium cinematic photography, no readable text",
+        "macro editorial photograph of premium grey leather high-top sneaker construction, fine stitching and luxury atelier tools, couture craftsmanship mood, no readable text"
+      ],
+      "sources": [
+        {"title": "AIR DIOR - Shoes", "publisher": "Dior", "url": "https://www.dior.com/couture/var/dior/storage/original/application/eebf40d9db7bd39bb8a2d61670783fbc.pdf"},
+        {"title": "Air Jordan 1 platform boot", "publisher": "GQ", "url": "https://www.gq.com/story/air-jordan-1-platform-boot"},
+        {"title": "Air Jordan 1 archive", "publisher": "Nike", "url": "https://www.nike.com/jordan/air-jordan-1/"}
+      ],
+      "claims": [
+        {"claim": "Dior's Air Dior project kept the recognizable Air Jordan 1 shape while using luxury materials and couture-level construction.", "source_urls": ["https://www.dior.com/couture/var/dior/storage/original/application/eebf40d9db7bd39bb8a2d61670783fbc.pdf"]},
+        {"claim": "GQ reported that approximately 13,000 Dior x Air Jordan 1 pairs were made globally.", "source_urls": ["https://www.gq.com/story/air-jordan-1-platform-boot"]},
+        {"claim": "GQ reported that more than 5 million people tried to buy the Dior x Air Jordan 1 at launch.", "source_urls": ["https://www.gq.com/story/air-jordan-1-platform-boot"]}
+      ]
+    }
+  }
+]
