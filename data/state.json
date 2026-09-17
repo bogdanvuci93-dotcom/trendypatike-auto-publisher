@@ -452,8 +452,19 @@
         "https://www.nike.com/launch/t/cj1-t-rexx-bright-cactus",
         "https://www.nike.com/launch/t/air-force-1-low-travis-scott"
       ]
+    },
+    {
+      "date": "2026-09-17",
+      "topic_id": "fallback-eminem-carhartt-aj4-227k",
+      "seed_topic": "Kako je 10 Eminem x Carhartt Air Jordan 4 pari prikupilo 227.000 dolara na humanitarnoj aukciji",
+      "topic_title": "10 Eminem x Carhartt Jordan 4 pari prikupilo je 227.000 $",
+      "media_id": "18377325196238272",
+      "sources": [
+        "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11",
+        "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-16",
-  "last_media_id": "18103321520460966"
+  "last_publish_date": "2026-09-17",
+  "last_media_id": "18377325196238272"
 }
