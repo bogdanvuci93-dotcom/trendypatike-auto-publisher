@@ -487,8 +487,20 @@
         "https://www.gq.com/story/air-jordan-1-platform-boot",
         "https://www.nike.com/jordan/air-jordan-1/"
       ]
+    },
+    {
+      "date": "2026-09-19",
+      "topic_id": "space-jam-air-jordan-11",
+      "seed_topic": "Kako je film Space Jam pomogao da Air Jordan 11 postane jedna od najpoznatijih filmskih patika svih vremena",
+      "topic_title": "Kako je Space Jam pomogao da AIR JORDAN 11 postane filmska ikona",
+      "media_id": "18109725727888500",
+      "sources": [
+        "https://www.nike.com/jordan/air-jordan-11",
+        "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
+        "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+      ]
     }
   ],
   "last_publish_date": "2026-09-19",
-  "last_media_id": "18121519586297561"
+  "last_media_id": "18109725727888500"
 }
