@@ -1,4 +1,156 @@
 {
+  "33e13b482333880143f31114d70ae3c67b55b9b0a6113eeb070b606be981c1cb": {
+    "saved_at": "2026-09-18T22:26:16.779Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "cover": {
+        "subheadline": "Kratak pregled priče",
+        "headline_lines": [
+          {
+            "text": "SPACE JAM JE NAPRAVIO",
+            "accent": false
+          },
+          {
+            "text": "AIR JORDAN 11",
+            "accent": true
+          },
+          {
+            "text": "OBAVEZNIM PATIKAMA ZA DECU 1990-ih",
+            "accent": false
+          }
+        ]
+      },
+      "topic_title": "Kako je Space Jam pomogao da AIR JORDAN 11 postane filmska ikona",
+      "hashtags": [
+        "#AirJordan11",
+        "#SpaceJam",
+        "#MichaelJordan",
+        "#TrendyPatike",
+        "#sneakerstory",
+        "#90s"
+      ],
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "PATIKE SU SE PONOVO PRODAVALE",
+            "accent": false
+          },
+          {
+            "text": "10–20X",
+            "accent": true
+          },
+          {
+            "text": "PO CENI NA RESELLER TRŽIŠTU POSLE FILMA",
+            "accent": false
+          }
+        ],
+        "question": "Šta je bila posledica?",
+        "facts": [
+          {
+            "text": "Nakon pojave u filmu svaka nova runda retro izdanja je brzo rasprodavana i postala vredna za kolekci",
+            "tag": "fakt"
+          },
+          {
+            "text": "GQ izveštava da su se parovi preprodavali i po 10 do 20 puta većoj ceni nego na početku.",
+            "tag": "izvor:GQ"
+          }
+        ]
+      },
+      "image_prompts": [
+        "Close-up cinematic shot of a single Air Jordan 11 'Space Jam' under arena lights, black patent leather shiny, 1990s basketball movie atmosphere, Michael Jordan era, dramatic film lighting, shoe occupies 70% of frame",
+        "Close-up of Air Jordan 11 black patent leather and ballistic mesh, visible icy blue sole and stitched details, shoe fills 80% of frame, 1996 film prop style",
+        "Wide cinematic arena scene showing a pair of Air Jordan 11 'Space Jam' on center court lit by spotlight, 1990s movie vibe, audience silhouettes far away"
+      ],
+      "caption": "Space Jam (1996) je prikazao Michael Jordan‑a u AIR JORDAN 11 koje su imale crni lakirani dio, mrežasti gornji sloj i providan plavi đon. Originalna cena je bila $125 i pojava u filmu je učinila patike traženim: svaka reizdanje brzo je rasprodato, a neki parovi su se preprodavali i po 10–20 puta većoj ceni.",
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "MJ JE U FILMU 1996. NOSIO",
+            "accent": false
+          },
+          {
+            "text": "AIR JORDAN 11",
+            "accent": true
+          },
+          {
+            "text": "I TO JE NATERALO DECU DA IH ŽELE ODMAH",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "text": "Nike navodi da je originalno izdanje AIR JORDAN 11 objavljeno 1995. sa maloprodajnom cenom $125.",
+            "tag": "izvor:Nike"
+          },
+          {
+            "text": "GQ piše da je filmska scena iz 1996. odmah podigla potražnju i praćena nizom reizdanja (2000, 2009, ",
+            "tag": "izvor:GQ"
+          },
+          {
+            "text": "2016) koja su se brzo rasprodavala.",
+            "tag": "nastavak:GQ"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim": "Originalna maloprodajna cena Air Jordan 11 bila je $125.",
+          "source_urls": [
+            "https://www.nike.com/jordan/air-jordan-11"
+          ]
+        },
+        {
+          "claim": "GQ izveštava da je pojava u filmu 1996. dovela do brzog rasta potražnje i preprodaje po 10–20x.",
+          "source_urls": [
+            "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
+            "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+          ]
+        },
+        {
+          "claim": "Nike opisuje model kao jedan od najtraženijih pre pojave u filmu, a Space Jam je dodatno učvrstio njegov status.",
+          "source_urls": [
+            "https://www.nike.com/jordan/air-jordan-11",
+            "https://www.gq.com/story/air-jordans-ranked"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Nike",
+          "title": "Air Jordan 11 retro & OG archive collection",
+          "url": "https://www.nike.com/jordan/air-jordan-11"
+        },
+        {
+          "publisher": "GQ",
+          "title": "Even Michael B. Jordan Can’t Resist the Air Jordan 11 ‘Space Jam’",
+          "url": "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam"
+        },
+        {
+          "publisher": "GQ",
+          "title": "The 20 Best Sneakers in Movie History",
+          "url": "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+        }
+      ],
+      "slide_count": 3
+    },
+    "searchUrls": [
+      "https://www.nba.com/gamenotes/raptors.pdf",
+      "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
+      "https://www.nike.com/jordan/air-jordan-11",
+      "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1",
+      "https://www.gq.com/story/greatest-air-jordan-11-colorways",
+      "https://www.gq.com/story/air-jordan-11-comme-des-garcons-09-04-2026",
+      "https://www.gq.com/story/is-the-air-jordan-11-cooked",
+      "https://www.gq.com/story/air-jordan-11-cool-grey-release",
+      "https://www.gq.com/story/union-air-jordan-collaboration/",
+      "https://www.gq.com/story/space-jam-nostalgia",
+      "https://www.gq.com/story/air-jordan-11-legend-blue-2024-release-date",
+      "https://www.gq.com/story/air-jordan-11-gratitude-release-date-info",
+      "https://www.gq.com/story/air-jordans-ranked",
+      "https://investors.nike.com/files/doc_events/NIKE%2C%20Inc.%20Investor%20Day%20Category%20Rotation%20-%20Basketball%20-%20FINAL.pdf",
+      "https://www.nba.com/gamenotes/pelicans.pdf"
+    ]
+  },
   "d802eaab2d689e7eb013feab72c91f4e08c0fac6e2c952cd4022a22957202b0b": {
     "saved_at": "2026-09-17T12:01:03.173Z",
     "schema_name": "trendypatike_verified_post",
@@ -2210,137 +2362,6 @@
       "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=29a7a29c035d6d9d319fb40e02356c47",
       "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
       "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
-    ]
-  },
-  "dbdc3c580d4bb8017c278c98a156350878339cb17d10267c6c485018f829fa77": {
-    "saved_at": "2026-09-08T08:02:35.703Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Zašto je Dior x Air Jordan 1 izazvao ogromnu navalu kupaca",
-      "slide_count": 1,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "DIOR x AIR JORDAN 1 NAPRAVIO JE HAOS NA TRŽIŠTU",
-            "accent": false
-          },
-          {
-            "text": "ZBOG LUKSUZA, MALO PARE I JEDNOG ZNANOG DATUMA",
-            "accent": false
-          },
-          {
-            "text": "2020",
-            "accent": true
-          }
-        ],
-        "subheadline": "Ne mogu da nađem potvrdu na zvaničnom Nike sajtu; tražim dozvolu da proširim pretragu."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "ZAHVALJUĆI DIZAJNU KUĆE DIOR I AIR JORDAN IMENU, ljudi su stajali u redovima i preprodaja je eksplodirala",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FALLBACK",
-            "text": "Nemam zvanične Nike stranice o Dior x Air Jordan 1 u pretrazi na nike.com ili about.nike.com — trebа"
-          },
-          {
-            "tag": "WHY",
-            "text": "Dior je upario luksuznu kožu i logo sa ikonom Air Jordan 1, što kolekcionari i poznate ličnosti hoće"
-          },
-          {
-            "tag": "RARE",
-            "text": "Model je bio izuzetno ograničen, što je podiglo tražnju i cena na sekundarnom tržištu"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "MOGU DODATI POTVRĐENE CIFRE I DATUME AKO DOZVOLITE PRETRAGU ŠIROM INTERNETA",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "CONSEQUENCE",
-            "text": "Ako dozvolite, naći ću aukcijske cene, tačan broj proizvedenih parova i zvanične izjave brendova"
-          },
-          {
-            "tag": "SOURCES",
-            "text": "Trenutno koristim samo nike.com i about.nike.com, ali nemaju članak o ovoj Dior saradnji."
-          }
-        ],
-        "question": "Želite da nastavim pretragu šire (vlasti, aukcije, mediji)?"
-      },
-      "caption": "Nemam potvrdu o Dior x Air Jordan 1 na zvaničnim Nike stranicama koje mogu da koristim sada. Da li da tražim izvore van nike.com i about.nike.com i onda vratim tačne brojke i izvore?",
-      "hashtags": [
-        "#Dior",
-        "#AirJordan1",
-        "#luksuz",
-        "#retkost",
-        "#sneakervest"
-      ],
-      "image_prompts": [
-        "Couture atelier meets basketball court: close-up of DIOR x AIR JORDAN 1 showing Dior monogram and shiny lacquered leather, shoe filling 65% of frame, luxury launch queue in soft-focus background",
-        "Exclusive queue atmosphere outside a couture boutique: people waiting with cameras, visible DIOR x AIR JORDAN 1 boxes and signage, scene at a Paris launch, wide shot",
-        "Runway-meets-court launch scene: model on basketball court wearing DIOR x AIR JORDAN 1, couture lighting, crowd cheering, shoe visible and central"
-      ],
-      "sources": [
-        {
-          "title": "Search results on NIKE, Inc. site",
-          "publisher": "about.nike.com",
-          "url": "https://about.nike.com"
-        },
-        {
-          "title": "Nike product and Jordan pages",
-          "publisher": "nike.com",
-          "url": "https://www.nike.com"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "No searchable article about Dior x Air Jordan 1 was found on nike.com or about.nike.com during this query.",
-          "source_urls": [
-            "https://about.nike.com",
-            "https://www.nike.com"
-          ]
-        },
-        {
-          "claim": "Dior x Air Jordan 1 is widely known as a limited luxury collaboration released in 2020 (requires outside sourcing to cite auction prices and production numbers).",
-          "source_urls": [
-            "https://about.nike.com",
-            "https://www.nike.com"
-          ]
-        },
-        {
-          "claim": "I can fetch verified auction prices, production counts and official statements if you allow broader web search beyond nike.com/about.nike.com.",
-          "source_urls": [
-            "https://about.nike.com",
-            "https://www.nike.com"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
-      "https://about.nike.com/en/newsroom/releases/nike-hiroshi-fujiwara-fragment-concept-testing-air-liquid-max-mind-001-mind-002/Nike-x-Fragment-Concept-Testing-Mind-002-34",
-      "https://about.nike.com/en/newsroom/releases/air-jordan-1-zoom-cmft-2-teyana-taylor-official-images",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-x-eastside-golf-collection/1000",
-      "https://about.nike.com/en/newsroom/releases/air-jordan-6-infrared-salesman-official-images/The-Air-Jordan-6-Infrared-Salesman",
-      "https://about.nike.com/en/newsroom/collections/jordan-brand-retro-collection-fall-2023",
-      "https://about.nike.com/en/newsroom/releases/air-jordan-1-mid-subway-official-images/",
-      "https://about.nike.com/en/newsroom/collections/air-jordan-11-30th-anniversary-official-images/Air-Jordan-11-Rare-Air",
-      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
-      "https://about.nike.com/en-GB/newsroom/releases/jordan-brand-and-brazilian-football-federation-forge-a-partnership-rooted-in-greatness",
-      "https://about.nike.com/en/newsroom/releases/jordan-brand-summer-of-basketball-culture-paris",
-      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf",
-      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf",
-      "https://media.about.nike.com/files/d81ca048-8af6-4a53-828a-01ab7f7f51df/Kiki-Rice-x-Jordan-Brand-Soundbites.pdf"
     ]
   }
 }
