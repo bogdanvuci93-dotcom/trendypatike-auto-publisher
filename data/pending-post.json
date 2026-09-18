@@ -1,1 +1,171 @@
-{}
+{
+  "date": "2026-09-19",
+  "stage": "verified",
+  "fingerprint": "be65a7b8970f",
+  "seed": {
+    "id": "space-jam-air-jordan-11",
+    "topic": "Kako je film Space Jam pomogao da Air Jordan 11 postane jedna od najpoznatijih filmskih patika svih vremena",
+    "category": "Space Jam / Michael Jordan / film / Air Jordan 11",
+    "preferred_domains": [
+      "nike.com",
+      "nba.com",
+      "gq.com"
+    ],
+    "visual_subject": "1990s basketball movie set atmosphere, Michael Jordan era, black patent leather Air Jordan 11 under cinematic arena lights"
+  },
+  "post": {
+    "cover": {
+      "subheadline": "Kratak pregled priče.",
+      "headline_lines": [
+        {
+          "text": "SPACE JAM JE NATERAO",
+          "accent": false
+        },
+        {
+          "text": "AIR JORDAN",
+          "accent": true
+        },
+        {
+          "text": "11",
+          "accent": true
+        },
+        {
+          "text": "DA POSTANE ŽELJENA PATIKA",
+          "accent": false
+        },
+        {
+          "text": "1996.",
+          "accent": true
+        }
+      ]
+    },
+    "topic_title": "Kako je Space Jam pomogao da AIR JORDAN 11 postane filmska ikona",
+    "hashtags": [
+      "#AirJordan11",
+      "#SpaceJam",
+      "#MichaelJordan",
+      "#TrendyPatike",
+      "#sneakerstory",
+      "#90s"
+    ],
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "REIZDANJA SU SE BRZO RASPODALA I POSTALA VREDNA",
+          "accent": false
+        },
+        {
+          "text": "PREPRODAJE SU DOŠLE I DO",
+          "accent": true
+        },
+        {
+          "text": "10,20X",
+          "accent": true
+        },
+        {
+          "text": "U ODREĐENIM PERIODIMA NAKON FILMA",
+          "accent": false
+        }
+      ],
+      "question": "Šta je bila posledica?",
+      "facts": [
+        {
+          "text": "GQ navodi da su nakon pojave u filmu neki parovi bivali preprodavani i po 10,20 puta većoj ceni.",
+          "tag": "izvor:GQ"
+        },
+        {
+          "text": "Zbog filma su reizdanja 2000., 2009. i 2016. brzo rasprodavana, što je potvrdio GQ.",
+          "tag": "izvor:GQ"
+        }
+      ]
+    },
+    "image_prompts": [
+      "Close-up cinematic shot of a single Air Jordan 11 'Space Jam' (black patent leather, ballistic mesh, icy blue outsole) under arena lights, shoe fills 70% of frame, 1996 film atmosphere, labelled 'AIR JORDAN 11' in prompt EXACT SLIDE FACT TO ILLUSTRATE: SPACE JAM JE NATERAO AIR JORDAN 11 DA POSTANE ŽELJENA PATIKA 1996.. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "Close-up macro of Air Jordan 11 'Space Jam' black patent leather overlay and ballistic mesh upper, icy translucent sole visible, shoe fills 80% of frame EXACT SLIDE FACT TO ILLUSTRATE: MJ JE U FILMU 1996. NOSIO AIR JORDAN 11 I TO JE ODMAH PODIGLO TRAŽNJU. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text. MANDATORY DETAIL SHOT: show the exact sneaker/model and the exact physical construction/material/detail described by the fact in a close-up, macro, cutaway or cross-section. The shoe or relevant detail must occupy at least 65% of the frame. NO group of people, NO people-only scene, NO generic street/lifestyle scene, NO unrelated objects as the main subject.",
+      "Wide cinematic arena scene showing a pair of Air Jordan 11 'Space Jam' on center court lit by spotlight, Michael Jordan wearing them in film-style scene EXACT SLIDE FACT TO ILLUSTRATE: REIZDANJA SU SE BRZO RASPODALA I POSTALA VREDNA PREPRODAJE SU DOŠLE I DO 10,20X U ODREĐENIM PERIODIMA NAKON FILMA. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "caption": "Space Jam (1996) prikazuje Michael Jordan,a u AIR JORDAN 11 sa sjajnom lakovanom kožom, mrežastim gornjim delom i providnim plavim đonom. Originalni model se pojavio 1995., a film 1996. je naglo podigao potražnju.",
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "MJ JE U FILMU",
+          "accent": false
+        },
+        {
+          "text": "1996.",
+          "accent": true
+        },
+        {
+          "text": "NOSIO",
+          "accent": false
+        },
+        {
+          "text": "AIR JORDAN",
+          "accent": true
+        },
+        {
+          "text": "11",
+          "accent": true
+        },
+        {
+          "text": "I TO JE ODMAH PODIGLO TRAŽNJU",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "text": "Nike arhiva beleži originalno objavljivanje modela AIR JORDAN 11 1995. godine.",
+          "tag": "izvor:Nike"
+        },
+        {
+          "text": "GQ piše da je filmska scena iz 1996. izazvala nagli porast potražnje, nakon čega su usledila reizdan.",
+          "tag": "izvor:GQ"
+        },
+        {
+          "text": "ja 2000., 2009. i 2016. koja su brzo rasprodavana.",
+          "tag": "nastavak:GQ"
+        }
+      ]
+    },
+    "claims": [
+      {
+        "claim": "Originalna godina prvog izdanja modela AIR JORDAN 11 je 1995.",
+        "source_urls": [
+          "https://www.nike.com/jordan/air-jordan-11"
+        ]
+      },
+      {
+        "claim": "GQ navodi da je pojava u filmu 1996. podigla potražnju i da su neki parovi bili preprodavani 10,20x.",
+        "source_urls": [
+          "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
+          "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+        ]
+      },
+      {
+        "claim": "GQ dokumentuje reizdanja modela povezana s potražnjom, uključujući 2000., 2009. i 2016.",
+        "source_urls": [
+          "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
+          "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Nike",
+        "title": "Air Jordan 11 retro & OG archive collection",
+        "url": "https://www.nike.com/jordan/air-jordan-11"
+      },
+      {
+        "publisher": "GQ",
+        "title": "Even Michael B. Jordan Can’t Resist the Air Jordan 11 ‘Space Jam’",
+        "url": "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam"
+      },
+      {
+        "publisher": "GQ",
+        "title": "The 20 Best Sneakers in Movie History",
+        "url": "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
+      }
+    ],
+    "slide_count": 3
+  }
+}
