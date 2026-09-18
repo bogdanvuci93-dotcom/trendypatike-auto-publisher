@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-19",
-  "stage": "ready",
+  "generated_at": "2026-09-18T22:27:41.915Z",
   "fingerprint": "be65a7b8970f",
   "seed": {
     "id": "space-jam-air-jordan-11",
@@ -167,11 +166,5 @@
       }
     ],
     "slide_count": 3
-  },
-  "image_paths": [
-    "public/posts/2026-09-19-space-jam-air-jordan-11-be65a7b8970f/01.jpg",
-    "public/posts/2026-09-19-space-jam-air-jordan-11-be65a7b8970f/02.jpg",
-    "public/posts/2026-09-19-space-jam-air-jordan-11-be65a7b8970f/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
