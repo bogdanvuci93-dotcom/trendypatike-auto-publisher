@@ -1,4 +1,4 @@
-trigger=2026-09-14T13:33:00+02:00
-reason=scroll-stop-cover-and-permanent-final-cta
-preflight=34838691827:success
-policy=attention-v22-scroll-stop-final-cta
+trigger=2026-09-19T00:23:20+02:00
+reason=complete-second-post-after-responses-timeout
+preflight=35400848052:success
+policy=verified-v26-topic-aware-comment-cta
