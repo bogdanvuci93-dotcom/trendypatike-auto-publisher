@@ -136,5 +136,10 @@
     "public/posts/2026-09-19-fallback-air-dior-5m-demand-3e600ddabb90/01.jpg",
     "public/posts/2026-09-19-fallback-air-dior-5m-demand-3e600ddabb90/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18018017558944388"
+    ],
+    "carousel_id": ""
+  }
 }
