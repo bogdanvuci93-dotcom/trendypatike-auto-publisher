@@ -475,8 +475,20 @@
         "https://www.sothebys.com/en/buy/auction/2024/genesis-sneakers-and-modern-collectibles/eminem-signed-box-nike-air-jordan-4-retro-eminem",
         "https://www.gq.com/story/eminem-carhartt-jordan-auction-prices-ebay"
       ]
+    },
+    {
+      "date": "2026-09-19",
+      "topic_id": "fallback-air-dior-5m-demand",
+      "seed_topic": "Kako je Dior x Air Jordan 1 napravio milionsku potražnju za luksuznom patikom",
+      "topic_title": "Više od 5 miliona ljudi pokušalo je da kupi Dior x Air Jordan 1",
+      "media_id": "18121519586297561",
+      "sources": [
+        "https://www.dior.com/couture/var/dior/storage/original/application/eebf40d9db7bd39bb8a2d61670783fbc.pdf",
+        "https://www.gq.com/story/air-jordan-1-platform-boot",
+        "https://www.nike.com/jordan/air-jordan-1/"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-17",
-  "last_media_id": "18096624599264895"
+  "last_publish_date": "2026-09-19",
+  "last_media_id": "18121519586297561"
 }
