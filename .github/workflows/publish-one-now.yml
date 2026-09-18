@@ -1,5 +1,5 @@
 name: TrendyPatike Publish One Now
-# trigger: unicode-safe-guard-v24
+# trigger: 2026-09-19-second-post-v26-comment-cta
 
 on:
   push:
