@@ -87,12 +87,22 @@ old_overlay = '''function slideOverlay(post, i) {
   const segments = visibleSegmentsForSlide(post, i);
   return `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${fadeSvg(position)}${frameSvg()}${semanticTextSvg(segments, position)}</svg>`;
 }'''
-new_overlay = '''function finalSlideEngagementCta(post, i) {
+new_overlay = '''function engagementCommentPrompt(post) {
+  const topic = clean(`${post?.topic_title || ""} ${post?.cover?.subheadline || ""}`).toLowerCase();
+  if (/aukc|cena|košta|vred|dolar|milion|novac|prod/.test(topic)) return "KOLIKO BI TI PLATIO?";
+  if (/zabran|kazn|tuž|sukob|svađ|kontrover|prevara|slučaj|bankrot/.test(topic)) return "ŠTA TI MISLIŠ O OVOME?";
+  if (/protiv|poređ|bolj|izabra|najbolj/.test(topic)) return "KOJI BI TI IZABRAO?";
+  return "KOMENTARIŠI OVU PRIČU";
+}
+
+function finalSlideEngagementCta(post, i) {
   const slideCount = Math.max(1, Math.min(3, Number(post?.slide_count) || 3));
   if (i !== slideCount - 1) return "";
+  const commentPrompt = esc(engagementCommentPrompt(post));
   return `<g>
-    <rect x="590" y="1261" width="420" height="58" rx="22" fill="#050706" fill-opacity="0.92" stroke="${GREEN}" stroke-width="2"/>
-    <text x="800" y="1299" text-anchor="middle" font-family="${FONT}" font-size="23" font-weight="900" fill="${WHITE}" letter-spacing="0.6">LAJKUJ + ZAPRATI ZA JOŠ</text>
+    <rect x="548" y="1254" width="462" height="76" rx="22" fill="#050706" fill-opacity="0.94" stroke="${GREEN}" stroke-width="2"/>
+    <text x="779" y="1282" text-anchor="middle" font-family="${FONT}" font-size="21" font-weight="900" fill="${WHITE}" letter-spacing="0.5">LAJKUJ + ZAPRATI ZA JOŠ</text>
+    <text x="779" y="1312" text-anchor="middle" font-family="${FONT}" font-size="19" font-weight="900" fill="${GREEN}" letter-spacing="0.3">${commentPrompt}</text>
   </g>`;
 }
 
