@@ -1,1 +1,144 @@
-{}
+{
+  "date": "2026-09-19",
+  "stage": "verified",
+  "fingerprint": "59ab0297ce01",
+  "seed": {
+    "id": "forrest-gump-nike-cortez",
+    "topic": "Kako je Forrest Gump pretvorio Nike Cortez u jednu od najprepoznatljivijih patika na filmu",
+    "category": "Forrest Gump / Nike Cortez / film / pop kultura",
+    "preferred_domains": [
+      "nike.com",
+      "gq.com",
+      "smithsonianmag.com"
+    ],
+    "visual_subject": "cinematic long-distance running scene inspired by Forrest Gump, classic white-red-blue Nike Cortez, American road landscape"
+  },
+  "post": {
+    "cover": {
+      "subheadline": "Kratka priča o sceni koja je promenila jednu patiku.",
+      "headline_lines": [
+        {
+          "text": "FORREST GUMP JE",
+          "accent": false
+        },
+        {
+          "text": "1994.",
+          "accent": true
+        },
+        {
+          "text": "NAPRAVIO NIKE CORTEZ",
+          "accent": true
+        },
+        {
+          "text": "PREPOZNATLJIVIM NA FILMU",
+          "accent": false
+        }
+      ]
+    },
+    "topic_title": "Kako je Forrest Gump pretvorio Nike Cortez u ikonu filma",
+    "hashtags": [
+      "#ForrestGump",
+      "#NikeCortez",
+      "#filmskePatike",
+      "#popkultura",
+      "#TrendyPatike",
+      "#sneakerstory"
+    ],
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "Nike je zbog tražnje više puta ponovo izdao model povezan s filmom",
+          "accent": false
+        },
+        {
+          "text": "NIKE REISSUE POTVRĐUJE STATUS",
+          "accent": true
+        }
+      ],
+      "question": "Hoćeš više priča o filmskim patikama?",
+      "facts": [
+        {
+          "text": "GQ dokumentuje da je Nike 2024. re-izdao verziju nazvanu 'Forrest Gump'.",
+          "tag": "izvor"
+        },
+        {
+          "text": "Ponovna izdanja su usledila jer publika snažno povezuje Cortez sa filmom.",
+          "tag": "fakti"
+        }
+      ]
+    },
+    "image_prompts": [
+      "Cinematic long-distance running scene inspired by Forrest Gump, Tom Hanks running down an empty American road in white red blue Nike Cortez, shoe filling foreground, cinematic lighting, wide landscape, cinematic depth of field, model name Nike Cortez explicitly visible EXACT SLIDE FACT TO ILLUSTRATE: FORREST GUMP JE 1994. NAPRAVIO NIKE CORTEZ PREPOZNATLJIVIM NA FILMU. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Close-up of white Nike Cortez with red and blue trim on dusty asphalt, shoe occupies 70% of frame, visible stitching and rubber sole, cinematic warm light, macro detail of Cortez logo EXACT SLIDE FACT TO ILLUSTRATE: BILL BOWERMAN JE 1972. DIZAJNIRAO I PREDSTAVIO CORTEZ BILL BOWERMAN. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "Wide American road landscape at golden hour with a single runner wearing white red blue Nike Cortez, long perspective, cinematic film grain, clearly show Nike Cortez on feet, emotional lonely-road mood EXACT SLIDE FACT TO ILLUSTRATE: Nike je zbog tražnje više puta ponovo izdao model povezan s filmom NIKE REISSUE POTVRĐUJE STATUS. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "caption": "Forrest Gump (Tom Hanks) nosi bele NIKE CORTEZ u filmu iz 1994., ta scena je vezala model za film i podstakla ponovna izdanja. Izvori: GQ, Nike.",
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "BILL BOWERMAN JE",
+          "accent": false
+        },
+        {
+          "text": "1972.",
+          "accent": true
+        },
+        {
+          "text": "DIZAJNIRAO I PREDSTAVIO CORTEZ",
+          "accent": false
+        },
+        {
+          "text": "BILL BOWERMAN",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "text": "Nike navodi da je Cortez prvi model sa celom dužinom entresole i novom vrstom amortizacije krajem 60.",
+          "tag": "izvor"
+        },
+        {
+          "text": "Cortez je brzo postao popularan i prešao iz sporta u pop kulturu.",
+          "tag": "fakti"
+        },
+        {
+          "text": "Prvi široko citirani naziv kao vodeći model trčanja pojavljuje se oko 1971. u stručnim izdanjima.",
+          "tag": "fakti"
+        }
+      ]
+    },
+    "claims": [
+      {
+        "claim": "Forrest Gump je učinio da Nike Cortez postane filmski simbol.",
+        "source_urls": [
+          "https://www.gq.com/story/nike-cortez-forest-gump-rerelease"
+        ]
+      },
+      {
+        "claim": "Cortez je prvobitno povezan s trenerom Billom Bowermanom i pojavljuje se krajem 1960-ih/1972.",
+        "source_urls": [
+          "https://www.nike.com/gb/a/cortez-history"
+        ]
+      },
+      {
+        "claim": "Nike je istoriju modela i njegov uticaj na amortizaciju dokumentovao na zvaničnoj stranici.",
+        "source_urls": [
+          "https://www.nike.com/gb/a/cortez-history"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "GQ",
+        "title": "Nike Finally Re-Released Forrest Gump’s Iconic Cortez Sneakers",
+        "url": "https://www.gq.com/story/nike-cortez-forest-gump-rerelease"
+      },
+      {
+        "publisher": "Nike",
+        "title": "The history of the Nike Cortez",
+        "url": "https://www.nike.com/gb/a/cortez-history"
+      }
+    ],
+    "slide_count": 3
+  }
+}
