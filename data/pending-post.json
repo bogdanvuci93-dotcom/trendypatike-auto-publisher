@@ -1,1 +1,164 @@
-{}
+{
+  "date": "2026-09-19",
+  "stage": "verified",
+  "fingerprint": "6e557d0aec7d",
+  "seed": {
+    "id": "nike-founder-phil-knight-start",
+    "topic": "Kako je Phil Knight prodavao patike iz gepeka automobila pre nego što je Nike postao svetski gigant",
+    "category": "Phil Knight / Nike / vlasnik / početak biznisa",
+    "preferred_domains": [
+      "about.nike.com",
+      "nike.com",
+      "britannica.com"
+    ],
+    "visual_subject": "1960s car trunk filled with running shoes, young entrepreneur at track meet, transition into massive modern Nike campus"
+  },
+  "post": {
+    "cover": {
+      "subheadline": "Priča o prvim koracima Nike-a.",
+      "headline_lines": [
+        {
+          "text": "PRVE PATIKE SU STALE U GEPEK",
+          "accent": false
+        },
+        {
+          "text": "300",
+          "accent": true
+        },
+        {
+          "text": "PARNI",
+          "accent": true
+        },
+        {
+          "text": "PHIL KNIGHT JE IH PRODAO IZ PLYMOUTH VALIANTA",
+          "accent": false
+        },
+        {
+          "text": "1964.",
+          "accent": true
+        }
+      ]
+    },
+    "topic_title": "Kako je Phil Knight prodavao patike iz gepeka pre nego što je Nike postao gigant",
+    "hashtags": [
+      "#TrendyPatike",
+      "#NikePriča",
+      "#PhilKnight",
+      "#SneakerIstorija",
+      "#1964"
+    ],
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "IZ GEPEKA DO GLOBALNOG BREND-A: PRVI MODEL I SWOOSH",
+          "accent": false
+        },
+        {
+          "text": "1971.",
+          "accent": true
+        },
+        {
+          "text": "SWOOSH DIZAJNIRALA JE STUDENTKINJA ZA",
+          "accent": true
+        },
+        {
+          "text": "$35",
+          "accent": true
+        }
+      ],
+      "question": "Kako je to promenilo sport?",
+      "facts": [
+        {
+          "text": "Blue Ribbon Sports je razvio sopstveni model 1971. i zaštitni znak koji je postao simbol brenda.",
+          "tag": "detail"
+        },
+        {
+          "text": "Prikaz na velikim trkama početkom 1970-ih pomogao je poverenju atletičara i rastu prodaje.",
+          "tag": "consequence"
+        }
+      ]
+    },
+    "image_prompts": [
+      "1964 Plymouth Valiant gepek pun kutija sa patikama i mladim trgovcem u stilu Phila Knight-a na atletskom takmičenju, jasno vidljive kutije i gepek, dokumentarni ton EXACT SLIDE FACT TO ILLUSTRATE: PRVE PATIKE SU STALE U GEPEK 300 PARNI PHIL KNIGHT JE IH PRODAO IZ PLYMOUTH VALIANTA 1964.. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "bliži kadar prodaje: mladi prodavac predaje par vintage japanskih trkačkih patika tinejdžeru na stazi 1960-ih, vidljive detalje patika, zamučena publika u pozadini EXACT SLIDE FACT TO ILLUSTRATE: PRVA POŠILJKA OD 300 PARNI STIGLA JE U APRILU 1964. PATIKE JE ČUVAO U PODRUMU I PRODAO IZ GEPEKA VALIANTA. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text.",
+      "pogled iz vazduha na NIKE WORLD CAMPUS danas sa umetnutom fotografijom 1964 Plymouth Valiant gepeka punog patika radi kontrasta rasta EXACT SLIDE FACT TO ILLUSTRATE: IZ GEPEKA DO GLOBALNOG BREND-A: PRVI MODEL I SWOOSH 1971. SWOOSH DIZAJNIRALA JE STUDENTKINJA ZA $35. The main visible subject must directly prove or explain this exact fact, not merely suggest the general topic. SCROLL-STOP VISUAL: create a dramatic editorial moment with action, tension, scale, famous-event context or a striking visual setup. NEVER use a generic clean catalogue/product shot as the whole scene. NEVER use a random anonymous crowd or random people unrelated to the fact. If a famous person or famous event is material to the slide, make that person/event the dominant story subject and keep the relevant sneaker clearly visible. Base image must contain NO readable text, prices, labels or typography; code adds all text."
+    ],
+    "caption": "1964: Phil Knight je primio pošiljku od 300 pari u podrum roditelja, natovario kutije u gepek svog automobila i prodavao ih na školskim trkama. To je bio prvi korak koji je iz Blue Ribbon Sports kasnije stvorio NIKE. #TrendyPatike #PhilKnight #Nike",
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PRVA POŠILJKA OD",
+          "accent": false
+        },
+        {
+          "text": "300",
+          "accent": true
+        },
+        {
+          "text": "PARNI STIGLA JE U APRILU",
+          "accent": false
+        },
+        {
+          "text": "1964.",
+          "accent": true
+        },
+        {
+          "text": "PATIKE JE ČUVAO U PODRUMU I PRODAO IZ GEPEKA VALIANTA",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "text": "Kutije su bile u porodičnom podrumu Knight-ovih, a Phil ih je nosio do auta i tražio kupce na trkama.",
+          "tag": "detail"
+        },
+        {
+          "text": "Taj početak je omogućio prve dogovore sa atletama i osnova je za kasniji rast firme.",
+          "tag": "consequence"
+        },
+        {
+          "text": "(Izvori: NIKE arhiva i istorija kompanije).",
+          "tag": "fallback"
+        }
+      ]
+    },
+    "claims": [
+      {
+        "claim": "Prva pošiljka od 300 pari stigla je u APRIL 1964. i skladištena je u podrumu roditelja Knight-ovih.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters"
+        ]
+      },
+      {
+        "claim": "Phil Knight je koristio gepek svog 1964 PLYMOUTH VALIANTA za nošenje i prodaju kutija sa patikama na školskim takmičenjima.",
+        "source_urls": [
+          "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
+        ]
+      },
+      {
+        "claim": "Swoosh je dizajnirala studentkinja sa Portland State University i poslala je račun za $35; prvi model pod imenom \"the Nike\" prodat je 1971. po $16.95.",
+        "source_urls": [
+          "https://about.nike.com/en/magazine/nike-swoosh-logo-history"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "NIKE, Inc.",
+        "title": "The Definitive History of Nike's World Campus",
+        "url": "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters"
+      },
+      {
+        "publisher": "NIKE, Inc.",
+        "title": "Nike Swoosh Logo: From Humble Beginnings to Global Icon",
+        "url": "https://about.nike.com/en/magazine/nike-swoosh-logo-history"
+      },
+      {
+        "publisher": "NIKE, Inc.",
+        "title": "Nike Corporate Report excerpt mentioning the 1964 Plymouth Valiant trunk",
+        "url": "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
+      }
+    ],
+    "slide_count": 3
+  }
+}
