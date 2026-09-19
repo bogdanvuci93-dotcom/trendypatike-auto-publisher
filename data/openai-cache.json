@@ -1,4 +1,149 @@
 {
+  "0d8d1240fea6fcd6382c730eba5ceacab3aa54557a1d03fa551d93b5b3dcddf6": {
+    "saved_at": "2026-09-19T19:10:37.666Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "cover": {
+        "subheadline": "Priča o prvim koracima Nike-a",
+        "headline_lines": [
+          {
+            "text": "PRVE PATIKE SU STALE U GEPEK",
+            "accent": false
+          },
+          {
+            "text": "300 PARNI",
+            "accent": true
+          },
+          {
+            "text": "PHIL KNIGHT IH JE PRODAO IZ PLYMOUTH VALIANTA 1964.",
+            "accent": true
+          }
+        ]
+      },
+      "topic_title": "Kako je Phil Knight prodavao patike iz gepeka pre nego što je Nike postao gigant",
+      "hashtags": [
+        "#TrendyPatike",
+        "#NikePriča",
+        "#PhilKnight",
+        "#SneakerIstorija",
+        "#1964"
+      ],
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "IZ GEPEKA DO GLOBALNOG KAMPUSA",
+            "accent": false
+          },
+          {
+            "text": "NIKE JE 1971. IMAO PRVI MODEL I SWOOSH",
+            "accent": true
+          }
+        ],
+        "question": "Kako je to promenilo sport?",
+        "facts": [
+          {
+            "text": "Prodaja iz auta dovela je do malih ugovora sa atletama i rasta koji je prerastao u globalni brend sa",
+            "tag": "fallback"
+          },
+          {
+            "text": "prvim sopstvenim modelom 1971. i zaštitnim znakom Swoosh kojeg je student platio $35.",
+            "tag": "detail"
+          }
+        ]
+      },
+      "image_prompts": [
+        "1960s car trunk filled with dozens of running shoes boxes, a young Phil Knight-style entrepreneur loading pairs into the trunk of a 1964 Plymouth Valiant at a high school track meet, cinematic documentary style, clear focus on shoe boxes and car trunk",
+        "close-up of a young seller handing a pair of vintage Japanese running shoes to a teenage runner at a 1960s track meet, visible shoe details, crowd of athletes blurred in background, warm film tones",
+        "modern aerial shot of NIKE world campus with large buildings and running tracks, contrast with inset photo of a 1964 Plymouth Valiant trunk full of shoes to show growth"
+      ],
+      "caption": "1964: Phil Knight je počeo kao trgovac koji je nosio kutije sa 300 pari patika u gepeku svog auta i prodavao ih na školskim treninzima. To je bio prvi korak koji je iz Blue Ribbon Sports kasnije stvorio NIKE — sa prvim sopstvenim modelom i Swooshom 1971. #TrendyPatike #PhilKnight #Nike",
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "PHIL KNIGHT JE STAVIO 300 PARNI U PODRUM I GEPEK",
+            "accent": false
+          },
+          {
+            "text": "PRODAO IH JE DIREKTNO NA ATLETSKIM TAKMIČENJIMA 1964.",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "text": "Prva pošiljka od 300 pari stigla je u aprilu 1964. i Phil je nosio kutije iz roditeljskog podruma do",
+            "tag": "fallback"
+          },
+          {
+            "text": "gepeka svog PLYMOUTH VALIANTA dok je tražio kupce na školskim trkama.",
+            "tag": "detail"
+          },
+          {
+            "text": "Odatle su počeli ugovori sa atletama koji su gradili poverenje i rast brenda.",
+            "tag": "consequence"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim": "Prva pošiljka od 300 pari stigla je u april 1964. i patike su se prodavale iz gepeka.",
+          "source_urls": [
+            "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters",
+            "https://about.nike.com/en/magazine/the-handshake-that-started-it-all"
+          ]
+        },
+        {
+          "claim": "Swoosh je dizajnirao student za $35, a prvi model pod imenom Nike prodat je 1971. po $16.95.",
+          "source_urls": [
+            "https://about.nike.com/en/magazine/nike-swoosh-logo-history"
+          ]
+        },
+        {
+          "claim": "Knight je nosio kutije u gepeku svog PLYMOUTH VALIANTA dok je prodavao patike na školskim takmičenjima.",
+          "source_urls": [
+            "https://about.nike.com/en/magazine/the-definitive-history-of-nikes-world-campus"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "NIKE, Inc.",
+          "title": "The Definitive History of Nike's World Campus",
+          "url": "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters"
+        },
+        {
+          "publisher": "NIKE, Inc.",
+          "title": "Phil Knight and Bill Bowerman: The Handshake That Started It All",
+          "url": "https://about.nike.com/en-GB/magazine/the-handshake-that-started-it-all"
+        },
+        {
+          "publisher": "NIKE, Inc.",
+          "title": "The Nike Swoosh Logo: From Humble Beginnings to Global Icon",
+          "url": "https://about.nike.com/en/magazine/nike-swoosh-logo-history"
+        }
+      ],
+      "slide_count": 3
+    },
+    "searchUrls": [
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf",
+      "https://about.nike.com/en/magazine/the-athlete-s-voice",
+      "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
+      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://about.nike.com/en/",
+      "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters",
+      "https://about.nike.com/en/magazine/how-steve-prefontaine-set-the-pace-for-nike",
+      "https://about.nike.com/en-GB/magazine/the-definitive-history-of-nikes-world-campus",
+      "https://about.nike.com/th/magazine/the-definitive-history-of-nikes-world-campus",
+      "https://about.nike.com/zh-Hant/magazine/the-definitive-history-of-nikes-world-campus",
+      "https://about.nike.com/en-GB/magazine/the-handshake-that-started-it-all",
+      "https://about.nike.com/en/company/people/philip-h-knight",
+      "https://about.nike.com/en/company",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
+      "https://media.about.nike.com/files/a9da025c-fc41-486c-99df-bfb41bef2d41/FY21_NIKE-Impact-Report.pdf",
+      "https://investors.nike.com/files/doc_financials/2012/docs/nike-2012-form-10K.pdf",
+      "https://media.about.nike.com/files/19c9f037-13be-4d9c-8201-3bedea9f3614/Nike-Inside-the-Lines-Code-of-Conduct_May_2019.pdf",
+      "https://investors.nike.com/files/doc_financials/2002/downloads/proxy.pdf"
+    ]
+  },
   "af14ae28bc2bdd3e163feffa40605bc0399f1f8411bb6ed2471f5a8d53d60e72": {
     "saved_at": "2026-09-19T19:08:44.097Z",
     "schema_name": "trendypatike_verified_post",
@@ -2273,151 +2418,6 @@
       "https://circulardesign.nike.com/guides/CircularityGuide.pdf",
       "https://investors.nike.com/files/doc_events/NIKE-Inc-2015-Investor-Day-Transcript-Complete-withQA-FINAL.pdf",
       "https://circulardesign.nike.com/guides/MiniGuide.pdf"
-    ]
-  },
-  "df5e05fceeb51e08904bc33d003b01ff4c946c689983cf21dee34c8a519bc73a": {
-    "saved_at": "2026-09-15T16:19:54.166Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "cover": {
-        "subheadline": "Zašto je TN postao ulični fenomen",
-        "headline_lines": [
-          {
-            "text": "PATIKA KOJA JE IZGLEDALA KAO IZ BUDUĆNOSTI",
-            "accent": false
-          },
-          {
-            "text": "1998.",
-            "accent": true
-          },
-          {
-            "text": "NIKE AIR MAX PLUS (TN) PROMENIO JE ULICU",
-            "accent": false
-          }
-        ]
-      },
-      "topic_title": "Zašto je Nike Air Max Plus (TN) ogroman ulični fenomen",
-      "hashtags": [
-        "#NikeTN",
-        "#AirMaxPlus",
-        "#TrendyPatike",
-        "#sneakeri",
-        "#ulica",
-        "#90s"
-      ],
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "Danas TN živi u kolaboracijama i second‑hand cenama koje pokreću histeriju",
-            "accent": false
-          },
-          {
-            "text": "€180–€234 (primeri rane popularnosti)",
-            "accent": true
-          }
-        ],
-        "question": "Kako to utiče na ulični stil?",
-        "facts": [
-          {
-            "text": "TN je iz 1998. postao hit opet kroz retro talas i kolaboracije, što je podiglo potražnju i cene.",
-            "tag": "GQ"
-          },
-          {
-            "text": "Originalni dizajner Sean McDowell rekao je da je inspiracija bila zalazak sunca nad morem.",
-            "tag": "Nike SNKRS"
-          }
-        ]
-      },
-      "image_prompts": [
-        "Close-up of Nike Air Max Plus TN in original 1998 gradient 'Sunrise' colorway, large view of upper and visible Tuned Air sole, shoe occupies 75% of frame, late-1990s street vibe, high contrast editorial lighting",
-        "Nike Air Max Plus TN in black/blue and 'Tiger' gradient colorways on a 1990s European street scene, two distinct shoes shown large, models wearing wide trousers, clear 1998-to-now style contrast, energetic editorial mood",
-        "Macro cutaway of Nike Air Max Plus TN Tuned Air system and gradient midsole, cross-section showing multiple air units and foam, shoe detail occupies 80% of frame, technical but bold editorial style"
-      ],
-      "caption": "Nike Air Max Plus (TN) je 1998. šokirao izgledom i tehnikom (Tuned Air). Dizajner Sean McDowell je crpeo ideje iz zalaska sunca, a 2000‑ih i 2020‑ih TN se vratio kroz retro, kolaboracije i uličnu modu — što je podiglo potražnju i cene. Izvori: GQ, Nike SNKRS.",
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "DIZAJN KOJI JE ŠOKIRAO: TALASASTE LINIJE I TUNED AIR",
-            "accent": false
-          },
-          {
-            "text": "Sean McDowell",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "text": "Sean McDowell je 1998. dizajnirao TN koristeći neobične proizvodne metode i Tuned Air amortizaciju, ",
-            "tag": "Nike SNKRS"
-          },
-          {
-            "text": "GQ beleži da su boje poput 'Tiger' i 'Hyper Blue' učinile model vidljivim na ulici i u modnim kolab­",
-            "tag": "GQ"
-          },
-          {
-            "text": "Primer cena iz GQ: rani OG parovi oko €180–€234 na tržištu drugog vlasnika, što pokazuje rast vred­",
-            "tag": "GQ"
-          }
-        ]
-      },
-      "claims": [
-        {
-          "claim": "Dizajn je inspirisan zalaskom sunca i koristio je Tuned Air sistem.",
-          "source_urls": [
-            "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus",
-            "https://www.nike.com/pl/launch/t/behind-design-air-max-plus-og"
-          ]
-        },
-        {
-          "claim": "Model je od 1998. postao ulični klasik, a kasnije su kolaboracije i retro izdanja podigla potražnju.",
-          "source_urls": [
-            "https://www.gq.com/story/supreme-nike-air-max-plus",
-            "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
-          ]
-        },
-        {
-          "claim": "Rane cene na second‑hand tržištu bile su oko €180–€234 prema GQ izveštajima.",
-          "source_urls": [
-            "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "publisher": "Nike SNKRS",
-          "title": "Behind The Design: Nike Air VaporMax Plus / Air Max Plus OG pages",
-          "url": "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus"
-        },
-        {
-          "publisher": "GQ",
-          "title": "The Newest Supreme x Nike Collab Has Something for Everyone",
-          "url": "https://www.gq.com/story/supreme-nike-air-max-plus"
-        },
-        {
-          "publisher": "GQ",
-          "title": "The 8 Most Popular Sneakers of Summer 2017",
-          "url": "https://www.gq.com/story/8-most-popular-sneakers-summer-2017"
-        }
-      ],
-      "slide_count": 3
-    },
-    "searchUrls": [
-      "https://www.gq.com/campaigns/neimanmarcus-sweeps/Neiman_Marcus_x_GQ_Rules_2.pdf",
-      "https://www.gq.com/story/supreme-nike-air-max-plus",
-      "https://www.gq.com/story/8-most-popular-sneakers-summer-2017",
-      "https://www.gq.com/story/greatest-nike-air-max-colorways",
-      "https://www.gq.com/story/nike-air-max-sunder-release-date",
-      "https://www.gq.com/story/nike-air-max-day-2026",
-      "https://www.nike.com/gb/launch/t/behind-design-air-vapormax-plus",
-      "https://www.nike.com/pl/launch/t/behind-design-air-max-plus-og",
-      "https://www.gq.com/story/nike-air-max-720-sneaker-of-the-week",
-      "https://www.gq.com/story/nike-50-greatest-sneaker-collaborations",
-      "https://www.nike.com/se/launch/t/behind-design-air-vapormax-plus",
-      "https://www.gq.com/story/nike-air-max-1-97-restock",
-      "https://www.nike.com/hu/launch/t/behind-design-air-max-plus-og",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf",
-      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf"
     ]
   }
 }
