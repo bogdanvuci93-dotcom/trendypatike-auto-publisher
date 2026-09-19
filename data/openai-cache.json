@@ -1,4 +1,158 @@
 {
+  "082edfa4e952c5f649f0a1d05dec64fa599b542a36f7c0b36dcd04fb3bc0b4d9": {
+    "saved_at": "2026-09-19T19:08:07.993Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "cover": {
+        "subheadline": "Kratka priča za Instagram carousel",
+        "headline_lines": [
+          {
+            "text": "JEDAN UGOVOR 1984.",
+            "accent": true
+          },
+          {
+            "text": "KAKO JE NIKE POTPISAO MICHAELA JORDANA",
+            "accent": false
+          },
+          {
+            "text": "A TO POSTALO BRENDO KOJI ZARAĐUJE MILIJARDE",
+            "accent": false
+          }
+        ]
+      },
+      "topic_title": "Kako je Michael Jordan od jednog Nike ugovora stigao do Jordan Branda koji godišnje pravi milijarde",
+      "hashtags": [
+        "#MichaelJordan",
+        "#JordanBrand",
+        "#Nike",
+        "#SneakerPriča",
+        "#TrendyPatike",
+        "#BiznisPriče"
+      ],
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Jordan Brand danas pravi milijarde godišnje",
+            "accent": false
+          },
+          {
+            "text": "$3,1 MILIJARDA",
+            "accent": true
+          },
+          {
+            "text": "(wholesale prihodi u fiskalnoj 2019.)",
+            "accent": false
+          }
+        ],
+        "question": "Šta je posledica?",
+        "facts": [
+          {
+            "text": "Jordan je zadržao procenat od prodaje i dugi ugovorni odnos sa Nikeom — to mu donosi stalne prihode.",
+            "tag": "izvor: Forbes"
+          },
+          {
+            "text": "Jordan Brand je postao zasebna poslovna jedinica čiji rast značajno podiže Nikeove rezultate.",
+            "tag": "izvor: Nike investor"
+          }
+        ]
+      },
+      "image_prompts": [
+        "Close-up silhouette of Michael Jordan in mid-air dunk with an iconic Air Jordan 1 shoe prominently visible in foreground, high contrast, child-friendly comic-style, no text",
+        "Macro shot of a worn 1984 Nike Air Ship/early Air Jordan shoe on a museum-style pedestal with a small label '1984', dramatic lighting, clear shoe details occupying 65% of frame",
+        "Wide scene of a giant global retail wall filled with Air Jordan shoes and a rising green financial growth chart overlay (no readable text), bright colors, child-friendly infographic style"
+      ],
+      "caption": "Kratka priča: Nike je 1984. ponudio Michaelu Jordanu početni ugovor koji je izgledao skromno, ali ugovor i royalties su stvorili Jordan Brand — danas brend vredan milijarde i stalni izvor prihoda za Jordana. Izvori: Forbes, Nike investor.",
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Prvi ugovor iz 1984. bio je relativno malen",
+            "accent": false
+          },
+          {
+            "text": "$500.000 GODIŠNJE",
+            "accent": true
+          },
+          {
+            "text": "ali je davao procenat od svake prodaje patika",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "text": "Nike je 1984. potpisao MJ-a na ugovor sa početnom godišnjom isplatom $500.000; najvažnije su bile ča",
+            "tag": "izvor: Forbes"
+          },
+          {
+            "text": "Povrh toga MJ je dobio procenat od svake prodate patike, što je omogućilo rast prihoda kako su patke",
+            "tag": "izvor: Forbes"
+          },
+          {
+            "text": "NBA zabrana i reklame su stvorile potražnju i mit o proizvodu, što je ubrzalo prodaju modela Air",
+            "tag": "izvor: Forbes"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim": "Michael Jordan je 1984. potpisao ugovor sa Nikeom od $500.000 godišnje; ključni prihod dolazi od royalties.",
+          "source_urls": [
+            "https://www.forbes.com/sites/kurtbadenhausen/2020/04/19/michael-jordan-and-the-last-dance-by-the-numbers/"
+          ]
+        },
+        {
+          "claim": "Jordan Brand je napravio $3,1 MILIJARDA wholesale prihoda u fiskalnoj 2019. godini.",
+          "source_urls": [
+            "https://www.forbes.com/sites/kurtbadenhausen/2020/04/19/michael-jordan-and-the-last-dance-by-the-numbers/",
+            "https://investors.nike.com/files/doc_financials/2024/q4/FY24-Q4-Combined-NIKE-Press-Release-Schedules-FINAL.pdf"
+          ]
+        },
+        {
+          "claim": "Rane Jordan patike koje je MJ nosio postižu rekordne aukcijske cene, pokazujući kolekcionarski uticaj brenda.",
+          "source_urls": [
+            "https://www.forbes.com/sites/cassellferere/2021/10/26/diverse-luxury-becomes-evident-as-sothebys-auctions-rare-michael-jordan-nike-sneakers-for-15-million/"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "Forbes",
+          "title": "Michael Jordan And ‘The Last Dance’: By The Numbers",
+          "url": "https://www.forbes.com/sites/kurtbadenhausen/2020/04/19/michael-jordan-and-the-last-dance-by-the-numbers/"
+        },
+        {
+          "publisher": "Forbes",
+          "title": "Sotheby’s Auctions Rare Michael Jordan Nike Sneakers For $1.472 Million",
+          "url": "https://www.forbes.com/sites/cassellferere/2021/10/26/diverse-luxury-becomes-evident-as-sothebys-auctions-rare-michael-jordan-nike-sneakers-for-15-million/"
+        },
+        {
+          "publisher": "NIKE Investors",
+          "title": "Nike supplemental and investor materials (Jordan Brand details)",
+          "url": "https://investors.nike.com/files/doc_financials/2024/q4/FY24-Q4-Combined-NIKE-Press-Release-Schedules-FINAL.pdf"
+        }
+      ],
+      "slide_count": 3
+    },
+    "searchUrls": [
+      "https://images.forbes.com/media/pdfs/2009/ii/Castimatidis_Briefing_Book.pdf",
+      "https://www.forbes.com/sites/kurtbadenhausen/2020/04/19/michael-jordan-and-the-last-dance-by-the-numbers/",
+      "https://www.forbes.com/sites/kurtbadenhausen/2019/08/28/the-nbas-richest-shoe-deals-lebron-kobe-and-durant-are-still-no-match-for-michael-jordan/",
+      "https://www.forbes.com/sites/seandeveney/2020/05/25/new-documentary-tells-story-of-nike-air-jordans-warts-and-all/",
+      "https://www.forbes.com/sites/kurtbadenhausen/2019/08/28/how-michael-jordan-will-make-145-million-in-2019/",
+      "https://www.forbes.com/sites/timnewcomb/2020/03/10/legendary-sports-agent-donald-dell---think-stan-smith-michael-jordan---still-making-tennis-deals/",
+      "https://www.forbes.com/sites/carlieporterfield/2020/08/14/the-most-expensive-shoes-in-history-michael-jordans-sneakers-sell-for-615000/",
+      "https://www.forbes.com/sites/darrenheitner/2015/12/07/what-to-make-of-nikes-lifetime-deal-with-lebron-james/",
+      "https://www.forbes.com/sites/nickdesantis/2016/08/16/michael-jordan-in-pictures-vintage-shots-from-his-early-career/",
+      "https://www.forbes.com/sites/kurtbadenhausen/2017/06/09/the-nbas-biggest-shoe-deals/",
+      "https://www.forbes.com/sites/mikeozanian/2014/06/14/4-lessons-from-michael-jordan-on-how-to-become-a-billionaire/",
+      "https://www.forbes.com/sites/kurtbadenhausen/2016/03/30/how-michael-jordan-will-make-more-than-any-other-athlete-in-the-world-this-year/",
+      "https://www.forbes.com/sites/cassellferere/2021/10/26/diverse-luxury-becomes-evident-as-sothebys-auctions-rare-michael-jordan-nike-sneakers-for-15-million/",
+      "https://investors.nike.com/files/doc_financials/2024/q4/FY24-Q4-Combined-NIKE-Press-Release-Schedules-FINAL.pdf",
+      "https://investors.nike.com/files/doc_financials/2017/Q4/NIKE-Inc.-FY17-10K-Filing.pdf",
+      "https://investors.nike.com/files/doc_financials/2003/10-K_FINAL.PDF",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY04_Nike_CR_report_original.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
+    ]
+  },
   "482210407584760071d59f0671983f6f739642f84a76c36f92770225adb4038c": {
     "saved_at": "2026-09-19T18:58:26.742Z",
     "schema_name": "trendypatike_verified_post",
@@ -2216,132 +2370,6 @@
       "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=29a7a29c035d6d9d319fb40e02356c47",
       "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
       "https://www.nike.com/t/air-jordan-1-low-se-r4hJb1/IR7560-010",
-      "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
-    ]
-  },
-  "b209a049665a063610869d4e1f118c3f93c2b2d65316ecdeb33431c8f38fd5d6": {
-    "saved_at": "2026-09-08T08:21:26.281Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "Zašto je Dior x Air Jordan 1 izazvao navalu kupaca — izvor provera",
-      "slide_count": 1,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "NE MOGU NAPRAVITI POST O DIOR X AIR JORDAN 1",
-            "accent": false
-          },
-          {
-            "text": "jer nema zvaničnih stranica o toj saradnji na nike.com ili about.nike.com",
-            "accent": true
-          }
-        ],
-        "subheadline": "Mogu da pretražim širi web ako želite."
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "PLACEHOLDER",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "fallback",
-            "text": "Nije korišćeno; zvanični Nike izvori o Dior x Air Jordan 1 nisu pronađeni."
-          },
-          {
-            "tag": "izvor",
-            "text": "Pregledani primeri: stranice Air Jordan 1 na nike.com i objava o Virgil Abloh projektu na about.nike"
-          },
-          {
-            "tag": "napomena",
-            "text": "Ako želite, tražim izveštaje sa drugih sajtova (novine, modni portali, aukcije)."
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "PLACEHOLDER",
-            "accent": false
-          }
-        ],
-        "facts": [
-          {
-            "tag": "fallback",
-            "text": "Nije korišćeno; nema dodatnih činjenica bez šire pretrage."
-          },
-          {
-            "tag": "akcija",
-            "text": "Recite ‘da’ i tražim poverljive izvore izvan nike domena."
-          }
-        ],
-        "question": "Da li da tražim šire izvore?"
-      },
-      "caption": "Ne mogu da pišem verodostojan tekst o tome za TrendyPatike dok ne nađem izvore na nike.com ili about.nike.com. Prijavite da li da pretražim širi internet i pronađem potvrđene izvore.",
-      "hashtags": [
-        "#Dior",
-        "#AirJordan1",
-        "#luksuz",
-        "#retkost",
-        "#TrendyPatike",
-        "#sneakernews"
-      ],
-      "image_prompts": [
-        "A long queue outside a Dior x Air Jordan 1 launch event, couture atelier backdrop meeting a basketball court, excited diverse crowd, exclusive ropes and paparazzi, daytime",
-        "Empty product page for Air Jordan 1 on nike.com, clear Nike branding, product grid visible, studio lighting",
-        "Virgil Abloh collaboration announcement on about.nike.com newsroom style, header image of designer and Nike logos, editorial layout"
-      ],
-      "sources": [
-        {
-          "title": "Nike Air Jordan 1 Shoes",
-          "publisher": "nike.com",
-          "url": "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok"
-        },
-        {
-          "title": "Virgil Abloh and Nike Announce New Design Project “The10”",
-          "publisher": "about.nike.com",
-          "url": "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Nisu pronađeni zvanični članci na nike.com ili about.nike.com koji dokumentuju saradnju DIOR X AIR JORDAN 1.",
-          "source_urls": [
-            "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
-            "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
-          ]
-        },
-        {
-          "claim": "Da bih dao tačne činjenice o zašto je model izazvao veliku navalu kupaca, potrebni su izveštaji iz modnih i aukcijskih izvora van Nike domena.",
-          "source_urls": [
-            "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
-            "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
-          ]
-        },
-        {
-          "claim": "Mogu nastaviti i pretražiti širi web za potvrdu datuma, cene i reakcija kupaca ako mi date dozvolu.",
-          "source_urls": [
-            "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
-            "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://www.nike.com/w/nike-air-jordan-1-shoes-4mqvfzaj85gzy7ok",
-      "https://www.nike.com/w/jordan-1-4fokyzabwsqzanjns",
-      "https://www.nike.com/launch/t/air-jordan-1-retro-high-passport/",
-      "https://about.nike.com/en/newsroom/releases/virgil-abloh-nike-the-10",
-      "https://www.nike.com/w/jordan-1-shoes-1onraz3aqegz4fokyzy7ok",
-      "https://www.nike.com/w/jordan-1-jordan-1-jordan-editions-shoes-4fokyz5y0tkzaj85gzy7ok",
-      "https://www.nike.com/t/air-jordan-1-low-womens-shoes-rJrHLw/DC0774-107",
-      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=1b61277c6c0669f7103531fd6d79689f",
-      "https://www.nike.com/w/jordan-1-shoes-4fokyzy7ok?msockid=29a7a29c035d6d9d319fb40e02356c47",
-      "https://www.nike.com/jordan/air-jordan-1?msockid=13898662cdd76f3a1801903acc0c6e95",
-      "https://www.nike.com/t/air-jordan-1-low-se-r4hJb1/IR7560-010",
-      "https://www.nike.com/w/jordan-1-557pqz8hfx3zaj85gzbdka",
       "https://media.about.nike.com/files/7619475d-be3f-485d-a635-7c837fe7edd8/JORDAN-WINGS-COLLECTION_Newsroom_Updated.pdf"
     ]
   }
