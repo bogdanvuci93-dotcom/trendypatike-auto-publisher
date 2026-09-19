@@ -103,6 +103,42 @@ jobs:
           git fetch origin main
           git status --short
 
+      - name: Reapply verified policy before second post
+        run: |
+          set -euo pipefail
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
+            data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+
+          python scripts/harden_content_policy.py
+          python scripts/fix_copy_overflow.py
+          python scripts/format_semantic_accents.py
+          python scripts/scroll_stop_policy.py
+          python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
+
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s and 'Forced verified fallback: skipping paid text research and verifier.' not in s:
+              raise SystemExit('force verified fallback patch anchor not found before second post')
+          if needle in s:
+              p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
+
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v27-two-post-reapply-comment-cta:" + JSON.stringify(post))/' src/index.mjs
+          grep -n "Forced verified fallback" src/index.mjs
+          grep -n "LAJKUJ + ZAPRATI ZA JOŠ" src/render.mjs
+          npm run check
+
       - name: Publish verified hype story 2
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
