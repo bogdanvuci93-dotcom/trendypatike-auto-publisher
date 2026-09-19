@@ -146,5 +146,10 @@
     "public/posts/2026-09-19-forrest-gump-nike-cortez-59ab0297ce01/02.jpg",
     "public/posts/2026-09-19-forrest-gump-nike-cortez-59ab0297ce01/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18018151700944388"
+    ],
+    "carousel_id": ""
+  }
 }
