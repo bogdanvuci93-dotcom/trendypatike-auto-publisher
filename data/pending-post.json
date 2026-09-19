@@ -166,5 +166,10 @@
     "public/posts/2026-09-19-nike-founder-phil-knight-start-6e557d0aec7d/02.jpg",
     "public/posts/2026-09-19-nike-founder-phil-knight-start-6e557d0aec7d/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18018153122944388"
+    ],
+    "carousel_id": ""
+  }
 }
