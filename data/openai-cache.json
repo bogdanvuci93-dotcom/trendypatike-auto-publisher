@@ -1,4 +1,145 @@
 {
+  "d8b5e1d46a25266a245af68055a2fa94c0f261620fcb472d530785cadd75f1f0": {
+    "saved_at": "2026-09-19T18:58:07.053Z",
+    "schema_name": "trendypatike_post",
+    "value": {
+      "cover": {
+        "subheadline": "Kratka priča o sceni koja je promenila jednu patiku",
+        "headline_lines": [
+          {
+            "text": "FORREST GUMP JE",
+            "accent": false
+          },
+          {
+            "text": "1994.",
+            "accent": true
+          },
+          {
+            "text": "NAPRAVIO NIKE CORTEZ PREPOZNATLJIVIM NA FILMU",
+            "accent": true
+          }
+        ]
+      },
+      "topic_title": "Kako je Forrest Gump pretvorio Nike Cortez u ikonu filma",
+      "hashtags": [
+        "#ForrestGump",
+        "#NikeCortez",
+        "#filmskePatike",
+        "#popkultura",
+        "#TrendyPatike",
+        "#sneakerstory"
+      ],
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Film je sačuvao sliku Cortez kao simbola; Nike je kasnije ponovo izdao model zbog tražnje",
+            "accent": false
+          },
+          {
+            "text": "NIKE REISSUE POTVRĐUJE STATUS",
+            "accent": true
+          }
+        ],
+        "question": "Hoćeš više priča o filmskim patikama?",
+        "facts": [
+          {
+            "text": "Nike je posle filma više puta vraćao Cortez u prodaju jer publika vezuje model uz film.",
+            "tag": "fakti"
+          },
+          {
+            "text": "GQ je izveo da je Nike ponovo izdao verziju poznatu kao „Forrest Gump“.",
+            "tag": "izvor"
+          }
+        ]
+      },
+      "image_prompts": [
+        "Cinematic long-distance running scene inspired by Forrest Gump, Tom Hanks running down an empty American road in white-red-blue Nike Cortez, shoe filling foreground, cinematic lighting, wide landscape, cinematic depth of field, model name Nike Cortez explicitly visible",
+        "Close-up of white Nike Cortez with red and blue trim on dusty asphalt, shoe occupies 70% of frame, visible stitching and rubber sole, cinematic warm light, macro detail of Cortez logo",
+        "Wide American road landscape at golden hour with a single runner wearing white-red-blue Nike Cortez, long perspective, cinematic film grain, clearly show Nike Cortez on feet, emotional lonely-road mood"
+      ],
+      "caption": "Forrest Gump (Tom Hanks) nosi bele NIKE CORTEZ u filmu iz 1994. — ta scena je vezala model za film i održala njegovu popularnost decenijama. Izvori: GQ, Nike.",
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Tom Hanks trči kroz ključne scene filma u belim, crveno-plavim NIKE CORTEZ",
+            "accent": false
+          },
+          {
+            "text": "Tom Hanks",
+            "accent": true
+          }
+        ],
+        "facts": [
+          {
+            "text": "Cortez je dizajnirao trener Bill Bowerman i prvi put je predstavljen 1972.",
+            "tag": "fakti"
+          },
+          {
+            "text": "Nike opisuje Cortez kao model koji je promenio standarde amortizacije i postao široko popularan.",
+            "tag": "izvor"
+          },
+          {
+            "text": "GQ beleži da je upravo povezanost sa filmom podstakla Nike da model ponovo izda.",
+            "tag": "izvor"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim": "Forrest Gump je učinio da Nike Cortez postane filmski simbol.",
+          "source_urls": [
+            "https://www.gq.com/story/nike-cortez-forest-gump-rerelease",
+            "https://www.nike.com/gb/a/cortez-history"
+          ]
+        },
+        {
+          "claim": "Cortez je originalno predstavljen 1972. kao trkačka patika dizajnirana od Billa Bowermana.",
+          "source_urls": [
+            "https://www.nike.com/gb/a/cortez-history"
+          ]
+        },
+        {
+          "claim": "GQ izveštava da je Nike ponovo izdao verziju poznatu kao 'Forrest Gump'.",
+          "source_urls": [
+            "https://www.gq.com/story/nike-cortez-forest-gump-rerelease"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "publisher": "GQ",
+          "title": "Nike Finally Re-Released Forrest Gump’s Iconic Cortez Sneakers",
+          "url": "https://www.gq.com/story/nike-cortez-forest-gump-rerelease"
+        },
+        {
+          "publisher": "Nike",
+          "title": "The history of the Nike Cortez",
+          "url": "https://www.nike.com/gb/a/cortez-history"
+        }
+      ],
+      "slide_count": 3
+    },
+    "searchUrls": [
+      "https://www.gq.com/story/nike-cortez-forest-gump-rerelease",
+      "https://investors.nike.com/files/doc_downloads/FY15-10-Year-History.pdf",
+      "https://www.nike.com/gb/a/cortez-history",
+      "https://about.nike.com/en/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/mx/a/la-historia-de-los-cortez/",
+      "https://www.nike.com/fr/a/cortez-histoire",
+      "https://about.nike.com/es-ES/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/launch/t/behind-the-design-brs-pack",
+      "https://www.nike.com/sg/t/cortez-textile-mens-shoes-HhM7W9",
+      "https://about.nike.com/es-419/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/it/a/la-storia-di-cortez",
+      "https://about.nike.com/fr/magazine/bill-bowerman-nike-s-original-innovator",
+      "https://www.nike.com/us/es/t/tenis-cortez-textile-Tlm9kW/HF0263-001",
+      "https://www.nike.com/ca/w/cortez-shoes-byfxzy7ok",
+      "https://investors.nike.com/files/doc_financials/2010/docs/NIKE_2010_10-K.pdf",
+      "https://media.about.nike.com/files/7bf37705-b9a3-4635-aa30-e45273c1b562/FY19-Nike-Inc.-Impact-Report.pdf",
+      "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY05_06_Nike_CR_Report_C_original.pdf",
+      "https://media.about.nike.com/files/7af8ba54-022a-42bd-9b96-2cede5b29c02/FY08_China_Corporate_Responsibility_Reporting_Supplement.pdf"
+    ]
+  },
   "42e6a485f6fe183349c15a5ffee2d8d12fae2e1226225878fcd867491c9478e6": {
     "saved_at": "2026-09-18T22:26:40.643Z",
     "schema_name": "trendypatike_verified_post",
@@ -2219,165 +2360,6 @@
       "https://report.adidas-group.com/2018/fileadmin/user_upload/adidas_Annual_Report_GB-2018_GroupMgmtReport_EN.pdf",
       "https://report.adidas-group.com/2024/en/_assets/downloads/annual-report-adidas-ar24.pdf",
       "https://www.adidas-group.com/en/about/history?utm_source=openai"
-    ]
-  },
-  "a2fb7ff2d351579a6d16eea532fcb809874b57523d6814a6daa49a9253250a63": {
-    "saved_at": "2026-09-08T08:03:27.881Z",
-    "schema_name": "trendypatike_post",
-    "value": {
-      "topic_title": "adidas je platio milijarde za Reebok, a godinama kasnije ga prodao: koliko je taj posao vredeo",
-      "slide_count": 3,
-      "cover": {
-        "headline_lines": [
-          {
-            "text": "ADIDAS JE KUPOVINO REEBOK",
-            "accent": false
-          },
-          {
-            "text": "2006",
-            "accent": true
-          },
-          {
-            "text": "A POSLE 15+ GODINA GA JE PRODAO",
-            "accent": false
-          }
-        ],
-        "subheadline": "Krupan posao koji je promenio obućarsku industriju"
-      },
-      "slide2": {
-        "headline_lines": [
-          {
-            "text": "ADIDAS JE REEBOK KUPIO 2006. GODINE",
-            "accent": false
-          },
-          {
-            "text": "2006",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "FENOMEN",
-            "text": "Adidas je 2006. preuzeo Reebok da ojača položaj protiv konkurenata poput Nike-a."
-          },
-          {
-            "tag": "IZVOR",
-            "text": "adidas izveštaji navode da je Reebok bio deo adidas grupacije od 2006. do procesa prodaje 2021–2022."
-          },
-          {
-            "tag": "SOURCE",
-            "text": "([adidas-group.com](https://www.adidas-group.com/en/media/press-releases/adidas-starts-divestiture-process-for-reebok?utm_source=openai))"
-          }
-        ]
-      },
-      "slide3": {
-        "headline_lines": [
-          {
-            "text": "REEBOK JE PRODAT ABG, UKUPNO",
-            "accent": false
-          },
-          {
-            "text": "€1,686 MILIONA",
-            "accent": true
-          }
-        ],
-        "facts": [
-          {
-            "tag": "DOGAĐAJ",
-            "text": "Adidas je 12. avgusta 2021. potpisao ugovor o prodaji; prenos je završen 28. februara 2022."
-          },
-          {
-            "tag": "POSLEDICA",
-            "text": "Deo novca od prodaje adidas je iskoristio za otkup sopstvenih akcija i vraćanje vrednosti deoničarim"
-          }
-        ],
-        "question": "Hoćemo li sledeći post o tome kako je Reebok danas?"
-      },
-      "caption": "Jednostavno: Adidas je kupio Reebok 2006. a zatim ga prodao kompaniji Authentic Brands Group — prodaja je formalno završena 28.02.2022. za ukupno €1,686 miliona. Izveštaji adidas grupe navode i da je deo prihoda iskorišćen za otkup akcija.",
-      "hashtags": [
-        "#adidas",
-        "#Reebok",
-        "#biznis",
-        "#akvizicije",
-        "#sneakervesti",
-        "#TrendyPatike",
-        "#milijarde"
-      ],
-      "image_prompts": [
-        "Close-up of a pile of adidas and Reebok sneakers on a dramatic boardroom table, stacks of printed contracts and a sale agreement page visible, brand names adidas and Reebok clearly shown, cinematic lighting",
-        "Adidas headquarters boardroom with a visible calendar showing 2006, an open file titled 'Reebok Acquisition 2006', and adidas and Reebok shoes on the table, medium shot",
-        "Authentic Brands Group signing scene with Reebok shoes and documents dated 28 February 2022 in focus, handshake in background, close-up on contract and €1,686,000,000 figure"
-      ],
-      "sources": [
-        {
-          "title": "adidas to sell Reebok to Authentic Brands Group",
-          "publisher": "adidas-group.com",
-          "url": "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group"
-        },
-        {
-          "title": "ANNUAL REPORT 2022 — divestiture details",
-          "publisher": "adidas-group.com",
-          "url": "https://report.adidas-group.com/2022/en/_assets/downloads/notes-adidas-ar22.pdf"
-        },
-        {
-          "title": "About Reebok",
-          "publisher": "reebok.com",
-          "url": "https://www.reebok.com/pages/about-reebok"
-        }
-      ],
-      "claims": [
-        {
-          "claim": "Adidas je započeo proces prodaje Reeboka u februaru 2021. i potpisao ugovor o prodaji 12.08.2021.",
-          "source_urls": [
-            "https://www.adidas-group.com/en/media/press-releases/adidas-starts-divestiture-process-for-reebok",
-            "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group"
-          ]
-        },
-        {
-          "claim": "Prodaja je završena 28.02.2022. uz ukupnu kupoprodajnu cenu €1,686 miliona.",
-          "source_urls": [
-            "https://report.adidas-group.com/2022/en/_assets/downloads/notes-adidas-ar22.pdf",
-            "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program"
-          ]
-        },
-        {
-          "claim": "Reebok i dalje postoji kao brend, o čemu piše i zvanični Reebok sajt.",
-          "source_urls": [
-            "https://www.reebok.com/pages/about-reebok"
-          ]
-        }
-      ]
-    },
-    "searchUrls": [
-      "https://report.adidas-group.com/2021/en/to-our-shareholders/letter-from-the-ceo.html",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-to-sell-reebok-to-authentic-brands-group",
-      "https://report.adidas-group.com/2021/en/consolidated-financial-statements/notes/general-information/03-discontinued-operations.html",
-      "https://report.adidas-group.com/2021/en/servicepages/downloads/files/annual-report-adidas-ar21.pdf",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-starts-divestiture-process-for-reebok",
-      "https://report.adidas-group.com/2021/en/consolidated-financial-statements/notes/general-information/01-general.html",
-      "https://report.adidas-group.com/2021/en/consolidated-financial-statements/independent-auditors-report.html",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-performed-well-in-a-challenging-environment-during-q3-2021",
-      "https://report.adidas-group.com/2022/en/_assets/downloads/notes-adidas-ar22.pdf",
-      "https://report.adidas-group.com/2020/en/consolidated-financial-statements/notes/additional-information/44-events-after-the-balance-sheet-date.html",
-      "https://report.adidas-group.com/2021/en/servicepages/downloads/files/financial-review-adidas-ar21.pdf",
-      "https://report.adidas-group.com/2021/de/an-unsere-aktionaerinnen-und-aktionaere/brief-des-vorstandsvorsitzenden.html",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-completes-divestiture-of-reebok-and-launches-new-share-buyback-program",
-      "https://report.adidas-group.com/2021/en/group-management-report-financial-review/business-performance/statement-of-financial-position-and-statement-of-cash-flows.html",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-delivers-strong-results-in-2021-and-expects-double-digit-sales-growth-in-2022",
-      "https://www.reebok.com/pages/about-reebok",
-      "https://www.reebok.com/pages/careers",
-      "https://www.reebok.com/pages/soccer",
-      "https://www.reebok.com/pages/classic-shoes",
-      "https://www.reebok.com/blogs/blog/shaq-q-and-a-12",
-      "https://www.reebok.com/pages/reebok-ltd",
-      "https://www.reebok.com/collections/reebok-x-tobe",
-      "https://news.reebok.com/latest-news/panini-america-x-reebok-hit-the-gridiron-with-emmitt-smith-sneaker---sports-card-collection--availab/s/64a85e00-6d03-4eeb-95a8-d01844eab477",
-      "https://www.reebok.com/collections/collaborations?current=1",
-      "https://www.reebok.com/collections/frontpage",
-      "https://www.reebok.com/?facets=Brand%3A%22Sport%22&page=1",
-      "https://www.reebok.com/blogs/news",
-      "https://brand.assets.reebok.com/image/upload/reebok_ruRU/documents/RULES_BOGO_20off.pdf",
-      "https://www.adidas-group.com/en/media/press-releases/adidas-starts-divestiture-process-for-reebok?utm_source=openai"
     ]
   }
 }
