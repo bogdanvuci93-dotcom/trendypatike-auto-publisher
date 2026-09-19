@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-19",
-  "stage": "ready",
+  "generated_at": "2026-09-19T19:12:01.771Z",
   "fingerprint": "6e557d0aec7d",
   "seed": {
     "id": "nike-founder-phil-knight-start",
@@ -160,11 +159,5 @@
       }
     ],
     "slide_count": 3
-  },
-  "image_paths": [
-    "public/posts/2026-09-19-nike-founder-phil-knight-start-6e557d0aec7d/01.jpg",
-    "public/posts/2026-09-19-nike-founder-phil-knight-start-6e557d0aec7d/02.jpg",
-    "public/posts/2026-09-19-nike-founder-phil-knight-start-6e557d0aec7d/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
