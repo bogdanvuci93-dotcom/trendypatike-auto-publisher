@@ -499,8 +499,19 @@
         "https://www.gq.com/story/michael-b-jordan-air-jordan-11-space-jam",
         "https://www.gq.com/story/greatest-movie-sneakers-of-all-time-1"
       ]
+    },
+    {
+      "date": "2026-09-19",
+      "topic_id": "forrest-gump-nike-cortez",
+      "seed_topic": "Kako je Forrest Gump pretvorio Nike Cortez u jednu od najprepoznatljivijih patika na filmu",
+      "topic_title": "Kako je Forrest Gump pretvorio Nike Cortez u ikonu filma",
+      "media_id": "18122729050681514",
+      "sources": [
+        "https://www.gq.com/story/nike-cortez-forest-gump-rerelease",
+        "https://www.nike.com/gb/a/cortez-history"
+      ]
     }
   ],
   "last_publish_date": "2026-09-19",
-  "last_media_id": "18109725727888500"
+  "last_media_id": "18122729050681514"
 }
