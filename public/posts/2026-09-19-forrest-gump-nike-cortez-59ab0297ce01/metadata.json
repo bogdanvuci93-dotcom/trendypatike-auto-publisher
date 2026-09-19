@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-19",
-  "stage": "ready",
+  "generated_at": "2026-09-19T18:59:30.625Z",
   "fingerprint": "59ab0297ce01",
   "seed": {
     "id": "forrest-gump-nike-cortez",
@@ -140,11 +139,5 @@
       }
     ],
     "slide_count": 3
-  },
-  "image_paths": [
-    "public/posts/2026-09-19-forrest-gump-nike-cortez-59ab0297ce01/01.jpg",
-    "public/posts/2026-09-19-forrest-gump-nike-cortez-59ab0297ce01/02.jpg",
-    "public/posts/2026-09-19-forrest-gump-nike-cortez-59ab0297ce01/03.jpg"
-  ],
-  "instagram": {}
+  }
 }
