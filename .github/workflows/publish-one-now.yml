@@ -1,5 +1,5 @@
 name: TrendyPatike Publish One Now
-# trigger: 2026-09-19-fresh-post-2-retry-economy-v27
+# trigger: 2026-09-19-fresh-post-2-retry-12k-v27
 
 on:
   push:
@@ -56,6 +56,10 @@ jobs:
           python scripts/background_responses_policy.py
           python scripts/require_real_images.py
           python scripts/economy_text_policy.py
+
+          sed -i 's/maxOutputTokens = 6000,/maxOutputTokens = 12000,/' src/openai.mjs
+          sed -i 's/Number(maxOutputTokens) || 6000, 7000/Number(maxOutputTokens) || 12000, 16000/' src/openai.mjs
+          grep -n "maxOutputTokens = 12000\|12000, 16000" src/openai.mjs
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
           sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v24-single-catchup:" + JSON.stringify(post))/' src/index.mjs
