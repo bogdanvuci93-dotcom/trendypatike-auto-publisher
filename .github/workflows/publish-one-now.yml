@@ -1,5 +1,5 @@
 name: TrendyPatike Publish One Now
-# trigger: 2026-09-19-fresh-post-2-retry-12k-v27
+# trigger: 2026-09-19-fresh-post-2-retry-three-topics-v27
 
 on:
   push:
@@ -81,7 +81,7 @@ jobs:
           BRAND_SITE: "trendypatike.com"
           DRY_RUN: "false"
           FORCE_RUN: "true"
-          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_TOPIC_ATTEMPTS: "3"
           MAX_OPENAI_CALLS: "8"
           SKIP_MAJOR_NEWS: "true"
           SERBIAN_AUDIENCE_NOW: "true"
