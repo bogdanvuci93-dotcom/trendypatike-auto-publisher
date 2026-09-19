@@ -510,8 +510,20 @@
         "https://www.gq.com/story/nike-cortez-forest-gump-rerelease",
         "https://www.nike.com/gb/a/cortez-history"
       ]
+    },
+    {
+      "date": "2026-09-19",
+      "topic_id": "nike-founder-phil-knight-start",
+      "seed_topic": "Kako je Phil Knight prodavao patike iz gepeka automobila pre nego što je Nike postao svetski gigant",
+      "topic_title": "Kako je Phil Knight prodavao patike iz gepeka pre nego što je Nike postao gigant",
+      "media_id": "18059369456623944",
+      "sources": [
+        "https://about.nike.com/en/magazine/how-nike-built-its-world-headquarters",
+        "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
+        "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
+      ]
     }
   ],
   "last_publish_date": "2026-09-19",
-  "last_media_id": "18122729050681514"
+  "last_media_id": "18059369456623944"
 }
