@@ -1,4 +1,4 @@
-trigger=2026-09-19T00:17:40+02:00
-policy=verified-hype-v26-topic-aware-comment-cta
-preflight=35400848052:success
-request=publish-two-now
+trigger=2026-09-19T20:55:10+02:00
+policy=verified-hype-v27-reapply-topic-comment-cta
+preflight=35462679704:success
+request=publish-two-again
