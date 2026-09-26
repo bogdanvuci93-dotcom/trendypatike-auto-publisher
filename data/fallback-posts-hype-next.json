@@ -1,122 +1,121 @@
 [
   {
     "seed": {
-      "id": "fallback-eminem-carhartt-aj4-227k",
-      "topic": "Kako je 10 Eminem x Carhartt Air Jordan 4 pari prikupilo 227.000 dolara na humanitarnoj aukciji",
-      "category": "Eminem / Air Jordan 4 / muzika / aukcija / novac",
-      "preferred_domains": ["sothebys.com", "shadyrecords.com"],
-      "visual_subject": "rare black Eminem x Carhartt Air Jordan 4 style sneaker in a premium auction display, hip-hop studio atmosphere, charity auction energy",
+      "id": "fallback-rihanna-puma-creeper-hours",
+      "topic": "Kako je Rihanna postala PUMA kreativna direktorka i pretvorila FENTY Creeper u rasprodat sneaker hit",
+      "category": "Rihanna / PUMA / FENTY / pevačica / hype / prodaja",
+      "preferred_domains": ["about.puma.com"],
+      "visual_subject": "Rihanna prominently in the foreground wearing fashion-forward streetwear with a PUMA FENTY Creeper style sneaker clearly visible, premium fashion campaign energy",
       "emergency_only": true
     },
     "post": {
       "force_local_images": true,
-      "topic_title": "10 Eminem x Carhartt Jordan 4 pari prikupilo je 227.000 $",
+      "topic_title": "Rihanna je PUMA Creeper pretvorila u rasprodat hit",
       "slide_count": 2,
       "cover": {
         "headline_lines": [
-          {"text": "SAMO 10 EMINEM x CARHARTT JORDAN 4 PARI", "accent": false},
-          {"text": "PRIKUPILO JE 227.000 $ NA AUKCIJI", "accent": true}
+          {"text": "RIHANNA JE POSTALA PUMA KREATIVNA DIREKTORKA", "accent": false},
+          {"text": "A NJEN PRVI FENTY CREEPER RASPRODAO SE ZA NEKOLIKO SATI", "accent": true}
         ],
-        "subheadline": "Jedna od najređih muzičkih sneaker saradnji pretvorena je u humanitarnu aukciju."
+        "subheadline": "Pevačica nije bila samo zaštitno lice — dobila je kreativnu ulogu i odmah napravila sneaker hype."
       },
       "slide2": {
         "headline_lines": [
-          {"text": "2015. SU EMINEM, CARHARTT I JORDAN NAPRAVILI EKSKLUZIVNI AJ4", "accent": false},
-          {"text": "DESET DODATNIH PARI PRODATO JE ZA DOBROTVORNE SVRHE I UKUPNO JE PRIKUPLJENO 227.000 $", "accent": true}
+          {"text": "PUMA JE 2014. NAJAVILA RIHANNU KAO GLOBALNU AMBASADORKU I ŽENSKU KREATIVNU DIREKTORKU", "accent": false},
+          {"text": "CREEPER JE 2015. POSTAO NJEN PRVI FENTY SNEAKER I RASPRODAO SE U ROKU OD NEKOLIKO SATI", "accent": true}
         ],
         "facts": [
-          {"tag": "2015", "text": "Sotheby's navodi da su Eminem, Carhartt i Jordan Brand napravili ekskluzivni Air Jordan 4 Black Chrome, prvobitno namenjen prijateljima i porodici repera."},
-          {"tag": "10 PARI", "text": "Shady Records je 2015. objavio da će tačno deset pari friends-and-family izdanja biti ponuđeno na eBay aukciji za Marshall Mathers Foundation."},
-          {"tag": "227.000 $", "text": "Sotheby's navodi da je aukcija prikupila ukupno 227.000 dolara i podržala Community Music School pri Michigan State University."}
+          {"tag": "2014", "text": "PUMA je u decembru 2014. objavila višegodišnje partnerstvo sa Rihannom i imenovala je globalnom ambasadorkom i Women’s Creative Director."},
+          {"tag": "2015", "text": "Creeper je bio prvi sneaker PUMA by Rihanna pod FENTY imenom i lansiran je u septembru 2015."},
+          {"tag": "SATI", "text": "PUMA je u poslovnom izveštaju navela da je prvi ograničeni Creeper izazvao ogromnu pažnju i rasprodao se u roku od nekoliko sati."}
         ]
       },
       "slide3": {
         "headline_lines": [
-          {"text": "OD REPEROVOG POKLONA DO KOLEKCIONARSKOG TROFEJA", "accent": false},
-          {"text": "RETKOST I PRIČA IZA MODELA GURAJU GA U VRH SNEAKER KOLEKCIONARSTVA", "accent": true}
+          {"text": "RIHANNA NIJE SAMO REKLAMIRALA BREND — UŠLA JE U DIZAJN", "accent": false},
+          {"text": "A FENTY x PUMA JE POSTAO SPOJ MUZIKE, MODE I SNEAKER KULTURE", "accent": true}
         ],
         "facts": [
-          {"tag": "RETKO", "text": "Model je zbog veoma male količine postao jedan od najtraženijih Air Jordan 4 collabova među kolekcionarima."},
-          {"tag": "MUZIKA + PATIKE", "text": "Priča spaja Eminemovu muzičku karijeru, Jordan kulturu, workwear estetiku Carhartta i humanitarnu aukciju."}
+          {"tag": "ULOGA", "text": "PUMA je Rihanni dala kreativnu ulogu u ženskim kolekcijama, pa je partnerstvo išlo dalje od klasičnog celebrity endorsement ugovora."},
+          {"tag": "HYPE", "text": "PUMA je kasnije navodila da su nove Creeper kolor-varijante tokom 2016. više puta rasprodavane širom sveta za svega nekoliko sati."}
         ],
-        "question": "Koliko biste vi platili za jedan od samo nekoliko ovakvih pari?"
+        "question": "Da li je Rihanna bila jedan od najboljih celebrity poteza koje je PUMA napravila?"
       },
-      "caption": "Jedna od najluđih veza između repa, patika i aukcija: Eminem, Carhartt i Jordan Brand su 2015. napravili ekskluzivni Air Jordan 4 Black Chrome. Shady Records je najavio da će 10 pari biti ponuđeno na eBay aukciji za Marshall Mathers Foundation, a Sotheby's navodi da je ukupno prikupljeno 227.000 $. Novac je podržao Community Music School pri Michigan State University. Mali broj pari + Eminem ime + Jordan 4 silueta = kolekcionarski trofej.",
-      "hashtags": ["#TrendyPatike", "#Eminem", "#AirJordan4", "#Jordan", "#SneakerHype", "#Patike"],
+      "caption": "Rihanna nije samo pozirala u PUMA kampanjama. PUMA ju je krajem 2014. imenovala globalnom ambasadorkom i Women’s Creative Director, a njen prvi FENTY sneaker — Creeper — stigao je 2015. PUMA je kasnije navela da je ograničeno izdanje izazvalo ogromnu pažnju i rasprodalo se u roku od nekoliko sati. To je bio trenutak kada su muzika, moda i sneaker kultura ozbiljno eksplodirali u jednom proizvodu.",
+      "hashtags": ["#TrendyPatike", "#Rihanna", "#PUMA", "#FENTY", "#SneakerHype", "#Patike"],
       "image_prompts": [
-        "premium editorial product photograph of a rare black workwear-inspired Air Jordan 4 style sneaker in an auction display case, hip-hop recording studio lights in background, dramatic contrast, no readable text, no watermark",
-        "charity sneaker auction scene with ten rare black basketball sneakers displayed in luxury cases, auction paddles and hip-hop studio atmosphere, cinematic realistic photography, no readable text",
-        "close editorial detail of black canvas basketball sneaker with metallic hardware and premium collector display, dramatic auction lighting, realistic materials, no readable text"
+        "RIHANNA must be the dominant recognizable subject in the foreground, fashion-editorial portrait, confident pose in premium streetwear, black-and-white platform creeper style sneaker clearly visible near camera, PUMA FENTY campaign atmosphere, dramatic studio lighting, 4:5 vertical, no readable text, no watermark",
+        "Rihanna in a high-fashion sneaker design studio reviewing platform sneaker samples, celebrity clearly recognizable and central, premium campaign photography, design sketches and footwear around her, no readable text",
+        "Rihanna walking through a fashion-week backstage setting with platform creeper sneakers, photographers and crowd blurred behind her, celebrity in sharp focus, luxury streetwear editorial, no readable text"
       ],
       "sources": [
-        {"title": "Nike Air Jordan IV Retro 'Eminem x Carhartt'", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"},
-        {"title": "Eminem X Jordan X Carhartt Collaboration", "publisher": "Shady Records", "url": "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"}
+        {"title": "RIHANNA TO PARTNER WITH PUMA", "publisher": "PUMA", "url": "https://about.puma.com/en/newsroom/news/rihanna-partner-puma"},
+        {"title": "RESULTS IN LINE WITH EXPECTATIONS", "publisher": "PUMA", "url": "https://about.puma.com/en/newsroom/news/results-line-expectations"}
       ],
       "claims": [
-        {"claim": "In 2015 Eminem, Carhartt and Jordan Brand created the exclusive Air Jordan IV Black Chrome collaboration.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11", "https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/"]},
-        {"claim": "Ten pairs were offered through eBay to benefit the Marshall Mathers Foundation.", "source_urls": ["https://www.shadyrecords.com/2015/11/03/eminem-x-jordan-x-carhartt-collaboration/", "https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]},
-        {"claim": "The auction raised 227,000 dollars and supported Michigan State University's Community Music School.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/scarce-air/nike-air-jordan-iv-retro-eminem-x-carhartt-size-11"]}
+        {"claim": "PUMA announced Rihanna as a global ambassador and Women's Creative Director in December 2014.", "source_urls": ["https://about.puma.com/en/newsroom/news/rihanna-partner-puma"]},
+        {"claim": "The Creeper was Rihanna's first sneaker under the FENTY label and launched in 2015.", "source_urls": ["https://about.puma.com/en/newsroom/news/results-line-expectations"]},
+        {"claim": "PUMA said the first limited Creeper generated unprecedented attention and sold out within hours.", "source_urls": ["https://about.puma.com/en/newsroom/news/results-line-expectations"]}
       ]
     }
   },
   {
     "seed": {
-      "id": "fallback-air-dior-5m-demand",
-      "topic": "Kako je Dior x Air Jordan 1 napravio milionsku potražnju za luksuznom patikom",
-      "category": "Dior / Air Jordan 1 / luksuz / hype / potražnja",
-      "preferred_domains": ["dior.com", "gq.com", "nike.com"],
-      "visual_subject": "Dior x Air Jordan 1 style luxury basketball sneaker in a Paris couture atelier, premium grey leather, enormous exclusive release demand",
+      "id": "fallback-bad-bunny-adidas-forum-global-hype",
+      "topic": "Kako je Bad Bunny od adidas Forum Low napravio globalnu celebrity sneaker saradnju",
+      "category": "Bad Bunny / adidas / Forum / pevač / hype",
+      "preferred_domains": ["news.adidas.com", "adidas.com"],
+      "visual_subject": "Bad Bunny prominently in the foreground wearing an adidas Forum Buckle Low inspired sneaker, concert-meets-streetwear editorial, Puerto Rico energy",
       "emergency_only": true
     },
     "post": {
       "force_local_images": true,
-      "topic_title": "Više od 5 miliona ljudi pokušalo je da kupi Dior x Air Jordan 1",
+      "topic_title": "Bad Bunny je adidas Forum pretvorio u globalni hype",
       "slide_count": 2,
       "cover": {
         "headline_lines": [
-          {"text": "PREKO 5 MILIONA LJUDI HTELO JE DIOR x AIR JORDAN 1", "accent": true},
-          {"text": "A NAPRAVLJENO JE SAMO OKO 13.000 PARI", "accent": false}
+          {"text": "BAD BUNNY NIJE SAMO STAVIO IME NA ADIDAS PATIKU", "accent": false},
+          {"text": "OD 2021. NJEGOVI DROPOVI POSTALI SU GLOBALNI SNEAKER HYPE", "accent": true}
         ],
-        "subheadline": "Luksuzna moda i sneaker hype sudarili su se u jednom od najtraženijih Jordan dropova."
+        "subheadline": "Prvi Forum Buckle Low inspirisao je običnom šoljom kafe — i otvorio višegodišnju saradnju."
       },
       "slide2": {
         "headline_lines": [
-          {"text": "DIOR JE ZADRŽAO PREPOZNATLJIVU AJ1 SILUETU, ALI JU JE RADIO KAO LUKSUZNI PROIZVOD", "accent": false},
-          {"text": "GQ NAVODI DA JE POTRAŽNJA PREŠLA 5 MILIONA REGISTRACIJA ZA OKO 13.000 PARI", "accent": true}
+          {"text": "ADIDAS I BAD BUNNY SU 2021. POČELI DUGOROČNO PARTNERSTVO MODELOM THE FIRST CAFÉ", "accent": false},
+          {"text": "FORUM LOW JE DOBIO KAIŠ, DUPLI JEZIK I DETALJE KOJI SU ODMAH NOSILI NJEGOV POTPIS", "accent": true}
         ],
         "facts": [
-          {"tag": "AIR DIOR", "text": "Dior je za Air Dior projekat zadržao prepoznatljivu Air Jordan 1 siluetu, uz italijansku kožu, Dior sivu boju i couture nivo izrade."},
-          {"tag": "13.000", "text": "GQ je izvestio da je globalno napravljeno oko 13.000 pari Dior x Air Jordan 1."},
-          {"tag": "5+ MILIONA", "text": "Isti izvor navodi da je više od pet miliona ljudi pokušalo da dođe do para na lansiranju, što pokazuje razmeru hypea."}
+          {"tag": "2021", "text": "adidas Originals je u martu 2021. zvanično najavio početak dugoročnog kreativnog partnerstva sa Bad Bunnyjem."},
+          {"tag": "FIRST CAFÉ", "text": "Prvi model bio je Forum Buckle Low 'The First Café', inspirisan šoljom kafe koja započinje njegovu dnevnu rutinu."},
+          {"tag": "GLOBALNO", "text": "adidas je u svojoj arhivi saradnje kasnije opisao naredne godine kao niz globalnih dropova koji su se rasprodavali i širili partnerstvo kroz nove siluete."}
         ]
       },
       "slide3": {
         "headline_lines": [
-          {"text": "KOŠARKAŠKA PATIKA JE UŠLA U SVET VISOKE MODE", "accent": false},
-          {"text": "A OGRANIČENA KOLIČINA JE PRETVORILA DROP U GLOBALNU TRKU ZA PAR", "accent": true}
+          {"text": "BAD BUNNY JE U FORUM UNEO SVOJ LIČNI STIL UMESTO OBIČNOG CELEBRITY LOGOA", "accent": false},
+          {"text": "ZATO JE SARADNJA PRERASLA JEDAN MODEL I POSTALA ČITAVA SNEAKER LINIJA", "accent": true}
         ],
         "facts": [
-          {"tag": "LUKSUZ", "text": "Air Dior je spojio Jordan nasleđe sa Dior materijalima i načinom izrade koji je bliži luksuznim torbama nego klasičnoj sportskoj obući."},
-          {"tag": "HYPE", "text": "Ogroman odnos između broja zainteresovanih i dostupnih pari postao je deo reputacije ovog modela."}
+          {"tag": "DIZAJN", "text": "Prvi Forum imao je premium kožu, antilop, prepoznatljiv kaiš i detalje povezane sa Bad Bunny estetikom."},
+          {"tag": "NASTAVAK", "text": "Saradnja je nastavila da se širi na više modela i kampanja, što adidas opisuje kao višegodišnju kreativnu priču kroz obuću."}
         ],
-        "question": "Da li biste čekali drop sa milionima drugih ljudi zbog jednog para?"
+        "question": "Koja Bad Bunny x adidas patika vam je najbolja?"
       },
-      "caption": "Dior x Air Jordan 1 je jedan od najboljih primera kada luksuz i sneaker kultura potpuno eksplodiraju zajedno. Dior je zadržao AJ1 oblik, ali ga je izradio kao luksuzni proizvod sa italijanskom kožom i couture detaljima. GQ je izvestio da je napravljeno oko 13.000 pari, dok je više od 5 miliona ljudi pokušalo da ih kupi. To je otprilike stotine zainteresovanih na svaki dostupan par — zato je Air Dior odmah postao simbol ekstremne ekskluzivnosti.",
-      "hashtags": ["#TrendyPatike", "#AirDior", "#Dior", "#AirJordan1", "#SneakerHype", "#Jordan"],
+      "caption": "Bad Bunny i adidas nisu krenuli klasičnom formulom 'ime slavne osobe + logo'. Partnerstvo je zvanično počelo 2021. modelom Forum Buckle Low 'The First Café', inspirisanim njegovom jutarnjom kafom. Patika je dobila kaiš, dupli jezik i detalje koji su odmah nosili njegov stil, a saradnja se kasnije proširila na niz novih globalnih dropova. adidas je danas opisuje kao višegodišnju priču koja je iz Forum eksperimenta prerasla u čitav sneaker svet.",
+      "hashtags": ["#TrendyPatike", "#BadBunny", "#adidas", "#ForumLow", "#SneakerHype", "#Patike"],
       "image_prompts": [
-        "luxury grey high-top basketball sneaker inspired by Dior and Air Jordan 1 displayed in a Paris couture atelier, premium Italian leather, dramatic fashion editorial lighting, one dominant focal sneaker, no readable text, no watermark",
-        "exclusive luxury sneaker release scene with a single grey high-top basketball sneaker in a glass display, huge blurred crowd waiting outside a fashion boutique, premium cinematic photography, no readable text",
-        "macro editorial photograph of premium grey leather high-top sneaker construction, fine stitching and luxury atelier tools, couture craftsmanship mood, no readable text"
+        "BAD BUNNY must be the dominant recognizable subject in the foreground, Puerto Rican superstar in bold streetwear wearing an adidas Forum Buckle Low inspired sneaker, concert lights mixed with sneaker campaign photography, confident pose, celebrity face and shoe both clearly visible, 4:5 vertical, no readable text, no watermark",
+        "Bad Bunny in a creative sneaker studio examining coffee-toned Forum buckle sneakers, celebrity clearly recognizable and central, Puerto Rico-inspired warm atmosphere, premium editorial photography, no readable text",
+        "Bad Bunny walking through a concert backstage corridor wearing statement Forum-style sneakers, fans and stage lights blurred behind, celebrity in sharp foreground focus, premium streetwear campaign, no readable text"
       ],
       "sources": [
-        {"title": "AIR DIOR - Shoes", "publisher": "Dior", "url": "https://www.dior.com/couture/var/dior/storage/original/application/eebf40d9db7bd39bb8a2d61670783fbc.pdf"},
-        {"title": "Air Jordan 1 platform boot", "publisher": "GQ", "url": "https://www.gq.com/story/air-jordan-1-platform-boot"},
-        {"title": "Air Jordan 1 archive", "publisher": "Nike", "url": "https://www.nike.com/jordan/air-jordan-1/"}
+        {"title": "THE BEGINNING OF A CREATIVE PARTNERSHIP WITH BAD BUNNY", "publisher": "adidas", "url": "https://news.adidas.com/originals/the-beginning-of-a-creative-partnership-with-bad-bunny/s/e55bd198-1d25-4ca9-81db-490987027270"},
+        {"title": "Bad Bunny Archive: The Complete adidas Collaboration Timeline", "publisher": "adidas", "url": "https://www.adidas.com/us/blog/bad-bunny-archive-the-complete-adidas-collaboration-timeline"}
       ],
       "claims": [
-        {"claim": "Dior's Air Dior project kept the recognizable Air Jordan 1 shape while using luxury materials and couture-level construction.", "source_urls": ["https://www.dior.com/couture/var/dior/storage/original/application/eebf40d9db7bd39bb8a2d61670783fbc.pdf"]},
-        {"claim": "GQ reported that approximately 13,000 Dior x Air Jordan 1 pairs were made globally.", "source_urls": ["https://www.gq.com/story/air-jordan-1-platform-boot"]},
-        {"claim": "GQ reported that more than 5 million people tried to buy the Dior x Air Jordan 1 at launch.", "source_urls": ["https://www.gq.com/story/air-jordan-1-platform-boot"]}
+        {"claim": "adidas announced the beginning of a long-term creative partnership with Bad Bunny in March 2021.", "source_urls": ["https://news.adidas.com/originals/the-beginning-of-a-creative-partnership-with-bad-bunny/s/e55bd198-1d25-4ca9-81db-490987027270"]},
+        {"claim": "The first installment was the Forum Buckle Low 'The First Café', inspired by Bad Bunny's daily coffee routine.", "source_urls": ["https://news.adidas.com/originals/the-beginning-of-a-creative-partnership-with-bad-bunny/s/e55bd198-1d25-4ca9-81db-490987027270"]},
+        {"claim": "adidas' collaboration archive describes the partnership as expanding from early Forum experiments into sold-out global drops and later projects.", "source_urls": ["https://www.adidas.com/us/blog/bad-bunny-archive-the-complete-adidas-collaboration-timeline"]}
       ]
     }
   }
