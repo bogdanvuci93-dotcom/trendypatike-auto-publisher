@@ -130,5 +130,10 @@
     "public/posts/2026-09-26-fallback-bad-bunny-adidas-forum-global-hype-a65146b937a9/01.jpg",
     "public/posts/2026-09-26-fallback-bad-bunny-adidas-forum-global-hype-a65146b937a9/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019106699944388"
+    ],
+    "carousel_id": ""
+  }
 }
