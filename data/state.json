@@ -533,8 +533,19 @@
         "https://about.puma.com/en/newsroom/news/rihanna-partner-puma",
         "https://about.puma.com/en/newsroom/news/results-line-expectations"
       ]
+    },
+    {
+      "date": "2026-09-26",
+      "topic_id": "fallback-bad-bunny-adidas-forum-global-hype",
+      "seed_topic": "Kako je Bad Bunny od adidas Forum Low napravio globalnu celebrity sneaker saradnju",
+      "topic_title": "Bad Bunny je adidas Forum pretvorio u globalni hype",
+      "media_id": "18126702538832520",
+      "sources": [
+        "https://news.adidas.com/originals/the-beginning-of-a-creative-partnership-with-bad-bunny/s/e55bd198-1d25-4ca9-81db-490987027270",
+        "https://www.adidas.com/us/blog/bad-bunny-archive-the-complete-adidas-collaboration-timeline"
+      ]
     }
   ],
   "last_publish_date": "2026-09-26",
-  "last_media_id": "17971821339151265"
+  "last_media_id": "18126702538832520"
 }
