@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-26",
-  "stage": "ready",
+  "generated_at": "2026-09-26T13:51:11.437Z",
   "fingerprint": "a65146b937a9",
   "seed": {
     "id": "fallback-bad-bunny-adidas-forum-global-hype",
@@ -125,10 +124,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-26-fallback-bad-bunny-adidas-forum-global-hype-a65146b937a9/01.jpg",
-    "public/posts/2026-09-26-fallback-bad-bunny-adidas-forum-global-hype-a65146b937a9/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
