@@ -522,8 +522,19 @@
         "https://about.nike.com/en/magazine/nike-swoosh-logo-history",
         "https://media.about.nike.com/files/d51a3065-bced-431b-874f-8aa9c9b3aa72/FY01_Nike_CR_report_original.pdf"
       ]
+    },
+    {
+      "date": "2026-09-26",
+      "topic_id": "fallback-rihanna-puma-creeper-hours",
+      "seed_topic": "Kako je Rihanna postala PUMA kreativna direktorka i pretvorila FENTY Creeper u rasprodat sneaker hit",
+      "topic_title": "Rihanna je PUMA Creeper pretvorila u rasprodat hit",
+      "media_id": "17971821339151265",
+      "sources": [
+        "https://about.puma.com/en/newsroom/news/rihanna-partner-puma",
+        "https://about.puma.com/en/newsroom/news/results-line-expectations"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-19",
-  "last_media_id": "18059369456623944"
+  "last_publish_date": "2026-09-26",
+  "last_media_id": "17971821339151265"
 }
