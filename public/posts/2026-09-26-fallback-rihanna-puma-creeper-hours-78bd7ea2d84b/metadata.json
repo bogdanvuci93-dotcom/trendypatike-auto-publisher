@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-26",
-  "stage": "ready",
+  "generated_at": "2026-09-26T13:49:52.850Z",
   "fingerprint": "78bd7ea2d84b",
   "seed": {
     "id": "fallback-rihanna-puma-creeper-hours",
@@ -124,10 +123,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-26-fallback-rihanna-puma-creeper-hours-78bd7ea2d84b/01.jpg",
-    "public/posts/2026-09-26-fallback-rihanna-puma-creeper-hours-78bd7ea2d84b/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
