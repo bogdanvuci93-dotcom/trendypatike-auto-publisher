@@ -1,1 +1,128 @@
-{}
+{
+  "date": "2026-09-26",
+  "stage": "verified",
+  "fingerprint": "78bd7ea2d84b",
+  "seed": {
+    "id": "fallback-rihanna-puma-creeper-hours",
+    "topic": "Kako je Rihanna postala PUMA kreativna direktorka i pretvorila FENTY Creeper u rasprodat sneaker hit",
+    "category": "Rihanna / PUMA / FENTY / pevačica / hype / prodaja",
+    "preferred_domains": [
+      "about.puma.com"
+    ],
+    "visual_subject": "Rihanna prominently in the foreground wearing fashion-forward streetwear with a PUMA FENTY Creeper style sneaker clearly visible, premium fashion campaign energy",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "Rihanna je PUMA Creeper pretvorila u rasprodat hit",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "RIHANNA JE POSTALA PUMA KREATIVNA DIREKTORKA",
+          "accent": false
+        },
+        {
+          "text": "A NJEN PRVI FENTY CREEPER RASPRODAO SE ZA NEKOLIKO SATI",
+          "accent": true
+        }
+      ],
+      "subheadline": "Pevačica nije bila samo zaštitno lice, dobila je kreativnu ulogu i odmah napravila sneaker hype."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "PUMA JE 2014. NAJAVILA RIHANNU KAO GLOBALNU AMBASADORKU I ŽENSKU KREATIVNU DIREKTORKU",
+          "accent": false
+        },
+        {
+          "text": "CREEPER JE 2015. POSTAO NJEN PRVI FENTY SNEAKER I RASPRODAO SE U ROKU OD NEKOLIKO SATI",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "2014",
+          "text": "PUMA je u decembru 2014. objavila višegodišnje partnerstvo sa Rihannom i imenovala je globalnom ambasadorkom i Women’s Creative Director."
+        },
+        {
+          "tag": "2015",
+          "text": "Creeper je bio prvi sneaker PUMA by Rihanna pod FENTY imenom i lansiran je u septembru 2015."
+        },
+        {
+          "tag": "SATI",
+          "text": "PUMA je u poslovnom izveštaju navela da je prvi ograničeni Creeper izazvao ogromnu pažnju i rasprodao se u roku od nekoliko sati."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "RIHANNA NIJE SAMO REKLAMIRALA BREND, UŠLA JE U DIZAJN",
+          "accent": false
+        },
+        {
+          "text": "A FENTY x PUMA JE POSTAO SPOJ MUZIKE, MODE I SNEAKER KULTURE",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "ULOGA",
+          "text": "PUMA je Rihanni dala kreativnu ulogu u ženskim kolekcijama, pa je partnerstvo išlo dalje od klasičnog celebrity endorsement ugovora."
+        },
+        {
+          "tag": "HYPE",
+          "text": "PUMA je kasnije navodila da su nove Creeper kolor-varijante tokom 2016. više puta rasprodavane širom sveta za svega nekoliko sati."
+        }
+      ],
+      "question": "Da li je Rihanna bila jedan od najboljih celebrity poteza koje je PUMA napravila?"
+    },
+    "caption": "Rihanna nije samo pozirala u PUMA kampanjama. PUMA ju je krajem 2014. imenovala globalnom ambasadorkom i Women’s Creative Director, a njen prvi FENTY sneaker, Creeper, stigao je 2015. PUMA je kasnije navela da je ograničeno izdanje izazvalo ogromnu pažnju i rasprodalo se u roku od nekoliko sati. To je bio trenutak kada su muzika, moda i sneaker kultura ozbiljno eksplodirali u jednom proizvodu.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#Rihanna",
+      "#PUMA",
+      "#FENTY",
+      "#SneakerHype",
+      "#Patike"
+    ],
+    "image_prompts": [
+      "RIHANNA must be the dominant recognizable subject in the foreground, fashion-editorial portrait, confident pose in premium streetwear, black-and-white platform creeper style sneaker clearly visible near camera, PUMA FENTY campaign atmosphere, dramatic studio lighting, 4:5 vertical, no readable text, no watermark",
+      "Rihanna in a high-fashion sneaker design studio reviewing platform sneaker samples, celebrity clearly recognizable and central, premium campaign photography, design sketches and footwear around her, no readable text",
+      "Rihanna walking through a fashion-week backstage setting with platform creeper sneakers, photographers and crowd blurred behind her, celebrity in sharp focus, luxury streetwear editorial, no readable text"
+    ],
+    "sources": [
+      {
+        "title": "RIHANNA TO PARTNER WITH PUMA",
+        "publisher": "PUMA",
+        "url": "https://about.puma.com/en/newsroom/news/rihanna-partner-puma"
+      },
+      {
+        "title": "RESULTS IN LINE WITH EXPECTATIONS",
+        "publisher": "PUMA",
+        "url": "https://about.puma.com/en/newsroom/news/results-line-expectations"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "PUMA announced Rihanna as a global ambassador and Women's Creative Director in December 2014.",
+        "source_urls": [
+          "https://about.puma.com/en/newsroom/news/rihanna-partner-puma"
+        ]
+      },
+      {
+        "claim": "The Creeper was Rihanna's first sneaker under the FENTY label and launched in 2015.",
+        "source_urls": [
+          "https://about.puma.com/en/newsroom/news/results-line-expectations"
+        ]
+      },
+      {
+        "claim": "PUMA said the first limited Creeper generated unprecedented attention and sold out within hours.",
+        "source_urls": [
+          "https://about.puma.com/en/newsroom/news/results-line-expectations"
+        ]
+      }
+    ]
+  }
+}
