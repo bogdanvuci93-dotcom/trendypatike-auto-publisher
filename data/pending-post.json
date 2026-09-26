@@ -129,5 +129,10 @@
     "public/posts/2026-09-26-fallback-rihanna-puma-creeper-hours-78bd7ea2d84b/01.jpg",
     "public/posts/2026-09-26-fallback-rihanna-puma-creeper-hours-78bd7ea2d84b/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019106474944388"
+    ],
+    "carousel_id": ""
+  }
 }
