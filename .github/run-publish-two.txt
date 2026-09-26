@@ -1,4 +1,4 @@
-trigger=2026-09-19T20:55:10+02:00
-policy=verified-hype-v27-reapply-topic-comment-cta
-preflight=35462679704:success
-request=publish-two-again
+trigger=2026-09-26T15:48:00+02:00
+policy=celebrity-first-v28
+preflight=36246328847:success
+request=publish-rihanna-badbunny
