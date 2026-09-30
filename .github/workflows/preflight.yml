@@ -16,12 +16,14 @@ on:
       - "data/fallback-posts-safe.json"
       - "data/fallback-posts-safe-next.json"
       - "data/fallback-posts-hype-next.json"
+      - "data/fallback-posts-store-next.json"
       - "data/state.json"
       - "data/pending-post.json"
       - "data/openai-cache.json"
       - "package.json"
       - ".github/workflows/daily.yml"
       - ".github/workflows/publish-two-now.yml"
+      - ".github/workflows/publish-three-store-now.yml"
       - ".github/workflows/publish-one-retry-now.yml"
       - ".github/workflows/preflight.yml"
 
@@ -58,8 +60,9 @@ jobs:
           jq empty data/fallback-posts-safe.json
           jq empty data/fallback-posts-safe-next.json
           jq empty data/fallback-posts-hype-next.json
+          jq empty data/fallback-posts-store-next.json
           jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))' \
-            data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+            data/fallback-posts-store-next.json data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json data/fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
           mv /tmp/fallback-posts.json data/fallback-posts.json
 
           python scripts/harden_content_policy.py
