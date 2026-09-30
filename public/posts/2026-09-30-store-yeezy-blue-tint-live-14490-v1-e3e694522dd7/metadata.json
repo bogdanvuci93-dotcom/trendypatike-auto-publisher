@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-30",
-  "stage": "ready",
+  "generated_at": "2026-09-30T15:37:46.427Z",
   "fingerprint": "e3e694522dd7",
   "seed": {
     "id": "store-yeezy-blue-tint-live-14490-v1",
@@ -132,10 +131,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-30-store-yeezy-blue-tint-live-14490-v1-e3e694522dd7/01.jpg",
-    "public/posts/2026-09-30-store-yeezy-blue-tint-live-14490-v1-e3e694522dd7/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
