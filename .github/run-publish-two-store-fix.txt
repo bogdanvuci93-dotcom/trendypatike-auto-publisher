@@ -1,4 +1,4 @@
-trigger=2026-09-30T13:09:00+02:00
-policy=store-fix-v3-explicit-replacement
-preflight=36706191027:success
-request=retry-tn-triple-white-and-yeezy-static-black
+trigger=2026-09-30T17:35:00+02:00
+policy=store-fix-v4-unity-blue-tint
+preflight=36737697325:success
+request=publish-tn-unity-and-yeezy-blue-tint
