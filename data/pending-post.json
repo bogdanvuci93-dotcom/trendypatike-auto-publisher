@@ -1,1 +1,128 @@
-{}
+{
+  "date": "2026-09-30",
+  "stage": "verified",
+  "fingerprint": "6adbdb65879e",
+  "seed": {
+    "id": "store-offwhite-lot49-16990",
+    "topic": "DUNK Low Off-White Lot 49 na TrendyPatike.com: 16.990 RSD umesto 34.000 RSD",
+    "category": "TrendyPatike.com / Off-White / akcija / proizvod",
+    "preferred_domains": [
+      "trendypatike.com"
+    ],
+    "visual_subject": "Nike Dunk Low Off-White Lot 49 style sneaker, layered white grey materials, extra lacing, premium ecommerce editorial",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "DUNK Low Off-White Lot 49 je trenutno 16.990 RSD na TrendyPatike.com",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "OFF-WHITE LOT 49: 34.000 → 16.990 RSD",
+          "accent": true
+        },
+        {
+          "text": "TRENUTNO -50% NA TRENDYPATIKE.COM",
+          "accent": false
+        }
+      ],
+      "subheadline": "Jedan od najupečatljivijih Dunk Off-White modela trenutno je u outlet ponudi TrendyPatike."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "LOT 49 SPAJA KOŽU I TEKSTILNE PANELE SA DODATNIM SISTEMOM PERTLANJA",
+          "accent": false
+        },
+        {
+          "text": "BESPLATNA DOSTAVA + PLAĆANJE POUZEĆEM NA TRENDYPATIKE.COM",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "-50%",
+          "text": "Na TrendyPatike stranici za Lot 49 trenutno je istaknuta cena 16.990 RSD umesto 34.000 RSD."
+        },
+        {
+          "tag": "DETALJI",
+          "text": "Opis proizvoda navodi kožne i tekstilne panele, dodatni sistem pertlanja, perforacije napred i gumeni spoljni đon."
+        },
+        {
+          "tag": "DOSTAVA",
+          "text": "TrendyPatike navodi besplatnu dostavu, slanje sutradan i isporuku za 1 do 3 radna dana na stranici proizvoda."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "AKO TRAŽIŠ OFF-WHITE DUNK, OVO JE JEDAN OD MODELA KOJI JE TRENUTNO U OUTLETU",
+          "accent": false
+        },
+        {
+          "text": "PROVERI DOSTUPNU VELIČINU DIREKTNO NA TRENDYPATIKE.COM",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "KUPOVINA",
+          "text": "Plaćanje je pouzećem prilikom preuzimanja pošiljke."
+        },
+        {
+          "tag": "ZAMENA",
+          "text": "Sajt navodi brzu zamenu broja ako patike nisu nošene i odgovarajuća veličina je na stanju."
+        }
+      ],
+      "question": "Da li biste uzeli Lot 49 za 16.990 RSD?"
+    },
+    "caption": "Trenutno na TrendyPatike.com: DUNK Low Off-White Lot 49 je 16.990 RSD umesto 34.000 RSD (-50%). Na stranici proizvoda su navedeni dodatni sistem pertlanja, kožni i tekstilni paneli, perforacije i gumeni đon. Dostava je besplatna, paketi se šalju sutradan, a navedeno vreme isporuke je 1,3 radna dana. Dostupne brojeve proveri direktno na trendypatike.com jer se stanje menja.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#OffWhite",
+      "#NikeDunk",
+      "#Patike",
+      "#Outlet",
+      "#SneakerSerbia"
+    ],
+    "image_prompts": [
+      "premium ecommerce editorial of a white and grey deconstructed Dunk Low Off-White Lot 49 style sneaker with layered panels and extra lacing, dominant sneaker foreground, clean dark studio with subtle TrendyPatike green accents, 4:5 vertical, no readable text, no watermark",
+      "close-up streetwear product photograph of an Off-White inspired Dunk Low with extra laces, perforated toe and layered leather textile panels, premium retail campaign lighting, 4:5 vertical, no readable text",
+      "minimal premium sneaker retail scene with deconstructed grey white Dunk style shoes beside shipping box, modern ecommerce atmosphere, no readable text"
+    ],
+    "sources": [
+      {
+        "title": "DUNK Low Off-White Lot 49",
+        "publisher": "TrendyPatike",
+        "url": "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"
+      },
+      {
+        "title": "Dunk Low Off-White kolekcija",
+        "publisher": "TrendyPatike",
+        "url": "https://trendypatike.com/collections/nike-dunk-off-white"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "TrendyPatike lists DUNK Low Off-White Lot 49 at 16,990 RSD, reduced from 34,000 RSD (-50%).",
+        "source_urls": [
+          "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"
+        ]
+      },
+      {
+        "claim": "The product page describes leather and textile panels, extra lacing, perforations and a rubber outsole.",
+        "source_urls": [
+          "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"
+        ]
+      },
+      {
+        "claim": "The product page states free delivery, dispatch the next day and delivery in 1 to 3 working days.",
+        "source_urls": [
+          "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"
+        ]
+      }
+    ]
+  }
+}
