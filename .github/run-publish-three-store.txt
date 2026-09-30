@@ -1,0 +1,4 @@
+trigger=2026-09-30T11:45:00+02:00
+policy=trendypatike-store-only-v1
+preflight=36697952954:success
+request=publish-three-store-posts
