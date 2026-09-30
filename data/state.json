@@ -555,8 +555,19 @@
         "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49",
         "https://trendypatike.com/collections/nike-dunk-off-white"
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "topic_id": "store-tn-barcelona-13990",
+      "seed_topic": "Air Max TN Barcelona na TrendyPatike.com: 13.990 RSD umesto 29.900 RSD",
+      "topic_title": "Air Max TN Barcelona je trenutno 13.990 RSD na TrendyPatike.com",
+      "media_id": "18125693749869749",
+      "sources": [
+        "https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona",
+        "https://trendypatike.com/collections/air-max-tn"
+      ]
     }
   ],
   "last_publish_date": "2026-09-30",
-  "last_media_id": "18146158753564370"
+  "last_media_id": "18125693749869749"
 }
