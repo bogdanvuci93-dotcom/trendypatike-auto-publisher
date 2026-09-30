@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-30",
-  "stage": "ready",
+  "generated_at": "2026-09-30T11:07:53.941Z",
   "fingerprint": "d08147f68b66",
   "seed": {
     "id": "store-tn-triple-white-live-11690-v2",
@@ -132,10 +131,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-30-store-tn-triple-white-live-11690-v2-d08147f68b66/01.jpg",
-    "public/posts/2026-09-30-store-tn-triple-white-live-11690-v2-d08147f68b66/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
