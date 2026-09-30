@@ -1,4 +1,4 @@
-trigger=2026-09-30T13:06:00+02:00
-policy=store-fix-v2-live-stock
+trigger=2026-09-30T13:09:00+02:00
+policy=store-fix-v3-explicit-replacement
 preflight=36706191027:success
-request=publish-tn-triple-white-and-yeezy-static-black
+request=retry-tn-triple-white-and-yeezy-static-black
