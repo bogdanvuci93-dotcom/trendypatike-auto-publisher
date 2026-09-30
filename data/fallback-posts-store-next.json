@@ -1,0 +1,182 @@
+[
+  {
+    "seed": {
+      "id": "store-offwhite-lot49-16990",
+      "topic": "DUNK Low Off-White Lot 49 na TrendyPatike.com: 16.990 RSD umesto 34.000 RSD",
+      "category": "TrendyPatike.com / Off-White / akcija / proizvod",
+      "preferred_domains": ["trendypatike.com"],
+      "visual_subject": "Nike Dunk Low Off-White Lot 49 style sneaker, layered white grey materials, extra lacing, premium ecommerce editorial",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "DUNK Low Off-White Lot 49 je trenutno 16.990 RSD na TrendyPatike.com",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "OFF-WHITE LOT 49: 34.000 → 16.990 RSD", "accent": true},
+          {"text": "TRENUTNO -50% NA TRENDYPATIKE.COM", "accent": false}
+        ],
+        "subheadline": "Jedan od najupečatljivijih Dunk Off-White modela trenutno je u outlet ponudi TrendyPatike."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "LOT 49 SPAJA KOŽU I TEKSTILNE PANELE SA DODATNIM SISTEMOM PERTLANJA", "accent": false},
+          {"text": "BESPLATNA DOSTAVA + PLAĆANJE POUZEĆEM NA TRENDYPATIKE.COM", "accent": true}
+        ],
+        "facts": [
+          {"tag": "-50%", "text": "Na TrendyPatike stranici za Lot 49 trenutno je istaknuta cena 16.990 RSD umesto 34.000 RSD."},
+          {"tag": "DETALJI", "text": "Opis proizvoda navodi kožne i tekstilne panele, dodatni sistem pertlanja, perforacije napred i gumeni spoljni đon."},
+          {"tag": "DOSTAVA", "text": "TrendyPatike navodi besplatnu dostavu, slanje sutradan i isporuku za 1 do 3 radna dana na stranici proizvoda."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "AKO TRAŽIŠ OFF-WHITE DUNK, OVO JE JEDAN OD MODELA KOJI JE TRENUTNO U OUTLETU", "accent": false},
+          {"text": "PROVERI DOSTUPNU VELIČINU DIREKTNO NA TRENDYPATIKE.COM", "accent": true}
+        ],
+        "facts": [
+          {"tag": "KUPOVINA", "text": "Plaćanje je pouzećem prilikom preuzimanja pošiljke."},
+          {"tag": "ZAMENA", "text": "Sajt navodi brzu zamenu broja ako patike nisu nošene i odgovarajuća veličina je na stanju."}
+        ],
+        "question": "Da li biste uzeli Lot 49 za 16.990 RSD?"
+      },
+      "caption": "Trenutno na TrendyPatike.com: DUNK Low Off-White Lot 49 je 16.990 RSD umesto 34.000 RSD (-50%). Na stranici proizvoda su navedeni dodatni sistem pertlanja, kožni i tekstilni paneli, perforacije i gumeni đon. Dostava je besplatna, paketi se šalju sutradan, a navedeno vreme isporuke je 1–3 radna dana. Dostupne brojeve proveri direktno na trendypatike.com jer se stanje menja.",
+      "hashtags": ["#TrendyPatike", "#OffWhite", "#NikeDunk", "#Patike", "#Outlet", "#SneakerSerbia"],
+      "image_prompts": [
+        "premium ecommerce editorial of a white and grey deconstructed Dunk Low Off-White Lot 49 style sneaker with layered panels and extra lacing, dominant sneaker foreground, clean dark studio with subtle TrendyPatike green accents, 4:5 vertical, no readable text, no watermark",
+        "close-up streetwear product photograph of an Off-White inspired Dunk Low with extra laces, perforated toe and layered leather textile panels, premium retail campaign lighting, 4:5 vertical, no readable text",
+        "minimal premium sneaker retail scene with deconstructed grey white Dunk style shoes beside shipping box, modern ecommerce atmosphere, no readable text"
+      ],
+      "sources": [
+        {"title": "DUNK Low Off-White Lot 49", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"},
+        {"title": "Dunk Low Off-White kolekcija", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/nike-dunk-off-white"}
+      ],
+      "claims": [
+        {"claim": "TrendyPatike lists DUNK Low Off-White Lot 49 at 16,990 RSD, reduced from 34,000 RSD (-50%).", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"]},
+        {"claim": "The product page describes leather and textile panels, extra lacing, perforations and a rubber outsole.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"]},
+        {"claim": "The product page states free delivery, dispatch the next day and delivery in 1 to 3 working days.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "store-tn-barcelona-13990",
+      "topic": "Air Max TN Barcelona na TrendyPatike.com: 13.990 RSD umesto 29.900 RSD",
+      "category": "TrendyPatike.com / Air Max TN / akcija / proizvod",
+      "preferred_domains": ["trendypatike.com"],
+      "visual_subject": "Air Max TN Barcelona style sneaker with bold tuned-air design, premium ecommerce editorial",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Air Max TN Barcelona je trenutno 13.990 RSD na TrendyPatike.com",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "TN BARCELONA: 29.900 → 13.990 RSD", "accent": true},
+          {"text": "TRENUTNO -53% NA TRENDYPATIKE.COM", "accent": false}
+        ],
+        "subheadline": "Ako tražiš TN sa jakim colorway-em, Barcelona je trenutno među najvećim sniženjima u ponudi."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "TN BARCELONA DONOSI TALASASTE LINIJE, TPU AKCENTE I PROZRAČNU MREŽICU", "accent": false},
+          {"text": "TUNED AIR JE TU ZA STABILNOST I AMORTIZACIJU", "accent": true}
+        ],
+        "facts": [
+          {"tag": "-53%", "text": "TrendyPatike trenutno prikazuje Air Max TN Barcelona po ceni od 13.990 RSD, sniženo sa 29.900 RSD."},
+          {"tag": "TN", "text": "Opis proizvoda na sajtu navodi Tuned Air iskustvo, talasaste linije dizajna, TPU akcente i prozračnu mrežicu."},
+          {"tag": "DOSTAVA", "text": "Na stranici proizvoda navedeni su besplatna dostava, slanje sutradan i isporuka za 1 do 3 radna dana."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "AIR MAX TN KOLEKCIJA NA SAJTU IMA VIŠE COLORWAY-A", "accent": false},
+          {"text": "PROVERI BARCELONU I OSTATAK TN PONUDE NA TRENDYPATIKE.COM", "accent": true}
+        ],
+        "facts": [
+          {"tag": "PONUDA", "text": "TrendyPatike Air Max TN kolekcija prikazuje više modela i colorway-a u aktuelnoj ponudi."},
+          {"tag": "KUPOVINA", "text": "Na stranici proizvoda navedeno je plaćanje pouzećem i mogućnost zamene broja pod uslovima sajta."}
+        ],
+        "question": "Barcelona ili Triple White?"
+      },
+      "caption": "Air Max TN Barcelona je trenutno na TrendyPatike.com 13.990 RSD umesto 29.900 RSD (-53%). Sajt za model navodi Tuned Air stabilnost i amortizaciju, talasaste linije, TPU detalje i prozračnu mrežicu. Dostava je besplatna, a na stranici proizvoda stoji slanje sutradan i isporuka za 1–3 radna dana. Dostupne veličine proveri direktno na trendypatike.com.",
+      "hashtags": ["#TrendyPatike", "#AirMaxTN", "#NikeTN", "#Patike", "#TNBarcelona", "#SneakerSerbia"],
+      "image_prompts": [
+        "premium ecommerce editorial of an Air Max Plus TN Barcelona style sneaker, aggressive wavy cage lines, vivid Barcelona-inspired color accents, dominant sneaker foreground, dark studio with subtle TrendyPatike green accents, 4:5 vertical, no readable text, no watermark",
+        "close-up product photograph of a Tuned Air style sneaker showing wavy design lines, TPU accents and breathable mesh, premium streetwear campaign lighting, no readable text",
+        "modern sneaker store display with multiple Air Max TN style colorways, one Barcelona-inspired pair prominent in front, premium ecommerce photography, no readable text"
+      ],
+      "sources": [
+        {"title": "Air Max TN Barcelona", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona"},
+        {"title": "Air Max TN kolekcija", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/air-max-tn"}
+      ],
+      "claims": [
+        {"claim": "TrendyPatike lists Air Max TN Barcelona at 13,990 RSD, reduced from 29,900 RSD (-53%).", "source_urls": ["https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona"]},
+        {"claim": "The product page describes Tuned Air stability and cushioning, wavy design lines, TPU accents and breathable mesh.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona"]},
+        {"claim": "The product page states free delivery, dispatch the next day and delivery in 1 to 3 working days.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "store-yeezy-static-black-12499",
+      "topic": "BOOST 350 V2 Static Black Reflective na TrendyPatike.com: 12.499 RSD umesto 29.000 RSD",
+      "category": "TrendyPatike.com / Yeezy / BOOST 350 V2 / akcija / proizvod",
+      "preferred_domains": ["trendypatike.com"],
+      "visual_subject": "black reflective BOOST 350 V2 style sneaker with Primeknit texture, premium ecommerce editorial",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "BOOST 350 V2 Static Black Reflective je trenutno 12.499 RSD na TrendyPatike.com",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "STATIC BLACK REFLECTIVE: 29.000 → 12.499 RSD", "accent": true},
+          {"text": "TRENUTNO -56% NA TRENDYPATIKE.COM", "accent": false}
+        ],
+        "subheadline": "Crni BOOST 350 V2 sa reflektujućim detaljima trenutno je među najvećim sniženjima na sajtu."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "PRIMEKNIT GORNJIŠTE + REFLEKTUJUĆE NITI U PERTLAMA", "accent": false},
+          {"text": "BOOST SREDNJI ĐON JE GLAVNI DEO KONSTRUKCIJE OVOG MODELA", "accent": true}
+        ],
+        "facts": [
+          {"tag": "-56%", "text": "TrendyPatike trenutno prikazuje BOOST 350 V2 Static Black Reflective po ceni 12.499 RSD umesto 29.000 RSD."},
+          {"tag": "MATERIJAL", "text": "Opis na sajtu navodi rekonstruisani Primeknit, bočnu monofilamentnu traku i reflektujuće niti utkane u pertle."},
+          {"tag": "BOOST", "text": "Na stranici proizvoda navedeno je da srednji đon koristi adidas BOOST tehnologiju."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "NA SAJTU SU PRIKAZANE VELIČINE OD 36 DO 48, UZ PROMENLJIVO STANJE", "accent": false},
+          {"text": "BESPLATNA DOSTAVA I PLAĆANJE POUZEĆEM", "accent": true}
+        ],
+        "facts": [
+          {"tag": "VELIČINE", "text": "Stranica proizvoda prikazuje raspon veličina 36–48, ali dostupnost pojedinih brojeva zavisi od trenutnog stanja."},
+          {"tag": "ISPORUKA", "text": "TrendyPatike navodi besplatnu dostavu, slanje sutradan, isporuku za 1 do 3 radna dana i plaćanje pouzećem."}
+        ],
+        "question": "Static Black ili Zebra?"
+      },
+      "caption": "BOOST 350 V2 Static Black Reflective je trenutno na TrendyPatike.com 12.499 RSD umesto 29.000 RSD (-56%). Na stranici proizvoda su navedeni Primeknit gornji deo, monofilamentna bočna traka, reflektujuće niti u pertlama i BOOST srednji đon. Prikazan je raspon veličina 36–48, uz promenljivo stanje. Dostava je besplatna i plaćanje je pouzećem.",
+      "hashtags": ["#TrendyPatike", "#Yeezy", "#Boost350V2", "#StaticBlack", "#Patike", "#SneakerSerbia"],
+      "image_prompts": [
+        "premium ecommerce editorial of a black reflective BOOST 350 V2 style sneaker, textured Primeknit upper, subtle reflective laces, dominant sneaker foreground, dark studio with TrendyPatike green accent lighting, 4:5 vertical, no readable text, no watermark",
+        "macro product photograph of black knitted sneaker upper, reflective lace fibers and translucent side stripe, premium ecommerce lighting, no readable text",
+        "black BOOST 350 V2 style sneakers displayed with clean shipping packaging in a premium online sneaker store setting, dark modern retail mood, no readable text"
+      ],
+      "sources": [
+        {"title": "BOOST 350 V2 Static Black Reflective", "publisher": "TrendyPatike", "url": "https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"},
+        {"title": "TrendyPatike početna ponuda", "publisher": "TrendyPatike", "url": "https://trendypatike.com/"}
+      ],
+      "claims": [
+        {"claim": "TrendyPatike lists BOOST 350 V2 Static Black Reflective at 12,499 RSD, reduced from 29,000 RSD (-56%).", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]},
+        {"claim": "The product page describes reconstructed Primeknit, a monofilament side stripe, reflective threads in the laces and a BOOST midsole.", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]},
+        {"claim": "The product page lists free delivery, cash on delivery and a displayed size range from 36 to 48 with varying stock.", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]}
+      ]
+    }
+  }
+]
