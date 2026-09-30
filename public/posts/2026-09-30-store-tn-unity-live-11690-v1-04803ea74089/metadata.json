@@ -1,6 +1,5 @@
 {
-  "date": "2026-09-30",
-  "stage": "ready",
+  "generated_at": "2026-09-30T15:36:26.856Z",
   "fingerprint": "04803ea74089",
   "seed": {
     "id": "store-tn-unity-live-11690-v1",
@@ -132,10 +131,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-09-30-store-tn-unity-live-11690-v1-04803ea74089/01.jpg",
-    "public/posts/2026-09-30-store-tn-unity-live-11690-v1-04803ea74089/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
