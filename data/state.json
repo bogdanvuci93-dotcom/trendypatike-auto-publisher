@@ -566,8 +566,19 @@
         "https://trendypatike.com/collections/muskarci/products/air-max-tn-barcelona",
         "https://trendypatike.com/collections/air-max-tn"
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "topic_id": "store-yeezy-static-black-12499",
+      "seed_topic": "BOOST 350 V2 Static Black Reflective na TrendyPatike.com: 12.499 RSD umesto 29.000 RSD",
+      "topic_title": "BOOST 350 V2 Static Black Reflective je trenutno 12.499 RSD na TrendyPatike.com",
+      "media_id": "18087091553701557",
+      "sources": [
+        "https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective",
+        "https://trendypatike.com/"
+      ]
     }
   ],
   "last_publish_date": "2026-09-30",
-  "last_media_id": "18125693749869749"
+  "last_media_id": "18087091553701557"
 }
