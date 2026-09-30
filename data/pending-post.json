@@ -129,5 +129,10 @@
     "public/posts/2026-09-30-store-offwhite-lot49-16990-6adbdb65879e/01.jpg",
     "public/posts/2026-09-30-store-offwhite-lot49-16990-6adbdb65879e/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019646615944388"
+    ],
+    "carousel_id": ""
+  }
 }
