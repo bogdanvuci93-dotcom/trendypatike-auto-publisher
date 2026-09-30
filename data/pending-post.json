@@ -137,5 +137,10 @@
     "public/posts/2026-09-30-store-yeezy-blue-tint-live-14490-v1-e3e694522dd7/01.jpg",
     "public/posts/2026-09-30-store-yeezy-blue-tint-live-14490-v1-e3e694522dd7/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019689182944388"
+    ],
+    "carousel_id": ""
+  }
 }
