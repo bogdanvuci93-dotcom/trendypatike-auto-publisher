@@ -610,8 +610,19 @@
         "https://trendypatike.com/collections/muskarci/products/nike-air-max-plus-tn-unity",
         "https://trendypatike.com/collections/air-max-tn"
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "topic_id": "store-yeezy-blue-tint-live-14490-v1",
+      "seed_topic": "BOOST 350 V2 Blue Tint na TrendyPatike.com: 14.490 RSD i dostupni brojevi",
+      "topic_title": "BOOST 350 V2 Blue Tint: 14.490 RSD, dostupni brojevi",
+      "media_id": "18018957197949106",
+      "sources": [
+        "https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint",
+        "https://trendypatike.com/"
+      ]
     }
   ],
   "last_publish_date": "2026-09-30",
-  "last_media_id": "17909844330498308"
+  "last_media_id": "18018957197949106"
 }
