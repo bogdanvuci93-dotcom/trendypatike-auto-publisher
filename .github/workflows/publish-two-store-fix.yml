@@ -61,12 +61,19 @@ jobs:
           repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
           if needle not in s:
               raise SystemExit('force verified fallback patch anchor not found')
-          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          s = s.replace(needle, repl, 1)
+          dup = '    if (isDuplicateTopic(entry.seed, state)) continue;'
+          replacement = '    if (process.env.FORCE_STORE_REPLACEMENT === "true" ? (state.posted || []).some(x => x.topic_id === entry.seed.id) : isDuplicateTopic(entry.seed, state)) continue;'
+          if dup not in s:
+              raise SystemExit('store replacement duplicate patch anchor not found')
+          s = s.replace(dup, replacement, 1)
+          p.write_text(s, encoding='utf-8')
           PY
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
           sed -i 's/\.update(JSON\.stringify(post))/\.update("store-fix-v2-live-stock:" + JSON.stringify(post))/' src/index.mjs
           grep -n "Forced verified fallback" src/index.mjs
+          grep -n "FORCE_STORE_REPLACEMENT" src/index.mjs
           grep -n "refusing placeholder publish" src/render.mjs
           grep -n "LAJKUJ + ZAPRATI ZA JOŠ" src/render.mjs
           npm run check
@@ -87,6 +94,7 @@ jobs:
           DRY_RUN: "false"
           FORCE_RUN: "true"
           FORCE_VERIFIED_FALLBACK: "true"
+          FORCE_STORE_REPLACEMENT: "true"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "6"
           SKIP_MAJOR_NEWS: "true"
@@ -117,9 +125,16 @@ jobs:
           needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
           repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
           if needle in s:
-              p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+              s = s.replace(needle, repl, 1)
           elif 'Forced verified fallback: skipping paid text research and verifier.' not in s:
               raise SystemExit('force verified fallback patch missing before post 2')
+          dup = '    if (isDuplicateTopic(entry.seed, state)) continue;'
+          replacement = '    if (process.env.FORCE_STORE_REPLACEMENT === "true" ? (state.posted || []).some(x => x.topic_id === entry.seed.id) : isDuplicateTopic(entry.seed, state)) continue;'
+          if dup in s:
+              s = s.replace(dup, replacement, 1)
+          elif 'FORCE_STORE_REPLACEMENT' not in s:
+              raise SystemExit('store replacement duplicate patch missing before post 2')
+          p.write_text(s, encoding='utf-8')
           PY
 
           sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
@@ -141,6 +156,7 @@ jobs:
           DRY_RUN: "false"
           FORCE_RUN: "true"
           FORCE_VERIFIED_FALLBACK: "true"
+          FORCE_STORE_REPLACEMENT: "true"
           MAX_TOPIC_ATTEMPTS: "1"
           MAX_OPENAI_CALLS: "6"
           SKIP_MAJOR_NEWS: "true"
