@@ -1,125 +1,125 @@
 [
   {
     "seed": {
-      "id": "store-tn-triple-white-live-11690-v2",
-      "topic": "Air Max TN Triple White na TrendyPatike.com: 11.690 RSD i dostupni brojevi 41-44",
-      "category": "TrendyPatike.com / Air Max TN / dostupni brojevi / akcija",
+      "id": "store-tn-unity-live-11690-v1",
+      "topic": "Air Max Plus TN Unity na TrendyPatike.com: 11.690 RSD i brojevi 39-46",
+      "category": "TrendyPatike.com / Air Max TN / Unity / dostupni brojevi / akcija",
       "preferred_domains": ["trendypatike.com"],
-      "visual_subject": "clean white Air Max TN Triple White style sneaker, premium ecommerce editorial, bright crisp product focus",
+      "visual_subject": "Air Max Plus TN Unity style sneaker, bold tuned-air cage, premium ecommerce product focus",
       "emergency_only": true
     },
     "post": {
       "force_local_images": true,
-      "topic_title": "Air Max TN Triple White: 11.690 RSD, brojevi 41-44",
+      "topic_title": "Air Max Plus TN Unity: 11.690 RSD, brojevi 39-46",
       "slide_count": 2,
       "cover": {
         "headline_lines": [
-          {"text": "TN TRIPLE WHITE", "accent": false},
+          {"text": "TN UNITY", "accent": false},
           {"text": "23.000 → 11.690 RSD", "accent": true},
-          {"text": "BROJEVI 41–44 SU NA SAJTU", "accent": false}
+          {"text": "BROJEVI 39–46 NA SAJTU", "accent": false}
         ],
-        "subheadline": "Jednostavan TN colorway koji trenutno ima konkretne dostupne brojeve na TrendyPatike.com."
+        "subheadline": "Unity trenutno ima širok raspon brojeva i jedno je od jačih TN sniženja na TrendyPatike.com."
       },
       "slide2": {
         "headline_lines": [
-          {"text": "41: 1 KOM  •  42: 3 KOM", "accent": true},
-          {"text": "43: 2 KOM  •  44: 2 KOM", "accent": true},
+          {"text": "39 • 40 • 41 • 42", "accent": true},
+          {"text": "43 • 44 • 45 • 46", "accent": true},
           {"text": "BESPLATNA DOSTAVA + POUZEĆE", "accent": false}
         ],
         "facts": [
-          {"tag": "11.690 RSD", "text": "Air Max TN Triple White je na TrendyPatike.com prikazan po ceni 11.690 RSD umesto 23.000 RSD."},
-          {"tag": "BROJEVI", "text": "Na stranici proizvoda su prikazani 41 sa 1 komadom, 42 sa 3, 43 sa 2 i 44 sa 2 komada."},
-          {"tag": "ISPORUKA", "text": "Sajt navodi besplatnu dostavu, slanje sutradan, isporuku za 1 do 3 radna dana i plaćanje pouzećem."}
+          {"tag": "11.690 RSD", "text": "Air Max Plus TN Unity je na TrendyPatike.com prikazan po ceni 11.690 RSD umesto 23.000 RSD."},
+          {"tag": "BROJEVI", "text": "Na stranici proizvoda su prikazani brojevi od 39 do 46, sa po jednim komadom u prikazanom stanju."},
+          {"tag": "TN", "text": "Opis proizvoda navodi Tuned Air stabilnost i amortizaciju, talasaste linije, TPU akcente i prozračnu mrežicu."}
         ]
       },
       "slide3": {
         "headline_lines": [
-          {"text": "TRIPLE WHITE JE TRENUTNO DOSTUPAN U VIŠE BROJEVA", "accent": false},
-          {"text": "PROVERI STANJE PRE KUPOVINE NA TRENDYPATIKE.COM", "accent": true}
+          {"text": "UNITY JE TRENUTNO DOSTUPAN U ŠIROKOM RASPONU BROJEVA", "accent": false},
+          {"text": "PROVERI AKTUELNO STANJE NA TRENDYPATIKE.COM", "accent": true}
         ],
         "facts": [
-          {"tag": "TN", "text": "Opis proizvoda navodi Tuned Air iskustvo, talasaste linije, TPU akcente i prozračnu mrežicu."},
-          {"tag": "ZAMENA", "text": "Sajt navodi mogućnost zamene broja za nenošenu obuću ako odgovarajući broj postoji na stanju."}
+          {"tag": "DOSTAVA", "text": "Sajt navodi besplatnu dostavu, slanje sutradan i isporuku za 1 do 3 radna dana."},
+          {"tag": "KUPOVINA", "text": "Plaćanje je pouzećem, a za nenošenu obuću navedena je mogućnost zamene broja pod uslovima sajta."}
         ],
-        "question": "Koji TN biste sledeći da vidite na profilu?"
+        "question": "Da li je Unity jedan od najboljih TN colorway-a?"
       },
-      "caption": "Air Max TN Triple White je trenutno na TrendyPatike.com 11.690 RSD umesto 23.000 RSD (-49%). Na stranici proizvoda su prikazani brojevi 41 (1 kom), 42 (3 kom), 43 (2 kom) i 44 (2 kom). Dostava je besplatna, šaljemo sutradan, a navedena isporuka je 1–3 radna dana. Stanje se menja, zato proveri aktuelnu dostupnost direktno na sajtu.",
-      "hashtags": ["#TrendyPatike", "#AirMaxTN", "#TripleWhite", "#NikeTN", "#Patike", "#SneakerSerbia"],
+      "caption": "Air Max Plus TN Unity je trenutno na TrendyPatike.com 11.690 RSD umesto 23.000 RSD (-49%). Na stranici proizvoda su prikazani brojevi 39, 40, 41, 42, 43, 44, 45 i 46. Model ima Tuned Air, talasaste linije, TPU akcente i prozračnu mrežicu. Dostava je besplatna, plaćanje pouzećem, a aktuelno stanje proveri direktno na sajtu.",
+      "hashtags": ["#TrendyPatike", "#AirMaxTN", "#TNUnity", "#NikeTN", "#Patike", "#SneakerSerbia"],
       "image_prompts": [
-        "premium ecommerce editorial of a clean all-white Air Max Plus TN Triple White style sneaker, dominant full shoe in foreground, crisp white mesh and TPU cage clearly visible, dark studio background with subtle TrendyPatike green rim light, high-end retail campaign, 4:5 vertical, no readable text, no watermark",
-        "clean product photograph of an all-white Tuned Air style sneaker from three-quarter angle, bright premium studio lighting, entire shoe clearly visible, ecommerce campaign, no readable text",
-        "premium sneaker shelf with a white TN style sneaker as the single dominant product, modern online sneaker store atmosphere, no readable text"
+        "premium ecommerce editorial of an Air Max Plus TN Unity style sneaker, entire shoe clearly visible, bold wavy TPU cage and mesh upper, dominant foreground, dark studio background with subtle TrendyPatike green rim light, high-end retail campaign, 4:5 vertical, no readable text, no watermark",
+        "clean product photograph of a TN Unity style sneaker from three-quarter angle, tuned-air inspired sole and cage clearly visible, premium ecommerce lighting, no readable text",
+        "modern sneaker shelf with a TN Unity style sneaker as the dominant product, premium online store atmosphere, no readable text"
       ],
       "sources": [
-        {"title": "Air Max TN Triple White", "publisher": "TrendyPatike", "url": "https://trendypatike.com/products/air-max-tn-triple-white"},
+        {"title": "Air Max Plus TN Unity", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/muskarci/products/nike-air-max-plus-tn-unity"},
         {"title": "Air Max TN kolekcija", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/air-max-tn"}
       ],
       "claims": [
-        {"claim": "TrendyPatike lists Air Max TN Triple White at 11,690 RSD, reduced from 23,000 RSD.", "source_urls": ["https://trendypatike.com/products/air-max-tn-triple-white"]},
-        {"claim": "The product page shows sizes 41 (1), 42 (3), 43 (2) and 44 (2).", "source_urls": ["https://trendypatike.com/products/air-max-tn-triple-white"]},
-        {"claim": "The product page states free delivery, next-day dispatch, 1-3 working day delivery and cash on delivery.", "source_urls": ["https://trendypatike.com/products/air-max-tn-triple-white"]}
+        {"claim": "TrendyPatike lists Air Max Plus TN Unity at 11,690 RSD, reduced from 23,000 RSD (-49%).", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-air-max-plus-tn-unity"]},
+        {"claim": "The product page displays sizes 39 through 46 with current stock shown for those sizes.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-air-max-plus-tn-unity"]},
+        {"claim": "The product page states free delivery, next-day dispatch, 1-3 working day delivery and cash on delivery.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/nike-air-max-plus-tn-unity"]}
       ]
     }
   },
   {
     "seed": {
-      "id": "store-yeezy-static-black-live-10499-v2",
-      "topic": "Yeezy Boost 350 V2 Static Black Reflective na TrendyPatike.com: 10.499 RSD i brojevi 36-48",
-      "category": "TrendyPatike.com / Yeezy / dostupni brojevi / akcija",
+      "id": "store-yeezy-blue-tint-live-14490-v1",
+      "topic": "BOOST 350 V2 Blue Tint na TrendyPatike.com: 14.490 RSD i dostupni brojevi",
+      "category": "TrendyPatike.com / Yeezy / Blue Tint / dostupni brojevi / akcija",
       "preferred_domains": ["trendypatike.com"],
-      "visual_subject": "black Yeezy Boost 350 V2 Static Black Reflective style sneaker, premium ecommerce product focus",
+      "visual_subject": "Yeezy Boost 350 V2 Blue Tint style sneaker, icy grey blue knit, premium ecommerce product focus",
       "emergency_only": true
     },
     "post": {
       "force_local_images": true,
-      "topic_title": "Static Black Reflective: 10.499 RSD, brojevi 36-48",
+      "topic_title": "BOOST 350 V2 Blue Tint: 14.490 RSD, dostupni brojevi",
       "slide_count": 2,
       "cover": {
         "headline_lines": [
-          {"text": "STATIC BLACK REFLECTIVE", "accent": false},
-          {"text": "24.000 → 10.499 RSD", "accent": true},
-          {"text": "BROJEVI 36–48 NA SAJTU", "accent": false}
+          {"text": "YEEZY BLUE TINT", "accent": false},
+          {"text": "30.000 → 14.490 RSD", "accent": true},
+          {"text": "TRENUTNO -51%", "accent": false}
         ],
-        "subheadline": "Crni 350 V2 sa reflektujućim detaljima — sada sa jasnom cenom i dostupnim brojevima."
+        "subheadline": "Blue Tint je trenutno u ponudi sa više prikazanih veličina na TrendyPatike.com."
       },
       "slide2": {
         "headline_lines": [
-          {"text": "PRIMEKNIT + REFLEKTUJUĆE PERTLE", "accent": false},
-          {"text": "BOOST ĐON + BESPLATNA DOSTAVA", "accent": true},
-          {"text": "PLAĆANJE POUZEĆEM", "accent": false}
+          {"text": "BROJEVI NA STANJU", "accent": false},
+          {"text": "36 • 37 • 38 • 43 • 44 • 45 • 46", "accent": true},
+          {"text": "BESPLATNA DOSTAVA + POUZEĆE", "accent": false}
         ],
         "facts": [
-          {"tag": "10.499 RSD", "text": "TrendyPatike trenutno prikazuje Static Black Reflective po ceni 10.499 RSD umesto 24.000 RSD."},
-          {"tag": "36–48", "text": "Na stranici proizvoda prikazane su veličine od 36 do 48, uz promenljivo stanje pojedinačnih brojeva."},
+          {"tag": "14.490 RSD", "text": "BOOST 350 V2 Blue Tint je na TrendyPatike.com prikazan po ceni 14.490 RSD umesto 30.000 RSD."},
+          {"tag": "BROJEVI", "text": "Na stranici proizvoda su sa prikazanim stanjem navedeni brojevi 36, 37, 38, 43, 44, 45 i 46."},
           {"tag": "DETALJI", "text": "Opis navodi rekonstruisani Primeknit, monofilamentnu bočnu traku, reflektujuće niti u pertlama i BOOST srednji đon."}
         ]
       },
       "slide3": {
         "headline_lines": [
-          {"text": "CRNI COLORWAY + REFLEKTUJUĆI DETALJI", "accent": false},
+          {"text": "BLUE TINT JE JEDAN OD PREPOZNATLJIVIJIH SVETLIJIH 350 V2 COLORWAY-A", "accent": false},
           {"text": "PROVERI SVOJ BROJ NA TRENDYPATIKE.COM", "accent": true}
         ],
         "facts": [
           {"tag": "DOSTAVA", "text": "Sajt navodi besplatnu dostavu, slanje sutradan i isporuku za 1 do 3 radna dana."},
           {"tag": "KUPOVINA", "text": "Plaćanje je pouzećem, a za nenošenu obuću navedena je mogućnost zamene broja pod uslovima sajta."}
         ],
-        "question": "Static Black ili neki svetliji 350 V2?"
+        "question": "Blue Tint ili Static Black?"
       },
-      "caption": "Yeezy Boost 350 V2 Static Black Reflective je trenutno na TrendyPatike.com 10.499 RSD umesto 24.000 RSD (-56%). Na stranici proizvoda su prikazane veličine 36–48. Model ima Primeknit gornji deo, reflektujuće niti u pertlama i BOOST srednji đon. Dostava je besplatna, plaćanje pouzećem, a aktuelno stanje brojeva proveri direktno na sajtu.",
-      "hashtags": ["#TrendyPatike", "#Yeezy", "#Boost350V2", "#StaticBlack", "#Patike", "#SneakerSerbia"],
+      "caption": "BOOST 350 V2 Blue Tint je trenutno na TrendyPatike.com 14.490 RSD umesto 30.000 RSD (-51%). Na stranici proizvoda su sa prikazanim stanjem navedeni brojevi 36, 37, 38, 43, 44, 45 i 46. Model ima Primeknit gornji deo, monofilamentnu bočnu traku, reflektujuće niti u pertlama i BOOST srednji đon. Dostava je besplatna, a plaćanje pouzećem.",
+      "hashtags": ["#TrendyPatike", "#Yeezy", "#BlueTint", "#Boost350V2", "#Patike", "#SneakerSerbia"],
       "image_prompts": [
-        "premium ecommerce editorial of a black Yeezy Boost 350 V2 Static Black Reflective style sneaker, entire shoe clearly visible, subtle reflective lace sparkle, textured knit upper, dominant foreground, dark clean studio with subtle TrendyPatike green rim light, 4:5 vertical, no readable text, no watermark",
-        "clean premium full-product photograph of a black 350 V2 style sneaker from three-quarter angle, reflective laces visible, entire silhouette unobstructed, ecommerce campaign lighting, no readable text",
-        "black knit sneaker displayed in a premium online sneaker store scene with shipping box and clean dark background, full shoe visible, no readable text"
+        "premium ecommerce editorial of a Yeezy Boost 350 V2 Blue Tint style sneaker, icy light grey and pale blue knit upper, subtle contrast details, entire shoe clearly visible, dominant foreground, clean dark studio with subtle TrendyPatike green rim light, 4:5 vertical, no readable text, no watermark",
+        "clean full-product photograph of a pale grey blue 350 V2 style sneaker from three-quarter angle, knit texture and translucent sole clearly visible, premium ecommerce lighting, no readable text",
+        "light grey blue knit sneaker displayed in a premium online sneaker store scene, entire silhouette visible, modern retail mood, no readable text"
       ],
       "sources": [
-        {"title": "Yeezy Boost 350 v2 Static Black reflective", "publisher": "TrendyPatike", "url": "https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"},
+        {"title": "BOOST 350 v2 Blue Tint", "publisher": "TrendyPatike", "url": "https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint"},
         {"title": "TrendyPatike", "publisher": "TrendyPatike", "url": "https://trendypatike.com/"}
       ],
       "claims": [
-        {"claim": "TrendyPatike lists Yeezy Boost 350 V2 Static Black Reflective at 10,499 RSD, reduced from 24,000 RSD (-56%).", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]},
-        {"claim": "The product page displays sizes 36 through 48 with varying current stock.", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]},
-        {"claim": "The product page describes Primeknit, reflective threads in the laces, a monofilament side stripe and a BOOST midsole.", "source_urls": ["https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective"]}
+        {"claim": "TrendyPatike lists BOOST 350 V2 Blue Tint at 14,490 RSD, reduced from 30,000 RSD (-51%).", "source_urls": ["https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint"]},
+        {"claim": "The product page shows current stock for sizes 36, 37, 38, 43, 44, 45 and 46.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint"]},
+        {"claim": "The product page describes Primeknit, a monofilament side stripe, reflective threads in the laces and a BOOST midsole.", "source_urls": ["https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint"]}
       ]
     }
   }
