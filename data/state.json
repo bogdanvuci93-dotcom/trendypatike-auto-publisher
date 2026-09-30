@@ -577,8 +577,19 @@
         "https://trendypatike.com/products/yeezy-boost-350-v2-static-black-reflective",
         "https://trendypatike.com/"
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "topic_id": "store-tn-triple-white-live-11690-v2",
+      "seed_topic": "Air Max TN Triple White na TrendyPatike.com: 11.690 RSD i dostupni brojevi 41-44",
+      "topic_title": "Air Max TN Triple White: 11.690 RSD, brojevi 41-44",
+      "media_id": "18135437830727000",
+      "sources": [
+        "https://trendypatike.com/products/air-max-tn-triple-white",
+        "https://trendypatike.com/collections/air-max-tn"
+      ]
     }
   ],
   "last_publish_date": "2026-09-30",
-  "last_media_id": "18087091553701557"
+  "last_media_id": "18135437830727000"
 }
