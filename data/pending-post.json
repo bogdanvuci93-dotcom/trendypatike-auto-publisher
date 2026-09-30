@@ -1,1 +1,136 @@
-{}
+{
+  "date": "2026-09-30",
+  "stage": "verified",
+  "fingerprint": "d08147f68b66",
+  "seed": {
+    "id": "store-tn-triple-white-live-11690-v2",
+    "topic": "Air Max TN Triple White na TrendyPatike.com: 11.690 RSD i dostupni brojevi 41-44",
+    "category": "TrendyPatike.com / Air Max TN / dostupni brojevi / akcija",
+    "preferred_domains": [
+      "trendypatike.com"
+    ],
+    "visual_subject": "clean white Air Max TN Triple White style sneaker, premium ecommerce editorial, bright crisp product focus",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "Air Max TN Triple White: 11.690 RSD, brojevi 41-44",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "TN TRIPLE WHITE",
+          "accent": false
+        },
+        {
+          "text": "23.000 → 11.690 RSD",
+          "accent": true
+        },
+        {
+          "text": "BROJEVI 41,44 SU NA SAJTU",
+          "accent": false
+        }
+      ],
+      "subheadline": "Jednostavan TN colorway koji trenutno ima konkretne dostupne brojeve na TrendyPatike.com."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "41: 1 KOM • 42: 3 KOM",
+          "accent": true
+        },
+        {
+          "text": "43: 2 KOM • 44: 2 KOM",
+          "accent": true
+        },
+        {
+          "text": "BESPLATNA DOSTAVA + POUZEĆE",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "11.690 RSD",
+          "text": "Air Max TN Triple White je na TrendyPatike.com prikazan po ceni 11.690 RSD umesto 23.000 RSD."
+        },
+        {
+          "tag": "BROJEVI",
+          "text": "Na stranici proizvoda su prikazani 41 sa 1 komadom, 42 sa 3, 43 sa 2 i 44 sa 2 komada."
+        },
+        {
+          "tag": "ISPORUKA",
+          "text": "Sajt navodi besplatnu dostavu, slanje sutradan, isporuku za 1 do 3 radna dana i plaćanje pouzećem."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "TRIPLE WHITE JE TRENUTNO DOSTUPAN U VIŠE BROJEVA",
+          "accent": false
+        },
+        {
+          "text": "PROVERI STANJE PRE KUPOVINE NA TRENDYPATIKE.COM",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "TN",
+          "text": "Opis proizvoda navodi Tuned Air iskustvo, talasaste linije, TPU akcente i prozračnu mrežicu."
+        },
+        {
+          "tag": "ZAMENA",
+          "text": "Sajt navodi mogućnost zamene broja za nenošenu obuću ako odgovarajući broj postoji na stanju."
+        }
+      ],
+      "question": "Koji TN biste sledeći da vidite na profilu?"
+    },
+    "caption": "Air Max TN Triple White je trenutno na TrendyPatike.com 11.690 RSD umesto 23.000 RSD (-49%). Na stranici proizvoda su prikazani brojevi 41 (1 kom), 42 (3 kom), 43 (2 kom) i 44 (2 kom). Dostava je besplatna, šaljemo sutradan, a navedena isporuka je 1,3 radna dana. Stanje se menja, zato proveri aktuelnu dostupnost direktno na sajtu.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#AirMaxTN",
+      "#TripleWhite",
+      "#NikeTN",
+      "#Patike",
+      "#SneakerSerbia"
+    ],
+    "image_prompts": [
+      "premium ecommerce editorial of a clean all-white Air Max Plus TN Triple White style sneaker, dominant full shoe in foreground, crisp white mesh and TPU cage clearly visible, dark studio background with subtle TrendyPatike green rim light, high-end retail campaign, 4:5 vertical, no readable text, no watermark",
+      "clean product photograph of an all-white Tuned Air style sneaker from three-quarter angle, bright premium studio lighting, entire shoe clearly visible, ecommerce campaign, no readable text",
+      "premium sneaker shelf with a white TN style sneaker as the single dominant product, modern online sneaker store atmosphere, no readable text"
+    ],
+    "sources": [
+      {
+        "title": "Air Max TN Triple White",
+        "publisher": "TrendyPatike",
+        "url": "https://trendypatike.com/products/air-max-tn-triple-white"
+      },
+      {
+        "title": "Air Max TN kolekcija",
+        "publisher": "TrendyPatike",
+        "url": "https://trendypatike.com/collections/air-max-tn"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "TrendyPatike lists Air Max TN Triple White at 11,690 RSD, reduced from 23,000 RSD.",
+        "source_urls": [
+          "https://trendypatike.com/products/air-max-tn-triple-white"
+        ]
+      },
+      {
+        "claim": "The product page shows sizes 41 (1), 42 (3), 43 (2) and 44 (2).",
+        "source_urls": [
+          "https://trendypatike.com/products/air-max-tn-triple-white"
+        ]
+      },
+      {
+        "claim": "The product page states free delivery, next-day dispatch, 1-3 working day delivery and cash on delivery.",
+        "source_urls": [
+          "https://trendypatike.com/products/air-max-tn-triple-white"
+        ]
+      }
+    ]
+  }
+}
