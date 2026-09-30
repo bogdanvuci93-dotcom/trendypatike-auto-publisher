@@ -1,0 +1,201 @@
+name: TrendyPatike Publish Three Store Posts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/run-publish-three-store.txt'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: trendypatike-publish-three-store
+  cancel-in-progress: false
+
+jobs:
+  publish-three:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm install --omit=dev --no-audit --no-fund
+
+      - name: Apply TrendyPatike store-only policy and zero-cost checks
+        run: |
+          set -euo pipefail
+          cp data/fallback-posts.json /tmp/base-fallback-posts.json
+          jq empty data/fallback-posts-store-next.json
+          jq empty data/fallback-posts-extra.json
+          jq empty data/fallback-posts-attention.json
+          jq empty data/fallback-posts-safe.json
+          jq empty data/fallback-posts-safe-next.json
+          jq empty data/fallback-posts-hype-next.json
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))'             data/fallback-posts-store-next.json data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json /tmp/base-fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+
+          python scripts/harden_content_policy.py
+          python scripts/fix_copy_overflow.py
+          python scripts/format_semantic_accents.py
+          python scripts/scroll_stop_policy.py
+          python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
+
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle not in s:
+              raise SystemExit('force verified fallback patch anchor not found')
+          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          PY
+
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          sed -i 's/\.update(JSON\.stringify(post))/\.update("store-only-v1-real-image-cta:" + JSON.stringify(post))/' src/index.mjs
+          grep -n "Forced verified fallback" src/index.mjs
+          grep -n "refusing placeholder publish" src/render.mjs
+          grep -n "LAJKUJ + ZAPRATI ZA JOŠ" src/render.mjs
+          npm run check
+
+      - name: Publish TrendyPatike store post 1
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          TEXT_MODEL: "gpt-5-mini"
+          VERIFY_MODEL: "gpt-5-mini"
+          IMAGE_MODEL: "gpt-image-1-mini"
+          IMAGE_QUALITY: medium
+          BRAND_GREEN: "#037361"
+          BRAND_NAME: TRENDYPATIKE
+          BRAND_SITE: trendypatike.com
+          DRY_RUN: "false"
+          FORCE_RUN: "true"
+          FORCE_VERIFIED_FALLBACK: "true"
+          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_OPENAI_CALLS: "6"
+          SKIP_MAJOR_NEWS: "true"
+          SERBIAN_AUDIENCE_NOW: "true"
+        run: npm run run
+
+      - name: Reapply store-only policy before post 2
+        run: |
+          set -euo pipefail
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))'             data/fallback-posts-store-next.json data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json /tmp/base-fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+          python scripts/harden_content_policy.py
+          python scripts/fix_copy_overflow.py
+          python scripts/format_semantic_accents.py
+          python scripts/scroll_stop_policy.py
+          python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle in s:
+              p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          elif 'Forced verified fallback: skipping paid text research and verifier.' not in s:
+              raise SystemExit('force verified fallback patch missing before post 2')
+          PY
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          npm run check
+
+      - name: Publish TrendyPatike store post 2
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          TEXT_MODEL: "gpt-5-mini"
+          VERIFY_MODEL: "gpt-5-mini"
+          IMAGE_MODEL: "gpt-image-1-mini"
+          IMAGE_QUALITY: medium
+          BRAND_GREEN: "#037361"
+          BRAND_NAME: TRENDYPATIKE
+          BRAND_SITE: trendypatike.com
+          DRY_RUN: "false"
+          FORCE_RUN: "true"
+          FORCE_VERIFIED_FALLBACK: "true"
+          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_OPENAI_CALLS: "6"
+          SKIP_MAJOR_NEWS: "true"
+          SERBIAN_AUDIENCE_NOW: "true"
+        run: npm run run
+
+      - name: Reapply store-only policy before post 3
+        run: |
+          set -euo pipefail
+          jq -s 'add | map(.post.slide_count = (.post.slide_count // 3))'             data/fallback-posts-store-next.json data/fallback-posts-hype-next.json data/fallback-posts-safe-next.json data/fallback-posts-safe.json data/fallback-posts-attention.json /tmp/base-fallback-posts.json data/fallback-posts-extra.json > /tmp/fallback-posts.json
+          mv /tmp/fallback-posts.json data/fallback-posts.json
+          python scripts/harden_content_policy.py
+          python scripts/fix_copy_overflow.py
+          python scripts/format_semantic_accents.py
+          python scripts/scroll_stop_policy.py
+          python scripts/retry_content_policy.py
+          python scripts/detail_copy_policy.py
+          python scripts/attention_story_policy.py
+          python scripts/background_responses_policy.py
+          python scripts/require_real_images.py
+          python scripts/economy_text_policy.py
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/index.mjs')
+          s = p.read_text(encoding='utf-8')
+          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
+          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
+          if needle in s:
+              p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
+          elif 'Forced verified fallback: skipping paid text research and verifier.' not in s:
+              raise SystemExit('force verified fallback patch missing before post 3')
+          PY
+          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
+          npm run check
+
+      - name: Publish TrendyPatike store post 3
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          TEXT_MODEL: "gpt-5-mini"
+          VERIFY_MODEL: "gpt-5-mini"
+          IMAGE_MODEL: "gpt-image-1-mini"
+          IMAGE_QUALITY: medium
+          BRAND_GREEN: "#037361"
+          BRAND_NAME: TRENDYPATIKE
+          BRAND_SITE: trendypatike.com
+          DRY_RUN: "false"
+          FORCE_RUN: "true"
+          FORCE_VERIFIED_FALLBACK: "true"
+          MAX_TOPIC_ATTEMPTS: "1"
+          MAX_OPENAI_CALLS: "6"
+          SKIP_MAJOR_NEWS: "true"
+          SERBIAN_AUDIENCE_NOW: "true"
+        run: npm run run
