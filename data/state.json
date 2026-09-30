@@ -544,8 +544,19 @@
         "https://news.adidas.com/originals/the-beginning-of-a-creative-partnership-with-bad-bunny/s/e55bd198-1d25-4ca9-81db-490987027270",
         "https://www.adidas.com/us/blog/bad-bunny-archive-the-complete-adidas-collaboration-timeline"
       ]
+    },
+    {
+      "date": "2026-09-30",
+      "topic_id": "store-offwhite-lot49-16990",
+      "seed_topic": "DUNK Low Off-White Lot 49 na TrendyPatike.com: 16.990 RSD umesto 34.000 RSD",
+      "topic_title": "DUNK Low Off-White Lot 49 je trenutno 16.990 RSD na TrendyPatike.com",
+      "media_id": "18146158753564370",
+      "sources": [
+        "https://trendypatike.com/collections/muskarci/products/nike-dunk-low-off-white-lot49",
+        "https://trendypatike.com/collections/nike-dunk-off-white"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-26",
-  "last_media_id": "18126702538832520"
+  "last_publish_date": "2026-09-30",
+  "last_media_id": "18146158753564370"
 }
