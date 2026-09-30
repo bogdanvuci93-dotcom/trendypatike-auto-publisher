@@ -129,5 +129,10 @@
     "public/posts/2026-09-30-store-yeezy-static-black-12499-054a7b7b1250/01.jpg",
     "public/posts/2026-09-30-store-yeezy-static-black-12499-054a7b7b1250/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019646843944388"
+    ],
+    "carousel_id": ""
+  }
 }
