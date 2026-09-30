@@ -137,5 +137,10 @@
     "public/posts/2026-09-30-store-tn-triple-white-live-11690-v2-d08147f68b66/01.jpg",
     "public/posts/2026-09-30-store-tn-triple-white-live-11690-v2-d08147f68b66/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019654793944388"
+    ],
+    "carousel_id": ""
+  }
 }
