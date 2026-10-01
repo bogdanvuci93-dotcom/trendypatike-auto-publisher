@@ -1,0 +1,184 @@
+[
+  {
+    "seed": {
+      "id": "interesting-virgil-lv-nike-af1-25m-v1",
+      "topic": "Kako je Virgil Abloh spojio Louis Vuitton i Nike Air Force 1, a 200 aukcijskih pari prikupilo 25,3 miliona dolara",
+      "category": "Virgil Abloh / Louis Vuitton / Nike / aukcija / novac",
+      "preferred_domains": ["sothebys.com"],
+      "visual_subject": "Virgil Abloh prominently in a luxury design studio with a Louis Vuitton x Nike Air Force 1 inspired sneaker and orange pilot case, auction atmosphere",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "200 Virgil Abloh x Louis Vuitton x Nike AF1 pari prikupilo je 25,3 miliona $",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "200 PARI VIRGIL ABLOH x LV x NIKE AF1", "accent": false},
+          {"text": "PRIKUPILO JE 25,3 MILIONA $", "accent": true}
+        ],
+        "subheadline": "Jedan sneaker drop pretvoren je u aukciju na kojoj je većina pari otišla preko 100.000 dolara."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "SOTHEBY’S JE 2022. PONUDIO 200 SPECIJALNIH PARI SA LOUIS VUITTON PILOT CASE-OM", "accent": false},
+          {"text": "VEĆINA JE PRODATA ZA VIŠE OD 100.000 $", "accent": true}
+        ],
+        "facts": [
+          {"tag": "200 PARI", "text": "Sotheby’s je na prvoj javnoj prodaji ponudio 200 pari Louis Vuitton x Nike Air Force 1 koje je dizajnirao Virgil Abloh."},
+          {"tag": "25,3 MILIONA $", "text": "Sotheby’s navodi da je aukcija ukupno prikupila 25,3 miliona dolara, a većina pari prodata je za više od 100.000 dolara."},
+          {"tag": "POSEBAN DETALJ", "text": "Svaki aukcijski par dolazio je sa narandžastim Louis Vuitton pilot case-om napravljenim posebno za ovu prodaju."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "AF1 JE PRVI PUT U SVOJOJ ISTORIJI PRAVLJEN VAN NIKE FABRIKE", "accent": false},
+          {"text": "OVAJ PUT U LOUIS VUITTON POGONU U ITALIJI", "accent": true}
+        ],
+        "facts": [
+          {"tag": "ITALIJA", "text": "Sotheby’s navodi da su Louis Vuitton x Nike AF1 izrađivani u Fiesso d’Artico u Italiji, prvi put da je AF1 pravljen van Nike fabrike."},
+          {"tag": "LEGACY", "text": "Modeli su objavljeni posthumno i predstavljaju neke od poslednjih sneaker dizajna Virgila Abloha."}
+        ],
+        "question": "Da li biste dali 100.000 $ za jedan sneaker par?"
+      },
+      "caption": "Virgil Abloh je spojio Louis Vuitton i Nike Air Force 1, a rezultat je završio na jednoj od najluđih sneaker aukcija. Sotheby’s je 2022. ponudio 200 specijalnih pari sa Louis Vuitton pilot case-om. Aukcija je ukupno prikupila 25,3 miliona dolara, a većina pari otišla je za više od 100.000 $. Još luđe: Sotheby’s navodi da je ovo prvi put da je Air Force 1 izrađivan van Nike fabrike — u Louis Vuitton pogonu u Italiji.",
+      "hashtags": ["#TrendyPatike", "#VirgilAbloh", "#LouisVuitton", "#NikeAF1", "#SneakerHype", "#Patike"],
+      "image_prompts": [
+        "Virgil Abloh must be the dominant recognizable subject in the foreground, luxury fashion design studio, white and brown Louis Vuitton x Nike Air Force 1 inspired sneaker and orange monogram pilot case beside him, premium auction atmosphere, cinematic editorial photography, 4:5 vertical, no readable text, no watermark",
+        "luxury auction room displaying a white and brown designer Air Force 1 inspired sneaker with orange pilot case, bidding atmosphere, dramatic premium editorial photography, no readable text",
+        "Italian luxury shoe atelier crafting a premium Air Force 1 inspired sneaker from calf leather, couture tools and high-end materials, cinematic documentary style, no readable text"
+      ],
+      "sources": [
+        {"title": "Louis Vuitton x Nike Air Force One Exclusive Auction Release", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"},
+        {"title": "The History Behind the Louis Vuitton Nike Air Force 1 by Virgil Abloh", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/articles/the-history-behind-the-louis-vuitton-nike-air-force-1-by-virgil-abloh"}
+      ],
+      "claims": [
+        {"claim": "Sotheby's offered 200 auction-exclusive Louis Vuitton x Nike Air Force 1 pairs in 2022.", "source_urls": ["https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"]},
+        {"claim": "The auction raised 25.3 million dollars and most pairs sold for more than 100,000 dollars.", "source_urls": ["https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"]},
+        {"claim": "Sotheby's says these AF1s were made in Louis Vuitton's Fiesso d'Artico facility, the first time the model was crafted outside a Nike factory.", "source_urls": ["https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "interesting-kanye-air-yeezy-grammy-18m-v1",
+      "topic": "Kako je Kanye West na Grammyju 2008. otkrio tajni Nike Air Yeezy, a taj prototip kasnije prodat za 1,8 miliona dolara",
+      "category": "Kanye West / Nike Air Yeezy / Grammy / rekord / novac",
+      "preferred_domains": ["sothebys.com"],
+      "visual_subject": "Kanye West prominently on a 2008 Grammy-style stage wearing futuristic Nike Air Yeezy prototype sneakers, dramatic concert lights and auction value",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Kanyeov Grammy Nike Air Yeezy prototip prodat je za 1,8 miliona $",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "KANYE JE 2008. NA GRAMMYJU OTKRIO TAJNI NIKE YEEZY", "accent": false},
+          {"text": "TAJ PAR JE KASNIJE PRODAT ZA 1,8 MILIONA $", "accent": true}
+        ],
+        "subheadline": "Publika tada nije ni znala šta gleda — jedini trag bio je Nike Swoosh."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "TOKOM NASTUPA 'STRONGER' I 'HEY MAMA' KANYE JE NOSIO PROTOTIP KOJI NI SNEAKER FANOVI NISU PREPOZNALI", "accent": false},
+          {"text": "TIME JE NIKE YEEZY PRAKTIČNO PREDSTAVLJEN SVETU", "accent": true}
+        ],
+        "facts": [
+          {"tag": "2008 GRAMMY", "text": "Sotheby’s navodi da je Kanye West prototip nosio tokom nastupa Stronger i Hey Mama na 50. Grammy Awards."},
+          {"tag": "TAJNI PROJEKAT", "text": "Patike tada nisu bile javno predstavljene; Sotheby’s opisuje nastup kao trenutak kada je Nike Yeezy prvi put otkriven svetu."},
+          {"tag": "1,8 MILIONA $", "text": "Sotheby’s je kasnije zabeležio prodaju tog Grammy-worn prototipa za 1,8 miliona dolara, tada rekordnu cenu za sneaker."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "JEDAN NASTUP JE PRETVORIO TAJNI PROTOTIP U DEO SNEAKER ISTORIJE", "accent": false},
+          {"text": "AIR YEEZY JE U PRODAJU STIGAO TEK 2009.", "accent": true}
+        ],
+        "facts": [
+          {"tag": "2009", "text": "Drugi Sotheby’s izvor navodi da su serijski Nike Air Yeezy modeli u prodaju stigli u aprilu 2009, nakon Grammy otkrivanja."},
+          {"tag": "PRE ADIDASA", "text": "Ovo je bilo godinama pre Kanyeovog kasnijeg Yeezy partnerstva sa adidasom."}
+        ],
+        "question": "Da li ste znali da je Yeezy prvo bio Nike?"
+      },
+      "caption": "Pre adidas Yeezy ere postojao je Nike Air Yeezy. Kanye West je 2008. izašao na Grammy binu u misterioznom prototipu koji čak ni najveći sneaker fanovi nisu odmah prepoznali — jedini trag bio je Swoosh. Sotheby’s taj nastup opisuje kao trenutak kada je Nike Yeezy predstavljen svetu. Godinama kasnije upravo taj Grammy-worn prototip prodat je za 1,8 miliona dolara.",
+      "hashtags": ["#TrendyPatike", "#KanyeWest", "#NikeYeezy", "#AirYeezy", "#SneakerHistory", "#Patike"],
+      "image_prompts": [
+        "Kanye West must be the dominant recognizable subject on a dramatic 2008 Grammy-style stage, performing under purple blue spotlights, futuristic black Nike Air Yeezy prototype style sneakers clearly visible, premium concert editorial, 4:5 vertical, no readable text, no watermark",
+        "close luxury auction display of a futuristic black Nike Air Yeezy prototype style sneaker with concert-stage light reflections and collector atmosphere, no readable text",
+        "late-2000s sneaker design studio with futuristic high-top prototype, music production gear and stage mood, premium documentary editorial, no readable text"
+      ],
+      "sources": [
+        {"title": "Kanye West 'Grammy Worn' Nike Air Yeezy Sample", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"},
+        {"title": "2021: Historic Year in Review", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/articles/2021-historic-year-in-review"},
+        {"title": "From the Archive: Kanye West Prototype Nike Air Yeezy", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/digital-catalogues/from-the-archive-day-2-kanye-west-prototype-nike-air-yeezy"}
+      ],
+      "claims": [
+        {"claim": "Kanye West wore the Nike Air Yeezy prototype during his Stronger and Hey Mama performance at the 2008 Grammy Awards.", "source_urls": ["https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"]},
+        {"claim": "Sotheby's describes the Grammy performance as the public reveal of the top-secret Nike Yeezy project.", "source_urls": ["https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample"]},
+        {"claim": "Sotheby's records the Grammy-worn Nike Air Yeezy Samples selling for 1.8 million dollars.", "source_urls": ["https://www.sothebys.com/en/articles/2021-historic-year-in-review"]}
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "interesting-mj-air-ship-147m-v1",
+      "topic": "Kako su Michael Jordan Nike Air Ship patike iz rookie sezone prodate za oko 1,47 miliona dolara",
+      "category": "Michael Jordan / Nike Air Ship / rookie / aukcija / novac",
+      "preferred_domains": ["sothebys.com"],
+      "visual_subject": "Michael Jordan prominently in 1984 Chicago basketball action wearing early Nike Air Ship shoes, premium auction display and rookie-era atmosphere",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": true,
+      "topic_title": "Jordanove rookie Nike Air Ship patike prodate su za oko 1,47 miliona $",
+      "slide_count": 2,
+      "cover": {
+        "headline_lines": [
+          {"text": "PRE AIR JORDAN 1, MICHAEL JORDAN JE NOSIO NIKE AIR SHIP", "accent": false},
+          {"text": "JEDAN GAME-WORN PAR PRODAT JE ZA OKO 1,47 MILIONA $", "accent": true}
+        ],
+        "subheadline": "Patike iz njegovih prvih NBA utakmica postale su višemilionski kolekcionarski artefakt."
+      },
+      "slide2": {
+        "headline_lines": [
+          {"text": "OVAJ PAR JE POVEZAN SA JORDANOVOM ROOKIE SEZONOM 1984.", "accent": false},
+          {"text": "I PREDSTAVLJA PERIOD PRE NEGO ŠTO JE AIR JORDAN 1 BIO SPREMAN", "accent": true}
+        ],
+        "facts": [
+          {"tag": "1984", "text": "Sotheby’s navodi da je Nike Air Ship bio prvi košarkaški model koji je Michael Jordan nosio kao NBA profesionalac."},
+          {"tag": "5. NBA UTAKMICA", "text": "Par ponuđen 2021. pripisan je Jordanovoj petoj NBA utakmici, 1. novembra 1984, i potpisan je."},
+          {"tag": "1,47 MILIONA $", "text": "Sotheby’s danas navodi ovu prodaju među svojim važnim sneaker rezultatima, sa cenom od oko 1,47 miliona dolara."}
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {"text": "JOŠ ZANIMLJIVIJE: 'BANNED' PRIČA NIJE POČELA SA AIR JORDAN 1", "accent": false},
+          {"text": "NBA JE PRVO IMALA PROBLEM SA CRVENO-CRNIM AIR SHIP MODELOM", "accent": true}
+        ],
+        "facts": [
+          {"tag": "AIR SHIP", "text": "Sotheby’s objašnjava da se NBA upozorenje odnosilo na crveno-crni Air Ship, iako je Nike kasnije reklamirao priču kroz Air Jordan 1."},
+          {"tag": "PRE AJ1", "text": "Air Ship je služio Jordanu dok Air Jordan 1 još nije bio spreman za njegovu rookie sezonu."}
+        ],
+        "question": "Da li ste znali da je Jordan pre AJ1 nosio Air Ship?"
+      },
+      "caption": "Pre nego što je Air Jordan 1 postao legenda, Michael Jordan je u svojim prvim NBA utakmicama nosio Nike Air Ship. Sotheby’s je 2021. ponudio game-worn i potpisan par iz rookie sezone, povezan sa njegovom petom NBA utakmicom. Sotheby’s kasnije navodi da je taj par prodat za oko 1,47 miliona dolara. Bonus činjenica: čuvena 'banned' priča prvobitno je bila vezana za crveno-crni Air Ship, ne za AJ1 koji se kasnije pojavio u reklami.",
+      "hashtags": ["#TrendyPatike", "#MichaelJordan", "#NikeAirShip", "#AirJordan", "#SneakerHistory", "#Patike"],
+      "image_prompts": [
+        "Michael Jordan must be the dominant recognizable subject in a 1984 rookie-era Chicago basketball game, explosive action pose, white-red early Nike Air Ship style sneakers clearly visible, vintage arena flash photography, 4:5 vertical, no readable text, no watermark",
+        "museum-grade luxury auction display of white and red 1984 Nike Air Ship style basketball sneakers, signed game-worn artifact atmosphere, premium dramatic lighting, no readable text",
+        "1984 NBA locker room atmosphere with early white-red basketball sneakers and vintage Chicago uniform details, documentary editorial photography, no readable text"
+      ],
+      "sources": [
+        {"title": "Michael Jordan Earliest Known Regular Season Nikes | Game Worn & Signed Air Ships", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/buy/auction/2021/mgm-resorts-x-sothebys-a-celebration-of-art-luxury-and-culture-luxury-live/michael-jordan-earliest-known-regular-season-nikes"},
+        {"title": "The Nike Air Ship and The Genesis of the Jordan Line", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/articles/the-nike-air-ship-and-the-genesis-of-the-jordan-line"},
+        {"title": "Sneakers & Collectibles Auctions", "publisher": "Sotheby's", "url": "https://www.sothebys.com/en/departments/sneakers-collectibles"}
+      ],
+      "claims": [
+        {"claim": "Sotheby's identifies the Nike Air Ship as the first basketball shoe Michael Jordan wore as an NBA professional.", "source_urls": ["https://www.sothebys.com/en/articles/the-nike-air-ship-and-the-genesis-of-the-jordan-line"]},
+        {"claim": "The offered pair was attributed to Jordan's fifth NBA game on November 1, 1984.", "source_urls": ["https://www.sothebys.com/en/buy/auction/2021/mgm-resorts-x-sothebys-a-celebration-of-art-luxury-and-culture-luxury-live/michael-jordan-earliest-known-regular-season-nikes"]},
+        {"claim": "Sotheby's lists the earliest known Michael Jordan game-worn Nikes as selling for 1.47 million dollars.", "source_urls": ["https://www.sothebys.com/en/departments/sneakers-collectibles"]}
+      ]
+    }
+  }
+]
