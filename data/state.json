@@ -621,8 +621,19 @@
         "https://trendypatike.com/collections/muskarci/products/yeezy-boost-350-v2-blue-tint",
         "https://trendypatike.com/"
       ]
+    },
+    {
+      "date": "2026-10-01",
+      "topic_id": "interesting-virgil-lv-nike-af1-25m-v1",
+      "seed_topic": "Kako je Virgil Abloh spojio Louis Vuitton i Nike Air Force 1, a 200 aukcijskih pari prikupilo 25,3 miliona dolara",
+      "topic_title": "200 Virgil Abloh x Louis Vuitton x Nike AF1 pari prikupilo je 25,3 miliona $",
+      "media_id": "18129457831806962",
+      "sources": [
+        "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
+        "https://www.sothebys.com/en/articles/the-history-behind-the-louis-vuitton-nike-air-force-1-by-virgil-abloh"
+      ]
     }
   ],
-  "last_publish_date": "2026-09-30",
-  "last_media_id": "18018957197949106"
+  "last_publish_date": "2026-10-01",
+  "last_media_id": "18129457831806962"
 }
