@@ -129,5 +129,10 @@
     "public/posts/2026-10-01-interesting-virgil-lv-nike-af1-25m-v1-f124983871ee/01.jpg",
     "public/posts/2026-10-01-interesting-virgil-lv-nike-af1-25m-v1-f124983871ee/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019812494944388"
+    ],
+    "carousel_id": ""
+  }
 }
