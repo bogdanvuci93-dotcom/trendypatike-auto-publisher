@@ -25,6 +25,7 @@ on:
       - ".github/workflows/daily.yml"
       - ".github/workflows/publish-two-now.yml"
       - ".github/workflows/publish-three-store-now.yml"
+      - ".github/workflows/publish-three-interesting-now.yml"
       - ".github/workflows/publish-one-retry-now.yml"
       - ".github/workflows/preflight.yml"
 
