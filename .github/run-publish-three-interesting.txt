@@ -1,0 +1,4 @@
+trigger=2026-10-01T13:05:00+02:00
+policy=interesting-v1-verified
+preflight=36852995605:success
+request=publish-three-sneaker-interest-posts
