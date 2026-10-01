@@ -1,6 +1,5 @@
 {
-  "date": "2026-10-01",
-  "stage": "ready",
+  "generated_at": "2026-10-01T11:06:57.960Z",
   "fingerprint": "47f3bae4c82d",
   "seed": {
     "id": "interesting-kanye-air-yeezy-grammy-18m-v1",
@@ -129,10 +128,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-10-01-interesting-kanye-air-yeezy-grammy-18m-v1-47f3bae4c82d/01.jpg",
-    "public/posts/2026-10-01-interesting-kanye-air-yeezy-grammy-18m-v1-47f3bae4c82d/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
