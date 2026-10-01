@@ -644,8 +644,20 @@
         "https://www.sothebys.com/en/articles/2021-historic-year-in-review",
         "https://www.sothebys.com/en/digital-catalogues/from-the-archive-day-2-kanye-west-prototype-nike-air-yeezy"
       ]
+    },
+    {
+      "date": "2026-10-01",
+      "topic_id": "interesting-mj-air-ship-147m-v1",
+      "seed_topic": "Kako su Michael Jordan Nike Air Ship patike iz rookie sezone prodate za oko 1,47 miliona dolara",
+      "topic_title": "Jordanove rookie Nike Air Ship patike prodate su za oko 1,47 miliona $",
+      "media_id": "18062071874547075",
+      "sources": [
+        "https://www.sothebys.com/en/buy/auction/2021/mgm-resorts-x-sothebys-a-celebration-of-art-luxury-and-culture-luxury-live/michael-jordan-earliest-known-regular-season-nikes",
+        "https://www.sothebys.com/en/articles/the-nike-air-ship-and-the-genesis-of-the-jordan-line",
+        "https://www.sothebys.com/en/departments/sneakers-collectibles"
+      ]
     }
   ],
   "last_publish_date": "2026-10-01",
-  "last_media_id": "18008247242780260"
+  "last_media_id": "18062071874547075"
 }
