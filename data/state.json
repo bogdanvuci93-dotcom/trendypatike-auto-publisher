@@ -632,8 +632,20 @@
         "https://www.sothebys.com/en/articles/louis-vuitton-x-nike-air-force-one-exclusive-auction-release",
         "https://www.sothebys.com/en/articles/the-history-behind-the-louis-vuitton-nike-air-force-1-by-virgil-abloh"
       ]
+    },
+    {
+      "date": "2026-10-01",
+      "topic_id": "interesting-kanye-air-yeezy-grammy-18m-v1",
+      "seed_topic": "Kako je Kanye West na Grammyju 2008. otkrio tajni Nike Air Yeezy, a taj prototip kasnije prodat za 1,8 miliona dolara",
+      "topic_title": "Kanyeov Grammy Nike Air Yeezy prototip prodat je za 1,8 miliona $",
+      "media_id": "18008247242780260",
+      "sources": [
+        "https://www.sothebys.com/en/digital-catalogues/kanye-west-grammy-worn-nike-air-yeezy-sample",
+        "https://www.sothebys.com/en/articles/2021-historic-year-in-review",
+        "https://www.sothebys.com/en/digital-catalogues/from-the-archive-day-2-kanye-west-prototype-nike-air-yeezy"
+      ]
     }
   ],
   "last_publish_date": "2026-10-01",
-  "last_media_id": "18129457831806962"
+  "last_media_id": "18008247242780260"
 }
