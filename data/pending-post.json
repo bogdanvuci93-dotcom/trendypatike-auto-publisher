@@ -134,5 +134,10 @@
     "public/posts/2026-10-01-interesting-kanye-air-yeezy-grammy-18m-v1-47f3bae4c82d/01.jpg",
     "public/posts/2026-10-01-interesting-kanye-air-yeezy-grammy-18m-v1-47f3bae4c82d/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18019812635944388"
+    ],
+    "carousel_id": ""
+  }
 }
