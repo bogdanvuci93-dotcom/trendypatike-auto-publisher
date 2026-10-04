@@ -1,6 +1,5 @@
 {
-  "date": "2026-10-04",
-  "stage": "ready",
+  "generated_at": "2026-10-04T08:20:11.714Z",
   "fingerprint": "76b7acfb8372",
   "seed": {
     "id": "interesting-rundmc-adidas-16m-v1",
@@ -131,10 +130,5 @@
         ]
       }
     ]
-  },
-  "image_paths": [
-    "public/posts/2026-10-04-interesting-rundmc-adidas-16m-v1-76b7acfb8372/01.jpg",
-    "public/posts/2026-10-04-interesting-rundmc-adidas-16m-v1-76b7acfb8372/02.jpg"
-  ],
-  "instagram": {}
+  }
 }
