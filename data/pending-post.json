@@ -136,5 +136,10 @@
     "public/posts/2026-10-04-interesting-rundmc-adidas-16m-v1-76b7acfb8372/01.jpg",
     "public/posts/2026-10-04-interesting-rundmc-adidas-16m-v1-76b7acfb8372/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18020228213944388"
+    ],
+    "carousel_id": ""
+  }
 }
