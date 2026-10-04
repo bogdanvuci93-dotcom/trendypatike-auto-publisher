@@ -130,5 +130,10 @@
     "public/posts/2026-10-04-interesting-lil-nas-x-satan-shoes-666-v1-51bde6e03ed5/01.jpg",
     "public/posts/2026-10-04-interesting-lil-nas-x-satan-shoes-666-v1-51bde6e03ed5/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18020227934944388"
+    ],
+    "carousel_id": ""
+  }
 }
