@@ -129,5 +129,10 @@
     "public/posts/2026-10-04-interesting-pigeon-dunk-nypd-swat-v1-43d964fc5b1d/01.jpg",
     "public/posts/2026-10-04-interesting-pigeon-dunk-nypd-swat-v1-43d964fc5b1d/02.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18020228072944388"
+    ],
+    "carousel_id": ""
+  }
 }
