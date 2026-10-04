@@ -1,1 +1,135 @@
-{}
+{
+  "date": "2026-10-04",
+  "stage": "verified",
+  "fingerprint": "76b7acfb8372",
+  "seed": {
+    "id": "interesting-rundmc-adidas-16m-v1",
+    "topic": "Kako je Run-DMC pretvorio adidas Superstar bez pertli u globalni simbol i dobio istorijski ugovor od 1,6 miliona dolara",
+    "category": "Run-DMC / adidas Superstar / muzika / ugovor / kultura",
+    "preferred_domains": [
+      "adidas-group.com",
+      "guinnessworldrecords.com",
+      "music.si.edu"
+    ],
+    "visual_subject": "Run-DMC prominently on a 1986 Madison Square Garden style stage, adidas Superstar sneakers held in the air by thousands of fans",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "40.000 ljudi podiglo je adidas patike — zatim je Run-DMC dobio ugovor od 1,6 miliona $",
+    "slide_count": 2,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "40.000 LJUDI JE PODIGLO ADIDAS PATIKE U VAZDUH",
+          "accent": false
+        },
+        {
+          "text": "USLEDIO JE UGOVOR OD 1,6 MILIONA $",
+          "accent": true
+        }
+      ],
+      "subheadline": "Jedan koncert 1986. promenio je odnos muzike, streetweara i sneaker brendova."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "RUN-DMC JE VEĆ NOSIO SUPERSTAR BEZ PERTLI KAO DEO ULIČNOG STILA",
+          "accent": false
+        },
+        {
+          "text": "A ONDA SU OBJAVILI 'MY ADIDAS'",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1986",
+          "text": "adidas navodi da je kompanija shvatila razmere Run-DMC uticaja kada je na koncertu 40.000 fanova podiglo svoje adidas patike."
+        },
+        {
+          "tag": "SUPERSTAR",
+          "text": "Model je prvobitno bio košarkaška patika, ali ga je Run-DMC pretvorio u globalnu streetwear ikonu."
+        },
+        {
+          "tag": "BEZ PERTLI",
+          "text": "Smithsonian opisuje nošenje Superstara bez pertli kao prepoznatljiv deo Run-DMC stila i tadašnje ulične kulture."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "TO JE POSTAO PRVI VELIKI SNEAKER ENDORSEMENT ZA LJUDE VAN SPORTA",
+          "accent": false
+        },
+        {
+          "text": "GUINNESS NAVODI VREDNOST OD 1,6 MILIONA $",
+          "accent": true
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1,6 MILIONA $",
+          "text": "Guinness World Records navodi da je Run-DMC 1986. potpisao adidas endorsement vredan 1,6 miliona dolara."
+        },
+        {
+          "tag": "PREKRETNICA",
+          "text": "adidas ovu saradnju opisuje kao rođenje promocija sportskih brendova kroz ljude koji nisu profesionalni sportisti."
+        }
+      ],
+      "question": "Koji muzičar je po vama najviše promenio sneaker kulturu?"
+    },
+    "caption": "Run-DMC nije prvo dobio ugovor pa onda počeo da nosi adidas, bilo je obrnuto. Superstar bez pertli već je bio deo njihovog autentičnog uličnog stila. Kada su 1986. na koncertu zamolili publiku da podigne adidas patike, oko 40.000 ljudi ih je podiglo u vazduh. adidas je tada video koliko je hip-hop moćan za sneaker kulturu. Guinness World Records navodi da je usledio ugovor vredan 1,6 miliona dolara, prvi sneaker endorsement te vrste za ljude van sporta.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#RunDMC",
+      "#adidas",
+      "#Superstar",
+      "#HipHop",
+      "#SneakerHistory"
+    ],
+    "image_prompts": [
+      "Run-DMC must be the dominant recognizable trio on a 1986 Madison Square Garden style concert stage, black tracksuits and white shell-toe sneakers, thousands of fans raising sneakers overhead, iconic hip-hop atmosphere, cinematic 4:5 vertical, no readable text, no watermark",
+      "1980s hip-hop concert crowd raising white shell-toe sneakers in the air under stage lights, Run-DMC style performers visible on stage, documentary editorial photography, no readable text",
+      "close premium editorial of classic white black shell-toe sneakers worn without laces beside a vintage boombox and black tracksuit, 1986 New York hip-hop atmosphere, no readable text"
+    ],
+    "sources": [
+      {
+        "title": "History - When Street Culture Meets Sports Culture",
+        "publisher": "adidas Group",
+        "url": "https://www.adidas-group.com/en/about/history"
+      },
+      {
+        "title": "First non-sporting sneaker endorsement",
+        "publisher": "Guinness World Records",
+        "url": "https://www.guinnessworldrecords.com/world-records/776615-first-non-sporting-sneaker-endorsement"
+      },
+      {
+        "title": "Run-DMC Superstar 80s Sneakers",
+        "publisher": "Smithsonian Music",
+        "url": "https://music.si.edu/object-day/run-dmc-superstar-80s-sneakers"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "adidas says 40,000 fans held up 3-Stripes shoes during a Run-DMC concert in 1986.",
+        "source_urls": [
+          "https://www.adidas-group.com/en/about/history"
+        ]
+      },
+      {
+        "claim": "Guinness World Records lists Run-DMC's 1986 adidas endorsement at 1.6 million dollars and calls it the first non-sporting sneaker endorsement.",
+        "source_urls": [
+          "https://www.guinnessworldrecords.com/world-records/776615-first-non-sporting-sneaker-endorsement"
+        ]
+      },
+      {
+        "claim": "Smithsonian notes that Run-DMC's My Adidas and sneaker style helped drive Superstar sales and a full Run-DMC line.",
+        "source_urls": [
+          "https://music.si.edu/object-day/run-dmc-superstar-80s-sneakers"
+        ]
+      }
+    ]
+  }
+}
