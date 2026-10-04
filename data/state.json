@@ -678,8 +678,20 @@
         "https://www.gq.com/video/watch/gq-my-life-in-sneakers-jeff-staple",
         "https://www.gq.com/story/nike-pigeon-dunks-reissue-news"
       ]
+    },
+    {
+      "date": "2026-10-04",
+      "topic_id": "interesting-rundmc-adidas-16m-v1",
+      "seed_topic": "Kako je Run-DMC pretvorio adidas Superstar bez pertli u globalni simbol i dobio istorijski ugovor od 1,6 miliona dolara",
+      "topic_title": "40.000 ljudi podiglo je adidas patike — zatim je Run-DMC dobio ugovor od 1,6 miliona $",
+      "media_id": "18069417296590937",
+      "sources": [
+        "https://www.adidas-group.com/en/about/history",
+        "https://www.guinnessworldrecords.com/world-records/776615-first-non-sporting-sneaker-endorsement",
+        "https://music.si.edu/object-day/run-dmc-superstar-80s-sneakers"
+      ]
     }
   ],
   "last_publish_date": "2026-10-04",
-  "last_media_id": "18142478170564682"
+  "last_media_id": "18069417296590937"
 }
