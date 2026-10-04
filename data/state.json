@@ -656,8 +656,19 @@
         "https://www.sothebys.com/en/articles/the-nike-air-ship-and-the-genesis-of-the-jordan-line",
         "https://www.sothebys.com/en/departments/sneakers-collectibles"
       ]
+    },
+    {
+      "date": "2026-10-04",
+      "topic_id": "interesting-lil-nas-x-satan-shoes-666-v1",
+      "seed_topic": "Kako su Lil Nas X Satan Shoes od 666 pari izazvale Nike tužbu i završile povlačenjem",
+      "topic_title": "666 Satan Shoes pari rasprodato je za 1.018 $ — pa je Nike tužio",
+      "media_id": "18497454634097904",
+      "sources": [
+        "https://www.courthousenews.com/wp-content/uploads/2021/03/nike-satan-edny-comp.pdf",
+        "https://www.investing.com/news/stock-market-news/nike-settles-lawsuit-against-maker-of-lil-nas-x-satan-shoes-2469823"
+      ]
     }
   ],
-  "last_publish_date": "2026-10-01",
-  "last_media_id": "18062071874547075"
+  "last_publish_date": "2026-10-04",
+  "last_media_id": "18497454634097904"
 }
