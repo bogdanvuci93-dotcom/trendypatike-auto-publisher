@@ -690,8 +690,19 @@
         "https://www.guinnessworldrecords.com/world-records/776615-first-non-sporting-sneaker-endorsement",
         "https://music.si.edu/object-day/run-dmc-superstar-80s-sneakers"
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "topic_id": "verified-nb990-1982-100usd",
+      "seed_topic": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+      "topic_title": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+      "media_id": "18490543159107334",
+      "sources": [
+        "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf",
+        "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
+      ]
     }
   ],
-  "last_publish_date": "2026-10-04",
-  "last_media_id": "18069417296590937"
+  "last_publish_date": "2026-10-13",
+  "last_media_id": "18490543159107334"
 }
