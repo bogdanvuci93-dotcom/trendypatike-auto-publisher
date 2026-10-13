@@ -19,7 +19,9 @@ new = '''        try {
           throw new Error(`[image] Real image generation failed for slide ${i + 1}; refusing placeholder publish: ${err.message}`);
         }'''
 
-if old not in s and new not in s:
+# New render code already fails closed in production and preserves dry-run placeholders.
+already_safe = "refusing placeholder publish" in s and "if (!cfg.dryRun) throw" in s
+if old not in s and new not in s and not already_safe:
     raise SystemExit("Real-image safety patch failed: render catch block not found")
 if old in s:
     s = s.replace(old, new, 1)
