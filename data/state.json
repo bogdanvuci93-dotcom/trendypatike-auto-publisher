@@ -745,8 +745,19 @@
         "https://www.salomon.com/en-gb/lp/g/icons-xt-6",
         "https://id.salomon.com/pages/xt-6"
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "topic_id": "verified-asics-gellyte3-split",
+      "seed_topic": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+      "topic_title": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+      "media_id": "18450060646123061",
+      "sources": [
+        "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html",
+        "https://corp.asics.com/jp/press/article/2020-03-23"
+      ]
     }
   ],
   "last_publish_date": "2026-10-13",
-  "last_media_id": "17931138033413540"
+  "last_media_id": "18450060646123061"
 }
