@@ -88,19 +88,7 @@ jobs:
           python scripts/require_real_images.py
           python scripts/economy_text_policy.py
 
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('src/index.mjs')
-          s = p.read_text(encoding='utf-8')
-          needle = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (cfg.dryRun) {'
-          repl = 'async function buildNewPost({ topics, state, aiTextAvailable }) {\n  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {\n    console.log("[fallback] Forced verified fallback: skipping paid text research and verifier.");\n    return loadEmergencyFallback(state);\n  }\n  if (cfg.dryRun) {'
-          if needle not in s:
-              raise SystemExit('force verified fallback patch anchor not found')
-          p.write_text(s.replace(needle, repl, 1), encoding='utf-8')
-          PY
-
-          sed -i 's/post\.force_local_images = true;/post.force_local_images = cfg.dryRun;/' src/index.mjs
-          sed -i 's/\.update(JSON\.stringify(post))/\.update("fullbleed-v21-verified-pool-real-image:" + JSON.stringify(post))/' src/index.mjs
+          echo "Verified fallback selection is now permanent in src/index.mjs."
           echo "Fallback entries: $(jq length data/fallback-posts.json)"
           grep -n "refusing placeholder publish" src/render.mjs
 
