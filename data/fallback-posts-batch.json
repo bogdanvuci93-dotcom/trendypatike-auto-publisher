@@ -1,0 +1,677 @@
+[
+  {
+    "seed": {
+      "id": "verified-nb990-1982-100usd",
+      "topic": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "newbalance.com"
+      ],
+      "visual_subject": "1982 grey New Balance 990 vintage running shoe",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara.",
+            "accent": false
+          }
+        ],
+        "subheadline": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Taj iznos bio je veliki korak za patiku namenjenu trkačima, a ne luksuznom modnom tržištu.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "1982",
+            "text": "New Balance 990 predstavljen je 1982. godine."
+          },
+          {
+            "tag": "100 $",
+            "text": "New Balance navodi da je to bila prva patika za trčanje sa cenom od 100 dolara."
+          },
+          {
+            "tag": "TRČANJE",
+            "text": "Model 990 prvobitno je namenjen trčanju."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Model 990 je kasnije postao prepoznatljiv klasik, ali njegov početak vezan je za trčanje i inovacije.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "SIVA",
+            "text": "Siva silueta postala je zaštitni znak serije."
+          },
+          {
+            "tag": "NASLEĐE",
+            "text": "New Balance nastavio je razvoj serije 990."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara. Taj iznos bio je veliki korak za patiku namenjenu trkačima, a ne luksuznom modnom tržištu. Model 990 je kasnije postao prepoznatljiv klasik, ali njegov početak vezan je za trčanje i inovacije.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#NewBalance"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic 1982 grey New Balance 990 vintage running shoe, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of 1982 grey New Balance 990 vintage running shoe, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing 1982 grey New Balance 990 vintage running shoe in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "NewBalance verified historical source 1",
+          "publisher": "NewBalance",
+          "url": "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+        },
+        {
+          "title": "NewBalance verified historical source 2",
+          "publisher": "NewBalance",
+          "url": "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "New Balance 990 predstavljen je 1982. godine.",
+          "source_urls": [
+            "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+          ]
+        },
+        {
+          "claim": "New Balance navodi da je to bila prva patika za trčanje sa cenom od 100 dolara.",
+          "source_urls": [
+            "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
+          ]
+        },
+        {
+          "claim": "Model 990 prvobitno je namenjen trčanju.",
+          "source_urls": [
+            "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "verified-adidas-gazelle-red-blue-1966",
+      "topic": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "adidas.com"
+      ],
+      "visual_subject": "1966 red and blue adidas Gazelle suede trainers",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima.",
+            "accent": false
+          }
+        ],
+        "subheadline": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Obe verzije koristile su antilop gornjište, ali su se đonovi razlikovali prema sportu za koji su napravljene.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "1966",
+            "text": "adidas Gazelle debitovao je 1966. godine."
+          },
+          {
+            "tag": "CRVENA",
+            "text": "Crvena Gazelle verzija bila je namenjena dvoranskim sportovima."
+          },
+          {
+            "tag": "PLAVA",
+            "text": "Plava Gazelle verzija bila je namenjena treninzima."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Gazelle je iz sportskih sala prešao na ulice i postao jedan od najprepoznatljivijih adidas klasika.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "ANTILOP",
+            "text": "Obe originalne verzije imale su antilop gornjište."
+          },
+          {
+            "tag": "ULICA",
+            "text": "Gazelle je kasnije postao deo ulične mode."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima. Obe verzije koristile su antilop gornjište, ali su se đonovi razlikovali prema sportu za koji su napravljene. Gazelle je iz sportskih sala prešao na ulice i postao jedan od najprepoznatljivijih adidas klasika.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#adidas"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic 1966 red and blue adidas Gazelle suede trainers, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of 1966 red and blue adidas Gazelle suede trainers, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing 1966 red and blue adidas Gazelle suede trainers in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "adidas verified historical source 1",
+          "publisher": "adidas",
+          "url": "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+        },
+        {
+          "title": "adidas verified historical source 2",
+          "publisher": "adidas",
+          "url": "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "adidas Gazelle debitovao je 1966. godine.",
+          "source_urls": [
+            "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+          ]
+        },
+        {
+          "claim": "Crvena Gazelle verzija bila je namenjena dvoranskim sportovima.",
+          "source_urls": [
+            "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
+          ]
+        },
+        {
+          "claim": "Plava Gazelle verzija bila je namenjena treninzima.",
+          "source_urls": [
+            "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "verified-converse-nonskid-chuck",
+      "topic": "Converse All Star je prvo bio Non-Skid, a Chuck Taylor se pridružio kasnije",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "converse.com"
+      ],
+      "visual_subject": "1917 Converse Non-Skid vintage basketball high-top canvas shoes",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "Converse All Star je prvo bio Non-Skid, a Chuck Taylor se pridružio kasnije",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "Converse je 1917. napravio košarkašku patiku Non-Skid, a poznato ime All Star pojavilo se tek 1919. godine.",
+            "accent": false
+          }
+        ],
+        "subheadline": "Converse je 1917. napravio košarkašku patiku Non-Skid, a poznato ime All Star pojavilo se tek 1919. godine."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Chuck Taylor se 1922. pridružio Converse kao prodavac i putovao Amerikom promovišući košarkaške patike.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "1917",
+            "text": "Converse Non-Skid pojavio se 1917. godine."
+          },
+          {
+            "tag": "1919",
+            "text": "Model je 1919. dobio ime All Star."
+          },
+          {
+            "tag": "1922",
+            "text": "Chuck Taylor pridružio se kompaniji 1922. godine."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Njegov potpis dodat je na All Star 1934, pa je ime Chuck Taylor postalo deo istorije modela.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "1934",
+            "text": "Njegov potpis dodat je na All Star 1934. godine."
+          },
+          {
+            "tag": "KOŠARKA",
+            "text": "All Star je prvobitno razvijan za košarku."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "Converse je 1917. napravio košarkašku patiku Non-Skid, a poznato ime All Star pojavilo se tek 1919. godine. Chuck Taylor se 1922. pridružio Converse kao prodavac i putovao Amerikom promovišući košarkaške patike. Njegov potpis dodat je na All Star 1934, pa je ime Chuck Taylor postalo deo istorije modela.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#Converse"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic 1917 Converse Non-Skid vintage basketball high-top canvas shoes, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of 1917 Converse Non-Skid vintage basketball high-top canvas shoes, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing 1917 Converse Non-Skid vintage basketball high-top canvas shoes in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "Converse verified historical source 1",
+          "publisher": "Converse",
+          "url": "https://www.converse.com/c/converse-history"
+        },
+        {
+          "title": "Converse verified historical source 2",
+          "publisher": "Converse",
+          "url": "https://www.converse.com/pt/landing-converse-history?lang=en_PT"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Converse Non-Skid pojavio se 1917. godine.",
+          "source_urls": [
+            "https://www.converse.com/c/converse-history"
+          ]
+        },
+        {
+          "claim": "Model je 1919. dobio ime All Star.",
+          "source_urls": [
+            "https://www.converse.com/pt/landing-converse-history?lang=en_PT"
+          ]
+        },
+        {
+          "claim": "Chuck Taylor pridružio se kompaniji 1922. godine.",
+          "source_urls": [
+            "https://www.converse.com/c/converse-history"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "verified-nike-shox-16years",
+      "topic": "Nike Shox je predstavljen 2000. posle čak 16 godina razvoja",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "investors.nike.com",
+        "nike.com"
+      ],
+      "visual_subject": "Nike Shox R4 metallic running shoe with visible flexible heel columns",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "Nike Shox je predstavljen 2000. posle čak 16 godina razvoja",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "Nike Shox tehnologija pojavila se na tržištu 2000. godine, nakon čak 16 godina razvoja u kompaniji Nike.",
+            "accent": false
+          }
+        ],
+        "subheadline": "Nike Shox tehnologija pojavila se na tržištu 2000. godine, nakon čak 16 godina razvoja u kompaniji Nike."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Umesto običnog izgleda pete, Shox je koristio vidljive elastične stubiće koji se sabijaju i vraćaju oblik.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "2000",
+            "text": "Nike Shox tehnologija debitovala je 2000. godine."
+          },
+          {
+            "tag": "16 GODINA",
+            "text": "Nike navodi da je njen razvoj trajao 16 godina."
+          },
+          {
+            "tag": "STUBIĆI",
+            "text": "Shox koristi elastične stubiće za amortizaciju."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Taj neobičan detalj dao je modelima futuristički izgled i učinio Shox jednim od simbola ranih dvehiljaditih.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "AMORTIZACIJA",
+            "text": "Stubići se sabijaju i vraćaju oblik."
+          },
+          {
+            "tag": "SHOX",
+            "text": "Shox R4 zadržava karakterističan izgled pete."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "Nike Shox tehnologija pojavila se na tržištu 2000. godine, nakon čak 16 godina razvoja u kompaniji Nike. Umesto običnog izgleda pete, Shox je koristio vidljive elastične stubiće koji se sabijaju i vraćaju oblik. Taj neobičan detalj dao je modelima futuristički izgled i učinio Shox jednim od simbola ranih dvehiljaditih.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#Nike"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic Nike Shox R4 metallic running shoe with visible flexible heel columns, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of Nike Shox R4 metallic running shoe with visible flexible heel columns, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing Nike Shox R4 metallic running shoe with visible flexible heel columns in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "Nike verified historical source 1",
+          "publisher": "Nike",
+          "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2006/Nike-Files-Patent-Infringement-Action-Against-Adidas/default.aspx"
+        },
+        {
+          "title": "Nike verified historical source 2",
+          "publisher": "Nike",
+          "url": "https://www.nike.com/t/shox-r4-mens-shoes-0PISn0m1/HQ1988-101"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Nike Shox tehnologija debitovala je 2000. godine.",
+          "source_urls": [
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2006/Nike-Files-Patent-Infringement-Action-Against-Adidas/default.aspx"
+          ]
+        },
+        {
+          "claim": "Nike navodi da je njen razvoj trajao 16 godina.",
+          "source_urls": [
+            "https://www.nike.com/t/shox-r4-mens-shoes-0PISn0m1/HQ1988-101"
+          ]
+        },
+        {
+          "claim": "Shox koristi elastične stubiće za amortizaciju.",
+          "source_urls": [
+            "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2006/Nike-Files-Patent-Infringement-Action-Against-Adidas/default.aspx"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "verified-salomon-xt6-trail-street",
+      "topic": "Salomon XT-6 je od trail patike iz 2013. postao ulični hit",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "salomon.com",
+        "id.salomon.com"
+      ],
+      "visual_subject": "Salomon XT-6 trail running shoes on mountain path and city street",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "Salomon XT-6 je od trail patike iz 2013. postao ulični hit",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit.",
+            "accent": false
+          }
+        ],
+        "subheadline": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Godine 2018. XT-6 se vratio kroz Sportstyle liniju, a njegov sportski dizajn privukao je novu publiku.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "2013",
+            "text": "Salomon S/LAB XT-6 predstavljen je 2013. godine."
+          },
+          {
+            "tag": "TRAIL",
+            "text": "Model je razvijan sa trail sportistima."
+          },
+          {
+            "tag": "2018",
+            "text": "XT-6 ponovo je lansiran u Sportstyle liniji 2018."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "QuickLACE vezivanje i đon namenjen prianjanju ostali su važni detalji patike koja je prešla sa staze na ulicu.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "QUICKLACE",
+            "text": "Model koristi QuickLACE sistem vezivanja."
+          },
+          {
+            "tag": "SPORTSTYLE",
+            "text": "Mud Contagrip đon namenjen je dobrom prianjanju."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit. Godine 2018. XT-6 se vratio kroz Sportstyle liniju, a njegov sportski dizajn privukao je novu publiku. QuickLACE vezivanje i đon namenjen prianjanju ostali su važni detalji patike koja je prešla sa staze na ulicu.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#Salomon"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic Salomon XT-6 trail running shoes on mountain path and city street, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of Salomon XT-6 trail running shoes on mountain path and city street, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing Salomon XT-6 trail running shoes on mountain path and city street in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "Salomon verified historical source 1",
+          "publisher": "Salomon",
+          "url": "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+        },
+        {
+          "title": "Salomon verified historical source 2",
+          "publisher": "Salomon",
+          "url": "https://id.salomon.com/pages/xt-6"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "Salomon S/LAB XT-6 predstavljen je 2013. godine.",
+          "source_urls": [
+            "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+          ]
+        },
+        {
+          "claim": "Model je razvijan sa trail sportistima.",
+          "source_urls": [
+            "https://id.salomon.com/pages/xt-6"
+          ]
+        },
+        {
+          "claim": "XT-6 ponovo je lansiran u Sportstyle liniji 2018.",
+          "source_urls": [
+            "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "seed": {
+      "id": "verified-asics-gellyte3-split",
+      "topic": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+      "category": "sneaker istorija / proverene činjenice",
+      "preferred_domains": [
+        "asics.com",
+        "corp.asics.com"
+      ],
+      "visual_subject": "1990 ASICS GEL-LYTE III running shoe split tongue closeup",
+      "emergency_only": true
+    },
+    "post": {
+      "force_local_images": false,
+      "topic_title": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+      "slide_count": 3,
+      "cover": {
+        "headline_lines": [
+          {
+            "text": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog.",
+            "accent": false
+          }
+        ],
+        "subheadline": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog."
+      },
+      "slide2": {
+        "headline_lines": [
+          {
+            "text": "Takav split-tongue dizajn napravljen je da obuhvati stopalo i pomogne da se jezik manje pomera pri nošenju.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "1990",
+            "text": "ASICS GEL-LYTE III predstavljen je 1990. godine."
+          },
+          {
+            "tag": "SPLIT TONGUE",
+            "text": "Model ima jezik podeljen na dva dela."
+          },
+          {
+            "tag": "JEZIK",
+            "text": "Split-tongue dizajn pomaže da jezik ostane na mestu."
+          }
+        ]
+      },
+      "slide3": {
+        "headline_lines": [
+          {
+            "text": "Model je sačuvao taj prepoznatljivi detalj i u retro izdanjima, pa ga ljubitelji patika lako razlikuju.",
+            "accent": false
+          }
+        ],
+        "facts": [
+          {
+            "tag": "GEL",
+            "text": "GEL tehnologija nalazi se u peti modela."
+          },
+          {
+            "tag": "RETRO",
+            "text": "Retro verzije zadržavaju prepoznatljiv podeljeni jezik."
+          }
+        ],
+        "question": "Koji detalj ove priče te je najviše iznenadio?"
+      },
+      "caption": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog. Takav split-tongue dizajn napravljen je da obuhvati stopalo i pomogne da se jezik manje pomera pri nošenju. Model je sačuvao taj prepoznatljivi detalj i u retro izdanjima, pa ga ljubitelji patika lako razlikuju.",
+      "hashtags": [
+        "#TrendyPatike",
+        "#SneakerIstorija",
+        "#Patike",
+        "#SneakerKultura",
+        "#ASICS"
+      ],
+      "image_prompts": [
+        "Editorial photograph of authentic 1990 ASICS GEL-LYTE III running shoe split tongue closeup, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+        "Macro product photography highlighting construction of 1990 ASICS GEL-LYTE III running shoe split tongue closeup, accurate historical features, premium dark sports editorial, no text",
+        "Lifestyle sports photograph showing 1990 ASICS GEL-LYTE III running shoe split tongue closeup in its original historical context, realistic scene, cinematic lighting, no lettering"
+      ],
+      "sources": [
+        {
+          "title": "ASICS verified historical source 1",
+          "publisher": "ASICS",
+          "url": "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+        },
+        {
+          "title": "ASICS verified historical source 2",
+          "publisher": "ASICS",
+          "url": "https://corp.asics.com/jp/press/article/2020-03-23"
+        }
+      ],
+      "claims": [
+        {
+          "claim": "ASICS GEL-LYTE III predstavljen je 1990. godine.",
+          "source_urls": [
+            "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+          ]
+        },
+        {
+          "claim": "Model ima jezik podeljen na dva dela.",
+          "source_urls": [
+            "https://corp.asics.com/jp/press/article/2020-03-23"
+          ]
+        },
+        {
+          "claim": "Split-tongue dizajn pomaže da jezik ostane na mestu.",
+          "source_urls": [
+            "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+          ]
+        }
+      ]
+    }
+  }
+]
