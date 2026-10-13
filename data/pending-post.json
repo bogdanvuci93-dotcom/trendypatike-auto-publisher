@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "stage": "verified",
+  "stage": "ready",
   "fingerprint": "0e55b326c06f",
   "seed": {
     "id": "verified-converse-nonskid-chuck",
@@ -111,5 +111,11 @@
         ]
       }
     ]
-  }
+  },
+  "image_paths": [
+    "public/posts/2026-10-13-verified-converse-nonskid-chuck-0e55b326c06f/01.jpg",
+    "public/posts/2026-10-13-verified-converse-nonskid-chuck-0e55b326c06f/02.jpg",
+    "public/posts/2026-10-13-verified-converse-nonskid-chuck-0e55b326c06f/03.jpg"
+  ],
+  "instagram": {}
 }
