@@ -19,7 +19,7 @@ import { clearPending, loadPending, savePending } from "./pending.mjs";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const INSTAGRAM_PREFLIGHT_IMAGE = "public/posts/2026-08-19-air-jordan-start/01.jpg";
-const FALLBACK_FILE = path.resolve("data/fallback-posts.json");
+const FALLBACK_FILES = ["data/fallback-posts-batch.json","data/fallback-posts-safe-next.json","data/fallback-posts-safe.json","data/fallback-posts-attention.json","data/fallback-posts.json","data/fallback-posts-extra.json"];
 let instagramPreflightDone = false;
 let gitPreflightDone = false;
 
@@ -133,6 +133,10 @@ async function openAIPreflightForStage(stage) {
     console.log("[dry-run] Zero-cost mode: skipping all OpenAI access.");
     return false;
   }
+  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {
+    console.log("[openai] Preverified fallback; skipping paid text preflight.");
+    return false;
+  }
   if (stage === "ready") {
     console.log("[openai] Ready checkpoint found; no OpenAI access is required for final publish.");
     return false;
@@ -153,19 +157,31 @@ async function openAIPreflightForStage(stage) {
 }
 
 async function loadEmergencyFallback(state) {
-  const entries = JSON.parse(await fs.readFile(FALLBACK_FILE, "utf8"));
+  const entries = [];
+  for (const filename of FALLBACK_FILES) {
+    try {
+      const part = JSON.parse(await fs.readFile(path.resolve(filename), "utf8"));
+      if (Array.isArray(part)) entries.push(...part);
+    } catch (err) {
+      if (err.code !== "ENOENT") throw err;
+    }
+  }
   for (const entry of entries) {
     if (!entry?.seed || !entry?.post) continue;
     if (isDuplicateTopic(entry.seed, state)) continue;
     const post = sanitizeVisiblePost(JSON.parse(JSON.stringify(entry.post)));
-    post.force_local_images = true;
-    console.warn(`[fallback] Using zero-cost verified emergency post: ${entry.seed.topic}`);
+    post.force_local_images = cfg.dryRun;
+    console.warn(`[fallback] Using preverified content (no paid text generation): ${entry.seed.topic}`);
     return { seed: JSON.parse(JSON.stringify(entry.seed)), post };
   }
   throw new Error("Emergency fallback library is exhausted; refusing to publish a duplicate or unverified post");
 }
 
 async function buildNewPost({ topics, state, aiTextAvailable }) {
+  if (process.env.FORCE_VERIFIED_FALLBACK === "true") {
+    console.log("[fallback] Verified library mode; no paid text research.");
+    return loadEmergencyFallback(state);
+  }
   if (cfg.dryRun) {
     console.log("[dry-run] Using verified emergency content and local visuals only.");
     return loadEmergencyFallback(state);
