@@ -712,8 +712,19 @@
         "https://www.adidas.com/us/go/campaign/originals/archive/gazelle",
         "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "topic_id": "verified-converse-nonskid-chuck",
+      "seed_topic": "Converse All Star je prvo bio Non-Skid, a Chuck Taylor se pridružio kasnije",
+      "topic_title": "Converse All Star je prvo bio Non-Skid, a Chuck Taylor se pridružio kasnije",
+      "media_id": "18236817535319894",
+      "sources": [
+        "https://www.converse.com/c/converse-history",
+        "https://www.converse.com/pt/landing-converse-history?lang=en_PT"
+      ]
     }
   ],
   "last_publish_date": "2026-10-13",
-  "last_media_id": "18115544195278219"
+  "last_media_id": "18236817535319894"
 }
