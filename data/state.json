@@ -701,8 +701,19 @@
         "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf",
         "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "topic_id": "verified-adidas-gazelle-red-blue-1966",
+      "seed_topic": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+      "topic_title": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+      "media_id": "18115544195278219",
+      "sources": [
+        "https://www.adidas.com/us/go/campaign/originals/archive/gazelle",
+        "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
+      ]
     }
   ],
   "last_publish_date": "2026-10-13",
-  "last_media_id": "18490543159107334"
+  "last_media_id": "18115544195278219"
 }
