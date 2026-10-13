@@ -1,0 +1,88 @@
+name: TrendyPatike Six Post Catch-Up (Preflight First)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/fallback-posts-batch.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trendypatike-daily-publish
+  cancel-in-progress: false
+
+jobs:
+  zero-cost-preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      remaining: ${{ steps.check.outputs.remaining }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies (no paid API calls)
+        run: npm install --omit=dev --no-audit --no-fund
+      - name: Validate code and local render (no paid API calls)
+        env:
+          TEXT_MODEL: gpt-5-mini
+          VERIFY_MODEL: gpt-5-mini
+          IMAGE_MODEL: gpt-image-1-mini
+          MAX_OPENAI_CALLS: '6'
+          MAX_TOPIC_ATTEMPTS: '1'
+        run: npm run check
+      - name: Verify all six stories and calculate remaining count
+        id: check
+        run: |
+          set -euo pipefail
+          node scripts/preflight_six.mjs
+          echo "remaining=$(node scripts/preflight_six.mjs --count)" >> "$GITHUB_OUTPUT"
+
+  publish-six:
+    needs: zero-cost-preflight
+    if: ${{ needs.zero-cost-preflight.outputs.remaining != '0' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install
+        run: npm install --omit=dev --no-audit --no-fund
+      - name: Publish up to six unique carousels sequentially
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_API_VERSION: ${{ vars.IG_API_VERSION }}
+          DRY_RUN: 'false'
+          FORCE_RUN: 'true'
+          FORCE_VERIFIED_FALLBACK: 'true'
+          TEXT_MODEL: gpt-5-mini
+          VERIFY_MODEL: gpt-5-mini
+          IMAGE_MODEL: gpt-image-1-mini
+          IMAGE_QUALITY: medium
+          MAX_OPENAI_CALLS: '6'
+          MAX_TOPIC_ATTEMPTS: '1'
+          BRAND_GREEN: '#037361'
+          BRAND_NAME: TRENDYPATIKE
+          BRAND_SITE: trendypatike.com
+          REMAINING: ${{ needs.zero-cost-preflight.outputs.remaining }}
+        run: |
+          set -euo pipefail
+          if [ -z "$OPENAI_API_KEY" ] || [ -z "$IG_ACCESS_TOKEN" ] || [ -z "$IG_USER_ID" ]; then
+            echo "::error::Missing OpenAI or Instagram credentials; no paid work started."
+            exit 1
+          fi
+          for i in $(seq 1 "$REMAINING"); do
+            echo "=== Publishing verified carousel $i/$REMAINING ==="
+            node src/index.mjs
+          done
+          echo "All $REMAINING verified carousels published."
