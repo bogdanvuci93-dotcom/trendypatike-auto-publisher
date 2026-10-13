@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-10-13T07:22:48.673Z",
+  "fingerprint": "005edb9a7795",
+  "seed": {
+    "id": "verified-adidas-gazelle-red-blue-1966",
+    "topic": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+    "category": "sneaker istorija / proverene činjenice",
+    "preferred_domains": [
+      "adidas.com"
+    ],
+    "visual_subject": "1966 red and blue adidas Gazelle suede trainers",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "adidas Gazelle iz 1966. imao je crvenu verziju za dvoranu i plavu za trening",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima.",
+          "accent": false
+        }
+      ],
+      "subheadline": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "Obe verzije koristile su antilop gornjište, ali su se đonovi razlikovali prema sportu za koji su napravljene.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1966",
+          "text": "adidas Gazelle debitovao je 1966. godine."
+        },
+        {
+          "tag": "CRVENA",
+          "text": "Crvena Gazelle verzija bila je namenjena dvoranskim sportovima."
+        },
+        {
+          "tag": "PLAVA",
+          "text": "Plava Gazelle verzija bila je namenjena treninzima."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "Gazelle je iz sportskih sala prešao na ulice i postao jedan od najprepoznatljivijih adidas klasika.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "ANTILOP",
+          "text": "Obe originalne verzije imale su antilop gornjište."
+        },
+        {
+          "tag": "ULICA",
+          "text": "Gazelle je kasnije postao deo ulične mode."
+        }
+      ],
+      "question": "Koji detalj ove priče te je najviše iznenadio?"
+    },
+    "caption": "adidas Gazelle je 1966. stigao u dve verzije: crvena je bila namenjena dvoranskim sportovima, a plava treninzima. Obe verzije koristile su antilop gornjište, ali su se đonovi razlikovali prema sportu za koji su napravljene. Gazelle je iz sportskih sala prešao na ulice i postao jedan od najprepoznatljivijih adidas klasika.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#SneakerIstorija",
+      "#Patike",
+      "#SneakerKultura",
+      "#adidas"
+    ],
+    "image_prompts": [
+      "Editorial photograph of authentic 1966 red and blue adidas Gazelle suede trainers, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+      "Macro product photography highlighting construction of 1966 red and blue adidas Gazelle suede trainers, accurate historical features, premium dark sports editorial, no text",
+      "Lifestyle sports photograph showing 1966 red and blue adidas Gazelle suede trainers in its original historical context, realistic scene, cinematic lighting, no lettering"
+    ],
+    "sources": [
+      {
+        "title": "adidas verified historical source 1",
+        "publisher": "adidas",
+        "url": "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+      },
+      {
+        "title": "adidas verified historical source 2",
+        "publisher": "adidas",
+        "url": "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "adidas Gazelle debitovao je 1966. godine.",
+        "source_urls": [
+          "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+        ]
+      },
+      {
+        "claim": "Crvena Gazelle verzija bila je namenjena dvoranskim sportovima.",
+        "source_urls": [
+          "https://www.adidas.com/us/blog/1060275-we-gave-the-world-a-gazelle-a-sneaker-icon-with-a-timeless-history"
+        ]
+      },
+      {
+        "claim": "Plava Gazelle verzija bila je namenjena treninzima.",
+        "source_urls": [
+          "https://www.adidas.com/us/go/campaign/originals/archive/gazelle"
+        ]
+      }
+    ]
+  }
+}

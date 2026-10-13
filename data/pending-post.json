@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "stage": "verified",
+  "stage": "ready",
   "fingerprint": "005edb9a7795",
   "seed": {
     "id": "verified-adidas-gazelle-red-blue-1966",
@@ -111,5 +111,11 @@
         ]
       }
     ]
-  }
+  },
+  "image_paths": [
+    "public/posts/2026-10-13-verified-adidas-gazelle-red-blue-1966-005edb9a7795/01.jpg",
+    "public/posts/2026-10-13-verified-adidas-gazelle-red-blue-1966-005edb9a7795/02.jpg",
+    "public/posts/2026-10-13-verified-adidas-gazelle-red-blue-1966-005edb9a7795/03.jpg"
+  ],
+  "instagram": {}
 }
