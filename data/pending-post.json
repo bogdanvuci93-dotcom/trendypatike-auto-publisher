@@ -118,5 +118,10 @@
     "public/posts/2026-10-13-verified-nike-shox-16years-b5c40ce74c93/02.jpg",
     "public/posts/2026-10-13-verified-nike-shox-16years-b5c40ce74c93/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18021510194944388"
+    ],
+    "carousel_id": ""
+  }
 }
