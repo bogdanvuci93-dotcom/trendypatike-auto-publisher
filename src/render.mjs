@@ -339,7 +339,10 @@ export async function generateAndRender(post, outputDir) {
         try {
           imageBuffer = await generateImage(primary, fallback, safe);
         } catch (err) {
-          console.warn(`[image] AI unavailable for slide ${i + 1}; local fallback: ${err.message}`);
+          // Never publish a generic placeholder as if it were the verified subject.
+          // The paid stage may fail; the verified checkpoint allows a later retry.
+          if (!cfg.dryRun) throw new Error(`Real image generation failed for slide ${i + 1}; refusing placeholder publish: ${err.message}`);
+          console.warn(`[image] Dry-run only: using local placeholder for slide ${i + 1}: ${err.message}`);
           imageBuffer = await localFallbackBuffer(i);
         }
       }
