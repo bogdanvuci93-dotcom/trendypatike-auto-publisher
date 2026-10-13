@@ -118,5 +118,10 @@
     "public/posts/2026-10-13-verified-salomon-xt6-trail-street-7af5a897931b/02.jpg",
     "public/posts/2026-10-13-verified-salomon-xt6-trail-street-7af5a897931b/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18021510326944388"
+    ],
+    "carousel_id": ""
+  }
 }
