@@ -117,5 +117,10 @@
     "public/posts/2026-10-13-verified-nb990-1982-100usd-5ca7129b472b/02.jpg",
     "public/posts/2026-10-13-verified-nb990-1982-100usd-5ca7129b472b/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18021509555944388"
+    ],
+    "carousel_id": ""
+  }
 }
