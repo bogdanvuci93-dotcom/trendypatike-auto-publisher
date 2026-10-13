@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "stage": "verified",
+  "stage": "ready",
   "fingerprint": "5ca7129b472b",
   "seed": {
     "id": "verified-nb990-1982-100usd",
@@ -111,5 +111,11 @@
         ]
       }
     ]
-  }
+  },
+  "image_paths": [
+    "public/posts/2026-10-13-verified-nb990-1982-100usd-5ca7129b472b/01.jpg",
+    "public/posts/2026-10-13-verified-nb990-1982-100usd-5ca7129b472b/02.jpg",
+    "public/posts/2026-10-13-verified-nb990-1982-100usd-5ca7129b472b/03.jpg"
+  ],
+  "instagram": {}
 }

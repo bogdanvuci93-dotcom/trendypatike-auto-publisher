@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-10-13T07:21:07.324Z",
+  "fingerprint": "5ca7129b472b",
+  "seed": {
+    "id": "verified-nb990-1982-100usd",
+    "topic": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+    "category": "sneaker istorija / proverene činjenice",
+    "preferred_domains": [
+      "newbalance.com"
+    ],
+    "visual_subject": "1982 grey New Balance 990 vintage running shoe",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "New Balance 990 je 1982. bio prva patika za trčanje od 100 dolara",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara.",
+          "accent": false
+        }
+      ],
+      "subheadline": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "Taj iznos bio je veliki korak za patiku namenjenu trkačima, a ne luksuznom modnom tržištu.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1982",
+          "text": "New Balance 990 predstavljen je 1982. godine."
+        },
+        {
+          "tag": "100 $",
+          "text": "New Balance navodi da je to bila prva patika za trčanje sa cenom od 100 dolara."
+        },
+        {
+          "tag": "TRČANJE",
+          "text": "Model 990 prvobitno je namenjen trčanju."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "Model 990 je kasnije postao prepoznatljiv klasik, ali njegov početak vezan je za trčanje i inovacije.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "SIVA",
+          "text": "Siva silueta postala je zaštitni znak serije."
+        },
+        {
+          "tag": "NASLEĐE",
+          "text": "New Balance nastavio je razvoj serije 990."
+        }
+      ],
+      "question": "Koji detalj ove priče te je najviše iznenadio?"
+    },
+    "caption": "New Balance je 1982. predstavio model 990, prvu patiku za trčanje koja se u prodaji nudila za 100 dolara. Taj iznos bio je veliki korak za patiku namenjenu trkačima, a ne luksuznom modnom tržištu. Model 990 je kasnije postao prepoznatljiv klasik, ali njegov početak vezan je za trčanje i inovacije.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#SneakerIstorija",
+      "#Patike",
+      "#SneakerKultura",
+      "#NewBalance"
+    ],
+    "image_prompts": [
+      "Editorial photograph of authentic 1982 grey New Balance 990 vintage running shoe, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+      "Macro product photography highlighting construction of 1982 grey New Balance 990 vintage running shoe, accurate historical features, premium dark sports editorial, no text",
+      "Lifestyle sports photograph showing 1982 grey New Balance 990 vintage running shoe in its original historical context, realistic scene, cinematic lighting, no lettering"
+    ],
+    "sources": [
+      {
+        "title": "NewBalance verified historical source 1",
+        "publisher": "NewBalance",
+        "url": "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+      },
+      {
+        "title": "NewBalance verified historical source 2",
+        "publisher": "NewBalance",
+        "url": "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "New Balance 990 predstavljen je 1982. godine.",
+        "source_urls": [
+          "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+        ]
+      },
+      {
+        "claim": "New Balance navodi da je to bila prva patika za trčanje sa cenom od 100 dolara.",
+        "source_urls": [
+          "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2022.pdf"
+        ]
+      },
+      {
+        "claim": "Model 990 prvobitno je namenjen trčanju.",
+        "source_urls": [
+          "https://www.newbalance.com/on/demandware.static/-/Library-Sites-NBUS-NBCA/default/dw87610e36/pdf/New_Balance_Sustainability_and_Impact_Report_2024.pdf"
+        ]
+      }
+    ]
+  }
+}
