@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-10-13T07:29:29.289Z",
+  "fingerprint": "d3bbce86fc48",
+  "seed": {
+    "id": "verified-asics-gellyte3-split",
+    "topic": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+    "category": "sneaker istorija / proverene činjenice",
+    "preferred_domains": [
+      "asics.com",
+      "corp.asics.com"
+    ],
+    "visual_subject": "1990 ASICS GEL-LYTE III running shoe split tongue closeup",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "ASICS GEL-LYTE III iz 1990. ima jezik podeljen na dva dela",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog.",
+          "accent": false
+        }
+      ],
+      "subheadline": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "Takav split-tongue dizajn napravljen je da obuhvati stopalo i pomogne da se jezik manje pomera pri nošenju.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "1990",
+          "text": "ASICS GEL-LYTE III predstavljen je 1990. godine."
+        },
+        {
+          "tag": "SPLIT TONGUE",
+          "text": "Model ima jezik podeljen na dva dela."
+        },
+        {
+          "tag": "JEZIK",
+          "text": "Split-tongue dizajn pomaže da jezik ostane na mestu."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "Model je sačuvao taj prepoznatljivi detalj i u retro izdanjima, pa ga ljubitelji patika lako razlikuju.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "GEL",
+          "text": "GEL tehnologija nalazi se u peti modela."
+        },
+        {
+          "tag": "RETRO",
+          "text": "Retro verzije zadržavaju prepoznatljiv podeljeni jezik."
+        }
+      ],
+      "question": "Koji detalj ove priče te je najviše iznenadio?"
+    },
+    "caption": "ASICS GEL-LYTE III predstavljen je 1990. godine sa neobičnim jezikom podeljenim na dva dela umesto jednog klasičnog. Takav split-tongue dizajn napravljen je da obuhvati stopalo i pomogne da se jezik manje pomera pri nošenju. Model je sačuvao taj prepoznatljivi detalj i u retro izdanjima, pa ga ljubitelji patika lako razlikuju.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#SneakerIstorija",
+      "#Patike",
+      "#SneakerKultura",
+      "#ASICS"
+    ],
+    "image_prompts": [
+      "Editorial photograph of authentic 1990 ASICS GEL-LYTE III running shoe split tongue closeup, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+      "Macro product photography highlighting construction of 1990 ASICS GEL-LYTE III running shoe split tongue closeup, accurate historical features, premium dark sports editorial, no text",
+      "Lifestyle sports photograph showing 1990 ASICS GEL-LYTE III running shoe split tongue closeup in its original historical context, realistic scene, cinematic lighting, no lettering"
+    ],
+    "sources": [
+      {
+        "title": "ASICS verified historical source 1",
+        "publisher": "ASICS",
+        "url": "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+      },
+      {
+        "title": "ASICS verified historical source 2",
+        "publisher": "ASICS",
+        "url": "https://corp.asics.com/jp/press/article/2020-03-23"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "ASICS GEL-LYTE III predstavljen je 1990. godine.",
+        "source_urls": [
+          "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+        ]
+      },
+      {
+        "claim": "Model ima jezik podeljen na dva dela.",
+        "source_urls": [
+          "https://corp.asics.com/jp/press/article/2020-03-23"
+        ]
+      },
+      {
+        "claim": "Split-tongue dizajn pomaže da jezik ostane na mestu.",
+        "source_urls": [
+          "https://www.asics.com/us/en-us/gel-lyte-iii-og/p/ANA_1201A528-100.html"
+        ]
+      }
+    ]
+  }
+}
