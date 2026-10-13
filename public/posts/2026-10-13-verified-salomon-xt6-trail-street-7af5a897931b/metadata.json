@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-10-13T07:27:53.900Z",
+  "fingerprint": "7af5a897931b",
+  "seed": {
+    "id": "verified-salomon-xt6-trail-street",
+    "topic": "Salomon XT-6 je od trail patike iz 2013. postao ulični hit",
+    "category": "sneaker istorija / proverene činjenice",
+    "preferred_domains": [
+      "salomon.com",
+      "id.salomon.com"
+    ],
+    "visual_subject": "Salomon XT-6 trail running shoes on mountain path and city street",
+    "emergency_only": true
+  },
+  "post": {
+    "force_local_images": false,
+    "topic_title": "Salomon XT-6 je od trail patike iz 2013. postao ulični hit",
+    "slide_count": 3,
+    "cover": {
+      "headline_lines": [
+        {
+          "text": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit.",
+          "accent": false
+        }
+      ],
+      "subheadline": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit."
+    },
+    "slide2": {
+      "headline_lines": [
+        {
+          "text": "Godine 2018. XT-6 se vratio kroz Sportstyle liniju, a njegov sportski dizajn privukao je novu publiku.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "2013",
+          "text": "Salomon S/LAB XT-6 predstavljen je 2013. godine."
+        },
+        {
+          "tag": "TRAIL",
+          "text": "Model je razvijan sa trail sportistima."
+        },
+        {
+          "tag": "2018",
+          "text": "XT-6 ponovo je lansiran u Sportstyle liniji 2018."
+        }
+      ]
+    },
+    "slide3": {
+      "headline_lines": [
+        {
+          "text": "QuickLACE vezivanje i đon namenjen prianjanju ostali su važni detalji patike koja je prešla sa staze na ulicu.",
+          "accent": false
+        }
+      ],
+      "facts": [
+        {
+          "tag": "QUICKLACE",
+          "text": "Model koristi QuickLACE sistem vezivanja."
+        },
+        {
+          "tag": "SPORTSTYLE",
+          "text": "Mud Contagrip đon namenjen je dobrom prianjanju."
+        }
+      ],
+      "question": "Koji detalj ove priče te je najviše iznenadio?"
+    },
+    "caption": "Salomon XT-6 je 2013. napravljen kao tehnička patika za trail trčanje, mnogo pre nego što je postao ulični hit. Godine 2018. XT-6 se vratio kroz Sportstyle liniju, a njegov sportski dizajn privukao je novu publiku. QuickLACE vezivanje i đon namenjen prianjanju ostali su važni detalji patike koja je prešla sa staze na ulicu.",
+    "hashtags": [
+      "#TrendyPatike",
+      "#SneakerIstorija",
+      "#Patike",
+      "#SneakerKultura",
+      "#Salomon"
+    ],
+    "image_prompts": [
+      "Editorial photograph of authentic Salomon XT-6 trail running shoes on mountain path and city street, precise vintage materials and silhouette, clear shoe detail, no words, no typography",
+      "Macro product photography highlighting construction of Salomon XT-6 trail running shoes on mountain path and city street, accurate historical features, premium dark sports editorial, no text",
+      "Lifestyle sports photograph showing Salomon XT-6 trail running shoes on mountain path and city street in its original historical context, realistic scene, cinematic lighting, no lettering"
+    ],
+    "sources": [
+      {
+        "title": "Salomon verified historical source 1",
+        "publisher": "Salomon",
+        "url": "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+      },
+      {
+        "title": "Salomon verified historical source 2",
+        "publisher": "Salomon",
+        "url": "https://id.salomon.com/pages/xt-6"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "Salomon S/LAB XT-6 predstavljen je 2013. godine.",
+        "source_urls": [
+          "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+        ]
+      },
+      {
+        "claim": "Model je razvijan sa trail sportistima.",
+        "source_urls": [
+          "https://id.salomon.com/pages/xt-6"
+        ]
+      },
+      {
+        "claim": "XT-6 ponovo je lansiran u Sportstyle liniji 2018.",
+        "source_urls": [
+          "https://www.salomon.com/en-gb/lp/g/icons-xt-6"
+        ]
+      }
+    ]
+  }
+}

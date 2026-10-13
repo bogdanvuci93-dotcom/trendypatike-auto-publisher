@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "stage": "verified",
+  "stage": "ready",
   "fingerprint": "7af5a897931b",
   "seed": {
     "id": "verified-salomon-xt6-trail-street",
@@ -112,5 +112,11 @@
         ]
       }
     ]
-  }
+  },
+  "image_paths": [
+    "public/posts/2026-10-13-verified-salomon-xt6-trail-street-7af5a897931b/01.jpg",
+    "public/posts/2026-10-13-verified-salomon-xt6-trail-street-7af5a897931b/02.jpg",
+    "public/posts/2026-10-13-verified-salomon-xt6-trail-street-7af5a897931b/03.jpg"
+  ],
+  "instagram": {}
 }
