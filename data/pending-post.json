@@ -117,5 +117,10 @@
     "public/posts/2026-10-13-verified-adidas-gazelle-red-blue-1966-005edb9a7795/02.jpg",
     "public/posts/2026-10-13-verified-adidas-gazelle-red-blue-1966-005edb9a7795/03.jpg"
   ],
-  "instagram": {}
+  "instagram": {
+    "child_ids": [
+      "18021509756944388"
+    ],
+    "carousel_id": ""
+  }
 }
